@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CA938D10-FBB3-45D4-82A1-651F6A5708B2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Exam_Cell</RootNamespace>
+    <AssemblyName>Exam Cell</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraLayout.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.3.6.0\lib\net45\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader.DataSet, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.DataSet.3.6.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Z.Dapper.Plus, Version=3.0.2.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Z.Dapper.Plus.3.0.2\lib\net45\Z.Dapper.Plus.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Allotment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Allotment.Designer.cs">
+      <DependentUpon>Allotment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="candidate_entryform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="candidate_entryform.Designer.cs">
+      <DependentUpon>candidate_entryform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Connection.cs" />
+    <Compile Include="deletestudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="deletestudent.Designer.cs">
+      <DependentUpon>deletestudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="examhall.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="examhall.Designer.cs">
+      <DependentUpon>examhall.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Exam_CellDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Exam_CellDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Exam_CellDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Exam_CellDataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Exam_CellDataSetExcelStudents.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Exam_CellDataSetExcelStudents.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Exam_CellDataSetTimetable.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Exam_CellDataSetTimetable.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Exam_CellDataSet_forscheme1519.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Exam_CellDataSet_forscheme1519.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Exam_CellDataSet_Students.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Exam_CellDataSet_Students.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Exam_CellDataSet_Tables.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Exam_CellDataSet_Tables.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Exam_CellScheme.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Exam_CellScheme.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Exam_CellTimeTableNew.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Exam_CellTimeTableNew.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ExcelStudents.cs" />
+    <Compile Include="filesusercontrol.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="filesusercontrol.Designer.cs">
+      <DependentUpon>filesusercontrol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="login.Designer.cs">
+      <DependentUpon>login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="postponement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="postponement.Designer.cs">
+      <DependentUpon>postponement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="timetable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="timetable.Designer.cs">
+      <DependentUpon>timetable.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Allotment.resx">
+      <DependentUpon>Allotment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="candidate_entryform.resx">
+      <DependentUpon>candidate_entryform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="deletestudent.resx">
+      <DependentUpon>deletestudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="examhall.resx">
+      <DependentUpon>examhall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="filesusercontrol.resx">
+      <DependentUpon>filesusercontrol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="login.resx">
+      <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="postponement.resx">
+      <DependentUpon>postponement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="timetable.resx">
+      <DependentUpon>timetable.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Exam_CellDataSet1.xsc">
+      <DependentUpon>Exam_CellDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Exam_CellDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Exam_CellDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Exam_CellDataSet1.xss">
+      <DependentUpon>Exam_CellDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Exam_CellDataSet11.xsc">
+      <DependentUpon>Exam_CellDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="Exam_CellDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Exam_CellDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Exam_CellDataSet11.xss">
+      <DependentUpon>Exam_CellDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="Exam_CellDataSetExcelStudents.xsc">
+      <DependentUpon>Exam_CellDataSetExcelStudents.xsd</DependentUpon>
+    </None>
+    <None Include="Exam_CellDataSetExcelStudents.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Exam_CellDataSetExcelStudents.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Exam_CellDataSetExcelStudents.xss">
+      <DependentUpon>Exam_CellDataSetExcelStudents.xsd</DependentUpon>
+    </None>
+    <None Include="Exam_CellDataSetTimetable.xsc">
+      <DependentUpon>Exam_CellDataSetTimetable.xsd</DependentUpon>
+    </None>
+    <None Include="Exam_CellDataSetTimetable.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Exam_CellDataSetTimetable.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Exam_CellDataSetTimetable.xss">
+      <DependentUpon>Exam_CellDataSetTimetable.xsd</DependentUpon>
+    </None>
+    <None Include="Exam_CellDataSet_forscheme1519.xsc">
+      <DependentUpon>Exam_CellDataSet_forscheme1519.xsd</DependentUpon>
+    </None>
+    <None Include="Exam_CellDataSet_forscheme1519.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Exam_CellDataSet_forscheme1519.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Exam_CellDataSet_forscheme1519.xss">
+      <DependentUpon>Exam_CellDataSet_forscheme1519.xsd</DependentUpon>
+    </None>
+    <None Include="Exam_CellDataSet_Students.xsc">
+      <DependentUpon>Exam_CellDataSet_Students.xsd</DependentUpon>
+    </None>
+    <None Include="Exam_CellDataSet_Students.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Exam_CellDataSet_Students.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Exam_CellDataSet_Students.xss">
+      <DependentUpon>Exam_CellDataSet_Students.xsd</DependentUpon>
+    </None>
+    <None Include="Exam_CellDataSet_Tables.xsc">
+      <DependentUpon>Exam_CellDataSet_Tables.xsd</DependentUpon>
+    </None>
+    <None Include="Exam_CellDataSet_Tables.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Exam_CellDataSet_Tables.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Exam_CellDataSet_Tables.xss">
+      <DependentUpon>Exam_CellDataSet_Tables.xsd</DependentUpon>
+    </None>
+    <None Include="Exam_CellScheme.xsc">
+      <DependentUpon>Exam_CellScheme.xsd</DependentUpon>
+    </None>
+    <None Include="Exam_CellScheme.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Exam_CellScheme.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Exam_CellScheme.xss">
+      <DependentUpon>Exam_CellScheme.xsd</DependentUpon>
+    </None>
+    <None Include="Exam_CellTimeTableNew.xsc">
+      <DependentUpon>Exam_CellTimeTableNew.xsd</DependentUpon>
+    </None>
+    <None Include="Exam_CellTimeTableNew.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Exam_CellTimeTableNew.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Exam_CellTimeTableNew.xss">
+      <DependentUpon>Exam_CellTimeTableNew.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kmea hd logo_shabz_WHITE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kmea hd logo_shabz_WHITE1.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
