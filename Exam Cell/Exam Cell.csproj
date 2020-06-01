@@ -139,6 +139,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Exam_CellTimeTableNew.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Exam_Cell_Rooms.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Exam_Cell_Rooms.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ExcelStudents.cs" />
     <Compile Include="filesusercontrol.cs">
       <SubType>UserControl</SubType>
@@ -308,6 +313,17 @@
     </None>
     <None Include="Exam_CellTimeTableNew.xss">
       <DependentUpon>Exam_CellTimeTableNew.xsd</DependentUpon>
+    </None>
+    <None Include="Exam_Cell_Rooms.xsc">
+      <DependentUpon>Exam_Cell_Rooms.xsd</DependentUpon>
+    </None>
+    <None Include="Exam_Cell_Rooms.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Exam_Cell_Rooms.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Exam_Cell_Rooms.xss">
+      <DependentUpon>Exam_Cell_Rooms.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

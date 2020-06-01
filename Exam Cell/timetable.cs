@@ -14,6 +14,7 @@ namespace Exam_Cell
     public partial class formtimetable : Form
     {
         Connection con = new Connection();
+        
         public formtimetable()
         {
             InitializeComponent();
@@ -222,7 +223,8 @@ namespace Exam_Cell
                             comm.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value);
                             comm.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value);
                             comm.ExecuteNonQuery();
-
+                            
+                            
                         }
                     }
                     if (flag == 1)
@@ -435,6 +437,7 @@ namespace Exam_Cell
                 MessageBox.Show("Try Again", "Datepick_box_SelectedIndexChanged", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        
     }    
 }
 
