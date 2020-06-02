@@ -9,5 +9,5 @@ Application includes
   * Candidate Register
   * Timetable creation
   * Exam Hall settings
-  * Allotmment for Exams
+  * Allotment for Exams
   * Exam Postponment 
