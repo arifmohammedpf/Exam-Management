@@ -32,6 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.Priority_combobox = new System.Windows.Forms.ComboBox();
             this.TotalCapacity_textbox = new System.Windows.Forms.TextBox();
             this.TotalRoom_textbox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -50,7 +51,6 @@
             this.exam_Cell_Rooms = new Exam_Cell.Exam_Cell_Rooms();
             this.roomsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.roomsTableAdapter = new Exam_Cell.Exam_Cell_RoomsTableAdapters.RoomsTableAdapter();
-            this.Priority_combobox = new System.Windows.Forms.ComboBox();
             this.roomsTableAdapter1 = new Exam_Cell.Exam_Cell_RoomsTableAdapters.RoomsTableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -106,6 +106,19 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1024, 424);
             this.panel2.TabIndex = 1;
+            // 
+            // Priority_combobox
+            // 
+            this.Priority_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Priority_combobox.FormattingEnabled = true;
+            this.Priority_combobox.Items.AddRange(new object[] {
+            "-Select-",
+            "High",
+            "Low"});
+            this.Priority_combobox.Location = new System.Drawing.Point(7, 89);
+            this.Priority_combobox.Name = "Priority_combobox";
+            this.Priority_combobox.Size = new System.Drawing.Size(256, 26);
+            this.Priority_combobox.TabIndex = 16;
             // 
             // TotalCapacity_textbox
             // 
@@ -247,6 +260,7 @@
             // 
             // Rooms_dgv
             // 
+            this.Rooms_dgv.AllowUserToAddRows = false;
             this.Rooms_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Rooms_dgv.Location = new System.Drawing.Point(283, 1);
             this.Rooms_dgv.Margin = new System.Windows.Forms.Padding(4);
@@ -267,18 +281,6 @@
             // roomsTableAdapter
             // 
             this.roomsTableAdapter.ClearBeforeFill = true;
-            // 
-            // Priority_combobox
-            // 
-            this.Priority_combobox.FormattingEnabled = true;
-            this.Priority_combobox.Items.AddRange(new object[] {
-            "-Select-",
-            "High",
-            "Low"});
-            this.Priority_combobox.Location = new System.Drawing.Point(7, 89);
-            this.Priority_combobox.Name = "Priority_combobox";
-            this.Priority_combobox.Size = new System.Drawing.Size(256, 26);
-            this.Priority_combobox.TabIndex = 16;
             // 
             // roomsTableAdapter1
             // 

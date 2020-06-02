@@ -34,59 +34,52 @@ namespace Exam_Cell
             FillCapacity();
             Priority_combobox.SelectedIndex = 0;
 
+
         }
         void FillCapacity()
         {
-            int i = 0;
-            string a = "0",b="0";
-            try
+            int a, b,result_a=0,result_b=0;
+            foreach (DataGridViewRow dr in Rooms_dgv.Rows)
             {
-                foreach (DataGridViewRow dr in Rooms_dgv.Rows)
+               if (int.TryParse(dr.Cells["A_Series"].Value.ToString(), out a) && int.TryParse(dr.Cells["B_Series"].Value.ToString(), out b))
                 {
-                    i++;
-                    a = a + dr.Cells["A_Series"].Value.ToString();
-                    b = b + dr.Cells["B_Series"].Value.ToString();
+                    result_a += a;
+                    result_b += b;
                 }
-                TotalRoom_textbox.Text = i.ToString();
-                TotalCapacity_textbox.Text = ("A - " + a + "  B - " + b);
+                
+                TotalRoom_textbox.Text = Rooms_dgv.RowCount.ToString();
+                TotalCapacity_textbox.Text = ("A - " + result_a + "  B - " + result_b);
             }
-            catch (Exception)
-            {
-                TotalRoom_textbox.Text = "0";
-                TotalCapacity_textbox.Text = "0";
-            }
-
-
 
         }
+                
         private void Save_button_Click(object sender, EventArgs e)
         {
             if(Priority_combobox.SelectedIndex!=0)
             {
-                try
+                int flag = 0;
+                MessageBox.Show(Rooms_dgv.RowCount.ToString());
+                if (Rooms_dgv.RowCount.ToString() != "0")
                 {
                     foreach (DataGridViewRow dr in Rooms_dgv.Rows)
                     {
                         if (dr.Cells["Room_No"].Value.ToString() == RoomNo_textbox.Text)
                         {
-                            SqlCommand comm = new SqlCommand("Update Rooms set Priority=@Priority,A_Series=@A_series,B_Series=@B_series where Room_No=@RoomNo)", con.ActiveCon());
-                            comm.Parameters.AddWithValue("@RoomNo", RoomNo_textbox.Text);
-                            comm.Parameters.AddWithValue("@Priority", Priority_combobox.SelectedItem);
-                            comm.Parameters.AddWithValue("@A_series", A_series_textbox.Text);
-                            comm.Parameters.AddWithValue("@B_series", B_series_textbox.Text);
-                            comm.ExecuteNonQuery();
-                            MessageBox.Show(RoomNo_textbox.Text + " is Updated");
-                            Cleardata();
+                            flag = 1;
                         }
-                        else
-                        {
-                            SqlInsertCommand();
-                        }
+                        
+                    }
+                    if(flag == 1)
+                    {
+                        SqlUpdateCommand();
+                    }
+                    else
+                    {
+                        SqlInsertCommand();
                     }
                 }
-                catch (Exception)
+                else
                 {
-                    MessageBox.Show("exe");
                     SqlInsertCommand();
                 }
             }
@@ -98,14 +91,42 @@ namespace Exam_Cell
 
         void SqlInsertCommand()
         {
-            SqlCommand comm = new SqlCommand("Insert into Rooms(Room_No,Priority,A_Series,B_Series)Values(" + "@RoomNo,@Priority,@A_series,@B_series)", con.ActiveCon());
-            comm.Parameters.AddWithValue("@RoomNo", RoomNo_textbox.Text);
-            comm.Parameters.AddWithValue("@Priority", Priority_combobox.SelectedItem);
-            comm.Parameters.AddWithValue("@A_series", A_series_textbox.Text);
-            comm.Parameters.AddWithValue("@B_series", B_series_textbox.Text);
-            comm.ExecuteNonQuery();
-            MessageBox.Show("New Room Saved");
-            Cleardata();
+            if (int.TryParse(A_series_textbox.Text, out int a) && int.TryParse(B_series_textbox.Text, out int b))
+            {
+                SqlCommand comm = new SqlCommand("Insert into Rooms(Room_No,Priority,A_Series,B_Series)Values(" + "@RoomNo,@Priority,@A_series,@B_series)", con.ActiveCon());
+                comm.Parameters.AddWithValue("@RoomNo", RoomNo_textbox.Text);
+                comm.Parameters.AddWithValue("@Priority", Priority_combobox.SelectedItem);
+                comm.Parameters.AddWithValue("@A_series", a);
+                comm.Parameters.AddWithValue("@B_series", b);
+                comm.ExecuteNonQuery();
+                MessageBox.Show("New Room Saved");
+                Cleardata();
+            }
+            else
+            {
+                MessageBox.Show("A & B Series must be Numbers","Alert",MessageBoxButtons.OK,MessageBoxIcon.Error); 
+            }
+            
+        }
+
+        void SqlUpdateCommand()
+        {
+            if (int.TryParse(A_series_textbox.Text, out int a) && int.TryParse(B_series_textbox.Text, out int b))
+            {
+                SqlCommand comm = new SqlCommand("Update Rooms set Priority=@Priority,A_Series=@A_series,B_Series=@B_series where Room_No=@RoomNo)", con.ActiveCon());
+                comm.Parameters.AddWithValue("@RoomNo", RoomNo_textbox.Text);
+                comm.Parameters.AddWithValue("@Priority", Priority_combobox.SelectedItem);
+                comm.Parameters.AddWithValue("@A_series", a);
+                comm.Parameters.AddWithValue("@B_series", b);
+                comm.ExecuteNonQuery();
+                MessageBox.Show("New Room Saved");
+                Cleardata();
+            }
+            else
+            {
+                MessageBox.Show("A & B Series must be Numbers", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         void Cleardata()
@@ -115,6 +136,7 @@ namespace Exam_Cell
             A_series_textbox.ResetText();
             B_series_textbox.ResetText();
             this.roomsTableAdapter.Fill(this.exam_Cell_Rooms.Rooms);
+            FillCapacity();
         }
         private void TotalRoom_textbox_TextChanged(object sender, EventArgs e)
         {
