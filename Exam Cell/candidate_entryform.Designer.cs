@@ -168,6 +168,7 @@
             // 
             // Sheet_combobox
             // 
+            this.Sheet_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Sheet_combobox.FormattingEnabled = true;
             this.Sheet_combobox.Location = new System.Drawing.Point(35, 128);
             this.Sheet_combobox.Name = "Sheet_combobox";
@@ -314,6 +315,7 @@
             // 
             // Semester_combobox
             // 
+            this.Semester_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Semester_combobox.FormattingEnabled = true;
             this.Semester_combobox.Location = new System.Drawing.Point(115, 156);
             this.Semester_combobox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -324,6 +326,7 @@
             // 
             // Branch_combobox
             // 
+            this.Branch_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Branch_combobox.FormattingEnabled = true;
             this.Branch_combobox.Location = new System.Drawing.Point(115, 97);
             this.Branch_combobox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -352,6 +355,7 @@
             // 
             // Scheme_combobox
             // 
+            this.Scheme_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Scheme_combobox.FormattingEnabled = true;
             this.Scheme_combobox.Location = new System.Drawing.Point(115, 34);
             this.Scheme_combobox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -446,6 +450,7 @@
             // 
             // Class_drpdwn
             // 
+            this.Class_drpdwn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Class_drpdwn.FormattingEnabled = true;
             this.Class_drpdwn.Location = new System.Drawing.Point(114, 46);
             this.Class_drpdwn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

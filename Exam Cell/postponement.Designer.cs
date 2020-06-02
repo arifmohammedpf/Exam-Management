@@ -37,9 +37,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.NewSession_combobox = new System.Windows.Forms.ComboBox();
             this.Postpone_button = new System.Windows.Forms.Button();
-            this.Clear_button = new System.Windows.Forms.Button();
             this.ScheduledExam_dgv = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.DateCheckbox = new System.Windows.Forms.CheckBox();
+            this.Examcode_textbox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,12 +50,10 @@
             this.Branch_combobox = new System.Windows.Forms.ComboBox();
             this.examdetails = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Examcode_textbox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.Clear_button = new System.Windows.Forms.Button();
             this.exam_CellDataSetTimetable = new Exam_Cell.Exam_CellDataSetTimetable();
             this.timetableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.timetableTableAdapter = new Exam_Cell.Exam_CellDataSetTimetableTableAdapters.TimetableTableAdapter();
-            this.DateCheckbox = new System.Windows.Forms.CheckBox();
             this.exam_CellTimeTableNew = new Exam_Cell.Exam_CellTimeTableNew();
             this.timetableBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.timetableTableAdapter1 = new Exam_Cell.Exam_CellTimeTableNewTableAdapters.TimetableTableAdapter();
@@ -134,6 +134,7 @@
             // 
             // NewSession_combobox
             // 
+            this.NewSession_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.NewSession_combobox.FormattingEnabled = true;
             this.NewSession_combobox.Items.AddRange(new object[] {
             "-Select-",
@@ -154,17 +155,6 @@
             this.Postpone_button.Text = "Postpone";
             this.Postpone_button.UseVisualStyleBackColor = true;
             this.Postpone_button.Click += new System.EventHandler(this.Postpone_button_Click);
-            // 
-            // Clear_button
-            // 
-            this.Clear_button.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Clear_button.Location = new System.Drawing.Point(418, 272);
-            this.Clear_button.Name = "Clear_button";
-            this.Clear_button.Size = new System.Drawing.Size(87, 27);
-            this.Clear_button.TabIndex = 1;
-            this.Clear_button.Text = "Clear";
-            this.Clear_button.UseVisualStyleBackColor = true;
-            this.Clear_button.Click += new System.EventHandler(this.Clear_button_Click);
             // 
             // ScheduledExam_dgv
             // 
@@ -195,6 +185,34 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(400, 200);
             this.panel2.TabIndex = 1;
+            // 
+            // DateCheckbox
+            // 
+            this.DateCheckbox.AutoSize = true;
+            this.DateCheckbox.Location = new System.Drawing.Point(365, 117);
+            this.DateCheckbox.Name = "DateCheckbox";
+            this.DateCheckbox.Size = new System.Drawing.Size(18, 17);
+            this.DateCheckbox.TabIndex = 11;
+            this.DateCheckbox.UseVisualStyleBackColor = true;
+            this.DateCheckbox.CheckedChanged += new System.EventHandler(this.DateCheckbox_CheckedChanged);
+            // 
+            // Examcode_textbox
+            // 
+            this.Examcode_textbox.Location = new System.Drawing.Point(121, 154);
+            this.Examcode_textbox.Name = "Examcode_textbox";
+            this.Examcode_textbox.Size = new System.Drawing.Size(237, 25);
+            this.Examcode_textbox.TabIndex = 10;
+            this.Examcode_textbox.TextChanged += new System.EventHandler(this.Examcode_textbox_TextChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(11, 157);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(96, 18);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Exam Code :";
             // 
             // label3
             // 
@@ -234,6 +252,7 @@
             // 
             // Semester_combobox
             // 
+            this.Semester_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Semester_combobox.FormattingEnabled = true;
             this.Semester_combobox.Location = new System.Drawing.Point(121, 70);
             this.Semester_combobox.Name = "Semester_combobox";
@@ -243,6 +262,7 @@
             // 
             // Branch_combobox
             // 
+            this.Branch_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Branch_combobox.FormattingEnabled = true;
             this.Branch_combobox.Location = new System.Drawing.Point(121, 28);
             this.Branch_combobox.Name = "Branch_combobox";
@@ -272,23 +292,16 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // Examcode_textbox
+            // Clear_button
             // 
-            this.Examcode_textbox.Location = new System.Drawing.Point(121, 154);
-            this.Examcode_textbox.Name = "Examcode_textbox";
-            this.Examcode_textbox.Size = new System.Drawing.Size(237, 25);
-            this.Examcode_textbox.TabIndex = 10;
-            this.Examcode_textbox.TextChanged += new System.EventHandler(this.Examcode_textbox_TextChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(11, 157);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 18);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Exam Code :";
+            this.Clear_button.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Clear_button.Location = new System.Drawing.Point(418, 272);
+            this.Clear_button.Name = "Clear_button";
+            this.Clear_button.Size = new System.Drawing.Size(87, 27);
+            this.Clear_button.TabIndex = 1;
+            this.Clear_button.Text = "Clear";
+            this.Clear_button.UseVisualStyleBackColor = true;
+            this.Clear_button.Click += new System.EventHandler(this.Clear_button_Click);
             // 
             // exam_CellDataSetTimetable
             // 
@@ -303,16 +316,6 @@
             // timetableTableAdapter
             // 
             this.timetableTableAdapter.ClearBeforeFill = true;
-            // 
-            // DateCheckbox
-            // 
-            this.DateCheckbox.AutoSize = true;
-            this.DateCheckbox.Location = new System.Drawing.Point(365, 117);
-            this.DateCheckbox.Name = "DateCheckbox";
-            this.DateCheckbox.Size = new System.Drawing.Size(18, 17);
-            this.DateCheckbox.TabIndex = 11;
-            this.DateCheckbox.UseVisualStyleBackColor = true;
-            this.DateCheckbox.CheckedChanged += new System.EventHandler(this.DateCheckbox_CheckedChanged);
             // 
             // exam_CellTimeTableNew
             // 

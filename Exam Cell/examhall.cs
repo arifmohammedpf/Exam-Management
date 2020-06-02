@@ -113,13 +113,13 @@ namespace Exam_Cell
         {
             if (int.TryParse(A_series_textbox.Text, out int a) && int.TryParse(B_series_textbox.Text, out int b))
             {
-                SqlCommand comm = new SqlCommand("Update Rooms set Priority=@Priority,A_Series=@A_series,B_Series=@B_series where Room_No=@RoomNo)", con.ActiveCon());
+                SqlCommand comm = new SqlCommand("Update Rooms set Priority=@Priority,A_Series=@A_series,B_Series=@B_series where Room_No=@RoomNo", con.ActiveCon());
                 comm.Parameters.AddWithValue("@RoomNo", RoomNo_textbox.Text);
                 comm.Parameters.AddWithValue("@Priority", Priority_combobox.SelectedItem);
                 comm.Parameters.AddWithValue("@A_series", a);
                 comm.Parameters.AddWithValue("@B_series", b);
                 comm.ExecuteNonQuery();
-                MessageBox.Show("New Room Saved");
+                MessageBox.Show(RoomNo_textbox.Text+" Updated");
                 Cleardata();
             }
             else

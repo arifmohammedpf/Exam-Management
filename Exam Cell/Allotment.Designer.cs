@@ -166,6 +166,7 @@
             // 
             // Session_combobox
             // 
+            this.Session_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Session_combobox.FormattingEnabled = true;
             this.Session_combobox.Location = new System.Drawing.Point(132, 82);
             this.Session_combobox.Margin = new System.Windows.Forms.Padding(4);
@@ -204,6 +205,7 @@
             // 
             // AllocatedRoom_combobox
             // 
+            this.AllocatedRoom_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AllocatedRoom_combobox.FormattingEnabled = true;
             this.AllocatedRoom_combobox.Location = new System.Drawing.Point(377, 27);
             this.AllocatedRoom_combobox.Name = "AllocatedRoom_combobox";
@@ -408,6 +410,7 @@
             // 
             // ToSeries_combobox
             // 
+            this.ToSeries_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ToSeries_combobox.FormattingEnabled = true;
             this.ToSeries_combobox.Location = new System.Drawing.Point(170, 127);
             this.ToSeries_combobox.Name = "ToSeries_combobox";
@@ -416,6 +419,7 @@
             // 
             // FromSeries_combobox
             // 
+            this.FromSeries_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.FromSeries_combobox.FormattingEnabled = true;
             this.FromSeries_combobox.Location = new System.Drawing.Point(170, 56);
             this.FromSeries_combobox.Name = "FromSeries_combobox";

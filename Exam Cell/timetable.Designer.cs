@@ -203,6 +203,7 @@
             // 
             // Semester_combobox
             // 
+            this.Semester_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Semester_combobox.FormattingEnabled = true;
             this.Semester_combobox.Location = new System.Drawing.Point(132, 191);
             this.Semester_combobox.Margin = new System.Windows.Forms.Padding(4);
@@ -213,6 +214,7 @@
             // 
             // Branch_combobox
             // 
+            this.Branch_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Branch_combobox.FormattingEnabled = true;
             this.Branch_combobox.Location = new System.Drawing.Point(132, 154);
             this.Branch_combobox.Margin = new System.Windows.Forms.Padding(4);
@@ -255,6 +257,7 @@
             // 
             // Session_combobox
             // 
+            this.Session_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Session_combobox.FormattingEnabled = true;
             this.Session_combobox.Items.AddRange(new object[] {
             "-Select-",
@@ -318,6 +321,7 @@
             // 
             // Datepick_box
             // 
+            this.Datepick_box.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Datepick_box.Enabled = false;
             this.Datepick_box.FormattingEnabled = true;
             this.Datepick_box.Location = new System.Drawing.Point(244, 32);
@@ -380,6 +384,7 @@
             // 
             // SheduledBranch
             // 
+            this.SheduledBranch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.SheduledBranch.Enabled = false;
             this.SheduledBranch.FormattingEnabled = true;
             this.SheduledBranch.Location = new System.Drawing.Point(244, 76);
