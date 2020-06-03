@@ -14,6 +14,7 @@ namespace Exam_Cell
     public partial class formtimetable : Form
     {
         Connection con = new Connection();
+        Undo_backup undo = new Undo_backup();
         
         public formtimetable()
         {
@@ -214,9 +215,9 @@ namespace Exam_Cell
                         if (checkboxselect)
                         {
                             flag = 1;
-                            string date = DateTimePicker.Text;
+                           
                             SqlCommand comm = new SqlCommand("Insert into Timetable(Date,Session,Exam_Code,Course,Semester,Branch)Values(" + "@Date,@Session,@Exam_Code,@Course,@Semester,@Branch)", con.ActiveCon());
-                            comm.Parameters.AddWithValue("@Date", date);
+                            comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
                             comm.Parameters.AddWithValue("@Session", Session_combobox.SelectedItem.ToString());
                             comm.Parameters.AddWithValue("@Exam_Code", dr.Cells["Sub_Code"].Value);
                             comm.Parameters.AddWithValue("@Course", dr.Cells["Course"].Value);
@@ -227,7 +228,7 @@ namespace Exam_Cell
                     }
                     if (flag == 1)
                     {
-                        Undo_backup(flag);
+                        Undo_backup_function(flag);
                         MessageBox.Show("Success", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Session_combobox.SelectedIndex = 0;
                         //Course_Select_dgv.Update();
@@ -437,14 +438,9 @@ namespace Exam_Cell
             }
         }
         
-        void Undo_backup(int f)
-        {
-            string[] date = new string[900];
-            string[] session = new string[900];
-            string[] examcode = new string[900];
-            string[] semester = new string[900];
-            string[] branch = new string[900];
-            int i = 0,count=0;
+        void Undo_backup_function(int f)
+        {         
+            int i,count;
             if (f == 1)
             {
                 foreach (DataGridViewRow dr in Course_Select_dgv.Rows)
@@ -452,37 +448,55 @@ namespace Exam_Cell
                     bool checkboxselect = Convert.ToBoolean(dr.Cells["checkBoxColumn"].Value);
                     if (checkboxselect)
                     {
-                        date[i] = DateTimePicker.Text;
-                        session[i] = Session_combobox.SelectedItem.ToString();
-                        examcode[i] = dr.Cells["Sub_Code"].Value.ToString();                       
-                        semester[i] = dr.Cells["Semester"].Value.ToString();
-                        branch[i] = dr.Cells["Branch"].Value.ToString();
-                        i += 1;
-                        MessageBox.Show(session[i],"insert f==1");
+                        Undo_backup.date.Add(DateTimePicker.Text);
+                        Undo_backup.session.Add(Session_combobox.SelectedItem.ToString());
+                        Undo_backup.examcode.Add(dr.Cells["Sub_Code"].Value.ToString());
+                        Undo_backup.semester.Add(dr.Cells["Semester"].Value.ToString());
+                        Undo_backup.branch.Add(dr.Cells["Branch"].Value.ToString());                                            
                     }
                 }
-                count = i;
+               
             }
-            else
+            else if(Undo_backup.session.Count!=0)
             {
-                for (i = 0; i < count; i++)
+                DialogResult result = MessageBox.Show("Do you want to Undo last operation ?", "Warning", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+                if(result==DialogResult.Yes)
                 {
-                    MessageBox.Show(date[i],"undo f==0");
-                    SqlCommand comm = new SqlCommand("Delete from Timetable where Date=@Date and Session=@Session and Exam_Code=@Exam_Code and Semester=@Semester and Branch=@Branch", con.ActiveCon());
-                    comm.Parameters.AddWithValue("@Date", date[i]);
-                    comm.Parameters.AddWithValue("@Session", session[i]);
-                    comm.Parameters.AddWithValue("@Exam_Code", examcode[i]);
-                    comm.Parameters.AddWithValue("@Semester", semester[i]);
-                    comm.Parameters.AddWithValue("@Branch", branch[i]);
-                    comm.ExecuteNonQuery();
+                    count = Undo_backup.session.Count;
+                    for (i = 0; i < count; i++)
+                    {
+                        SqlCommand comm = new SqlCommand("Delete from Timetable where Date=@Date and Session=@Session and Exam_Code=@Exam_Code and Semester=@Semester and Branch=@Branch", con.ActiveCon());
+                        comm.Parameters.AddWithValue("@Date", Undo_backup.date[i]);
+                        comm.Parameters.AddWithValue("@Session", Undo_backup.session[i]);
+                        comm.Parameters.AddWithValue("@Exam_Code", Undo_backup.examcode[i]);
+                        comm.Parameters.AddWithValue("@Semester", Undo_backup.semester[i]);
+                        comm.Parameters.AddWithValue("@Branch", Undo_backup.branch[i]);
+                        comm.ExecuteNonQuery();
+                    }
+                    Clear_list();
+                    MessageBox.Show("Undo Successfull");
+                    this.timetableTableAdapter1.Fill(this.exam_CellTimeTableNew.Timetable);
+                    this.schemeTableAdapter.Fill(this.exam_CellScheme.Scheme);
                 }
+                else { }
+                
             }
+            else { }
         }
 
         private void Undo_btn_Click(object sender, EventArgs e)
         {
             int f = 0;
-            Undo_backup(f);
+            Undo_backup_function(f);
+        }
+
+        void Clear_list()
+        {
+            Undo_backup.date.Clear();
+            Undo_backup.session.Clear();
+            Undo_backup.examcode.Clear();
+            Undo_backup.semester.Clear();
+            Undo_backup.branch.Clear();
         }
     }    
 }

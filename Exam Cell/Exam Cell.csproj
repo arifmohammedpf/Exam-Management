@@ -171,6 +171,7 @@
     <Compile Include="timetable.Designer.cs">
       <DependentUpon>timetable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Undo_backup.cs" />
     <EmbeddedResource Include="Allotment.resx">
       <DependentUpon>Allotment.cs</DependentUpon>
     </EmbeddedResource>

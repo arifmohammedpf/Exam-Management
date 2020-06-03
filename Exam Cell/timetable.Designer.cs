@@ -33,7 +33,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Undo_btn = new System.Windows.Forms.Button();
             this.Add_btn = new System.Windows.Forms.Button();
-            this.Close_btn = new System.Windows.Forms.Button();
             this.Clear_btn = new System.Windows.Forms.Button();
             this.Examcode_box = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -92,7 +91,6 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.Undo_btn);
             this.panel1.Controls.Add(this.Add_btn);
-            this.panel1.Controls.Add(this.Close_btn);
             this.panel1.Controls.Add(this.Clear_btn);
             this.panel1.Controls.Add(this.Examcode_box);
             this.panel1.Controls.Add(this.label5);
@@ -145,18 +143,6 @@
             this.Add_btn.Text = "Add";
             this.Add_btn.UseVisualStyleBackColor = true;
             this.Add_btn.Click += new System.EventHandler(this.Add_btn_Click);
-            // 
-            // Close_btn
-            // 
-            this.Close_btn.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Close_btn.ForeColor = System.Drawing.Color.Black;
-            this.Close_btn.Location = new System.Drawing.Point(21, 363);
-            this.Close_btn.Margin = new System.Windows.Forms.Padding(4);
-            this.Close_btn.Name = "Close_btn";
-            this.Close_btn.Size = new System.Drawing.Size(100, 28);
-            this.Close_btn.TabIndex = 12;
-            this.Close_btn.Text = "Close";
-            this.Close_btn.UseVisualStyleBackColor = true;
             // 
             // Clear_btn
             // 
@@ -562,7 +548,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button Undo_btn;
         private System.Windows.Forms.Button Add_btn;
-        private System.Windows.Forms.Button Close_btn;
         private System.Windows.Forms.Button Clear_btn;
         private System.Windows.Forms.TextBox Examcode_box;
         private System.Windows.Forms.Label label5;
