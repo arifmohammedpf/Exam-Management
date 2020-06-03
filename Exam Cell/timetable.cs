@@ -222,13 +222,12 @@ namespace Exam_Cell
                             comm.Parameters.AddWithValue("@Course", dr.Cells["Course"].Value);
                             comm.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value);
                             comm.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value);
-                            comm.ExecuteNonQuery();
-                            
-                            
+                            comm.ExecuteNonQuery();                          
                         }
                     }
                     if (flag == 1)
                     {
+                        Undo_backup(flag);
                         MessageBox.Show("Success", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Session_combobox.SelectedIndex = 0;
                         //Course_Select_dgv.Update();
@@ -438,6 +437,53 @@ namespace Exam_Cell
             }
         }
         
+        void Undo_backup(int f)
+        {
+            string[] date = new string[900];
+            string[] session = new string[900];
+            string[] examcode = new string[900];
+            string[] semester = new string[900];
+            string[] branch = new string[900];
+            int i = 0,count=0;
+            if (f == 1)
+            {
+                foreach (DataGridViewRow dr in Course_Select_dgv.Rows)
+                {
+                    bool checkboxselect = Convert.ToBoolean(dr.Cells["checkBoxColumn"].Value);
+                    if (checkboxselect)
+                    {
+                        date[i] = DateTimePicker.Text;
+                        session[i] = Session_combobox.SelectedItem.ToString();
+                        examcode[i] = dr.Cells["Sub_Code"].Value.ToString();                       
+                        semester[i] = dr.Cells["Semester"].Value.ToString();
+                        branch[i] = dr.Cells["Branch"].Value.ToString();
+                        i += 1;
+                        MessageBox.Show(session[i],"insert f==1");
+                    }
+                }
+                count = i;
+            }
+            else
+            {
+                for (i = 0; i < count; i++)
+                {
+                    MessageBox.Show(date[i],"undo f==0");
+                    SqlCommand comm = new SqlCommand("Delete from Timetable where Date=@Date and Session=@Session and Exam_Code=@Exam_Code and Semester=@Semester and Branch=@Branch", con.ActiveCon());
+                    comm.Parameters.AddWithValue("@Date", date[i]);
+                    comm.Parameters.AddWithValue("@Session", session[i]);
+                    comm.Parameters.AddWithValue("@Exam_Code", examcode[i]);
+                    comm.Parameters.AddWithValue("@Semester", semester[i]);
+                    comm.Parameters.AddWithValue("@Branch", branch[i]);
+                    comm.ExecuteNonQuery();
+                }
+            }
+        }
+
+        private void Undo_btn_Click(object sender, EventArgs e)
+        {
+            int f = 0;
+            Undo_backup(f);
+        }
     }    
 }
 
