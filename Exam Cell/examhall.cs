@@ -58,12 +58,11 @@ namespace Exam_Cell
             if(Priority_combobox.SelectedIndex!=0)
             {
                 int flag = 0;
-                MessageBox.Show(Rooms_dgv.RowCount.ToString());
                 if (Rooms_dgv.RowCount.ToString() != "0")
                 {
                     foreach (DataGridViewRow dr in Rooms_dgv.Rows)
                     {
-                        if (dr.Cells["Room_No"].Value.ToString() == RoomNo_textbox.Text)
+                        if (RoomNo_textbox.Text.Equals(dr.Cells["Room_No"].Value.ToString(), StringComparison.OrdinalIgnoreCase))
                         {
                             flag = 1;
                         }
