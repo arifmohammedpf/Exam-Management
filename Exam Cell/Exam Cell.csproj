@@ -145,12 +145,6 @@
       <DependentUpon>Exam_Cell_Rooms.xsd</DependentUpon>
     </Compile>
     <Compile Include="ExcelStudents.cs" />
-    <Compile Include="filesusercontrol.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="filesusercontrol.Designer.cs">
-      <DependentUpon>filesusercontrol.cs</DependentUpon>
-    </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,9 +183,6 @@
     <EmbeddedResource Include="examhall.resx">
       <DependentUpon>examhall.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="filesusercontrol.resx">
-      <DependentUpon>filesusercontrol.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
@@ -201,7 +192,6 @@
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
