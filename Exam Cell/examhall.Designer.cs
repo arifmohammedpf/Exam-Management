@@ -267,6 +267,7 @@
             this.Rooms_dgv.Name = "Rooms_dgv";
             this.Rooms_dgv.Size = new System.Drawing.Size(735, 416);
             this.Rooms_dgv.TabIndex = 0;
+            this.Rooms_dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Cell_Clicked);
             // 
             // exam_Cell_Rooms
             // 

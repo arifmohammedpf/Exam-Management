@@ -142,8 +142,15 @@ namespace Exam_Cell
 
         }
 
-        private void Rooms_dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void Cell_Clicked(object sender, DataGridViewCellEventArgs e)
         {
+            foreach (DataGridViewRow row in Rooms_dgv.SelectedRows)
+            {
+                RoomNo_textbox.Text= row.Cells["Room_No"].Value.ToString();
+                Priority_combobox.Text = row.Cells["Priority"].Value.ToString();
+                A_series_textbox.Text = row.Cells["A_Series"].Value.ToString();
+                B_series_textbox.Text = row.Cells["B_Series"].Value.ToString();
+            }
 
         }
     }
