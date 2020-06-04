@@ -133,6 +133,7 @@
             this.SingleAllotment_button.TabIndex = 4;
             this.SingleAllotment_button.Text = "Single Allotment";
             this.SingleAllotment_button.UseVisualStyleBackColor = true;
+            this.SingleAllotment_button.Click += new System.EventHandler(this.SingleAllotment_button_Click);
             // 
             // pictureBox1
             // 

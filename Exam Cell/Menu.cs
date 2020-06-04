@@ -63,5 +63,11 @@ namespace Exam_Cell
             examhall ss = new examhall();
             ss.Show();
         }
+
+        private void allotmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Allotment ss = new Allotment();
+            ss.Show();
+        }
     }
 }

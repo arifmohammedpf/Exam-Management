@@ -141,5 +141,23 @@ namespace Exam_Cell
         {
 
         }
+
+        private void Rooms_dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
