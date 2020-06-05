@@ -38,7 +38,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.PreviousPriority_button = new System.Windows.Forms.Button();
-            this.OrderPriority_button = new System.Windows.Forms.Button();
+            this.ResetPriority_button = new System.Windows.Forms.Button();
             this.Save_button = new System.Windows.Forms.Button();
             this.B_series_textbox = new System.Windows.Forms.TextBox();
             this.A_series_textbox = new System.Windows.Forms.TextBox();
@@ -90,7 +90,7 @@
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.PreviousPriority_button);
-            this.panel2.Controls.Add(this.OrderPriority_button);
+            this.panel2.Controls.Add(this.ResetPriority_button);
             this.panel2.Controls.Add(this.Save_button);
             this.panel2.Controls.Add(this.B_series_textbox);
             this.panel2.Controls.Add(this.A_series_textbox);
@@ -165,22 +165,23 @@
             this.PreviousPriority_button.Location = new System.Drawing.Point(39, 300);
             this.PreviousPriority_button.Margin = new System.Windows.Forms.Padding(4);
             this.PreviousPriority_button.Name = "PreviousPriority_button";
-            this.PreviousPriority_button.Size = new System.Drawing.Size(176, 28);
+            this.PreviousPriority_button.Size = new System.Drawing.Size(190, 28);
             this.PreviousPriority_button.TabIndex = 11;
-            this.PreviousPriority_button.Text = "Previous Priority";
+            this.PreviousPriority_button.Text = "Update Selected Priority";
             this.PreviousPriority_button.UseVisualStyleBackColor = true;
             this.PreviousPriority_button.Click += new System.EventHandler(this.button3_Click);
             // 
-            // OrderPriority_button
+            // ResetPriority_button
             // 
-            this.OrderPriority_button.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.OrderPriority_button.Location = new System.Drawing.Point(39, 265);
-            this.OrderPriority_button.Margin = new System.Windows.Forms.Padding(4);
-            this.OrderPriority_button.Name = "OrderPriority_button";
-            this.OrderPriority_button.Size = new System.Drawing.Size(176, 28);
-            this.OrderPriority_button.TabIndex = 10;
-            this.OrderPriority_button.Text = "Order Priority";
-            this.OrderPriority_button.UseVisualStyleBackColor = true;
+            this.ResetPriority_button.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ResetPriority_button.Location = new System.Drawing.Point(39, 265);
+            this.ResetPriority_button.Margin = new System.Windows.Forms.Padding(4);
+            this.ResetPriority_button.Name = "ResetPriority_button";
+            this.ResetPriority_button.Size = new System.Drawing.Size(190, 28);
+            this.ResetPriority_button.TabIndex = 10;
+            this.ResetPriority_button.Text = "Reset Priority";
+            this.ResetPriority_button.UseVisualStyleBackColor = true;
+            this.ResetPriority_button.Click += new System.EventHandler(this.ResetPriority_button_Click);
             // 
             // Save_button
             // 
@@ -188,7 +189,7 @@
             this.Save_button.Location = new System.Drawing.Point(39, 229);
             this.Save_button.Margin = new System.Windows.Forms.Padding(4);
             this.Save_button.Name = "Save_button";
-            this.Save_button.Size = new System.Drawing.Size(176, 28);
+            this.Save_button.Size = new System.Drawing.Size(190, 28);
             this.Save_button.TabIndex = 9;
             this.Save_button.Text = "Save";
             this.Save_button.UseVisualStyleBackColor = true;
@@ -317,7 +318,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button PreviousPriority_button;
-        private System.Windows.Forms.Button OrderPriority_button;
+        private System.Windows.Forms.Button ResetPriority_button;
         private System.Windows.Forms.Button Save_button;
         private System.Windows.Forms.TextBox B_series_textbox;
         private System.Windows.Forms.TextBox A_series_textbox;

@@ -34,6 +34,11 @@ namespace Exam_Cell
             FillCapacity();
             Priority_combobox.SelectedIndex = 0;
 
+            DataGridViewCheckBoxColumn checkbox = new DataGridViewCheckBoxColumn();
+            checkbox.HeaderText = "";
+            checkbox.Width = 30;
+            checkbox.Name = "CheckboxColumn";
+            Rooms_dgv.Columns.Insert(0,checkbox);
 
         }
         void FillCapacity()
@@ -58,7 +63,7 @@ namespace Exam_Cell
             if(Priority_combobox.SelectedIndex!=0)
             {
                 int flag = 0;
-                if (Rooms_dgv.RowCount.ToString() != "0")
+                if (Rooms_dgv.RowCount.ToString() != "0" && RoomNo_textbox.Text!="")
                 {
                     foreach (DataGridViewRow dr in Rooms_dgv.Rows)
                     {
@@ -72,14 +77,18 @@ namespace Exam_Cell
                     {
                         SqlUpdateCommand();
                     }
-                    else
+                    else 
                     {
                         SqlInsertCommand();
                     }
                 }
-                else
+                else if (RoomNo_textbox.Text != "")
                 {
                     SqlInsertCommand();
+                }
+                else
+                {
+                    MessageBox.Show("Enter Room", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -151,6 +160,49 @@ namespace Exam_Cell
                 A_series_textbox.Text = row.Cells["A_Series"].Value.ToString();
                 B_series_textbox.Text = row.Cells["B_Series"].Value.ToString();
             }
+
+        }
+
+        void Fill_checked_capacity()
+        {
+           foreach(DataGridViewRow dr in Rooms_dgv.Rows)
+            {
+                int a, b, result_a = 0, result_b = 0,f=0;
+                bool chckselected = Convert.ToBoolean(dr.Cells["CheckboxColumn"].Value);
+                if(chckselected)
+                {
+                    f = 1;
+                    if (int.TryParse(dr.Cells["A_Series"].Value.ToString(), out a) && int.TryParse(dr.Cells["B_Series"].Value.ToString(), out b))
+                    {
+                        result_a += a;
+                        result_b += b;
+                    }
+
+                    TotalRoom_textbox.Text = Rooms_dgv.RowCount.ToString();
+                    TotalCapacity_textbox.Text = ("A - " + result_a + "  B - " + result_b);
+                }
+                if(f==0)
+                {
+                    FillCapacity();
+                }
+            }
+        }
+
+        private void ResetPriority_button_Click(object sender, EventArgs e)
+        {
+            if(Priority_combobox.SelectedIndex !=0 )
+            {
+                SqlCommand comm = new SqlCommand("Update Rooms set Priority=@Priority", con.ActiveCon());
+                comm.Parameters.AddWithValue("@Priority", Priority_combobox.SelectedItem);
+                Cleardata();
+            }
+            else
+                MessageBox.Show("Select A Priority to Reset", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+        }
+
+        private void CheckboxColumn_Click(object sender, EventArgs e)
+        {
 
         }
     }
