@@ -37,7 +37,7 @@
             this.TotalRoom_textbox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.PreviousPriority_button = new System.Windows.Forms.Button();
+            this.UpdatePriority_button = new System.Windows.Forms.Button();
             this.ResetPriority_button = new System.Windows.Forms.Button();
             this.Save_button = new System.Windows.Forms.Button();
             this.B_series_textbox = new System.Windows.Forms.TextBox();
@@ -89,7 +89,7 @@
             this.panel2.Controls.Add(this.TotalRoom_textbox);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.PreviousPriority_button);
+            this.panel2.Controls.Add(this.UpdatePriority_button);
             this.panel2.Controls.Add(this.ResetPriority_button);
             this.panel2.Controls.Add(this.Save_button);
             this.panel2.Controls.Add(this.B_series_textbox);
@@ -159,17 +159,17 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "Total Room :";
             // 
-            // PreviousPriority_button
+            // UpdatePriority_button
             // 
-            this.PreviousPriority_button.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.PreviousPriority_button.Location = new System.Drawing.Point(39, 300);
-            this.PreviousPriority_button.Margin = new System.Windows.Forms.Padding(4);
-            this.PreviousPriority_button.Name = "PreviousPriority_button";
-            this.PreviousPriority_button.Size = new System.Drawing.Size(190, 28);
-            this.PreviousPriority_button.TabIndex = 11;
-            this.PreviousPriority_button.Text = "Update Selected Priority";
-            this.PreviousPriority_button.UseVisualStyleBackColor = true;
-            this.PreviousPriority_button.Click += new System.EventHandler(this.button3_Click);
+            this.UpdatePriority_button.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.UpdatePriority_button.Location = new System.Drawing.Point(39, 300);
+            this.UpdatePriority_button.Margin = new System.Windows.Forms.Padding(4);
+            this.UpdatePriority_button.Name = "UpdatePriority_button";
+            this.UpdatePriority_button.Size = new System.Drawing.Size(190, 28);
+            this.UpdatePriority_button.TabIndex = 11;
+            this.UpdatePriority_button.Text = "Update Selected Priority";
+            this.UpdatePriority_button.UseVisualStyleBackColor = true;
+            this.UpdatePriority_button.Click += new System.EventHandler(this.UpdatePriority_button_Click);
             // 
             // ResetPriority_button
             // 
@@ -268,7 +268,9 @@
             this.Rooms_dgv.Name = "Rooms_dgv";
             this.Rooms_dgv.Size = new System.Drawing.Size(735, 416);
             this.Rooms_dgv.TabIndex = 0;
-            this.Rooms_dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Cell_Clicked);
+            this.Rooms_dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Rooms_dgv_CellClick);
+            this.Rooms_dgv.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.Rooms_dgv_CellEndEdit);
+            this.Rooms_dgv.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Rooms_dgv_CellMouseUp);
             // 
             // exam_Cell_Rooms
             // 
@@ -317,7 +319,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button PreviousPriority_button;
+        private System.Windows.Forms.Button UpdatePriority_button;
         private System.Windows.Forms.Button ResetPriority_button;
         private System.Windows.Forms.Button Save_button;
         private System.Windows.Forms.TextBox B_series_textbox;
