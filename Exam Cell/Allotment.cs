@@ -159,66 +159,147 @@ namespace Exam_Cell
             adapter3.Fill(table_rooms);
             dataGridView1.DataSource = table_rooms;
 
-            //int no_of_students = table_students.Rows.Count;
-            
-            //var top50 = table_students.AsEnumerable()
-            //        .Take(no_of_students);
-            //var bottom50 = table_students.AsEnumerable()
-            //        .Skip(no_of_students);
+            int no_of_students = table_students.Rows.Count;
 
-            
-                int count = 0, f=0;
-            List<string> reg_students = new List<string>();
-            List<string> name_students = new List<string>();
-            foreach (DataRow row3 in table_rooms.Rows)
+            var top50 = table_students.AsEnumerable()
+                    .Take(no_of_students/2);
+            var bottom50 = table_students.AsEnumerable()
+                    .Skip(no_of_students/2);
+
+
+            // initialize and get room values outside loop
+            List<string> roomno = new List<string>();
+            List<string> Aseries = new List<string>();
+            List<string> Bseries = new List<string>();
+
+            foreach (DataRow roomrow in table_rooms.Rows)
             {
-                foreach (DataRow row in table_timetable.Rows)
+                roomno.Add(roomrow["Room_No"].ToString());
+                Aseries.Add(roomrow["A_Series"].ToString());
+                Bseries.Add(roomrow["B_Series"].ToString());
+            }
+            int sra = 0, j = 0,srb=0,k=0;
+            int seriesA = int.Parse(Aseries[sra].ToString());
+            int seriesB = int.Parse(Aseries[sra].ToString());
+            string room = roomno[sra];
+
+            //get distinct dates to change sr value to 0
+            SqlCommand commanddate = new SqlCommand("select distinct Date from Timetable order by Date", con.ActiveCon());
+            SqlDataAdapter adapterdate = new SqlDataAdapter(commanddate);
+            DataTable table_distinctdate = new DataTable();
+            adapterdate.Fill(table_distinctdate);
+            List<string> distinctdate = new List<string>();
+            foreach (DataRow rowdate in table_distinctdate.Rows)
+            {
+                distinctdate.Add(rowdate["Date"].ToString());
+            }
+            int dcount = 1;
+
+            //start allotment loop
+            foreach (DataRow row in table_timetable.Rows)
+            {
+                string date = row["Date"].ToString();
+                string session = row["Session"].ToString();
+                string course = row["Course"].ToString();
+                string examcode = row["Exam_Code"].ToString();
+                if (distinctdate[dcount] == date) //might get error when distinctdate get out of range
                 {
-                    string date = row["Date"].ToString();
-                    string session = row["Session"].ToString();
-                    string course = row["Course"].ToString();
-                    string examcode = row["Exam_Code"].ToString();
-                    
-                    foreach (DataRow row2 in table_students.Rows)
+                    dcount += 1;
+                    sra = 0;
+                    j = 0;
+                    srb = 0;
+                    k = 0;
+                }
+                else { }
+                List<string> reg_studentsA = new List<string>();
+                List<string> name_studentsA = new List<string>();
+                List<string> reg_studentsB = new List<string>();
+                List<string> name_studentsB = new List<string>();
+                foreach (DataRow row2 in top50)
+                {
+                    string student_course = row2["Course"].ToString();
+                    if (student_course == course)
                     {
-                        string student_course = row2["Course"].ToString();
-                        if (student_course == course)
-                        {
-                            name_students.Add(row2["Name"].ToString());
-                            reg_students.Add(row2["Reg_no"].ToString());
-                        }
+                        name_studentsA.Add(row2["Name"].ToString());
+                        reg_studentsA.Add(row2["Reg_no"].ToString());
                     }
                 }
-                    if (reg_students.Count != 0)
+                foreach (DataRow row2 in bottom50)
+                {
+                    string student_course = row2["Course"].ToString();
+                    if (student_course == course)
                     {
-                        int series = int.Parse(row3["A_Series"].ToString());
-                        for (int i = 0; i < series; i++)
-                        {
-                            SqlCommand command4 = new SqlCommand("insert into Series_Alloted(Room_No,Seat,Session,Reg_no,Name,Exam_Code,Course)Values(" + "@Room_No,@Seat,@Reg_no,@Name,@Exam_Code,@Course", con.ActiveCon());
-                            command4.Parameters.AddWithValue("@Room_No", row3["Room_No"].ToString());
-                            command4.Parameters.AddWithValue("@Seat", "A" + i + 1);
-                            command4.Parameters.AddWithValue("@Session", session);
-                            command4.Parameters.AddWithValue("@Reg_no", reg_students[count]);
-                            command4.Parameters.AddWithValue("@Name", name_students[count]);
-                            command4.Parameters.AddWithValue("@Exam_Code", examcode);
-                            command4.Parameters.AddWithValue("@Course", course);
-                            if (reg_students.Last() == reg_students[count])
-                            {
-                                f = 1;
-                                break;
-                            }
+                        name_studentsB.Add(row2["Name"].ToString());
+                        reg_studentsB.Add(row2["Reg_no"].ToString());
+                    }
+                }
+                int count = 0;
 
-                            count = count + 1;
+                if (reg_studentsA.Count != 0)
+                {
+
+                    for (int i = j; i < seriesA; i++)
+                    {
+                        SqlCommand command4 = new SqlCommand("insert into Series_Alloted(Room_No,Seat,Session,Reg_no,Name,Exam_Code,Course)Values(" + "@Room_No,@Seat,@Reg_no,@Name,@Exam_Code,@Course", con.ActiveCon());
+                        command4.Parameters.AddWithValue("@Room_No", room);
+                        command4.Parameters.AddWithValue("@Seat", "A" + j + 1);
+                        command4.Parameters.AddWithValue("@Session", session);
+                        command4.Parameters.AddWithValue("@Reg_no", reg_studentsA[count]);
+                        command4.Parameters.AddWithValue("@Name", name_studentsA[count]);
+                        command4.Parameters.AddWithValue("@Exam_Code", examcode);
+                        command4.Parameters.AddWithValue("@Course", course);
+                        j += 1;
+                        if (j == seriesA)
+                        {
+                            sra += 1;
+                            seriesA = int.Parse(Aseries[sra].ToString());
+                            room = roomno[sra];
+                            j = 0;
                         }
 
+                        if (reg_studentsA.Last() == reg_studentsA[count])
+                        {
+
+                            break;
+                        }
+                        count = count + 1;
+
                     }
-                    else
-                        break;
-                    if (f == 1)
-                        break;
 
+                }
+                int countb = 0;
+                if (reg_studentsB.Count != 0)
+                {
 
-                
+                    for (int i = k; i < seriesB; i++)
+                    {
+                        SqlCommand command4 = new SqlCommand("insert into Series_Alloted(Room_No,Seat,Session,Reg_no,Name,Exam_Code,Course)Values(" + "@Room_No,@Seat,@Reg_no,@Name,@Exam_Code,@Course", con.ActiveCon());
+                        command4.Parameters.AddWithValue("@Room_No", room);
+                        command4.Parameters.AddWithValue("@Seat", "B" + k + 1);
+                        command4.Parameters.AddWithValue("@Session", session);
+                        command4.Parameters.AddWithValue("@Reg_no", reg_studentsB[countb]);
+                        command4.Parameters.AddWithValue("@Name", name_studentsB[countb]);
+                        command4.Parameters.AddWithValue("@Exam_Code", examcode);
+                        command4.Parameters.AddWithValue("@Course", course);
+                        k += 1;
+                        if (k == seriesB)
+                        {
+                            srb += 1;
+                            seriesB = int.Parse(Bseries[srb].ToString());
+                            room = roomno[srb];
+                            k = 0;
+                        }
+
+                        if (reg_studentsB.Last() == reg_studentsB[count])
+                        {
+
+                            break;
+                        }
+                        countb = countb + 1;
+
+                    }
+
+                }
             }
         }
 

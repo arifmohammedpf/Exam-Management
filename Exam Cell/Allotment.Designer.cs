@@ -118,20 +118,20 @@
             // 
             // MultiAllotment_button
             // 
-            this.MultiAllotment_button.Location = new System.Drawing.Point(440, 65);
+            this.MultiAllotment_button.Location = new System.Drawing.Point(432, 65);
             this.MultiAllotment_button.Name = "MultiAllotment_button";
-            this.MultiAllotment_button.Size = new System.Drawing.Size(134, 32);
+            this.MultiAllotment_button.Size = new System.Drawing.Size(154, 32);
             this.MultiAllotment_button.TabIndex = 4;
-            this.MultiAllotment_button.Text = "Multi Allotment";
+            this.MultiAllotment_button.Text = "Series Allotment";
             this.MultiAllotment_button.UseVisualStyleBackColor = true;
             // 
             // SingleAllotment_button
             // 
-            this.SingleAllotment_button.Location = new System.Drawing.Point(440, 27);
+            this.SingleAllotment_button.Location = new System.Drawing.Point(432, 27);
             this.SingleAllotment_button.Name = "SingleAllotment_button";
-            this.SingleAllotment_button.Size = new System.Drawing.Size(134, 32);
+            this.SingleAllotment_button.Size = new System.Drawing.Size(154, 32);
             this.SingleAllotment_button.TabIndex = 4;
-            this.SingleAllotment_button.Text = "Single Allotment";
+            this.SingleAllotment_button.Text = "University Allotment";
             this.SingleAllotment_button.UseVisualStyleBackColor = true;
             this.SingleAllotment_button.Click += new System.EventHandler(this.SingleAllotment_button_Click);
             // 
