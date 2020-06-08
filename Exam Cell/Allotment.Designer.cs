@@ -124,6 +124,7 @@
             this.MultiAllotment_button.TabIndex = 4;
             this.MultiAllotment_button.Text = "Series Allotment";
             this.MultiAllotment_button.UseVisualStyleBackColor = true;
+            this.MultiAllotment_button.Click += new System.EventHandler(this.MultiAllotment_button_Click);
             // 
             // SingleAllotment_button
             // 

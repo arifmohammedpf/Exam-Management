@@ -89,7 +89,7 @@ namespace Exam_Cell
                 foreach (DataRow row2 in table_students.Rows)
                 {
                     string student_course = row2["Course"].ToString();
-                    if (student_course == course)
+                    if (student_course.ToUpper().Contains(course.ToUpper()))
                     {
                         name_students.Add(row2["Name"].ToString());
                         reg_students.Add(row2["Reg_no"].ToString());
@@ -218,7 +218,7 @@ namespace Exam_Cell
                 foreach (DataRow row2 in top50)
                 {
                     string student_course = row2["Course"].ToString();
-                    if (student_course == course)
+                    if (student_course.ToUpper().Contains(course.ToUpper()))
                     {
                         name_studentsA.Add(row2["Name"].ToString());
                         reg_studentsA.Add(row2["Reg_no"].ToString());
@@ -303,6 +303,10 @@ namespace Exam_Cell
             }
         }
 
+        private void MultiAllotment_button_Click(object sender, EventArgs e)
+        {
+            Allot_Series();
+        }
     }
 }
 
