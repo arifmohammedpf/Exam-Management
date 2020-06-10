@@ -282,6 +282,7 @@
             // Course_Select_dgv
             // 
             this.Course_Select_dgv.AllowUserToAddRows = false;
+            this.Course_Select_dgv.AllowUserToDeleteRows = false;
             this.Course_Select_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Course_Select_dgv.Location = new System.Drawing.Point(0, 4);
             this.Course_Select_dgv.Margin = new System.Windows.Forms.Padding(4);

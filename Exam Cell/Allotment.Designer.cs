@@ -323,9 +323,12 @@
             // 
             // dataGridView3
             // 
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AllowUserToDeleteRows = false;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Location = new System.Drawing.Point(0, 126);
             this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.ReadOnly = true;
             this.dataGridView3.RowTemplate.Height = 24;
             this.dataGridView3.Size = new System.Drawing.Size(248, 330);
             this.dataGridView3.TabIndex = 4;
@@ -414,6 +417,10 @@
             // 
             this.ToSeries_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ToSeries_combobox.FormattingEnabled = true;
+            this.ToSeries_combobox.Items.AddRange(new object[] {
+            "-",
+            "A",
+            "B"});
             this.ToSeries_combobox.Location = new System.Drawing.Point(170, 127);
             this.ToSeries_combobox.Name = "ToSeries_combobox";
             this.ToSeries_combobox.Size = new System.Drawing.Size(51, 24);
@@ -423,6 +430,10 @@
             // 
             this.FromSeries_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.FromSeries_combobox.FormattingEnabled = true;
+            this.FromSeries_combobox.Items.AddRange(new object[] {
+            "-",
+            "A",
+            "B"});
             this.FromSeries_combobox.Location = new System.Drawing.Point(170, 56);
             this.FromSeries_combobox.Name = "FromSeries_combobox";
             this.FromSeries_combobox.Size = new System.Drawing.Size(51, 24);
@@ -458,6 +469,7 @@
             this.Shift_button.TabIndex = 4;
             this.Shift_button.Text = "Shift";
             this.Shift_button.UseVisualStyleBackColor = true;
+            this.Shift_button.Click += new System.EventHandler(this.Shift_button_Click);
             // 
             // FromEnd_textbox
             // 
@@ -594,7 +606,9 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.Name = "Allotment";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Allotment";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

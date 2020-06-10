@@ -69,5 +69,11 @@ namespace Exam_Cell
             Allotment ss = new Allotment();
             ss.Show();
         }
+
+        private void regStdntMangmntToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Registered_Students_Management ss = new Registered_Students_Management();
+            ss.Show();
+        }
     }
 }

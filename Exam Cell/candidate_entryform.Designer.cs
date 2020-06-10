@@ -139,7 +139,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1479, 676);
+            this.panel1.Size = new System.Drawing.Size(1708, 676);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -151,7 +151,7 @@
             this.Excel_Group.Controls.Add(this.Excel_btn);
             this.Excel_Group.Enabled = false;
             this.Excel_Group.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Excel_Group.Location = new System.Drawing.Point(498, 241);
+            this.Excel_Group.Location = new System.Drawing.Point(730, 241);
             this.Excel_Group.Name = "Excel_Group";
             this.Excel_Group.Size = new System.Drawing.Size(226, 212);
             this.Excel_Group.TabIndex = 30;
@@ -215,7 +215,7 @@
             // Close_btn
             // 
             this.Close_btn.ForeColor = System.Drawing.Color.Black;
-            this.Close_btn.Location = new System.Drawing.Point(499, 565);
+            this.Close_btn.Location = new System.Drawing.Point(731, 565);
             this.Close_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Close_btn.Name = "Close_btn";
             this.Close_btn.Size = new System.Drawing.Size(176, 44);
@@ -226,7 +226,7 @@
             // RegRegCnd_btn
             // 
             this.RegRegCnd_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.RegRegCnd_btn.Location = new System.Drawing.Point(499, 484);
+            this.RegRegCnd_btn.Location = new System.Drawing.Point(731, 484);
             this.RegRegCnd_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RegRegCnd_btn.Name = "RegRegCnd_btn";
             this.RegRegCnd_btn.Size = new System.Drawing.Size(176, 63);
@@ -237,9 +237,11 @@
             // 
             // Courses_dgv
             // 
+            this.Courses_dgv.AllowUserToAddRows = false;
+            this.Courses_dgv.AllowUserToDeleteRows = false;
             this.Courses_dgv.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.Courses_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Courses_dgv.Location = new System.Drawing.Point(730, 241);
+            this.Courses_dgv.Location = new System.Drawing.Point(962, 241);
             this.Courses_dgv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Courses_dgv.Name = "Courses_dgv";
             this.Courses_dgv.RowTemplate.Height = 24;
@@ -248,12 +250,14 @@
             // 
             // Candidate_datagridview
             // 
+            this.Candidate_datagridview.AllowUserToAddRows = false;
+            this.Candidate_datagridview.AllowUserToDeleteRows = false;
             this.Candidate_datagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Candidate_datagridview.Location = new System.Drawing.Point(21, 228);
             this.Candidate_datagridview.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Candidate_datagridview.Name = "Candidate_datagridview";
             this.Candidate_datagridview.RowTemplate.Height = 24;
-            this.Candidate_datagridview.Size = new System.Drawing.Size(472, 415);
+            this.Candidate_datagridview.Size = new System.Drawing.Size(704, 415);
             this.Candidate_datagridview.TabIndex = 27;
             // 
             // groupBox3
@@ -304,7 +308,7 @@
             this.SubjectDetails_groupbox.Controls.Add(this.label7);
             this.SubjectDetails_groupbox.Enabled = false;
             this.SubjectDetails_groupbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.SubjectDetails_groupbox.Location = new System.Drawing.Point(730, 23);
+            this.SubjectDetails_groupbox.Location = new System.Drawing.Point(962, 23);
             this.SubjectDetails_groupbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SubjectDetails_groupbox.Name = "SubjectDetails_groupbox";
             this.SubjectDetails_groupbox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -382,7 +386,7 @@
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Enabled = false;
             this.groupBox4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox4.Location = new System.Drawing.Point(1091, 23);
+            this.groupBox4.Location = new System.Drawing.Point(1323, 23);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -617,13 +621,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1479, 676);
+            this.ClientSize = new System.Drawing.Size(1708, 676);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "formti";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Candidate Entry";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.formti_Load);
             this.panel1.ResumeLayout(false);
             this.Excel_Group.ResumeLayout(false);

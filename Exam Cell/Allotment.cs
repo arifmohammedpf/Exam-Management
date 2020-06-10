@@ -39,7 +39,7 @@ namespace Exam_Cell
             adapter2.Fill(table_students);
 
             //get rooms details
-            SqlCommand command3 = new SqlCommand("select * from Rooms order by Priority and A_Series desc", con.ActiveCon());
+            SqlCommand command3 = new SqlCommand("select * from Rooms order by Priority, A_Series desc", con.ActiveCon());
             SqlDataAdapter adapter3 = new SqlDataAdapter(command3);
             DataTable table_rooms = new DataTable();
             adapter3.Fill(table_rooms);
@@ -147,13 +147,13 @@ namespace Exam_Cell
             adapter.Fill(table_timetable);
 
             //get registered students details
-            SqlCommand command2 = new SqlCommand("select * from Series_candidates order by Course and Class and Name", con.ActiveCon());
+            SqlCommand command2 = new SqlCommand("select * from Series_candidates order by Course, Class, Name", con.ActiveCon());
             SqlDataAdapter adapter2 = new SqlDataAdapter(command2);
             DataTable table_students = new DataTable();
             adapter2.Fill(table_students);
 
             //get rooms details
-            SqlCommand command3 = new SqlCommand("select * from Rooms order by Priority and A_Series desc", con.ActiveCon());
+            SqlCommand command3 = new SqlCommand("select * from Rooms order by Priority, A_Series desc", con.ActiveCon());
             SqlDataAdapter adapter3 = new SqlDataAdapter(command3);
             DataTable table_rooms = new DataTable();
             adapter3.Fill(table_rooms);
@@ -306,6 +306,12 @@ namespace Exam_Cell
         private void MultiAllotment_button_Click(object sender, EventArgs e)
         {
             Allot_Series();
+        }
+
+        private void Shift_button_Click(object sender, EventArgs e)
+        {
+            string fromroom = FromRoom_textbox.Text;
+            
         }
     }
 }

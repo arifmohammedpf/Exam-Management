@@ -10,16 +10,13 @@ using System.Windows.Forms;
 
 namespace Exam_Cell
 {
-    public partial class deletestudent : Form
+    public partial class Database_Management : Form
     {
-        public deletestudent()
+        public Database_Management()
         {
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
