@@ -42,12 +42,12 @@
             this.addDeleteStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.findToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timetableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.regStdntMangmntToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.candidateEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.postponementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.roomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.regStdntMangmntToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allotmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modifyExamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DatabasemanagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -79,7 +79,7 @@
             this.postponementToolStripMenuItem,
             this.roomToolStripMenuItem,
             this.allotmentToolStripMenuItem,
-            this.modifyExamToolStripMenuItem,
+            this.DatabasemanagementToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -106,31 +106,31 @@
             // backupToolStripMenuItem
             // 
             this.backupToolStripMenuItem.Name = "backupToolStripMenuItem";
-            this.backupToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.backupToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
             this.backupToolStripMenuItem.Text = "Restore";
             // 
             // backupToolStripMenuItem1
             // 
             this.backupToolStripMenuItem1.Name = "backupToolStripMenuItem1";
-            this.backupToolStripMenuItem1.Size = new System.Drawing.Size(216, 26);
+            this.backupToolStripMenuItem1.Size = new System.Drawing.Size(190, 26);
             this.backupToolStripMenuItem1.Text = "Backup";
             // 
             // openFolderToolStripMenuItem
             // 
             this.openFolderToolStripMenuItem.Name = "openFolderToolStripMenuItem";
-            this.openFolderToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.openFolderToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
             this.openFolderToolStripMenuItem.Text = "Open Folder";
             // 
             // deleteAllExamToolStripMenuItem
             // 
             this.deleteAllExamToolStripMenuItem.Name = "deleteAllExamToolStripMenuItem";
-            this.deleteAllExamToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.deleteAllExamToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
             this.deleteAllExamToolStripMenuItem.Text = "Delete All Exam";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -178,6 +178,14 @@
             this.timetableToolStripMenuItem.Text = "Timetable";
             this.timetableToolStripMenuItem.Click += new System.EventHandler(this.timetableToolStripMenuItem_Click);
             // 
+            // regStdntMangmntToolStripMenuItem
+            // 
+            this.regStdntMangmntToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.regStdntMangmntToolStripMenuItem.Name = "regStdntMangmntToolStripMenuItem";
+            this.regStdntMangmntToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.regStdntMangmntToolStripMenuItem.Text = "Reg.Stdnt.Mangmnt";
+            this.regStdntMangmntToolStripMenuItem.Click += new System.EventHandler(this.regStdntMangmntToolStripMenuItem_Click);
+            // 
             // candidateEntryToolStripMenuItem
             // 
             this.candidateEntryToolStripMenuItem.BackColor = System.Drawing.Color.Black;
@@ -204,14 +212,6 @@
             this.roomToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.roomToolStripMenuItem.Click += new System.EventHandler(this.roomToolStripMenuItem_Click);
             // 
-            // regStdntMangmntToolStripMenuItem
-            // 
-            this.regStdntMangmntToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.regStdntMangmntToolStripMenuItem.Name = "regStdntMangmntToolStripMenuItem";
-            this.regStdntMangmntToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
-            this.regStdntMangmntToolStripMenuItem.Text = "Reg.Stdnt.Mangmnt";
-            this.regStdntMangmntToolStripMenuItem.Click += new System.EventHandler(this.regStdntMangmntToolStripMenuItem_Click);
-            // 
             // allotmentToolStripMenuItem
             // 
             this.allotmentToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -220,12 +220,13 @@
             this.allotmentToolStripMenuItem.Text = "Allotment";
             this.allotmentToolStripMenuItem.Click += new System.EventHandler(this.allotmentToolStripMenuItem_Click);
             // 
-            // modifyExamToolStripMenuItem
+            // DatabasemanagementToolStripMenuItem
             // 
-            this.modifyExamToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.modifyExamToolStripMenuItem.Name = "modifyExamToolStripMenuItem";
-            this.modifyExamToolStripMenuItem.Size = new System.Drawing.Size(108, 24);
-            this.modifyExamToolStripMenuItem.Text = "Modify Exam";
+            this.DatabasemanagementToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DatabasemanagementToolStripMenuItem.Name = "DatabasemanagementToolStripMenuItem";
+            this.DatabasemanagementToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
+            this.DatabasemanagementToolStripMenuItem.Text = "Database Management";
+            this.DatabasemanagementToolStripMenuItem.Click += new System.EventHandler(this.DatabasemanagementToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -276,7 +277,7 @@
         private System.Windows.Forms.ToolStripMenuItem postponementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem roomToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem allotmentToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modifyExamToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DatabasemanagementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem regStdntMangmntToolStripMenuItem;
     }

@@ -93,7 +93,7 @@ namespace Exam_Cell
         {
             Univrsty_radiobtn.Checked = false;
 
-            SqlCommand command = new SqlCommand("select * from Series_candidates order by Course and Class and Name", con.ActiveCon());
+            SqlCommand command = new SqlCommand("select * from Series_candidates order by Course, Class, Name", con.ActiveCon());
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable Srs_students = new DataTable();
             adapter.Fill(Srs_students);

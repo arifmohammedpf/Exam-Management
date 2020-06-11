@@ -110,6 +110,7 @@ namespace Exam_Cell
                         command4.Parameters.AddWithValue("@Name", name_students[count]);
                         command4.Parameters.AddWithValue("@Exam_Code", examcode);
                         command4.Parameters.AddWithValue("@Course", course);
+                        command4.ExecuteNonQuery();
                         j += 1;
                         if (j == series)
                         {
@@ -248,6 +249,7 @@ namespace Exam_Cell
                         command4.Parameters.AddWithValue("@Name", name_studentsA[count]);
                         command4.Parameters.AddWithValue("@Exam_Code", examcode);
                         command4.Parameters.AddWithValue("@Course", course);
+                        command3.ExecuteNonQuery();
                         j += 1;
                         if (j == seriesA)
                         {
@@ -281,6 +283,7 @@ namespace Exam_Cell
                         command4.Parameters.AddWithValue("@Name", name_studentsB[countb]);
                         command4.Parameters.AddWithValue("@Exam_Code", examcode);
                         command4.Parameters.AddWithValue("@Course", course);
+                        command4.ExecuteNonQuery();
                         k += 1;
                         if (k == seriesB)
                         {

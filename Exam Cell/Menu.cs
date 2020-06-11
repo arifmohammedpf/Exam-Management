@@ -75,5 +75,11 @@ namespace Exam_Cell
             Registered_Students_Management ss = new Registered_Students_Management();
             ss.Show();
         }
+
+        private void DatabasemanagementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Database_Management ss = new Database_Management();
+            ss.Show();
+        }
     }
 }
