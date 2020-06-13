@@ -25,7 +25,7 @@ namespace Exam_Cell
         void Class_dgv_Fill()
         {
             Class_dgv_radiobtn.Checked = true;
-            SqlCommand command = new SqlCommand("select Class from Class Sort asc", con.ActiveCon());
+            SqlCommand command = new SqlCommand("select Class,Semester from Management Where (Class is not null) and (Semester is not null) order by Semester", con.ActiveCon());
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable table_class = new DataTable();
             adapter.Fill(table_class);
@@ -73,12 +73,15 @@ namespace Exam_Cell
 
         private void AddNewBranch_btn_Click(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand("insert into Management(Branch)Values("+" @Branch) ", con.ActiveCon());
-            command.Parameters.AddWithValue("@Branch", NewBranch_textbox.Text);
-            command.ExecuteNonQuery();
-            MessageBox.Show("New Branch Added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            BranchComboboxFill();
-            Branch_dgv_radiobtn.Checked = true;  // check whether it will work in checked state?????????????????????????
+            if(NewBranch_textbox.Text != "")
+            {
+                SqlCommand command = new SqlCommand("insert into Management(Branch)Values(" + " @Branch) ", con.ActiveCon());
+                command.Parameters.AddWithValue("@Branch", NewBranch_textbox.Text);
+                command.ExecuteNonQuery();
+                MessageBox.Show("New Branch Added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                BranchComboboxFill();
+                Clear_All_ClassManagement();
+            }
         }
 
         private void DeleteBranch_btn_Click(object sender, EventArgs e)
@@ -92,7 +95,8 @@ namespace Exam_Cell
                 SqlCommand command2 = new SqlCommand("delete Scheme where Branch=@Branch) ", con.ActiveCon());
                 command2.Parameters.AddWithValue("@Branch", UpdateBranch_combobox.Text);
                 command2.ExecuteNonQuery();
-                Branch_dgv_radiobtn.Checked = true;
+                Clear_All_ClassManagement();
+                Branch_dgv_Fill();
             }    
             catch(Exception) { }
             MessageBox.Show("Branch Delete Done", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -129,7 +133,7 @@ namespace Exam_Cell
         void Clear_All_ClassManagement()
         {
             NewClass_textbox.Clear();
-            NewClassYOA_combobox.SelectedIndex = 0;
+            NewClassSem_combobox.SelectedIndex = 0;
             NewBranch_textbox.Clear();
             UpdateBranch_combobox.SelectedIndex = 0;
             Semester_combobox.SelectedIndex = 0;
@@ -140,7 +144,12 @@ namespace Exam_Cell
 
         private void Database_Management_Load(object sender, EventArgs e)
         {
+            RadioButton_panel.BringToFront();
+            Class_radiobtn.Checked = true;
+            AssignClass_fill();
             BranchComboboxFill();
+            Class_dgv_radiobtn.Checked = true;
+            
             //Schemedgv
             DataGridViewCheckBoxColumn checkbox = new DataGridViewCheckBoxColumn();
             checkbox.HeaderText = "";
@@ -157,19 +166,28 @@ namespace Exam_Cell
 
         private void AddNewCourse_btn_Click(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand("insert into Scheme(Branch,Semester,Course,Exam_Code,A_Code)Values(" + " @Branch,@Semester,@Course,@Exam_Code,@A_Code) ", con.ActiveCon());
-            command.Parameters.AddWithValue("@Branch", UpdateBranch_combobox.Text);
-            command.Parameters.AddWithValue("@Semester", Semester_combobox.Text);
-            command.Parameters.AddWithValue("@Course", Course_textbox.Text);
-            command.Parameters.AddWithValue("@Exam_Code", Examcode_textbox.Text);
-            command.Parameters.AddWithValue("@A_Code", ACode_textbox.Text);
-            command.ExecuteNonQuery();
-            MessageBox.Show("New Course Added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            Branch_dgv_Fill();
-            Course_textbox.Clear();
-            Examcode_textbox.Clear();
-            ACode_textbox.Clear();
-            NewcourseFilter();
+            if(UpdateBranch_combobox.SelectedIndex!=0 && Semester_combobox.SelectedIndex!=0 && Course_textbox.Text != "" && Examcode_textbox.Text !="" && ACode_textbox.Text !="")
+            {
+                SqlCommand command = new SqlCommand("insert into Scheme(Branch,Semester,Course,Sub_Code,Acode)Values(" + " @Branch,@Semester,@Course,@Sub_Code,@Acode) ", con.ActiveCon());
+                command.Parameters.AddWithValue("@Branch", UpdateBranch_combobox.Text);
+                command.Parameters.AddWithValue("@Semester", Semester_combobox.Text);
+                command.Parameters.AddWithValue("@Course", Course_textbox.Text);
+                command.Parameters.AddWithValue("@Sub_Code", Examcode_textbox.Text);
+                command.Parameters.AddWithValue("@Acode", ACode_textbox.Text);
+                command.ExecuteNonQuery();
+                MessageBox.Show("New Course Added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Branch_dgv_Fill();
+                Course_textbox.Clear();
+                Examcode_textbox.Clear();
+                ACode_textbox.Clear();
+                NewcourseFilter();
+            }
+            else
+            {
+                MessageBox.Show("Fill Necessary Details, Try again.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+            }
+
         }
 
         void NewcourseFilter()
@@ -227,7 +245,8 @@ namespace Exam_Cell
             }
             if (f == 1)
             {
-                Branch_dgv_radiobtn.Checked = true;
+                Clear_All_ClassManagement();
+                Branch_dgv_Fill();
                 MessageBox.Show("Course Delete Done.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -236,13 +255,15 @@ namespace Exam_Cell
 
         private void AddNewClass_btn_Click(object sender, EventArgs e)
         {
-            if (NewClassYOA_combobox.SelectedIndex != 0)
+            if (NewClassSem_combobox.SelectedIndex != 0)
             {
-                SqlCommand command = new SqlCommand("insert into Management(Class)Values(" + " @Class) ", con.ActiveCon());
-                command.Parameters.AddWithValue("@Class", NewClass_textbox.Text + " - " + NewClassYOA_combobox.Text);
+                SqlCommand command = new SqlCommand("insert into Management(Class,Semester)Values(" + " @Class,@Semester) ", con.ActiveCon());
+                command.Parameters.AddWithValue("@Class", NewClass_textbox.Text);
+                command.Parameters.AddWithValue("@Semester", NewClassSem_combobox.Text);
                 command.ExecuteNonQuery();
                 MessageBox.Show("New Class Added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Class_dgv_radiobtn.Checked = true;
+                Clear_All_ClassManagement();
+                Class_dgv_Fill();
             }
             else
                 MessageBox.Show("Select Semester", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -250,18 +271,375 @@ namespace Exam_Cell
 
         void BranchComboboxFill()
         {
-            SqlCommand sc = new SqlCommand("Select Branch from Management", con.ActiveCon());
+            SqlCommand sc = new SqlCommand("Select Branch from Management where Branch is not null", con.ActiveCon());
             SqlDataReader reader;
             reader = sc.ExecuteReader();
             DataTable dt = new DataTable();
-            dt.Columns.Add("Scheme", typeof(string)); // Whats the use of this lineofcode? //here Scheme is column name
+            dt.Columns.Add("Branch", typeof(string)); // in datatable, a column should be created before adding rows
             DataRow top = dt.NewRow();
             top[0] = "-Select-";
             dt.Rows.InsertAt(top, 0);
             dt.Load(reader);
 
-            UpdateBranch_combobox.ValueMember = "Scheme";  // Whats the use of this lineofcode? // scheme is column name
+            UpdateBranch_combobox.ValueMember = "Branch";  //column name is given to get values to show in combobox
             UpdateBranch_combobox.DataSource = dt;
+
+            
+        }
+
+        void AssignClass_fill()
+        {
+            SqlCommand sc = new SqlCommand("Select Class,Semester from Management where (Class is not null) and (Semester is not null)", con.ActiveCon());
+            SqlDataReader reader;
+            reader = sc.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Class", typeof(string));
+            dt.Columns.Add("Semester", typeof(string));           
+            dt.Load(reader);
+
+            DataTable dt2 = new DataTable();
+            dt2.Columns.Add("Combo", typeof(string)); // in datatable, a column should be created before adding rows
+            DataRow top = dt2.NewRow();
+            top[0] = "-Select-";
+            dt2.Rows.InsertAt(top, 0);
+            foreach (DataRow dr in dt.Rows)
+                dt2.Rows.Add(dr["Class"].ToString() + "  S"+dr["Semester"].ToString());
+            AssignClass_combobox.ValueMember = "Combo";  //column name is given to get values to show in combobox
+            AssignClass_combobox.DataSource = dt2;
+
+
+        }
+
+        private void ChangeScheme_btn_Click(object sender, EventArgs e)
+        {
+            Scheme_label.Text = ChangeScheme_textbox.Text;  //// NOT WORKING AFTER EXIT OF PROGRAM
+        }
+        void Schemelabel()
+        {
+
+        }
+
+        private void AssignClass_btn_Click(object sender, EventArgs e)
+        {
+            if(AssignClass_combobox.SelectedIndex != 0)
+            {
+                int f = 0;
+                foreach (DataGridViewRow dr in Student_dgv.Rows)
+                {
+                    bool checkselected = Convert.ToBoolean(dr.Cells["CheckboxColumn2"].Value);
+                    if (checkselected)
+                    {
+                        f = 1;
+                        SqlCommand command = new SqlCommand("insert into Class(Reg_No,Name,Class)Values(" + "@Reg_No,@Name,@Class )", con.ActiveCon());
+                        command.Parameters.AddWithValue("@Reg_No", dr.Cells["Reg_no"].Value.ToString());
+                        command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value.ToString());
+                        command.Parameters.AddWithValue("@Class", AssignClass_combobox.Text);
+                        command.ExecuteNonQuery();
+                    }
+                }
+                if (f == 1)
+                {
+                    MessageBox.Show("Students Added to Class", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearAllStudent_Management();
+                    Student_dgvFill();
+                }
+                else
+                    MessageBox.Show("Select Any Students", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+                MessageBox.Show("Select Class", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        void ClearAllStudent_Management()
+        {
+            Regno_textbox.Clear();
+            Name_textbox.Clear();
+            YOA_textbox.Clear();
+            Branch_combobox.SelectedIndex = 0;
+            AssignClass_combobox.SelectedIndex = 0;
+            AssignClassYOA_combobox.SelectedIndex = 0;
+            AssignClassBranch_combobox.SelectedIndex = 0;
+            SelectedExcel_textbox.Clear();
+            ExcelSheet_combobox.Refresh();
+        }
+
+        private void Class_radiobtn_CheckedChanged(object sender, EventArgs e)
+        {
+            Class_Managmnt_panel.BringToFront();
+        }
+
+        private void Studnt_radiobtn_CheckedChanged(object sender, EventArgs e)
+        {
+            Student_mngmnt_panel.BringToFront();
+            Student_dgvFill();
+            StudentBranchComboboxFill();
+            ClassBranchComboboxFill();
+            Student_dgvFill();
+            YearOfAdmissionFill();
+            ClearAllStudent_Management();
+        }
+
+        private void AddStudent_btn_Click(object sender, EventArgs e)
+        {
+            if (Branch_combobox.SelectedIndex != 0 && Regno_textbox.Text != "" && Name_textbox.Text != "" && YOA_textbox.Text != "")
+            {
+                SqlCommand command = new SqlCommand("insert into Students(Reg_no,Name,Year_Of_Admission,Branch)Values(" + "@Reg_no,@Name,@Year_Of_Admission,@Branch",con.ActiveCon());
+                command.Parameters.AddWithValue("@Reg_no", Regno_textbox.Text);
+                command.Parameters.AddWithValue("@Name", Name_textbox.Text);
+                command.Parameters.AddWithValue("@Year_Of_Admission", YOA_textbox.Text);
+                command.Parameters.AddWithValue("@Branch", Branch_combobox.Text);
+                command.ExecuteNonQuery();
+                ClearAllStudent_Management();
+            }
+            else
+            {
+                MessageBox.Show("Fill Necessary Details, Try again.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               
+            }
+        }
+
+        private void ClassDgvView_checkbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ClassDgvView_checkbox.Checked)
+            {
+                Class_StudentsFill();
+                add_stdnt_groupbox.Enabled = false;
+                ImportGroupbox.Enabled = false;
+                AssignClassYOA_combobox.Enabled = false;
+                AssignClassBranch_combobox.Enabled = false;
+                AssignClass_btn.Enabled = false;
+                AssignClass_combobox.SelectedIndex = 0;
+            }
+            else
+            {
+                Student_dgvFill();
+                add_stdnt_groupbox.Enabled = true;
+                ImportGroupbox.Enabled = true;
+                AssignClassYOA_combobox.Enabled = true;
+                AssignClassBranch_combobox.Enabled = true;
+                AssignClass_btn.Enabled = true;
+                AssignClass_combobox.SelectedIndex = 0;
+            }
+        }
+        BindingSource Student_Source = new BindingSource();
+        BindingSource ClassView_Source = new BindingSource();
+        void Student_dgvFill()
+        {
+            SqlCommand command = new SqlCommand("select * from Students order by Year_Of_Admission desc,Branch", con.ActiveCon());
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table_Students = new DataTable();
+            adapter.Fill(table_Students);
+            Student_Source.DataSource = null;
+            Student_Source.DataSource = table_Students;
+            Student_dgv.DataSource = Student_Source;
+        }
+        void Class_StudentsFill()
+        {
+            SqlCommand command = new SqlCommand("select * from Class order by Class desc", con.ActiveCon());
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table_Students = new DataTable();
+            adapter.Fill(table_Students);
+            ClassView_Source.DataSource = null;
+            ClassView_Source.DataSource = table_Students;
+            Student_dgv.DataSource = ClassView_Source;
+        }
+
+        private void Delete_btn_Click(object sender, EventArgs e)
+        {
+            if(ClassDgvView_checkbox.Checked)
+            {
+                int f = 0;
+                foreach(DataGridViewRow dr in Student_dgv.Rows)
+                {
+                    bool Selected = Convert.ToBoolean(dr.Cells["CheckboxColumn2"].Value);
+                    if(Selected)
+                    {
+                        f = 1;
+                        SqlCommand command = new SqlCommand("Delete Class Where Class=@Class and Name=@Name and Reg_No=@Reg_No", con.ActiveCon());
+                        command.Parameters.AddWithValue("@Class", dr.Cells["Class"].Value);
+                        command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value);
+                        command.Parameters.AddWithValue("@Reg_No", dr.Cells["Reg_No"].Value);
+                        command.ExecuteNonQuery();
+                    }
+                }
+                if (f == 1)
+                {
+                    MessageBox.Show("Delete Done.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Class_StudentsFill();
+                }
+                else
+                    MessageBox.Show("Select any Students to delete, Try again.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                int f = 0;
+                foreach (DataGridViewRow dr in Student_dgv.Rows)
+                {
+                    bool Selected = Convert.ToBoolean(dr.Cells["CheckboxColumn2"].Value);
+                    if (Selected)
+                    {
+                        f = 1;
+                        SqlCommand command = new SqlCommand("delete Students where Reg_no=@Reg_no and Name=@Name and Year_Of_Admission=@Year_Of_Admission and Branch=@Branch", con.ActiveCon());
+                        command.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value.ToString());
+                        command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value.ToString());
+                        command.Parameters.AddWithValue("@Year_Of_Admission", dr.Cells["Year_Of_Admission"].Value.ToString());
+                        command.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value.ToString());
+                        command.ExecuteNonQuery();
+                    }
+                }
+                if (f == 1)
+                {
+                    MessageBox.Show("Delete Done.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Student_dgvFill();
+                }
+                else
+                    MessageBox.Show("Select any Students to delete, Try again.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Search_btn_Click(object sender, EventArgs e)
+        {
+            string regno = Regno_textbox.Text;
+            string name = Name_textbox.Text;
+            string branchvalue = Branch_combobox.Text;
+            string yoa = YOA_textbox.Text;
+
+            string filter = "";        //filter string for sql statements to be written
+            if(regno != "")
+                filter = string.Format("Reg_no like '%{0}%'", regno);
+            if(name != "")
+            {
+                if (filter.Length > 0) filter += " AND ";
+                filter += string.Format("Name Like '%{0}%'", name);
+            }
+            if (branchvalue != "-Select-")
+            {
+                if (filter.Length > 0) filter += " AND ";                    //Put AND if there is existing Sql statement in filter string
+                filter += string.Format("Branch Like '%{0}%'", branchvalue);     //Put sql statement in filter string
+            }
+            if (yoa != "")
+            {
+                if (filter.Length > 0) filter += " AND ";
+                filter += string.Format("Year_Of_Admission Like '%{0}%'", yoa);
+            }
+            Student_Source.Filter = filter;
+        }
+
+        private void Clear_btn_Click(object sender, EventArgs e)
+        {
+            Student_Source.RemoveFilter();
+            ClearAllStudent_Management();
+        }
+
+        private void UpgradeSem_btn_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("You Are Going To UPGRADE Every Class Semester. Are You Sure?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(result == DialogResult.Yes)
+            {
+                SqlCommand command = new SqlCommand("update Management set Semester= Semester + 1",con.ActiveCon());
+                command.ExecuteNonQuery();
+                MessageBox.Show("Upgrade Done","Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                AssignClass_fill();
+            }
+        }
+
+        private void DegradeClass_btn_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("You Are Going To DEGRADE Every Class Semester. Are You Sure?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                SqlCommand command = new SqlCommand("update Management set Semester= Semester - 1", con.ActiveCon());
+                command.ExecuteNonQuery();
+                MessageBox.Show("Degrade Done", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                AssignClass_fill();
+            }
+        }
+        void StudentBranchComboboxFill()
+        {
+            SqlCommand sc = new SqlCommand("Select Branch from Management where Branch is not null", con.ActiveCon());
+            SqlDataReader reader;
+            reader = sc.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Branch", typeof(string)); // in datatable, a column should be created before adding rows
+            DataRow top = dt.NewRow();
+            top[0] = "-Select-";
+            dt.Rows.InsertAt(top, 0);
+            dt.Load(reader);           
+            
+            Branch_combobox.ValueMember = "Branch";
+            Branch_combobox.DataSource = dt;
+        }
+        void ClassBranchComboboxFill()
+        {
+            SqlCommand sc = new SqlCommand("Select Branch from Management where Branch is not null", con.ActiveCon());
+            SqlDataReader reader;
+            reader = sc.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Branch", typeof(string)); // in datatable, a column should be created before adding rows
+            DataRow top = dt.NewRow();
+            top[0] = "-Select-";
+            dt.Rows.InsertAt(top, 0);
+            dt.Load(reader);
+
+            AssignClassBranch_combobox.ValueMember = "Branch";
+            AssignClassBranch_combobox.DataSource = dt;
+        }
+        void YearOfAdmissionFill()
+        {
+            SqlCommand sc = new SqlCommand("Select distinct Year_Of_Admission from Students", con.ActiveCon());
+            SqlDataReader reader;
+            reader = sc.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Year_Of_Admission", typeof(string)); // in datatable, a column should be created before adding rows
+            DataRow top = dt.NewRow();
+            top[0] = "-Select-";
+            dt.Rows.InsertAt(top, 0);
+            dt.Load(reader);
+
+            AssignClassYOA_combobox.ValueMember = "Year_Of_Admission";
+            AssignClassYOA_combobox.DataSource = dt;
+        }
+
+        private void AssignClass_combobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(ClassDgvView_checkbox.Checked)
+            {
+                if (AssignClass_combobox.SelectedIndex != 0)
+                {
+                    string classcombo = AssignClass_combobox.Text;
+                    string filter = "";
+                    filter = string.Format("Class like '%{0}%'", classcombo);
+                    ClassView_Source.Filter = filter;
+                }
+                else
+                    ClassView_Source.RemoveFilter();
+            }
+        }
+
+        private void AssignClassBranch_combobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AssignClassFilter();
+        }
+
+        private void AssignClassYOA_combobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AssignClassFilter();
+        }
+        void AssignClassFilter()
+        {
+            string filter = "";           
+            if (AssignClassBranch_combobox.Text != "-Select-")
+            {
+                if (filter.Length > 0) filter += " AND ";                    
+                filter += string.Format("Branch Like '%{0}%'", AssignClassBranch_combobox.Text);     
+            }
+            if (AssignClassYOA_combobox.Text != "-Select-")
+            {
+                bool res = int.TryParse(AssignClassYOA_combobox.Text, out int yoa);
+                if (filter.Length > 0) filter += " AND ";
+                filter += string.Format("Convert(Year_Of_Admission,'System.String') like '%{0}%'", yoa );
+            }
+            Student_Source.Filter = filter;
         }
     }
 }
+                

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Add_btn = new System.Windows.Forms.Button();
+            this.AddStudent_btn = new System.Windows.Forms.Button();
             this.Student_dgv = new System.Windows.Forms.DataGridView();
             this.YOA_textbox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -38,15 +38,18 @@
             this.Name_textbox = new System.Windows.Forms.TextBox();
             this.Delete_btn = new System.Windows.Forms.Button();
             this.Student_mngmnt_panel = new System.Windows.Forms.Panel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.UpgradeSemester_groupbox = new System.Windows.Forms.GroupBox();
+            this.UpgradeSem_btn = new System.Windows.Forms.Button();
+            this.DegradeClass_btn = new System.Windows.Forms.Button();
+            this.ImportGroupbox = new System.Windows.Forms.GroupBox();
             this.ExcelSheet_combobox = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.SelectedExcel_textbox = new System.Windows.Forms.TextBox();
             this.SelectExcel_btn = new System.Windows.Forms.Button();
             this.Import_Btn = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.AssignClass_groupbox = new System.Windows.Forms.GroupBox();
+            this.AssignClass_combobox = new System.Windows.Forms.ComboBox();
             this.AssignClassYOA_combobox = new System.Windows.Forms.ComboBox();
             this.AssignClassBranch_combobox = new System.Windows.Forms.ComboBox();
-            this.AssignClass_textbox = new System.Windows.Forms.TextBox();
             this.Class_label = new System.Windows.Forms.Label();
             this.AssignClass_btn = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
@@ -56,11 +59,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.Studnt_radiobtn = new System.Windows.Forms.RadioButton();
             this.Class_radiobtn = new System.Windows.Forms.RadioButton();
-            this.BranchManagmnt_panel = new System.Windows.Forms.Panel();
+            this.Class_Managmnt_panel = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.NewClassGroupbox = new System.Windows.Forms.GroupBox();
             this.NewClass_textbox = new System.Windows.Forms.TextBox();
-            this.NewClassYOA_combobox = new System.Windows.Forms.ComboBox();
+            this.NewClassSem_combobox = new System.Windows.Forms.ComboBox();
             this.NewClass_label = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.AddNewClass_btn = new System.Windows.Forms.Button();
@@ -69,11 +72,11 @@
             this.NewBranch_textbox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.AddNewBranch_btn = new System.Windows.Forms.Button();
-            this.DeleteBranch_btn = new System.Windows.Forms.Button();
             this.NewCourseGroupbox = new System.Windows.Forms.GroupBox();
             this.Course_textbox = new System.Windows.Forms.TextBox();
             this.UpdateBranch_combobox = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.DeleteBranch_btn = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.Semester_combobox = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -86,39 +89,51 @@
             this.Class_dgv_radiobtn = new System.Windows.Forms.RadioButton();
             this.Branch_dgv_radiobtn = new System.Windows.Forms.RadioButton();
             this.Scheme_dgv = new System.Windows.Forms.DataGridView();
+            this.Scheme_Panel = new System.Windows.Forms.Panel();
+            this.ChangeScheme_btn = new System.Windows.Forms.Button();
+            this.ChangeScheme_textbox = new System.Windows.Forms.TextBox();
+            this.Scheme_label = new System.Windows.Forms.Label();
+            this.RadioButton_panel = new System.Windows.Forms.Panel();
+            this.ClassDgvView_checkbox = new System.Windows.Forms.CheckBox();
+            this.Search_btn = new System.Windows.Forms.Button();
+            this.Clear_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Student_dgv)).BeginInit();
             this.Student_mngmnt_panel.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.UpgradeSemester_groupbox.SuspendLayout();
+            this.ImportGroupbox.SuspendLayout();
+            this.AssignClass_groupbox.SuspendLayout();
             this.add_stdnt_groupbox.SuspendLayout();
-            this.BranchManagmnt_panel.SuspendLayout();
+            this.Class_Managmnt_panel.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.NewClassGroupbox.SuspendLayout();
             this.NewBranchGroupbox.SuspendLayout();
             this.NewCourseGroupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Scheme_dgv)).BeginInit();
+            this.Scheme_Panel.SuspendLayout();
+            this.RadioButton_panel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // Add_btn
+            // AddStudent_btn
             // 
-            this.Add_btn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Add_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Add_btn.Location = new System.Drawing.Point(330, 155);
-            this.Add_btn.Name = "Add_btn";
-            this.Add_btn.Size = new System.Drawing.Size(100, 30);
-            this.Add_btn.TabIndex = 0;
-            this.Add_btn.Text = "Add";
-            this.Add_btn.UseVisualStyleBackColor = true;
+            this.AddStudent_btn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddStudent_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.AddStudent_btn.Location = new System.Drawing.Point(332, 153);
+            this.AddStudent_btn.Name = "AddStudent_btn";
+            this.AddStudent_btn.Size = new System.Drawing.Size(100, 30);
+            this.AddStudent_btn.TabIndex = 0;
+            this.AddStudent_btn.Text = "Add";
+            this.AddStudent_btn.UseVisualStyleBackColor = true;
+            this.AddStudent_btn.Click += new System.EventHandler(this.AddStudent_btn_Click);
             // 
             // Student_dgv
             // 
             this.Student_dgv.AllowUserToAddRows = false;
             this.Student_dgv.AllowUserToDeleteRows = false;
             this.Student_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Student_dgv.Location = new System.Drawing.Point(3, 237);
+            this.Student_dgv.Location = new System.Drawing.Point(284, 237);
             this.Student_dgv.Name = "Student_dgv";
             this.Student_dgv.RowTemplate.Height = 24;
-            this.Student_dgv.Size = new System.Drawing.Size(622, 367);
+            this.Student_dgv.Size = new System.Drawing.Size(842, 367);
             this.Student_dgv.TabIndex = 1;
             // 
             // YOA_textbox
@@ -179,39 +194,83 @@
             // 
             this.Delete_btn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Delete_btn.ForeColor = System.Drawing.Color.Red;
-            this.Delete_btn.Location = new System.Drawing.Point(631, 574);
+            this.Delete_btn.Location = new System.Drawing.Point(178, 564);
             this.Delete_btn.Name = "Delete_btn";
             this.Delete_btn.Size = new System.Drawing.Size(100, 30);
             this.Delete_btn.TabIndex = 0;
             this.Delete_btn.Text = "Delete";
             this.Delete_btn.UseVisualStyleBackColor = true;
+            this.Delete_btn.Click += new System.EventHandler(this.Delete_btn_Click);
             // 
             // Student_mngmnt_panel
             // 
-            this.Student_mngmnt_panel.Controls.Add(this.groupBox2);
-            this.Student_mngmnt_panel.Controls.Add(this.groupBox1);
+            this.Student_mngmnt_panel.Controls.Add(this.ClassDgvView_checkbox);
+            this.Student_mngmnt_panel.Controls.Add(this.UpgradeSemester_groupbox);
+            this.Student_mngmnt_panel.Controls.Add(this.ImportGroupbox);
+            this.Student_mngmnt_panel.Controls.Add(this.AssignClass_groupbox);
             this.Student_mngmnt_panel.Controls.Add(this.add_stdnt_groupbox);
             this.Student_mngmnt_panel.Controls.Add(this.Student_dgv);
             this.Student_mngmnt_panel.Controls.Add(this.Delete_btn);
-            this.Student_mngmnt_panel.Location = new System.Drawing.Point(12, 65);
+            this.Student_mngmnt_panel.Location = new System.Drawing.Point(24, 87);
             this.Student_mngmnt_panel.Name = "Student_mngmnt_panel";
-            this.Student_mngmnt_panel.Size = new System.Drawing.Size(1139, 607);
+            this.Student_mngmnt_panel.Size = new System.Drawing.Size(1385, 607);
             this.Student_mngmnt_panel.TabIndex = 5;
             // 
-            // groupBox2
+            // UpgradeSemester_groupbox
             // 
-            this.groupBox2.Controls.Add(this.ExcelSheet_combobox);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.SelectExcel_btn);
-            this.groupBox2.Controls.Add(this.Import_Btn);
-            this.groupBox2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox2.Location = new System.Drawing.Point(640, 237);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(241, 218);
-            this.groupBox2.TabIndex = 8;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Import Students";
+            this.UpgradeSemester_groupbox.Controls.Add(this.UpgradeSem_btn);
+            this.UpgradeSemester_groupbox.Controls.Add(this.DegradeClass_btn);
+            this.UpgradeSemester_groupbox.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpgradeSemester_groupbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.UpgradeSemester_groupbox.Location = new System.Drawing.Point(904, 23);
+            this.UpgradeSemester_groupbox.Name = "UpgradeSemester_groupbox";
+            this.UpgradeSemester_groupbox.Size = new System.Drawing.Size(222, 198);
+            this.UpgradeSemester_groupbox.TabIndex = 9;
+            this.UpgradeSemester_groupbox.TabStop = false;
+            this.UpgradeSemester_groupbox.Text = "Upgrade Semester";
+            // 
+            // UpgradeSem_btn
+            // 
+            this.UpgradeSem_btn.BackColor = System.Drawing.Color.Gold;
+            this.UpgradeSem_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.UpgradeSem_btn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpgradeSem_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.UpgradeSem_btn.Location = new System.Drawing.Point(13, 59);
+            this.UpgradeSem_btn.Name = "UpgradeSem_btn";
+            this.UpgradeSem_btn.Size = new System.Drawing.Size(199, 43);
+            this.UpgradeSem_btn.TabIndex = 0;
+            this.UpgradeSem_btn.Text = "Upgrade Class Semester";
+            this.UpgradeSem_btn.UseVisualStyleBackColor = false;
+            this.UpgradeSem_btn.Click += new System.EventHandler(this.UpgradeSem_btn_Click);
+            // 
+            // DegradeClass_btn
+            // 
+            this.DegradeClass_btn.BackColor = System.Drawing.Color.Beige;
+            this.DegradeClass_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.DegradeClass_btn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DegradeClass_btn.ForeColor = System.Drawing.Color.Red;
+            this.DegradeClass_btn.Location = new System.Drawing.Point(66, 124);
+            this.DegradeClass_btn.Name = "DegradeClass_btn";
+            this.DegradeClass_btn.Size = new System.Drawing.Size(93, 34);
+            this.DegradeClass_btn.TabIndex = 0;
+            this.DegradeClass_btn.Text = "Degrade";
+            this.DegradeClass_btn.UseVisualStyleBackColor = false;
+            this.DegradeClass_btn.Click += new System.EventHandler(this.DegradeClass_btn_Click);
+            // 
+            // ImportGroupbox
+            // 
+            this.ImportGroupbox.Controls.Add(this.ExcelSheet_combobox);
+            this.ImportGroupbox.Controls.Add(this.SelectedExcel_textbox);
+            this.ImportGroupbox.Controls.Add(this.SelectExcel_btn);
+            this.ImportGroupbox.Controls.Add(this.Import_Btn);
+            this.ImportGroupbox.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ImportGroupbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ImportGroupbox.Location = new System.Drawing.Point(24, 241);
+            this.ImportGroupbox.Name = "ImportGroupbox";
+            this.ImportGroupbox.Size = new System.Drawing.Size(241, 218);
+            this.ImportGroupbox.TabIndex = 8;
+            this.ImportGroupbox.TabStop = false;
+            this.ImportGroupbox.Text = "Import Students";
             // 
             // ExcelSheet_combobox
             // 
@@ -222,13 +281,13 @@
             this.ExcelSheet_combobox.Size = new System.Drawing.Size(204, 26);
             this.ExcelSheet_combobox.TabIndex = 5;
             // 
-            // textBox1
+            // SelectedExcel_textbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(20, 37);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(204, 25);
-            this.textBox1.TabIndex = 0;
+            this.SelectedExcel_textbox.Location = new System.Drawing.Point(20, 37);
+            this.SelectedExcel_textbox.Name = "SelectedExcel_textbox";
+            this.SelectedExcel_textbox.ReadOnly = true;
+            this.SelectedExcel_textbox.Size = new System.Drawing.Size(204, 25);
+            this.SelectedExcel_textbox.TabIndex = 0;
             // 
             // SelectExcel_btn
             // 
@@ -252,23 +311,33 @@
             this.Import_Btn.Text = "Import";
             this.Import_Btn.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // AssignClass_groupbox
             // 
-            this.groupBox1.Controls.Add(this.AssignClassYOA_combobox);
-            this.groupBox1.Controls.Add(this.AssignClassBranch_combobox);
-            this.groupBox1.Controls.Add(this.AssignClass_textbox);
-            this.groupBox1.Controls.Add(this.Class_label);
-            this.groupBox1.Controls.Add(this.AssignClass_btn);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox1.Location = new System.Drawing.Point(485, 23);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(396, 198);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Assign Class";
+            this.AssignClass_groupbox.Controls.Add(this.AssignClass_combobox);
+            this.AssignClass_groupbox.Controls.Add(this.AssignClassYOA_combobox);
+            this.AssignClass_groupbox.Controls.Add(this.AssignClassBranch_combobox);
+            this.AssignClass_groupbox.Controls.Add(this.Class_label);
+            this.AssignClass_groupbox.Controls.Add(this.AssignClass_btn);
+            this.AssignClass_groupbox.Controls.Add(this.label12);
+            this.AssignClass_groupbox.Controls.Add(this.label13);
+            this.AssignClass_groupbox.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AssignClass_groupbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.AssignClass_groupbox.Location = new System.Drawing.Point(487, 23);
+            this.AssignClass_groupbox.Name = "AssignClass_groupbox";
+            this.AssignClass_groupbox.Size = new System.Drawing.Size(396, 198);
+            this.AssignClass_groupbox.TabIndex = 7;
+            this.AssignClass_groupbox.TabStop = false;
+            this.AssignClass_groupbox.Text = "Assign Class";
+            // 
+            // AssignClass_combobox
+            // 
+            this.AssignClass_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.AssignClass_combobox.FormattingEnabled = true;
+            this.AssignClass_combobox.Location = new System.Drawing.Point(85, 105);
+            this.AssignClass_combobox.Name = "AssignClass_combobox";
+            this.AssignClass_combobox.Size = new System.Drawing.Size(294, 25);
+            this.AssignClass_combobox.TabIndex = 5;
+            this.AssignClass_combobox.SelectedIndexChanged += new System.EventHandler(this.AssignClass_combobox_SelectedIndexChanged);
             // 
             // AssignClassYOA_combobox
             // 
@@ -278,6 +347,7 @@
             this.AssignClassYOA_combobox.Name = "AssignClassYOA_combobox";
             this.AssignClassYOA_combobox.Size = new System.Drawing.Size(294, 25);
             this.AssignClassYOA_combobox.TabIndex = 5;
+            this.AssignClassYOA_combobox.SelectedIndexChanged += new System.EventHandler(this.AssignClassYOA_combobox_SelectedIndexChanged);
             // 
             // AssignClassBranch_combobox
             // 
@@ -287,13 +357,7 @@
             this.AssignClassBranch_combobox.Name = "AssignClassBranch_combobox";
             this.AssignClassBranch_combobox.Size = new System.Drawing.Size(294, 25);
             this.AssignClassBranch_combobox.TabIndex = 5;
-            // 
-            // AssignClass_textbox
-            // 
-            this.AssignClass_textbox.Location = new System.Drawing.Point(85, 104);
-            this.AssignClass_textbox.Name = "AssignClass_textbox";
-            this.AssignClass_textbox.Size = new System.Drawing.Size(294, 25);
-            this.AssignClass_textbox.TabIndex = 2;
+            this.AssignClassBranch_combobox.SelectedIndexChanged += new System.EventHandler(this.AssignClassBranch_combobox_SelectedIndexChanged);
             // 
             // Class_label
             // 
@@ -316,6 +380,7 @@
             this.AssignClass_btn.TabIndex = 0;
             this.AssignClass_btn.Text = "Assign Class";
             this.AssignClass_btn.UseVisualStyleBackColor = true;
+            this.AssignClass_btn.Click += new System.EventHandler(this.AssignClass_btn_Click);
             // 
             // label12
             // 
@@ -346,13 +411,15 @@
             this.add_stdnt_groupbox.Controls.Add(this.YOA_textbox);
             this.add_stdnt_groupbox.Controls.Add(this.label3);
             this.add_stdnt_groupbox.Controls.Add(this.Name_textbox);
-            this.add_stdnt_groupbox.Controls.Add(this.Add_btn);
+            this.add_stdnt_groupbox.Controls.Add(this.Clear_btn);
+            this.add_stdnt_groupbox.Controls.Add(this.Search_btn);
+            this.add_stdnt_groupbox.Controls.Add(this.AddStudent_btn);
             this.add_stdnt_groupbox.Controls.Add(this.label1);
             this.add_stdnt_groupbox.Controls.Add(this.label2);
             this.add_stdnt_groupbox.Controls.Add(this.label4);
             this.add_stdnt_groupbox.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.add_stdnt_groupbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.add_stdnt_groupbox.Location = new System.Drawing.Point(22, 23);
+            this.add_stdnt_groupbox.Location = new System.Drawing.Point(24, 23);
             this.add_stdnt_groupbox.Name = "add_stdnt_groupbox";
             this.add_stdnt_groupbox.Size = new System.Drawing.Size(447, 198);
             this.add_stdnt_groupbox.TabIndex = 6;
@@ -382,37 +449,37 @@
             // Studnt_radiobtn
             // 
             this.Studnt_radiobtn.AutoSize = true;
-            this.Studnt_radiobtn.Checked = true;
             this.Studnt_radiobtn.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Studnt_radiobtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Studnt_radiobtn.Location = new System.Drawing.Point(47, 27);
+            this.Studnt_radiobtn.Location = new System.Drawing.Point(273, 19);
             this.Studnt_radiobtn.Name = "Studnt_radiobtn";
             this.Studnt_radiobtn.Size = new System.Drawing.Size(183, 23);
             this.Studnt_radiobtn.TabIndex = 6;
-            this.Studnt_radiobtn.TabStop = true;
             this.Studnt_radiobtn.Text = "Student Management";
             this.Studnt_radiobtn.UseVisualStyleBackColor = true;
+            this.Studnt_radiobtn.CheckedChanged += new System.EventHandler(this.Studnt_radiobtn_CheckedChanged);
             // 
             // Class_radiobtn
             // 
             this.Class_radiobtn.AutoSize = true;
             this.Class_radiobtn.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Class_radiobtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Class_radiobtn.Location = new System.Drawing.Point(236, 27);
+            this.Class_radiobtn.Location = new System.Drawing.Point(15, 19);
             this.Class_radiobtn.Name = "Class_radiobtn";
             this.Class_radiobtn.Size = new System.Drawing.Size(226, 23);
             this.Class_radiobtn.TabIndex = 6;
             this.Class_radiobtn.Text = "Class/Branch Management";
             this.Class_radiobtn.UseVisualStyleBackColor = true;
+            this.Class_radiobtn.CheckedChanged += new System.EventHandler(this.Class_radiobtn_CheckedChanged);
             // 
-            // BranchManagmnt_panel
+            // Class_Managmnt_panel
             // 
-            this.BranchManagmnt_panel.Controls.Add(this.groupBox3);
-            this.BranchManagmnt_panel.Controls.Add(this.Scheme_dgv);
-            this.BranchManagmnt_panel.Location = new System.Drawing.Point(652, 46);
-            this.BranchManagmnt_panel.Name = "BranchManagmnt_panel";
-            this.BranchManagmnt_panel.Size = new System.Drawing.Size(1139, 607);
-            this.BranchManagmnt_panel.TabIndex = 7;
+            this.Class_Managmnt_panel.Controls.Add(this.groupBox3);
+            this.Class_Managmnt_panel.Controls.Add(this.Scheme_dgv);
+            this.Class_Managmnt_panel.Location = new System.Drawing.Point(24, 87);
+            this.Class_Managmnt_panel.Name = "Class_Managmnt_panel";
+            this.Class_Managmnt_panel.Size = new System.Drawing.Size(1385, 607);
+            this.Class_Managmnt_panel.TabIndex = 7;
             // 
             // groupBox3
             // 
@@ -433,7 +500,7 @@
             // NewClassGroupbox
             // 
             this.NewClassGroupbox.Controls.Add(this.NewClass_textbox);
-            this.NewClassGroupbox.Controls.Add(this.NewClassYOA_combobox);
+            this.NewClassGroupbox.Controls.Add(this.NewClassSem_combobox);
             this.NewClassGroupbox.Controls.Add(this.NewClass_label);
             this.NewClassGroupbox.Controls.Add(this.label9);
             this.NewClassGroupbox.Controls.Add(this.AddNewClass_btn);
@@ -453,14 +520,24 @@
             this.NewClass_textbox.Size = new System.Drawing.Size(305, 25);
             this.NewClass_textbox.TabIndex = 2;
             // 
-            // NewClassYOA_combobox
+            // NewClassSem_combobox
             // 
-            this.NewClassYOA_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.NewClassYOA_combobox.FormattingEnabled = true;
-            this.NewClassYOA_combobox.Location = new System.Drawing.Point(109, 54);
-            this.NewClassYOA_combobox.Name = "NewClassYOA_combobox";
-            this.NewClassYOA_combobox.Size = new System.Drawing.Size(305, 25);
-            this.NewClassYOA_combobox.TabIndex = 5;
+            this.NewClassSem_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.NewClassSem_combobox.FormattingEnabled = true;
+            this.NewClassSem_combobox.Items.AddRange(new object[] {
+            "-Select-",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"});
+            this.NewClassSem_combobox.Location = new System.Drawing.Point(109, 54);
+            this.NewClassSem_combobox.Name = "NewClassSem_combobox";
+            this.NewClassSem_combobox.Size = new System.Drawing.Size(305, 25);
+            this.NewClassSem_combobox.TabIndex = 5;
             // 
             // NewClass_label
             // 
@@ -480,9 +557,9 @@
             this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label9.Location = new System.Drawing.Point(7, 52);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(51, 23);
+            this.label9.Size = new System.Drawing.Size(80, 23);
             this.label9.TabIndex = 3;
-            this.label9.Text = "Y.O.A";
+            this.label9.Text = "Semester";
             // 
             // AddNewClass_btn
             // 
@@ -551,18 +628,6 @@
             this.AddNewBranch_btn.UseVisualStyleBackColor = true;
             this.AddNewBranch_btn.Click += new System.EventHandler(this.AddNewBranch_btn_Click);
             // 
-            // DeleteBranch_btn
-            // 
-            this.DeleteBranch_btn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteBranch_btn.ForeColor = System.Drawing.Color.Red;
-            this.DeleteBranch_btn.Location = new System.Drawing.Point(327, 221);
-            this.DeleteBranch_btn.Name = "DeleteBranch_btn";
-            this.DeleteBranch_btn.Size = new System.Drawing.Size(114, 30);
-            this.DeleteBranch_btn.TabIndex = 0;
-            this.DeleteBranch_btn.Text = "Delete Branch";
-            this.DeleteBranch_btn.UseVisualStyleBackColor = true;
-            this.DeleteBranch_btn.Click += new System.EventHandler(this.DeleteBranch_btn_Click);
-            // 
             // NewCourseGroupbox
             // 
             this.NewCourseGroupbox.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -614,6 +679,18 @@
             this.label8.Size = new System.Drawing.Size(80, 23);
             this.label8.TabIndex = 3;
             this.label8.Text = "Semester";
+            // 
+            // DeleteBranch_btn
+            // 
+            this.DeleteBranch_btn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteBranch_btn.ForeColor = System.Drawing.Color.Red;
+            this.DeleteBranch_btn.Location = new System.Drawing.Point(310, 221);
+            this.DeleteBranch_btn.Name = "DeleteBranch_btn";
+            this.DeleteBranch_btn.Size = new System.Drawing.Size(121, 30);
+            this.DeleteBranch_btn.TabIndex = 0;
+            this.DeleteBranch_btn.Text = "Delete Branch";
+            this.DeleteBranch_btn.UseVisualStyleBackColor = true;
+            this.DeleteBranch_btn.Click += new System.EventHandler(this.DeleteBranch_btn_Click);
             // 
             // label5
             // 
@@ -671,7 +748,7 @@
             // 
             this.AddNewCourse_btn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddNewCourse_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.AddNewCourse_btn.Location = new System.Drawing.Point(70, 221);
+            this.AddNewCourse_btn.Location = new System.Drawing.Point(47, 221);
             this.AddNewCourse_btn.Name = "AddNewCourse_btn";
             this.AddNewCourse_btn.Size = new System.Drawing.Size(133, 30);
             this.AddNewCourse_btn.TabIndex = 0;
@@ -694,9 +771,9 @@
             // 
             this.DeleteCourse_btn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleteCourse_btn.ForeColor = System.Drawing.Color.Red;
-            this.DeleteCourse_btn.Location = new System.Drawing.Point(209, 221);
+            this.DeleteCourse_btn.Location = new System.Drawing.Point(186, 221);
             this.DeleteCourse_btn.Name = "DeleteCourse_btn";
-            this.DeleteCourse_btn.Size = new System.Drawing.Size(112, 30);
+            this.DeleteCourse_btn.Size = new System.Drawing.Size(118, 30);
             this.DeleteCourse_btn.TabIndex = 0;
             this.DeleteCourse_btn.Text = "Delete Course";
             this.DeleteCourse_btn.UseVisualStyleBackColor = true;
@@ -721,7 +798,7 @@
             this.Class_dgv_radiobtn.AutoSize = true;
             this.Class_dgv_radiobtn.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Class_dgv_radiobtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Class_dgv_radiobtn.Location = new System.Drawing.Point(269, 31);
+            this.Class_dgv_radiobtn.Location = new System.Drawing.Point(115, 31);
             this.Class_dgv_radiobtn.Name = "Class_dgv_radiobtn";
             this.Class_dgv_radiobtn.Size = new System.Drawing.Size(110, 23);
             this.Class_dgv_radiobtn.TabIndex = 6;
@@ -732,14 +809,12 @@
             // Branch_dgv_radiobtn
             // 
             this.Branch_dgv_radiobtn.AutoSize = true;
-            this.Branch_dgv_radiobtn.Checked = true;
             this.Branch_dgv_radiobtn.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Branch_dgv_radiobtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Branch_dgv_radiobtn.Location = new System.Drawing.Point(115, 31);
+            this.Branch_dgv_radiobtn.Location = new System.Drawing.Point(287, 31);
             this.Branch_dgv_radiobtn.Name = "Branch_dgv_radiobtn";
             this.Branch_dgv_radiobtn.Size = new System.Drawing.Size(123, 23);
             this.Branch_dgv_radiobtn.TabIndex = 6;
-            this.Branch_dgv_radiobtn.TabStop = true;
             this.Branch_dgv_radiobtn.Text = "Branch View";
             this.Branch_dgv_radiobtn.UseVisualStyleBackColor = true;
             this.Branch_dgv_radiobtn.CheckedChanged += new System.EventHandler(this.Branch_dgv_radiobtn_CheckedChanged);
@@ -752,31 +827,118 @@
             this.Scheme_dgv.Location = new System.Drawing.Point(486, 38);
             this.Scheme_dgv.Name = "Scheme_dgv";
             this.Scheme_dgv.RowTemplate.Height = 24;
-            this.Scheme_dgv.Size = new System.Drawing.Size(636, 557);
+            this.Scheme_dgv.Size = new System.Drawing.Size(884, 557);
             this.Scheme_dgv.TabIndex = 1;
+            // 
+            // Scheme_Panel
+            // 
+            this.Scheme_Panel.Controls.Add(this.ChangeScheme_btn);
+            this.Scheme_Panel.Controls.Add(this.ChangeScheme_textbox);
+            this.Scheme_Panel.Controls.Add(this.Scheme_label);
+            this.Scheme_Panel.Location = new System.Drawing.Point(1543, 177);
+            this.Scheme_Panel.Name = "Scheme_Panel";
+            this.Scheme_Panel.Size = new System.Drawing.Size(334, 294);
+            this.Scheme_Panel.TabIndex = 8;
+            // 
+            // ChangeScheme_btn
+            // 
+            this.ChangeScheme_btn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChangeScheme_btn.Location = new System.Drawing.Point(127, 127);
+            this.ChangeScheme_btn.Name = "ChangeScheme_btn";
+            this.ChangeScheme_btn.Size = new System.Drawing.Size(83, 51);
+            this.ChangeScheme_btn.TabIndex = 2;
+            this.ChangeScheme_btn.Text = "Change Scheme";
+            this.ChangeScheme_btn.UseVisualStyleBackColor = true;
+            this.ChangeScheme_btn.Click += new System.EventHandler(this.ChangeScheme_btn_Click);
+            // 
+            // ChangeScheme_textbox
+            // 
+            this.ChangeScheme_textbox.Location = new System.Drawing.Point(97, 86);
+            this.ChangeScheme_textbox.Name = "ChangeScheme_textbox";
+            this.ChangeScheme_textbox.Size = new System.Drawing.Size(135, 22);
+            this.ChangeScheme_textbox.TabIndex = 1;
+            // 
+            // Scheme_label
+            // 
+            this.Scheme_label.AutoSize = true;
+            this.Scheme_label.Font = new System.Drawing.Font("Adobe Gothic Std B", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Scheme_label.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Scheme_label.Location = new System.Drawing.Point(101, 201);
+            this.Scheme_label.Name = "Scheme_label";
+            this.Scheme_label.Size = new System.Drawing.Size(141, 35);
+            this.Scheme_label.TabIndex = 0;
+            this.Scheme_label.Text = "KTU-2019";
+            // 
+            // RadioButton_panel
+            // 
+            this.RadioButton_panel.Controls.Add(this.Class_radiobtn);
+            this.RadioButton_panel.Controls.Add(this.Studnt_radiobtn);
+            this.RadioButton_panel.Location = new System.Drawing.Point(24, 12);
+            this.RadioButton_panel.Name = "RadioButton_panel";
+            this.RadioButton_panel.Size = new System.Drawing.Size(472, 67);
+            this.RadioButton_panel.TabIndex = 9;
+            // 
+            // ClassDgvView_checkbox
+            // 
+            this.ClassDgvView_checkbox.AutoSize = true;
+            this.ClassDgvView_checkbox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClassDgvView_checkbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ClassDgvView_checkbox.Location = new System.Drawing.Point(160, 521);
+            this.ClassDgvView_checkbox.Name = "ClassDgvView_checkbox";
+            this.ClassDgvView_checkbox.Size = new System.Drawing.Size(111, 23);
+            this.ClassDgvView_checkbox.TabIndex = 6;
+            this.ClassDgvView_checkbox.Text = "Class View";
+            this.ClassDgvView_checkbox.UseVisualStyleBackColor = true;
+            this.ClassDgvView_checkbox.CheckedChanged += new System.EventHandler(this.ClassDgvView_checkbox_CheckedChanged);
+            // 
+            // Search_btn
+            // 
+            this.Search_btn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Search_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Search_btn.Location = new System.Drawing.Point(332, 76);
+            this.Search_btn.Name = "Search_btn";
+            this.Search_btn.Size = new System.Drawing.Size(100, 30);
+            this.Search_btn.TabIndex = 0;
+            this.Search_btn.Text = "Search";
+            this.Search_btn.UseVisualStyleBackColor = true;
+            this.Search_btn.Click += new System.EventHandler(this.Search_btn_Click);
+            // 
+            // Clear_btn
+            // 
+            this.Clear_btn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Clear_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Clear_btn.Location = new System.Drawing.Point(332, 113);
+            this.Clear_btn.Name = "Clear_btn";
+            this.Clear_btn.Size = new System.Drawing.Size(100, 30);
+            this.Clear_btn.TabIndex = 0;
+            this.Clear_btn.Text = "Clear";
+            this.Clear_btn.UseVisualStyleBackColor = true;
+            this.Clear_btn.Click += new System.EventHandler(this.Clear_btn_Click);
             // 
             // Database_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1776, 719);
-            this.Controls.Add(this.BranchManagmnt_panel);
+            this.ClientSize = new System.Drawing.Size(1924, 719);
+            this.Controls.Add(this.RadioButton_panel);
+            this.Controls.Add(this.Scheme_Panel);
             this.Controls.Add(this.Student_mngmnt_panel);
-            this.Controls.Add(this.Class_radiobtn);
-            this.Controls.Add(this.Studnt_radiobtn);
+            this.Controls.Add(this.Class_Managmnt_panel);
             this.Name = "Database_Management";
             this.Text = "Database Management";
             this.Load += new System.EventHandler(this.Database_Management_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Student_dgv)).EndInit();
             this.Student_mngmnt_panel.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.Student_mngmnt_panel.PerformLayout();
+            this.UpgradeSemester_groupbox.ResumeLayout(false);
+            this.ImportGroupbox.ResumeLayout(false);
+            this.ImportGroupbox.PerformLayout();
+            this.AssignClass_groupbox.ResumeLayout(false);
+            this.AssignClass_groupbox.PerformLayout();
             this.add_stdnt_groupbox.ResumeLayout(false);
             this.add_stdnt_groupbox.PerformLayout();
-            this.BranchManagmnt_panel.ResumeLayout(false);
+            this.Class_Managmnt_panel.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.NewClassGroupbox.ResumeLayout(false);
@@ -786,14 +948,17 @@
             this.NewCourseGroupbox.ResumeLayout(false);
             this.NewCourseGroupbox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Scheme_dgv)).EndInit();
+            this.Scheme_Panel.ResumeLayout(false);
+            this.Scheme_Panel.PerformLayout();
+            this.RadioButton_panel.ResumeLayout(false);
+            this.RadioButton_panel.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button Add_btn;
+        private System.Windows.Forms.Button AddStudent_btn;
         private System.Windows.Forms.DataGridView Student_dgv;
         private System.Windows.Forms.TextBox YOA_textbox;
         private System.Windows.Forms.Label label1;
@@ -806,18 +971,17 @@
         private System.Windows.Forms.ComboBox Branch_combobox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label Class_label;
-        private System.Windows.Forms.TextBox AssignClass_textbox;
         private System.Windows.Forms.RadioButton Studnt_radiobtn;
         private System.Windows.Forms.RadioButton Class_radiobtn;
         private System.Windows.Forms.GroupBox add_stdnt_groupbox;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox AssignClass_groupbox;
+        private System.Windows.Forms.GroupBox ImportGroupbox;
         private System.Windows.Forms.ComboBox ExcelSheet_combobox;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox SelectedExcel_textbox;
         private System.Windows.Forms.Button SelectExcel_btn;
         private System.Windows.Forms.Button Import_Btn;
         private System.Windows.Forms.Button AssignClass_btn;
-        private System.Windows.Forms.Panel BranchManagmnt_panel;
+        private System.Windows.Forms.Panel Class_Managmnt_panel;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ComboBox Semester_combobox;
         private System.Windows.Forms.TextBox NewBranch_textbox;
@@ -846,10 +1010,22 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button AddNewClass_btn;
         private System.Windows.Forms.Button DeleteClass_btn;
-        private System.Windows.Forms.ComboBox NewClassYOA_combobox;
         private System.Windows.Forms.ComboBox AssignClassYOA_combobox;
         private System.Windows.Forms.ComboBox AssignClassBranch_combobox;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox NewClassSem_combobox;
+        private System.Windows.Forms.ComboBox AssignClass_combobox;
+        private System.Windows.Forms.Panel Scheme_Panel;
+        private System.Windows.Forms.Button ChangeScheme_btn;
+        private System.Windows.Forms.TextBox ChangeScheme_textbox;
+        private System.Windows.Forms.Label Scheme_label;
+        private System.Windows.Forms.Panel RadioButton_panel;
+        private System.Windows.Forms.Button UpgradeSem_btn;
+        private System.Windows.Forms.Button DegradeClass_btn;
+        private System.Windows.Forms.GroupBox UpgradeSemester_groupbox;
+        private System.Windows.Forms.CheckBox ClassDgvView_checkbox;
+        private System.Windows.Forms.Button Clear_btn;
+        private System.Windows.Forms.Button Search_btn;
     }
 }
