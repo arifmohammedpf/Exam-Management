@@ -27,7 +27,7 @@ namespace Exam_Cell
         {
             
             //Get Timtable details
-            SqlCommand command = new SqlCommand("select Date,Session,Course from Timetable order by Date",con.ActiveCon());
+            SqlCommand command = new SqlCommand("select Date,Session,Course from Timetable order by Date,Session",con.ActiveCon());
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable table_timetable = new DataTable();
             adapter.Fill(table_timetable);
@@ -142,7 +142,7 @@ namespace Exam_Cell
         void Allot_Series()
         {
             //Get Timtable details
-            SqlCommand command = new SqlCommand("select Date,Session,Course from Timetable order by Date", con.ActiveCon());
+            SqlCommand command = new SqlCommand("select Date,Session,Course from Timetable order by Date,Session", con.ActiveCon());
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable table_timetable = new DataTable();
             adapter.Fill(table_timetable);
@@ -159,14 +159,6 @@ namespace Exam_Cell
             DataTable table_rooms = new DataTable();
             adapter3.Fill(table_rooms);
             dataGridView1.DataSource = table_rooms;
-
-            int no_of_students = table_students.Rows.Count;
-
-            var top50 = table_students.AsEnumerable()
-                    .Take(no_of_students/2);
-            var bottom50 = table_students.AsEnumerable()
-                    .Skip(no_of_students/2);
-
 
             // initialize and get room values outside loop
             List<string> roomno = new List<string>();
@@ -216,23 +208,54 @@ namespace Exam_Cell
                 List<string> name_studentsA = new List<string>();
                 List<string> reg_studentsB = new List<string>();
                 List<string> name_studentsB = new List<string>();
+                List<string> course_studentsA = new List<string>();
+                List<string> course_studentsB = new List<string>();
+                DataTable SelectedStudents = new DataTable();
+                SelectedStudents = table_students.Clone();
+                DataTable SelectedSessCode = new DataTable();
+                SelectedSessCode = table_timetable.Clone();
+                List<string> selectedsessionA = new List<string>();
+                List<string> selectedexamcodeA = new List<string>();
+                List<string> selectedsessionB = new List<string>();
+                List<string> selectedexamcodeB = new List<string>();
+                foreach (DataRow dataRow in table_timetable.Rows)
+                {                  
+                    if (dataRow["Date"].ToString()==distinctdate[dcount-1])
+                    {
+                        string getcourse = dataRow["Course"].ToString();
+                        foreach (DataRow dataRow2 in table_students.Rows)
+                        {
+                            string student_course = dataRow2["Course"].ToString();
+                            if (student_course.ToUpper().Contains(getcourse.ToUpper()))
+                            {
+                                SelectedStudents.ImportRow(dataRow2);
+                                table_timetable.ImportRow(dataRow);
+                            }
+
+                        }
+                    }
+                }
+                int no_of_students = SelectedStudents.Rows.Count;
+
+                var top50 = SelectedStudents.AsEnumerable()
+                        .Take(no_of_students / 2);
+                var bottom50 = SelectedStudents.AsEnumerable()
+                        .Skip(no_of_students / 2);
+
                 foreach (DataRow row2 in top50)
                 {
-                    string student_course = row2["Course"].ToString();
-                    if (student_course.ToUpper().Contains(course.ToUpper()))
-                    {
-                        name_studentsA.Add(row2["Name"].ToString());
-                        reg_studentsA.Add(row2["Reg_no"].ToString());
-                    }
+
+                    name_studentsA.Add(row2["Name"].ToString());
+                    reg_studentsA.Add(row2["Reg_no"].ToString());
+                    course_studentsA.Add(row2["Course"].ToString());
+                    
                 }
                 foreach (DataRow row2 in bottom50)
                 {
-                    string student_course = row2["Course"].ToString();
-                    if (student_course.ToUpper().Contains(course.ToUpper()))
-                    {
-                        name_studentsB.Add(row2["Name"].ToString());
-                        reg_studentsB.Add(row2["Reg_no"].ToString());
-                    }
+
+                    name_studentsB.Add(row2["Name"].ToString());
+                    reg_studentsB.Add(row2["Reg_no"].ToString());
+                    course_studentsB.Add(row2["Course"].ToString());
                 }
                 int count = 0;
 
@@ -248,7 +271,7 @@ namespace Exam_Cell
                         command4.Parameters.AddWithValue("@Reg_no", reg_studentsA[count]);
                         command4.Parameters.AddWithValue("@Name", name_studentsA[count]);
                         command4.Parameters.AddWithValue("@Exam_Code", examcode);
-                        command4.Parameters.AddWithValue("@Course", course);
+                        command4.Parameters.AddWithValue("@Course", course_studentsA[count]);
                         command3.ExecuteNonQuery();
                         j += 1;
                         if (j == seriesA)
@@ -282,7 +305,7 @@ namespace Exam_Cell
                         command4.Parameters.AddWithValue("@Reg_no", reg_studentsB[countb]);
                         command4.Parameters.AddWithValue("@Name", name_studentsB[countb]);
                         command4.Parameters.AddWithValue("@Exam_Code", examcode);
-                        command4.Parameters.AddWithValue("@Course", course);
+                        command4.Parameters.AddWithValue("@Course", course_studentsB[count]);
                         command4.ExecuteNonQuery();
                         k += 1;
                         if (k == seriesB)
