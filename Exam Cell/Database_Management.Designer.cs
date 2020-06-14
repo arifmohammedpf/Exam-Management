@@ -38,6 +38,7 @@
             this.Name_textbox = new System.Windows.Forms.TextBox();
             this.Delete_btn = new System.Windows.Forms.Button();
             this.Student_mngmnt_panel = new System.Windows.Forms.Panel();
+            this.ClassDgvView_checkbox = new System.Windows.Forms.CheckBox();
             this.UpgradeSemester_groupbox = new System.Windows.Forms.GroupBox();
             this.UpgradeSem_btn = new System.Windows.Forms.Button();
             this.DegradeClass_btn = new System.Windows.Forms.Button();
@@ -56,6 +57,8 @@
             this.label13 = new System.Windows.Forms.Label();
             this.add_stdnt_groupbox = new System.Windows.Forms.GroupBox();
             this.Branch_combobox = new System.Windows.Forms.ComboBox();
+            this.Clear_btn = new System.Windows.Forms.Button();
+            this.Search_btn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.Studnt_radiobtn = new System.Windows.Forms.RadioButton();
             this.Class_radiobtn = new System.Windows.Forms.RadioButton();
@@ -89,14 +92,12 @@
             this.Class_dgv_radiobtn = new System.Windows.Forms.RadioButton();
             this.Branch_dgv_radiobtn = new System.Windows.Forms.RadioButton();
             this.Scheme_dgv = new System.Windows.Forms.DataGridView();
-            this.Scheme_Panel = new System.Windows.Forms.Panel();
+            this.DefaultScheme_Panel = new System.Windows.Forms.Panel();
             this.ChangeScheme_btn = new System.Windows.Forms.Button();
             this.ChangeScheme_textbox = new System.Windows.Forms.TextBox();
             this.Scheme_label = new System.Windows.Forms.Label();
             this.RadioButton_panel = new System.Windows.Forms.Panel();
-            this.ClassDgvView_checkbox = new System.Windows.Forms.CheckBox();
-            this.Search_btn = new System.Windows.Forms.Button();
-            this.Clear_btn = new System.Windows.Forms.Button();
+            this.DefaultScheme_radiobtn = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.Student_dgv)).BeginInit();
             this.Student_mngmnt_panel.SuspendLayout();
             this.UpgradeSemester_groupbox.SuspendLayout();
@@ -109,7 +110,7 @@
             this.NewBranchGroupbox.SuspendLayout();
             this.NewCourseGroupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Scheme_dgv)).BeginInit();
-            this.Scheme_Panel.SuspendLayout();
+            this.DefaultScheme_Panel.SuspendLayout();
             this.RadioButton_panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -216,8 +217,22 @@
             this.Student_mngmnt_panel.Size = new System.Drawing.Size(1385, 607);
             this.Student_mngmnt_panel.TabIndex = 5;
             // 
+            // ClassDgvView_checkbox
+            // 
+            this.ClassDgvView_checkbox.AutoSize = true;
+            this.ClassDgvView_checkbox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClassDgvView_checkbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ClassDgvView_checkbox.Location = new System.Drawing.Point(160, 521);
+            this.ClassDgvView_checkbox.Name = "ClassDgvView_checkbox";
+            this.ClassDgvView_checkbox.Size = new System.Drawing.Size(111, 23);
+            this.ClassDgvView_checkbox.TabIndex = 6;
+            this.ClassDgvView_checkbox.Text = "Class View";
+            this.ClassDgvView_checkbox.UseVisualStyleBackColor = true;
+            this.ClassDgvView_checkbox.CheckedChanged += new System.EventHandler(this.ClassDgvView_checkbox_CheckedChanged);
+            // 
             // UpgradeSemester_groupbox
             // 
+            this.UpgradeSemester_groupbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.UpgradeSemester_groupbox.Controls.Add(this.UpgradeSem_btn);
             this.UpgradeSemester_groupbox.Controls.Add(this.DegradeClass_btn);
             this.UpgradeSemester_groupbox.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -231,7 +246,7 @@
             // 
             // UpgradeSem_btn
             // 
-            this.UpgradeSem_btn.BackColor = System.Drawing.Color.Gold;
+            this.UpgradeSem_btn.BackColor = System.Drawing.Color.Honeydew;
             this.UpgradeSem_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.UpgradeSem_btn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UpgradeSem_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -434,6 +449,30 @@
             this.Branch_combobox.Name = "Branch_combobox";
             this.Branch_combobox.Size = new System.Drawing.Size(218, 25);
             this.Branch_combobox.TabIndex = 5;
+            // 
+            // Clear_btn
+            // 
+            this.Clear_btn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Clear_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Clear_btn.Location = new System.Drawing.Point(332, 113);
+            this.Clear_btn.Name = "Clear_btn";
+            this.Clear_btn.Size = new System.Drawing.Size(100, 30);
+            this.Clear_btn.TabIndex = 0;
+            this.Clear_btn.Text = "Clear";
+            this.Clear_btn.UseVisualStyleBackColor = true;
+            this.Clear_btn.Click += new System.EventHandler(this.Clear_btn_Click);
+            // 
+            // Search_btn
+            // 
+            this.Search_btn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Search_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Search_btn.Location = new System.Drawing.Point(332, 76);
+            this.Search_btn.Name = "Search_btn";
+            this.Search_btn.Size = new System.Drawing.Size(100, 30);
+            this.Search_btn.TabIndex = 0;
+            this.Search_btn.Text = "Search";
+            this.Search_btn.UseVisualStyleBackColor = true;
+            this.Search_btn.Click += new System.EventHandler(this.Search_btn_Click);
             // 
             // label4
             // 
@@ -830,20 +869,20 @@
             this.Scheme_dgv.Size = new System.Drawing.Size(884, 557);
             this.Scheme_dgv.TabIndex = 1;
             // 
-            // Scheme_Panel
+            // DefaultScheme_Panel
             // 
-            this.Scheme_Panel.Controls.Add(this.ChangeScheme_btn);
-            this.Scheme_Panel.Controls.Add(this.ChangeScheme_textbox);
-            this.Scheme_Panel.Controls.Add(this.Scheme_label);
-            this.Scheme_Panel.Location = new System.Drawing.Point(1543, 177);
-            this.Scheme_Panel.Name = "Scheme_Panel";
-            this.Scheme_Panel.Size = new System.Drawing.Size(334, 294);
-            this.Scheme_Panel.TabIndex = 8;
+            this.DefaultScheme_Panel.Controls.Add(this.ChangeScheme_btn);
+            this.DefaultScheme_Panel.Controls.Add(this.ChangeScheme_textbox);
+            this.DefaultScheme_Panel.Controls.Add(this.Scheme_label);
+            this.DefaultScheme_Panel.Location = new System.Drawing.Point(567, 214);
+            this.DefaultScheme_Panel.Name = "DefaultScheme_Panel";
+            this.DefaultScheme_Panel.Size = new System.Drawing.Size(400, 350);
+            this.DefaultScheme_Panel.TabIndex = 8;
             // 
             // ChangeScheme_btn
             // 
             this.ChangeScheme_btn.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChangeScheme_btn.Location = new System.Drawing.Point(127, 127);
+            this.ChangeScheme_btn.Location = new System.Drawing.Point(158, 145);
             this.ChangeScheme_btn.Name = "ChangeScheme_btn";
             this.ChangeScheme_btn.Size = new System.Drawing.Size(83, 51);
             this.ChangeScheme_btn.TabIndex = 2;
@@ -853,7 +892,7 @@
             // 
             // ChangeScheme_textbox
             // 
-            this.ChangeScheme_textbox.Location = new System.Drawing.Point(97, 86);
+            this.ChangeScheme_textbox.Location = new System.Drawing.Point(128, 104);
             this.ChangeScheme_textbox.Name = "ChangeScheme_textbox";
             this.ChangeScheme_textbox.Size = new System.Drawing.Size(135, 22);
             this.ChangeScheme_textbox.TabIndex = 1;
@@ -863,57 +902,33 @@
             this.Scheme_label.AutoSize = true;
             this.Scheme_label.Font = new System.Drawing.Font("Adobe Gothic Std B", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Scheme_label.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Scheme_label.Location = new System.Drawing.Point(101, 201);
+            this.Scheme_label.Location = new System.Drawing.Point(132, 219);
             this.Scheme_label.Name = "Scheme_label";
-            this.Scheme_label.Size = new System.Drawing.Size(141, 35);
+            this.Scheme_label.Size = new System.Drawing.Size(0, 35);
             this.Scheme_label.TabIndex = 0;
-            this.Scheme_label.Text = "KTU-2019";
             // 
             // RadioButton_panel
             // 
             this.RadioButton_panel.Controls.Add(this.Class_radiobtn);
+            this.RadioButton_panel.Controls.Add(this.DefaultScheme_radiobtn);
             this.RadioButton_panel.Controls.Add(this.Studnt_radiobtn);
             this.RadioButton_panel.Location = new System.Drawing.Point(24, 12);
             this.RadioButton_panel.Name = "RadioButton_panel";
-            this.RadioButton_panel.Size = new System.Drawing.Size(472, 67);
+            this.RadioButton_panel.Size = new System.Drawing.Size(725, 67);
             this.RadioButton_panel.TabIndex = 9;
             // 
-            // ClassDgvView_checkbox
+            // DefaultScheme_radiobtn
             // 
-            this.ClassDgvView_checkbox.AutoSize = true;
-            this.ClassDgvView_checkbox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClassDgvView_checkbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClassDgvView_checkbox.Location = new System.Drawing.Point(160, 521);
-            this.ClassDgvView_checkbox.Name = "ClassDgvView_checkbox";
-            this.ClassDgvView_checkbox.Size = new System.Drawing.Size(111, 23);
-            this.ClassDgvView_checkbox.TabIndex = 6;
-            this.ClassDgvView_checkbox.Text = "Class View";
-            this.ClassDgvView_checkbox.UseVisualStyleBackColor = true;
-            this.ClassDgvView_checkbox.CheckedChanged += new System.EventHandler(this.ClassDgvView_checkbox_CheckedChanged);
-            // 
-            // Search_btn
-            // 
-            this.Search_btn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Search_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Search_btn.Location = new System.Drawing.Point(332, 76);
-            this.Search_btn.Name = "Search_btn";
-            this.Search_btn.Size = new System.Drawing.Size(100, 30);
-            this.Search_btn.TabIndex = 0;
-            this.Search_btn.Text = "Search";
-            this.Search_btn.UseVisualStyleBackColor = true;
-            this.Search_btn.Click += new System.EventHandler(this.Search_btn_Click);
-            // 
-            // Clear_btn
-            // 
-            this.Clear_btn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Clear_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Clear_btn.Location = new System.Drawing.Point(332, 113);
-            this.Clear_btn.Name = "Clear_btn";
-            this.Clear_btn.Size = new System.Drawing.Size(100, 30);
-            this.Clear_btn.TabIndex = 0;
-            this.Clear_btn.Text = "Clear";
-            this.Clear_btn.UseVisualStyleBackColor = true;
-            this.Clear_btn.Click += new System.EventHandler(this.Clear_btn_Click);
+            this.DefaultScheme_radiobtn.AutoSize = true;
+            this.DefaultScheme_radiobtn.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DefaultScheme_radiobtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DefaultScheme_radiobtn.Location = new System.Drawing.Point(487, 19);
+            this.DefaultScheme_radiobtn.Name = "DefaultScheme_radiobtn";
+            this.DefaultScheme_radiobtn.Size = new System.Drawing.Size(146, 23);
+            this.DefaultScheme_radiobtn.TabIndex = 6;
+            this.DefaultScheme_radiobtn.Text = "Default Scheme";
+            this.DefaultScheme_radiobtn.UseVisualStyleBackColor = true;
+            this.DefaultScheme_radiobtn.CheckedChanged += new System.EventHandler(this.DefaultScheme_radiobtn_CheckedChanged);
             // 
             // Database_Management
             // 
@@ -922,9 +937,9 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1924, 719);
             this.Controls.Add(this.RadioButton_panel);
-            this.Controls.Add(this.Scheme_Panel);
             this.Controls.Add(this.Student_mngmnt_panel);
             this.Controls.Add(this.Class_Managmnt_panel);
+            this.Controls.Add(this.DefaultScheme_Panel);
             this.Name = "Database_Management";
             this.Text = "Database Management";
             this.Load += new System.EventHandler(this.Database_Management_Load);
@@ -948,8 +963,8 @@
             this.NewCourseGroupbox.ResumeLayout(false);
             this.NewCourseGroupbox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Scheme_dgv)).EndInit();
-            this.Scheme_Panel.ResumeLayout(false);
-            this.Scheme_Panel.PerformLayout();
+            this.DefaultScheme_Panel.ResumeLayout(false);
+            this.DefaultScheme_Panel.PerformLayout();
             this.RadioButton_panel.ResumeLayout(false);
             this.RadioButton_panel.PerformLayout();
             this.ResumeLayout(false);
@@ -1016,7 +1031,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox NewClassSem_combobox;
         private System.Windows.Forms.ComboBox AssignClass_combobox;
-        private System.Windows.Forms.Panel Scheme_Panel;
+        private System.Windows.Forms.Panel DefaultScheme_Panel;
         private System.Windows.Forms.Button ChangeScheme_btn;
         private System.Windows.Forms.TextBox ChangeScheme_textbox;
         private System.Windows.Forms.Label Scheme_label;
@@ -1027,5 +1042,6 @@
         private System.Windows.Forms.CheckBox ClassDgvView_checkbox;
         private System.Windows.Forms.Button Clear_btn;
         private System.Windows.Forms.Button Search_btn;
+        private System.Windows.Forms.RadioButton DefaultScheme_radiobtn;
     }
 }

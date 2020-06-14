@@ -312,7 +312,17 @@ namespace Exam_Cell
 
         private void ChangeScheme_btn_Click(object sender, EventArgs e)
         {
-            Scheme_label.Text = ChangeScheme_textbox.Text;  //// NOT WORKING AFTER EXIT OF PROGRAM
+            if (ChangeScheme_textbox.Text != "")
+            {
+                SqlCommand comm = new SqlCommand("update Management set Default_Scheme=@Default_Scheme where (Default_Scheme is not null)", con.ActiveCon());
+                comm.Parameters.AddWithValue("@Default_Scheme", ChangeScheme_textbox.Text);
+                comm.ExecuteNonQuery();
+                SqlCommand comm2 = new SqlCommand("Select Default_Scheme from Management where (Default_Scheme is not null)", con.ActiveCon());
+                string scheme = (string)comm2.ExecuteScalar();
+                Scheme_label.Text = scheme;
+            }
+            else
+                MessageBox.Show("Type New Default Scheme", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         void Schemelabel()
         {
@@ -365,11 +375,17 @@ namespace Exam_Cell
         private void Class_radiobtn_CheckedChanged(object sender, EventArgs e)
         {
             Class_Managmnt_panel.BringToFront();
+            Student_mngmnt_panel.Enabled = false;
+            Class_Managmnt_panel.Enabled = true;
+            DefaultScheme_Panel.Enabled = false;
         }
 
         private void Studnt_radiobtn_CheckedChanged(object sender, EventArgs e)
         {
             Student_mngmnt_panel.BringToFront();
+            Student_mngmnt_panel.Enabled = true;
+            Class_Managmnt_panel.Enabled = false;
+            DefaultScheme_Panel.Enabled = false;
             Student_dgvFill();
             StudentBranchComboboxFill();
             ClassBranchComboboxFill();
@@ -639,6 +655,17 @@ namespace Exam_Cell
                 filter += string.Format("Convert(Year_Of_Admission,'System.String') like '%{0}%'", yoa );
             }
             Student_Source.Filter = filter;
+        }
+
+        private void DefaultScheme_radiobtn_CheckedChanged(object sender, EventArgs e)
+        {
+            DefaultScheme_Panel.BringToFront();
+            DefaultScheme_Panel.Enabled = true;
+            Class_Managmnt_panel.Enabled = false;
+            Student_mngmnt_panel.Enabled = false;
+            SqlCommand comm = new SqlCommand("Select Default_Scheme from Management where (Default_Scheme is not null)",con.ActiveCon());
+            string scheme = (string) comm.ExecuteScalar();
+            Scheme_label.Text=scheme;
         }
     }
 }

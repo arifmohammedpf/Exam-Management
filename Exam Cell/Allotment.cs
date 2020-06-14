@@ -203,7 +203,7 @@ namespace Exam_Cell
                 string session = row["Session"].ToString();
                 string course = row["Course"].ToString();
                 string examcode = row["Exam_Code"].ToString();
-                if (distinctdate[dcount] == date) //might get error when distinctdate get out of range
+                if (distinctdate[dcount] == date) //idk whether it gets error when distinctdate get out of range
                 {
                     dcount += 1;
                     sra = 0;
@@ -228,7 +228,7 @@ namespace Exam_Cell
                 foreach (DataRow row2 in bottom50)
                 {
                     string student_course = row2["Course"].ToString();
-                    if (student_course == course)
+                    if (student_course.ToUpper().Contains(course.ToUpper()))
                     {
                         name_studentsB.Add(row2["Name"].ToString());
                         reg_studentsB.Add(row2["Reg_no"].ToString());

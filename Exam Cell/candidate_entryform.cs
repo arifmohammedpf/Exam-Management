@@ -319,16 +319,19 @@ namespace Exam_Cell
 
         void classcomboboxfill()
         {
-            Class_drpdwn.Items.Add(new KeyValuePair<string, string>("-Select-", "-Select-"));
-            Class_drpdwn.Items.Add(new KeyValuePair<string, string>("Computer Science Eng", "cse"));
-            Class_drpdwn.Items.Add(new KeyValuePair<string, string>("Mechanical Eng", "mee"));
-            Class_drpdwn.Items.Add(new KeyValuePair<string, string>("Civil Eng", "Civil Eng"));
-            Class_drpdwn.Items.Add(new KeyValuePair<string, string>("Electronics & Communication Eng", "ece"));
-            Class_drpdwn.Items.Add(new KeyValuePair<string, string>("Electrical & Electronics Eng", "eee"));
+            string command = string.Format("Select Class from Class");
+            SqlCommand sc = new SqlCommand(command, con.ActiveCon());
+            SqlDataReader reader;
+            reader = sc.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Class", typeof(string));
+            DataRow top = dt.NewRow();
+            top[0] = "-Select-";
+            dt.Rows.InsertAt(top, 0);
+            dt.Load(reader);
 
-            Class_drpdwn.DisplayMember = "key";
-            Class_drpdwn.ValueMember = "value";
-
+            Class_drpdwn.ValueMember = "Class";
+            Class_drpdwn.DataSource = dt;
             Class_drpdwn.SelectedIndex = 0; //set selected index as first index
         }
 
