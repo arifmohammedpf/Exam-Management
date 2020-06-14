@@ -580,8 +580,7 @@ namespace Exam_Cell
             try
             {
                 //Get selected item from Class combobox
-                KeyValuePair<string, string> kvp = (KeyValuePair<string, string>)Class_drpdwn.SelectedItem;
-                string key = kvp.Key.ToString();
+                string key = Class_drpdwn.Text;
 
                 //Filter the dgv
                 if (key == "-Select-")
