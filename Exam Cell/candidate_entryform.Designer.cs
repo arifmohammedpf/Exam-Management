@@ -33,7 +33,6 @@
             this.Excel_Group = new System.Windows.Forms.GroupBox();
             this.Filepath_textbox = new System.Windows.Forms.TextBox();
             this.Sheet_combobox = new System.Windows.Forms.ComboBox();
-            this.Import_btn = new System.Windows.Forms.Button();
             this.Excel_btn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Close_btn = new System.Windows.Forms.Button();
@@ -147,13 +146,12 @@
             // 
             this.Excel_Group.Controls.Add(this.Filepath_textbox);
             this.Excel_Group.Controls.Add(this.Sheet_combobox);
-            this.Excel_Group.Controls.Add(this.Import_btn);
             this.Excel_Group.Controls.Add(this.Excel_btn);
             this.Excel_Group.Enabled = false;
             this.Excel_Group.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Excel_Group.Location = new System.Drawing.Point(730, 241);
             this.Excel_Group.Name = "Excel_Group";
-            this.Excel_Group.Size = new System.Drawing.Size(226, 212);
+            this.Excel_Group.Size = new System.Drawing.Size(226, 200);
             this.Excel_Group.TabIndex = 30;
             this.Excel_Group.TabStop = false;
             this.Excel_Group.Text = "Add From Excel";
@@ -170,28 +168,16 @@
             // 
             this.Sheet_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Sheet_combobox.FormattingEnabled = true;
-            this.Sheet_combobox.Location = new System.Drawing.Point(35, 128);
+            this.Sheet_combobox.Location = new System.Drawing.Point(35, 136);
             this.Sheet_combobox.Name = "Sheet_combobox";
             this.Sheet_combobox.Size = new System.Drawing.Size(160, 26);
             this.Sheet_combobox.TabIndex = 17;
             this.Sheet_combobox.SelectedIndexChanged += new System.EventHandler(this.Sheet_combobox_SelectedIndexChanged);
             // 
-            // Import_btn
-            // 
-            this.Import_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Import_btn.Location = new System.Drawing.Point(57, 159);
-            this.Import_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Import_btn.Name = "Import_btn";
-            this.Import_btn.Size = new System.Drawing.Size(111, 34);
-            this.Import_btn.TabIndex = 16;
-            this.Import_btn.Text = "Import";
-            this.Import_btn.UseVisualStyleBackColor = true;
-            this.Import_btn.Click += new System.EventHandler(this.Import_btn_Click);
-            // 
             // Excel_btn
             // 
             this.Excel_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Excel_btn.Location = new System.Drawing.Point(57, 62);
+            this.Excel_btn.Location = new System.Drawing.Point(57, 76);
             this.Excel_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Excel_btn.Name = "Excel_btn";
             this.Excel_btn.Size = new System.Drawing.Size(111, 40);
@@ -696,7 +682,6 @@
         private System.Windows.Forms.GroupBox Excel_Group;
         private System.Windows.Forms.TextBox Filepath_textbox;
         private System.Windows.Forms.ComboBox Sheet_combobox;
-        private System.Windows.Forms.Button Import_btn;
         private Exam_CellDataSetExcelStudents exam_CellDataSetExcelStudents;
         private System.Windows.Forms.BindingSource excelShowBindingSource;
         private Exam_CellDataSetExcelStudentsTableAdapters.Excel_ShowTableAdapter excel_ShowTableAdapter;

@@ -144,6 +144,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Exam_Cell_Rooms.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ExcelDBManagement.cs" />
     <Compile Include="ExcelStudents.cs" />
     <Compile Include="login.cs">
       <SubType>Form</SubType>

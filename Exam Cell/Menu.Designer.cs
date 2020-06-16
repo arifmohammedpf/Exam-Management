@@ -31,16 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.filesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.backupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.backupToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.openFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteAllExamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addDeleteClassToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addDeleteSubjectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addDeleteStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.findToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timetableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.regStdntMangmntToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.candidateEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,7 +63,6 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.filesToolStripMenuItem,
-            this.editToolStripMenuItem,
             this.timetableToolStripMenuItem,
             this.regStdntMangmntToolStripMenuItem,
             this.candidateEntryToolStripMenuItem,
@@ -93,82 +83,18 @@
             // filesToolStripMenuItem
             // 
             this.filesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.backupToolStripMenuItem,
-            this.backupToolStripMenuItem1,
-            this.openFolderToolStripMenuItem,
-            this.deleteAllExamToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.filesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.filesToolStripMenuItem.Name = "filesToolStripMenuItem";
             this.filesToolStripMenuItem.Size = new System.Drawing.Size(50, 24);
             this.filesToolStripMenuItem.Text = "Files";
             // 
-            // backupToolStripMenuItem
-            // 
-            this.backupToolStripMenuItem.Name = "backupToolStripMenuItem";
-            this.backupToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
-            this.backupToolStripMenuItem.Text = "Restore";
-            // 
-            // backupToolStripMenuItem1
-            // 
-            this.backupToolStripMenuItem1.Name = "backupToolStripMenuItem1";
-            this.backupToolStripMenuItem1.Size = new System.Drawing.Size(190, 26);
-            this.backupToolStripMenuItem1.Text = "Backup";
-            // 
-            // openFolderToolStripMenuItem
-            // 
-            this.openFolderToolStripMenuItem.Name = "openFolderToolStripMenuItem";
-            this.openFolderToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
-            this.openFolderToolStripMenuItem.Text = "Open Folder";
-            // 
-            // deleteAllExamToolStripMenuItem
-            // 
-            this.deleteAllExamToolStripMenuItem.Name = "deleteAllExamToolStripMenuItem";
-            this.deleteAllExamToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
-            this.deleteAllExamToolStripMenuItem.Text = "Delete All Exam";
-            // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(190, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addDeleteClassToolStripMenuItem,
-            this.addDeleteSubjectsToolStripMenuItem,
-            this.addDeleteStudentToolStripMenuItem,
-            this.findToolStripMenuItem});
-            this.editToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(47, 24);
-            this.editToolStripMenuItem.Text = "Edit";
-            // 
-            // addDeleteClassToolStripMenuItem
-            // 
-            this.addDeleteClassToolStripMenuItem.Name = "addDeleteClassToolStripMenuItem";
-            this.addDeleteClassToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
-            this.addDeleteClassToolStripMenuItem.Text = "Add/Delete Class";
-            // 
-            // addDeleteSubjectsToolStripMenuItem
-            // 
-            this.addDeleteSubjectsToolStripMenuItem.Name = "addDeleteSubjectsToolStripMenuItem";
-            this.addDeleteSubjectsToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
-            this.addDeleteSubjectsToolStripMenuItem.Text = "Add/Delete Subject";
-            // 
-            // addDeleteStudentToolStripMenuItem
-            // 
-            this.addDeleteStudentToolStripMenuItem.Name = "addDeleteStudentToolStripMenuItem";
-            this.addDeleteStudentToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
-            this.addDeleteStudentToolStripMenuItem.Text = "Add/Delete Student";
-            // 
-            // findToolStripMenuItem
-            // 
-            this.findToolStripMenuItem.Name = "findToolStripMenuItem";
-            this.findToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
-            this.findToolStripMenuItem.Text = "Find";
             // 
             // timetableToolStripMenuItem
             // 
@@ -232,8 +158,8 @@
             // 
             this.helpToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
-            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(47, 24);
+            this.helpToolStripMenuItem.Text = "Info";
             // 
             // menu
             // 
@@ -262,16 +188,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem filesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem backupToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem backupToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem openFolderToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteAllExamToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addDeleteClassToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addDeleteSubjectsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addDeleteStudentToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem findToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem timetableToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem candidateEntryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem postponementToolStripMenuItem;

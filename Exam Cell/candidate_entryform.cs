@@ -60,8 +60,7 @@ namespace Exam_Cell
             
             // TODO: This line of code loads data into the 'exam_CellDataSet_Tables.Students' table. You can move, or remove it, as needed.
             this.studentsTableAdapter.Fill(this.exam_CellDataSet_Tables.Students);
-            // TODO: This line of code loads data into the 'exam_CellDataSetExcelStudents.Excel_Show' table. You can move, or remove it, as needed.
-            this.excel_ShowTableAdapter.Fill(this.exam_CellDataSetExcelStudents.Excel_Show);
+            
 
             try
             {
@@ -94,7 +93,7 @@ namespace Exam_Cell
                 AddHeaderchckbox(); //header checkbox added to candidate dgv
                 headerchkbox.MouseClick += new MouseEventHandler(Headerchckbox_Mouseclick);
             }
-            catch (Exception) { MessageBox.Show("Try Again", "form load", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "form load", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             
         }
 
@@ -112,7 +111,7 @@ namespace Exam_Cell
                 //add checkbox into dgv
                 Candidate_datagridview.Controls.Add(headerchkbox);
             }
-            catch (Exception) { MessageBox.Show("Try Again", "AddHeaderchckbox", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "AddHeaderchckbox", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         private void Headerchckbox_Mouseclick(object sender, MouseEventArgs e)
@@ -121,7 +120,7 @@ namespace Exam_Cell
             {
                 Headerchckboxclick((CheckBox)sender);
             }
-            catch (Exception) { MessageBox.Show("Try Again", "Headerchckbox_Mouseclick", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Headerchckbox_Mouseclick", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         //headerchckbox click event
@@ -135,7 +134,7 @@ namespace Exam_Cell
 
                 Candidate_datagridview.RefreshEdit();
             }
-            catch (Exception) { MessageBox.Show("Try Again", "Headerchckboxclick", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Headerchckboxclick", MessageBoxButtons.OK, MessageBoxIcon.Error); }
 
 
 
@@ -176,7 +175,7 @@ namespace Exam_Cell
                 Scheme_combobox.ValueMember = "Scheme";  // Whats the use of this lineofcode? // scheme is column name
                 Scheme_combobox.DataSource = dt;
             }
-            catch (Exception) { MessageBox.Show("Try Again", "Schemecomboboxfill", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Schemecomboboxfill", MessageBoxButtons.OK, MessageBoxIcon.Error); }
 
         }
 
@@ -213,9 +212,9 @@ namespace Exam_Cell
                 Branch_combobox.ValueMember = "Branch";
                 Branch_combobox.DataSource = dt;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Try Again", "Branchsecondcomboboxfill", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Branchsecondcomboboxfill", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             // IF WE USE BELOW METHOD TO POPULATE COMBOBOX THEN HOW TO USE DISPLAY AND VALUE MEMBERS LIKE combobox.selecteditem();??? please check
@@ -268,9 +267,9 @@ namespace Exam_Cell
                 Semester_combobox.ValueMember = "Semester";
                 Semester_combobox.DataSource = dt;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Try Again", "Semestercomboboxfill", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Semestercomboboxfill", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -392,7 +391,7 @@ namespace Exam_Cell
                 }    
                 
             }
-            catch (Exception) { MessageBox.Show("Try Again", "Scheme_combobox_SelectedIndexChanged", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Scheme_combobox_SelectedIndexChanged", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             
         }
 
@@ -407,7 +406,7 @@ namespace Exam_Cell
                     //Function Call for filter
                     subjectdetailsfilter();
             }
-            catch (Exception) { MessageBox.Show("Try Again", "Branch_combobox_SelectedIndexChanged", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Branch_combobox_SelectedIndexChanged", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                
         }
 
@@ -421,7 +420,7 @@ namespace Exam_Cell
                     //Function Call for filter
                     subjectdetailsfilter();
             }
-            catch (Exception) { MessageBox.Show("Try Again", "Semester_combobox_SelectedIndexChanged", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Semester_combobox_SelectedIndexChanged", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                 
         }
 
@@ -462,7 +461,7 @@ namespace Exam_Cell
                     MessageBox.Show("Select Scheme");   //Error Box appear
                 }
             }
-            catch (Exception) { MessageBox.Show("Try Again", "subjectdetailsfilter", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "subjectdetailsfilter", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             
         }
             
@@ -523,7 +522,7 @@ namespace Exam_Cell
                     }
                 }
             }
-            catch (Exception) { MessageBox.Show("Try Again", "Excel_btn_Click", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Excel_btn_Click", MessageBoxButtons.OK, MessageBoxIcon.Error); }
 
         }
         //Sheet Combobox Event
@@ -553,25 +552,25 @@ namespace Exam_Cell
 
                 }
             }
-            catch (Exception) { MessageBox.Show("Try Again", "Sheet_combobox_SelectedIndexChanged", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Sheet_combobox_SelectedIndexChanged", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             
         }
 
-        // Import Button Event
-        private void Import_btn_Click(object sender, EventArgs e)
-        {
-            //string connectionString = @"Data Source=DESKTOP-P1AI33U\SQLEXPRESS;Initial Catalog=Exam_Cell;Integrated Security=True;";
-            //DapperPlusManager.Entity<ExcelStudents>().Table("Excel_Show"); //"Excel_Show" is Table name from sql to import
-            //List<ExcelStudents> excst = excelShowBindingSource.DataSource as List<ExcelStudents>;
-            //if (excst != null)
-            //{
-            //    using (IDbConnection db = new SqlConnection(connectionString))
-            //    {
-            //        db.BulkInsert(excst);
-            //    }
-            //}
-            MessageBox.Show("is this function needed ???");
-        }
+        //// Import Button Event
+        //private void Import_btn_Click(object sender, EventArgs e)
+        //{
+        //    string connectionString = @"Data Source=DESKTOP-P1AI33U\SQLEXPRESS;Initial Catalog=Exam_Cell;Integrated Security=True;";
+        //    DapperPlusManager.Entity<ExcelStudents>().Table("Excel_Show"); //"Excel_Show" is Table name from sql to import
+        //    List<ExcelStudents> excst = excelShowBindingSource.DataSource as List<ExcelStudents>;
+        //    if (excst != null)
+        //    {
+        //        using (IDbConnection db = new SqlConnection(connectionString))
+        //        {
+        //            db.BulkInsert(excst);
+        //        }
+        //    }
+        //    MessageBox.Show("is this function needed ???");
+        //}
 
 
         //Class combobox Event
@@ -592,7 +591,7 @@ namespace Exam_Cell
                     studentsBindingSource2.Filter = string.Format("Branch LIKE '%{0}%'", key);   //filter with sql statement
                 }
             }
-            catch (Exception) { MessageBox.Show("Try Again", "Class_drpdwn_SelectedIndexChanged", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Class_drpdwn_SelectedIndexChanged", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             
         }
 
@@ -684,7 +683,7 @@ namespace Exam_Cell
                     MessageBox.Show("Necessary details are not given", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch (Exception) { MessageBox.Show("Try Again.", "RegRegCnd_btn_Click", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "RegRegCnd_btn_Click", MessageBoxButtons.OK, MessageBoxIcon.Error); }
 
         }
 

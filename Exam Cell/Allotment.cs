@@ -83,7 +83,7 @@ namespace Exam_Cell
                 distinctdate.Add(rowdate["Date"].ToString());            
             }
             int dcount = 1 ;
-            
+            string SessionCheck = table_timetable.Rows[0]["Session"].ToString(); 
             //start allotment loop
             foreach (DataRow row in table_timetable.Rows)
             {               
@@ -91,6 +91,7 @@ namespace Exam_Cell
                 string session = row["Session"].ToString();
                 string course = row["Course"].ToString();
                 string examcode = row["Exam_Code"].ToString();
+                
                 if (distinctdate[dcount] == date)
                 {
                     if(distinctdate.Count!=dcount+1)
@@ -98,17 +99,22 @@ namespace Exam_Cell
                         dcount += 1;
                         sr = 0;
                         j = 0;
-                    }
+                    }                  
                     else
                     {
                         dcount = 0;
                         sr = 0;
                         j = 0;
-                    }
-                    
+                    }                 
                 }
                 else { }
-                
+                if (SessionCheck != session)
+                {
+                    sr = 0;
+                    j = 0;
+                    SessionCheck = session;
+                }
+
                 List<string> reg_students = new List<string>();
                 List<string> name_students = new List<string>();
                 
@@ -215,11 +221,10 @@ namespace Exam_Cell
                 distinctdate.Add(rowdate["Date"].ToString());
             }
             int dcount = 1,backupcount=1,checkcount=table_timetable.Rows.Count;
-            
+            string SessionCheck = table_timetable.Rows[0]["Session"].ToString();
+
             DataTable SelectedStudents = new DataTable();
             SelectedStudents = table_students.Clone();
-            DataTable SelectedSessCode = new DataTable();
-            SelectedSessCode = table_timetable.Clone();
             //start allotment loop
             foreach (DataRow row in table_timetable.Rows)
             {
@@ -235,8 +240,10 @@ namespace Exam_Cell
                 List<string> name_studentsB = new List<string>();
                 List<string> course_studentsA = new List<string>();
                 List<string> course_studentsB = new List<string>();
+                List<string> class_studentsA = new List<string>();
+                List<string> class_studentsB = new List<string>();
 
-                if (distinctdate[dcount] != date)
+                if (distinctdate[dcount] != date || SessionCheck == session)
                 {
                     foreach (DataRow dataRow2 in table_students.Rows)
                     {
@@ -250,7 +257,7 @@ namespace Exam_Cell
                     }
                 }
 
-                if (distinctdate[dcount] == date || checkcount==0) //idk whether it gets error when distinctdate get out of range
+                if (distinctdate[dcount] == date || checkcount==0 || SessionCheck != session) //idk whether it gets error when distinctdate get out of range
                 {
                     int no_of_students = SelectedStudents.Rows.Count;
 
@@ -265,6 +272,7 @@ namespace Exam_Cell
                         name_studentsA.Add(row2["Name"].ToString());
                         reg_studentsA.Add(row2["Reg_no"].ToString());
                         course_studentsA.Add(row2["Course"].ToString());
+                        class_studentsA.Add(row2["Class"].ToString());
 
                     }
                     foreach (DataRow row2 in bottom50)
@@ -273,6 +281,7 @@ namespace Exam_Cell
                         name_studentsB.Add(row2["Name"].ToString());
                         reg_studentsB.Add(row2["Reg_no"].ToString());
                         course_studentsB.Add(row2["Course"].ToString());
+                        class_studentsB.Add(row2["Class"].ToString());
                     }
                     int count = 0;
 
@@ -281,11 +290,12 @@ namespace Exam_Cell
 
                         for (int i = j; i < seriesA; i++)
                         {
-                            SqlCommand command4 = new SqlCommand("insert into Series_Alloted(Date,Room_No,Seat,Session,Reg_no,Name,Exam_Code,Course)Values(" + "@Date,@Room_No,@Seat,@Session,@Reg_no,@Name,@Exam_Code,@Course)", con.ActiveCon());
+                            SqlCommand command4 = new SqlCommand("insert into Series_Alloted(Date,Room_No,Seat,Session,Class,Reg_no,Name,Exam_Code,Course)Values(" + "@Date,@Room_No,@Seat,@Session,@Class,@Reg_no,@Name,@Exam_Code,@Course)", con.ActiveCon());
                             command4.Parameters.AddWithValue("@Date", distinctdate[backupcount - 1]);
                             command4.Parameters.AddWithValue("@Room_No", room);
                             command4.Parameters.AddWithValue("@Seat", "A" + (j + 1));
                             command4.Parameters.AddWithValue("@Session", session);
+                            command4.Parameters.AddWithValue("@Class", class_studentsA[count]);
                             command4.Parameters.AddWithValue("@Reg_no", reg_studentsA[count]);
                             command4.Parameters.AddWithValue("@Name", name_studentsA[count]);
                             command4.Parameters.AddWithValue("@Exam_Code", examcode);
@@ -316,11 +326,12 @@ namespace Exam_Cell
 
                         for (int i = k; i < seriesB; i++)
                         {
-                            SqlCommand command4 = new SqlCommand("insert into Series_Alloted(Date,Room_No,Seat,Session,Reg_no,Name,Exam_Code,Course)Values(" + "@Date,@Room_No,@Seat,@Session,@Reg_no,@Name,@Exam_Code,@Course)", con.ActiveCon());
+                            SqlCommand command4 = new SqlCommand("insert into Series_Alloted(Date,Room_No,Seat,Session,Class,Reg_no,Name,Exam_Code,Course)Values(" + "@Date,@Room_No,@Seat,@Session,@Class,@Reg_no,@Name,@Exam_Code,@Course)", con.ActiveCon());
                             command4.Parameters.AddWithValue("@Date", distinctdate[backupcount - 1]);
                             command4.Parameters.AddWithValue("@Room_No", room);
                             command4.Parameters.AddWithValue("@Seat", "B" + (k + 1));
                             command4.Parameters.AddWithValue("@Session", session);
+                            command4.Parameters.AddWithValue("@Class", class_studentsB[count]);
                             command4.Parameters.AddWithValue("@Reg_no", reg_studentsB[countb]);
                             command4.Parameters.AddWithValue("@Name", name_studentsB[countb]);
                             command4.Parameters.AddWithValue("@Exam_Code", examcode);
@@ -360,13 +371,18 @@ namespace Exam_Cell
                             }
 
                         }
-                        if (distinctdate.Count != dcount + 1)
+                        if(distinctdate[dcount]==date)
                         {
-                            dcount += 1;
+                            if (distinctdate.Count != dcount + 1)
+                            {
+                                dcount += 1;
+                            }
+                            else
+                                dcount = 0;
+                            backupcount += 1;
                         }
-                        else
-                            dcount = 0;
-                        backupcount += 1;
+                        if (SessionCheck != session)
+                            SessionCheck = session;
                         sra = 0;
                         j = 0;
                         srb = 0;

@@ -13,5 +13,6 @@ namespace Exam_Cell
         public string Branch { get; set; }
         public string Semester { get; set; }
         public string Course { get; set; }
+
     }
 }

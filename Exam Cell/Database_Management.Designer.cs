@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.AddStudent_btn = new System.Windows.Forms.Button();
             this.Student_dgv = new System.Windows.Forms.DataGridView();
             this.YOA_textbox = new System.Windows.Forms.TextBox();
@@ -43,10 +44,10 @@
             this.UpgradeSem_btn = new System.Windows.Forms.Button();
             this.DegradeClass_btn = new System.Windows.Forms.Button();
             this.ImportGroupbox = new System.Windows.Forms.GroupBox();
-            this.ExcelSheet_combobox = new System.Windows.Forms.ComboBox();
-            this.SelectedExcel_textbox = new System.Windows.Forms.TextBox();
+            this.Sheet_combobox = new System.Windows.Forms.ComboBox();
+            this.Filepath_textbox = new System.Windows.Forms.TextBox();
             this.SelectExcel_btn = new System.Windows.Forms.Button();
-            this.Import_Btn = new System.Windows.Forms.Button();
+            this.AddFromExcel_Btn = new System.Windows.Forms.Button();
             this.AssignClass_groupbox = new System.Windows.Forms.GroupBox();
             this.AssignClass_combobox = new System.Windows.Forms.ComboBox();
             this.AssignClassYOA_combobox = new System.Windows.Forms.ComboBox();
@@ -98,6 +99,9 @@
             this.Scheme_label = new System.Windows.Forms.Label();
             this.RadioButton_panel = new System.Windows.Forms.Panel();
             this.DefaultScheme_radiobtn = new System.Windows.Forms.RadioButton();
+            this.exam_CellDataSet_Students = new Exam_Cell.Exam_CellDataSet_Students();
+            this.studentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.studentsTableAdapter = new Exam_Cell.Exam_CellDataSet_StudentsTableAdapters.StudentsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.Student_dgv)).BeginInit();
             this.Student_mngmnt_panel.SuspendLayout();
             this.UpgradeSemester_groupbox.SuspendLayout();
@@ -112,6 +116,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.Scheme_dgv)).BeginInit();
             this.DefaultScheme_Panel.SuspendLayout();
             this.RadioButton_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.exam_CellDataSet_Students)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // AddStudent_btn
@@ -222,7 +228,7 @@
             this.ClassDgvView_checkbox.AutoSize = true;
             this.ClassDgvView_checkbox.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClassDgvView_checkbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClassDgvView_checkbox.Location = new System.Drawing.Point(160, 521);
+            this.ClassDgvView_checkbox.Location = new System.Drawing.Point(157, 521);
             this.ClassDgvView_checkbox.Name = "ClassDgvView_checkbox";
             this.ClassDgvView_checkbox.Size = new System.Drawing.Size(111, 23);
             this.ClassDgvView_checkbox.TabIndex = 6;
@@ -274,10 +280,10 @@
             // 
             // ImportGroupbox
             // 
-            this.ImportGroupbox.Controls.Add(this.ExcelSheet_combobox);
-            this.ImportGroupbox.Controls.Add(this.SelectedExcel_textbox);
+            this.ImportGroupbox.Controls.Add(this.Sheet_combobox);
+            this.ImportGroupbox.Controls.Add(this.Filepath_textbox);
             this.ImportGroupbox.Controls.Add(this.SelectExcel_btn);
-            this.ImportGroupbox.Controls.Add(this.Import_Btn);
+            this.ImportGroupbox.Controls.Add(this.AddFromExcel_Btn);
             this.ImportGroupbox.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ImportGroupbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ImportGroupbox.Location = new System.Drawing.Point(24, 241);
@@ -287,22 +293,23 @@
             this.ImportGroupbox.TabStop = false;
             this.ImportGroupbox.Text = "Import Students";
             // 
-            // ExcelSheet_combobox
+            // Sheet_combobox
             // 
-            this.ExcelSheet_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ExcelSheet_combobox.FormattingEnabled = true;
-            this.ExcelSheet_combobox.Location = new System.Drawing.Point(20, 133);
-            this.ExcelSheet_combobox.Name = "ExcelSheet_combobox";
-            this.ExcelSheet_combobox.Size = new System.Drawing.Size(204, 26);
-            this.ExcelSheet_combobox.TabIndex = 5;
+            this.Sheet_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Sheet_combobox.FormattingEnabled = true;
+            this.Sheet_combobox.Location = new System.Drawing.Point(20, 133);
+            this.Sheet_combobox.Name = "Sheet_combobox";
+            this.Sheet_combobox.Size = new System.Drawing.Size(204, 26);
+            this.Sheet_combobox.TabIndex = 5;
+            this.Sheet_combobox.SelectedIndexChanged += new System.EventHandler(this.Sheet_combobox_SelectedIndexChanged_1);
             // 
-            // SelectedExcel_textbox
+            // Filepath_textbox
             // 
-            this.SelectedExcel_textbox.Location = new System.Drawing.Point(20, 37);
-            this.SelectedExcel_textbox.Name = "SelectedExcel_textbox";
-            this.SelectedExcel_textbox.ReadOnly = true;
-            this.SelectedExcel_textbox.Size = new System.Drawing.Size(204, 25);
-            this.SelectedExcel_textbox.TabIndex = 0;
+            this.Filepath_textbox.Location = new System.Drawing.Point(20, 37);
+            this.Filepath_textbox.Name = "Filepath_textbox";
+            this.Filepath_textbox.ReadOnly = true;
+            this.Filepath_textbox.Size = new System.Drawing.Size(204, 25);
+            this.Filepath_textbox.TabIndex = 0;
             // 
             // SelectExcel_btn
             // 
@@ -314,17 +321,20 @@
             this.SelectExcel_btn.TabIndex = 0;
             this.SelectExcel_btn.Text = "Select Excel";
             this.SelectExcel_btn.UseVisualStyleBackColor = true;
+            this.SelectExcel_btn.Click += new System.EventHandler(this.SelectExcel_btn_Click);
             // 
-            // Import_Btn
+            // AddFromExcel_Btn
             // 
-            this.Import_Btn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Import_Btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Import_Btn.Location = new System.Drawing.Point(72, 165);
-            this.Import_Btn.Name = "Import_Btn";
-            this.Import_Btn.Size = new System.Drawing.Size(100, 30);
-            this.Import_Btn.TabIndex = 0;
-            this.Import_Btn.Text = "Import";
-            this.Import_Btn.UseVisualStyleBackColor = true;
+            this.AddFromExcel_Btn.Enabled = false;
+            this.AddFromExcel_Btn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddFromExcel_Btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.AddFromExcel_Btn.Location = new System.Drawing.Point(54, 165);
+            this.AddFromExcel_Btn.Name = "AddFromExcel_Btn";
+            this.AddFromExcel_Btn.Size = new System.Drawing.Size(137, 30);
+            this.AddFromExcel_Btn.TabIndex = 0;
+            this.AddFromExcel_Btn.Text = "Add From Excel";
+            this.AddFromExcel_Btn.UseVisualStyleBackColor = true;
+            this.AddFromExcel_Btn.Click += new System.EventHandler(this.AddFromExcel_Btn_Click);
             // 
             // AssignClass_groupbox
             // 
@@ -490,7 +500,7 @@
             this.Studnt_radiobtn.AutoSize = true;
             this.Studnt_radiobtn.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Studnt_radiobtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Studnt_radiobtn.Location = new System.Drawing.Point(273, 19);
+            this.Studnt_radiobtn.Location = new System.Drawing.Point(316, 19);
             this.Studnt_radiobtn.Name = "Studnt_radiobtn";
             this.Studnt_radiobtn.Size = new System.Drawing.Size(183, 23);
             this.Studnt_radiobtn.TabIndex = 6;
@@ -914,7 +924,7 @@
             this.RadioButton_panel.Controls.Add(this.Studnt_radiobtn);
             this.RadioButton_panel.Location = new System.Drawing.Point(24, 12);
             this.RadioButton_panel.Name = "RadioButton_panel";
-            this.RadioButton_panel.Size = new System.Drawing.Size(725, 67);
+            this.RadioButton_panel.Size = new System.Drawing.Size(760, 67);
             this.RadioButton_panel.TabIndex = 9;
             // 
             // DefaultScheme_radiobtn
@@ -922,13 +932,27 @@
             this.DefaultScheme_radiobtn.AutoSize = true;
             this.DefaultScheme_radiobtn.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DefaultScheme_radiobtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.DefaultScheme_radiobtn.Location = new System.Drawing.Point(487, 19);
+            this.DefaultScheme_radiobtn.Location = new System.Drawing.Point(572, 19);
             this.DefaultScheme_radiobtn.Name = "DefaultScheme_radiobtn";
             this.DefaultScheme_radiobtn.Size = new System.Drawing.Size(146, 23);
             this.DefaultScheme_radiobtn.TabIndex = 6;
             this.DefaultScheme_radiobtn.Text = "Default Scheme";
             this.DefaultScheme_radiobtn.UseVisualStyleBackColor = true;
             this.DefaultScheme_radiobtn.CheckedChanged += new System.EventHandler(this.DefaultScheme_radiobtn_CheckedChanged);
+            // 
+            // exam_CellDataSet_Students
+            // 
+            this.exam_CellDataSet_Students.DataSetName = "Exam_CellDataSet_Students";
+            this.exam_CellDataSet_Students.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // studentsBindingSource
+            // 
+            this.studentsBindingSource.DataMember = "Students";
+            this.studentsBindingSource.DataSource = this.exam_CellDataSet_Students;
+            // 
+            // studentsTableAdapter
+            // 
+            this.studentsTableAdapter.ClearBeforeFill = true;
             // 
             // Database_Management
             // 
@@ -937,9 +961,9 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1924, 719);
             this.Controls.Add(this.RadioButton_panel);
-            this.Controls.Add(this.Student_mngmnt_panel);
-            this.Controls.Add(this.Class_Managmnt_panel);
             this.Controls.Add(this.DefaultScheme_Panel);
+            this.Controls.Add(this.Class_Managmnt_panel);
+            this.Controls.Add(this.Student_mngmnt_panel);
             this.Name = "Database_Management";
             this.Text = "Database Management";
             this.Load += new System.EventHandler(this.Database_Management_Load);
@@ -967,6 +991,8 @@
             this.DefaultScheme_Panel.PerformLayout();
             this.RadioButton_panel.ResumeLayout(false);
             this.RadioButton_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.exam_CellDataSet_Students)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -991,10 +1017,10 @@
         private System.Windows.Forms.GroupBox add_stdnt_groupbox;
         private System.Windows.Forms.GroupBox AssignClass_groupbox;
         private System.Windows.Forms.GroupBox ImportGroupbox;
-        private System.Windows.Forms.ComboBox ExcelSheet_combobox;
-        private System.Windows.Forms.TextBox SelectedExcel_textbox;
+        private System.Windows.Forms.ComboBox Sheet_combobox;
+        private System.Windows.Forms.TextBox Filepath_textbox;
         private System.Windows.Forms.Button SelectExcel_btn;
-        private System.Windows.Forms.Button Import_Btn;
+        private System.Windows.Forms.Button AddFromExcel_Btn;
         private System.Windows.Forms.Button AssignClass_btn;
         private System.Windows.Forms.Panel Class_Managmnt_panel;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -1043,5 +1069,8 @@
         private System.Windows.Forms.Button Clear_btn;
         private System.Windows.Forms.Button Search_btn;
         private System.Windows.Forms.RadioButton DefaultScheme_radiobtn;
+        private Exam_CellDataSet_Students exam_CellDataSet_Students;
+        private System.Windows.Forms.BindingSource studentsBindingSource;
+        private Exam_CellDataSet_StudentsTableAdapters.StudentsTableAdapter studentsTableAdapter;
     }
 }
