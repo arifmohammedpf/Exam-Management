@@ -8,12 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Runtime.InteropServices;
+using Excel = Microsoft.Office.Interop.Excel;
+
+
 
 namespace Exam_Cell
 {
     public partial class Allotment : Form
     {
         Connection con = new Connection();
+        Excel.Application xlApp = new Excel.Application();
+        
         public Allotment()
         {
             InitializeComponent();
@@ -405,8 +411,205 @@ namespace Exam_Cell
             string fromroom = FromRoom_textbox.Text;
             
         }
+
+        private void RoomPrint_button_Click(object sender, EventArgs e)
+        {
+            RoomExcel_panel.Enabled = true;
+            RoomExcel_panel.BringToFront();
+            Generation_Panel.Enabled = false;
+        }
+
+        private void Save_Path_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fdb = new FolderBrowserDialog(); 
+                if (fdb.ShowDialog() == DialogResult.OK)
+                {
+                    Folder_path_text.Text = fdb.SelectedPath;
+                }
+            }
+
+        private void Excel_generate_btn_Click(object sender, EventArgs e)
+        {
+            if (ExamType_combobox.SelectedIndex != 0 && Folder_path_text.Text != "")
+            {
+                if (xlApp == null)
+                {
+                    MessageBox.Show("Excel is not properly installed", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Generation_Panel.BringToFront();
+                    Generation_Panel.Enabled = true;
+                    RoomExcel_panel.Enabled = false;
+                    return;
+                }
+                else
+                {
+                    Excel.Range excelCellrange;
+                    Excel.Workbook xlWorkBook;
+                    Excel.Worksheet xlWorkSheet;
+                    object misValue = System.Reflection.Missing.Value;
+                    //for excel alerts
+                    //xlApp.Visible = false;
+                    //xlApp.DisplayAlerts = false;
+
+
+                    DataTable dstnctdatatable = new DataTable();
+                    SqlCommand command = new SqlCommand("SELECT Distinct Date from Series_Alloted", con.ActiveCon());
+                    SqlDataAdapter distinctadapter = new SqlDataAdapter(command);
+                    distinctadapter.Fill(dstnctdatatable);
+
+                    if (dstnctdatatable.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Allot Students First", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Generation_Panel.BringToFront();
+                        Generation_Panel.Enabled = true;
+                        RoomExcel_panel.Enabled = false;
+                        return;
+                    }
+                    else
+                    {
+                        foreach (DataRow dr in dstnctdatatable.Rows)
+                        {
+
+                            string session = "Forenoon";
+                            for (int count = 0; count < 2; count++)
+                            {
+                                //Create the data set and table
+                                //DataSet ds = new DataSet("New_DataSet");
+                                DataTable dt = new DataTable();
+
+                                //Create a query and fill the data table with the data from the DB            
+                                SqlCommand cmd = new SqlCommand("SELECT Sl_no,Seat,Reg_no,Name,Exam_code from Series_Alloted Where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
+                                cmd.Parameters.AddWithValue("@Date", dr["Date"].ToString());
+                                cmd.Parameters.AddWithValue("@Session", session);
+                                SqlDataAdapter adptr = new SqlDataAdapter(cmd);
+                                adptr.Fill(dt);
+                                ////Add the table to the data set
+                                //ds.Tables.Add(dt);
+                                DataTable dstnctroomdatatable = new DataTable();
+                                SqlCommand commandroom = new SqlCommand("SELECT Distinct Room_No from Series_Alloted Where Date=@Date and Session=@Session", con.ActiveCon());
+                                commandroom.Parameters.AddWithValue("@Date", dr["Date"].ToString());
+                                commandroom.Parameters.AddWithValue("@Session", session);
+                                SqlDataAdapter distinctroomadapter = new SqlDataAdapter(commandroom);
+                                distinctroomadapter.Fill(dstnctroomdatatable);
+
+                                if (dt.Rows.Count != 0)
+                                {
+                                    //Create New Workbook
+                                    xlWorkBook = xlApp.Workbooks.Add(misValue);
+                                    foreach (DataRow dstrw in dstnctroomdatatable.Rows)
+                                    {
+                                        string checkroom = dstrw["Room_No"].ToString();
+                                        //Create Worksheet
+                                        xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(checkroom);
+                                        //Insert Items to ExcelSheet
+                                        xlWorkSheet.get_Range("A1").Value2 = "KMEA ENGINEERING COLLEGE";
+                                        xlWorkSheet.get_Range("A2").Value2 = ExamType_combobox.Text + " " + MonthYear_textbox.Text;
+                                        xlWorkSheet.get_Range("A3").Value2 = "STUDENTS LIST";
+                                        xlWorkSheet.get_Range("A4").Value2 = checkroom;
+                                        xlWorkSheet.get_Range("E4").Value2 = dr["Date"].ToString() + " " + session;
+
+                                        excelCellrange = xlWorkSheet.get_Range("A1", "F1");
+                                        excelCellrange.Merge();
+                                        excelCellrange.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                                        excelCellrange.Cells.Font.Name = "Arial";
+                                        excelCellrange.Cells.Font.Size = "14";
+                                        excelCellrange.Cells.Font.Bold = true;
+                                        excelCellrange = xlWorkSheet.get_Range("A2", "F2");
+                                        excelCellrange.Merge();
+                                        excelCellrange.Cells.Font.Name = "Arial";
+                                        excelCellrange.Cells.Font.Size = "12";
+                                        excelCellrange.Cells.Font.Bold = true;
+                                        excelCellrange.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                                        excelCellrange = xlWorkSheet.get_Range("A3", "F3");
+                                        excelCellrange.Merge();
+                                        excelCellrange.Cells.Font.Name = "Arial";
+                                        excelCellrange.Cells.Font.Size = "10";
+                                        excelCellrange.Cells.Font.Bold = true;
+                                        excelCellrange.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                                        excelCellrange = xlWorkSheet.get_Range("A4", "C4");
+                                        excelCellrange.Merge();
+                                        excelCellrange.Cells.Font.Name = "Arial";
+                                        excelCellrange.Cells.Font.Size = "10";
+                                        excelCellrange.Cells.Font.Bold = true;
+                                        excelCellrange = xlWorkSheet.get_Range("E4", "F4");
+                                        excelCellrange.Merge();
+                                        excelCellrange.Cells.Font.Name = "Arial";
+                                        excelCellrange.Cells.Font.Size = "10";
+                                        excelCellrange.Cells.Font.Bold = true;
+                                        Microsoft.Office.Interop.Excel.Borders border = xlWorkSheet.get_Range("A1", "F3").Borders;
+                                        border.LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
+                                        border.Weight = 2d;
+
+                                        // column headings
+                                        for (var i = 0; i < dt.Columns.Count; i++)
+                                        {
+                                            xlWorkSheet.Cells[5, 1] = "Sl.No";
+                                            xlWorkSheet.Cells[5, 1].Font.Name = "Arial";
+                                            xlWorkSheet.Cells[5, 1].Font.Size = "10";
+                                            xlWorkSheet.Cells[5, 1].Font.Bold = true;
+                                            xlWorkSheet.Cells[5, i + 2] = dt.Columns[i].ColumnName;
+                                            xlWorkSheet.Cells[5, i + 2].Font.Name = "Arial";
+                                            xlWorkSheet.Cells[5, i + 2].Font.Size = "10";
+                                            xlWorkSheet.Cells[5, i + 2].Font.Bold = true;
+                                        }
+
+                                        // rows
+                                        for (var i = 0; i < dt.Rows.Count; i++)
+                                        {
+                                            if (dt.Rows[i]["Room_No"].ToString() == checkroom)
+                                            {
+                                                xlWorkSheet.Cells[i + 6, 1] = i + 1;
+                                                for (var j = 0; j < dt.Columns.Count; j++)
+                                                {
+                                                    xlWorkSheet.Cells[i + 6, j + 2] = dt.Rows[i][j];
+                                                }
+                                            }
+
+                                        }
+                                        xlWorkSheet.Range[xlWorkSheet.Cells[5, 1], xlWorkSheet.Cells[dt.Rows.Count + 4, dt.Columns.Count]].EntireColumn.AutoFit();
+                                        Marshal.ReleaseComObject(excelCellrange);
+                                        Marshal.ReleaseComObject(xlWorkSheet);
+                                    }
+                                    //Save Excel File
+                                    /* below might get error since Date has '\' in between ... CHECK if we have to use array 
+                                    or something else to remove the '\' .   */
+                                    string save = Folder_path_text.Text + @"\" + dr["Date"].ToString() + " " + session + ".xls";
+                                    xlWorkBook.SaveAs(save, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                                    xlWorkBook.Close(false, misValue, misValue);
+                                    Marshal.ReleaseComObject(xlWorkBook);
+
+                                    session = "Afternoon";
+                                }
+                            }
+
+
+
+                        }
+                    }
+                    xlApp.Quit();
+                    //Clean Intelop Objects
+                    Marshal.ReleaseComObject(xlApp);
+
+
+                    MessageBox.Show("Excel files created , you can find the file at Desktop", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                Generation_Panel.BringToFront();
+                Generation_Panel.Enabled = true;
+                RoomExcel_panel.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Necessary details are not given", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Generation_Panel.BringToFront();
+                Generation_Panel.Enabled = true;
+                RoomExcel_panel.Enabled = false;
+            }
+
+        }
     }
 }
+
+        
 
 
 

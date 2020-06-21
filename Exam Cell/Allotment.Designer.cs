@@ -37,11 +37,11 @@
             this.DateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.Session_combobox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.Generation_Panel = new System.Windows.Forms.Panel();
             this.AllocatedRoom_combobox = new System.Windows.Forms.ComboBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.Clear_button = new System.Windows.Forms.Button();
-            this.TallySheet_button = new System.Windows.Forms.Button();
+            this.DisplayPrint_button = new System.Windows.Forms.Button();
             this.RoomPrint_button = new System.Windows.Forms.Button();
             this.ClassInRoom_button = new System.Windows.Forms.Button();
             this.SubjectInRoom_button = new System.Windows.Forms.Button();
@@ -75,16 +75,25 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.RoomExcel_panel = new System.Windows.Forms.Panel();
+            this.ExamType_combobox = new System.Windows.Forms.ComboBox();
+            this.MonthYear_textbox = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.Save_Path = new System.Windows.Forms.Button();
+            this.Folder_path_text = new System.Windows.Forms.TextBox();
+            this.Excel_generate_btn = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.Generation_Panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.RoomExcel_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -188,22 +197,22 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Date :";
             // 
-            // panel2
+            // Generation_Panel
             // 
-            this.panel2.Controls.Add(this.AllocatedRoom_combobox);
-            this.panel2.Controls.Add(this.dataGridView2);
-            this.panel2.Controls.Add(this.Clear_button);
-            this.panel2.Controls.Add(this.TallySheet_button);
-            this.panel2.Controls.Add(this.RoomPrint_button);
-            this.panel2.Controls.Add(this.ClassInRoom_button);
-            this.panel2.Controls.Add(this.SubjectInRoom_button);
-            this.panel2.Controls.Add(this.StudentsInASubject_button);
-            this.panel2.Controls.Add(this.SignatureSheet_button);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Location = new System.Drawing.Point(632, 12);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(547, 521);
-            this.panel2.TabIndex = 2;
+            this.Generation_Panel.Controls.Add(this.AllocatedRoom_combobox);
+            this.Generation_Panel.Controls.Add(this.dataGridView2);
+            this.Generation_Panel.Controls.Add(this.Clear_button);
+            this.Generation_Panel.Controls.Add(this.DisplayPrint_button);
+            this.Generation_Panel.Controls.Add(this.RoomPrint_button);
+            this.Generation_Panel.Controls.Add(this.ClassInRoom_button);
+            this.Generation_Panel.Controls.Add(this.SubjectInRoom_button);
+            this.Generation_Panel.Controls.Add(this.StudentsInASubject_button);
+            this.Generation_Panel.Controls.Add(this.SignatureSheet_button);
+            this.Generation_Panel.Controls.Add(this.label3);
+            this.Generation_Panel.Location = new System.Drawing.Point(632, 12);
+            this.Generation_Panel.Name = "Generation_Panel";
+            this.Generation_Panel.Size = new System.Drawing.Size(547, 521);
+            this.Generation_Panel.TabIndex = 2;
             // 
             // AllocatedRoom_combobox
             // 
@@ -235,14 +244,14 @@
             this.Clear_button.Text = "Clear";
             this.Clear_button.UseVisualStyleBackColor = true;
             // 
-            // TallySheet_button
+            // DisplayPrint_button
             // 
-            this.TallySheet_button.Location = new System.Drawing.Point(17, 56);
-            this.TallySheet_button.Name = "TallySheet_button";
-            this.TallySheet_button.Size = new System.Drawing.Size(134, 32);
-            this.TallySheet_button.TabIndex = 4;
-            this.TallySheet_button.Text = "Tally Sheet";
-            this.TallySheet_button.UseVisualStyleBackColor = true;
+            this.DisplayPrint_button.Location = new System.Drawing.Point(17, 56);
+            this.DisplayPrint_button.Name = "DisplayPrint_button";
+            this.DisplayPrint_button.Size = new System.Drawing.Size(134, 32);
+            this.DisplayPrint_button.TabIndex = 4;
+            this.DisplayPrint_button.Text = "Display Print";
+            this.DisplayPrint_button.UseVisualStyleBackColor = true;
             // 
             // RoomPrint_button
             // 
@@ -252,6 +261,7 @@
             this.RoomPrint_button.TabIndex = 4;
             this.RoomPrint_button.Text = "Room Print";
             this.RoomPrint_button.UseVisualStyleBackColor = true;
+            this.RoomPrint_button.Click += new System.EventHandler(this.RoomPrint_button_Click);
             // 
             // ClassInRoom_button
             // 
@@ -594,17 +604,104 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "From";
             // 
+            // RoomExcel_panel
+            // 
+            this.RoomExcel_panel.Controls.Add(this.label16);
+            this.RoomExcel_panel.Controls.Add(this.Folder_path_text);
+            this.RoomExcel_panel.Controls.Add(this.Excel_generate_btn);
+            this.RoomExcel_panel.Controls.Add(this.Save_Path);
+            this.RoomExcel_panel.Controls.Add(this.label15);
+            this.RoomExcel_panel.Controls.Add(this.MonthYear_textbox);
+            this.RoomExcel_panel.Controls.Add(this.ExamType_combobox);
+            this.RoomExcel_panel.Location = new System.Drawing.Point(710, 85);
+            this.RoomExcel_panel.Name = "RoomExcel_panel";
+            this.RoomExcel_panel.Size = new System.Drawing.Size(400, 293);
+            this.RoomExcel_panel.TabIndex = 8;
+            // 
+            // ExamType_combobox
+            // 
+            this.ExamType_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ExamType_combobox.FormattingEnabled = true;
+            this.ExamType_combobox.Items.AddRange(new object[] {
+            "-Exam Type-",
+            "KTU - B.tech Degree Examination",
+            "First Series Examination",
+            "Second Series Examination",
+            "Third Series Examination"});
+            this.ExamType_combobox.Location = new System.Drawing.Point(95, 77);
+            this.ExamType_combobox.Name = "ExamType_combobox";
+            this.ExamType_combobox.Size = new System.Drawing.Size(225, 24);
+            this.ExamType_combobox.TabIndex = 0;
+            // 
+            // MonthYear_textbox
+            // 
+            this.MonthYear_textbox.Location = new System.Drawing.Point(95, 124);
+            this.MonthYear_textbox.Name = "MonthYear_textbox";
+            this.MonthYear_textbox.Size = new System.Drawing.Size(225, 22);
+            this.MonthYear_textbox.TabIndex = 1;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label15.Location = new System.Drawing.Point(92, 104);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(85, 17);
+            this.label15.TabIndex = 2;
+            this.label15.Text = "Month_Year";
+            // 
+            // Save_Path
+            // 
+            this.Save_Path.Location = new System.Drawing.Point(95, 193);
+            this.Save_Path.Name = "Save_Path";
+            this.Save_Path.Size = new System.Drawing.Size(132, 30);
+            this.Save_Path.TabIndex = 3;
+            this.Save_Path.Text = "Select Path";
+            this.Save_Path.UseVisualStyleBackColor = true;
+            this.Save_Path.Click += new System.EventHandler(this.Save_Path_Click);
+            // 
+            // Folder_path_text
+            // 
+            this.Folder_path_text.Location = new System.Drawing.Point(95, 165);
+            this.Folder_path_text.Name = "Folder_path_text";
+            this.Folder_path_text.ReadOnly = true;
+            this.Folder_path_text.Size = new System.Drawing.Size(225, 22);
+            this.Folder_path_text.TabIndex = 4;
+            // 
+            // Excel_generate_btn
+            // 
+            this.Excel_generate_btn.Location = new System.Drawing.Point(95, 229);
+            this.Excel_generate_btn.Name = "Excel_generate_btn";
+            this.Excel_generate_btn.Size = new System.Drawing.Size(132, 30);
+            this.Excel_generate_btn.TabIndex = 3;
+            this.Excel_generate_btn.Text = "Generate Excel";
+            this.Excel_generate_btn.UseVisualStyleBackColor = true;
+            this.Excel_generate_btn.Click += new System.EventHandler(this.Excel_generate_btn_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label16.Location = new System.Drawing.Point(84, 31);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(236, 24);
+            this.label16.TabIndex = 5;
+            this.label16.Text = "ROOM EXCEL GENERATION";
+            // 
             // Allotment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1681, 709);
+            this.ClientSize = new System.Drawing.Size(1924, 709);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.Generation_Panel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
+            this.Controls.Add(this.RoomExcel_panel);
             this.Name = "Allotment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Allotment";
@@ -613,8 +710,8 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.Generation_Panel.ResumeLayout(false);
+            this.Generation_Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.panel3.ResumeLayout(false);
@@ -624,6 +721,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.RoomExcel_panel.ResumeLayout(false);
+            this.RoomExcel_panel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -639,11 +738,10 @@
         private System.Windows.Forms.Button MultiAllotment_button;
         private System.Windows.Forms.Button SingleAllotment_button;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel Generation_Panel;
         private System.Windows.Forms.ComboBox AllocatedRoom_combobox;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button Clear_button;
-        private System.Windows.Forms.Button TallySheet_button;
         private System.Windows.Forms.Button RoomPrint_button;
         private System.Windows.Forms.Button StudentsInASubject_button;
         private System.Windows.Forms.Button SignatureSheet_button;
@@ -677,5 +775,14 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button DisplayPrint_button;
+        private System.Windows.Forms.Panel RoomExcel_panel;
+        private System.Windows.Forms.ComboBox ExamType_combobox;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox MonthYear_textbox;
+        private System.Windows.Forms.Button Save_Path;
+        private System.Windows.Forms.TextBox Folder_path_text;
+        private System.Windows.Forms.Button Excel_generate_btn;
+        private System.Windows.Forms.Label label16;
     }
 }
