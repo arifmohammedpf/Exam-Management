@@ -69,6 +69,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Absent_Marking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Absent_Marking.Designer.cs">
+      <DependentUpon>Absent_Marking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Absent_Statement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Absent_Statement.Designer.cs">
+      <DependentUpon>Absent_Statement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Allotment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +191,12 @@
       <DependentUpon>timetable.cs</DependentUpon>
     </Compile>
     <Compile Include="Undo_backup.cs" />
+    <EmbeddedResource Include="Absent_Marking.resx">
+      <DependentUpon>Absent_Marking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Absent_Statement.resx">
+      <DependentUpon>Absent_Statement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Allotment.resx">
       <DependentUpon>Allotment.cs</DependentUpon>
     </EmbeddedResource>

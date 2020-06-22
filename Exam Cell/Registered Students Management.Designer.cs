@@ -96,13 +96,13 @@
             this.groupBox1.Size = new System.Drawing.Size(274, 73);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Select Exam";
+            this.groupBox1.Text = "Registered Students";
             // 
             // Delete_btn
             // 
             this.Delete_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Delete_btn.ForeColor = System.Drawing.Color.Red;
-            this.Delete_btn.Location = new System.Drawing.Point(661, 292);
+            this.Delete_btn.Location = new System.Drawing.Point(664, 235);
             this.Delete_btn.Name = "Delete_btn";
             this.Delete_btn.Size = new System.Drawing.Size(122, 35);
             this.Delete_btn.TabIndex = 2;
@@ -112,14 +112,15 @@
             // 
             // DeleteAll_btn
             // 
+            this.DeleteAll_btn.BackColor = System.Drawing.Color.Red;
             this.DeleteAll_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteAll_btn.ForeColor = System.Drawing.Color.Red;
-            this.DeleteAll_btn.Location = new System.Drawing.Point(661, 370);
+            this.DeleteAll_btn.ForeColor = System.Drawing.Color.Black;
+            this.DeleteAll_btn.Location = new System.Drawing.Point(664, 497);
             this.DeleteAll_btn.Name = "DeleteAll_btn";
             this.DeleteAll_btn.Size = new System.Drawing.Size(122, 35);
             this.DeleteAll_btn.TabIndex = 2;
             this.DeleteAll_btn.Text = "CLEANUP";
-            this.DeleteAll_btn.UseVisualStyleBackColor = true;
+            this.DeleteAll_btn.UseVisualStyleBackColor = false;
             this.DeleteAll_btn.Click += new System.EventHandler(this.DeleteAll_btn_Click);
             // 
             // AllotGroupbox
@@ -132,7 +133,7 @@
             this.AllotGroupbox.Size = new System.Drawing.Size(314, 73);
             this.AllotGroupbox.TabIndex = 4;
             this.AllotGroupbox.TabStop = false;
-            this.AllotGroupbox.Text = "Allotment";
+            this.AllotGroupbox.Text = "Allotted Students";
             // 
             // AllotSeries_radiobtn
             // 
