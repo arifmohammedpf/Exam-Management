@@ -430,7 +430,7 @@ namespace Exam_Cell
 
         private void Excel_generate_btn_Click(object sender, EventArgs e)
         {
-            if (ExamType_combobox.SelectedIndex != 0 && Folder_path_text.Text != "")
+            if (MonthYear_textbox.Text != "" && Folder_path_text.Text != "")
             {
                 if (xlApp == null)
                 {
@@ -502,7 +502,7 @@ namespace Exam_Cell
                                         xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(checkroom);
                                         //Insert Items to ExcelSheet
                                         xlWorkSheet.get_Range("A1").Value2 = "KMEA ENGINEERING COLLEGE";
-                                        xlWorkSheet.get_Range("A2").Value2 = ExamType_combobox.Text + " " + MonthYear_textbox.Text;
+                                        xlWorkSheet.get_Range("A2").Value2 = MonthYear_textbox.Text;
                                         xlWorkSheet.get_Range("A3").Value2 = "STUDENTS LIST";
                                         xlWorkSheet.get_Range("A4").Value2 = checkroom;
                                         xlWorkSheet.get_Range("E4").Value2 = dr["Date"].ToString() + " " + session;
@@ -590,7 +590,7 @@ namespace Exam_Cell
                     Marshal.ReleaseComObject(xlApp);
 
 
-                    MessageBox.Show("Excel files created , you can find the file at Desktop", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Excel files created", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 Generation_Panel.BringToFront();
@@ -599,12 +599,17 @@ namespace Exam_Cell
             }
             else
             {
-                MessageBox.Show("Necessary details are not given", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Generation_Panel.BringToFront();
-                Generation_Panel.Enabled = true;
-                RoomExcel_panel.Enabled = false;
+                MessageBox.Show("Check whether Examination or Filepath is given", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
             }
 
+        }
+
+        private void RoomPanelClose_btn_Click(object sender, EventArgs e)
+        {
+            Generation_Panel.BringToFront();
+            Generation_Panel.Enabled = true;
+            RoomExcel_panel.Enabled = false;
         }
     }
 }

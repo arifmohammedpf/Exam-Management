@@ -76,13 +76,13 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.RoomExcel_panel = new System.Windows.Forms.Panel();
-            this.ExamType_combobox = new System.Windows.Forms.ComboBox();
-            this.MonthYear_textbox = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.Save_Path = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
             this.Folder_path_text = new System.Windows.Forms.TextBox();
             this.Excel_generate_btn = new System.Windows.Forms.Button();
-            this.label16 = new System.Windows.Forms.Label();
+            this.Save_Path = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.MonthYear_textbox = new System.Windows.Forms.TextBox();
+            this.RoomPanelClose_btn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -608,76 +608,15 @@
             // 
             this.RoomExcel_panel.Controls.Add(this.label16);
             this.RoomExcel_panel.Controls.Add(this.Folder_path_text);
+            this.RoomExcel_panel.Controls.Add(this.RoomPanelClose_btn);
             this.RoomExcel_panel.Controls.Add(this.Excel_generate_btn);
             this.RoomExcel_panel.Controls.Add(this.Save_Path);
             this.RoomExcel_panel.Controls.Add(this.label15);
             this.RoomExcel_panel.Controls.Add(this.MonthYear_textbox);
-            this.RoomExcel_panel.Controls.Add(this.ExamType_combobox);
             this.RoomExcel_panel.Location = new System.Drawing.Point(710, 85);
             this.RoomExcel_panel.Name = "RoomExcel_panel";
-            this.RoomExcel_panel.Size = new System.Drawing.Size(400, 293);
+            this.RoomExcel_panel.Size = new System.Drawing.Size(400, 312);
             this.RoomExcel_panel.TabIndex = 8;
-            // 
-            // ExamType_combobox
-            // 
-            this.ExamType_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ExamType_combobox.FormattingEnabled = true;
-            this.ExamType_combobox.Items.AddRange(new object[] {
-            "-Exam Type-",
-            "KTU - B.tech Degree Examination",
-            "First Series Examination",
-            "Second Series Examination",
-            "Third Series Examination"});
-            this.ExamType_combobox.Location = new System.Drawing.Point(95, 77);
-            this.ExamType_combobox.Name = "ExamType_combobox";
-            this.ExamType_combobox.Size = new System.Drawing.Size(225, 24);
-            this.ExamType_combobox.TabIndex = 0;
-            // 
-            // MonthYear_textbox
-            // 
-            this.MonthYear_textbox.Location = new System.Drawing.Point(95, 124);
-            this.MonthYear_textbox.Name = "MonthYear_textbox";
-            this.MonthYear_textbox.Size = new System.Drawing.Size(225, 22);
-            this.MonthYear_textbox.TabIndex = 1;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label15.Location = new System.Drawing.Point(92, 104);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(85, 17);
-            this.label15.TabIndex = 2;
-            this.label15.Text = "Month_Year";
-            // 
-            // Save_Path
-            // 
-            this.Save_Path.Location = new System.Drawing.Point(95, 193);
-            this.Save_Path.Name = "Save_Path";
-            this.Save_Path.Size = new System.Drawing.Size(132, 30);
-            this.Save_Path.TabIndex = 3;
-            this.Save_Path.Text = "Select Path";
-            this.Save_Path.UseVisualStyleBackColor = true;
-            this.Save_Path.Click += new System.EventHandler(this.Save_Path_Click);
-            // 
-            // Folder_path_text
-            // 
-            this.Folder_path_text.Location = new System.Drawing.Point(95, 165);
-            this.Folder_path_text.Name = "Folder_path_text";
-            this.Folder_path_text.ReadOnly = true;
-            this.Folder_path_text.Size = new System.Drawing.Size(225, 22);
-            this.Folder_path_text.TabIndex = 4;
-            // 
-            // Excel_generate_btn
-            // 
-            this.Excel_generate_btn.Location = new System.Drawing.Point(95, 229);
-            this.Excel_generate_btn.Name = "Excel_generate_btn";
-            this.Excel_generate_btn.Size = new System.Drawing.Size(132, 30);
-            this.Excel_generate_btn.TabIndex = 3;
-            this.Excel_generate_btn.Text = "Generate Excel";
-            this.Excel_generate_btn.UseVisualStyleBackColor = true;
-            this.Excel_generate_btn.Click += new System.EventHandler(this.Excel_generate_btn_Click);
             // 
             // label16
             // 
@@ -690,15 +629,72 @@
             this.label16.TabIndex = 5;
             this.label16.Text = "ROOM EXCEL GENERATION";
             // 
+            // Folder_path_text
+            // 
+            this.Folder_path_text.Enabled = false;
+            this.Folder_path_text.Location = new System.Drawing.Point(95, 155);
+            this.Folder_path_text.Name = "Folder_path_text";
+            this.Folder_path_text.ReadOnly = true;
+            this.Folder_path_text.Size = new System.Drawing.Size(225, 22);
+            this.Folder_path_text.TabIndex = 4;
+            // 
+            // Excel_generate_btn
+            // 
+            this.Excel_generate_btn.Location = new System.Drawing.Point(95, 219);
+            this.Excel_generate_btn.Name = "Excel_generate_btn";
+            this.Excel_generate_btn.Size = new System.Drawing.Size(180, 30);
+            this.Excel_generate_btn.TabIndex = 3;
+            this.Excel_generate_btn.Text = "Generate Excel";
+            this.Excel_generate_btn.UseVisualStyleBackColor = true;
+            this.Excel_generate_btn.Click += new System.EventHandler(this.Excel_generate_btn_Click);
+            // 
+            // Save_Path
+            // 
+            this.Save_Path.Location = new System.Drawing.Point(95, 183);
+            this.Save_Path.Name = "Save_Path";
+            this.Save_Path.Size = new System.Drawing.Size(180, 30);
+            this.Save_Path.TabIndex = 3;
+            this.Save_Path.Text = "Select Save Path";
+            this.Save_Path.UseVisualStyleBackColor = true;
+            this.Save_Path.Click += new System.EventHandler(this.Save_Path_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label15.Location = new System.Drawing.Point(92, 94);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(84, 17);
+            this.label15.TabIndex = 2;
+            this.label15.Text = "Examination";
+            // 
+            // MonthYear_textbox
+            // 
+            this.MonthYear_textbox.Location = new System.Drawing.Point(95, 114);
+            this.MonthYear_textbox.Name = "MonthYear_textbox";
+            this.MonthYear_textbox.Size = new System.Drawing.Size(225, 22);
+            this.MonthYear_textbox.TabIndex = 1;
+            // 
+            // RoomPanelClose_btn
+            // 
+            this.RoomPanelClose_btn.Location = new System.Drawing.Point(95, 255);
+            this.RoomPanelClose_btn.Name = "RoomPanelClose_btn";
+            this.RoomPanelClose_btn.Size = new System.Drawing.Size(180, 30);
+            this.RoomPanelClose_btn.TabIndex = 3;
+            this.RoomPanelClose_btn.Text = "Close";
+            this.RoomPanelClose_btn.UseVisualStyleBackColor = true;
+            this.RoomPanelClose_btn.Click += new System.EventHandler(this.RoomPanelClose_btn_Click);
+            // 
             // Allotment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1924, 709);
+            this.Controls.Add(this.Generation_Panel);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.Generation_Panel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.RoomExcel_panel);
@@ -777,12 +773,12 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button DisplayPrint_button;
         private System.Windows.Forms.Panel RoomExcel_panel;
-        private System.Windows.Forms.ComboBox ExamType_combobox;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox MonthYear_textbox;
         private System.Windows.Forms.Button Save_Path;
         private System.Windows.Forms.TextBox Folder_path_text;
         private System.Windows.Forms.Button Excel_generate_btn;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button RoomPanelClose_btn;
     }
 }
