@@ -55,7 +55,7 @@ namespace Exam_Cell
             }
             
             //get rooms details
-            SqlCommand command3 = new SqlCommand("select * from Rooms order by Priority, A_Series desc", con.ActiveCon());
+            SqlCommand command3 = new SqlCommand("select * from Rooms order by Priority", con.ActiveCon());
             SqlDataAdapter adapter3 = new SqlDataAdapter(command3);
             DataTable table_rooms = new DataTable();
             adapter3.Fill(table_rooms);
@@ -194,7 +194,7 @@ namespace Exam_Cell
             adapter2.Fill(table_students);
 
             //get rooms details
-            SqlCommand command3 = new SqlCommand("select * from Rooms order by Priority, A_Series desc", con.ActiveCon());
+            SqlCommand command3 = new SqlCommand("select * from Rooms order by Priority", con.ActiveCon());
             SqlDataAdapter adapter3 = new SqlDataAdapter(command3);
             DataTable table_rooms = new DataTable();
             adapter3.Fill(table_rooms);

@@ -226,19 +226,7 @@ namespace Exam_Cell
                     
             
 
-        private void ResetPriority_button_Click(object sender, EventArgs e)
-        {
-            if(Priority_combobox.SelectedIndex !=0 )
-            {
-                SqlCommand comm = new SqlCommand("Update Rooms set Priority=@Priority", con.ActiveCon());
-                comm.Parameters.AddWithValue("@Priority", Priority_combobox.SelectedItem);
-                comm.ExecuteNonQuery();
-                Cleardata();
-            }
-            else
-                MessageBox.Show("Select A Priority to Reset", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-        }
+        
 
 
 

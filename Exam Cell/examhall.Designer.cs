@@ -38,7 +38,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.UpdatePriority_button = new System.Windows.Forms.Button();
-            this.ResetPriority_button = new System.Windows.Forms.Button();
             this.Save_button = new System.Windows.Forms.Button();
             this.B_series_textbox = new System.Windows.Forms.TextBox();
             this.A_series_textbox = new System.Windows.Forms.TextBox();
@@ -90,7 +89,6 @@
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.UpdatePriority_button);
-            this.panel2.Controls.Add(this.ResetPriority_button);
             this.panel2.Controls.Add(this.Save_button);
             this.panel2.Controls.Add(this.B_series_textbox);
             this.panel2.Controls.Add(this.A_series_textbox);
@@ -113,8 +111,36 @@
             this.Priority_combobox.FormattingEnabled = true;
             this.Priority_combobox.Items.AddRange(new object[] {
             "-Select-",
-            "High",
-            "Low"});
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30"});
             this.Priority_combobox.Location = new System.Drawing.Point(7, 89);
             this.Priority_combobox.Name = "Priority_combobox";
             this.Priority_combobox.Size = new System.Drawing.Size(256, 26);
@@ -162,26 +188,14 @@
             // UpdatePriority_button
             // 
             this.UpdatePriority_button.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.UpdatePriority_button.Location = new System.Drawing.Point(39, 300);
+            this.UpdatePriority_button.Location = new System.Drawing.Point(39, 274);
             this.UpdatePriority_button.Margin = new System.Windows.Forms.Padding(4);
             this.UpdatePriority_button.Name = "UpdatePriority_button";
-            this.UpdatePriority_button.Size = new System.Drawing.Size(190, 28);
+            this.UpdatePriority_button.Size = new System.Drawing.Size(202, 54);
             this.UpdatePriority_button.TabIndex = 11;
             this.UpdatePriority_button.Text = "Update Selected Priority";
             this.UpdatePriority_button.UseVisualStyleBackColor = true;
             this.UpdatePriority_button.Click += new System.EventHandler(this.UpdatePriority_button_Click);
-            // 
-            // ResetPriority_button
-            // 
-            this.ResetPriority_button.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ResetPriority_button.Location = new System.Drawing.Point(39, 265);
-            this.ResetPriority_button.Margin = new System.Windows.Forms.Padding(4);
-            this.ResetPriority_button.Name = "ResetPriority_button";
-            this.ResetPriority_button.Size = new System.Drawing.Size(190, 28);
-            this.ResetPriority_button.TabIndex = 10;
-            this.ResetPriority_button.Text = "Reset Priority";
-            this.ResetPriority_button.UseVisualStyleBackColor = true;
-            this.ResetPriority_button.Click += new System.EventHandler(this.ResetPriority_button_Click);
             // 
             // Save_button
             // 
@@ -189,7 +203,7 @@
             this.Save_button.Location = new System.Drawing.Point(39, 229);
             this.Save_button.Margin = new System.Windows.Forms.Padding(4);
             this.Save_button.Name = "Save_button";
-            this.Save_button.Size = new System.Drawing.Size(190, 28);
+            this.Save_button.Size = new System.Drawing.Size(202, 37);
             this.Save_button.TabIndex = 9;
             this.Save_button.Text = "Save";
             this.Save_button.UseVisualStyleBackColor = true;
@@ -320,7 +334,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button UpdatePriority_button;
-        private System.Windows.Forms.Button ResetPriority_button;
         private System.Windows.Forms.Button Save_button;
         private System.Windows.Forms.TextBox B_series_textbox;
         private System.Windows.Forms.TextBox A_series_textbox;
