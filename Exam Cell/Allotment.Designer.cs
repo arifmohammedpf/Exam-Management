@@ -77,12 +77,30 @@
             this.label6 = new System.Windows.Forms.Label();
             this.RoomExcel_panel = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
-            this.Folder_path_text = new System.Windows.Forms.TextBox();
+            this.RoomPanelClose_btn = new System.Windows.Forms.Button();
             this.Excel_generate_btn = new System.Windows.Forms.Button();
-            this.Save_Path = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.MonthYear_textbox = new System.Windows.Forms.TextBox();
-            this.RoomPanelClose_btn = new System.Windows.Forms.Button();
+            this.Folder_path_text = new System.Windows.Forms.TextBox();
+            this.Save_Path = new System.Windows.Forms.Button();
+            this.Signature_panel = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
+            this.Signature_close_btn = new System.Windows.Forms.Button();
+            this.Signature_generate_btn = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.Signature_examtype_textbox = new System.Windows.Forms.TextBox();
+            this.DisplaySheet_Panel = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.DisplayPanel_closebtn = new System.Windows.Forms.Button();
+            this.DisplaySheet_generate_btn = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.Display_examtype_textbox = new System.Windows.Forms.TextBox();
+            this.UnvSignature_radio = new System.Windows.Forms.RadioButton();
+            this.SeriesSignature_radio = new System.Windows.Forms.RadioButton();
+            this.UnvRoomGen_radio = new System.Windows.Forms.RadioButton();
+            this.SeriesRoomGen_radio = new System.Windows.Forms.RadioButton();
+            this.UnvDisplay_radio = new System.Windows.Forms.RadioButton();
+            this.SeriesDisplay_radio = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -94,6 +112,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.RoomExcel_panel.SuspendLayout();
+            this.Signature_panel.SuspendLayout();
+            this.DisplaySheet_Panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -252,6 +272,7 @@
             this.DisplayPrint_button.TabIndex = 4;
             this.DisplayPrint_button.Text = "Display Print";
             this.DisplayPrint_button.UseVisualStyleBackColor = true;
+            this.DisplayPrint_button.Click += new System.EventHandler(this.DisplayPrint_button_Click);
             // 
             // RoomPrint_button
             // 
@@ -298,6 +319,7 @@
             this.SignatureSheet_button.TabIndex = 4;
             this.SignatureSheet_button.Text = "Signature Sheet";
             this.SignatureSheet_button.UseVisualStyleBackColor = true;
+            this.SignatureSheet_button.Click += new System.EventHandler(this.SignatureSheet_button_Click);
             // 
             // label3
             // 
@@ -606,16 +628,16 @@
             // 
             // RoomExcel_panel
             // 
+            this.RoomExcel_panel.Controls.Add(this.SeriesRoomGen_radio);
+            this.RoomExcel_panel.Controls.Add(this.UnvRoomGen_radio);
             this.RoomExcel_panel.Controls.Add(this.label16);
-            this.RoomExcel_panel.Controls.Add(this.Folder_path_text);
             this.RoomExcel_panel.Controls.Add(this.RoomPanelClose_btn);
             this.RoomExcel_panel.Controls.Add(this.Excel_generate_btn);
-            this.RoomExcel_panel.Controls.Add(this.Save_Path);
             this.RoomExcel_panel.Controls.Add(this.label15);
             this.RoomExcel_panel.Controls.Add(this.MonthYear_textbox);
-            this.RoomExcel_panel.Location = new System.Drawing.Point(710, 85);
+            this.RoomExcel_panel.Location = new System.Drawing.Point(710, 33);
             this.RoomExcel_panel.Name = "RoomExcel_panel";
-            this.RoomExcel_panel.Size = new System.Drawing.Size(400, 312);
+            this.RoomExcel_panel.Size = new System.Drawing.Size(400, 324);
             this.RoomExcel_panel.TabIndex = 8;
             // 
             // label16
@@ -629,56 +651,9 @@
             this.label16.TabIndex = 5;
             this.label16.Text = "ROOM EXCEL GENERATION";
             // 
-            // Folder_path_text
-            // 
-            this.Folder_path_text.Enabled = false;
-            this.Folder_path_text.Location = new System.Drawing.Point(95, 155);
-            this.Folder_path_text.Name = "Folder_path_text";
-            this.Folder_path_text.ReadOnly = true;
-            this.Folder_path_text.Size = new System.Drawing.Size(225, 22);
-            this.Folder_path_text.TabIndex = 4;
-            // 
-            // Excel_generate_btn
-            // 
-            this.Excel_generate_btn.Location = new System.Drawing.Point(95, 219);
-            this.Excel_generate_btn.Name = "Excel_generate_btn";
-            this.Excel_generate_btn.Size = new System.Drawing.Size(180, 30);
-            this.Excel_generate_btn.TabIndex = 3;
-            this.Excel_generate_btn.Text = "Generate Excel";
-            this.Excel_generate_btn.UseVisualStyleBackColor = true;
-            this.Excel_generate_btn.Click += new System.EventHandler(this.Excel_generate_btn_Click);
-            // 
-            // Save_Path
-            // 
-            this.Save_Path.Location = new System.Drawing.Point(95, 183);
-            this.Save_Path.Name = "Save_Path";
-            this.Save_Path.Size = new System.Drawing.Size(180, 30);
-            this.Save_Path.TabIndex = 3;
-            this.Save_Path.Text = "Select Save Path";
-            this.Save_Path.UseVisualStyleBackColor = true;
-            this.Save_Path.Click += new System.EventHandler(this.Save_Path_Click);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label15.Location = new System.Drawing.Point(92, 94);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(84, 17);
-            this.label15.TabIndex = 2;
-            this.label15.Text = "Examination";
-            // 
-            // MonthYear_textbox
-            // 
-            this.MonthYear_textbox.Location = new System.Drawing.Point(95, 114);
-            this.MonthYear_textbox.Name = "MonthYear_textbox";
-            this.MonthYear_textbox.Size = new System.Drawing.Size(225, 22);
-            this.MonthYear_textbox.TabIndex = 1;
-            // 
             // RoomPanelClose_btn
             // 
-            this.RoomPanelClose_btn.Location = new System.Drawing.Point(95, 255);
+            this.RoomPanelClose_btn.Location = new System.Drawing.Point(95, 245);
             this.RoomPanelClose_btn.Name = "RoomPanelClose_btn";
             this.RoomPanelClose_btn.Size = new System.Drawing.Size(180, 30);
             this.RoomPanelClose_btn.TabIndex = 3;
@@ -686,22 +661,272 @@
             this.RoomPanelClose_btn.UseVisualStyleBackColor = true;
             this.RoomPanelClose_btn.Click += new System.EventHandler(this.RoomPanelClose_btn_Click);
             // 
+            // Excel_generate_btn
+            // 
+            this.Excel_generate_btn.Location = new System.Drawing.Point(95, 209);
+            this.Excel_generate_btn.Name = "Excel_generate_btn";
+            this.Excel_generate_btn.Size = new System.Drawing.Size(180, 30);
+            this.Excel_generate_btn.TabIndex = 3;
+            this.Excel_generate_btn.Text = "Generate Excel";
+            this.Excel_generate_btn.UseVisualStyleBackColor = true;
+            this.Excel_generate_btn.Click += new System.EventHandler(this.Excel_generate_btn_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label15.Location = new System.Drawing.Point(92, 144);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(84, 17);
+            this.label15.TabIndex = 2;
+            this.label15.Text = "Examination";
+            // 
+            // MonthYear_textbox
+            // 
+            this.MonthYear_textbox.Location = new System.Drawing.Point(95, 164);
+            this.MonthYear_textbox.Name = "MonthYear_textbox";
+            this.MonthYear_textbox.Size = new System.Drawing.Size(225, 22);
+            this.MonthYear_textbox.TabIndex = 1;
+            // 
+            // Folder_path_text
+            // 
+            this.Folder_path_text.Enabled = false;
+            this.Folder_path_text.Location = new System.Drawing.Point(623, 562);
+            this.Folder_path_text.Name = "Folder_path_text";
+            this.Folder_path_text.ReadOnly = true;
+            this.Folder_path_text.Size = new System.Drawing.Size(225, 22);
+            this.Folder_path_text.TabIndex = 4;
+            // 
+            // Save_Path
+            // 
+            this.Save_Path.Location = new System.Drawing.Point(623, 590);
+            this.Save_Path.Name = "Save_Path";
+            this.Save_Path.Size = new System.Drawing.Size(225, 30);
+            this.Save_Path.TabIndex = 3;
+            this.Save_Path.Text = "Select Save Path for Excel";
+            this.Save_Path.UseVisualStyleBackColor = true;
+            this.Save_Path.Click += new System.EventHandler(this.Save_Path_Click);
+            // 
+            // Signature_panel
+            // 
+            this.Signature_panel.Controls.Add(this.SeriesSignature_radio);
+            this.Signature_panel.Controls.Add(this.UnvSignature_radio);
+            this.Signature_panel.Controls.Add(this.label17);
+            this.Signature_panel.Controls.Add(this.Signature_close_btn);
+            this.Signature_panel.Controls.Add(this.Signature_generate_btn);
+            this.Signature_panel.Controls.Add(this.label18);
+            this.Signature_panel.Controls.Add(this.Signature_examtype_textbox);
+            this.Signature_panel.Location = new System.Drawing.Point(710, 33);
+            this.Signature_panel.Name = "Signature_panel";
+            this.Signature_panel.Size = new System.Drawing.Size(400, 324);
+            this.Signature_panel.TabIndex = 8;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label17.Location = new System.Drawing.Point(84, 31);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(280, 24);
+            this.label17.TabIndex = 5;
+            this.label17.Text = "SIGNATURE SHEET GENERATION";
+            // 
+            // Signature_close_btn
+            // 
+            this.Signature_close_btn.Location = new System.Drawing.Point(95, 256);
+            this.Signature_close_btn.Name = "Signature_close_btn";
+            this.Signature_close_btn.Size = new System.Drawing.Size(180, 30);
+            this.Signature_close_btn.TabIndex = 3;
+            this.Signature_close_btn.Text = "Close";
+            this.Signature_close_btn.UseVisualStyleBackColor = true;
+            this.Signature_close_btn.Click += new System.EventHandler(this.Signature_close_btn_Click);
+            // 
+            // Signature_generate_btn
+            // 
+            this.Signature_generate_btn.Location = new System.Drawing.Point(95, 220);
+            this.Signature_generate_btn.Name = "Signature_generate_btn";
+            this.Signature_generate_btn.Size = new System.Drawing.Size(180, 30);
+            this.Signature_generate_btn.TabIndex = 3;
+            this.Signature_generate_btn.Text = "Generate Excel";
+            this.Signature_generate_btn.UseVisualStyleBackColor = true;
+            this.Signature_generate_btn.Click += new System.EventHandler(this.Signature_generate_btn_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label18.Location = new System.Drawing.Point(92, 155);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(84, 17);
+            this.label18.TabIndex = 2;
+            this.label18.Text = "Examination";
+            // 
+            // Signature_examtype_textbox
+            // 
+            this.Signature_examtype_textbox.Location = new System.Drawing.Point(95, 175);
+            this.Signature_examtype_textbox.Name = "Signature_examtype_textbox";
+            this.Signature_examtype_textbox.Size = new System.Drawing.Size(225, 22);
+            this.Signature_examtype_textbox.TabIndex = 1;
+            // 
+            // DisplaySheet_Panel
+            // 
+            this.DisplaySheet_Panel.Controls.Add(this.SeriesDisplay_radio);
+            this.DisplaySheet_Panel.Controls.Add(this.label19);
+            this.DisplaySheet_Panel.Controls.Add(this.UnvDisplay_radio);
+            this.DisplaySheet_Panel.Controls.Add(this.DisplayPanel_closebtn);
+            this.DisplaySheet_Panel.Controls.Add(this.DisplaySheet_generate_btn);
+            this.DisplaySheet_Panel.Controls.Add(this.label20);
+            this.DisplaySheet_Panel.Controls.Add(this.Display_examtype_textbox);
+            this.DisplaySheet_Panel.Location = new System.Drawing.Point(710, 33);
+            this.DisplaySheet_Panel.Name = "DisplaySheet_Panel";
+            this.DisplaySheet_Panel.Size = new System.Drawing.Size(400, 324);
+            this.DisplaySheet_Panel.TabIndex = 8;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Arial Narrow", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label19.Location = new System.Drawing.Point(84, 31);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(253, 24);
+            this.label19.TabIndex = 5;
+            this.label19.Text = "DISPLAY SHEET GENERATION";
+            // 
+            // DisplayPanel_closebtn
+            // 
+            this.DisplayPanel_closebtn.Location = new System.Drawing.Point(95, 250);
+            this.DisplayPanel_closebtn.Name = "DisplayPanel_closebtn";
+            this.DisplayPanel_closebtn.Size = new System.Drawing.Size(180, 30);
+            this.DisplayPanel_closebtn.TabIndex = 3;
+            this.DisplayPanel_closebtn.Text = "Close";
+            this.DisplayPanel_closebtn.UseVisualStyleBackColor = true;
+            this.DisplayPanel_closebtn.Click += new System.EventHandler(this.DisplayPanel_closebtn_Click);
+            // 
+            // DisplaySheet_generate_btn
+            // 
+            this.DisplaySheet_generate_btn.Location = new System.Drawing.Point(95, 214);
+            this.DisplaySheet_generate_btn.Name = "DisplaySheet_generate_btn";
+            this.DisplaySheet_generate_btn.Size = new System.Drawing.Size(180, 30);
+            this.DisplaySheet_generate_btn.TabIndex = 3;
+            this.DisplaySheet_generate_btn.Text = "Generate Excel";
+            this.DisplaySheet_generate_btn.UseVisualStyleBackColor = true;
+            this.DisplaySheet_generate_btn.Click += new System.EventHandler(this.DisplaySheet_generate_btn_Click);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label20.Location = new System.Drawing.Point(92, 149);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(84, 17);
+            this.label20.TabIndex = 2;
+            this.label20.Text = "Examination";
+            // 
+            // Display_examtype_textbox
+            // 
+            this.Display_examtype_textbox.Location = new System.Drawing.Point(95, 169);
+            this.Display_examtype_textbox.Name = "Display_examtype_textbox";
+            this.Display_examtype_textbox.Size = new System.Drawing.Size(225, 22);
+            this.Display_examtype_textbox.TabIndex = 1;
+            // 
+            // UnvSignature_radio
+            // 
+            this.UnvSignature_radio.AutoSize = true;
+            this.UnvSignature_radio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.UnvSignature_radio.Location = new System.Drawing.Point(95, 95);
+            this.UnvSignature_radio.Name = "UnvSignature_radio";
+            this.UnvSignature_radio.Size = new System.Drawing.Size(91, 21);
+            this.UnvSignature_radio.TabIndex = 6;
+            this.UnvSignature_radio.TabStop = true;
+            this.UnvSignature_radio.Text = "University";
+            this.UnvSignature_radio.UseVisualStyleBackColor = true;
+            // 
+            // SeriesSignature_radio
+            // 
+            this.SeriesSignature_radio.AutoSize = true;
+            this.SeriesSignature_radio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.SeriesSignature_radio.Location = new System.Drawing.Point(237, 95);
+            this.SeriesSignature_radio.Name = "SeriesSignature_radio";
+            this.SeriesSignature_radio.Size = new System.Drawing.Size(69, 21);
+            this.SeriesSignature_radio.TabIndex = 6;
+            this.SeriesSignature_radio.TabStop = true;
+            this.SeriesSignature_radio.Text = "Series";
+            this.SeriesSignature_radio.UseVisualStyleBackColor = true;
+            // 
+            // UnvRoomGen_radio
+            // 
+            this.UnvRoomGen_radio.AutoSize = true;
+            this.UnvRoomGen_radio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.UnvRoomGen_radio.Location = new System.Drawing.Point(95, 91);
+            this.UnvRoomGen_radio.Name = "UnvRoomGen_radio";
+            this.UnvRoomGen_radio.Size = new System.Drawing.Size(91, 21);
+            this.UnvRoomGen_radio.TabIndex = 6;
+            this.UnvRoomGen_radio.TabStop = true;
+            this.UnvRoomGen_radio.Text = "University";
+            this.UnvRoomGen_radio.UseVisualStyleBackColor = true;
+            // 
+            // SeriesRoomGen_radio
+            // 
+            this.SeriesRoomGen_radio.AutoSize = true;
+            this.SeriesRoomGen_radio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.SeriesRoomGen_radio.Location = new System.Drawing.Point(237, 91);
+            this.SeriesRoomGen_radio.Name = "SeriesRoomGen_radio";
+            this.SeriesRoomGen_radio.Size = new System.Drawing.Size(69, 21);
+            this.SeriesRoomGen_radio.TabIndex = 6;
+            this.SeriesRoomGen_radio.TabStop = true;
+            this.SeriesRoomGen_radio.Text = "Series";
+            this.SeriesRoomGen_radio.UseVisualStyleBackColor = true;
+            // 
+            // UnvDisplay_radio
+            // 
+            this.UnvDisplay_radio.AutoSize = true;
+            this.UnvDisplay_radio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.UnvDisplay_radio.Location = new System.Drawing.Point(95, 95);
+            this.UnvDisplay_radio.Name = "UnvDisplay_radio";
+            this.UnvDisplay_radio.Size = new System.Drawing.Size(91, 21);
+            this.UnvDisplay_radio.TabIndex = 6;
+            this.UnvDisplay_radio.TabStop = true;
+            this.UnvDisplay_radio.Text = "University";
+            this.UnvDisplay_radio.UseVisualStyleBackColor = true;
+            // 
+            // SeriesDisplay_radio
+            // 
+            this.SeriesDisplay_radio.AutoSize = true;
+            this.SeriesDisplay_radio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.SeriesDisplay_radio.Location = new System.Drawing.Point(237, 95);
+            this.SeriesDisplay_radio.Name = "SeriesDisplay_radio";
+            this.SeriesDisplay_radio.Size = new System.Drawing.Size(69, 21);
+            this.SeriesDisplay_radio.TabIndex = 6;
+            this.SeriesDisplay_radio.TabStop = true;
+            this.SeriesDisplay_radio.Text = "Series";
+            this.SeriesDisplay_radio.UseVisualStyleBackColor = true;
+            // 
             // Allotment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1924, 709);
-            this.Controls.Add(this.Generation_Panel);
+            this.Controls.Add(this.DisplaySheet_Panel);
+            this.Controls.Add(this.Signature_panel);
+            this.Controls.Add(this.Folder_path_text);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel4);
+            this.Controls.Add(this.Save_Path);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.RoomExcel_panel);
+            this.Controls.Add(this.Generation_Panel);
             this.Name = "Allotment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Allotment";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Allotment_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -719,7 +944,12 @@
             this.groupBox1.PerformLayout();
             this.RoomExcel_panel.ResumeLayout(false);
             this.RoomExcel_panel.PerformLayout();
+            this.Signature_panel.ResumeLayout(false);
+            this.Signature_panel.PerformLayout();
+            this.DisplaySheet_Panel.ResumeLayout(false);
+            this.DisplaySheet_Panel.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -780,5 +1010,23 @@
         private System.Windows.Forms.Button Excel_generate_btn;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button RoomPanelClose_btn;
+        private System.Windows.Forms.Panel Signature_panel;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Button Signature_close_btn;
+        private System.Windows.Forms.Button Signature_generate_btn;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox Signature_examtype_textbox;
+        private System.Windows.Forms.Panel DisplaySheet_Panel;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button DisplayPanel_closebtn;
+        private System.Windows.Forms.Button DisplaySheet_generate_btn;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox Display_examtype_textbox;
+        private System.Windows.Forms.RadioButton SeriesRoomGen_radio;
+        private System.Windows.Forms.RadioButton UnvRoomGen_radio;
+        private System.Windows.Forms.RadioButton SeriesSignature_radio;
+        private System.Windows.Forms.RadioButton UnvSignature_radio;
+        private System.Windows.Forms.RadioButton SeriesDisplay_radio;
+        private System.Windows.Forms.RadioButton UnvDisplay_radio;
     }
 }
