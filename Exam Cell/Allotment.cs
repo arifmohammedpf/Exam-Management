@@ -787,7 +787,8 @@ namespace Exam_Cell
 
                                     // datatable with distinct branch from 'dt'
                                     DataTable distinctBranch = dt.DefaultView.ToTable(true, "Branch");
-
+                                    dataGridView2.DataSource = distinctBranch;
+                                    MessageBox.Show("--Tester-- \n Check whether distinct code works in dgv");
                                     //Excel Designing
                                     if (dt.Rows.Count != 0)
                                     {
