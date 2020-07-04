@@ -16,5 +16,10 @@ namespace Exam_Cell
         {
             InitializeComponent();
         }
+
+        private void Absent_Statement_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
