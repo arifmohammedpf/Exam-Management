@@ -121,6 +121,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Exam_CellDataSetExcelStudents.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Exam_CellDataSetStudentsNew.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Exam_CellDataSetStudentsNew.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Exam_CellDataSetTimetable.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -266,6 +271,17 @@
     </None>
     <None Include="Exam_CellDataSetExcelStudents.xss">
       <DependentUpon>Exam_CellDataSetExcelStudents.xsd</DependentUpon>
+    </None>
+    <None Include="Exam_CellDataSetStudentsNew.xsc">
+      <DependentUpon>Exam_CellDataSetStudentsNew.xsd</DependentUpon>
+    </None>
+    <None Include="Exam_CellDataSetStudentsNew.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Exam_CellDataSetStudentsNew.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Exam_CellDataSetStudentsNew.xss">
+      <DependentUpon>Exam_CellDataSetStudentsNew.xsd</DependentUpon>
     </None>
     <None Include="Exam_CellDataSetTimetable.xsc">
       <DependentUpon>Exam_CellDataSetTimetable.xsd</DependentUpon>

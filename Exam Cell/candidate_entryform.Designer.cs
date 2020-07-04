@@ -55,7 +55,7 @@
             this.Reg_btn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.Student_details_groupbox = new System.Windows.Forms.GroupBox();
+            this.Series_Student_details_groupbox = new System.Windows.Forms.GroupBox();
             this.Class_drpdwn = new System.Windows.Forms.ComboBox();
             this.Class_label = new System.Windows.Forms.Label();
             this.excelShowBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -89,6 +89,15 @@
             this.exam_CellScheme = new Exam_Cell.Exam_CellScheme();
             this.schemeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.schemeTableAdapter1 = new Exam_Cell.Exam_CellSchemeTableAdapters.SchemeTableAdapter();
+            this.Unv_Student_details_groupbox = new System.Windows.Forms.GroupBox();
+            this.UnvBranchCombobox = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.YOACombobox = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.exam_CellDataSetStudentsNew = new Exam_Cell.Exam_CellDataSetStudentsNew();
+            this.studentsBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.studentsTableAdapter3 = new Exam_Cell.Exam_CellDataSetStudentsNewTableAdapters.StudentsTableAdapter();
+            this.UnvCheckbox = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.Excel_Group.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -97,7 +106,7 @@
             this.groupBox3.SuspendLayout();
             this.SubjectDetails_groupbox.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.Student_details_groupbox.SuspendLayout();
+            this.Series_Student_details_groupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.excelShowBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellDataSetExcelStudents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellDataSet_Tables)).BeginInit();
@@ -118,6 +127,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.schemeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellScheme)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.schemeBindingSource1)).BeginInit();
+            this.Unv_Student_details_groupbox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.exam_CellDataSetStudentsNew)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -132,7 +144,8 @@
             this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.SubjectDetails_groupbox);
             this.panel1.Controls.Add(this.groupBox4);
-            this.panel1.Controls.Add(this.Student_details_groupbox);
+            this.panel1.Controls.Add(this.Unv_Student_details_groupbox);
+            this.panel1.Controls.Add(this.Series_Student_details_groupbox);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -424,19 +437,19 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Register No";
             // 
-            // Student_details_groupbox
+            // Series_Student_details_groupbox
             // 
-            this.Student_details_groupbox.Controls.Add(this.Class_drpdwn);
-            this.Student_details_groupbox.Controls.Add(this.Class_label);
-            this.Student_details_groupbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Student_details_groupbox.Location = new System.Drawing.Point(21, 118);
-            this.Student_details_groupbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Student_details_groupbox.Name = "Student_details_groupbox";
-            this.Student_details_groupbox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Student_details_groupbox.Size = new System.Drawing.Size(471, 106);
-            this.Student_details_groupbox.TabIndex = 24;
-            this.Student_details_groupbox.TabStop = false;
-            this.Student_details_groupbox.Text = "Student Details";
+            this.Series_Student_details_groupbox.Controls.Add(this.Class_drpdwn);
+            this.Series_Student_details_groupbox.Controls.Add(this.Class_label);
+            this.Series_Student_details_groupbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Series_Student_details_groupbox.Location = new System.Drawing.Point(21, 118);
+            this.Series_Student_details_groupbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Series_Student_details_groupbox.Name = "Series_Student_details_groupbox";
+            this.Series_Student_details_groupbox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Series_Student_details_groupbox.Size = new System.Drawing.Size(704, 106);
+            this.Series_Student_details_groupbox.TabIndex = 24;
+            this.Series_Student_details_groupbox.TabStop = false;
+            this.Series_Student_details_groupbox.Text = "Student Details";
             // 
             // Class_drpdwn
             // 
@@ -602,6 +615,87 @@
             // 
             this.schemeTableAdapter1.ClearBeforeFill = true;
             // 
+            // Unv_Student_details_groupbox
+            // 
+            this.Unv_Student_details_groupbox.Controls.Add(this.UnvCheckbox);
+            this.Unv_Student_details_groupbox.Controls.Add(this.YOACombobox);
+            this.Unv_Student_details_groupbox.Controls.Add(this.UnvBranchCombobox);
+            this.Unv_Student_details_groupbox.Controls.Add(this.label4);
+            this.Unv_Student_details_groupbox.Controls.Add(this.label3);
+            this.Unv_Student_details_groupbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Unv_Student_details_groupbox.Location = new System.Drawing.Point(21, 118);
+            this.Unv_Student_details_groupbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Unv_Student_details_groupbox.Name = "Unv_Student_details_groupbox";
+            this.Unv_Student_details_groupbox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Unv_Student_details_groupbox.Size = new System.Drawing.Size(704, 106);
+            this.Unv_Student_details_groupbox.TabIndex = 24;
+            this.Unv_Student_details_groupbox.TabStop = false;
+            this.Unv_Student_details_groupbox.Text = "Student Details";
+            // 
+            // UnvBranchCombobox
+            // 
+            this.UnvBranchCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.UnvBranchCombobox.FormattingEnabled = true;
+            this.UnvBranchCombobox.Location = new System.Drawing.Point(84, 46);
+            this.UnvBranchCombobox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.UnvBranchCombobox.Name = "UnvBranchCombobox";
+            this.UnvBranchCombobox.Size = new System.Drawing.Size(318, 26);
+            this.UnvBranchCombobox.TabIndex = 14;
+            this.UnvBranchCombobox.SelectedIndexChanged += new System.EventHandler(this.UnvBranchCombobox_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(19, 49);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 18);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Branch";
+            // 
+            // YOACombobox
+            // 
+            this.YOACombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.YOACombobox.FormattingEnabled = true;
+            this.YOACombobox.Location = new System.Drawing.Point(477, 46);
+            this.YOACombobox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.YOACombobox.Name = "YOACombobox";
+            this.YOACombobox.Size = new System.Drawing.Size(167, 26);
+            this.YOACombobox.TabIndex = 14;
+            this.YOACombobox.SelectedIndexChanged += new System.EventHandler(this.YOACombobox_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(426, 49);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(45, 18);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Y.O.A";
+            // 
+            // exam_CellDataSetStudentsNew
+            // 
+            this.exam_CellDataSetStudentsNew.DataSetName = "Exam_CellDataSetStudentsNew";
+            this.exam_CellDataSetStudentsNew.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // studentsBindingSource3
+            // 
+            this.studentsBindingSource3.DataMember = "Students";
+            this.studentsBindingSource3.DataSource = this.exam_CellDataSetStudentsNew;
+            // 
+            // studentsTableAdapter3
+            // 
+            this.studentsTableAdapter3.ClearBeforeFill = true;
+            // 
+            // UnvCheckbox
+            // 
+            this.UnvCheckbox.AutoSize = true;
+            this.UnvCheckbox.Location = new System.Drawing.Point(665, 51);
+            this.UnvCheckbox.Name = "UnvCheckbox";
+            this.UnvCheckbox.Size = new System.Drawing.Size(18, 17);
+            this.UnvCheckbox.TabIndex = 15;
+            this.UnvCheckbox.UseVisualStyleBackColor = true;
+            this.UnvCheckbox.CheckedChanged += new System.EventHandler(this.UnvCheckbox_CheckedChanged);
+            // 
             // formti
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -628,8 +722,8 @@
             this.SubjectDetails_groupbox.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            this.Student_details_groupbox.ResumeLayout(false);
-            this.Student_details_groupbox.PerformLayout();
+            this.Series_Student_details_groupbox.ResumeLayout(false);
+            this.Series_Student_details_groupbox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.excelShowBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellDataSetExcelStudents)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellDataSet_Tables)).EndInit();
@@ -650,6 +744,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.schemeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellScheme)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.schemeBindingSource1)).EndInit();
+            this.Unv_Student_details_groupbox.ResumeLayout(false);
+            this.Unv_Student_details_groupbox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.exam_CellDataSetStudentsNew)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -669,7 +767,7 @@
         private System.Windows.Forms.RadioButton Unvrsty_rdbtn;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox SubjectDetails_groupbox;
-        private System.Windows.Forms.GroupBox Student_details_groupbox;
+        private System.Windows.Forms.GroupBox Series_Student_details_groupbox;
         private System.Windows.Forms.Button Excel_btn;
         private System.Windows.Forms.Button Close_btn;
         private System.Windows.Forms.Button RegRegCnd_btn;
@@ -716,5 +814,14 @@
         private Exam_CellScheme exam_CellScheme;
         private System.Windows.Forms.BindingSource schemeBindingSource1;
         private Exam_CellSchemeTableAdapters.SchemeTableAdapter schemeTableAdapter1;
+        private System.Windows.Forms.GroupBox Unv_Student_details_groupbox;
+        private System.Windows.Forms.ComboBox UnvBranchCombobox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox YOACombobox;
+        private System.Windows.Forms.Label label4;
+        private Exam_CellDataSetStudentsNew exam_CellDataSetStudentsNew;
+        private System.Windows.Forms.BindingSource studentsBindingSource3;
+        private Exam_CellDataSetStudentsNewTableAdapters.StudentsTableAdapter studentsTableAdapter3;
+        private System.Windows.Forms.CheckBox UnvCheckbox;
     }
 }
