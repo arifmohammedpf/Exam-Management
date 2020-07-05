@@ -31,7 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.filesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Absent_Marking_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this.timetableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.regStdntMangmntToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.candidateEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,6 +40,8 @@
             this.allotmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DatabasemanagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.Absent_Statement_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -62,7 +64,6 @@
             this.menuStrip1.BackColor = System.Drawing.Color.Black;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.filesToolStripMenuItem,
             this.timetableToolStripMenuItem,
             this.regStdntMangmntToolStripMenuItem,
             this.candidateEntryToolStripMenuItem,
@@ -70,6 +71,7 @@
             this.roomToolStripMenuItem,
             this.allotmentToolStripMenuItem,
             this.DatabasemanagementToolStripMenuItem,
+            this.filesToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -83,18 +85,20 @@
             // filesToolStripMenuItem
             // 
             this.filesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exitToolStripMenuItem});
+            this.Absent_Marking_Menu,
+            this.toolStripSeparator1,
+            this.Absent_Statement_Menu});
             this.filesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.filesToolStripMenuItem.Name = "filesToolStripMenuItem";
-            this.filesToolStripMenuItem.Size = new System.Drawing.Size(50, 24);
-            this.filesToolStripMenuItem.Text = "Files";
+            this.filesToolStripMenuItem.Size = new System.Drawing.Size(89, 24);
+            this.filesToolStripMenuItem.Text = "Absentees";
             // 
-            // exitToolStripMenuItem
+            // Absent_Marking_Menu
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.Absent_Marking_Menu.Name = "Absent_Marking_Menu";
+            this.Absent_Marking_Menu.Size = new System.Drawing.Size(216, 26);
+            this.Absent_Marking_Menu.Text = "Absent Marking";
+            this.Absent_Marking_Menu.Click += new System.EventHandler(this.Absent_Marking_Menu_Click);
             // 
             // timetableToolStripMenuItem
             // 
@@ -161,6 +165,18 @@
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(47, 24);
             this.helpToolStripMenuItem.Text = "Info";
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(213, 6);
+            // 
+            // Absent_Statement_Menu
+            // 
+            this.Absent_Statement_Menu.Name = "Absent_Statement_Menu";
+            this.Absent_Statement_Menu.Size = new System.Drawing.Size(216, 26);
+            this.Absent_Statement_Menu.Text = "Absent Statement";
+            this.Absent_Statement_Menu.Click += new System.EventHandler(this.Absent_Statement_Menu_Click);
+            // 
             // menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -188,7 +204,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem filesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Absent_Marking_Menu;
         private System.Windows.Forms.ToolStripMenuItem timetableToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem candidateEntryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem postponementToolStripMenuItem;
@@ -197,5 +213,7 @@
         private System.Windows.Forms.ToolStripMenuItem DatabasemanagementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem regStdntMangmntToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem Absent_Statement_Menu;
     }
 }

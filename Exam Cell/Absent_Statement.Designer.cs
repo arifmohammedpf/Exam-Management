@@ -48,66 +48,68 @@
             // Date_combobox
             // 
             this.Date_combobox.FormattingEnabled = true;
-            this.Date_combobox.Location = new System.Drawing.Point(118, 30);
-            this.Date_combobox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Date_combobox.Location = new System.Drawing.Point(157, 37);
+            this.Date_combobox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Date_combobox.Name = "Date_combobox";
-            this.Date_combobox.Size = new System.Drawing.Size(92, 21);
+            this.Date_combobox.Size = new System.Drawing.Size(121, 24);
             this.Date_combobox.TabIndex = 0;
             // 
             // Session_combobox
             // 
             this.Session_combobox.FormattingEnabled = true;
-            this.Session_combobox.Location = new System.Drawing.Point(118, 63);
-            this.Session_combobox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Session_combobox.Location = new System.Drawing.Point(157, 78);
+            this.Session_combobox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Session_combobox.Name = "Session_combobox";
-            this.Session_combobox.Size = new System.Drawing.Size(92, 21);
+            this.Session_combobox.Size = new System.Drawing.Size(121, 24);
             this.Session_combobox.TabIndex = 1;
             // 
             // Branch_combobox
             // 
             this.Branch_combobox.FormattingEnabled = true;
-            this.Branch_combobox.Location = new System.Drawing.Point(118, 96);
-            this.Branch_combobox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Branch_combobox.Location = new System.Drawing.Point(157, 118);
+            this.Branch_combobox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Branch_combobox.Name = "Branch_combobox";
-            this.Branch_combobox.Size = new System.Drawing.Size(92, 21);
+            this.Branch_combobox.Size = new System.Drawing.Size(121, 24);
             this.Branch_combobox.TabIndex = 1;
             // 
             // ExamCode_combobox
             // 
             this.ExamCode_combobox.FormattingEnabled = true;
-            this.ExamCode_combobox.Location = new System.Drawing.Point(118, 128);
-            this.ExamCode_combobox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ExamCode_combobox.Location = new System.Drawing.Point(157, 158);
+            this.ExamCode_combobox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ExamCode_combobox.Name = "ExamCode_combobox";
-            this.ExamCode_combobox.Size = new System.Drawing.Size(92, 21);
+            this.ExamCode_combobox.Size = new System.Drawing.Size(121, 24);
             this.ExamCode_combobox.TabIndex = 1;
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(348, 30);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Location = new System.Drawing.Point(464, 37);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(381, 399);
+            this.dataGridView1.Size = new System.Drawing.Size(508, 491);
             this.dataGridView1.TabIndex = 3;
             // 
             // No_of_candidates_ViewText
             // 
             this.No_of_candidates_ViewText.Enabled = false;
-            this.No_of_candidates_ViewText.Location = new System.Drawing.Point(29, 208);
-            this.No_of_candidates_ViewText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.No_of_candidates_ViewText.Location = new System.Drawing.Point(39, 256);
+            this.No_of_candidates_ViewText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.No_of_candidates_ViewText.Multiline = true;
             this.No_of_candidates_ViewText.Name = "No_of_candidates_ViewText";
             this.No_of_candidates_ViewText.ReadOnly = true;
-            this.No_of_candidates_ViewText.Size = new System.Drawing.Size(233, 221);
+            this.No_of_candidates_ViewText.Size = new System.Drawing.Size(54, 50);
             this.No_of_candidates_ViewText.TabIndex = 4;
             // 
             // Prepare_Statement_btn
             // 
-            this.Prepare_Statement_btn.Location = new System.Drawing.Point(617, 434);
-            this.Prepare_Statement_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Prepare_Statement_btn.Location = new System.Drawing.Point(823, 534);
+            this.Prepare_Statement_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Prepare_Statement_btn.Name = "Prepare_Statement_btn";
-            this.Prepare_Statement_btn.Size = new System.Drawing.Size(112, 37);
+            this.Prepare_Statement_btn.Size = new System.Drawing.Size(149, 46);
             this.Prepare_Statement_btn.TabIndex = 5;
             this.Prepare_Statement_btn.Text = "Prepare Statement";
             this.Prepare_Statement_btn.UseVisualStyleBackColor = true;
@@ -116,10 +118,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(26, 30);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(35, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 13);
+            this.label1.Size = new System.Drawing.Size(38, 17);
             this.label1.TabIndex = 6;
             this.label1.Text = "Date";
             // 
@@ -127,10 +128,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(26, 63);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(35, 78);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
+            this.label2.Size = new System.Drawing.Size(58, 17);
             this.label2.TabIndex = 6;
             this.label2.Text = "Session";
             // 
@@ -138,10 +138,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(26, 99);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(35, 122);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.Size = new System.Drawing.Size(53, 17);
             this.label3.TabIndex = 6;
             this.label3.Text = "Branch";
             // 
@@ -149,10 +148,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(26, 136);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(35, 167);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 13);
+            this.label4.Size = new System.Drawing.Size(79, 17);
             this.label4.TabIndex = 6;
             this.label4.Text = "Exam Code";
             // 
@@ -160,18 +158,18 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(26, 170);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(35, 209);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 13);
+            this.label5.Size = new System.Drawing.Size(96, 17);
             this.label5.TabIndex = 6;
             this.label5.Text = "Subject Name";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(187, 448);
+            this.button1.Location = new System.Drawing.Point(249, 551);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 7;
             this.button1.Text = "Add";
             this.button1.UseVisualStyleBackColor = true;
@@ -179,18 +177,18 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(118, 162);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox1.Location = new System.Drawing.Point(157, 199);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(92, 21);
+            this.comboBox1.Size = new System.Drawing.Size(121, 24);
             this.comboBox1.TabIndex = 1;
             // 
             // Absent_Statement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(749, 531);
+            this.ClientSize = new System.Drawing.Size(999, 654);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -206,8 +204,9 @@
             this.Controls.Add(this.Session_combobox);
             this.Controls.Add(this.Date_combobox);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Absent_Statement";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Absent_Statement";
             this.Load += new System.EventHandler(this.Absent_Statement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

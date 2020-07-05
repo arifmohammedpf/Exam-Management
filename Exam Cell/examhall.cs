@@ -229,7 +229,7 @@ namespace Exam_Cell
         
 
 
-
+        ////////update capacity textbox when checkbox is clicked...
         private void Rooms_dgv_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == Rooms_dgv.Columns["CheckboxColumn"].Index)
@@ -241,7 +241,8 @@ namespace Exam_Cell
             if (e.ColumnIndex == Rooms_dgv.Columns["CheckboxColumn"].Index)
                 Rooms_dgv.EndEdit();
         }
-
+        ////////...
+       
         private void UpdatePriority_button_Click(object sender, EventArgs e)
         {
             int f = 0;
@@ -269,6 +270,7 @@ namespace Exam_Cell
 
         }
 
+        // auto fill boxes
         private void Rooms_dgv_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int f = 0;
