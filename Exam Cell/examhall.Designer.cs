@@ -315,6 +315,7 @@
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "examhall";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Exam Hall Settings";
             this.Load += new System.EventHandler(this.examhall_Load);
             this.panel1.ResumeLayout(false);

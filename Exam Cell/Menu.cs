@@ -31,10 +31,7 @@ namespace Exam_Cell
             ss.Show();
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        
 
         private void menu_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -79,6 +76,18 @@ namespace Exam_Cell
         private void DatabasemanagementToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Database_Management ss = new Database_Management();
+            ss.Show();
+        }
+
+        private void Absent_Marking_Menu_Click(object sender, EventArgs e)
+        {
+            Absent_Marking ss = new Absent_Marking();
+            ss.Show();
+        }
+
+        private void Absent_Statement_Menu_Click(object sender, EventArgs e)
+        {
+            Absent_Statement ss = new Absent_Statement();
             ss.Show();
         }
     }
