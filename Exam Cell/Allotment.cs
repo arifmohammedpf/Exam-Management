@@ -718,8 +718,8 @@ namespace Exam_Cell
                         Excel.Worksheet xlWorkSheet;
                         object misValue = System.Reflection.Missing.Value;
                         //for excel alerts
-                        //xlApp.Visible = false;
-                        //xlApp.DisplayAlerts = false;
+                        xlApp.Visible = false;
+                        xlApp.DisplayAlerts = false;
 
 
                         DataTable dstnctdatatable = new DataTable();

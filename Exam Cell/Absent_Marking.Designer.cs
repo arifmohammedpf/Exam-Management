@@ -41,6 +41,7 @@
             this.Room_combobox = new System.Windows.Forms.ComboBox();
             this.Session_combobox = new System.Windows.Forms.ComboBox();
             this.Date_combobox = new System.Windows.Forms.ComboBox();
+            this.ClearData_btn = new System.Windows.Forms.Button();
             this.Panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv)).BeginInit();
             this.SuspendLayout();
@@ -77,6 +78,7 @@
             this.Panel.Controls.Add(this.label3);
             this.Panel.Controls.Add(this.label2);
             this.Panel.Controls.Add(this.label1);
+            this.Panel.Controls.Add(this.ClearData_btn);
             this.Panel.Controls.Add(this.Statement_form_btn);
             this.Panel.Controls.Add(this.Absentees_btn);
             this.Panel.Controls.Add(this.Dgv);
@@ -198,6 +200,19 @@
             this.Date_combobox.Size = new System.Drawing.Size(184, 24);
             this.Date_combobox.TabIndex = 6;
             // 
+            // ClearData_btn
+            // 
+            this.ClearData_btn.BackColor = System.Drawing.Color.Black;
+            this.ClearData_btn.ForeColor = System.Drawing.Color.Red;
+            this.ClearData_btn.Location = new System.Drawing.Point(198, 615);
+            this.ClearData_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ClearData_btn.Name = "ClearData_btn";
+            this.ClearData_btn.Size = new System.Drawing.Size(111, 37);
+            this.ClearData_btn.TabIndex = 10;
+            this.ClearData_btn.Text = "Clear Data";
+            this.ClearData_btn.UseVisualStyleBackColor = false;
+            this.ClearData_btn.Click += new System.EventHandler(this.ClearData_btn_Click);
+            // 
             // Absent_Marking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -235,5 +250,6 @@
         private System.Windows.Forms.ComboBox Room_combobox;
         private System.Windows.Forms.ComboBox Session_combobox;
         private System.Windows.Forms.ComboBox Date_combobox;
+        private System.Windows.Forms.Button ClearData_btn;
     }
 }
