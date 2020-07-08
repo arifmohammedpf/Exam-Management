@@ -671,7 +671,7 @@
             this.AddNewBranch_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.AddNewBranch_btn.Location = new System.Drawing.Point(109, 56);
             this.AddNewBranch_btn.Name = "AddNewBranch_btn";
-            this.AddNewBranch_btn.Size = new System.Drawing.Size(133, 30);
+            this.AddNewBranch_btn.Size = new System.Drawing.Size(144, 30);
             this.AddNewBranch_btn.TabIndex = 0;
             this.AddNewBranch_btn.Text = "Add New Branch";
             this.AddNewBranch_btn.UseVisualStyleBackColor = true;
@@ -797,9 +797,9 @@
             // 
             this.AddNewCourse_btn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddNewCourse_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.AddNewCourse_btn.Location = new System.Drawing.Point(47, 221);
+            this.AddNewCourse_btn.Location = new System.Drawing.Point(19, 221);
             this.AddNewCourse_btn.Name = "AddNewCourse_btn";
-            this.AddNewCourse_btn.Size = new System.Drawing.Size(133, 30);
+            this.AddNewCourse_btn.Size = new System.Drawing.Size(161, 30);
             this.AddNewCourse_btn.TabIndex = 0;
             this.AddNewCourse_btn.Text = "Add New Course";
             this.AddNewCourse_btn.UseVisualStyleBackColor = true;
@@ -960,10 +960,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1924, 719);
+            this.Controls.Add(this.Student_mngmnt_panel);
             this.Controls.Add(this.RadioButton_panel);
             this.Controls.Add(this.DefaultScheme_Panel);
             this.Controls.Add(this.Class_Managmnt_panel);
-            this.Controls.Add(this.Student_mngmnt_panel);
             this.Name = "Database_Management";
             this.Text = "Database Management";
             this.Load += new System.EventHandler(this.Database_Management_Load);

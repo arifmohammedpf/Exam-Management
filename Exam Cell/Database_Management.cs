@@ -91,20 +91,20 @@ namespace Exam_Cell
         {
             DialogResult result = MessageBox.Show("Do you really want to Delete ?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
-            {
-                SqlCommand command = new SqlCommand("delete Management where Branch=@Branch) ", con.ActiveCon());
-                command.Parameters.AddWithValue("@Branch", UpdateBranch_combobox.Text);
-                command.ExecuteNonQuery();
-                Branch_dgv_radiobtn.Checked = true;
+            {                
                 try
                 {
-                    SqlCommand command2 = new SqlCommand("delete Scheme where Branch=@Branch) ", con.ActiveCon());
+                    SqlCommand command2 = new SqlCommand("delete Scheme where Branch=@Branch", con.ActiveCon());
                     command2.Parameters.AddWithValue("@Branch", UpdateBranch_combobox.Text);
-                    command2.ExecuteNonQuery();
-                    Clear_All_ClassManagement();
-                    Branch_dgv_Fill();
+                    command2.ExecuteNonQuery();                    
                 }
                 catch (Exception) { }
+                SqlCommand command = new SqlCommand("delete Management where Branch=@Branch", con.ActiveCon());
+                command.Parameters.AddWithValue("@Branch", UpdateBranch_combobox.Text);
+                command.ExecuteNonQuery();
+                BranchComboboxFill();
+                Clear_All_ClassManagement();
+                Branch_dgv_Fill();
                 MessageBox.Show("Branch Delete Done", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -126,14 +126,14 @@ namespace Exam_Cell
                     if (checkselected)
                     {
                         f = 1;
-                        SqlCommand command = new SqlCommand("delete Management where Class=@Class) ", con.ActiveCon());
+                        SqlCommand command = new SqlCommand("delete Management where Class=@Class", con.ActiveCon());
                         command.Parameters.AddWithValue("@Class", dr.Cells["Class"].Value.ToString());
                         command.ExecuteNonQuery();
                     }
                 }
                 if (f == 1)
                 {
-                    Class_dgv_radiobtn.Checked = true;
+                    Class_dgv_Fill();
                     MessageBox.Show("Delete Done.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
@@ -236,13 +236,13 @@ namespace Exam_Cell
                 command.Parameters.AddWithValue("@Course", Course_textbox.Text);
                 command.Parameters.AddWithValue("@Sub_Code", Examcode_textbox.Text);
                 command.Parameters.AddWithValue("@Acode", ACode_textbox.Text);
-                command.ExecuteNonQuery();
-                MessageBox.Show("New Course Added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                command.ExecuteNonQuery();                
                 Branch_dgv_Fill();
                 Course_textbox.Clear();
                 Examcode_textbox.Clear();
                 ACode_textbox.Clear();
                 NewcourseFilter();
+                MessageBox.Show("New Course Added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -303,7 +303,7 @@ namespace Exam_Cell
                     if (checkselected)
                     {
                         f = 1;
-                        SqlCommand command = new SqlCommand("delete Scheme where Course=@Course) ", con.ActiveCon());
+                        SqlCommand command = new SqlCommand("delete Scheme where Course=@Course", con.ActiveCon());
                         command.Parameters.AddWithValue("@Course", dr.Cells["Course"].Value.ToString());
                         command.ExecuteNonQuery();
                     }
@@ -551,14 +551,12 @@ namespace Exam_Cell
                         if (f == 1)
                         {
                             MessageBox.Show("Delete Done.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            Class_StudentsFill();
+                            ClearAllStudent_Management();
+                            Class_StudentsFill();                            
                         }
                         else
                         {
-                            MessageBox.Show("Select any Students to delete, Try again.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            ClearAllStudent_Management();
-                            AddFromExcel_Btn.Enabled = false;
-                            Student_dgvFill();
+                            MessageBox.Show("Select any Students to delete, Try again.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);                           
                         }
                     }
                     else
@@ -633,10 +631,32 @@ namespace Exam_Cell
             DialogResult result = MessageBox.Show("You Are Going To UPGRADE Every Class Semester. Are You Sure?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if(result == DialogResult.Yes)
             {
-                SqlCommand command = new SqlCommand("update Management set Semester= Semester + 1",con.ActiveCon());
-                command.ExecuteNonQuery();
-                MessageBox.Show("Upgrade Done","Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                SqlCommand sc = new SqlCommand("Select Class,Semester from Management where (Class is not null) and (Semester is not null)", con.ActiveCon());
+                SqlDataReader reader;
+                reader = sc.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Class", typeof(string));
+                dt.Columns.Add("Semester", typeof(string));
+                dt.Load(reader);
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    string checksem = dr["Class"].ToString() + "  S" + dr["Semester"].ToString();
+                    string sem = dr["Semester"].ToString(), newclass;
+                    bool res = int.TryParse(sem, out int newsem);
+                    newsem++;
+                    newclass = dr["Class"].ToString() + "  S" + newsem;
+                    SqlCommand command2 = new SqlCommand("update Class set Class=@Class where Class=@OldClass", con.ActiveCon());
+                    command2.Parameters.AddWithValue("@OldClass", checksem);
+                    command2.Parameters.AddWithValue("@Class", newclass);
+                    command2.ExecuteNonQuery();
+                }             
+                
+                SqlCommand command3 = new SqlCommand("update Management set Semester= Semester + 1",con.ActiveCon());
+                command3.ExecuteNonQuery();
                 AssignClass_fill();
+                Class_StudentsFill();
+                MessageBox.Show("Upgrade Done","Success", MessageBoxButtons.OK, MessageBoxIcon.Information);               
             }
         }
 
@@ -645,10 +665,32 @@ namespace Exam_Cell
             DialogResult result = MessageBox.Show("You Are Going To DEGRADE Every Class Semester. Are You Sure?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
+                SqlCommand sc = new SqlCommand("Select Class,Semester from Management where (Class is not null) and (Semester is not null)", con.ActiveCon());
+                SqlDataReader reader;
+                reader = sc.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Class", typeof(string));
+                dt.Columns.Add("Semester", typeof(string));
+                dt.Load(reader);
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    string checksem = dr["Class"].ToString() + "  S" + dr["Semester"].ToString();
+                    string sem = dr["Semester"].ToString(), newclass;
+                    bool res = int.TryParse(sem, out int newsem);
+                    newsem--;
+                    newclass = dr["Class"].ToString() + "  S" + newsem;
+                    SqlCommand command2 = new SqlCommand("update Class set Class=@Class where Class=@OldClass", con.ActiveCon());
+                    command2.Parameters.AddWithValue("@OldClass", checksem);
+                    command2.Parameters.AddWithValue("@Class", newclass);
+                    command2.ExecuteNonQuery();
+                }
+
                 SqlCommand command = new SqlCommand("update Management set Semester= Semester - 1", con.ActiveCon());
                 command.ExecuteNonQuery();
-                MessageBox.Show("Degrade Done", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 AssignClass_fill();
+                Class_StudentsFill();
+                MessageBox.Show("Degrade Done", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         void StudentBranchComboboxFill()

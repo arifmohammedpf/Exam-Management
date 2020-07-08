@@ -346,12 +346,7 @@ namespace Exam_Cell
                 Series_Student_details_groupbox.Enabled = true;     //rest enabled
                 SubjectDetails_groupbox.Enabled = true;
                 Courses_dgv.Enabled = true;
-                Candidate_datagridview.Enabled = true;
-
-                //ARE THESE NEEDED?
-                //Class_label.Text = "Class";
-                //Branchcomboboxfill();
-                //Yearofadmissionboxfill();
+                Candidate_datagridview.Enabled = true;                
             }
         }
 
@@ -384,7 +379,7 @@ namespace Exam_Cell
         //    topItem[0] = "-Select-";
         //    dtbl.Rows.InsertAt(topItem, 0);
 
-        //    //convert datatable to array for selecting 
+        ////convert datatable to array for selecting 
         //    ArrayList rows = new ArrayList();   //import using.system.collections for ArrayList
         //    foreach (DataRow dataRow in dtbl.Rows)
         //        rows.Add(string.Join(";", dataRow.ItemArray.Select(item => item.ToString())));
