@@ -102,6 +102,7 @@
             this.exam_CellDataSet_Students = new Exam_Cell.Exam_CellDataSet_Students();
             this.studentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.studentsTableAdapter = new Exam_Cell.Exam_CellDataSet_StudentsTableAdapters.StudentsTableAdapter();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Student_dgv)).BeginInit();
             this.Student_mngmnt_panel.SuspendLayout();
             this.UpgradeSemester_groupbox.SuspendLayout();
@@ -124,7 +125,7 @@
             // 
             this.AddStudent_btn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddStudent_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.AddStudent_btn.Location = new System.Drawing.Point(332, 153);
+            this.AddStudent_btn.Location = new System.Drawing.Point(332, 112);
             this.AddStudent_btn.Name = "AddStudent_btn";
             this.AddStudent_btn.Size = new System.Drawing.Size(100, 30);
             this.AddStudent_btn.TabIndex = 0;
@@ -343,6 +344,7 @@
             this.AssignClass_groupbox.Controls.Add(this.AssignClassBranch_combobox);
             this.AssignClass_groupbox.Controls.Add(this.Class_label);
             this.AssignClass_groupbox.Controls.Add(this.AssignClass_btn);
+            this.AssignClass_groupbox.Controls.Add(this.button1);
             this.AssignClass_groupbox.Controls.Add(this.label12);
             this.AssignClass_groupbox.Controls.Add(this.label13);
             this.AssignClass_groupbox.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -399,7 +401,7 @@
             // 
             this.AssignClass_btn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AssignClass_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.AssignClass_btn.Location = new System.Drawing.Point(276, 147);
+            this.AssignClass_btn.Location = new System.Drawing.Point(276, 146);
             this.AssignClass_btn.Name = "AssignClass_btn";
             this.AssignClass_btn.Size = new System.Drawing.Size(103, 36);
             this.AssignClass_btn.TabIndex = 0;
@@ -436,8 +438,8 @@
             this.add_stdnt_groupbox.Controls.Add(this.YOA_textbox);
             this.add_stdnt_groupbox.Controls.Add(this.label3);
             this.add_stdnt_groupbox.Controls.Add(this.Name_textbox);
-            this.add_stdnt_groupbox.Controls.Add(this.Clear_btn);
             this.add_stdnt_groupbox.Controls.Add(this.Search_btn);
+            this.add_stdnt_groupbox.Controls.Add(this.Clear_btn);
             this.add_stdnt_groupbox.Controls.Add(this.AddStudent_btn);
             this.add_stdnt_groupbox.Controls.Add(this.label1);
             this.add_stdnt_groupbox.Controls.Add(this.label2);
@@ -457,14 +459,14 @@
             this.Branch_combobox.FormattingEnabled = true;
             this.Branch_combobox.Location = new System.Drawing.Point(86, 158);
             this.Branch_combobox.Name = "Branch_combobox";
-            this.Branch_combobox.Size = new System.Drawing.Size(218, 25);
+            this.Branch_combobox.Size = new System.Drawing.Size(346, 25);
             this.Branch_combobox.TabIndex = 5;
             // 
             // Clear_btn
             // 
             this.Clear_btn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Clear_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Clear_btn.Location = new System.Drawing.Point(332, 113);
+            this.Clear_btn.Location = new System.Drawing.Point(332, 74);
             this.Clear_btn.Name = "Clear_btn";
             this.Clear_btn.Size = new System.Drawing.Size(100, 30);
             this.Clear_btn.TabIndex = 0;
@@ -476,7 +478,7 @@
             // 
             this.Search_btn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Search_btn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Search_btn.Location = new System.Drawing.Point(332, 76);
+            this.Search_btn.Location = new System.Drawing.Point(332, 35);
             this.Search_btn.Name = "Search_btn";
             this.Search_btn.Size = new System.Drawing.Size(100, 30);
             this.Search_btn.TabIndex = 0;
@@ -902,7 +904,7 @@
             // 
             // ChangeScheme_textbox
             // 
-            this.ChangeScheme_textbox.Location = new System.Drawing.Point(128, 104);
+            this.ChangeScheme_textbox.Location = new System.Drawing.Point(132, 104);
             this.ChangeScheme_textbox.Name = "ChangeScheme_textbox";
             this.ChangeScheme_textbox.Size = new System.Drawing.Size(135, 22);
             this.ChangeScheme_textbox.TabIndex = 1;
@@ -912,7 +914,7 @@
             this.Scheme_label.AutoSize = true;
             this.Scheme_label.Font = new System.Drawing.Font("Adobe Gothic Std B", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Scheme_label.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Scheme_label.Location = new System.Drawing.Point(132, 219);
+            this.Scheme_label.Location = new System.Drawing.Point(123, 219);
             this.Scheme_label.Name = "Scheme_label";
             this.Scheme_label.Size = new System.Drawing.Size(0, 35);
             this.Scheme_label.TabIndex = 0;
@@ -953,6 +955,18 @@
             // studentsTableAdapter
             // 
             this.studentsTableAdapter.ClearBeforeFill = true;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.Location = new System.Drawing.Point(85, 146);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(103, 36);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Clear";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Clear_btn_Click);
             // 
             // Database_Management
             // 
@@ -1072,5 +1086,6 @@
         private Exam_CellDataSet_Students exam_CellDataSet_Students;
         private System.Windows.Forms.BindingSource studentsBindingSource;
         private Exam_CellDataSet_StudentsTableAdapters.StudentsTableAdapter studentsTableAdapter;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Exam_Cell
 {
-    partial class menu
+    partial class Menu_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -28,115 +28,78 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.timetableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.regStdntMangmntToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.candidateEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.postponementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.roomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.allotmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TimetableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RegStdntMangmntToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CandidateEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PostponementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RoomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AllotmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DatabasemanagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.filesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Absent_Marking_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.Absent_Statement_Menu = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1.SuspendLayout();
+            this.InfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // TimetableToolStripMenuItem
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel1.Controls.Add(this.menuStrip1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1143, 450);
-            this.panel1.TabIndex = 1;
+            this.TimetableToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TimetableToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.TimetableToolStripMenuItem.Name = "TimetableToolStripMenuItem";
+            this.TimetableToolStripMenuItem.Size = new System.Drawing.Size(97, 27);
+            this.TimetableToolStripMenuItem.Text = "Timetable";
+            this.TimetableToolStripMenuItem.Click += new System.EventHandler(this.TimetableToolStripMenuItem_Click);
             // 
-            // menuStrip1
+            // RegStdntMangmntToolStripMenuItem
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.Black;
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.timetableToolStripMenuItem,
-            this.regStdntMangmntToolStripMenuItem,
-            this.candidateEntryToolStripMenuItem,
-            this.postponementToolStripMenuItem,
-            this.roomToolStripMenuItem,
-            this.allotmentToolStripMenuItem,
-            this.DatabasemanagementToolStripMenuItem,
-            this.filesToolStripMenuItem,
-            this.helpToolStripMenuItem});
-            this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1143, 31);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
+            this.RegStdntMangmntToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RegStdntMangmntToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.RegStdntMangmntToolStripMenuItem.Name = "RegStdntMangmntToolStripMenuItem";
+            this.RegStdntMangmntToolStripMenuItem.Size = new System.Drawing.Size(177, 27);
+            this.RegStdntMangmntToolStripMenuItem.Text = "Reg.Stdnt.Mangmnt";
+            this.RegStdntMangmntToolStripMenuItem.Click += new System.EventHandler(this.RegStdntMangmntToolStripMenuItem_Click);
             // 
-            // timetableToolStripMenuItem
+            // CandidateEntryToolStripMenuItem
             // 
-            this.timetableToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timetableToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.timetableToolStripMenuItem.Name = "timetableToolStripMenuItem";
-            this.timetableToolStripMenuItem.Size = new System.Drawing.Size(97, 27);
-            this.timetableToolStripMenuItem.Text = "Timetable";
-            this.timetableToolStripMenuItem.Click += new System.EventHandler(this.timetableToolStripMenuItem_Click);
+            this.CandidateEntryToolStripMenuItem.BackColor = System.Drawing.Color.Black;
+            this.CandidateEntryToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CandidateEntryToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.CandidateEntryToolStripMenuItem.Name = "CandidateEntryToolStripMenuItem";
+            this.CandidateEntryToolStripMenuItem.Size = new System.Drawing.Size(146, 27);
+            this.CandidateEntryToolStripMenuItem.Text = "Candidate Entry";
+            this.CandidateEntryToolStripMenuItem.Click += new System.EventHandler(this.CandidateEntryToolStripMenuItem_Click);
             // 
-            // regStdntMangmntToolStripMenuItem
+            // PostponementToolStripMenuItem
             // 
-            this.regStdntMangmntToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.regStdntMangmntToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.regStdntMangmntToolStripMenuItem.Name = "regStdntMangmntToolStripMenuItem";
-            this.regStdntMangmntToolStripMenuItem.Size = new System.Drawing.Size(177, 27);
-            this.regStdntMangmntToolStripMenuItem.Text = "Reg.Stdnt.Mangmnt";
-            this.regStdntMangmntToolStripMenuItem.Click += new System.EventHandler(this.regStdntMangmntToolStripMenuItem_Click);
+            this.PostponementToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PostponementToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.PostponementToolStripMenuItem.Name = "PostponementToolStripMenuItem";
+            this.PostponementToolStripMenuItem.Size = new System.Drawing.Size(133, 27);
+            this.PostponementToolStripMenuItem.Text = "Postponement";
+            this.PostponementToolStripMenuItem.Click += new System.EventHandler(this.PostponementToolStripMenuItem_Click);
             // 
-            // candidateEntryToolStripMenuItem
+            // RoomToolStripMenuItem
             // 
-            this.candidateEntryToolStripMenuItem.BackColor = System.Drawing.Color.Black;
-            this.candidateEntryToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.candidateEntryToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.candidateEntryToolStripMenuItem.Name = "candidateEntryToolStripMenuItem";
-            this.candidateEntryToolStripMenuItem.Size = new System.Drawing.Size(146, 27);
-            this.candidateEntryToolStripMenuItem.Text = "Candidate Entry";
-            this.candidateEntryToolStripMenuItem.Click += new System.EventHandler(this.candidateEntryToolStripMenuItem_Click);
+            this.RoomToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RoomToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.RoomToolStripMenuItem.Name = "RoomToolStripMenuItem";
+            this.RoomToolStripMenuItem.Size = new System.Drawing.Size(68, 27);
+            this.RoomToolStripMenuItem.Text = "Room";
+            this.RoomToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.RoomToolStripMenuItem.Click += new System.EventHandler(this.RoomToolStripMenuItem_Click);
             // 
-            // postponementToolStripMenuItem
+            // AllotmentToolStripMenuItem
             // 
-            this.postponementToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.postponementToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.postponementToolStripMenuItem.Name = "postponementToolStripMenuItem";
-            this.postponementToolStripMenuItem.Size = new System.Drawing.Size(133, 27);
-            this.postponementToolStripMenuItem.Text = "Postponement";
-            this.postponementToolStripMenuItem.Click += new System.EventHandler(this.postponementToolStripMenuItem_Click);
-            // 
-            // roomToolStripMenuItem
-            // 
-            this.roomToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roomToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.roomToolStripMenuItem.Name = "roomToolStripMenuItem";
-            this.roomToolStripMenuItem.Size = new System.Drawing.Size(68, 27);
-            this.roomToolStripMenuItem.Text = "Room";
-            this.roomToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.roomToolStripMenuItem.Click += new System.EventHandler(this.roomToolStripMenuItem_Click);
-            // 
-            // allotmentToolStripMenuItem
-            // 
-            this.allotmentToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.allotmentToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.allotmentToolStripMenuItem.Name = "allotmentToolStripMenuItem";
-            this.allotmentToolStripMenuItem.Size = new System.Drawing.Size(97, 27);
-            this.allotmentToolStripMenuItem.Text = "Allotment";
-            this.allotmentToolStripMenuItem.Click += new System.EventHandler(this.allotmentToolStripMenuItem_Click);
+            this.AllotmentToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AllotmentToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.AllotmentToolStripMenuItem.Name = "AllotmentToolStripMenuItem";
+            this.AllotmentToolStripMenuItem.Size = new System.Drawing.Size(97, 27);
+            this.AllotmentToolStripMenuItem.Text = "Allotment";
+            this.AllotmentToolStripMenuItem.Click += new System.EventHandler(this.AllotmentToolStripMenuItem_Click);
             // 
             // DatabasemanagementToolStripMenuItem
             // 
@@ -147,17 +110,17 @@
             this.DatabasemanagementToolStripMenuItem.Text = "Database Management";
             this.DatabasemanagementToolStripMenuItem.Click += new System.EventHandler(this.DatabasemanagementToolStripMenuItem_Click);
             // 
-            // filesToolStripMenuItem
+            // FilesToolStripMenuItem
             // 
-            this.filesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.FilesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Absent_Marking_Menu,
             this.toolStripSeparator1,
             this.Absent_Statement_Menu});
-            this.filesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.filesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.filesToolStripMenuItem.Name = "filesToolStripMenuItem";
-            this.filesToolStripMenuItem.Size = new System.Drawing.Size(100, 27);
-            this.filesToolStripMenuItem.Text = "Absentees";
+            this.FilesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FilesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.FilesToolStripMenuItem.Name = "FilesToolStripMenuItem";
+            this.FilesToolStripMenuItem.Size = new System.Drawing.Size(100, 27);
+            this.FilesToolStripMenuItem.Text = "Absentees";
             // 
             // Absent_Marking_Menu
             // 
@@ -183,51 +146,85 @@
             this.Absent_Statement_Menu.Text = "Absent Statement";
             this.Absent_Statement_Menu.Click += new System.EventHandler(this.Absent_Statement_Menu_Click);
             // 
-            // helpToolStripMenuItem
+            // InfoToolStripMenuItem
             // 
-            this.helpToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.helpToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 27);
-            this.helpToolStripMenuItem.Text = "Info";
+            this.InfoToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InfoToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.InfoToolStripMenuItem.Name = "InfoToolStripMenuItem";
+            this.InfoToolStripMenuItem.Size = new System.Drawing.Size(53, 27);
+            this.InfoToolStripMenuItem.Text = "Info";
             // 
-            // menu
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.Color.Black;
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TimetableToolStripMenuItem,
+            this.RegStdntMangmntToolStripMenuItem,
+            this.CandidateEntryToolStripMenuItem,
+            this.PostponementToolStripMenuItem,
+            this.RoomToolStripMenuItem,
+            this.AllotmentToolStripMenuItem,
+            this.DatabasemanagementToolStripMenuItem,
+            this.FilesToolStripMenuItem,
+            this.InfoToolStripMenuItem});
+            this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1210, 31);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MenuStrip1_ItemClicked);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 31);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1210, 529);
+            this.panel1.TabIndex = 3;
+            // 
+            // Menu_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1143, 450);
+            this.ClientSize = new System.Drawing.Size(1210, 560);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "menu";
+            this.Name = "Menu_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.menu_FormClosed);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Menu_FormClosed);
             this.Load += new System.EventHandler(this.Menu_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem filesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem Absent_Marking_Menu;
-        private System.Windows.Forms.ToolStripMenuItem timetableToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem candidateEntryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem postponementToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem roomToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem allotmentToolStripMenuItem;
+
+        private System.Windows.Forms.ToolStripMenuItem TimetableToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem RegStdntMangmntToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem CandidateEntryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem PostponementToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem RoomToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AllotmentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DatabasemanagementToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem regStdntMangmntToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem FilesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Absent_Marking_Menu;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem Absent_Statement_Menu;
+        private System.Windows.Forms.ToolStripMenuItem InfoToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

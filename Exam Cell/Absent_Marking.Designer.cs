@@ -35,13 +35,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.Statement_form_btn = new System.Windows.Forms.Button();
+            this.ClearData_btn = new System.Windows.Forms.Button();
             this.Absentees_btn = new System.Windows.Forms.Button();
             this.Dgv = new System.Windows.Forms.DataGridView();
             this.Room_combobox = new System.Windows.Forms.ComboBox();
             this.Session_combobox = new System.Windows.Forms.ComboBox();
             this.Date_combobox = new System.Windows.Forms.ComboBox();
-            this.ClearData_btn = new System.Windows.Forms.Button();
             this.Panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv)).BeginInit();
             this.SuspendLayout();
@@ -79,15 +78,15 @@
             this.Panel.Controls.Add(this.label2);
             this.Panel.Controls.Add(this.label1);
             this.Panel.Controls.Add(this.ClearData_btn);
-            this.Panel.Controls.Add(this.Statement_form_btn);
             this.Panel.Controls.Add(this.Absentees_btn);
             this.Panel.Controls.Add(this.Dgv);
             this.Panel.Controls.Add(this.Room_combobox);
             this.Panel.Controls.Add(this.Session_combobox);
             this.Panel.Controls.Add(this.Date_combobox);
-            this.Panel.Location = new System.Drawing.Point(12, 12);
+            this.Panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Panel.Location = new System.Drawing.Point(0, 0);
             this.Panel.Name = "Panel";
-            this.Panel.Size = new System.Drawing.Size(876, 654);
+            this.Panel.Size = new System.Drawing.Size(900, 678);
             this.Panel.TabIndex = 7;
             // 
             // Search_btn
@@ -130,16 +129,18 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "Date";
             // 
-            // Statement_form_btn
+            // ClearData_btn
             // 
-            this.Statement_form_btn.Location = new System.Drawing.Point(114, 395);
-            this.Statement_form_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Statement_form_btn.Name = "Statement_form_btn";
-            this.Statement_form_btn.Size = new System.Drawing.Size(141, 47);
-            this.Statement_form_btn.TabIndex = 10;
-            this.Statement_form_btn.Text = "Statement";
-            this.Statement_form_btn.UseVisualStyleBackColor = true;
-            this.Statement_form_btn.Click += new System.EventHandler(this.Statement_form_btn_Click);
+            this.ClearData_btn.BackColor = System.Drawing.Color.Black;
+            this.ClearData_btn.ForeColor = System.Drawing.Color.Red;
+            this.ClearData_btn.Location = new System.Drawing.Point(198, 615);
+            this.ClearData_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ClearData_btn.Name = "ClearData_btn";
+            this.ClearData_btn.Size = new System.Drawing.Size(111, 37);
+            this.ClearData_btn.TabIndex = 10;
+            this.ClearData_btn.Text = "Clear Data";
+            this.ClearData_btn.UseVisualStyleBackColor = false;
+            this.ClearData_btn.Click += new System.EventHandler(this.ClearData_btn_Click);
             // 
             // Absentees_btn
             // 
@@ -200,19 +201,6 @@
             this.Date_combobox.Size = new System.Drawing.Size(184, 24);
             this.Date_combobox.TabIndex = 6;
             // 
-            // ClearData_btn
-            // 
-            this.ClearData_btn.BackColor = System.Drawing.Color.Black;
-            this.ClearData_btn.ForeColor = System.Drawing.Color.Red;
-            this.ClearData_btn.Location = new System.Drawing.Point(198, 615);
-            this.ClearData_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ClearData_btn.Name = "ClearData_btn";
-            this.ClearData_btn.Size = new System.Drawing.Size(111, 37);
-            this.ClearData_btn.TabIndex = 10;
-            this.ClearData_btn.Text = "Clear Data";
-            this.ClearData_btn.UseVisualStyleBackColor = false;
-            this.ClearData_btn.Click += new System.EventHandler(this.ClearData_btn_Click);
-            // 
             // Absent_Marking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -244,7 +232,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button Statement_form_btn;
         private System.Windows.Forms.Button Absentees_btn;
         private System.Windows.Forms.DataGridView Dgv;
         private System.Windows.Forms.ComboBox Room_combobox;

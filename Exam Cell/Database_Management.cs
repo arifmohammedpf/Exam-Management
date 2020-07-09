@@ -380,19 +380,36 @@ namespace Exam_Cell
         {
             if (ChangeScheme_textbox.Text != "")
             {
-                SqlCommand comm = new SqlCommand("update Management set Default_Scheme=@Default_Scheme where (Default_Scheme is not null)", con.ActiveCon());
-                comm.Parameters.AddWithValue("@Default_Scheme", ChangeScheme_textbox.Text);
-                comm.ExecuteNonQuery();
-                Schemelabel();
+                if(Scheme_label.Text != "")
+                {
+                    SqlCommand comm = new SqlCommand("update Management set Default_Scheme=@Default_Scheme where (Default_Scheme is not null)", con.ActiveCon());
+                    comm.Parameters.AddWithValue("@Default_Scheme", ChangeScheme_textbox.Text);
+                    comm.ExecuteNonQuery();
+                    Schemelabel();
+                }
+                else
+                {
+                    SqlCommand comm = new SqlCommand("insert into Management(Default_Scheme)Values(" + " Default_Scheme=@Default_Scheme)", con.ActiveCon());
+                    comm.Parameters.AddWithValue("@Default_Scheme", ChangeScheme_textbox.Text);
+                    comm.ExecuteNonQuery();
+                    Schemelabel();
+                }
             }
             else
                 MessageBox.Show("Type New Default Scheme", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         void Schemelabel()
         {
-            SqlCommand comm = new SqlCommand("Select Default_Scheme from Management where (Default_Scheme is not null)", con.ActiveCon());
-            string scheme = (string)comm.ExecuteScalar();
-            Scheme_label.Text = scheme;
+            try
+            {
+                SqlCommand comm = new SqlCommand("Select Default_Scheme from Management where (Default_Scheme is not null)", con.ActiveCon());
+                string scheme = (string)comm.ExecuteScalar();
+                Scheme_label.Text = scheme;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void AssignClass_btn_Click(object sender, EventArgs e)

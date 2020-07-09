@@ -38,7 +38,7 @@ namespace Exam_Cell
             if(Username.Text=="admin"&&Password.Text=="admin")
             {
                 this.Hide();
-                menu ss = new menu();
+                Menu_Form ss = new Menu_Form();
                 ss.Show();
             }
             else

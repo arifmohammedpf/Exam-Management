@@ -189,12 +189,14 @@ namespace Exam_Cell
                 MessageBox.Show("Nothing to Save", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void Statement_form_btn_Click(object sender, EventArgs e)
-        {
-            Absent_Statement ss = new Absent_Statement();
-            ss.Show();
-            Close();
-        }
+        //private void Statement_form_btn_Click(object sender, EventArgs e)
+        //{
+        //    Absent_Statement ss = new Absent_Statement();
+        //    ss.MdiParent = this;
+        //    Panel.Controls.Add(ss);
+        //    this.WindowState = FormWindowState.Maximized;
+        //    ss.Show();            
+        //}
 
         // we need clear data so in absentStatement old dates and records wont show
         private void ClearData_btn_Click(object sender, EventArgs e)
@@ -204,5 +206,7 @@ namespace Exam_Cell
             MessageBox.Show("Data Cleared", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
+
+        
     }
 }
