@@ -26,17 +26,7 @@ namespace Exam_Cell
             InitializeComponent();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-           
-        }
 
-
-
-        private void pictureBox1_Click_1(object sender, EventArgs e)
-        {
-
-        }
 
         CheckBox headerchkbox = new CheckBox();
         
@@ -66,6 +56,7 @@ namespace Exam_Cell
 
             try
             {
+                this.WindowState = FormWindowState.Normal;
                 UnvBranchComboboxFill();
                 YoaComboboxFill();
                 UnvBranchCombobox.Enabled = false;
@@ -97,7 +88,7 @@ namespace Exam_Cell
                 Candidate_datagridview.Columns.Insert(0, chkbox2);
 
                 AddHeaderchckbox(); //header checkbox added to candidate dgv
-                headerchkbox.MouseClick += new MouseEventHandler(Headerchckbox_Mouseclick);
+                headerchkbox.MouseClick += new MouseEventHandler(Headerchckbox_Mouseclick);                
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, "form load", MessageBoxButtons.OK, MessageBoxIcon.Error); }
 
@@ -800,6 +791,7 @@ namespace Exam_Cell
         {
             if(UnvCheckbox.Checked)
             {
+                Excel_Group.Enabled = false;
                 UnvBranchCombobox.Enabled = true;
                 YOACombobox.Enabled = true;
                 UnvBranchComboboxFill();
@@ -808,6 +800,7 @@ namespace Exam_Cell
             }
             else
             {
+                Excel_Group.Enabled = true;
                 UnvBranchComboboxFill();
                 YoaComboboxFill();
                 UnvBranchCombobox.Enabled = false;

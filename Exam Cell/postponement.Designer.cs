@@ -57,6 +57,7 @@
             this.exam_CellTimeTableNew = new Exam_Cell.Exam_CellTimeTableNew();
             this.timetableBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.timetableTableAdapter1 = new Exam_Cell.Exam_CellTimeTableNewTableAdapters.TimetableTableAdapter();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ScheduledExam_dgv)).BeginInit();
@@ -66,21 +67,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.timetableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellTimeTableNew)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timetableBindingSource1)).BeginInit();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.ScheduledExam_dgv);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.Clear_button);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel1.Location = new System.Drawing.Point(2, 1);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(929, 570);
+            this.panel1.Size = new System.Drawing.Size(1145, 677);
             this.panel1.TabIndex = 0;
             // 
             // panel3
@@ -93,16 +97,17 @@
             this.panel3.Controls.Add(this.NewSession_combobox);
             this.panel3.Controls.Add(this.Postpone_button);
             this.panel3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(511, 99);
+            this.panel3.Location = new System.Drawing.Point(640, 99);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(404, 200);
+            this.panel3.Size = new System.Drawing.Size(491, 211);
             this.panel3.TabIndex = 6;
             // 
             // NewDateTimePicker
             // 
+            this.NewDateTimePicker.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NewDateTimePicker.Location = new System.Drawing.Point(127, 42);
             this.NewDateTimePicker.Name = "NewDateTimePicker";
-            this.NewDateTimePicker.Size = new System.Drawing.Size(253, 25);
+            this.NewDateTimePicker.Size = new System.Drawing.Size(334, 33);
             this.NewDateTimePicker.TabIndex = 8;
             // 
             // label7
@@ -117,7 +122,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(10, 100);
+            this.label6.Location = new System.Drawing.Point(10, 103);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(108, 18);
             this.label6.TabIndex = 6;
@@ -135,6 +140,7 @@
             // NewSession_combobox
             // 
             this.NewSession_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.NewSession_combobox.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NewSession_combobox.FormattingEnabled = true;
             this.NewSession_combobox.Items.AddRange(new object[] {
             "-Select-",
@@ -142,15 +148,16 @@
             "Afternoon"});
             this.NewSession_combobox.Location = new System.Drawing.Point(127, 97);
             this.NewSession_combobox.Name = "NewSession_combobox";
-            this.NewSession_combobox.Size = new System.Drawing.Size(253, 26);
+            this.NewSession_combobox.Size = new System.Drawing.Size(334, 32);
             this.NewSession_combobox.TabIndex = 4;
             // 
             // Postpone_button
             // 
+            this.Postpone_button.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Postpone_button.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Postpone_button.Location = new System.Drawing.Point(293, 137);
+            this.Postpone_button.Location = new System.Drawing.Point(347, 137);
             this.Postpone_button.Name = "Postpone_button";
-            this.Postpone_button.Size = new System.Drawing.Size(87, 27);
+            this.Postpone_button.Size = new System.Drawing.Size(114, 38);
             this.Postpone_button.TabIndex = 2;
             this.Postpone_button.Text = "Postpone";
             this.Postpone_button.UseVisualStyleBackColor = true;
@@ -159,11 +166,13 @@
             // ScheduledExam_dgv
             // 
             this.ScheduledExam_dgv.AllowUserToAddRows = false;
+            this.ScheduledExam_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.ScheduledExam_dgv.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.ScheduledExam_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ScheduledExam_dgv.Location = new System.Drawing.Point(19, 305);
+            this.ScheduledExam_dgv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ScheduledExam_dgv.Location = new System.Drawing.Point(0, 0);
             this.ScheduledExam_dgv.Name = "ScheduledExam_dgv";
-            this.ScheduledExam_dgv.Size = new System.Drawing.Size(897, 260);
+            this.ScheduledExam_dgv.Size = new System.Drawing.Size(1119, 343);
             this.ScheduledExam_dgv.TabIndex = 5;
             // 
             // panel2
@@ -183,13 +192,14 @@
             this.panel2.ForeColor = System.Drawing.SystemColors.Control;
             this.panel2.Location = new System.Drawing.Point(12, 99);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(400, 200);
+            this.panel2.Size = new System.Drawing.Size(506, 211);
             this.panel2.TabIndex = 1;
             // 
             // DateCheckbox
             // 
             this.DateCheckbox.AutoSize = true;
-            this.DateCheckbox.Location = new System.Drawing.Point(365, 117);
+            this.DateCheckbox.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DateCheckbox.Location = new System.Drawing.Point(470, 122);
             this.DateCheckbox.Name = "DateCheckbox";
             this.DateCheckbox.Size = new System.Drawing.Size(18, 17);
             this.DateCheckbox.TabIndex = 11;
@@ -198,9 +208,10 @@
             // 
             // Examcode_textbox
             // 
+            this.Examcode_textbox.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Examcode_textbox.Location = new System.Drawing.Point(121, 154);
             this.Examcode_textbox.Name = "Examcode_textbox";
-            this.Examcode_textbox.Size = new System.Drawing.Size(237, 25);
+            this.Examcode_textbox.Size = new System.Drawing.Size(339, 33);
             this.Examcode_textbox.TabIndex = 10;
             this.Examcode_textbox.TextChanged += new System.EventHandler(this.Examcode_textbox_TextChanged);
             // 
@@ -244,29 +255,32 @@
             // 
             // DateTimePicker
             // 
+            this.DateTimePicker.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DateTimePicker.Location = new System.Drawing.Point(121, 113);
             this.DateTimePicker.Name = "DateTimePicker";
-            this.DateTimePicker.Size = new System.Drawing.Size(237, 25);
+            this.DateTimePicker.Size = new System.Drawing.Size(339, 33);
             this.DateTimePicker.TabIndex = 5;
             this.DateTimePicker.ValueChanged += new System.EventHandler(this.DateTimePicker_ValueChanged);
             // 
             // Semester_combobox
             // 
             this.Semester_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Semester_combobox.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Semester_combobox.FormattingEnabled = true;
             this.Semester_combobox.Location = new System.Drawing.Point(121, 70);
             this.Semester_combobox.Name = "Semester_combobox";
-            this.Semester_combobox.Size = new System.Drawing.Size(237, 26);
+            this.Semester_combobox.Size = new System.Drawing.Size(339, 32);
             this.Semester_combobox.TabIndex = 4;
             this.Semester_combobox.SelectedIndexChanged += new System.EventHandler(this.Semester_combobox_SelectedIndexChanged);
             // 
             // Branch_combobox
             // 
             this.Branch_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Branch_combobox.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Branch_combobox.FormattingEnabled = true;
             this.Branch_combobox.Location = new System.Drawing.Point(121, 28);
             this.Branch_combobox.Name = "Branch_combobox";
-            this.Branch_combobox.Size = new System.Drawing.Size(237, 26);
+            this.Branch_combobox.Size = new System.Drawing.Size(339, 32);
             this.Branch_combobox.TabIndex = 3;
             this.Branch_combobox.SelectedIndexChanged += new System.EventHandler(this.Branch_combobox_SelectedIndexChanged);
             // 
@@ -287,7 +301,7 @@
             this.pictureBox1.Image = global::Exam_Cell.Properties.Resources.kmea_hd_logo_shabz_WHITE;
             this.pictureBox1.Location = new System.Drawing.Point(12, 13);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(903, 79);
+            this.pictureBox1.Size = new System.Drawing.Size(1120, 79);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -295,9 +309,9 @@
             // Clear_button
             // 
             this.Clear_button.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Clear_button.Location = new System.Drawing.Point(418, 272);
+            this.Clear_button.Location = new System.Drawing.Point(524, 272);
             this.Clear_button.Name = "Clear_button";
-            this.Clear_button.Size = new System.Drawing.Size(87, 27);
+            this.Clear_button.Size = new System.Drawing.Size(110, 38);
             this.Clear_button.TabIndex = 1;
             this.Clear_button.Text = "Clear";
             this.Clear_button.UseVisualStyleBackColor = true;
@@ -331,15 +345,25 @@
             // 
             this.timetableTableAdapter1.ClearBeforeFill = true;
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.ScheduledExam_dgv);
+            this.panel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel4.Location = new System.Drawing.Point(12, 316);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1119, 343);
+            this.panel4.TabIndex = 7;
+            // 
             // postponement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(933, 583);
+            this.ClientSize = new System.Drawing.Size(1145, 677);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "postponement";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Postponement";
             this.Load += new System.EventHandler(this.postponement_Load);
             this.panel1.ResumeLayout(false);
@@ -353,6 +377,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.timetableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellTimeTableNew)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timetableBindingSource1)).EndInit();
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -387,5 +412,6 @@
         private Exam_CellTimeTableNew exam_CellTimeTableNew;
         private System.Windows.Forms.BindingSource timetableBindingSource1;
         private Exam_CellTimeTableNewTableAdapters.TimetableTableAdapter timetableTableAdapter1;
+        private System.Windows.Forms.Panel panel4;
     }
 }

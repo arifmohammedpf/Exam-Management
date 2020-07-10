@@ -31,6 +31,7 @@ namespace Exam_Cell
             ss.MdiParent = this;
             panel1.Controls.Add(ss);
             ss.Show();
+            ss.BringToFront();
         }
 
         
@@ -46,6 +47,7 @@ namespace Exam_Cell
             ss.MdiParent = this;
             panel1.Controls.Add(ss);
             ss.Show();
+            ss.BringToFront();
         }
 
         private void MenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -59,6 +61,7 @@ namespace Exam_Cell
             ss.MdiParent = this;
             panel1.Controls.Add(ss);
             ss.Show();
+            ss.BringToFront();
         }
 
         private void RoomToolStripMenuItem_Click(object sender, EventArgs e)
@@ -67,6 +70,7 @@ namespace Exam_Cell
             ss.MdiParent = this;
             panel1.Controls.Add(ss);
             ss.Show();
+            ss.BringToFront();
         }
 
         private void AllotmentToolStripMenuItem_Click(object sender, EventArgs e)
@@ -75,6 +79,7 @@ namespace Exam_Cell
             ss.MdiParent = this;
             panel1.Controls.Add(ss);
             ss.Show();
+            ss.BringToFront();
         }
 
         private void RegStdntMangmntToolStripMenuItem_Click(object sender, EventArgs e)
@@ -83,6 +88,7 @@ namespace Exam_Cell
             ss.MdiParent = this;
             panel1.Controls.Add(ss);
             ss.Show();
+            ss.BringToFront();
         }
 
         private void DatabasemanagementToolStripMenuItem_Click(object sender, EventArgs e)
@@ -91,6 +97,7 @@ namespace Exam_Cell
             ss.MdiParent = this;
             panel1.Controls.Add(ss);
             ss.Show();
+            ss.BringToFront();
         }
 
         private void Absent_Marking_Menu_Click(object sender, EventArgs e)
@@ -99,6 +106,7 @@ namespace Exam_Cell
             ss.MdiParent = this;
             panel1.Controls.Add(ss);
             ss.Show();
+            ss.BringToFront();
         }
 
         private void Absent_Statement_Menu_Click(object sender, EventArgs e)
@@ -107,6 +115,7 @@ namespace Exam_Cell
             ss.MdiParent = this;
             panel1.Controls.Add(ss);
             ss.Show();
+            ss.BringToFront();
         }
     }
 }

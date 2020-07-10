@@ -76,6 +76,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.RoomExcel_panel = new System.Windows.Forms.Panel();
+            this.SeriesRoomGen_radio = new System.Windows.Forms.RadioButton();
+            this.UnvRoomGen_radio = new System.Windows.Forms.RadioButton();
             this.label16 = new System.Windows.Forms.Label();
             this.RoomPanelClose_btn = new System.Windows.Forms.Button();
             this.Excel_generate_btn = new System.Windows.Forms.Button();
@@ -84,23 +86,21 @@
             this.Folder_path_text = new System.Windows.Forms.TextBox();
             this.Save_Path = new System.Windows.Forms.Button();
             this.Signature_panel = new System.Windows.Forms.Panel();
+            this.SeriesSignature_radio = new System.Windows.Forms.RadioButton();
+            this.UnvSignature_radio = new System.Windows.Forms.RadioButton();
             this.label17 = new System.Windows.Forms.Label();
             this.Signature_close_btn = new System.Windows.Forms.Button();
             this.Signature_generate_btn = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.Signature_examtype_textbox = new System.Windows.Forms.TextBox();
             this.DisplaySheet_Panel = new System.Windows.Forms.Panel();
+            this.SeriesDisplay_radio = new System.Windows.Forms.RadioButton();
             this.label19 = new System.Windows.Forms.Label();
+            this.UnvDisplay_radio = new System.Windows.Forms.RadioButton();
             this.DisplayPanel_closebtn = new System.Windows.Forms.Button();
             this.DisplaySheet_generate_btn = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
             this.Display_examtype_textbox = new System.Windows.Forms.TextBox();
-            this.UnvSignature_radio = new System.Windows.Forms.RadioButton();
-            this.SeriesSignature_radio = new System.Windows.Forms.RadioButton();
-            this.UnvRoomGen_radio = new System.Windows.Forms.RadioButton();
-            this.SeriesRoomGen_radio = new System.Windows.Forms.RadioButton();
-            this.UnvDisplay_radio = new System.Windows.Forms.RadioButton();
-            this.SeriesDisplay_radio = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -127,29 +127,31 @@
             this.panel1.Controls.Add(this.DateTimePicker);
             this.panel1.Controls.Add(this.Session_combobox);
             this.panel1.Controls.Add(this.label1);
+            this.panel1.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(4, 3);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(597, 411);
+            this.panel1.Size = new System.Drawing.Size(664, 411);
             this.panel1.TabIndex = 1;
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(8, 135);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(586, 273);
+            this.dataGridView1.Size = new System.Drawing.Size(643, 273);
             this.dataGridView1.TabIndex = 5;
             // 
             // MultiAllotment_button
             // 
-            this.MultiAllotment_button.Location = new System.Drawing.Point(432, 65);
+            this.MultiAllotment_button.Location = new System.Drawing.Point(432, 77);
             this.MultiAllotment_button.Name = "MultiAllotment_button";
-            this.MultiAllotment_button.Size = new System.Drawing.Size(154, 32);
+            this.MultiAllotment_button.Size = new System.Drawing.Size(219, 43);
             this.MultiAllotment_button.TabIndex = 4;
             this.MultiAllotment_button.Text = "Series Allotment";
             this.MultiAllotment_button.UseVisualStyleBackColor = true;
@@ -157,9 +159,9 @@
             // 
             // SingleAllotment_button
             // 
-            this.SingleAllotment_button.Location = new System.Drawing.Point(432, 27);
+            this.SingleAllotment_button.Location = new System.Drawing.Point(432, 22);
             this.SingleAllotment_button.Name = "SingleAllotment_button";
-            this.SingleAllotment_button.Size = new System.Drawing.Size(154, 32);
+            this.SingleAllotment_button.Size = new System.Drawing.Size(219, 43);
             this.SingleAllotment_button.TabIndex = 4;
             this.SingleAllotment_button.Text = "University Allotment";
             this.SingleAllotment_button.UseVisualStyleBackColor = true;
@@ -180,7 +182,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(17, 84);
+            this.label2.Location = new System.Drawing.Point(9, 89);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 18);
@@ -189,20 +191,21 @@
             // 
             // DateTimePicker
             // 
-            this.DateTimePicker.Location = new System.Drawing.Point(132, 30);
+            this.DateTimePicker.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DateTimePicker.Location = new System.Drawing.Point(97, 30);
             this.DateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.DateTimePicker.Name = "DateTimePicker";
-            this.DateTimePicker.Size = new System.Drawing.Size(265, 22);
+            this.DateTimePicker.Size = new System.Drawing.Size(300, 28);
             this.DateTimePicker.TabIndex = 2;
             // 
             // Session_combobox
             // 
             this.Session_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Session_combobox.FormattingEnabled = true;
-            this.Session_combobox.Location = new System.Drawing.Point(132, 82);
+            this.Session_combobox.Location = new System.Drawing.Point(97, 82);
             this.Session_combobox.Margin = new System.Windows.Forms.Padding(4);
             this.Session_combobox.Name = "Session_combobox";
-            this.Session_combobox.Size = new System.Drawing.Size(265, 24);
+            this.Session_combobox.Size = new System.Drawing.Size(300, 32);
             this.Session_combobox.TabIndex = 1;
             // 
             // label1
@@ -210,7 +213,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(17, 36);
+            this.label1.Location = new System.Drawing.Point(9, 36);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 18);
@@ -229,46 +232,48 @@
             this.Generation_Panel.Controls.Add(this.StudentsInASubject_button);
             this.Generation_Panel.Controls.Add(this.SignatureSheet_button);
             this.Generation_Panel.Controls.Add(this.label3);
-            this.Generation_Panel.Location = new System.Drawing.Point(632, 12);
+            this.Generation_Panel.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Generation_Panel.Location = new System.Drawing.Point(675, 12);
             this.Generation_Panel.Name = "Generation_Panel";
-            this.Generation_Panel.Size = new System.Drawing.Size(547, 521);
+            this.Generation_Panel.Size = new System.Drawing.Size(547, 581);
             this.Generation_Panel.TabIndex = 2;
             // 
             // AllocatedRoom_combobox
             // 
             this.AllocatedRoom_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AllocatedRoom_combobox.FormattingEnabled = true;
-            this.AllocatedRoom_combobox.Location = new System.Drawing.Point(377, 27);
+            this.AllocatedRoom_combobox.Location = new System.Drawing.Point(421, 27);
             this.AllocatedRoom_combobox.Name = "AllocatedRoom_combobox";
-            this.AllocatedRoom_combobox.Size = new System.Drawing.Size(121, 24);
+            this.AllocatedRoom_combobox.Size = new System.Drawing.Size(121, 32);
             this.AllocatedRoom_combobox.TabIndex = 6;
             // 
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 104);
+            this.dataGridView2.Location = new System.Drawing.Point(3, 153);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(547, 340);
+            this.dataGridView2.Size = new System.Drawing.Size(539, 372);
             this.dataGridView2.TabIndex = 5;
             // 
             // Clear_button
             // 
             this.Clear_button.Location = new System.Drawing.Point(17, 13);
             this.Clear_button.Name = "Clear_button";
-            this.Clear_button.Size = new System.Drawing.Size(134, 32);
+            this.Clear_button.Size = new System.Drawing.Size(106, 46);
             this.Clear_button.TabIndex = 4;
             this.Clear_button.Text = "Clear";
             this.Clear_button.UseVisualStyleBackColor = true;
             // 
             // DisplayPrint_button
             // 
-            this.DisplayPrint_button.Location = new System.Drawing.Point(17, 56);
+            this.DisplayPrint_button.Location = new System.Drawing.Point(173, 80);
             this.DisplayPrint_button.Name = "DisplayPrint_button";
-            this.DisplayPrint_button.Size = new System.Drawing.Size(134, 32);
+            this.DisplayPrint_button.Size = new System.Drawing.Size(150, 46);
             this.DisplayPrint_button.TabIndex = 4;
             this.DisplayPrint_button.Text = "Display Print";
             this.DisplayPrint_button.UseVisualStyleBackColor = true;
@@ -276,9 +281,9 @@
             // 
             // RoomPrint_button
             // 
-            this.RoomPrint_button.Location = new System.Drawing.Point(157, 13);
+            this.RoomPrint_button.Location = new System.Drawing.Point(17, 80);
             this.RoomPrint_button.Name = "RoomPrint_button";
-            this.RoomPrint_button.Size = new System.Drawing.Size(134, 32);
+            this.RoomPrint_button.Size = new System.Drawing.Size(154, 46);
             this.RoomPrint_button.TabIndex = 4;
             this.RoomPrint_button.Text = "Room Print";
             this.RoomPrint_button.UseVisualStyleBackColor = true;
@@ -286,36 +291,36 @@
             // 
             // ClassInRoom_button
             // 
-            this.ClassInRoom_button.Location = new System.Drawing.Point(377, 464);
+            this.ClassInRoom_button.Location = new System.Drawing.Point(348, 536);
             this.ClassInRoom_button.Name = "ClassInRoom_button";
-            this.ClassInRoom_button.Size = new System.Drawing.Size(134, 42);
+            this.ClassInRoom_button.Size = new System.Drawing.Size(163, 42);
             this.ClassInRoom_button.TabIndex = 4;
             this.ClassInRoom_button.Text = "Class in Room";
             this.ClassInRoom_button.UseVisualStyleBackColor = true;
             // 
             // SubjectInRoom_button
             // 
-            this.SubjectInRoom_button.Location = new System.Drawing.Point(237, 464);
+            this.SubjectInRoom_button.Location = new System.Drawing.Point(148, 536);
             this.SubjectInRoom_button.Name = "SubjectInRoom_button";
-            this.SubjectInRoom_button.Size = new System.Drawing.Size(134, 42);
+            this.SubjectInRoom_button.Size = new System.Drawing.Size(179, 42);
             this.SubjectInRoom_button.TabIndex = 4;
             this.SubjectInRoom_button.Text = "Subject in Room";
             this.SubjectInRoom_button.UseVisualStyleBackColor = true;
             // 
             // StudentsInASubject_button
             // 
-            this.StudentsInASubject_button.Location = new System.Drawing.Point(364, 56);
+            this.StudentsInASubject_button.Location = new System.Drawing.Point(408, 70);
             this.StudentsInASubject_button.Name = "StudentsInASubject_button";
-            this.StudentsInASubject_button.Size = new System.Drawing.Size(134, 42);
+            this.StudentsInASubject_button.Size = new System.Drawing.Size(134, 77);
             this.StudentsInASubject_button.TabIndex = 4;
             this.StudentsInASubject_button.Text = "Students in a Subject";
             this.StudentsInASubject_button.UseVisualStyleBackColor = true;
             // 
             // SignatureSheet_button
             // 
-            this.SignatureSheet_button.Location = new System.Drawing.Point(157, 56);
+            this.SignatureSheet_button.Location = new System.Drawing.Point(129, 13);
             this.SignatureSheet_button.Name = "SignatureSheet_button";
-            this.SignatureSheet_button.Size = new System.Drawing.Size(134, 32);
+            this.SignatureSheet_button.Size = new System.Drawing.Size(180, 46);
             this.SignatureSheet_button.TabIndex = 4;
             this.SignatureSheet_button.Text = "Signature Sheet";
             this.SignatureSheet_button.UseVisualStyleBackColor = true;
@@ -326,7 +331,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(380, 6);
+            this.label3.Location = new System.Drawing.Point(424, 6);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(118, 18);
@@ -357,6 +362,7 @@
             // 
             this.dataGridView3.AllowUserToAddRows = false;
             this.dataGridView3.AllowUserToDeleteRows = false;
+            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Location = new System.Drawing.Point(0, 126);
             this.dataGridView3.Name = "dataGridView3";
@@ -370,7 +376,8 @@
             this.panel3.Controls.Add(this.dataGridView3);
             this.panel3.Controls.Add(this.NoOfStudents_textbox2);
             this.panel3.Controls.Add(this.label4);
-            this.panel3.Location = new System.Drawing.Point(1199, 12);
+            this.panel3.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel3.Location = new System.Drawing.Point(1242, 12);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(248, 456);
             this.panel3.TabIndex = 5;
@@ -380,6 +387,7 @@
             this.panel4.Controls.Add(this.dataGridView4);
             this.panel4.Controls.Add(this.NoOfStudents_textbox1);
             this.panel4.Controls.Add(this.label5);
+            this.panel4.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel4.Location = new System.Drawing.Point(53, 432);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(410, 265);
@@ -389,6 +397,7 @@
             // 
             this.dataGridView4.AllowUserToAddRows = false;
             this.dataGridView4.AllowUserToDeleteRows = false;
+            this.dataGridView4.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView4.Location = new System.Drawing.Point(0, 0);
             this.dataGridView4.Name = "dataGridView4";
@@ -437,10 +446,11 @@
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox1.Location = new System.Drawing.Point(1199, 476);
+            this.groupBox1.Location = new System.Drawing.Point(1242, 476);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(442, 221);
+            this.groupBox1.Size = new System.Drawing.Size(497, 221);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Shifting Students";
@@ -455,7 +465,7 @@
             "B"});
             this.ToSeries_combobox.Location = new System.Drawing.Point(170, 127);
             this.ToSeries_combobox.Name = "ToSeries_combobox";
-            this.ToSeries_combobox.Size = new System.Drawing.Size(51, 24);
+            this.ToSeries_combobox.Size = new System.Drawing.Size(51, 32);
             this.ToSeries_combobox.TabIndex = 6;
             // 
             // FromSeries_combobox
@@ -468,7 +478,7 @@
             "B"});
             this.FromSeries_combobox.Location = new System.Drawing.Point(170, 56);
             this.FromSeries_combobox.Name = "FromSeries_combobox";
-            this.FromSeries_combobox.Size = new System.Drawing.Size(51, 24);
+            this.FromSeries_combobox.Size = new System.Drawing.Size(51, 32);
             this.FromSeries_combobox.TabIndex = 6;
             // 
             // label7
@@ -487,7 +497,7 @@
             this.Swap_button.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Swap_button.Location = new System.Drawing.Point(324, 157);
             this.Swap_button.Name = "Swap_button";
-            this.Swap_button.Size = new System.Drawing.Size(90, 32);
+            this.Swap_button.Size = new System.Drawing.Size(105, 38);
             this.Swap_button.TabIndex = 4;
             this.Swap_button.Text = "Swap";
             this.Swap_button.UseVisualStyleBackColor = true;
@@ -495,9 +505,9 @@
             // Shift_button
             // 
             this.Shift_button.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Shift_button.Location = new System.Drawing.Point(324, 119);
+            this.Shift_button.Location = new System.Drawing.Point(324, 113);
             this.Shift_button.Name = "Shift_button";
-            this.Shift_button.Size = new System.Drawing.Size(90, 32);
+            this.Shift_button.Size = new System.Drawing.Size(105, 38);
             this.Shift_button.TabIndex = 4;
             this.Shift_button.Text = "Shift";
             this.Shift_button.UseVisualStyleBackColor = true;
@@ -507,35 +517,35 @@
             // 
             this.FromEnd_textbox.Location = new System.Drawing.Point(312, 56);
             this.FromEnd_textbox.Name = "FromEnd_textbox";
-            this.FromEnd_textbox.Size = new System.Drawing.Size(58, 22);
+            this.FromEnd_textbox.Size = new System.Drawing.Size(58, 33);
             this.FromEnd_textbox.TabIndex = 3;
             // 
             // FromStart_textbox
             // 
             this.FromStart_textbox.Location = new System.Drawing.Point(238, 56);
             this.FromStart_textbox.Name = "FromStart_textbox";
-            this.FromStart_textbox.Size = new System.Drawing.Size(58, 22);
+            this.FromStart_textbox.Size = new System.Drawing.Size(58, 33);
             this.FromStart_textbox.TabIndex = 3;
             // 
             // ToStart_textbox
             // 
             this.ToStart_textbox.Location = new System.Drawing.Point(238, 129);
             this.ToStart_textbox.Name = "ToStart_textbox";
-            this.ToStart_textbox.Size = new System.Drawing.Size(58, 22);
+            this.ToStart_textbox.Size = new System.Drawing.Size(58, 33);
             this.ToStart_textbox.TabIndex = 3;
             // 
             // ToRoom_textbox
             // 
             this.ToRoom_textbox.Location = new System.Drawing.Point(83, 129);
             this.ToRoom_textbox.Name = "ToRoom_textbox";
-            this.ToRoom_textbox.Size = new System.Drawing.Size(58, 22);
+            this.ToRoom_textbox.Size = new System.Drawing.Size(58, 33);
             this.ToRoom_textbox.TabIndex = 3;
             // 
             // FromRoom_textbox
             // 
             this.FromRoom_textbox.Location = new System.Drawing.Point(83, 56);
             this.FromRoom_textbox.Name = "FromRoom_textbox";
-            this.FromRoom_textbox.Size = new System.Drawing.Size(58, 22);
+            this.FromRoom_textbox.Size = new System.Drawing.Size(58, 33);
             this.FromRoom_textbox.TabIndex = 3;
             // 
             // label11
@@ -635,10 +645,35 @@
             this.RoomExcel_panel.Controls.Add(this.Excel_generate_btn);
             this.RoomExcel_panel.Controls.Add(this.label15);
             this.RoomExcel_panel.Controls.Add(this.MonthYear_textbox);
-            this.RoomExcel_panel.Location = new System.Drawing.Point(710, 33);
+            this.RoomExcel_panel.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RoomExcel_panel.Location = new System.Drawing.Point(753, 33);
             this.RoomExcel_panel.Name = "RoomExcel_panel";
             this.RoomExcel_panel.Size = new System.Drawing.Size(400, 324);
             this.RoomExcel_panel.TabIndex = 8;
+            // 
+            // SeriesRoomGen_radio
+            // 
+            this.SeriesRoomGen_radio.AutoSize = true;
+            this.SeriesRoomGen_radio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.SeriesRoomGen_radio.Location = new System.Drawing.Point(237, 91);
+            this.SeriesRoomGen_radio.Name = "SeriesRoomGen_radio";
+            this.SeriesRoomGen_radio.Size = new System.Drawing.Size(88, 30);
+            this.SeriesRoomGen_radio.TabIndex = 6;
+            this.SeriesRoomGen_radio.TabStop = true;
+            this.SeriesRoomGen_radio.Text = "Series";
+            this.SeriesRoomGen_radio.UseVisualStyleBackColor = true;
+            // 
+            // UnvRoomGen_radio
+            // 
+            this.UnvRoomGen_radio.AutoSize = true;
+            this.UnvRoomGen_radio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.UnvRoomGen_radio.Location = new System.Drawing.Point(95, 91);
+            this.UnvRoomGen_radio.Name = "UnvRoomGen_radio";
+            this.UnvRoomGen_radio.Size = new System.Drawing.Size(120, 30);
+            this.UnvRoomGen_radio.TabIndex = 6;
+            this.UnvRoomGen_radio.TabStop = true;
+            this.UnvRoomGen_radio.Text = "University";
+            this.UnvRoomGen_radio.UseVisualStyleBackColor = true;
             // 
             // label16
             // 
@@ -686,23 +721,25 @@
             // 
             this.MonthYear_textbox.Location = new System.Drawing.Point(95, 164);
             this.MonthYear_textbox.Name = "MonthYear_textbox";
-            this.MonthYear_textbox.Size = new System.Drawing.Size(225, 22);
+            this.MonthYear_textbox.Size = new System.Drawing.Size(225, 33);
             this.MonthYear_textbox.TabIndex = 1;
             // 
             // Folder_path_text
             // 
             this.Folder_path_text.Enabled = false;
-            this.Folder_path_text.Location = new System.Drawing.Point(623, 562);
+            this.Folder_path_text.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Folder_path_text.Location = new System.Drawing.Point(675, 603);
             this.Folder_path_text.Name = "Folder_path_text";
             this.Folder_path_text.ReadOnly = true;
-            this.Folder_path_text.Size = new System.Drawing.Size(225, 22);
+            this.Folder_path_text.Size = new System.Drawing.Size(327, 33);
             this.Folder_path_text.TabIndex = 4;
             // 
             // Save_Path
             // 
-            this.Save_Path.Location = new System.Drawing.Point(623, 590);
+            this.Save_Path.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Save_Path.Location = new System.Drawing.Point(675, 646);
             this.Save_Path.Name = "Save_Path";
-            this.Save_Path.Size = new System.Drawing.Size(225, 30);
+            this.Save_Path.Size = new System.Drawing.Size(327, 47);
             this.Save_Path.TabIndex = 3;
             this.Save_Path.Text = "Select Save Path for Excel";
             this.Save_Path.UseVisualStyleBackColor = true;
@@ -717,10 +754,35 @@
             this.Signature_panel.Controls.Add(this.Signature_generate_btn);
             this.Signature_panel.Controls.Add(this.label18);
             this.Signature_panel.Controls.Add(this.Signature_examtype_textbox);
-            this.Signature_panel.Location = new System.Drawing.Point(710, 33);
+            this.Signature_panel.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Signature_panel.Location = new System.Drawing.Point(753, 33);
             this.Signature_panel.Name = "Signature_panel";
             this.Signature_panel.Size = new System.Drawing.Size(400, 324);
             this.Signature_panel.TabIndex = 8;
+            // 
+            // SeriesSignature_radio
+            // 
+            this.SeriesSignature_radio.AutoSize = true;
+            this.SeriesSignature_radio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.SeriesSignature_radio.Location = new System.Drawing.Point(237, 95);
+            this.SeriesSignature_radio.Name = "SeriesSignature_radio";
+            this.SeriesSignature_radio.Size = new System.Drawing.Size(88, 30);
+            this.SeriesSignature_radio.TabIndex = 6;
+            this.SeriesSignature_radio.TabStop = true;
+            this.SeriesSignature_radio.Text = "Series";
+            this.SeriesSignature_radio.UseVisualStyleBackColor = true;
+            // 
+            // UnvSignature_radio
+            // 
+            this.UnvSignature_radio.AutoSize = true;
+            this.UnvSignature_radio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.UnvSignature_radio.Location = new System.Drawing.Point(95, 95);
+            this.UnvSignature_radio.Name = "UnvSignature_radio";
+            this.UnvSignature_radio.Size = new System.Drawing.Size(120, 30);
+            this.UnvSignature_radio.TabIndex = 6;
+            this.UnvSignature_radio.TabStop = true;
+            this.UnvSignature_radio.Text = "University";
+            this.UnvSignature_radio.UseVisualStyleBackColor = true;
             // 
             // label17
             // 
@@ -768,7 +830,7 @@
             // 
             this.Signature_examtype_textbox.Location = new System.Drawing.Point(95, 175);
             this.Signature_examtype_textbox.Name = "Signature_examtype_textbox";
-            this.Signature_examtype_textbox.Size = new System.Drawing.Size(225, 22);
+            this.Signature_examtype_textbox.Size = new System.Drawing.Size(225, 33);
             this.Signature_examtype_textbox.TabIndex = 1;
             // 
             // DisplaySheet_Panel
@@ -780,10 +842,23 @@
             this.DisplaySheet_Panel.Controls.Add(this.DisplaySheet_generate_btn);
             this.DisplaySheet_Panel.Controls.Add(this.label20);
             this.DisplaySheet_Panel.Controls.Add(this.Display_examtype_textbox);
-            this.DisplaySheet_Panel.Location = new System.Drawing.Point(710, 33);
+            this.DisplaySheet_Panel.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DisplaySheet_Panel.Location = new System.Drawing.Point(753, 33);
             this.DisplaySheet_Panel.Name = "DisplaySheet_Panel";
             this.DisplaySheet_Panel.Size = new System.Drawing.Size(400, 324);
             this.DisplaySheet_Panel.TabIndex = 8;
+            // 
+            // SeriesDisplay_radio
+            // 
+            this.SeriesDisplay_radio.AutoSize = true;
+            this.SeriesDisplay_radio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.SeriesDisplay_radio.Location = new System.Drawing.Point(237, 95);
+            this.SeriesDisplay_radio.Name = "SeriesDisplay_radio";
+            this.SeriesDisplay_radio.Size = new System.Drawing.Size(88, 30);
+            this.SeriesDisplay_radio.TabIndex = 6;
+            this.SeriesDisplay_radio.TabStop = true;
+            this.SeriesDisplay_radio.Text = "Series";
+            this.SeriesDisplay_radio.UseVisualStyleBackColor = true;
             // 
             // label19
             // 
@@ -795,6 +870,18 @@
             this.label19.Size = new System.Drawing.Size(253, 24);
             this.label19.TabIndex = 5;
             this.label19.Text = "DISPLAY SHEET GENERATION";
+            // 
+            // UnvDisplay_radio
+            // 
+            this.UnvDisplay_radio.AutoSize = true;
+            this.UnvDisplay_radio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.UnvDisplay_radio.Location = new System.Drawing.Point(95, 95);
+            this.UnvDisplay_radio.Name = "UnvDisplay_radio";
+            this.UnvDisplay_radio.Size = new System.Drawing.Size(120, 30);
+            this.UnvDisplay_radio.TabIndex = 6;
+            this.UnvDisplay_radio.TabStop = true;
+            this.UnvDisplay_radio.Text = "University";
+            this.UnvDisplay_radio.UseVisualStyleBackColor = true;
             // 
             // DisplayPanel_closebtn
             // 
@@ -831,87 +918,16 @@
             // 
             this.Display_examtype_textbox.Location = new System.Drawing.Point(95, 169);
             this.Display_examtype_textbox.Name = "Display_examtype_textbox";
-            this.Display_examtype_textbox.Size = new System.Drawing.Size(225, 22);
+            this.Display_examtype_textbox.Size = new System.Drawing.Size(225, 33);
             this.Display_examtype_textbox.TabIndex = 1;
-            // 
-            // UnvSignature_radio
-            // 
-            this.UnvSignature_radio.AutoSize = true;
-            this.UnvSignature_radio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.UnvSignature_radio.Location = new System.Drawing.Point(95, 95);
-            this.UnvSignature_radio.Name = "UnvSignature_radio";
-            this.UnvSignature_radio.Size = new System.Drawing.Size(91, 21);
-            this.UnvSignature_radio.TabIndex = 6;
-            this.UnvSignature_radio.TabStop = true;
-            this.UnvSignature_radio.Text = "University";
-            this.UnvSignature_radio.UseVisualStyleBackColor = true;
-            // 
-            // SeriesSignature_radio
-            // 
-            this.SeriesSignature_radio.AutoSize = true;
-            this.SeriesSignature_radio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.SeriesSignature_radio.Location = new System.Drawing.Point(237, 95);
-            this.SeriesSignature_radio.Name = "SeriesSignature_radio";
-            this.SeriesSignature_radio.Size = new System.Drawing.Size(69, 21);
-            this.SeriesSignature_radio.TabIndex = 6;
-            this.SeriesSignature_radio.TabStop = true;
-            this.SeriesSignature_radio.Text = "Series";
-            this.SeriesSignature_radio.UseVisualStyleBackColor = true;
-            // 
-            // UnvRoomGen_radio
-            // 
-            this.UnvRoomGen_radio.AutoSize = true;
-            this.UnvRoomGen_radio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.UnvRoomGen_radio.Location = new System.Drawing.Point(95, 91);
-            this.UnvRoomGen_radio.Name = "UnvRoomGen_radio";
-            this.UnvRoomGen_radio.Size = new System.Drawing.Size(91, 21);
-            this.UnvRoomGen_radio.TabIndex = 6;
-            this.UnvRoomGen_radio.TabStop = true;
-            this.UnvRoomGen_radio.Text = "University";
-            this.UnvRoomGen_radio.UseVisualStyleBackColor = true;
-            // 
-            // SeriesRoomGen_radio
-            // 
-            this.SeriesRoomGen_radio.AutoSize = true;
-            this.SeriesRoomGen_radio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.SeriesRoomGen_radio.Location = new System.Drawing.Point(237, 91);
-            this.SeriesRoomGen_radio.Name = "SeriesRoomGen_radio";
-            this.SeriesRoomGen_radio.Size = new System.Drawing.Size(69, 21);
-            this.SeriesRoomGen_radio.TabIndex = 6;
-            this.SeriesRoomGen_radio.TabStop = true;
-            this.SeriesRoomGen_radio.Text = "Series";
-            this.SeriesRoomGen_radio.UseVisualStyleBackColor = true;
-            // 
-            // UnvDisplay_radio
-            // 
-            this.UnvDisplay_radio.AutoSize = true;
-            this.UnvDisplay_radio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.UnvDisplay_radio.Location = new System.Drawing.Point(95, 95);
-            this.UnvDisplay_radio.Name = "UnvDisplay_radio";
-            this.UnvDisplay_radio.Size = new System.Drawing.Size(91, 21);
-            this.UnvDisplay_radio.TabIndex = 6;
-            this.UnvDisplay_radio.TabStop = true;
-            this.UnvDisplay_radio.Text = "University";
-            this.UnvDisplay_radio.UseVisualStyleBackColor = true;
-            // 
-            // SeriesDisplay_radio
-            // 
-            this.SeriesDisplay_radio.AutoSize = true;
-            this.SeriesDisplay_radio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.SeriesDisplay_radio.Location = new System.Drawing.Point(237, 95);
-            this.SeriesDisplay_radio.Name = "SeriesDisplay_radio";
-            this.SeriesDisplay_radio.Size = new System.Drawing.Size(69, 21);
-            this.SeriesDisplay_radio.TabIndex = 6;
-            this.SeriesDisplay_radio.TabStop = true;
-            this.SeriesDisplay_radio.Text = "Series";
-            this.SeriesDisplay_radio.UseVisualStyleBackColor = true;
             // 
             // Allotment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1924, 709);
+            this.ClientSize = new System.Drawing.Size(1779, 709);
+            this.Controls.Add(this.Generation_Panel);
             this.Controls.Add(this.DisplaySheet_Panel);
             this.Controls.Add(this.Signature_panel);
             this.Controls.Add(this.Folder_path_text);
@@ -921,7 +937,6 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.RoomExcel_panel);
-            this.Controls.Add(this.Generation_Panel);
             this.Name = "Allotment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Allotment";

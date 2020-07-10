@@ -269,6 +269,5 @@ namespace Exam_Cell
             No_of_Present_ViewText.Text = prescount.ToString();
             No_of_Absent_ViewText.Text = abscount.ToString();
         }
-        
     }
 }

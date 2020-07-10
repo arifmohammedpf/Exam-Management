@@ -935,6 +935,7 @@ namespace Exam_Cell
 
         private void Allotment_Load(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Normal;
             Generation_Panel.BringToFront();
             Generation_Panel.Enabled = true;
             DisplaySheet_Panel.Enabled = false;

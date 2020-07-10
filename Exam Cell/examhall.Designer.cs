@@ -51,31 +51,35 @@
             this.roomsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.roomsTableAdapter = new Exam_Cell.Exam_Cell_RoomsTableAdapters.RoomsTableAdapter();
             this.roomsTableAdapter1 = new Exam_Cell.Exam_Cell_RoomsTableAdapters.RoomsTableAdapter();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Rooms_dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_Cell_Rooms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roomsBindingSource)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(17, 16);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1033, 91);
+            this.panel1.Size = new System.Drawing.Size(1034, 91);
             this.panel1.TabIndex = 0;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = global::Exam_Cell.Properties.Resources.kmea_hd_logo_shabz_WHITE;
-            this.pictureBox1.Location = new System.Drawing.Point(4, -1);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1024, 88);
+            this.pictureBox1.Size = new System.Drawing.Size(1034, 91);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -83,6 +87,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.Priority_combobox);
             this.panel2.Controls.Add(this.TotalCapacity_textbox);
             this.panel2.Controls.Add(this.TotalRoom_textbox);
@@ -97,17 +102,18 @@
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.Rooms_dgv);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(21, 114);
+            this.panel2.Location = new System.Drawing.Point(0, 91);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1024, 424);
+            this.panel2.Size = new System.Drawing.Size(1034, 577);
             this.panel2.TabIndex = 1;
             // 
             // Priority_combobox
             // 
             this.Priority_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Priority_combobox.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Priority_combobox.FormattingEnabled = true;
             this.Priority_combobox.Items.AddRange(new object[] {
             "-Select-",
@@ -141,34 +147,36 @@
             "28",
             "29",
             "30"});
-            this.Priority_combobox.Location = new System.Drawing.Point(7, 89);
+            this.Priority_combobox.Location = new System.Drawing.Point(21, 93);
             this.Priority_combobox.Name = "Priority_combobox";
-            this.Priority_combobox.Size = new System.Drawing.Size(256, 26);
+            this.Priority_combobox.Size = new System.Drawing.Size(307, 32);
             this.Priority_combobox.TabIndex = 16;
             // 
             // TotalCapacity_textbox
             // 
-            this.TotalCapacity_textbox.Location = new System.Drawing.Point(131, 383);
+            this.TotalCapacity_textbox.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalCapacity_textbox.Location = new System.Drawing.Point(249, 529);
             this.TotalCapacity_textbox.Margin = new System.Windows.Forms.Padding(4);
             this.TotalCapacity_textbox.Name = "TotalCapacity_textbox";
             this.TotalCapacity_textbox.ReadOnly = true;
-            this.TotalCapacity_textbox.Size = new System.Drawing.Size(132, 25);
+            this.TotalCapacity_textbox.Size = new System.Drawing.Size(132, 33);
             this.TotalCapacity_textbox.TabIndex = 15;
             // 
             // TotalRoom_textbox
             // 
-            this.TotalRoom_textbox.Location = new System.Drawing.Point(131, 343);
+            this.TotalRoom_textbox.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalRoom_textbox.Location = new System.Drawing.Point(249, 478);
             this.TotalRoom_textbox.Margin = new System.Windows.Forms.Padding(4);
             this.TotalRoom_textbox.Name = "TotalRoom_textbox";
             this.TotalRoom_textbox.ReadOnly = true;
-            this.TotalRoom_textbox.Size = new System.Drawing.Size(132, 25);
+            this.TotalRoom_textbox.Size = new System.Drawing.Size(132, 33);
             this.TotalRoom_textbox.TabIndex = 14;
             this.TotalRoom_textbox.TextChanged += new System.EventHandler(this.TotalRoom_textbox_TextChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(5, 386);
+            this.label6.Location = new System.Drawing.Point(123, 537);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(115, 18);
@@ -178,7 +186,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(5, 351);
+            this.label5.Location = new System.Drawing.Point(123, 486);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(96, 18);
@@ -187,11 +195,12 @@
             // 
             // UpdatePriority_button
             // 
+            this.UpdatePriority_button.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UpdatePriority_button.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.UpdatePriority_button.Location = new System.Drawing.Point(39, 274);
+            this.UpdatePriority_button.Location = new System.Drawing.Point(26, 285);
             this.UpdatePriority_button.Margin = new System.Windows.Forms.Padding(4);
             this.UpdatePriority_button.Name = "UpdatePriority_button";
-            this.UpdatePriority_button.Size = new System.Drawing.Size(202, 54);
+            this.UpdatePriority_button.Size = new System.Drawing.Size(251, 44);
             this.UpdatePriority_button.TabIndex = 11;
             this.UpdatePriority_button.Text = "Update Selected Priority";
             this.UpdatePriority_button.UseVisualStyleBackColor = true;
@@ -199,8 +208,9 @@
             // 
             // Save_button
             // 
+            this.Save_button.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Save_button.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Save_button.Location = new System.Drawing.Point(39, 229);
+            this.Save_button.Location = new System.Drawing.Point(50, 242);
             this.Save_button.Margin = new System.Windows.Forms.Padding(4);
             this.Save_button.Name = "Save_button";
             this.Save_button.Size = new System.Drawing.Size(202, 37);
@@ -211,32 +221,35 @@
             // 
             // B_series_textbox
             // 
-            this.B_series_textbox.Location = new System.Drawing.Point(4, 183);
+            this.B_series_textbox.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.B_series_textbox.Location = new System.Drawing.Point(18, 201);
             this.B_series_textbox.Margin = new System.Windows.Forms.Padding(4);
             this.B_series_textbox.Name = "B_series_textbox";
-            this.B_series_textbox.Size = new System.Drawing.Size(259, 25);
+            this.B_series_textbox.Size = new System.Drawing.Size(310, 33);
             this.B_series_textbox.TabIndex = 8;
             // 
             // A_series_textbox
             // 
-            this.A_series_textbox.Location = new System.Drawing.Point(4, 135);
+            this.A_series_textbox.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.A_series_textbox.Location = new System.Drawing.Point(18, 146);
             this.A_series_textbox.Margin = new System.Windows.Forms.Padding(4);
             this.A_series_textbox.Name = "A_series_textbox";
-            this.A_series_textbox.Size = new System.Drawing.Size(259, 25);
+            this.A_series_textbox.Size = new System.Drawing.Size(310, 33);
             this.A_series_textbox.TabIndex = 7;
             // 
             // RoomNo_textbox
             // 
-            this.RoomNo_textbox.Location = new System.Drawing.Point(4, 39);
+            this.RoomNo_textbox.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RoomNo_textbox.Location = new System.Drawing.Point(18, 38);
             this.RoomNo_textbox.Margin = new System.Windows.Forms.Padding(4);
             this.RoomNo_textbox.Name = "RoomNo_textbox";
-            this.RoomNo_textbox.Size = new System.Drawing.Size(259, 25);
+            this.RoomNo_textbox.Size = new System.Drawing.Size(310, 33);
             this.RoomNo_textbox.TabIndex = 5;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(4, 164);
+            this.label4.Location = new System.Drawing.Point(18, 183);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 18);
@@ -246,7 +259,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 116);
+            this.label3.Location = new System.Drawing.Point(18, 128);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 18);
@@ -256,7 +269,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 68);
+            this.label2.Location = new System.Drawing.Point(18, 75);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 18);
@@ -266,7 +279,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 20);
+            this.label1.Location = new System.Drawing.Point(19, 20);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 18);
@@ -276,11 +289,13 @@
             // Rooms_dgv
             // 
             this.Rooms_dgv.AllowUserToAddRows = false;
+            this.Rooms_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.Rooms_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Rooms_dgv.Location = new System.Drawing.Point(283, 1);
+            this.Rooms_dgv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Rooms_dgv.Location = new System.Drawing.Point(0, 0);
             this.Rooms_dgv.Margin = new System.Windows.Forms.Padding(4);
             this.Rooms_dgv.Name = "Rooms_dgv";
-            this.Rooms_dgv.Size = new System.Drawing.Size(735, 416);
+            this.Rooms_dgv.Size = new System.Drawing.Size(617, 560);
             this.Rooms_dgv.TabIndex = 0;
             this.Rooms_dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Rooms_dgv_CellClick);
             this.Rooms_dgv.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.Rooms_dgv_CellEndEdit);
@@ -304,12 +319,21 @@
             // 
             this.roomsTableAdapter1.ClearBeforeFill = true;
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.Rooms_dgv);
+            this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel3.Location = new System.Drawing.Point(406, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(617, 560);
+            this.panel3.TabIndex = 17;
+            // 
             // examhall
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(1034, 668);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -325,6 +349,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Rooms_dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_Cell_Rooms)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roomsBindingSource)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -353,5 +378,6 @@
         private Exam_Cell_RoomsTableAdapters.RoomsTableAdapter roomsTableAdapter;
         private System.Windows.Forms.ComboBox Priority_combobox;
         private Exam_Cell_RoomsTableAdapters.RoomsTableAdapter roomsTableAdapter1;
+        private System.Windows.Forms.Panel panel3;
     }
 }
