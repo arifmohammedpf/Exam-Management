@@ -2,7 +2,7 @@
 A Windows Form Application Project.
 Developed for Exam Cell Department in KMEA Engineering College, Edathala.
 
-Platform : Visual Studio 2017 (C#)
+Platform : *Visual Studio 2017 (C#)*   
 Nuget packages used : *ExcelDataReader*, *ExcelDataReader.DataSet*     
 COM Reference used : *Microsoft.Office.Interop.Excel* 
 
