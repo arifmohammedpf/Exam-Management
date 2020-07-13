@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.ScheduledExam_dgv = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.NewDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
@@ -37,7 +39,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.NewSession_combobox = new System.Windows.Forms.ComboBox();
             this.Postpone_button = new System.Windows.Forms.Button();
-            this.ScheduledExam_dgv = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.DateCheckbox = new System.Windows.Forms.CheckBox();
             this.Examcode_textbox = new System.Windows.Forms.TextBox();
@@ -57,17 +58,16 @@
             this.exam_CellTimeTableNew = new Exam_Cell.Exam_CellTimeTableNew();
             this.timetableBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.timetableTableAdapter1 = new Exam_Cell.Exam_CellTimeTableNewTableAdapters.TimetableTableAdapter();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ScheduledExam_dgv)).BeginInit();
+            this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellDataSetTimetable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timetableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellTimeTableNew)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timetableBindingSource1)).BeginInit();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -86,6 +86,28 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1145, 677);
             this.panel1.TabIndex = 0;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.ScheduledExam_dgv);
+            this.panel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel4.Location = new System.Drawing.Point(12, 316);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1119, 343);
+            this.panel4.TabIndex = 7;
+            // 
+            // ScheduledExam_dgv
+            // 
+            this.ScheduledExam_dgv.AllowUserToAddRows = false;
+            this.ScheduledExam_dgv.AllowUserToDeleteRows = false;
+            this.ScheduledExam_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.ScheduledExam_dgv.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.ScheduledExam_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ScheduledExam_dgv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ScheduledExam_dgv.Location = new System.Drawing.Point(0, 0);
+            this.ScheduledExam_dgv.Name = "ScheduledExam_dgv";
+            this.ScheduledExam_dgv.Size = new System.Drawing.Size(1119, 343);
+            this.ScheduledExam_dgv.TabIndex = 5;
             // 
             // panel3
             // 
@@ -162,18 +184,6 @@
             this.Postpone_button.Text = "Postpone";
             this.Postpone_button.UseVisualStyleBackColor = true;
             this.Postpone_button.Click += new System.EventHandler(this.Postpone_button_Click);
-            // 
-            // ScheduledExam_dgv
-            // 
-            this.ScheduledExam_dgv.AllowUserToAddRows = false;
-            this.ScheduledExam_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.ScheduledExam_dgv.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.ScheduledExam_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ScheduledExam_dgv.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ScheduledExam_dgv.Location = new System.Drawing.Point(0, 0);
-            this.ScheduledExam_dgv.Name = "ScheduledExam_dgv";
-            this.ScheduledExam_dgv.Size = new System.Drawing.Size(1119, 343);
-            this.ScheduledExam_dgv.TabIndex = 5;
             // 
             // panel2
             // 
@@ -345,15 +355,6 @@
             // 
             this.timetableTableAdapter1.ClearBeforeFill = true;
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.ScheduledExam_dgv);
-            this.panel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel4.Location = new System.Drawing.Point(12, 316);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1119, 343);
-            this.panel4.TabIndex = 7;
-            // 
             // postponement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -367,9 +368,10 @@
             this.Text = "Postponement";
             this.Load += new System.EventHandler(this.postponement_Load);
             this.panel1.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ScheduledExam_dgv)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ScheduledExam_dgv)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -377,7 +379,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.timetableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellTimeTableNew)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timetableBindingSource1)).EndInit();
-            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

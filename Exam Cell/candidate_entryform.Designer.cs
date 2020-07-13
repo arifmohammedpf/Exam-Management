@@ -30,14 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.Courses_dgv = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.Candidate_datagridview = new System.Windows.Forms.DataGridView();
             this.Excel_Group = new System.Windows.Forms.GroupBox();
             this.Filepath_textbox = new System.Windows.Forms.TextBox();
             this.Sheet_combobox = new System.Windows.Forms.ComboBox();
             this.Excel_btn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.RegRegCnd_btn = new System.Windows.Forms.Button();
-            this.Courses_dgv = new System.Windows.Forms.DataGridView();
-            this.Candidate_datagridview = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.Series_rdbtn = new System.Windows.Forms.RadioButton();
             this.Unvrsty_rdbtn = new System.Windows.Forms.RadioButton();
@@ -49,9 +51,9 @@
             this.Scheme_combobox = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.Supply_Name_Textbox = new System.Windows.Forms.TextBox();
-            this.Supply_Reg_no_Textbox = new System.Windows.Forms.TextBox();
-            this.Reg_btn = new System.Windows.Forms.Button();
+            this.Extra_Name_Textbox = new System.Windows.Forms.TextBox();
+            this.Extra_Reg_no_Textbox = new System.Windows.Forms.TextBox();
+            this.ExtraReg_btn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Unv_Student_details_groupbox = new System.Windows.Forms.GroupBox();
@@ -97,13 +99,13 @@
             this.exam_CellDataSetStudentsNew = new Exam_Cell.Exam_CellDataSetStudentsNew();
             this.studentsBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.studentsTableAdapter3 = new Exam_Cell.Exam_CellDataSetStudentsNewTableAdapters.StudentsTableAdapter();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Courses_dgv)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Candidate_datagridview)).BeginInit();
             this.Excel_Group.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Courses_dgv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Candidate_datagridview)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.SubjectDetails_groupbox.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -131,8 +133,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.schemeBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellDataSetStudentsNew)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource3)).BeginInit();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -155,6 +155,53 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1924, 676);
             this.panel1.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.Courses_dgv);
+            this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel3.Location = new System.Drawing.Point(1098, 229);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(820, 414);
+            this.panel3.TabIndex = 32;
+            // 
+            // Courses_dgv
+            // 
+            this.Courses_dgv.AllowUserToAddRows = false;
+            this.Courses_dgv.AllowUserToDeleteRows = false;
+            this.Courses_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.Courses_dgv.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Courses_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Courses_dgv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Courses_dgv.Location = new System.Drawing.Point(0, 0);
+            this.Courses_dgv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Courses_dgv.Name = "Courses_dgv";
+            this.Courses_dgv.RowTemplate.Height = 24;
+            this.Courses_dgv.Size = new System.Drawing.Size(820, 414);
+            this.Courses_dgv.TabIndex = 27;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.Candidate_datagridview);
+            this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel2.Location = new System.Drawing.Point(21, 228);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(820, 415);
+            this.panel2.TabIndex = 31;
+            // 
+            // Candidate_datagridview
+            // 
+            this.Candidate_datagridview.AllowUserToAddRows = false;
+            this.Candidate_datagridview.AllowUserToDeleteRows = false;
+            this.Candidate_datagridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.Candidate_datagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Candidate_datagridview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Candidate_datagridview.Location = new System.Drawing.Point(0, 0);
+            this.Candidate_datagridview.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Candidate_datagridview.Name = "Candidate_datagridview";
+            this.Candidate_datagridview.RowTemplate.Height = 24;
+            this.Candidate_datagridview.Size = new System.Drawing.Size(820, 415);
+            this.Candidate_datagridview.TabIndex = 27;
             // 
             // Excel_Group
             // 
@@ -222,35 +269,6 @@
             this.RegRegCnd_btn.Text = "Register Regular Candidate";
             this.RegRegCnd_btn.UseVisualStyleBackColor = true;
             this.RegRegCnd_btn.Click += new System.EventHandler(this.RegRegCnd_btn_Click);
-            // 
-            // Courses_dgv
-            // 
-            this.Courses_dgv.AllowUserToAddRows = false;
-            this.Courses_dgv.AllowUserToDeleteRows = false;
-            this.Courses_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.Courses_dgv.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.Courses_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Courses_dgv.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Courses_dgv.Location = new System.Drawing.Point(0, 0);
-            this.Courses_dgv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Courses_dgv.Name = "Courses_dgv";
-            this.Courses_dgv.RowTemplate.Height = 24;
-            this.Courses_dgv.Size = new System.Drawing.Size(820, 414);
-            this.Courses_dgv.TabIndex = 27;
-            // 
-            // Candidate_datagridview
-            // 
-            this.Candidate_datagridview.AllowUserToAddRows = false;
-            this.Candidate_datagridview.AllowUserToDeleteRows = false;
-            this.Candidate_datagridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.Candidate_datagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Candidate_datagridview.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Candidate_datagridview.Location = new System.Drawing.Point(0, 0);
-            this.Candidate_datagridview.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Candidate_datagridview.Name = "Candidate_datagridview";
-            this.Candidate_datagridview.RowTemplate.Height = 24;
-            this.Candidate_datagridview.Size = new System.Drawing.Size(820, 415);
-            this.Candidate_datagridview.TabIndex = 27;
             // 
             // groupBox3
             // 
@@ -371,9 +389,9 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.Supply_Name_Textbox);
-            this.groupBox4.Controls.Add(this.Supply_Reg_no_Textbox);
-            this.groupBox4.Controls.Add(this.Reg_btn);
+            this.groupBox4.Controls.Add(this.Extra_Name_Textbox);
+            this.groupBox4.Controls.Add(this.Extra_Reg_no_Textbox);
+            this.groupBox4.Controls.Add(this.ExtraReg_btn);
             this.groupBox4.Controls.Add(this.label1);
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Enabled = false;
@@ -385,32 +403,33 @@
             this.groupBox4.Size = new System.Drawing.Size(435, 201);
             this.groupBox4.TabIndex = 24;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Supplymentary Candidate Registration";
+            this.groupBox4.Text = "Extra Candidate Registration";
             // 
-            // Supply_Name_Textbox
+            // Extra_Name_Textbox
             // 
-            this.Supply_Name_Textbox.Location = new System.Drawing.Point(130, 100);
-            this.Supply_Name_Textbox.Name = "Supply_Name_Textbox";
-            this.Supply_Name_Textbox.Size = new System.Drawing.Size(273, 33);
-            this.Supply_Name_Textbox.TabIndex = 17;
+            this.Extra_Name_Textbox.Location = new System.Drawing.Point(130, 100);
+            this.Extra_Name_Textbox.Name = "Extra_Name_Textbox";
+            this.Extra_Name_Textbox.Size = new System.Drawing.Size(273, 33);
+            this.Extra_Name_Textbox.TabIndex = 17;
             // 
-            // Supply_Reg_no_Textbox
+            // Extra_Reg_no_Textbox
             // 
-            this.Supply_Reg_no_Textbox.Location = new System.Drawing.Point(130, 60);
-            this.Supply_Reg_no_Textbox.Name = "Supply_Reg_no_Textbox";
-            this.Supply_Reg_no_Textbox.Size = new System.Drawing.Size(273, 33);
-            this.Supply_Reg_no_Textbox.TabIndex = 17;
+            this.Extra_Reg_no_Textbox.Location = new System.Drawing.Point(130, 60);
+            this.Extra_Reg_no_Textbox.Name = "Extra_Reg_no_Textbox";
+            this.Extra_Reg_no_Textbox.Size = new System.Drawing.Size(273, 33);
+            this.Extra_Reg_no_Textbox.TabIndex = 17;
             // 
-            // Reg_btn
+            // ExtraReg_btn
             // 
-            this.Reg_btn.ForeColor = System.Drawing.Color.Black;
-            this.Reg_btn.Location = new System.Drawing.Point(130, 141);
-            this.Reg_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Reg_btn.Name = "Reg_btn";
-            this.Reg_btn.Size = new System.Drawing.Size(129, 44);
-            this.Reg_btn.TabIndex = 16;
-            this.Reg_btn.Text = "Register";
-            this.Reg_btn.UseVisualStyleBackColor = true;
+            this.ExtraReg_btn.ForeColor = System.Drawing.Color.Black;
+            this.ExtraReg_btn.Location = new System.Drawing.Point(130, 141);
+            this.ExtraReg_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ExtraReg_btn.Name = "ExtraReg_btn";
+            this.ExtraReg_btn.Size = new System.Drawing.Size(129, 44);
+            this.ExtraReg_btn.TabIndex = 16;
+            this.ExtraReg_btn.Text = "Register";
+            this.ExtraReg_btn.UseVisualStyleBackColor = true;
+            this.ExtraReg_btn.Click += new System.EventHandler(this.ExtraReg_btn_Click);
             // 
             // label1
             // 
@@ -689,24 +708,6 @@
             // 
             this.studentsTableAdapter3.ClearBeforeFill = true;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.Candidate_datagridview);
-            this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(21, 228);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(820, 415);
-            this.panel2.TabIndex = 31;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.Courses_dgv);
-            this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(1098, 229);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(820, 414);
-            this.panel3.TabIndex = 32;
-            // 
             // formti
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -722,11 +723,13 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.formti_Load);
             this.panel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Courses_dgv)).EndInit();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Candidate_datagridview)).EndInit();
             this.Excel_Group.ResumeLayout(false);
             this.Excel_Group.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Courses_dgv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Candidate_datagridview)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.SubjectDetails_groupbox.ResumeLayout(false);
@@ -759,8 +762,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.schemeBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellDataSetStudentsNew)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource3)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -785,7 +786,7 @@
         private System.Windows.Forms.Button RegRegCnd_btn;
         private System.Windows.Forms.DataGridView Courses_dgv;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button Reg_btn;
+        private System.Windows.Forms.Button ExtraReg_btn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -808,8 +809,8 @@
         private Exam_CellDataSet exam_CellDataSet;
         private System.Windows.Forms.BindingSource studentsBindingSource2;
         private Exam_CellDataSetTableAdapters.StudentsTableAdapter studentsTableAdapter2;
-        private System.Windows.Forms.TextBox Supply_Name_Textbox;
-        private System.Windows.Forms.TextBox Supply_Reg_no_Textbox;
+        private System.Windows.Forms.TextBox Extra_Name_Textbox;
+        private System.Windows.Forms.TextBox Extra_Reg_no_Textbox;
         private Exam_CellDataSet1 exam_CellDataSet1;
         private System.Windows.Forms.BindingSource registeredcandidatesBindingSource;
         private Exam_CellDataSet1TableAdapters.Registered_candidatesTableAdapter registered_candidatesTableAdapter;

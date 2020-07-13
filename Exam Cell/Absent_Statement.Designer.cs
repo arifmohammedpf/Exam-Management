@@ -114,6 +114,7 @@
             this.Dgv.Location = new System.Drawing.Point(0, 0);
             this.Dgv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Dgv.Name = "Dgv";
+            this.Dgv.ReadOnly = true;
             this.Dgv.RowTemplate.Height = 24;
             this.Dgv.Size = new System.Drawing.Size(518, 649);
             this.Dgv.TabIndex = 3;

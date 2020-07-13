@@ -32,6 +32,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.Rooms_dgv = new System.Windows.Forms.DataGridView();
             this.Priority_combobox = new System.Windows.Forms.ComboBox();
             this.TotalCapacity_textbox = new System.Windows.Forms.TextBox();
             this.TotalRoom_textbox = new System.Windows.Forms.TextBox();
@@ -46,19 +48,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.Rooms_dgv = new System.Windows.Forms.DataGridView();
             this.exam_Cell_Rooms = new Exam_Cell.Exam_Cell_Rooms();
             this.roomsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.roomsTableAdapter = new Exam_Cell.Exam_Cell_RoomsTableAdapters.RoomsTableAdapter();
             this.roomsTableAdapter1 = new Exam_Cell.Exam_Cell_RoomsTableAdapters.RoomsTableAdapter();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Rooms_dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_Cell_Rooms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roomsBindingSource)).BeginInit();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -109,6 +109,31 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1034, 577);
             this.panel2.TabIndex = 1;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.Rooms_dgv);
+            this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel3.Location = new System.Drawing.Point(406, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(617, 560);
+            this.panel3.TabIndex = 17;
+            // 
+            // Rooms_dgv
+            // 
+            this.Rooms_dgv.AllowUserToAddRows = false;
+            this.Rooms_dgv.AllowUserToDeleteRows = false;
+            this.Rooms_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.Rooms_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Rooms_dgv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Rooms_dgv.Location = new System.Drawing.Point(0, 0);
+            this.Rooms_dgv.Margin = new System.Windows.Forms.Padding(4);
+            this.Rooms_dgv.Name = "Rooms_dgv";
+            this.Rooms_dgv.Size = new System.Drawing.Size(617, 560);
+            this.Rooms_dgv.TabIndex = 0;
+            this.Rooms_dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Rooms_dgv_CellClick);
+            this.Rooms_dgv.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.Rooms_dgv_CellEndEdit);
+            this.Rooms_dgv.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Rooms_dgv_CellMouseUp);
             // 
             // Priority_combobox
             // 
@@ -286,21 +311,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Room No :";
             // 
-            // Rooms_dgv
-            // 
-            this.Rooms_dgv.AllowUserToAddRows = false;
-            this.Rooms_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.Rooms_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Rooms_dgv.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Rooms_dgv.Location = new System.Drawing.Point(0, 0);
-            this.Rooms_dgv.Margin = new System.Windows.Forms.Padding(4);
-            this.Rooms_dgv.Name = "Rooms_dgv";
-            this.Rooms_dgv.Size = new System.Drawing.Size(617, 560);
-            this.Rooms_dgv.TabIndex = 0;
-            this.Rooms_dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Rooms_dgv_CellClick);
-            this.Rooms_dgv.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.Rooms_dgv_CellEndEdit);
-            this.Rooms_dgv.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Rooms_dgv_CellMouseUp);
-            // 
             // exam_Cell_Rooms
             // 
             this.exam_Cell_Rooms.DataSetName = "Exam_Cell_Rooms";
@@ -318,15 +328,6 @@
             // roomsTableAdapter1
             // 
             this.roomsTableAdapter1.ClearBeforeFill = true;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.Rooms_dgv);
-            this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(406, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(617, 560);
-            this.panel3.TabIndex = 17;
             // 
             // examhall
             // 
@@ -346,10 +347,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Rooms_dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_Cell_Rooms)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roomsBindingSource)).EndInit();
-            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -808,6 +808,38 @@ namespace Exam_Cell
                 Candidate_datagridview.DataSource = null;
             }
         }
+
+        private void ExtraReg_btn_Click(object sender, EventArgs e)
+        {
+            if(Extra_Name_Textbox.Text != "" && Extra_Reg_no_Textbox.Text != "")
+            {
+                int f = 0;
+                //select checkbox from course dgv
+                foreach (DataGridViewRow dr in Courses_dgv.Rows)
+                {
+                    bool checkboxselected = Convert.ToBoolean(dr.Cells["checkBoxColumn"].Value);
+                    if (checkboxselected)
+                    {
+                        f = 1;
+                        //selected datas from dgv will be inserted to Table Registered Candidates
+                        //here first bracket is sqltable column names and 2nd bracket with @ is refernce for values to be inserted
+                        SqlCommand sqlcomm = new SqlCommand("Insert into Registered_candidates(Name,Reg_no,Branch,Semester,Course)Values(" + "@Name,@Reg_no,@Branch,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
+                                                                                                                                                                                                           //giving values to the reference...values from dgv
+                        sqlcomm.Parameters.AddWithValue("@Reg_no", Extra_Reg_no_Textbox.Text);
+                        sqlcomm.Parameters.AddWithValue("@Name", Extra_Name_Textbox.Text);
+                        sqlcomm.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value);
+                        sqlcomm.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value);
+                        sqlcomm.Parameters.AddWithValue("@Course", dr.Cells["Course"].Value);
+                        //execute sql query to insert into tables
+                        sqlcomm.ExecuteNonQuery();
+                    }
+                }
+                if (f == 1)
+                    MessageBox.Show("Register Done", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("Select Course To Register", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
 
