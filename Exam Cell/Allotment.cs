@@ -9,16 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Runtime.InteropServices;
-using Excel = Microsoft.Office.Interop.Excel;
-
-
+using OfficeOpenXml;
+using OfficeOpenXml.Style;
+using System.IO;
 
 namespace Exam_Cell
 {
     public partial class Allotment : Form
     {
         Connection con = new Connection();
-        Excel.Application xlApp = new Excel.Application();
         
         public Allotment()
         {
@@ -477,148 +476,144 @@ namespace Exam_Cell
         {
             if (Folder_path_text.Text != "")
             {
-                if (xlApp == null)
+                int flag = 0;
+
+                DataTable dstnctdatatable = new DataTable();
+                SqlCommand command = new SqlCommand("SELECT Distinct Date from Series_Alloted", con.ActiveCon());
+                SqlDataAdapter distinctadapter = new SqlDataAdapter(command);
+                distinctadapter.Fill(dstnctdatatable);
+
+                if (dstnctdatatable.Rows.Count == 0)
                 {
-                    MessageBox.Show("Excel is not properly installed", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Allot Students First", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (f == 0)
+                    {
+                        Generation_Panel.BringToFront();
+                        Generation_Panel.Enabled = true;
+                        RoomExcel_panel.Enabled = false;
+                    }
+                    else if (f == 1)
+                    {
+                        Generation_Panel.BringToFront();
+                        Generation_Panel.Enabled = true;
+                        Signature_panel.Enabled = false;
+                    }
+                    flag = 1;
                 }
                 else
                 {
-                    int flag = 0;
-                    Excel.Range excelCellrange;
-                    Excel.Workbook xlWorkBook;
-                    Excel.Worksheet xlWorkSheet;
-                    object misValue = System.Reflection.Missing.Value;
-                    //for excel alerts
-                    //xlApp.Visible = false;
-                    //xlApp.DisplayAlerts = false;
-
-
-                    DataTable dstnctdatatable = new DataTable();
-                    SqlCommand command = new SqlCommand("SELECT Distinct Date from Series_Alloted", con.ActiveCon());
-                    SqlDataAdapter distinctadapter = new SqlDataAdapter(command);
-                    distinctadapter.Fill(dstnctdatatable);
-
-                    if (dstnctdatatable.Rows.Count == 0)
+                    foreach (DataRow dr in dstnctdatatable.Rows)
                     {
-                        MessageBox.Show("Allot Students First", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        if(f==0)
-                        {
-                            Generation_Panel.BringToFront();
-                            Generation_Panel.Enabled = true;
-                            RoomExcel_panel.Enabled = false;
-                        }
-                        else if(f==1)
-                        {
-                            Generation_Panel.BringToFront();
-                            Generation_Panel.Enabled = true;
-                            Signature_panel.Enabled = false;
-                        }
-                        flag = 1;
-                    }
-                    else
-                    {
-                        foreach (DataRow dr in dstnctdatatable.Rows)
-                        {
 
-                            string session = "Forenoon";
-                            for (int count = 0; count < 2; count++)
+                        string session = "Forenoon";
+                        for (int count = 0; count < 2; count++)
+                        {
+                            //Create the data set and table
+                            //DataSet ds = new DataSet("New_DataSet");
+                            DataTable dt = new DataTable();
+
+                            if (SeriesSignature_radio.Checked || SeriesRoomGen_radio.Checked)
                             {
-                                //Create the data set and table
-                                //DataSet ds = new DataSet("New_DataSet");
-                                DataTable dt = new DataTable();
+                                //Create a query and fill the data table with the data from the DB            
+                                SqlCommand cmd = new SqlCommand("SELECT Seat,Reg_no,Name,Exam_code from Series_Alloted Where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
+                                cmd.Parameters.AddWithValue("@Date", dr["Date"].ToString());
+                                cmd.Parameters.AddWithValue("@Session", session);
+                                SqlDataAdapter adptr = new SqlDataAdapter(cmd);
+                                adptr.Fill(dt);
+                            }
+                            else if (UnvRoomGen_radio.Checked || UnvSignature_radio.Checked)
+                            {
+                                //Create a query and fill the data table with the data from the DB            
+                                SqlCommand cmd = new SqlCommand("SELECT Seat,Reg_no,Name,Exam_code from University_Alloted Where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
+                                cmd.Parameters.AddWithValue("@Date", dr["Date"].ToString());
+                                cmd.Parameters.AddWithValue("@Session", session);
+                                SqlDataAdapter adptr = new SqlDataAdapter(cmd);
+                                adptr.Fill(dt);
+                            }
 
-                                if(SeriesSignature_radio.Checked || SeriesRoomGen_radio.Checked)
-                                {
-                                    //Create a query and fill the data table with the data from the DB            
-                                    SqlCommand cmd = new SqlCommand("SELECT Seat,Reg_no,Name,Exam_code from Series_Alloted Where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
-                                    cmd.Parameters.AddWithValue("@Date", dr["Date"].ToString());
-                                    cmd.Parameters.AddWithValue("@Session", session);
-                                    SqlDataAdapter adptr = new SqlDataAdapter(cmd);
-                                    adptr.Fill(dt);
-                                }
-                                else if(UnvRoomGen_radio.Checked || UnvSignature_radio.Checked)
-                                {
-                                    //Create a query and fill the data table with the data from the DB            
-                                    SqlCommand cmd = new SqlCommand("SELECT Seat,Reg_no,Name,Exam_code from University_Alloted Where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
-                                    cmd.Parameters.AddWithValue("@Date", dr["Date"].ToString());
-                                    cmd.Parameters.AddWithValue("@Session", session);
-                                    SqlDataAdapter adptr = new SqlDataAdapter(cmd);
-                                    adptr.Fill(dt);
-                                }
-                                
-                                DataTable dstnctroomdatatable = new DataTable();
-                                SqlCommand commandroom = new SqlCommand("SELECT Distinct Room_No from Series_Alloted Where Date=@Date and Session=@Session", con.ActiveCon());
-                                commandroom.Parameters.AddWithValue("@Date", dr["Date"].ToString());
-                                commandroom.Parameters.AddWithValue("@Session", session);
-                                SqlDataAdapter distinctroomadapter = new SqlDataAdapter(commandroom);
-                                distinctroomadapter.Fill(dstnctroomdatatable);
+                            DataTable dstnctroomdatatable = new DataTable();
+                            SqlCommand commandroom = new SqlCommand("SELECT Distinct Room_No from Series_Alloted Where Date=@Date and Session=@Session", con.ActiveCon());
+                            commandroom.Parameters.AddWithValue("@Date", dr["Date"].ToString());
+                            commandroom.Parameters.AddWithValue("@Session", session);
+                            SqlDataAdapter distinctroomadapter = new SqlDataAdapter(commandroom);
+                            distinctroomadapter.Fill(dstnctroomdatatable);
 
-                                if (dt.Rows.Count != 0)
+                            if (dt.Rows.Count != 0)
+                            {
+                                using(var package = new ExcelPackage())
                                 {
-                                    //Create New Workbook
-                                    xlWorkBook = xlApp.Workbooks.Add(misValue);
                                     foreach (DataRow dstrw in dstnctroomdatatable.Rows)
                                     {
                                         string checkroom = dstrw["Room_No"].ToString();
-                                        //Create Worksheet
-                                        xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(checkroom);
+                                        //Add a new worksheet to the empty workbook
+                                        var worksheet = package.Workbook.Worksheets.Add(checkroom);
                                         //Insert Items to ExcelSheet
-                                        xlWorkSheet.get_Range("A1").Value2 = "KMEA ENGINEERING COLLEGE";
-                                        if(f==0)
+                                        worksheet.Cells["A1"].Value = "KMEA ENGINEERING COLLEGE";
+                                        if (f == 0)
                                         {
-                                            xlWorkSheet.get_Range("A2").Value2 = MonthYear_textbox.Text;
-                                            xlWorkSheet.get_Range("A3").Value2 = "STUDENTS LIST";
+                                            worksheet.Cells["A2"].Value = MonthYear_textbox.Text;
+                                            worksheet.Cells["A3"].Value = "STUDENTS LIST";
                                         }
-                                        else if(f==1)
+                                        else if (f == 1)
                                         {
-                                            xlWorkSheet.get_Range("A2").Value2 = Signature_examtype_textbox.Text;
-                                            xlWorkSheet.get_Range("A3").Value2 = "ATTENDANCE STATEMENT";                                            
+                                            worksheet.Cells["A2"].Value = Signature_examtype_textbox.Text;
+                                            worksheet.Cells["A3"].Value = "ATTENDANCE STATEMENT";
                                         }
-                                        xlWorkSheet.get_Range("A4").Value2 = checkroom;
-                                        xlWorkSheet.get_Range("E4").Value2 = dr["Date"].ToString() + " " + session;
+                                        worksheet.Cells["A4"].Value = checkroom;
+                                        worksheet.Cells["E4"].Value = dr["Date"].ToString() + " " + session;
 
-                                        excelCellrange = xlWorkSheet.get_Range("A1", "F1");
-                                        excelCellrange.Merge();
-                                        excelCellrange.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-                                        excelCellrange.Cells.Font.Name = "Arial";
-                                        excelCellrange.Cells.Font.Size = "14";
-                                        excelCellrange.Cells.Font.Bold = true;
-                                        excelCellrange = xlWorkSheet.get_Range("A2", "F2");
-                                        excelCellrange.Merge();
-                                        excelCellrange.Cells.Font.Name = "Arial";
-                                        excelCellrange.Cells.Font.Size = "12";
-                                        excelCellrange.Cells.Font.Bold = true;
-                                        excelCellrange.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-                                        excelCellrange = xlWorkSheet.get_Range("A3", "F3");
-                                        excelCellrange.Merge();
-                                        excelCellrange.Cells.Font.Name = "Arial";
-                                        excelCellrange.Cells.Font.Size = "10";
-                                        excelCellrange.Cells.Font.Bold = true;
-                                        excelCellrange.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-                                        excelCellrange = xlWorkSheet.get_Range("A4", "C4");
-                                        excelCellrange.Merge();
-                                        excelCellrange.Cells.Font.Name = "Arial";
-                                        excelCellrange.Cells.Font.Size = "10";
-                                        excelCellrange.Cells.Font.Bold = true;
-                                        excelCellrange = xlWorkSheet.get_Range("E4", "F4");
-                                        excelCellrange.Merge();
-                                        excelCellrange.Cells.Font.Name = "Arial";
-                                        excelCellrange.Cells.Font.Size = "10";
-                                        excelCellrange.Cells.Font.Bold = true;
-                                        
+                                        using (var range = worksheet.Cells["A1:F1"])
+                                        {
+                                            range.Merge = true;
+                                            range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                                            range.Style.Font.Name = "Arial";
+                                            range.Style.Font.Size = 14;
+                                            range.Style.Font.Bold = true;
+                                        }
+                                        using (var range = worksheet.Cells["A2:F2"])
+                                        {
+                                            range.Merge = true;
+                                            range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                                            range.Style.Font.Name = "Arial";
+                                            range.Style.Font.Size = 12;
+                                            range.Style.Font.Bold = true;
+                                        }
+                                        using (var range = worksheet.Cells["A3:F3"])
+                                        {
+                                            range.Merge = true;
+                                            range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                                            range.Style.Font.Name = "Arial";
+                                            range.Style.Font.Size = 10;
+                                            range.Style.Font.Bold = true;
+                                        }
+                                        using (var range = worksheet.Cells["A4:C4"])
+                                        {
+                                            range.Merge = true;
+                                            range.Style.Font.Name = "Arial";
+                                            range.Style.Font.Size = 10;
+                                            range.Style.Font.Bold = true;
+                                        }
+                                        using (var range = worksheet.Cells["A4:F4"])
+                                        {
+                                            range.Merge = true;
+                                            range.Style.Font.Name = "Arial";
+                                            range.Style.Font.Size = 10;
+                                            range.Style.Font.Bold = true;
+                                        }
+
                                         // column headings
-                                        xlWorkSheet.Cells[5, 1] = "Sl.No";
-                                        xlWorkSheet.Cells[5, 1].Font.Name = "Arial";
-                                        xlWorkSheet.Cells[5, 1].Font.Size = "10";
-                                        xlWorkSheet.Cells[5, 1].Font.Bold = true;
-                                        if(f==1)
-                                            xlWorkSheet.Cells[5, dt.Columns.Count + 2] = "Signature";
+                                        worksheet.Cells[5, 1].Value = "Sl.No";
+                                        worksheet.Cells[5, 1].Style.Font.Name = "Arial";
+                                        worksheet.Cells[5, 1].Style.Font.Size = 10;
+                                        worksheet.Cells[5, 1].Style.Font.Bold = true;
+                                        if (f == 1)
+                                            worksheet.Cells[5, dt.Columns.Count + 2].Value = "Signature";
                                         for (var i = 0; i < dt.Columns.Count; i++)
-                                        {                                            
-                                            xlWorkSheet.Cells[5, i + 2] = dt.Columns[i].ColumnName;
-                                            xlWorkSheet.Cells[5, i + 2].Font.Name = "Arial";
-                                            xlWorkSheet.Cells[5, i + 2].Font.Size = "10";
-                                            xlWorkSheet.Cells[5, i + 2].Font.Bold = true;                                            
+                                        {
+                                            worksheet.Cells[5, i + 2].Value = dt.Columns[i].ColumnName;
+                                            worksheet.Cells[5, i + 2].Style.Font.Name = "Arial";
+                                            worksheet.Cells[5, i + 2].Style.Font.Size = 10;
+                                            worksheet.Cells[5, i + 2].Style.Font.Bold = true;
                                         }
 
                                         // rows
@@ -626,62 +621,68 @@ namespace Exam_Cell
                                         {
                                             if (dt.Rows[i]["Room_No"].ToString() == checkroom)
                                             {
-                                                xlWorkSheet.Cells[i + 6, 1] = i + 1;    //Sl.No Filling
+                                                worksheet.Cells[i + 6, 1].Value = i + 1;    //Sl.No Filling
                                                 for (var j = 0; j < dt.Columns.Count; j++)
                                                 {
-                                                    xlWorkSheet.Cells[i + 6, j + 2] = dt.Rows[i][j];
+                                                    worksheet.Cells[i + 6, j + 2].Value = dt.Rows[i][j];
                                                 }
                                             }
 
                                         }
-                                        if(f==0)
+                                        if (f == 0)
                                         {
-                                            xlWorkSheet.Range[xlWorkSheet.Cells[5, 1], xlWorkSheet.Cells[dt.Rows.Count + 4, dt.Columns.Count + 1]].EntireColumn.AutoFit();
-                                            Microsoft.Office.Interop.Excel.Borders border = xlWorkSheet.Range[xlWorkSheet.Cells[5, 1], xlWorkSheet.Cells[dt.Rows.Count + 4, dt.Columns.Count + 1]].Borders;
-                                            border.LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
-                                            border.Weight = 2d;
+                                            worksheet.Cells[5, 1, dt.Rows.Count + 4, dt.Columns.Count + 1].AutoFitColumns();
+                                            using (var range = worksheet.Cells[5, 1, dt.Rows.Count + 4, dt.Columns.Count + 1])
+                                            {
+                                                range.Style.Border.Top.Style = ExcelBorderStyle.Medium;
+                                                range.Style.Border.Left.Style = ExcelBorderStyle.Medium;
+                                                range.Style.Border.Right.Style = ExcelBorderStyle.Medium;
+                                                range.Style.Border.Bottom.Style = ExcelBorderStyle.Medium;
+                                            }
                                         }
-                                        else if(f==1)
+                                        else if (f == 1)
                                         {
-                                            xlWorkSheet.Range[xlWorkSheet.Cells[5, 1], xlWorkSheet.Cells[dt.Rows.Count + 4, dt.Columns.Count + 2]].EntireColumn.AutoFit();
-                                            Microsoft.Office.Interop.Excel.Borders border = xlWorkSheet.Range[xlWorkSheet.Cells[5, 1], xlWorkSheet.Cells[dt.Rows.Count + 4, dt.Columns.Count + 2]].Borders;
-                                            border.LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
-                                            border.Weight = 2d;
-                                            xlWorkSheet.Cells[dt.Rows.Count + 6, 1] = " Write the Register Numbers of the absentees in the box";
-                                            Microsoft.Office.Interop.Excel.Borders border2 = xlWorkSheet.Range[xlWorkSheet.Cells[dt.Rows.Count + 7, 1], xlWorkSheet.Cells[dt.Rows.Count + 15, 4]].Borders;
-                                            border2.LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
-                                            border2.Weight = 2d;
-                                            xlWorkSheet.Cells[dt.Rows.Count + 15, 5]=" Name and Signature of Invigilator(s)";
+                                            worksheet.Cells[5, 1, dt.Rows.Count + 4, dt.Columns.Count + 2].AutoFitColumns();
+                                            using (var range = worksheet.Cells[5, 1, dt.Rows.Count + 4, dt.Columns.Count + 2])
+                                            {
+                                                range.Style.Border.Top.Style = ExcelBorderStyle.Medium;
+                                                range.Style.Border.Left.Style = ExcelBorderStyle.Medium;
+                                                range.Style.Border.Right.Style = ExcelBorderStyle.Medium;
+                                                range.Style.Border.Bottom.Style = ExcelBorderStyle.Medium;
+                                            }
+                                            worksheet.Cells[dt.Rows.Count + 6, 1].Value = " Write the Register Numbers of the absentees in the box";
+                                            using (var range = worksheet.Cells[dt.Rows.Count + 7, 1, dt.Rows.Count + 15, 4])
+                                            {
+                                                range.Style.Border.Top.Style = ExcelBorderStyle.Medium;
+                                                range.Style.Border.Left.Style = ExcelBorderStyle.Medium;
+                                                range.Style.Border.Right.Style = ExcelBorderStyle.Medium;
+                                                range.Style.Border.Bottom.Style = ExcelBorderStyle.Medium;
+                                            }
+                                            worksheet.Cells[dt.Rows.Count + 15, 5].Value = " Name and Signature of Invigilator(s)";
                                         }
-                                        System.Runtime.InteropServices.Marshal.ReleaseComObject(excelCellrange);
-                                        System.Runtime.InteropServices.Marshal.ReleaseComObject(xlWorkSheet);
                                     }
                                     //Save Excel File
                                     /* below might get error since Date has '\' in between ... CHECK if we have to use array 
-                                    or something else to remove the '\' .   */
-                                    string save;
-                                    save = Folder_path_text.Text + @"\Room Sheet " + dr["Date"].ToString() + " " + session + ".xls";
-                                    if(f==1)
-                                        save = Folder_path_text.Text + @"\Signature Sheet " + dr["Date"].ToString() + " " + session + ".xls";
-                                    xlWorkBook.SaveAs(save, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-                                    xlWorkBook.Close(0, misValue, misValue);
-                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(xlWorkBook);
+                                    or something else to remove the '\' .   */                                     
+                                    string path = Folder_path_text.Text + @"\Room Sheet " + dr["Date"].ToString() + " " + session + ".xlsx";                               
+                                    if (f == 1)
+                                        path = Folder_path_text.Text + @"\Signature Sheet " + dr["Date"].ToString() + " " + session + ".xlsx";
+
+                                    Stream stream = File.Create(path);
+                                    package.SaveAs(stream);
+                                    stream.Close();
 
                                     session = "Afternoon";
                                 }
                             }
-
-
-
                         }
-                    }
-                    xlApp.Quit();
-                    //Clean Intelop Objects
-                    System.Runtime.InteropServices.Marshal.ReleaseComObject(xlApp);
 
-                    if(flag==0)
-                        MessageBox.Show("Excel files created", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }                
+
+
+                    }
+                }
+                if (flag == 0)
+                    MessageBox.Show("Excel files created", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -707,132 +708,128 @@ namespace Exam_Cell
             {
                 if (Folder_path_text.Text != "")
                 {
-                    if (xlApp == null)
+                    DataTable dstnctdatatable = new DataTable();
+                    SqlCommand command = new SqlCommand("SELECT Distinct Date from Series_Alloted", con.ActiveCon());
+                    SqlDataAdapter distinctadapter = new SqlDataAdapter(command);
+                    distinctadapter.Fill(dstnctdatatable);
+
+                    if (dstnctdatatable.Rows.Count == 0)
                     {
-                        MessageBox.Show("Excel is not properly installed", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Allot Students First", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Generation_Panel.BringToFront();
+                        Generation_Panel.Enabled = true;
+                        DisplaySheet_Panel.Enabled = false;
+                        return;
                     }
                     else
                     {
-                        Excel.Range excelCellrange;
-                        Excel.Workbook xlWorkBook;
-                        Excel.Worksheet xlWorkSheet;
-                        object misValue = System.Reflection.Missing.Value;
-                        //for excel alerts
-                        xlApp.Visible = false;
-                        xlApp.DisplayAlerts = false;
-
-
-                        DataTable dstnctdatatable = new DataTable();
-                        SqlCommand command = new SqlCommand("SELECT Distinct Date from Series_Alloted", con.ActiveCon());
-                        SqlDataAdapter distinctadapter = new SqlDataAdapter(command);
-                        distinctadapter.Fill(dstnctdatatable);
-
-                        if (dstnctdatatable.Rows.Count == 0)
+                        foreach (DataRow dr in dstnctdatatable.Rows)
                         {
-                            MessageBox.Show("Allot Students First", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            Generation_Panel.BringToFront();
-                            Generation_Panel.Enabled = true;
-                            DisplaySheet_Panel.Enabled = false;
-                            return;
-                        }
-                        else
-                        {
-                            foreach (DataRow dr in dstnctdatatable.Rows)
+
+                            string session = "Forenoon";
+                            for (int count = 0; count < 2; count++)
                             {
+                                //Create the data set and table
+                                //DataSet ds = new DataSet("New_DataSet");
+                                DataTable dt = new DataTable();
 
-                                string session = "Forenoon";
-                                for (int count = 0; count < 2; count++)
+                                if (SeriesDisplay_radio.Checked)
                                 {
-                                    //Create the data set and table
-                                    //DataSet ds = new DataSet("New_DataSet");
-                                    DataTable dt = new DataTable();
+                                    //Create a query and fill the data table with the data from the DB            
+                                    SqlCommand cmd = new SqlCommand("SELECT Reg_no,Room_No,Seat,Exam_code,Course from Series_Alloted Where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
+                                    cmd.Parameters.AddWithValue("@Date", dr["Date"].ToString());
+                                    cmd.Parameters.AddWithValue("@Session", session);
+                                    SqlDataAdapter adptr = new SqlDataAdapter(cmd);
+                                    adptr.Fill(dt);
+                                }
+                                else if (UnvDisplay_radio.Checked)
+                                {
+                                    //Create a query and fill the data table with the data from the DB            
+                                    SqlCommand cmd = new SqlCommand("SELECT Reg_no,Room_No,Seat,Exam_code,Course from University_Alloted Where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
+                                    cmd.Parameters.AddWithValue("@Date", dr["Date"].ToString());
+                                    cmd.Parameters.AddWithValue("@Session", session);
+                                    SqlDataAdapter adptr = new SqlDataAdapter(cmd);
+                                    adptr.Fill(dt);
+                                }
 
-                                    if (SeriesDisplay_radio.Checked)
-                                    {
-                                        //Create a query and fill the data table with the data from the DB            
-                                        SqlCommand cmd = new SqlCommand("SELECT Reg_no,Room_No,Seat,Exam_code,Course from Series_Alloted Where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
-                                        cmd.Parameters.AddWithValue("@Date", dr["Date"].ToString());
-                                        cmd.Parameters.AddWithValue("@Session", session);
-                                        SqlDataAdapter adptr = new SqlDataAdapter(cmd);
-                                        adptr.Fill(dt);
-                                    }
-                                    else if (UnvDisplay_radio.Checked)
-                                    {
-                                        //Create a query and fill the data table with the data from the DB            
-                                        SqlCommand cmd = new SqlCommand("SELECT Reg_no,Room_No,Seat,Exam_code,Course from University_Alloted Where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
-                                        cmd.Parameters.AddWithValue("@Date", dr["Date"].ToString());
-                                        cmd.Parameters.AddWithValue("@Session", session);
-                                        SqlDataAdapter adptr = new SqlDataAdapter(cmd);
-                                        adptr.Fill(dt);
-                                    }
+                                DataTable dt2 = new DataTable();
+                                SqlCommand commandroom = new SqlCommand("SELECT Reg_no,Branch from Students", con.ActiveCon());
+                                SqlDataAdapter adptr2 = new SqlDataAdapter(commandroom);
+                                adptr2.Fill(dt2);
 
-                                    DataTable dt2 = new DataTable();
-                                    SqlCommand commandroom = new SqlCommand("SELECT Reg_no,Branch from Students", con.ActiveCon());
-                                    SqlDataAdapter adptr2 = new SqlDataAdapter(commandroom);
-                                    adptr2.Fill(dt2);
-
-                                    dt.Columns.Add("Branch", typeof(string));
-                                    foreach (DataRow getreg in dt.Rows)
+                                dt.Columns.Add("Branch", typeof(string));
+                                foreach (DataRow getreg in dt.Rows)
+                                {
+                                    foreach (DataRow getdr in dt2.Rows)
                                     {
-                                        foreach (DataRow getdr in dt2.Rows)
+                                        if (getreg["Reg_no"].ToString() == getdr["Reg_no"].ToString())
                                         {
-                                            if (getreg["Reg_no"].ToString() == getdr["Reg_no"].ToString())
-                                            {
-                                                getreg["Branch"] = getdr["Branch"].ToString();
+                                            getreg["Branch"] = getdr["Branch"].ToString();
 
-                                                break;
-                                            }
+                                            break;
                                         }
                                     }
+                                }
 
-                                    // datatable with distinct branch from 'dt'
-                                    DataTable distinctBranch = dt.DefaultView.ToTable(true, "Branch");
-                                    dataGridView2.DataSource = distinctBranch;
-                                    MessageBox.Show("--Tester-- \n Check whether distinct code works in dgv");
-                                    //Excel Designing
-                                    if (dt.Rows.Count != 0)
+                                // datatable with distinct branch from 'dt'
+                                DataTable distinctBranch = dt.DefaultView.ToTable(true, "Branch");
+                                dataGridView2.DataSource = distinctBranch;
+                                MessageBox.Show("--Tester-- \n Check whether distinct code works in dgv");
+                                //Excel Designing
+                                if (dt.Rows.Count != 0)
+                                {
+                                    using (var package = new ExcelPackage())
                                     {
-                                        //Create New Workbook
-                                        xlWorkBook = xlApp.Workbooks.Add(misValue);
                                         foreach (DataRow dstrw in distinctBranch.Rows)
                                         {
                                             string checkbranch = dstrw["Branch"].ToString();
-                                            //Create Worksheet
-                                            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(checkbranch);
+                                            //Add a new worksheet to the empty workbook
+                                            var worksheet = package.Workbook.Worksheets.Add(checkbranch);
                                             //Insert Items to ExcelSheet
-                                            xlWorkSheet.get_Range("A1").Value2 = "KMEA ENGINEERING COLLEGE";
-                                            xlWorkSheet.get_Range("A2").Value2 = Display_examtype_textbox.Text;
-                                            xlWorkSheet.get_Range("A3").Value2 = dr["Date"].ToString() + " " + session;
-                                            xlWorkSheet.get_Range("A4").Value2 = checkbranch;
-                                            xlWorkSheet.get_Range("A5").Value2 = "Register No - Room No - Seat No";
+                                            worksheet.Cells["A1"].Value = "KMEA ENGINEERING COLLEGE";
+                                            worksheet.Cells["A2"].Value = Display_examtype_textbox.Text;
+                                            worksheet.Cells["A3"].Value = dr["Date"].ToString() + " " + session;
+                                            worksheet.Cells["A4"].Value = checkbranch;
+                                            worksheet.Cells["A5"].Value = "Register No - Room No - Seat No";
 
-                                            excelCellrange = xlWorkSheet.get_Range("A1", "D1");
-                                            excelCellrange.Merge();
-                                            excelCellrange.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-                                            excelCellrange.Cells.Font.Name = "Arial";
-                                            excelCellrange.Cells.Font.Size = "16";
-                                            excelCellrange.Cells.Font.Bold = true;
-                                            excelCellrange = xlWorkSheet.get_Range("A2", "D2");
-                                            excelCellrange.Merge();
-                                            excelCellrange.Cells.Font.Name = "Arial";
-                                            excelCellrange.Cells.Font.Size = "14";
-                                            excelCellrange.Cells.Font.Bold = true;
-                                            excelCellrange.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-                                            excelCellrange = xlWorkSheet.get_Range("A3", "D3");
-                                            excelCellrange.Merge();
-                                            excelCellrange.Cells.Font.Name = "Arial";
-                                            excelCellrange.Cells.Font.Size = "14";
-                                            excelCellrange.Cells.Font.Bold = true;
-                                            excelCellrange.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-                                            excelCellrange = xlWorkSheet.get_Range("A4", "D4");
-                                            excelCellrange.Merge();
-                                            excelCellrange.Cells.Font.Name = "Arial";
-                                            excelCellrange.Cells.Font.Size = "14";
-                                            excelCellrange.Cells.Font.Bold = true;
-                                            excelCellrange = xlWorkSheet.get_Range("A5");
-                                            excelCellrange.Cells.Font.Name = "Arial";
-                                            excelCellrange.Cells.Font.Size = "14";
-                                            excelCellrange.Cells.Font.Bold = true;
+                                            using (var range = worksheet.Cells["A1:D1"])
+                                            {
+                                                range.Merge = true;
+                                                range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                                                range.Style.Font.Name = "Arial";
+                                                range.Style.Font.Size = 16;
+                                                range.Style.Font.Bold = true;
+                                            }
+                                            using (var range = worksheet.Cells["A2:D2"])
+                                            {
+                                                range.Merge = true;
+                                                range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                                                range.Style.Font.Name = "Arial";
+                                                range.Style.Font.Size = 14;
+                                                range.Style.Font.Bold = true;
+                                            }
+                                            using (var range = worksheet.Cells["A3:D3"])
+                                            {
+                                                range.Merge = true;
+                                                range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                                                range.Style.Font.Name = "Arial";
+                                                range.Style.Font.Size = 14;
+                                                range.Style.Font.Bold = true;
+                                            }
+                                            using (var range = worksheet.Cells["A4:D4"])
+                                            {
+                                                range.Merge = true;
+                                                range.Style.Font.Name = "Arial";
+                                                range.Style.Font.Size = 14;
+                                                range.Style.Font.Bold = true;
+                                            }
+                                            using (var range = worksheet.Cells["A5"])
+                                            {
+                                                range.Merge = true;
+                                                range.Style.Font.Name = "Arial";
+                                                range.Style.Font.Size = 14;
+                                                range.Style.Font.Bold = true;
+                                            }
 
                                             // rows
                                             DataTable selectedBranchStudents = dt.Clone();
@@ -856,12 +853,14 @@ namespace Exam_Cell
                                             {
                                                 excelcount++;
                                                 //have to loop according to Course from here
-                                                xlWorkSheet.Cells[excelcount, 1] = isocourse["Course"].ToString();
-
-                                                excelCellrange = xlWorkSheet.Cells[excelcount, 1];
-                                                excelCellrange.Cells.Font.Name = "Arial";
-                                                excelCellrange.Cells.Font.Size = "14";
-                                                excelCellrange.Cells.Font.Bold = true;
+                                                worksheet.Cells[excelcount, 1].Value = isocourse["Course"].ToString();
+                                                using (var range = worksheet.Cells[excelcount, 1])
+                                                {
+                                                    range.Merge = true;
+                                                    range.Style.Font.Name = "Arial";
+                                                    range.Style.Font.Size = 14;
+                                                    range.Style.Font.Bold = true;
+                                                }
                                                 excelcount++;
                                                 for (var i = 0; i < selectedBranchStudents.Rows.Count; i++)
                                                 {
@@ -877,33 +876,29 @@ namespace Exam_Cell
                                                         {
                                                             excString = excString + selectedBranchStudents.Rows[i][j].ToString() + " ";
                                                         }
-                                                        xlWorkSheet.Cells[excelcount, exd] = excString;
+                                                        worksheet.Cells[excelcount, exd].Value = excString;
                                                         exd++;
                                                     }
 
                                                 }
                                             }
-                                            System.Runtime.InteropServices.Marshal.ReleaseComObject(excelCellrange);
-                                            System.Runtime.InteropServices.Marshal.ReleaseComObject(xlWorkSheet);
                                         }
                                         //Save Excel File
                                         /* below might get error since Date has '\' in between ... CHECK if we have to use array 
                                         or something else to remove the '\' .   */
-                                        string save = Folder_path_text.Text + @"\Display Sheet " + dr["Date"].ToString() + " " + session + ".xls";
-                                        xlWorkBook.SaveAs(save, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-                                        xlWorkBook.Close(0, misValue, misValue);
-                                        System.Runtime.InteropServices.Marshal.ReleaseComObject(xlWorkBook);
+                                        string path = Folder_path_text.Text + @"\Display Sheet " + dr["Date"].ToString() + " " + session + ".xlsx";
+                                        Stream stream = File.Create(path);
+                                        package.SaveAs(stream);
+                                        stream.Close();
 
                                         session = "Afternoon";
                                     }
+
                                 }
                             }
                         }
-                        xlApp.Quit();
-                        //Clean Intelop Objects
-                        System.Runtime.InteropServices.Marshal.ReleaseComObject(xlApp);
-                        MessageBox.Show("Excel files created", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);                        
                     }
+                    MessageBox.Show("Excel files created", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
