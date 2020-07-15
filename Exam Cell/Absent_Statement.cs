@@ -4,18 +4,20 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Excel = Microsoft.Office.Interop.Excel;
+using OfficeOpenXml;
+using OfficeOpenXml.Style;
 
 namespace Exam_Cell
 {
     public partial class Absent_Statement : Form
     {
         Connection con = new Connection();
-        Excel.Application xlApp = new Excel.Application();
+        
         public Absent_Statement()
         {
             InitializeComponent();
@@ -97,7 +99,7 @@ namespace Exam_Cell
         DataTable table = new DataTable();
         private void Search_btn_Click(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand("select Reg_no,Name,Status,Branch,Course,Exam_Code from Absentees Where Date=@Date and Session=@Session and Branch=@Branch,Exam_Code=@Exam_Code,Course=@Course order by Reg_no", con.ActiveCon());
+            SqlCommand command = new SqlCommand("select Reg_no,Name,Status,Branch,Course,Exam_Code from Absentees Where Date=@Date and Session=@Session and Branch=@Branch and Exam_Code=@Exam_Code and Course=@Course order by Reg_no", con.ActiveCon());
             command.Parameters.AddWithValue("@Date", Date_combobox.Text);
             command.Parameters.AddWithValue("@Session", Session_combobox.Text);
             command.Parameters.AddWithValue("@Branch", Branch_combobox.Text);
@@ -115,118 +117,113 @@ namespace Exam_Cell
         {
             if(Filepath_textbox.Text != "")
             {
-                if (xlApp == null)
-                {
-                    MessageBox.Show("Excel is not properly installed", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    ////for getting semester
-                    //DataTable sem = new DataTable();
-                    //foreach(DataRow row in dt.Rows)
-                    //{
-                    //    SqlCommand command2 = new SqlCommand("select Semester from Registered_candidates where Exam_Code=@Exam_Code", con.ActiveCon());
-                    //    command2.Parameters.AddWithValue("@Exam_Code", row["Exam_Code"].ToString());
-                    //    string semester = (string)command2.ExecuteScalar();
-                    //}
 
-                    if (table.Rows.Count != 0)
+                if (table.Rows.Count != 0)
+                {
+                    using (var package = new ExcelPackage())
                     {
-                        Excel.Range excelCellrange;
-                        Excel.Workbook xlWorkBook;
-                        Excel.Worksheet xlWorkSheet;
-                        object misValue = System.Reflection.Missing.Value;
-                        //for excel alerts
-                        xlApp.Visible = false;
-                        xlApp.DisplayAlerts = false;
-                        //Create New Workbook
-                        xlWorkBook = xlApp.Workbooks.Add(misValue);
-                        //Create new Worksheet
-                        xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(Branch_combobox.Text);
+
+
+                        //Add a new worksheet to the empty workbook
+                        var worksheet = package.Workbook.Worksheets.Add(Branch_combobox.Text);
                         SqlCommand command2 = new SqlCommand("select Semester from Students where Reg_no=@Reg_no", con.ActiveCon());
                         command2.Parameters.AddWithValue("@Reg_no", table.Rows[0]["Reg_no"].ToString());
                         string semester = (string)command2.ExecuteScalar();
                         //Insert Items to ExcelSheet
-                        xlWorkSheet.get_Range("A1").Value2 = "KMEA ENGINEERING COLLEGE";
-                        xlWorkSheet.get_Range("A2").Value2 = Examination_Textbox.Text;
-                        xlWorkSheet.get_Range("A3").Value2 = "ATTENDANCE STATEMENT";
-                        xlWorkSheet.get_Range("A4").Value2 = Date_combobox.Text;
-                        xlWorkSheet.get_Range("D4").Value2 = Session_combobox.Text;
-                        xlWorkSheet.get_Range("A5").Value2 = "Branch: "+Branch_combobox.Text;
-                        xlWorkSheet.get_Range("C5").Value2 = "Semester: "+semester;
-                        xlWorkSheet.get_Range("D5").Value2 = "Subject: "+SubjectName_Combobox.Text+" "+ExamCode_combobox.Text;
+                        worksheet.Cells["A1"].Value = "KMEA ENGINEERING COLLEGE";
+                        worksheet.Cells["A2"].Value = Examination_Textbox.Text;
+                        worksheet.Cells["A3"].Value = "ATTENDANCE STATEMENT";
+                        worksheet.Cells["A4"].Value = Date_combobox.Text;
+                        worksheet.Cells["D4"].Value = Session_combobox.Text;
+                        worksheet.Cells["A5"].Value = "Branch: " + Branch_combobox.Text;
+                        worksheet.Cells["C5"].Value = "Semester: " + semester;
+                        worksheet.Cells["D5"].Value = "Subject: " + SubjectName_Combobox.Text + " " + ExamCode_combobox.Text;
 
-                        excelCellrange = xlWorkSheet.get_Range("A1", "D1");
-                        excelCellrange.Merge();
-                        excelCellrange.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-                        excelCellrange.Cells.Font.Name = "Arial";
-                        excelCellrange.Cells.Font.Size = "16";
-                        excelCellrange.Cells.Font.Bold = true;
-                        excelCellrange = xlWorkSheet.get_Range("A2", "D2");
-                        excelCellrange.Merge();
-                        excelCellrange.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-                        excelCellrange.Cells.Font.Name = "Arial";
-                        excelCellrange.Cells.Font.Size = "14";
-                        excelCellrange.Cells.Font.Bold = true;
-                        excelCellrange = xlWorkSheet.get_Range("A3", "D3");
-                        excelCellrange.Merge();
-                        excelCellrange.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
-                        excelCellrange.Cells.Font.Name = "Arial";
-                        excelCellrange.Cells.Font.Size = "12";
-                        excelCellrange.Cells.Font.Bold = true;
-                        excelCellrange = xlWorkSheet.get_Range("A4", "D4");
-                        excelCellrange.Cells.AutoFit();
-                        excelCellrange.Cells.Font.Name = "Arial";
-                        excelCellrange.Cells.Font.Size = "12";
-                        excelCellrange.Cells.Font.Bold = true;
-                        excelCellrange = xlWorkSheet.get_Range("A5", "D5");
-                        excelCellrange.Cells.Font.Name = "Arial";
-                        excelCellrange.Cells.Font.Size = "12";
-                        excelCellrange.Cells.Font.Bold = true;
-                        xlWorkSheet.get_Range("D5").AutoFit();
-                        
+                        using (var range = worksheet.Cells["A1:D1"])
+                        {
+                            range.Merge = true;
+                            range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                            range.Style.Font.Name = "Arial";
+                            range.Style.Font.Size = 16;
+                            range.Style.Font.Bold = true;
+                        }
+                        using (var range = worksheet.Cells["A2:D2"])
+                        {
+                            range.Merge = true;
+                            range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                            range.Style.Font.Name = "Arial";
+                            range.Style.Font.Size = 14;
+                            range.Style.Font.Bold = true;
+                        }
+                        using (var range = worksheet.Cells["A3:D3"])
+                        {
+                            range.Merge = true;
+                            range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                            range.Style.Font.Name = "Arial";
+                            range.Style.Font.Size = 12;
+                            range.Style.Font.Bold = true;
+                        }
+                        using (var range = worksheet.Cells["A4:D4"])
+                        {
+                            range.Merge = true;
+                            range.AutoFitColumns();
+                            range.Style.Font.Name = "Arial";
+                            range.Style.Font.Size = 12;
+                            range.Style.Font.Bold = true;
+                        }
+                        using (var range = worksheet.Cells["A5:D5"])
+                        {
+                            range.Merge = true;
+                            range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                            range.Style.Font.Name = "Arial";
+                            range.Style.Font.Size = 12;
+                            range.Style.Font.Bold = true;
+                        }
+                        worksheet.Cells["D5"].AutoFitColumns();
+
                         // column headings
-                        xlWorkSheet.Cells[6, 1] = "Sl.No";
-                        xlWorkSheet.Cells[6, 1].Font.Name = "Arial";
-                        xlWorkSheet.Cells[6, 1].Font.Size = "12";
-                        xlWorkSheet.Cells[6, 1].Font.Bold = true;
+                        worksheet.Cells[6, 1].Value = "Sl.No";
+                        worksheet.Cells[6, 1].Style.Font.Name = "Arial";
+                        worksheet.Cells[6, 1].Style.Font.Size = 12;
+                        worksheet.Cells[6, 1].Style.Font.Bold = true;
                         for (var i = 0; i < 3; i++)
                         {
-                            xlWorkSheet.Cells[6, i + 2] = table.Columns[i].ColumnName;
-                            xlWorkSheet.Cells[6, i + 2].Font.Name = "Arial";
-                            xlWorkSheet.Cells[6, i + 2].Font.Size = "12";
-                            xlWorkSheet.Cells[6, i + 2].Font.Bold = true;
+                            worksheet.Cells[6, i + 2].Value = table.Columns[i].ColumnName;
+                            worksheet.Cells[6, i + 2].Style.Font.Name = "Arial";
+                            worksheet.Cells[6, i + 2].Style.Font.Size = 12;
+                            worksheet.Cells[6, i + 2].Style.Font.Bold = true;
                         }
                         //rows filling
-                        int count=0;
+                        int count = 0;
                         for (int i = 0; i < table.Rows.Count; i++)
                         {
-                            xlWorkSheet.Cells[i + 7, 1] = i + 1;    //Sl.No Filling
+                            worksheet.Cells[i + 7, 1].Value = i + 1;    //Sl.No Filling
                             for (var j = 0; j < 3; j++)
                             {
-                                xlWorkSheet.Cells[i + 7, j + 2] = table.Rows[i][j];
+                                worksheet.Cells[i + 7, j + 2].Value = table.Rows[i][j];
                                 if (table.Rows[i][j].ToString() == "Absent")
-                                    xlWorkSheet.Cells[i + 7, j + 2].Interior.Color = Color.Yellow;
+                                    worksheet.Cells[i + 7, j + 2].Style.Fill.BackgroundColor.SetColor(Color.Yellow);
                             }
                             count = i + 9;
                         }
-                        excelCellrange = xlWorkSheet.Range[xlWorkSheet.Cells[7, 1], xlWorkSheet.Cells[table.Rows.Count + 6, 4]];
-                        Microsoft.Office.Interop.Excel.Borders border = excelCellrange.Borders;
-                        border.LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinuous;
-                        border.Weight = 2d;
-                        xlWorkSheet.Cells[count, 3] = "No of Present = "+ No_of_Present_ViewText.Text;
-                        xlWorkSheet.Cells[count+1, 3] = "No of Absent = "+ No_of_Absent_ViewText.Text;
+                        using (var range = worksheet.Cells[7, 1 , table.Rows.Count + 6, 4])
+                        {
+                            range.Style.Border.Top.Style = ExcelBorderStyle.Medium;
+                            range.Style.Border.Left.Style = ExcelBorderStyle.Medium;
+                            range.Style.Border.Right.Style = ExcelBorderStyle.Medium;
+                            range.Style.Border.Bottom.Style = ExcelBorderStyle.Medium;
+                        }
+                        worksheet.Cells[count, 3].Value = "No of Present = " + No_of_Present_ViewText.Text;
+                        worksheet.Cells[count + 1, 3].Value = "No of Absent = " + No_of_Absent_ViewText.Text;
 
-                        //Save Excel File                        
-                        string save;
-                        save = Filepath_textbox.Text + @"\Attendance Statement " + Date_combobox.Text + " " + Session_combobox.Text + ".xls";
-                        xlWorkBook.SaveAs(save, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-                        xlWorkBook.Close(0, misValue, misValue);
-                        xlApp.Quit();                        
-                        System.Runtime.InteropServices.Marshal.ReleaseComObject(excelCellrange);
-                        System.Runtime.InteropServices.Marshal.ReleaseComObject(xlWorkSheet);
-                        System.Runtime.InteropServices.Marshal.ReleaseComObject(xlWorkBook);
-                        System.Runtime.InteropServices.Marshal.ReleaseComObject(xlApp);
+
+
+                        //Save Excel File  
+                        string path = Filepath_textbox.Text + @"\Attendance Statement " + Date_combobox.Text + " " + Session_combobox.Text + ".xlsx"; 
+                        Stream stream = File.Create(path);
+                        package.SaveAs(stream);
+                        stream.Close();                       
+                       
                         Branch_combobox.SelectedIndex = 0;
                         ExamCode_combobox.SelectedIndex = 0;
                         SubjectName_Combobox.SelectedIndex = 0;
@@ -234,13 +231,13 @@ namespace Exam_Cell
                         No_of_Present_ViewText.Clear();
                         No_of_Absent_ViewText.Clear();
                         MessageBox.Show("Excel file created", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        System.Diagnostics.Process.Start(save);                        
-                    }
-                    else
-                    {
-                        MessageBox.Show("Search Students First", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Search Students First", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
             else
                 MessageBox.Show("Filepath is not given", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
