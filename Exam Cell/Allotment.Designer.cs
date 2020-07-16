@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Alloted_dgv = new System.Windows.Forms.DataGridView();
             this.MultiAllotment_button = new System.Windows.Forms.Button();
             this.SingleAllotment_button = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -39,22 +39,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Generation_Panel = new System.Windows.Forms.Panel();
             this.AllocatedRoom_combobox = new System.Windows.Forms.ComboBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.NoOfStudents_Room = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.AllotedStudentsRooms_dgv = new System.Windows.Forms.DataGridView();
             this.Clear_button = new System.Windows.Forms.Button();
             this.DisplayPrint_button = new System.Windows.Forms.Button();
             this.RoomPrint_button = new System.Windows.Forms.Button();
-            this.ClassInRoom_button = new System.Windows.Forms.Button();
-            this.SubjectInRoom_button = new System.Windows.Forms.Button();
-            this.StudentsInASubject_button = new System.Windows.Forms.Button();
             this.SignatureSheet_button = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.NoOfStudents_textbox2 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.AllotedRooms_dgv = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.NoOfStudents_textbox1 = new System.Windows.Forms.TextBox();
+            this.AllotedBrief_dgv = new System.Windows.Forms.DataGridView();
+            this.NoOfStudents_Brief = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ToSeries_combobox = new System.Windows.Forms.ComboBox();
@@ -76,8 +73,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.RoomExcel_panel = new System.Windows.Forms.Panel();
-            this.SeriesRoomGen_radio = new System.Windows.Forms.RadioButton();
-            this.UnvRoomGen_radio = new System.Windows.Forms.RadioButton();
             this.label16 = new System.Windows.Forms.Label();
             this.RoomPanelClose_btn = new System.Windows.Forms.Button();
             this.Excel_generate_btn = new System.Windows.Forms.Button();
@@ -86,30 +81,28 @@
             this.Folder_path_text = new System.Windows.Forms.TextBox();
             this.Save_Path = new System.Windows.Forms.Button();
             this.Signature_panel = new System.Windows.Forms.Panel();
-            this.SeriesSignature_radio = new System.Windows.Forms.RadioButton();
-            this.UnvSignature_radio = new System.Windows.Forms.RadioButton();
             this.label17 = new System.Windows.Forms.Label();
             this.Signature_close_btn = new System.Windows.Forms.Button();
             this.Signature_generate_btn = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.Signature_examtype_textbox = new System.Windows.Forms.TextBox();
             this.DisplaySheet_Panel = new System.Windows.Forms.Panel();
-            this.SeriesDisplay_radio = new System.Windows.Forms.RadioButton();
             this.label19 = new System.Windows.Forms.Label();
-            this.UnvDisplay_radio = new System.Windows.Forms.RadioButton();
             this.DisplayPanel_closebtn = new System.Windows.Forms.Button();
             this.DisplaySheet_generate_btn = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
             this.Display_examtype_textbox = new System.Windows.Forms.TextBox();
+            this.Unv_radio = new System.Windows.Forms.RadioButton();
+            this.Series_radio = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Alloted_dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Generation_Panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AllotedStudentsRooms_dgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AllotedRooms_dgv)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AllotedBrief_dgv)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.RoomExcel_panel.SuspendLayout();
             this.Signature_panel.SuspendLayout();
@@ -119,7 +112,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.Alloted_dgv);
             this.panel1.Controls.Add(this.MultiAllotment_button);
             this.panel1.Controls.Add(this.SingleAllotment_button);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -128,28 +121,29 @@
             this.panel1.Controls.Add(this.Session_combobox);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(4, 3);
+            this.panel1.Location = new System.Drawing.Point(4, 45);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(664, 411);
+            this.panel1.Size = new System.Drawing.Size(664, 360);
             this.panel1.TabIndex = 1;
             // 
-            // dataGridView1
+            // Alloted_dgv
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(8, 135);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(643, 273);
-            this.dataGridView1.TabIndex = 5;
+            this.Alloted_dgv.AllowUserToAddRows = false;
+            this.Alloted_dgv.AllowUserToDeleteRows = false;
+            this.Alloted_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.Alloted_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Alloted_dgv.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Alloted_dgv.Location = new System.Drawing.Point(0, 109);
+            this.Alloted_dgv.Name = "Alloted_dgv";
+            this.Alloted_dgv.ReadOnly = true;
+            this.Alloted_dgv.RowTemplate.Height = 24;
+            this.Alloted_dgv.Size = new System.Drawing.Size(664, 251);
+            this.Alloted_dgv.TabIndex = 5;
             // 
             // MultiAllotment_button
             // 
-            this.MultiAllotment_button.Location = new System.Drawing.Point(432, 77);
+            this.MultiAllotment_button.Location = new System.Drawing.Point(432, 58);
             this.MultiAllotment_button.Name = "MultiAllotment_button";
             this.MultiAllotment_button.Size = new System.Drawing.Size(219, 43);
             this.MultiAllotment_button.TabIndex = 4;
@@ -159,7 +153,7 @@
             // 
             // SingleAllotment_button
             // 
-            this.SingleAllotment_button.Location = new System.Drawing.Point(432, 22);
+            this.SingleAllotment_button.Location = new System.Drawing.Point(432, 3);
             this.SingleAllotment_button.Name = "SingleAllotment_button";
             this.SingleAllotment_button.Size = new System.Drawing.Size(219, 43);
             this.SingleAllotment_button.TabIndex = 4;
@@ -182,7 +176,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(9, 89);
+            this.label2.Location = new System.Drawing.Point(9, 70);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 18);
@@ -192,7 +186,7 @@
             // DateTimePicker
             // 
             this.DateTimePicker.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DateTimePicker.Location = new System.Drawing.Point(97, 30);
+            this.DateTimePicker.Location = new System.Drawing.Point(97, 11);
             this.DateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.DateTimePicker.Name = "DateTimePicker";
             this.DateTimePicker.Size = new System.Drawing.Size(300, 28);
@@ -202,18 +196,23 @@
             // 
             this.Session_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Session_combobox.FormattingEnabled = true;
-            this.Session_combobox.Location = new System.Drawing.Point(97, 82);
+            this.Session_combobox.Items.AddRange(new object[] {
+            "-Select-",
+            "Forenoon",
+            "Afternoon"});
+            this.Session_combobox.Location = new System.Drawing.Point(97, 63);
             this.Session_combobox.Margin = new System.Windows.Forms.Padding(4);
             this.Session_combobox.Name = "Session_combobox";
             this.Session_combobox.Size = new System.Drawing.Size(300, 32);
             this.Session_combobox.TabIndex = 1;
+            this.Session_combobox.SelectedIndexChanged += new System.EventHandler(this.Session_combobox_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(9, 36);
+            this.label1.Location = new System.Drawing.Point(9, 17);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 18);
@@ -223,13 +222,12 @@
             // Generation_Panel
             // 
             this.Generation_Panel.Controls.Add(this.AllocatedRoom_combobox);
-            this.Generation_Panel.Controls.Add(this.dataGridView2);
+            this.Generation_Panel.Controls.Add(this.NoOfStudents_Room);
+            this.Generation_Panel.Controls.Add(this.label4);
+            this.Generation_Panel.Controls.Add(this.AllotedStudentsRooms_dgv);
             this.Generation_Panel.Controls.Add(this.Clear_button);
             this.Generation_Panel.Controls.Add(this.DisplayPrint_button);
             this.Generation_Panel.Controls.Add(this.RoomPrint_button);
-            this.Generation_Panel.Controls.Add(this.ClassInRoom_button);
-            this.Generation_Panel.Controls.Add(this.SubjectInRoom_button);
-            this.Generation_Panel.Controls.Add(this.StudentsInASubject_button);
             this.Generation_Panel.Controls.Add(this.SignatureSheet_button);
             this.Generation_Panel.Controls.Add(this.label3);
             this.Generation_Panel.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -242,27 +240,49 @@
             // 
             this.AllocatedRoom_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AllocatedRoom_combobox.FormattingEnabled = true;
-            this.AllocatedRoom_combobox.Location = new System.Drawing.Point(421, 27);
+            this.AllocatedRoom_combobox.Location = new System.Drawing.Point(373, 33);
             this.AllocatedRoom_combobox.Name = "AllocatedRoom_combobox";
-            this.AllocatedRoom_combobox.Size = new System.Drawing.Size(121, 32);
+            this.AllocatedRoom_combobox.Size = new System.Drawing.Size(153, 32);
             this.AllocatedRoom_combobox.TabIndex = 6;
+            this.AllocatedRoom_combobox.SelectedIndexChanged += new System.EventHandler(this.AllocatedRoom_combobox_SelectedIndexChanged);
             // 
-            // dataGridView2
+            // NoOfStudents_Room
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 153);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(539, 372);
-            this.dataGridView2.TabIndex = 5;
+            this.NoOfStudents_Room.Location = new System.Drawing.Point(424, 100);
+            this.NoOfStudents_Room.Multiline = true;
+            this.NoOfStudents_Room.Name = "NoOfStudents_Room";
+            this.NoOfStudents_Room.Size = new System.Drawing.Size(58, 46);
+            this.NoOfStudents_Room.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label4.Location = new System.Drawing.Point(394, 79);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(114, 18);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "No of Students";
+            // 
+            // AllotedStudentsRooms_dgv
+            // 
+            this.AllotedStudentsRooms_dgv.AllowUserToAddRows = false;
+            this.AllotedStudentsRooms_dgv.AllowUserToDeleteRows = false;
+            this.AllotedStudentsRooms_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.AllotedStudentsRooms_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AllotedStudentsRooms_dgv.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.AllotedStudentsRooms_dgv.Location = new System.Drawing.Point(0, 148);
+            this.AllotedStudentsRooms_dgv.Name = "AllotedStudentsRooms_dgv";
+            this.AllotedStudentsRooms_dgv.ReadOnly = true;
+            this.AllotedStudentsRooms_dgv.RowTemplate.Height = 24;
+            this.AllotedStudentsRooms_dgv.Size = new System.Drawing.Size(547, 433);
+            this.AllotedStudentsRooms_dgv.TabIndex = 5;
             // 
             // Clear_button
             // 
-            this.Clear_button.Location = new System.Drawing.Point(17, 13);
+            this.Clear_button.Location = new System.Drawing.Point(22, 13);
             this.Clear_button.Name = "Clear_button";
             this.Clear_button.Size = new System.Drawing.Size(106, 46);
             this.Clear_button.TabIndex = 4;
@@ -289,36 +309,9 @@
             this.RoomPrint_button.UseVisualStyleBackColor = true;
             this.RoomPrint_button.Click += new System.EventHandler(this.RoomPrint_button_Click);
             // 
-            // ClassInRoom_button
-            // 
-            this.ClassInRoom_button.Location = new System.Drawing.Point(348, 536);
-            this.ClassInRoom_button.Name = "ClassInRoom_button";
-            this.ClassInRoom_button.Size = new System.Drawing.Size(163, 42);
-            this.ClassInRoom_button.TabIndex = 4;
-            this.ClassInRoom_button.Text = "Class in Room";
-            this.ClassInRoom_button.UseVisualStyleBackColor = true;
-            // 
-            // SubjectInRoom_button
-            // 
-            this.SubjectInRoom_button.Location = new System.Drawing.Point(148, 536);
-            this.SubjectInRoom_button.Name = "SubjectInRoom_button";
-            this.SubjectInRoom_button.Size = new System.Drawing.Size(179, 42);
-            this.SubjectInRoom_button.TabIndex = 4;
-            this.SubjectInRoom_button.Text = "Subject in Room";
-            this.SubjectInRoom_button.UseVisualStyleBackColor = true;
-            // 
-            // StudentsInASubject_button
-            // 
-            this.StudentsInASubject_button.Location = new System.Drawing.Point(408, 70);
-            this.StudentsInASubject_button.Name = "StudentsInASubject_button";
-            this.StudentsInASubject_button.Size = new System.Drawing.Size(134, 77);
-            this.StudentsInASubject_button.TabIndex = 4;
-            this.StudentsInASubject_button.Text = "Students in a Subject";
-            this.StudentsInASubject_button.UseVisualStyleBackColor = true;
-            // 
             // SignatureSheet_button
             // 
-            this.SignatureSheet_button.Location = new System.Drawing.Point(129, 13);
+            this.SignatureSheet_button.Location = new System.Drawing.Point(134, 13);
             this.SignatureSheet_button.Name = "SignatureSheet_button";
             this.SignatureSheet_button.Size = new System.Drawing.Size(180, 46);
             this.SignatureSheet_button.TabIndex = 4;
@@ -331,88 +324,68 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(424, 6);
+            this.label3.Location = new System.Drawing.Point(390, 12);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(118, 18);
             this.label3.TabIndex = 0;
             this.label3.Text = "Allocated Room";
             // 
-            // NoOfStudents_textbox2
+            // AllotedRooms_dgv
             // 
-            this.NoOfStudents_textbox2.Location = new System.Drawing.Point(104, 62);
-            this.NoOfStudents_textbox2.Multiline = true;
-            this.NoOfStudents_textbox2.Name = "NoOfStudents_textbox2";
-            this.NoOfStudents_textbox2.Size = new System.Drawing.Size(58, 46);
-            this.NoOfStudents_textbox2.TabIndex = 3;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(74, 33);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(114, 18);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "No of Students";
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.AllowUserToAddRows = false;
-            this.dataGridView3.AllowUserToDeleteRows = false;
-            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(0, 126);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.ReadOnly = true;
-            this.dataGridView3.RowTemplate.Height = 24;
-            this.dataGridView3.Size = new System.Drawing.Size(248, 330);
-            this.dataGridView3.TabIndex = 4;
+            this.AllotedRooms_dgv.AllowUserToAddRows = false;
+            this.AllotedRooms_dgv.AllowUserToDeleteRows = false;
+            this.AllotedRooms_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.AllotedRooms_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AllotedRooms_dgv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AllotedRooms_dgv.Location = new System.Drawing.Point(0, 0);
+            this.AllotedRooms_dgv.Name = "AllotedRooms_dgv";
+            this.AllotedRooms_dgv.ReadOnly = true;
+            this.AllotedRooms_dgv.RowTemplate.Height = 24;
+            this.AllotedRooms_dgv.Size = new System.Drawing.Size(467, 456);
+            this.AllotedRooms_dgv.TabIndex = 4;
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.dataGridView3);
-            this.panel3.Controls.Add(this.NoOfStudents_textbox2);
-            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.AllotedRooms_dgv);
             this.panel3.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel3.Location = new System.Drawing.Point(1242, 12);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(248, 456);
+            this.panel3.Size = new System.Drawing.Size(467, 456);
             this.panel3.TabIndex = 5;
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.dataGridView4);
-            this.panel4.Controls.Add(this.NoOfStudents_textbox1);
+            this.panel4.Controls.Add(this.AllotedBrief_dgv);
+            this.panel4.Controls.Add(this.NoOfStudents_Brief);
             this.panel4.Controls.Add(this.label5);
             this.panel4.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel4.Location = new System.Drawing.Point(53, 432);
+            this.panel4.Location = new System.Drawing.Point(4, 435);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(410, 265);
+            this.panel4.Size = new System.Drawing.Size(664, 262);
             this.panel4.TabIndex = 6;
             // 
-            // dataGridView4
+            // AllotedBrief_dgv
             // 
-            this.dataGridView4.AllowUserToAddRows = false;
-            this.dataGridView4.AllowUserToDeleteRows = false;
-            this.dataGridView4.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.ReadOnly = true;
-            this.dataGridView4.RowTemplate.Height = 24;
-            this.dataGridView4.Size = new System.Drawing.Size(410, 208);
-            this.dataGridView4.TabIndex = 5;
+            this.AllotedBrief_dgv.AllowUserToAddRows = false;
+            this.AllotedBrief_dgv.AllowUserToDeleteRows = false;
+            this.AllotedBrief_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.AllotedBrief_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AllotedBrief_dgv.Dock = System.Windows.Forms.DockStyle.Top;
+            this.AllotedBrief_dgv.Location = new System.Drawing.Point(0, 0);
+            this.AllotedBrief_dgv.Name = "AllotedBrief_dgv";
+            this.AllotedBrief_dgv.ReadOnly = true;
+            this.AllotedBrief_dgv.RowTemplate.Height = 24;
+            this.AllotedBrief_dgv.Size = new System.Drawing.Size(664, 208);
+            this.AllotedBrief_dgv.TabIndex = 5;
             // 
-            // NoOfStudents_textbox1
+            // NoOfStudents_Brief
             // 
-            this.NoOfStudents_textbox1.Location = new System.Drawing.Point(325, 214);
-            this.NoOfStudents_textbox1.Multiline = true;
-            this.NoOfStudents_textbox1.Name = "NoOfStudents_textbox1";
-            this.NoOfStudents_textbox1.Size = new System.Drawing.Size(58, 46);
-            this.NoOfStudents_textbox1.TabIndex = 3;
+            this.NoOfStudents_Brief.Location = new System.Drawing.Point(325, 214);
+            this.NoOfStudents_Brief.Multiline = true;
+            this.NoOfStudents_Brief.Name = "NoOfStudents_Brief";
+            this.NoOfStudents_Brief.Size = new System.Drawing.Size(58, 46);
+            this.NoOfStudents_Brief.TabIndex = 3;
             // 
             // label5
             // 
@@ -450,7 +423,7 @@
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox1.Location = new System.Drawing.Point(1242, 476);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(497, 221);
+            this.groupBox1.Size = new System.Drawing.Size(467, 221);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Shifting Students";
@@ -501,6 +474,7 @@
             this.Swap_button.TabIndex = 4;
             this.Swap_button.Text = "Swap";
             this.Swap_button.UseVisualStyleBackColor = true;
+            this.Swap_button.Click += new System.EventHandler(this.Swap_button_Click);
             // 
             // Shift_button
             // 
@@ -638,8 +612,6 @@
             // 
             // RoomExcel_panel
             // 
-            this.RoomExcel_panel.Controls.Add(this.SeriesRoomGen_radio);
-            this.RoomExcel_panel.Controls.Add(this.UnvRoomGen_radio);
             this.RoomExcel_panel.Controls.Add(this.label16);
             this.RoomExcel_panel.Controls.Add(this.RoomPanelClose_btn);
             this.RoomExcel_panel.Controls.Add(this.Excel_generate_btn);
@@ -650,30 +622,6 @@
             this.RoomExcel_panel.Name = "RoomExcel_panel";
             this.RoomExcel_panel.Size = new System.Drawing.Size(400, 324);
             this.RoomExcel_panel.TabIndex = 8;
-            // 
-            // SeriesRoomGen_radio
-            // 
-            this.SeriesRoomGen_radio.AutoSize = true;
-            this.SeriesRoomGen_radio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.SeriesRoomGen_radio.Location = new System.Drawing.Point(237, 91);
-            this.SeriesRoomGen_radio.Name = "SeriesRoomGen_radio";
-            this.SeriesRoomGen_radio.Size = new System.Drawing.Size(88, 30);
-            this.SeriesRoomGen_radio.TabIndex = 6;
-            this.SeriesRoomGen_radio.TabStop = true;
-            this.SeriesRoomGen_radio.Text = "Series";
-            this.SeriesRoomGen_radio.UseVisualStyleBackColor = true;
-            // 
-            // UnvRoomGen_radio
-            // 
-            this.UnvRoomGen_radio.AutoSize = true;
-            this.UnvRoomGen_radio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.UnvRoomGen_radio.Location = new System.Drawing.Point(95, 91);
-            this.UnvRoomGen_radio.Name = "UnvRoomGen_radio";
-            this.UnvRoomGen_radio.Size = new System.Drawing.Size(120, 30);
-            this.UnvRoomGen_radio.TabIndex = 6;
-            this.UnvRoomGen_radio.TabStop = true;
-            this.UnvRoomGen_radio.Text = "University";
-            this.UnvRoomGen_radio.UseVisualStyleBackColor = true;
             // 
             // label16
             // 
@@ -688,7 +636,7 @@
             // 
             // RoomPanelClose_btn
             // 
-            this.RoomPanelClose_btn.Location = new System.Drawing.Point(95, 245);
+            this.RoomPanelClose_btn.Location = new System.Drawing.Point(117, 205);
             this.RoomPanelClose_btn.Name = "RoomPanelClose_btn";
             this.RoomPanelClose_btn.Size = new System.Drawing.Size(180, 30);
             this.RoomPanelClose_btn.TabIndex = 3;
@@ -698,7 +646,7 @@
             // 
             // Excel_generate_btn
             // 
-            this.Excel_generate_btn.Location = new System.Drawing.Point(95, 209);
+            this.Excel_generate_btn.Location = new System.Drawing.Point(117, 169);
             this.Excel_generate_btn.Name = "Excel_generate_btn";
             this.Excel_generate_btn.Size = new System.Drawing.Size(180, 30);
             this.Excel_generate_btn.TabIndex = 3;
@@ -711,7 +659,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label15.Location = new System.Drawing.Point(92, 144);
+            this.label15.Location = new System.Drawing.Point(92, 104);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(84, 17);
             this.label15.TabIndex = 2;
@@ -719,7 +667,7 @@
             // 
             // MonthYear_textbox
             // 
-            this.MonthYear_textbox.Location = new System.Drawing.Point(95, 164);
+            this.MonthYear_textbox.Location = new System.Drawing.Point(95, 124);
             this.MonthYear_textbox.Name = "MonthYear_textbox";
             this.MonthYear_textbox.Size = new System.Drawing.Size(225, 33);
             this.MonthYear_textbox.TabIndex = 1;
@@ -747,8 +695,6 @@
             // 
             // Signature_panel
             // 
-            this.Signature_panel.Controls.Add(this.SeriesSignature_radio);
-            this.Signature_panel.Controls.Add(this.UnvSignature_radio);
             this.Signature_panel.Controls.Add(this.label17);
             this.Signature_panel.Controls.Add(this.Signature_close_btn);
             this.Signature_panel.Controls.Add(this.Signature_generate_btn);
@@ -759,30 +705,6 @@
             this.Signature_panel.Name = "Signature_panel";
             this.Signature_panel.Size = new System.Drawing.Size(400, 324);
             this.Signature_panel.TabIndex = 8;
-            // 
-            // SeriesSignature_radio
-            // 
-            this.SeriesSignature_radio.AutoSize = true;
-            this.SeriesSignature_radio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.SeriesSignature_radio.Location = new System.Drawing.Point(237, 95);
-            this.SeriesSignature_radio.Name = "SeriesSignature_radio";
-            this.SeriesSignature_radio.Size = new System.Drawing.Size(88, 30);
-            this.SeriesSignature_radio.TabIndex = 6;
-            this.SeriesSignature_radio.TabStop = true;
-            this.SeriesSignature_radio.Text = "Series";
-            this.SeriesSignature_radio.UseVisualStyleBackColor = true;
-            // 
-            // UnvSignature_radio
-            // 
-            this.UnvSignature_radio.AutoSize = true;
-            this.UnvSignature_radio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.UnvSignature_radio.Location = new System.Drawing.Point(95, 95);
-            this.UnvSignature_radio.Name = "UnvSignature_radio";
-            this.UnvSignature_radio.Size = new System.Drawing.Size(120, 30);
-            this.UnvSignature_radio.TabIndex = 6;
-            this.UnvSignature_radio.TabStop = true;
-            this.UnvSignature_radio.Text = "University";
-            this.UnvSignature_radio.UseVisualStyleBackColor = true;
             // 
             // label17
             // 
@@ -797,7 +719,7 @@
             // 
             // Signature_close_btn
             // 
-            this.Signature_close_btn.Location = new System.Drawing.Point(95, 256);
+            this.Signature_close_btn.Location = new System.Drawing.Point(117, 205);
             this.Signature_close_btn.Name = "Signature_close_btn";
             this.Signature_close_btn.Size = new System.Drawing.Size(180, 30);
             this.Signature_close_btn.TabIndex = 3;
@@ -807,7 +729,7 @@
             // 
             // Signature_generate_btn
             // 
-            this.Signature_generate_btn.Location = new System.Drawing.Point(95, 220);
+            this.Signature_generate_btn.Location = new System.Drawing.Point(117, 169);
             this.Signature_generate_btn.Name = "Signature_generate_btn";
             this.Signature_generate_btn.Size = new System.Drawing.Size(180, 30);
             this.Signature_generate_btn.TabIndex = 3;
@@ -820,7 +742,7 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label18.Location = new System.Drawing.Point(92, 155);
+            this.label18.Location = new System.Drawing.Point(92, 104);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(84, 17);
             this.label18.TabIndex = 2;
@@ -828,16 +750,14 @@
             // 
             // Signature_examtype_textbox
             // 
-            this.Signature_examtype_textbox.Location = new System.Drawing.Point(95, 175);
+            this.Signature_examtype_textbox.Location = new System.Drawing.Point(95, 124);
             this.Signature_examtype_textbox.Name = "Signature_examtype_textbox";
             this.Signature_examtype_textbox.Size = new System.Drawing.Size(225, 33);
             this.Signature_examtype_textbox.TabIndex = 1;
             // 
             // DisplaySheet_Panel
             // 
-            this.DisplaySheet_Panel.Controls.Add(this.SeriesDisplay_radio);
             this.DisplaySheet_Panel.Controls.Add(this.label19);
-            this.DisplaySheet_Panel.Controls.Add(this.UnvDisplay_radio);
             this.DisplaySheet_Panel.Controls.Add(this.DisplayPanel_closebtn);
             this.DisplaySheet_Panel.Controls.Add(this.DisplaySheet_generate_btn);
             this.DisplaySheet_Panel.Controls.Add(this.label20);
@@ -847,18 +767,6 @@
             this.DisplaySheet_Panel.Name = "DisplaySheet_Panel";
             this.DisplaySheet_Panel.Size = new System.Drawing.Size(400, 324);
             this.DisplaySheet_Panel.TabIndex = 8;
-            // 
-            // SeriesDisplay_radio
-            // 
-            this.SeriesDisplay_radio.AutoSize = true;
-            this.SeriesDisplay_radio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.SeriesDisplay_radio.Location = new System.Drawing.Point(237, 95);
-            this.SeriesDisplay_radio.Name = "SeriesDisplay_radio";
-            this.SeriesDisplay_radio.Size = new System.Drawing.Size(88, 30);
-            this.SeriesDisplay_radio.TabIndex = 6;
-            this.SeriesDisplay_radio.TabStop = true;
-            this.SeriesDisplay_radio.Text = "Series";
-            this.SeriesDisplay_radio.UseVisualStyleBackColor = true;
             // 
             // label19
             // 
@@ -871,21 +779,9 @@
             this.label19.TabIndex = 5;
             this.label19.Text = "DISPLAY SHEET GENERATION";
             // 
-            // UnvDisplay_radio
-            // 
-            this.UnvDisplay_radio.AutoSize = true;
-            this.UnvDisplay_radio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.UnvDisplay_radio.Location = new System.Drawing.Point(95, 95);
-            this.UnvDisplay_radio.Name = "UnvDisplay_radio";
-            this.UnvDisplay_radio.Size = new System.Drawing.Size(120, 30);
-            this.UnvDisplay_radio.TabIndex = 6;
-            this.UnvDisplay_radio.TabStop = true;
-            this.UnvDisplay_radio.Text = "University";
-            this.UnvDisplay_radio.UseVisualStyleBackColor = true;
-            // 
             // DisplayPanel_closebtn
             // 
-            this.DisplayPanel_closebtn.Location = new System.Drawing.Point(95, 250);
+            this.DisplayPanel_closebtn.Location = new System.Drawing.Point(117, 205);
             this.DisplayPanel_closebtn.Name = "DisplayPanel_closebtn";
             this.DisplayPanel_closebtn.Size = new System.Drawing.Size(180, 30);
             this.DisplayPanel_closebtn.TabIndex = 3;
@@ -895,7 +791,7 @@
             // 
             // DisplaySheet_generate_btn
             // 
-            this.DisplaySheet_generate_btn.Location = new System.Drawing.Point(95, 214);
+            this.DisplaySheet_generate_btn.Location = new System.Drawing.Point(117, 169);
             this.DisplaySheet_generate_btn.Name = "DisplaySheet_generate_btn";
             this.DisplaySheet_generate_btn.Size = new System.Drawing.Size(180, 30);
             this.DisplaySheet_generate_btn.TabIndex = 3;
@@ -908,7 +804,7 @@
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label20.Location = new System.Drawing.Point(92, 149);
+            this.label20.Location = new System.Drawing.Point(92, 104);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(84, 17);
             this.label20.TabIndex = 2;
@@ -916,26 +812,56 @@
             // 
             // Display_examtype_textbox
             // 
-            this.Display_examtype_textbox.Location = new System.Drawing.Point(95, 169);
+            this.Display_examtype_textbox.Location = new System.Drawing.Point(95, 124);
             this.Display_examtype_textbox.Name = "Display_examtype_textbox";
             this.Display_examtype_textbox.Size = new System.Drawing.Size(225, 33);
             this.Display_examtype_textbox.TabIndex = 1;
+            // 
+            // Unv_radio
+            // 
+            this.Unv_radio.AutoSize = true;
+            this.Unv_radio.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Unv_radio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Unv_radio.Location = new System.Drawing.Point(101, 12);
+            this.Unv_radio.Name = "Unv_radio";
+            this.Unv_radio.Size = new System.Drawing.Size(120, 30);
+            this.Unv_radio.TabIndex = 6;
+            this.Unv_radio.TabStop = true;
+            this.Unv_radio.Text = "University";
+            this.Unv_radio.UseVisualStyleBackColor = true;
+            this.Unv_radio.CheckedChanged += new System.EventHandler(this.Unv_radio_CheckedChanged);
+            // 
+            // Series_radio
+            // 
+            this.Series_radio.AutoSize = true;
+            this.Series_radio.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Series_radio.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Series_radio.Location = new System.Drawing.Point(260, 12);
+            this.Series_radio.Name = "Series_radio";
+            this.Series_radio.Size = new System.Drawing.Size(88, 30);
+            this.Series_radio.TabIndex = 6;
+            this.Series_radio.TabStop = true;
+            this.Series_radio.Text = "Series";
+            this.Series_radio.UseVisualStyleBackColor = true;
+            this.Series_radio.CheckedChanged += new System.EventHandler(this.Series_radio_CheckedChanged);
             // 
             // Allotment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1779, 709);
-            this.Controls.Add(this.Generation_Panel);
-            this.Controls.Add(this.DisplaySheet_Panel);
-            this.Controls.Add(this.Signature_panel);
+            this.ClientSize = new System.Drawing.Size(1754, 709);
+            this.Controls.Add(this.Series_radio);
+            this.Controls.Add(this.Unv_radio);
             this.Controls.Add(this.Folder_path_text);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.Save_Path);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
+            this.Controls.Add(this.Generation_Panel);
+            this.Controls.Add(this.DisplaySheet_Panel);
+            this.Controls.Add(this.Signature_panel);
             this.Controls.Add(this.RoomExcel_panel);
             this.Name = "Allotment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -944,17 +870,16 @@
             this.Load += new System.EventHandler(this.Allotment_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Alloted_dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Generation_Panel.ResumeLayout(false);
             this.Generation_Panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AllotedStudentsRooms_dgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AllotedRooms_dgv)).EndInit();
             this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AllotedBrief_dgv)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.RoomExcel_panel.ResumeLayout(false);
@@ -978,24 +903,21 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button MultiAllotment_button;
         private System.Windows.Forms.Button SingleAllotment_button;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView Alloted_dgv;
         private System.Windows.Forms.Panel Generation_Panel;
         private System.Windows.Forms.ComboBox AllocatedRoom_combobox;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView AllotedStudentsRooms_dgv;
         private System.Windows.Forms.Button Clear_button;
         private System.Windows.Forms.Button RoomPrint_button;
-        private System.Windows.Forms.Button StudentsInASubject_button;
         private System.Windows.Forms.Button SignatureSheet_button;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox NoOfStudents_textbox2;
+        private System.Windows.Forms.TextBox NoOfStudents_Room;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView AllotedRooms_dgv;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button ClassInRoom_button;
-        private System.Windows.Forms.Button SubjectInRoom_button;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.DataGridView dataGridView4;
-        private System.Windows.Forms.TextBox NoOfStudents_textbox1;
+        private System.Windows.Forms.DataGridView AllotedBrief_dgv;
+        private System.Windows.Forms.TextBox NoOfStudents_Brief;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox ToSeries_combobox;
@@ -1037,11 +959,7 @@
         private System.Windows.Forms.Button DisplaySheet_generate_btn;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox Display_examtype_textbox;
-        private System.Windows.Forms.RadioButton SeriesRoomGen_radio;
-        private System.Windows.Forms.RadioButton UnvRoomGen_radio;
-        private System.Windows.Forms.RadioButton SeriesSignature_radio;
-        private System.Windows.Forms.RadioButton UnvSignature_radio;
-        private System.Windows.Forms.RadioButton SeriesDisplay_radio;
-        private System.Windows.Forms.RadioButton UnvDisplay_radio;
+        private System.Windows.Forms.RadioButton Series_radio;
+        private System.Windows.Forms.RadioButton Unv_radio;
     }
 }

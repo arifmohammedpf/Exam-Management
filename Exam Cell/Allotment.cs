@@ -197,7 +197,7 @@ namespace Exam_Cell
             SqlDataAdapter adapter3 = new SqlDataAdapter(command3);
             DataTable table_rooms = new DataTable();
             adapter3.Fill(table_rooms);
-            dataGridView1.DataSource = table_rooms;
+            Alloted_dgv.DataSource = table_rooms;
 
             // initialize and get room values outside loop
             List<string> roomno = new List<string>();
@@ -407,7 +407,93 @@ namespace Exam_Cell
 
         private void Shift_button_Click(object sender, EventArgs e)
         {
-            string fromroom = FromRoom_textbox.Text;
+            if (FromSeries_combobox.SelectedIndex != 0 && ToSeries_combobox.SelectedIndex != 0 && FromRoom_textbox.Text != "" && FromStart_textbox.Text != "" && FromEnd_textbox.Text != "" && ToRoom_textbox.Text != "" && ToStart_textbox.Text != "")
+            {
+                DialogResult result = MessageBox.Show("Are You Sure To SHIFT the Selected Students ?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        string fromroom = FromRoom_textbox.Text, fromseries = FromSeries_combobox.Text, fromstart = FromStart_textbox.Text, fromend = FromEnd_textbox.Text;
+                        string toroom = ToRoom_textbox.Text, toseries = ToSeries_combobox.Text, tostart = ToStart_textbox.Text;
+                        int fromstartint = Int32.Parse(fromstart);
+                        int fromendint = Int32.Parse(fromend);
+                        int tostartint = Int32.Parse(tostart);
+                        if (Unv_radio.Checked)
+                        {
+                            SqlCommand comm = new SqlCommand("Select Room_No,Seat,Reg_no from University_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
+                            comm.Parameters.AddWithValue("@Room_No", fromroom);
+                            SqlDataAdapter adapter = new SqlDataAdapter(comm);
+                            DataTable dataTable = new DataTable();
+                            adapter.Fill(dataTable);
+
+                            for (int i = fromstartint; i <= fromendint; i++)
+                            {
+                                MessageBox.Show(fromseries + i); ///////////////////for testing...after that delete this line
+                                foreach (DataRow dataRow in dataTable.Rows)
+                                {
+                                    if (dataRow["Seat"].ToString() == fromseries + i)
+                                    {
+                                        dataRow["Room_No"] = toroom;
+                                        dataRow["Seat"] = toseries + tostartint;
+                                        tostartint++;
+                                        break;
+                                    }
+                                }
+                            }
+                            foreach (DataRow dataRow in dataTable.Rows)
+                            {
+                                SqlCommand comm2 = new SqlCommand("update University_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
+                                comm2.Parameters.AddWithValue("@Room_No", dataRow["Room_No"]);
+                                comm2.Parameters.AddWithValue("@Seat", dataRow["Seat"]);
+                                comm2.Parameters.AddWithValue("@Reg_no", dataRow["Reg_no"]);
+                                comm2.ExecuteNonQuery();
+                            }
+                            MessageBox.Show("Shift Completed", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else if (Series_radio.Checked)
+                        {
+                            SqlCommand comm = new SqlCommand("Select Room_No,Seat from Series_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
+                            comm.Parameters.AddWithValue("@Room_No", fromroom);
+                            SqlDataAdapter adapter = new SqlDataAdapter(comm);
+                            DataTable dataTable = new DataTable();
+                            adapter.Fill(dataTable);
+
+                            for (int i = fromstartint; i <= fromendint; i++)
+                            {
+                                MessageBox.Show(fromseries + i); ///////////////////for testing...after that delete this line
+                                foreach (DataRow dataRow in dataTable.Rows)
+                                {
+                                    if (dataRow["Seat"].ToString() == fromseries + i)
+                                    {
+                                        dataRow["Room_No"] = toroom;
+                                        dataRow["Seat"] = toseries + tostartint;
+                                        tostartint++;
+                                        break;
+                                    }
+                                }
+                            }
+                            foreach (DataRow dataRow in dataTable.Rows)
+                            {
+                                SqlCommand comm2 = new SqlCommand("update Series_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
+                                comm2.Parameters.AddWithValue("@Room_No", dataRow["Room_No"]);
+                                comm2.Parameters.AddWithValue("@Seat", dataRow["Seat"]);
+                                comm2.Parameters.AddWithValue("@Reg_no", dataRow["Reg_no"]);
+                                comm2.ExecuteNonQuery();
+                            }
+                            MessageBox.Show("Shift Completed", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString(), "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Give necessary details", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             
         }
 
@@ -431,7 +517,7 @@ namespace Exam_Cell
 
         private void Excel_generate_btn_Click(object sender, EventArgs e)
         {
-            if (UnvRoomGen_radio.Checked || SeriesRoomGen_radio.Checked)
+            if (Unv_radio.Checked || Series_radio.Checked)
             {
                 Excel_Generation_function(0);
             }
@@ -464,7 +550,7 @@ namespace Exam_Cell
 
         private void Signature_generate_btn_Click(object sender, EventArgs e)
         {
-            if (UnvSignature_radio.Checked || SeriesSignature_radio.Checked)
+            if (Unv_radio.Checked || Series_radio.Checked)
             {
                 Excel_Generation_function(1);
             }
@@ -512,7 +598,7 @@ namespace Exam_Cell
                             //DataSet ds = new DataSet("New_DataSet");
                             DataTable dt = new DataTable();
 
-                            if (SeriesSignature_radio.Checked || SeriesRoomGen_radio.Checked)
+                            if (Series_radio.Checked)
                             {
                                 //Create a query and fill the data table with the data from the DB            
                                 SqlCommand cmd = new SqlCommand("SELECT Seat,Reg_no,Name,Exam_code from Series_Alloted Where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
@@ -521,7 +607,7 @@ namespace Exam_Cell
                                 SqlDataAdapter adptr = new SqlDataAdapter(cmd);
                                 adptr.Fill(dt);
                             }
-                            else if (UnvRoomGen_radio.Checked || UnvSignature_radio.Checked)
+                            else if (Unv_radio.Checked)
                             {
                                 //Create a query and fill the data table with the data from the DB            
                                 SqlCommand cmd = new SqlCommand("SELECT Seat,Reg_no,Name,Exam_code from University_Alloted Where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
@@ -704,7 +790,7 @@ namespace Exam_Cell
 
         private void DisplaySheet_generate_btn_Click(object sender, EventArgs e)
         {
-            if(UnvDisplay_radio.Checked || SeriesDisplay_radio.Checked)
+            if(Unv_radio.Checked || Series_radio.Checked)
             {
                 if (Folder_path_text.Text != "")
                 {
@@ -733,7 +819,7 @@ namespace Exam_Cell
                                 //DataSet ds = new DataSet("New_DataSet");
                                 DataTable dt = new DataTable();
 
-                                if (SeriesDisplay_radio.Checked)
+                                if (Series_radio.Checked)
                                 {
                                     //Create a query and fill the data table with the data from the DB            
                                     SqlCommand cmd = new SqlCommand("SELECT Reg_no,Room_No,Seat,Exam_code,Course from Series_Alloted Where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
@@ -742,7 +828,7 @@ namespace Exam_Cell
                                     SqlDataAdapter adptr = new SqlDataAdapter(cmd);
                                     adptr.Fill(dt);
                                 }
-                                else if (UnvDisplay_radio.Checked)
+                                else if (Unv_radio.Checked)
                                 {
                                     //Create a query and fill the data table with the data from the DB            
                                     SqlCommand cmd = new SqlCommand("SELECT Reg_no,Room_No,Seat,Exam_code,Course from University_Alloted Where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
@@ -751,11 +837,20 @@ namespace Exam_Cell
                                     SqlDataAdapter adptr = new SqlDataAdapter(cmd);
                                     adptr.Fill(dt);
                                 }
-
                                 DataTable dt2 = new DataTable();
-                                SqlCommand commandroom = new SqlCommand("SELECT Reg_no,Branch from Students", con.ActiveCon());
-                                SqlDataAdapter adptr2 = new SqlDataAdapter(commandroom);
-                                adptr2.Fill(dt2);
+                                if (Unv_radio.Checked)
+                                {                                    
+                                    SqlCommand commandroom = new SqlCommand("SELECT Reg_no,Branch from Registered_candidates", con.ActiveCon());
+                                    SqlDataAdapter adptr2 = new SqlDataAdapter(commandroom);
+                                    adptr2.Fill(dt2);
+                                }
+                                else if(Series_radio.Checked)
+                                {                                    
+                                    SqlCommand commandroom = new SqlCommand("SELECT Reg_no,Branch from Students", con.ActiveCon());
+                                    SqlDataAdapter adptr2 = new SqlDataAdapter(commandroom);
+                                    adptr2.Fill(dt2);
+                                }
+                                
 
                                 dt.Columns.Add("Branch", typeof(string));
                                 foreach (DataRow getreg in dt.Rows)
@@ -773,7 +868,8 @@ namespace Exam_Cell
 
                                 // datatable with distinct branch from 'dt'
                                 DataTable distinctBranch = dt.DefaultView.ToTable(true, "Branch");
-                                dataGridView2.DataSource = distinctBranch;
+                                MessageBox.Show("--Tester-- \n Check whether distinct code works in dgv");
+                                AllotedStudentsRooms_dgv.DataSource = distinctBranch; ////only for testing delete after that
                                 MessageBox.Show("--Tester-- \n Check whether distinct code works in dgv");
                                 //Excel Designing
                                 if (dt.Rows.Count != 0)
@@ -932,10 +1028,366 @@ namespace Exam_Cell
         {
             this.WindowState = FormWindowState.Normal;
             Generation_Panel.BringToFront();
-            Generation_Panel.Enabled = true;
+            Generation_Panel.Enabled = false;
+            panel1.Enabled = false;
+            groupBox1.Enabled = false;
             DisplaySheet_Panel.Enabled = false;
             Signature_panel.Enabled = false;
             RoomExcel_panel.Enabled = false;
+        }
+
+        void AllotedDGVFill()
+        {
+            if (Unv_radio.Checked)
+            {
+                SqlCommand comm = new SqlCommand("select * from University_Alloted where Date=@Date and Session=@Session order by Room_No,Seat",con.ActiveCon());
+                comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
+                comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
+                SqlDataAdapter adapter = new SqlDataAdapter(comm);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+                Alloted_dgv.DataSource = null;
+                Alloted_dgv.DataSource = dataTable;
+                NoOfStudents_Brief.Text = dataTable.Rows.Count.ToString();
+
+                SqlCommand comm2 = new SqlCommand("select Room_No,A_Series,B_Series from Rooms", con.ActiveCon());
+                SqlDataAdapter adapter2 = new SqlDataAdapter(comm2);
+                DataTable dataTable2 = new DataTable();
+                adapter2.Fill(dataTable2);
+                DataTable dataTable3 = dataTable2.Clone();
+                foreach (DataRow dr in dataTable.Rows)
+                {
+                    foreach (DataRow dr2 in dataTable2.Rows)
+                    {
+                        if (dr["Room_No"].ToString() == dr2["Room_No"].ToString())
+                        {
+                            dataTable3.Rows.Add(dr2);
+                        }
+                    }
+                }
+                AllotedRooms_dgv.DataSource = null;
+                AllotedRooms_dgv.DataSource = dataTable3;
+            }
+            else if(Series_radio.Checked)
+            {
+                SqlCommand comm = new SqlCommand("select * from Series_Alloted where Date=@Date and Session=@Session order by Room_No,Seat",con.ActiveCon());
+                comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
+                comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
+                SqlDataAdapter adapter = new SqlDataAdapter(comm);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+                Alloted_dgv.DataSource = null;
+                Alloted_dgv.DataSource = dataTable;
+                NoOfStudents_Brief.Text = dataTable.Rows.Count.ToString();
+
+                SqlCommand comm2 = new SqlCommand("select Room_No,A_Series,B_Series from Rooms", con.ActiveCon());
+                SqlDataAdapter adapter2 = new SqlDataAdapter(comm2);
+                DataTable dataTable2 = new DataTable();
+                adapter2.Fill(dataTable2);
+                DataTable dataTable3 = dataTable2.Clone();
+                foreach (DataRow dr in dataTable.Rows)
+                {
+                    foreach(DataRow dr2 in dataTable2.Rows)
+                    {
+                        if(dr["Room_No"].ToString() == dr2["Room_No"].ToString())
+                        {
+                            dataTable3.Rows.Add(dr2);
+                        }
+                    }
+                }
+                AllotedRooms_dgv.DataSource = null;
+                AllotedRooms_dgv.DataSource = dataTable3;
+            }
+        }
+        void AllotedBriefDGVFill()
+        {
+            if (Unv_radio.Checked)
+            {
+                SqlCommand comm = new SqlCommand("select Distinct Exam_Code,Course from University_Alloted where Date=@Date and Session=@Session", con.ActiveCon());
+                comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
+                comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
+                SqlDataAdapter adapter = new SqlDataAdapter(comm);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+                dataTable.Columns.Add("No of Students", typeof(int));
+                foreach (DataRow dr in dataTable.Rows)
+                {
+                    SqlCommand comm2 = new SqlCommand("select Count(Reg_No) from University_Alloted where Exam_Code=@Exam_Code", con.ActiveCon());
+                    comm2.Parameters.AddWithValue("@Exam_Code", dr["Exam_Code"]);
+                    int count = (int)comm2.ExecuteScalar();
+                    dr["No of Students"] = count;
+                }
+                AllotedBrief_dgv.DataSource = null;
+                AllotedBrief_dgv.DataSource = dataTable;
+            }
+            else if(Series_radio.Checked)
+            {
+                SqlCommand comm = new SqlCommand("select Distinct Exam_Code,Class from Series_Alloted where Date=@Date and Session=@Session", con.ActiveCon());
+                comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
+                comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
+                SqlDataAdapter adapter = new SqlDataAdapter(comm);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+                dataTable.Columns.Add("No of Students", typeof(int));
+                foreach (DataRow dr in dataTable.Rows)
+                {
+                    SqlCommand comm2 = new SqlCommand("select Count(Reg_No) from Series_Alloted where Exam_Code=@Exam_Code", con.ActiveCon());
+                    comm2.Parameters.AddWithValue("@Exam_Code", dr["Exam_Code"]);
+                    int count = (int)comm2.ExecuteScalar();
+                    dr["No of Students"] = count;
+                }
+                AllotedBrief_dgv.DataSource = null;
+                AllotedBrief_dgv.DataSource = dataTable;
+            }
+        }
+        void AllotedStudentsDGVFill()
+        {
+            if (Unv_radio.Checked)
+            {
+                SqlCommand comm = new SqlCommand("select Reg_no,Name,Exam_Code,Room_No,Seat from University_Alloted where Date=@Date and Session=@Session and Room_No=@Room_No order by Seat", con.ActiveCon());
+                comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
+                comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
+                comm.Parameters.AddWithValue("@Room_No", AllocatedRoom_combobox.Text);
+                SqlDataAdapter adapter = new SqlDataAdapter(comm);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+                AllotedStudentsRooms_dgv.DataSource = null;
+                AllotedStudentsRooms_dgv.DataSource = dataTable;
+                NoOfStudents_Room.Text = dataTable.Rows.Count.ToString();
+            }
+            else if (Series_radio.Checked)
+            {
+                SqlCommand comm = new SqlCommand("select Reg_no,Name,Exam_Code,Room_No,Seat from Series_Alloted where Date=@Date and Session=@Session and Room_No=@Room_No order by Seat", con.ActiveCon());
+                comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
+                comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
+                comm.Parameters.AddWithValue("@Room_No", AllocatedRoom_combobox.Text);
+                SqlDataAdapter adapter = new SqlDataAdapter(comm);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+                AllotedStudentsRooms_dgv.DataSource = null;
+                AllotedStudentsRooms_dgv.DataSource = dataTable;
+                NoOfStudents_Room.Text = dataTable.Rows.Count.ToString();
+            }
+        }        
+        void AllocatedRoomComboboxFill()
+        {
+            SqlCommand comm = new SqlCommand("select Room_No from Series_Alloted where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
+            comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
+            comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
+            SqlDataAdapter adapter = new SqlDataAdapter(comm);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            DataRow top = dataTable.NewRow();
+            top[0] = "-Select-";
+            dataTable.Rows.InsertAt(top, 0);
+            AllocatedRoom_combobox.DisplayMember = "Room_No";
+            AllocatedRoom_combobox.ValueMember = "Room_No";
+            AllocatedRoom_combobox.DataSource = dataTable;
+
+            AllocatedRoom_combobox.SelectedIndex = 0;
+        }
+
+        private void Unv_radio_CheckedChanged(object sender, EventArgs e)
+        {
+            Generation_Panel.Enabled = true;
+            panel1.Enabled = true;
+            groupBox1.Enabled = true;
+            RefreshAll();
+        }
+
+        private void Series_radio_CheckedChanged(object sender, EventArgs e)
+        {
+            Generation_Panel.Enabled = true;
+            panel1.Enabled = true;
+            groupBox1.Enabled = true;
+            RefreshAll();
+        }
+
+        private void Session_combobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(Session_combobox.SelectedIndex!=0)
+            {
+                AllocatedRoomComboboxFill();
+                AllotedDGVFill();
+                AllotedBriefDGVFill();                
+            }
+        }
+
+        private void AllocatedRoom_combobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(AllocatedRoom_combobox.SelectedIndex!=0)
+            {
+                AllotedStudentsDGVFill();
+            }
+        }
+        void RefreshAll()
+        {
+            AllotedBrief_dgv.DataSource = null;
+            AllotedRooms_dgv.DataSource = null;
+            AllotedStudentsRooms_dgv.DataSource = null;
+            Alloted_dgv.DataSource = null;
+            NoOfStudents_Brief.Clear();
+            NoOfStudents_Room.Clear();
+            AllocatedRoom_combobox.DataSource = null;
+            FromRoom_textbox.Clear();
+            FromStart_textbox.Clear();
+            FromEnd_textbox.Clear();
+            ToStart_textbox.Clear();
+            ToRoom_textbox.Clear();
+            DateTimePicker.Format = DateTimePickerFormat.Custom;
+            DateTimePicker.CustomFormat = "dd/MM/yyyy";
+            DateTimePicker.Value = DateTime.Now;
+            Session_combobox.SelectedIndex = 0;
+            FromSeries_combobox.SelectedIndex = 0;
+            ToSeries_combobox.SelectedIndex = 0;
+        }
+
+        private void Swap_button_Click(object sender, EventArgs e)
+        {
+            if(FromSeries_combobox.SelectedIndex!=0 && ToSeries_combobox.SelectedIndex!=0 && FromRoom_textbox.Text!="" && FromStart_textbox.Text!="" && FromEnd_textbox.Text !="" && ToRoom_textbox.Text!="" && ToStart_textbox.Text !="")
+            {
+                DialogResult result = MessageBox.Show("Are You Sure To SWAP the Selected Students ?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        string fromroom = FromRoom_textbox.Text, fromseries = FromSeries_combobox.Text, fromstart = FromStart_textbox.Text, fromend = FromEnd_textbox.Text;
+                        string toroom = ToRoom_textbox.Text, toseries = ToSeries_combobox.Text, tostart = ToStart_textbox.Text;
+                        int fromstartint = Int32.Parse(fromstart);
+                        int fromendint = Int32.Parse(fromend);
+                        int tostartint = Int32.Parse(tostart);
+                        int fromtemp = fromstartint, totemp = tostartint;
+                        if (Unv_radio.Checked)
+                        {
+                            SqlCommand comm = new SqlCommand("Select Room_No,Seat,Reg_no from University_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
+                            comm.Parameters.AddWithValue("@Room_No", fromroom);
+                            SqlDataAdapter adapter = new SqlDataAdapter(comm);
+                            DataTable dataTable = new DataTable();
+                            adapter.Fill(dataTable);
+                            SqlCommand comm2 = new SqlCommand("Select Room_No,Seat,Reg_no from University_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
+                            comm2.Parameters.AddWithValue("@Room_No", toroom);
+                            SqlDataAdapter adapter2 = new SqlDataAdapter(comm2);
+                            DataTable dataTable2 = new DataTable();
+                            adapter2.Fill(dataTable2);
+                            int f = 0;
+                            for (int i = fromstartint; i <= fromendint; i++)
+                            {
+                                f++;
+                                MessageBox.Show(fromseries + i); ///////////////////for testing...after that delete this line
+                                foreach (DataRow dataRow in dataTable.Rows)
+                                {
+                                    if (dataRow["Seat"].ToString() == fromseries + i)
+                                    {
+                                        dataRow["Room_No"] = toroom;
+                                        dataRow["Seat"] = toseries + totemp;
+                                        totemp++;
+                                        break;
+                                    }
+                                }
+                            }
+                            for (int i = tostartint; i < tostartint + f; i++)
+                            {
+                                MessageBox.Show(toseries + i); ///////////////////for testing...after that delete this line
+                                foreach (DataRow dataRow in dataTable2.Rows)
+                                {
+                                    if (dataRow["Seat"].ToString() == toseries + i)
+                                    {
+                                        dataRow["Room_No"] = fromroom;
+                                        dataRow["Seat"] = fromseries + fromtemp;
+                                        fromtemp++;
+                                        break;
+                                    }
+                                }
+                            }
+                            foreach (DataRow dataRow in dataTable.Rows)
+                            {
+                                SqlCommand comm3 = new SqlCommand("update University_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
+                                comm3.Parameters.AddWithValue("@Room_No", dataRow["Room_No"]);
+                                comm3.Parameters.AddWithValue("@Seat", dataRow["Seat"]);
+                                comm3.Parameters.AddWithValue("@Reg_no", dataRow["Reg_no"]);
+                                comm3.ExecuteNonQuery();
+                            }
+                            foreach (DataRow dataRow in dataTable2.Rows)
+                            {
+                                SqlCommand comm3 = new SqlCommand("update University_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
+                                comm3.Parameters.AddWithValue("@Room_No", dataRow["Room_No"]);
+                                comm3.Parameters.AddWithValue("@Seat", dataRow["Seat"]);
+                                comm3.Parameters.AddWithValue("@Reg_no", dataRow["Reg_no"]);
+                                comm3.ExecuteNonQuery();
+                            }
+                            MessageBox.Show("Swap Completed", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else if (Series_radio.Checked)
+                        {
+                            SqlCommand comm = new SqlCommand("Select Room_No,Seat,Reg_no from Series_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
+                            comm.Parameters.AddWithValue("@Room_No", fromroom);
+                            SqlDataAdapter adapter = new SqlDataAdapter(comm);
+                            DataTable dataTable = new DataTable();
+                            adapter.Fill(dataTable);
+                            SqlCommand comm2 = new SqlCommand("Select Room_No,Seat,Reg_no from Series_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
+                            comm2.Parameters.AddWithValue("@Room_No", toroom);
+                            SqlDataAdapter adapter2 = new SqlDataAdapter(comm2);
+                            DataTable dataTable2 = new DataTable();
+                            adapter2.Fill(dataTable2);
+                            int f = 0;
+                            for (int i = fromstartint; i <= fromendint; i++)
+                            {
+                                f++;
+                                MessageBox.Show(fromseries + i); ///////////////////for testing...after that delete this line
+                                foreach (DataRow dataRow in dataTable.Rows)
+                                {
+                                    if (dataRow["Seat"].ToString() == fromseries + i)
+                                    {
+                                        dataRow["Room_No"] = toroom;
+                                        dataRow["Seat"] = toseries + totemp;
+                                        totemp++;
+                                        break;
+                                    }
+                                }
+                            }
+                            for (int i = tostartint; i < tostartint + f; i++)
+                            {
+                                MessageBox.Show(toseries + i); ///////////////////for testing...after that delete this line
+                                foreach (DataRow dataRow in dataTable2.Rows)
+                                {
+                                    if (dataRow["Seat"].ToString() == toseries + i)
+                                    {
+                                        dataRow["Room_No"] = fromroom;
+                                        dataRow["Seat"] = fromseries + fromtemp;
+                                        fromtemp++;
+                                        break;
+                                    }
+                                }
+                            }
+                            foreach (DataRow dataRow in dataTable.Rows)
+                            {
+                                SqlCommand comm3 = new SqlCommand("update Series_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
+                                comm3.Parameters.AddWithValue("@Room_No", dataRow["Room_No"]);
+                                comm3.Parameters.AddWithValue("@Seat", dataRow["Seat"]);
+                                comm3.Parameters.AddWithValue("@Reg_no", dataRow["Reg_no"]);
+                                comm3.ExecuteNonQuery();
+                            }
+                            foreach (DataRow dataRow in dataTable2.Rows)
+                            {
+                                SqlCommand comm3 = new SqlCommand("update Series_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
+                                comm3.Parameters.AddWithValue("@Room_No", dataRow["Room_No"]);
+                                comm3.Parameters.AddWithValue("@Seat", dataRow["Seat"]);
+                                comm3.Parameters.AddWithValue("@Reg_no", dataRow["Reg_no"]);
+                                comm3.ExecuteNonQuery();
+                            }
+                            MessageBox.Show("Swap Completed", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString(), "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Give necessary Details", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
 using ExcelDataReader;
-using Z.Dapper.Plus;
 using System.Collections;
 
 namespace Exam_Cell
