@@ -39,6 +39,7 @@
             this.Name_textbox = new System.Windows.Forms.TextBox();
             this.Delete_btn = new System.Windows.Forms.Button();
             this.Student_mngmnt_panel = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.ClassDgvView_checkbox = new System.Windows.Forms.CheckBox();
             this.UpgradeSemester_groupbox = new System.Windows.Forms.GroupBox();
             this.UpgradeSem_btn = new System.Windows.Forms.Button();
@@ -65,6 +66,8 @@
             this.Studnt_radiobtn = new System.Windows.Forms.RadioButton();
             this.Class_radiobtn = new System.Windows.Forms.RadioButton();
             this.Class_Managmnt_panel = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.Scheme_dgv = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.NewClassGroupbox = new System.Windows.Forms.GroupBox();
             this.NewClass_textbox = new System.Windows.Forms.TextBox();
@@ -93,7 +96,6 @@
             this.Examcode_textbox = new System.Windows.Forms.TextBox();
             this.Class_dgv_radiobtn = new System.Windows.Forms.RadioButton();
             this.Branch_dgv_radiobtn = new System.Windows.Forms.RadioButton();
-            this.Scheme_dgv = new System.Windows.Forms.DataGridView();
             this.DefaultScheme_Panel = new System.Windows.Forms.Panel();
             this.ChangeScheme_btn = new System.Windows.Forms.Button();
             this.ChangeScheme_textbox = new System.Windows.Forms.TextBox();
@@ -103,26 +105,24 @@
             this.exam_CellDataSet_Students = new Exam_Cell.Exam_CellDataSet_Students();
             this.studentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.studentsTableAdapter = new Exam_Cell.Exam_CellDataSet_StudentsTableAdapters.StudentsTableAdapter();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.Student_dgv)).BeginInit();
             this.Student_mngmnt_panel.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.UpgradeSemester_groupbox.SuspendLayout();
             this.ImportGroupbox.SuspendLayout();
             this.AssignClass_groupbox.SuspendLayout();
             this.add_stdnt_groupbox.SuspendLayout();
             this.Class_Managmnt_panel.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Scheme_dgv)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.NewClassGroupbox.SuspendLayout();
             this.NewBranchGroupbox.SuspendLayout();
             this.NewCourseGroupbox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Scheme_dgv)).BeginInit();
             this.DefaultScheme_Panel.SuspendLayout();
             this.RadioButton_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellDataSet_Students)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // AddStudent_btn
@@ -230,6 +230,15 @@
             this.Student_mngmnt_panel.Name = "Student_mngmnt_panel";
             this.Student_mngmnt_panel.Size = new System.Drawing.Size(1604, 673);
             this.Student_mngmnt_panel.TabIndex = 5;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.Student_dgv);
+            this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Location = new System.Drawing.Point(377, 237);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1129, 402);
+            this.panel1.TabIndex = 10;
             // 
             // ClassDgvView_checkbox
             // 
@@ -551,6 +560,28 @@
             this.Class_Managmnt_panel.Name = "Class_Managmnt_panel";
             this.Class_Managmnt_panel.Size = new System.Drawing.Size(1604, 737);
             this.Class_Managmnt_panel.TabIndex = 7;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.Scheme_dgv);
+            this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel2.Location = new System.Drawing.Point(627, 10);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(898, 658);
+            this.panel2.TabIndex = 7;
+            // 
+            // Scheme_dgv
+            // 
+            this.Scheme_dgv.AllowUserToAddRows = false;
+            this.Scheme_dgv.AllowUserToDeleteRows = false;
+            this.Scheme_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.Scheme_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Scheme_dgv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Scheme_dgv.Location = new System.Drawing.Point(0, 0);
+            this.Scheme_dgv.Name = "Scheme_dgv";
+            this.Scheme_dgv.RowTemplate.Height = 24;
+            this.Scheme_dgv.Size = new System.Drawing.Size(898, 658);
+            this.Scheme_dgv.TabIndex = 1;
             // 
             // groupBox3
             // 
@@ -890,25 +921,12 @@
             this.Branch_dgv_radiobtn.UseVisualStyleBackColor = true;
             this.Branch_dgv_radiobtn.CheckedChanged += new System.EventHandler(this.Branch_dgv_radiobtn_CheckedChanged);
             // 
-            // Scheme_dgv
-            // 
-            this.Scheme_dgv.AllowUserToAddRows = false;
-            this.Scheme_dgv.AllowUserToDeleteRows = false;
-            this.Scheme_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.Scheme_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Scheme_dgv.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Scheme_dgv.Location = new System.Drawing.Point(0, 0);
-            this.Scheme_dgv.Name = "Scheme_dgv";
-            this.Scheme_dgv.RowTemplate.Height = 24;
-            this.Scheme_dgv.Size = new System.Drawing.Size(898, 658);
-            this.Scheme_dgv.TabIndex = 1;
-            // 
             // DefaultScheme_Panel
             // 
             this.DefaultScheme_Panel.Controls.Add(this.ChangeScheme_btn);
             this.DefaultScheme_Panel.Controls.Add(this.ChangeScheme_textbox);
             this.DefaultScheme_Panel.Controls.Add(this.Scheme_label);
-            this.DefaultScheme_Panel.Location = new System.Drawing.Point(567, 214);
+            this.DefaultScheme_Panel.Location = new System.Drawing.Point(567, 225);
             this.DefaultScheme_Panel.Name = "DefaultScheme_Panel";
             this.DefaultScheme_Panel.Size = new System.Drawing.Size(386, 350);
             this.DefaultScheme_Panel.TabIndex = 8;
@@ -980,24 +998,6 @@
             // 
             this.studentsTableAdapter.ClearBeforeFill = true;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.Student_dgv);
-            this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(377, 237);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1129, 402);
-            this.panel1.TabIndex = 10;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.Scheme_dgv);
-            this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(627, 10);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(898, 658);
-            this.panel2.TabIndex = 7;
-            // 
             // Database_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1015,6 +1015,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Student_dgv)).EndInit();
             this.Student_mngmnt_panel.ResumeLayout(false);
             this.Student_mngmnt_panel.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.UpgradeSemester_groupbox.ResumeLayout(false);
             this.ImportGroupbox.ResumeLayout(false);
             this.ImportGroupbox.PerformLayout();
@@ -1023,6 +1024,8 @@
             this.add_stdnt_groupbox.ResumeLayout(false);
             this.add_stdnt_groupbox.PerformLayout();
             this.Class_Managmnt_panel.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Scheme_dgv)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.NewClassGroupbox.ResumeLayout(false);
@@ -1031,15 +1034,12 @@
             this.NewBranchGroupbox.PerformLayout();
             this.NewCourseGroupbox.ResumeLayout(false);
             this.NewCourseGroupbox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Scheme_dgv)).EndInit();
             this.DefaultScheme_Panel.ResumeLayout(false);
             this.DefaultScheme_Panel.PerformLayout();
             this.RadioButton_panel.ResumeLayout(false);
             this.RadioButton_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellDataSet_Students)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

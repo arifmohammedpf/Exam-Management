@@ -469,9 +469,9 @@ namespace Exam_Cell
             Class_Managmnt_panel.Enabled = false;
             DefaultScheme_Panel.Enabled = false;
             Student_dgvFill();
+            ClassDgvView_checkbox.Checked = false;
             StudentBranchComboboxFill();
             ClassBranchComboboxFill();
-            Student_dgvFill();
             YearOfAdmissionFill();
             ClearAllStudent_Management();
         }
@@ -487,6 +487,7 @@ namespace Exam_Cell
                 command.Parameters.AddWithValue("@Branch", Branch_combobox.Text);
                 command.ExecuteNonQuery();
                 ClearAllStudent_Management();
+                Student_dgvFill();
             }
             else
             {
@@ -638,7 +639,10 @@ namespace Exam_Cell
         {
             Student_Source.RemoveFilter();
             ClearAllStudent_Management();
-            Student_dgvFill();
+            if (ClassDgvView_checkbox.Checked)
+                Class_dgv_Fill();
+            else
+                Student_dgvFill();
             AddFromExcel_Btn.Enabled = false;
         }
 
@@ -855,7 +859,7 @@ namespace Exam_Cell
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
                         ExcelDBManagement excclass = new ExcelDBManagement();
-                        excclass.Reg_no = dt.Rows[i]["Reg_no"].ToString();
+                        excclass.Reg_no = dt.Rows[i]["Register No"].ToString();
                         excclass.Name = dt.Rows[i]["Name"].ToString();  //have to give Excel column names inside the[""]
                         excclass.Year_Of_Admission = dt.Rows[i]["YOA"].ToString();
                         excclass.Branch = dt.Rows[i]["Branch"].ToString();

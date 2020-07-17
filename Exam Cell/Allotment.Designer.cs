@@ -251,6 +251,7 @@
             this.NoOfStudents_Room.Location = new System.Drawing.Point(424, 100);
             this.NoOfStudents_Room.Multiline = true;
             this.NoOfStudents_Room.Name = "NoOfStudents_Room";
+            this.NoOfStudents_Room.ReadOnly = true;
             this.NoOfStudents_Room.Size = new System.Drawing.Size(58, 46);
             this.NoOfStudents_Room.TabIndex = 3;
             // 
@@ -384,6 +385,7 @@
             this.NoOfStudents_Brief.Location = new System.Drawing.Point(325, 214);
             this.NoOfStudents_Brief.Multiline = true;
             this.NoOfStudents_Brief.Name = "NoOfStudents_Brief";
+            this.NoOfStudents_Brief.ReadOnly = true;
             this.NoOfStudents_Brief.Size = new System.Drawing.Size(58, 46);
             this.NoOfStudents_Brief.TabIndex = 3;
             // 
