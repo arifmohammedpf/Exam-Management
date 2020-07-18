@@ -56,6 +56,7 @@ namespace Exam_Cell
                 NewCourseGroupbox.Enabled = true;
                 NewClassGroupbox.Enabled = false;
                 Branch_dgv_Fill();
+                BranchComboboxFill();
                 Clear_All_ClassManagement();
             }
             
@@ -69,6 +70,7 @@ namespace Exam_Cell
                 NewCourseGroupbox.Enabled = false;
                 NewClassGroupbox.Enabled = true;
                 Class_dgv_Fill();
+                BranchComboboxFill();
                 Clear_All_ClassManagement();
             }
         }
@@ -125,8 +127,9 @@ namespace Exam_Cell
                     if (checkselected)
                     {
                         f = 1;
-                        SqlCommand command = new SqlCommand("delete Management where Class=@Class", con.ActiveCon());
+                        SqlCommand command = new SqlCommand("delete Management where Class=@Class and Semester=@Semester", con.ActiveCon());
                         command.Parameters.AddWithValue("@Class", dr.Cells["Class"].Value.ToString());
+                        command.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value.ToString());
                         command.ExecuteNonQuery();
                     }
                 }
@@ -155,12 +158,9 @@ namespace Exam_Cell
         CheckBox headerchkbox = new CheckBox();
         private void Database_Management_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'exam_CellDataSet_Students.Students' table. You can move, or remove it, as needed.
-            this.studentsTableAdapter.Fill(this.exam_CellDataSet_Students.Students);
+            //Student_dgvFill();
             RadioButton_panel.BringToFront();
             Class_radiobtn.Checked = true;
-            AssignClass_fill();
-            BranchComboboxFill();
             Class_dgv_radiobtn.Checked = true;
             
             //Schemedgv
@@ -212,7 +212,7 @@ namespace Exam_Cell
             try
             {
                 foreach (DataGridViewRow row in Student_dgv.Rows)
-                    ((DataGridViewCheckBoxCell)row.Cells["checkBox2Column"]).Value = Hcheckbox.Checked;
+                    ((DataGridViewCheckBoxCell)row.Cells["checkBoxColumn2"]).Value = Hcheckbox.Checked;
 
                 Student_dgv.RefreshEdit();
             }
@@ -327,7 +327,7 @@ namespace Exam_Cell
                 command.Parameters.AddWithValue("@Semester", NewClassSem_combobox.Text);
                 command.ExecuteNonQuery();
                 MessageBox.Show("New Class Added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Clear_All_ClassManagement();
+                NewClassSem_combobox.SelectedIndex = 0;
                 Class_dgv_Fill();
             }
             else
@@ -442,7 +442,7 @@ namespace Exam_Cell
                 MessageBox.Show("Select Class", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         void ClearAllStudent_Management()
-        {
+        {            
             Regno_textbox.Clear();
             Name_textbox.Clear();
             YOA_textbox.Clear();
@@ -464,16 +464,20 @@ namespace Exam_Cell
 
         private void Studnt_radiobtn_CheckedChanged(object sender, EventArgs e)
         {
-            Student_mngmnt_panel.BringToFront();
-            Student_mngmnt_panel.Enabled = true;
-            Class_Managmnt_panel.Enabled = false;
-            DefaultScheme_Panel.Enabled = false;
-            Student_dgvFill();
-            ClassDgvView_checkbox.Checked = false;
-            StudentBranchComboboxFill();
-            ClassBranchComboboxFill();
-            YearOfAdmissionFill();
-            ClearAllStudent_Management();
+            if(Studnt_radiobtn.Checked)
+            {
+                Student_mngmnt_panel.BringToFront();
+                Student_mngmnt_panel.Enabled = true;
+                Class_Managmnt_panel.Enabled = false;
+                DefaultScheme_Panel.Enabled = false;
+                ClassDgvView_checkbox.Checked = false;
+                Student_dgvFill();
+                AssignClass_fill();
+                StudentBranchComboboxFill();
+                ClassBranchComboboxFill();
+                YearOfAdmissionFill();
+                ClearAllStudent_Management();
+            }
         }
 
         private void AddStudent_btn_Click(object sender, EventArgs e)
@@ -486,6 +490,7 @@ namespace Exam_Cell
                 command.Parameters.AddWithValue("@Year_Of_Admission", YOA_textbox.Text);
                 command.Parameters.AddWithValue("@Branch", Branch_combobox.Text);
                 command.ExecuteNonQuery();
+                YearOfAdmissionFill();
                 ClearAllStudent_Management();
                 Student_dgvFill();
             }
@@ -523,6 +528,7 @@ namespace Exam_Cell
         BindingSource ClassView_Source = new BindingSource();
         void Student_dgvFill()
         {
+            headerchkbox.Checked = false;
             SqlCommand command = new SqlCommand("select * from Students order by Year_Of_Admission desc,Branch", con.ActiveCon());
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable table_Students = new DataTable();
@@ -533,6 +539,7 @@ namespace Exam_Cell
         }
         void Class_StudentsFill()
         {
+            headerchkbox.Checked = false;
             SqlCommand command = new SqlCommand("select * from Class order by Class desc", con.ActiveCon());
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable table_Students = new DataTable();
@@ -636,8 +643,7 @@ namespace Exam_Cell
         }
 
         private void Clear_btn_Click(object sender, EventArgs e)
-        {
-            Student_Source.RemoveFilter();
+        {            
             ClearAllStudent_Management();
             if (ClassDgvView_checkbox.Checked)
                 Class_dgv_Fill();
@@ -742,6 +748,7 @@ namespace Exam_Cell
 
             AssignClassBranch_combobox.ValueMember = "Branch";
             AssignClassBranch_combobox.DataSource = dt;
+            AssignClassBranch_combobox.SelectedIndex = 0;
         }
         void YearOfAdmissionFill()
         {
@@ -757,6 +764,7 @@ namespace Exam_Cell
 
             AssignClassYOA_combobox.ValueMember = "Year_Of_Admission";
             AssignClassYOA_combobox.DataSource = dt;
+            AssignClassYOA_combobox.SelectedIndex = 0;
         }
 
         private void AssignClass_combobox_SelectedIndexChanged(object sender, EventArgs e)
@@ -810,15 +818,21 @@ namespace Exam_Cell
             Schemelabel();
         }
 
-        
-        
+
+
         // EXCEL GROUP BOX EVENT START
+        int messflag = 0;
         DataTableCollection tableCollection;
         //Excel Select button click event
         private void SelectExcel_btn_Click(object sender, EventArgs e)
         {
             try
             {
+                if(messflag==0)
+                {
+                    messflag = 1;
+                    MessageBox.Show("ExcelSheet Header Naming Must Be as follows : \n Register No ,Name, YOA, Branch", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
                 using (OpenFileDialog openFile = new OpenFileDialog() { Filter = "Excel Files|*.xls|*xlsx|*.xlsm" }) //check if | is needed last?
                 {
                     if (openFile.ShowDialog() == DialogResult.OK)
@@ -865,6 +879,7 @@ namespace Exam_Cell
                         excclass.Branch = dt.Rows[i]["Branch"].ToString();
                         excst.Add(excclass);
                     }
+                    headerchkbox.Checked = false;
                     Student_dgv.DataSource = excst;
                     AddFromExcel_Btn.Enabled = true;
                 }
@@ -896,6 +911,7 @@ namespace Exam_Cell
                 if (f == 1)
                 {
                     MessageBox.Show("Add From Excel Completed", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    YearOfAdmissionFill();
                     ClearAllStudent_Management();
                     AddFromExcel_Btn.Enabled = false;
                     Student_dgvFill();

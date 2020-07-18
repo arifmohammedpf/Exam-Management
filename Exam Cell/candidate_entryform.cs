@@ -31,28 +31,7 @@ namespace Exam_Cell
         
         // Main Form Open
         private void formti_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'exam_CellDataSetStudentsNew.Students' table. You can move, or remove it, as needed.
-            this.studentsTableAdapter3.Fill(this.exam_CellDataSetStudentsNew.Students);
-            // TODO: This line of code loads data into the 'exam_CellScheme.Scheme' table. You can move, or remove it, as needed.
-            this.schemeTableAdapter1.Fill(this.exam_CellScheme.Scheme);
-            // TODO: This line of code loads data into the 'exam_CellDataSet_forscheme1519.Scheme' table. You can move, or remove it, as needed.
-            this.schemeTableAdapter.Fill(this.exam_CellDataSet_forscheme1519.Scheme);
-            // TODO: This line of code loads data into the 'exam_CellDataSet_forscheme1519.Scheme_2019' table. You can move, or remove it, as needed.
-            this.scheme_2019TableAdapter1.Fill(this.exam_CellDataSet_forscheme1519.Scheme_2019);
-            // TODO: This line of code loads data into the 'exam_CellDataSet_forscheme1519.Scheme_2015' table. You can move, or remove it, as needed.
-            this.scheme_2015TableAdapter1.Fill(this.exam_CellDataSet_forscheme1519.Scheme_2015);
-            // TODO: This line of code loads data into the 'exam_CellDataSet1.Registered_candidates' table. You can move, or remove it, as needed.
-            this.registered_candidatesTableAdapter.Fill(this.exam_CellDataSet1.Registered_candidates);
-            // TODO: This line of code loads data into the 'exam_CellDataSet.Students' table. You can move, or remove it, as needed.
-            this.studentsTableAdapter2.Fill(this.exam_CellDataSet.Students);
-            // TODO: This line of code loads data into the 'exam_CellDataSet_Students.Students' table. You can move, or remove it, as needed.
-            this.studentsTableAdapter1.Fill(this.exam_CellDataSet_Students.Students);
-            
-            // TODO: This line of code loads data into the 'exam_CellDataSet_Tables.Students' table. You can move, or remove it, as needed.
-            this.studentsTableAdapter.Fill(this.exam_CellDataSet_Tables.Students);
-
-
+        {            
             try
             {
                 this.WindowState = FormWindowState.Normal;
@@ -318,8 +297,28 @@ namespace Exam_Cell
                 //Yearofadmissionboxfill();
             }
         }
-
-
+        //for candidate dgv ...bindingsource is used for filter function
+        BindingSource source = new BindingSource();
+        void Sourcefill()
+        {
+            SqlCommand command = new SqlCommand("select * from Class order by Class", con.ActiveCon());
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table_Students = new DataTable();
+            adapter.Fill(table_Students);
+            source.DataSource = null;
+            source.DataSource = table_Students;
+            Candidate_datagridview.DataSource = source;
+        }
+        void Unvsourcefill()
+        {
+            SqlCommand command = new SqlCommand("select * from Students order by Branch,Reg_no", con.ActiveCon());
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table_Students = new DataTable();
+            adapter.Fill(table_Students);
+            source.DataSource = null;
+            source.DataSource = table_Students;
+            Candidate_datagridview.DataSource = source;
+        }
         //Series RadioButton Event
         private void Series_rdbtn_CheckedChanged(object sender, EventArgs e)
         {
@@ -332,7 +331,7 @@ namespace Exam_Cell
                 //populate class combobox
                 classcomboboxfill();
                 Excel_Group.Enabled = false;   //excel groubbox disabled since not needed                
-                Candidate_datagridview.DataSource = studentsBindingSource3;
+                Sourcefill();
                 Series_Student_details_groupbox.Enabled = true;     //rest enabled
                 SubjectDetails_groupbox.Enabled = true;
                 Courses_dgv.Enabled = true;
@@ -342,7 +341,7 @@ namespace Exam_Cell
 
         void classcomboboxfill()
         {
-            string command = string.Format("Select Class from Class");
+            string command = string.Format("Select Distinct Class from Class");
             SqlCommand sc = new SqlCommand(command, con.ActiveCon());
             SqlDataReader reader;
             reader = sc.ExecuteReader();
@@ -379,7 +378,17 @@ namespace Exam_Cell
         //    Class_drpdwn.DataSource = rows;
         //}
 
-
+        BindingSource schemesource = new BindingSource();
+        void Schemesourcefill()
+        {
+            SqlCommand command = new SqlCommand("select * from Scheme order by Branch", con.ActiveCon());
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table_Scheme = new DataTable();
+            adapter.Fill(table_Scheme);
+            schemesource.DataSource = null;
+            schemesource.DataSource = table_Scheme;
+            Courses_dgv.DataSource = schemesource;
+        }
         //Scheme Combobox Event
         private void Scheme_combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -408,9 +417,12 @@ namespace Exam_Cell
                 //    Courses_dgv.DataSource = null;
 
                 //}
+
+                //Course dgv fill
+                
                 if (Series_rdbtn.Checked || Unvrsty_rdbtn.Checked)
                 {
-                    Courses_dgv.DataSource = schemeBindingSource1;
+                    Schemesourcefill();
                     subjectdetailsfilter();
                 }    
                 
@@ -478,7 +490,7 @@ namespace Exam_Cell
                         if (filter.Length > 0) filter += " AND ";
                         filter += string.Format("Semester Like '%{0}%'", semvalue);
                     }
-                    schemeBindingSource1.Filter = filter;
+                    schemesource.Filter = filter;
                 }
                 else
                 {
@@ -488,7 +500,7 @@ namespace Exam_Cell
             catch (Exception ex) { MessageBox.Show(ex.Message, "subjectdetailsfilter", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             
         }
-            
+
 
         //DELETE IF Y O A FILTER IS NOT NEEDED FOR UNIVERSITY DGV
         //void Yearofadmissionboxfill()
@@ -518,12 +530,18 @@ namespace Exam_Cell
 
 
         // EXCEL GROUP BOX EVENT START
+        int messflag = 0;
         DataTableCollection tableCollection;
         //Excel Select button click event
         private void Excel_btn_Click(object sender, EventArgs e)
         {
             try
             {
+                if (messflag == 0)
+                {
+                    messflag = 1;
+                    MessageBox.Show("ExcelSheet Header Naming Must Be as follows : \n Register No ,Name, YOA, Branch", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
                 using (OpenFileDialog openFile = new OpenFileDialog() { Filter = "Excel Files|*.xls|*xlsx|*.xlsm" }) //check if | is needed last?
                 {
                     if (openFile.ShowDialog() == DialogResult.OK)
@@ -608,11 +626,11 @@ namespace Exam_Cell
                 //Filter the dgv
                 if (key == "-Select-")
                 {
-                    studentsBindingSource3.RemoveFilter();  //remove filters 
+                    source.RemoveFilter();  //remove filters 
                 }
                 else
                 {
-                    studentsBindingSource3.Filter = string.Format("Branch LIKE '%{0}%'", key);   //filter with sql statement
+                    source.Filter = string.Format("Class LIKE '%{0}%'", key);   //filter with sql statement
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, "Class_drpdwn_SelectedIndexChanged", MessageBoxButtons.OK, MessageBoxIcon.Error); }
@@ -783,7 +801,7 @@ namespace Exam_Cell
                 if (filter.Length > 0) filter += " AND ";
                 filter += string.Format("Year_Of_Admission Like '%{0}%'", yoavalue);
             }
-            studentsBindingSource3.Filter = filter;
+            source.Filter = filter;
          }
 
         private void UnvCheckbox_CheckedChanged(object sender, EventArgs e)
@@ -795,7 +813,7 @@ namespace Exam_Cell
                 YOACombobox.Enabled = true;
                 UnvBranchComboboxFill();
                 YoaComboboxFill();
-                Candidate_datagridview.DataSource = studentsBindingSource3;
+                Unvsourcefill();
             }
             else
             {

@@ -1004,8 +1004,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1604, 737);
-            this.Controls.Add(this.DefaultScheme_Panel);
             this.Controls.Add(this.Student_mngmnt_panel);
+            this.Controls.Add(this.DefaultScheme_Panel);
             this.Controls.Add(this.RadioButton_panel);
             this.Controls.Add(this.Class_Managmnt_panel);
             this.Name = "Database_Management";
