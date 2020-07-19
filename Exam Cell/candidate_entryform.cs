@@ -127,7 +127,7 @@ namespace Exam_Cell
             top[0] = "-Select-";
             dt.Rows.InsertAt(top, 0);
             dt.Load(reader);
-
+            UnvBranchCombobox.DisplayMember = "Branch";
             UnvBranchCombobox.ValueMember = "Branch";
             UnvBranchCombobox.DataSource = dt;
         }
@@ -280,6 +280,7 @@ namespace Exam_Cell
             {
                 Unv_Student_details_groupbox.Enabled = true;
                 Unv_Student_details_groupbox.BringToFront();
+                Courses_dgv.Enabled = false;
                 Candidate_datagridview.Enabled = true;
                 UnvCheckbox.Checked = false;
                 Candidate_datagridview.DataSource = null;
@@ -301,6 +302,7 @@ namespace Exam_Cell
         BindingSource source = new BindingSource();
         void Sourcefill()
         {
+            headerchkbox.Checked = false;
             SqlCommand command = new SqlCommand("select * from Class order by Class", con.ActiveCon());
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable table_Students = new DataTable();
@@ -311,6 +313,7 @@ namespace Exam_Cell
         }
         void Unvsourcefill()
         {
+            headerchkbox.Checked = false;
             SqlCommand command = new SqlCommand("select * from Students order by Branch,Reg_no", con.ActiveCon());
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable table_Students = new DataTable();
@@ -684,7 +687,10 @@ namespace Exam_Cell
                             }
                         }
                         if(f==1)
+                        {
+                            
                             MessageBox.Show("Register Done", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                         else
                             MessageBox.Show("Select Student and Course to Register", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
@@ -727,7 +733,15 @@ namespace Exam_Cell
                             }
                         }
                         if (f == 1)
+                        {
+                            if (UnvCheckbox.Checked)
+                            {
+                                UnvBranchCombobox.SelectedIndex = 0;
+                                YOACombobox.SelectedIndex = 0;
+                            }
+                            headerchkbox.Checked = false;
                             MessageBox.Show("Register Done", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                         else
                             MessageBox.Show("Select Student and Course to Register", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
@@ -771,7 +785,7 @@ namespace Exam_Cell
 
         private void UnvBranchCombobox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(Unvrsty_rdbtn.Checked)
+            if(UnvCheckbox.Checked)
             {
                 studentsdgvfilter();
             }
@@ -779,7 +793,7 @@ namespace Exam_Cell
 
         private void YOACombobox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Unvrsty_rdbtn.Checked)
+            if (UnvCheckbox.Checked)
             {
                 studentsdgvfilter();
             }
@@ -808,6 +822,7 @@ namespace Exam_Cell
         {
             if(UnvCheckbox.Checked)
             {
+                Courses_dgv.Enabled = true;
                 Excel_Group.Enabled = false;
                 UnvBranchCombobox.Enabled = true;
                 YOACombobox.Enabled = true;
@@ -817,6 +832,7 @@ namespace Exam_Cell
             }
             else
             {
+                Courses_dgv.Enabled = false;
                 Excel_Group.Enabled = true;
                 UnvBranchComboboxFill();
                 YoaComboboxFill();

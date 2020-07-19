@@ -191,6 +191,7 @@
             this.DateTimePicker.Name = "DateTimePicker";
             this.DateTimePicker.Size = new System.Drawing.Size(300, 28);
             this.DateTimePicker.TabIndex = 2;
+            this.DateTimePicker.ValueChanged += new System.EventHandler(this.DateTimePicker_ValueChanged);
             // 
             // Session_combobox
             // 
@@ -289,6 +290,7 @@
             this.Clear_button.TabIndex = 4;
             this.Clear_button.Text = "Clear";
             this.Clear_button.UseVisualStyleBackColor = true;
+            this.Clear_button.Click += new System.EventHandler(this.Clear_button_Click);
             // 
             // DisplayPrint_button
             // 

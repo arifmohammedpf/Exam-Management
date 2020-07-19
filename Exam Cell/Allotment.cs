@@ -1389,6 +1389,16 @@ namespace Exam_Cell
                 }
             }
         }
+
+        private void DateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Clear_button_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

@@ -27,7 +27,7 @@ namespace Exam_Cell
         void Class_dgv_Fill()
         {
             Class_dgv_radiobtn.Checked = true;
-            SqlCommand command = new SqlCommand("select Class,Semester from Management Where (Class is not null) and (Semester is not null) order by Semester", con.ActiveCon());
+            SqlCommand command = new SqlCommand("select Class,Semester from Management Where (Class is not null) and (Semester is not null) order by Semester,Class", con.ActiveCon());
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable table_class = new DataTable();
             adapter.Fill(table_class);
@@ -432,7 +432,7 @@ namespace Exam_Cell
                 if (f == 1)
                 {
                     MessageBox.Show("Students Added to Class", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ClearAllStudent_Management();
+                    AssignClass_combobox.SelectedIndex = 0;
                     Student_dgvFill();
                 }
                 else
@@ -598,6 +598,10 @@ namespace Exam_Cell
                                 command.Parameters.AddWithValue("@Year_Of_Admission", dr.Cells["Year_Of_Admission"].Value.ToString());
                                 command.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value.ToString());
                                 command.ExecuteNonQuery();
+                                //will also delete from Class
+                                SqlCommand command2 = new SqlCommand("Delete Class Reg_No=@Reg_no", con.ActiveCon());                   
+                                command2.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
+                                command2.ExecuteNonQuery();
                             }
                         }
                         if (f == 1)

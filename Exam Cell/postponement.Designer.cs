@@ -165,7 +165,7 @@
             this.NewSession_combobox.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NewSession_combobox.FormattingEnabled = true;
             this.NewSession_combobox.Items.AddRange(new object[] {
-            "-Select-",
+            "-Optional-",
             "Forenoon",
             "Afternoon"});
             this.NewSession_combobox.Location = new System.Drawing.Point(127, 97);
