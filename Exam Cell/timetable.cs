@@ -77,13 +77,13 @@ namespace Exam_Cell
             adapter.Fill(table_course);
             source2.DataSource = null;
             source2.DataSource = table_course;
-            Course_Select_dgv.DataSource = source;
+            Course_Select_dgv.DataSource = source2;
         }
         CheckBox headerchkbox = new CheckBox();
         private void formtimetable_Load(object sender, EventArgs e)
         {            
-            try
-            {
+            //try
+            //{
                 BranchComboboxFill();
                 SemesterComboboxFill();
 
@@ -107,8 +107,8 @@ namespace Exam_Cell
 
                 AddHeaderchckbox(); //header checkbox added to candidate dgv
                 headerchkbox.MouseClick += new MouseEventHandler(Headerchckbox_Mouseclick);
-            }
-            catch (Exception) { MessageBox.Show("Try Again", "Form Load", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            //}
+            //catch (Exception) { MessageBox.Show("Try Again", "Form Load", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         void AddHeaderchckbox()

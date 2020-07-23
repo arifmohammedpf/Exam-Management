@@ -29,7 +29,7 @@ namespace Exam_Cell
             DateComboboxFill();
             BranchComboboxFill();
             Exam_CodeComboboxFill();
-            SubjectComboboxFill();
+            //SubjectComboboxFill();
             No_of_candidates_ViewText.Clear();
             No_of_Present_ViewText.Clear();
             No_of_Absent_ViewText.Clear();            
@@ -80,31 +80,30 @@ namespace Exam_Cell
             ExamCode_combobox.ValueMember = "Exam_Code";
             ExamCode_combobox.DataSource = table;
         }
-        void SubjectComboboxFill()
-        {
-            SqlCommand comm = new SqlCommand("select distinct Course from Absentees order by Course", con.ActiveCon());
-            SqlDataAdapter adapter = new SqlDataAdapter(comm);
-            DataTable table = new DataTable();
-            adapter.Fill(table);
-            //for -select-
-            DataRow top = table.NewRow();
-            top[0] = "-Select-";
-            table.Rows.InsertAt(top, 0);
+        //void SubjectComboboxFill()
+        //{
+        //    SqlCommand comm = new SqlCommand("select distinct Course from Absentees order by Course", con.ActiveCon());
+        //    SqlDataAdapter adapter = new SqlDataAdapter(comm);
+        //    DataTable table = new DataTable();
+        //    adapter.Fill(table);
+        //    //for -select-
+        //    DataRow top = table.NewRow();
+        //    top[0] = "-Select-";
+        //    table.Rows.InsertAt(top, 0);
 
-            SubjectName_Combobox.DisplayMember = "Course";
-            SubjectName_Combobox.ValueMember = "Course";
-            SubjectName_Combobox.DataSource = table;
-        }
+        //    SubjectName_Combobox.DisplayMember = "Course";
+        //    SubjectName_Combobox.ValueMember = "Course";
+        //    SubjectName_Combobox.DataSource = table;
+        //}
 
         DataTable table = new DataTable();
         private void Search_btn_Click(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand("select Reg_no,Name,Status,Branch,Course,Exam_Code from Absentees Where Date=@Date and Session=@Session and Branch=@Branch and Exam_Code=@Exam_Code and Course=@Course order by Reg_no", con.ActiveCon());
+            SqlCommand command = new SqlCommand("select Reg_no,Name,Status,Branch,Course,Exam_Code from Absentees Where Date=@Date and Session=@Session and Branch=@Branch and Exam_Code=@Exam_Code order by Reg_no", con.ActiveCon());
             command.Parameters.AddWithValue("@Date", Date_combobox.Text);
             command.Parameters.AddWithValue("@Session", Session_combobox.Text);
             command.Parameters.AddWithValue("@Branch", Branch_combobox.Text);
             command.Parameters.AddWithValue("@Exam_Code", ExamCode_combobox.Text);
-            command.Parameters.AddWithValue("@Course", SubjectName_Combobox.Text);
             SqlDataAdapter adapter = new SqlDataAdapter(command);            
             adapter.Fill(table);
             Dgv.DataSource = null;
@@ -122,11 +121,9 @@ namespace Exam_Cell
                 {
                     using (var package = new ExcelPackage())
                     {
-
-
                         //Add a new worksheet to the empty workbook
                         var worksheet = package.Workbook.Worksheets.Add(Branch_combobox.Text);
-                        SqlCommand command2 = new SqlCommand("select Semester from Students where Reg_no=@Reg_no", con.ActiveCon());
+                        SqlCommand command2 = new SqlCommand("select Year_Of_Admission from Students where Reg_no=@Reg_no", con.ActiveCon());
                         command2.Parameters.AddWithValue("@Reg_no", table.Rows[0]["Reg_no"].ToString());
                         string semester = (string)command2.ExecuteScalar();
                         //Insert Items to ExcelSheet
@@ -136,8 +133,8 @@ namespace Exam_Cell
                         worksheet.Cells["A4"].Value = Date_combobox.Text;
                         worksheet.Cells["D4"].Value = Session_combobox.Text;
                         worksheet.Cells["A5"].Value = "Branch: " + Branch_combobox.Text;
-                        worksheet.Cells["C5"].Value = "Semester: " + semester;
-                        worksheet.Cells["D5"].Value = "Subject: " + SubjectName_Combobox.Text + " " + ExamCode_combobox.Text;
+                        worksheet.Cells["C5"].Value = "Year: " + semester;
+                        worksheet.Cells["D5"].Value = "Subject: " + Dgv.Rows[0].Cells["Course"].Value.ToString() + " " + ExamCode_combobox.Text;
 
                         using (var range = worksheet.Cells["A1:D1"])
                         {
@@ -165,7 +162,6 @@ namespace Exam_Cell
                         }
                         using (var range = worksheet.Cells["A4:D4"])
                         {
-                            range.Merge = true;
                             range.AutoFitColumns();
                             range.Style.Font.Name = "Arial";
                             range.Style.Font.Size = 12;
@@ -173,13 +169,12 @@ namespace Exam_Cell
                         }
                         using (var range = worksheet.Cells["A5:D5"])
                         {
-                            range.Merge = true;
+                            range.AutoFitColumns();
                             range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
                             range.Style.Font.Name = "Arial";
                             range.Style.Font.Size = 12;
                             range.Style.Font.Bold = true;
                         }
-                        worksheet.Cells["D5"].AutoFitColumns();
 
                         // column headings
                         worksheet.Cells[6, 1].Value = "Sl.No";
@@ -202,16 +197,20 @@ namespace Exam_Cell
                             {
                                 worksheet.Cells[i + 7, j + 2].Value = table.Rows[i][j];
                                 if (table.Rows[i][j].ToString() == "Absent")
+                                {
                                     worksheet.Cells[i + 7, j + 2].Style.Fill.BackgroundColor.SetColor(Color.Yellow);
+                                    worksheet.Cells[i + 7, j + 2].Style.Font.Color.SetColor(Color.Red);
+                                }
                             }
                             count = i + 9;
                         }
                         using (var range = worksheet.Cells[7, 1 , table.Rows.Count + 6, 4])
                         {
-                            range.Style.Border.Top.Style = ExcelBorderStyle.Medium;
-                            range.Style.Border.Left.Style = ExcelBorderStyle.Medium;
-                            range.Style.Border.Right.Style = ExcelBorderStyle.Medium;
-                            range.Style.Border.Bottom.Style = ExcelBorderStyle.Medium;
+                            range.AutoFitColumns();
+                            range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                            range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                            range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                            range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
                         }
                         worksheet.Cells[count, 3].Value = "No of Present = " + No_of_Present_ViewText.Text;
                         worksheet.Cells[count + 1, 3].Value = "No of Absent = " + No_of_Absent_ViewText.Text;
@@ -219,14 +218,14 @@ namespace Exam_Cell
 
 
                         //Save Excel File  
-                        string path = Filepath_textbox.Text + @"\Attendance Statement " + Date_combobox.Text + " " + Session_combobox.Text + ".xlsx"; 
+                        string path = Filepath_textbox.Text + @"\Attendance Statement " +  Session_combobox.Text + ".xlsx"; 
                         Stream stream = File.Create(path);
                         package.SaveAs(stream);
                         stream.Close();                       
                        
                         Branch_combobox.SelectedIndex = 0;
                         ExamCode_combobox.SelectedIndex = 0;
-                        SubjectName_Combobox.SelectedIndex = 0;
+                        //SubjectName_Combobox.SelectedIndex = 0;
                         No_of_candidates_ViewText.Clear();
                         No_of_Present_ViewText.Clear();
                         No_of_Absent_ViewText.Clear();
@@ -255,13 +254,31 @@ namespace Exam_Cell
         void NoofcandidatesFill()
         {
             int prescount = 0, abscount = 0;
-            foreach(DataRow dr in table.Rows)
+            for(int i=0;i<table.Rows.Count;i++)
             {
-                if (dr["Status"].ToString() == "Present")
-                    prescount++;
-                else if (dr["Status"].ToString() == "Absent")
+                if(Dgv.Rows[i].Cells["Status"].Value.ToString() == "Absent")
+                {
                     abscount++;
+                    Dgv.Rows[i].Cells["Status"].Style.ForeColor = Color.Red;
+                }
+                else
+                {
+                    prescount++;
+                }
             }
+            //foreach(DataGridViewRow dr in Dgv.Rows)
+            //{
+            //    if (dr.Cells["Status"].ToString() == "Present")
+            //    {
+            //        prescount++;
+            //        dr.Cells["Status"].Style.ForeColor = Color.Black;
+            //    }
+            //    else if (dr.Cells["Status"].ToString() == "Absent")
+            //    {
+            //        abscount++;
+            //        dr.Cells["Status"].Style.ForeColor = Color.Red;
+            //    }
+            //}
             No_of_candidates_ViewText.Text = table.Rows.Count.ToString();
             No_of_Present_ViewText.Text = prescount.ToString();
             No_of_Absent_ViewText.Text = abscount.ToString();

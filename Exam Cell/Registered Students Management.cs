@@ -166,6 +166,7 @@ namespace Exam_Cell
             {
                 Secure_tools_enabled();
                 Branch_ComboFill();
+                Semester_combobox.SelectedIndex = 0;
                 Series_radiobtn.Checked = false;
                 AllotUniversty_radiobtn.Checked = false;
                 AllotSeries_radiobtn.Checked = false;

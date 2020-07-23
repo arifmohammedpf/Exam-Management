@@ -31,6 +31,7 @@ namespace Exam_Cell
             DateComboboxFill();
             RoomNoComboboxFill();
             Session_combobox.SelectedIndex = 0;
+            Dgv.DataSource = null;
 
         }
 
@@ -40,6 +41,7 @@ namespace Exam_Cell
             DateComboboxFill();
             RoomNoComboboxFill();
             Session_combobox.SelectedIndex = 0;
+            Dgv.DataSource = null;
         }
 
         void DateComboboxFill()
@@ -135,19 +137,16 @@ namespace Exam_Cell
         {
             if (Dgv.Rows.Count != 0)
             {                
-                SqlCommand command = new SqlCommand("select * from Absentees where Date=@Date and Session=@Session and Room_No=@Room_No ", con.ActiveCon());
+                SqlCommand command = new SqlCommand("Select Count(*) from Absentees where Date=@Date and Session=@Session and Room_No=@Room_No ", con.ActiveCon());
                 command.Parameters.AddWithValue("@Date", Date_combobox.Text);
                 command.Parameters.AddWithValue("@Session", Session_combobox.Text);
                 command.Parameters.AddWithValue("@Room_No", Room_combobox.Text);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-                DataTable checkdt = new DataTable();
-                adapter.Fill(checkdt);
-                if (checkdt.Rows.Count == 0)
+                int checkdt = (int)command.ExecuteScalar();
+                if (checkdt== 0)
                 {
                     foreach (DataGridViewRow row in Dgv.Rows)
                     {
-                        SqlCommand comm = new SqlCommand("insert into Absentees(Seat,Reg_no,Name,Status,Branch,Exam_Code,Course,Date,Session)Values(" + " Seat=@Seat,Reg_no=@Reg_no,Name=@Name,Status=@Status,Branch=@Branch,Exam_Code=@Exam_Code,Course=@Course,Date=@Date,Session=@Session", con.ActiveCon());
-                            comm.Parameters.AddWithValue("@Seat", row.Cells["Seat"].Value);
+                        SqlCommand comm = new SqlCommand("insert into Absentees(Reg_no,Name,Status,Branch,Exam_Code,Course,Date,Session,Room_No)Values(" + " @Reg_no,@Name,@Status,@Branch,@Exam_Code,@Course,@Date,@Session,@Room_No)", con.ActiveCon());
                             comm.Parameters.AddWithValue("@Reg_no", row.Cells["Reg_no"].Value);
                             comm.Parameters.AddWithValue("@Name", row.Cells["Name"].Value);
                             comm.Parameters.AddWithValue("@Status", row.Cells["Status"].Value);
@@ -159,7 +158,8 @@ namespace Exam_Cell
                             comm.Parameters.AddWithValue("@Course", row.Cells["Course"].Value);
                             comm.Parameters.AddWithValue("@Date", Date_combobox.Text);
                             comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
-                            comm.ExecuteNonQuery();                      
+                            comm.Parameters.AddWithValue("@Room_No", Room_combobox.Text);
+                            comm.ExecuteNonQuery();
                     }
                     MessageBox.Show("Insert Complete", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -167,19 +167,13 @@ namespace Exam_Cell
                 {
                     foreach(DataGridViewRow row in Dgv.Rows)
                     {
-                        SqlCommand comm = new SqlCommand("update Absentees where Seat=@Seat,Reg_no=@Reg_no,Name=@Name,Status=@Status,Branch=@Branch,Exam_Code=@Exam_Code,Course=@Course,Date=@Date,Session=@Session", con.ActiveCon());
-                        comm.Parameters.AddWithValue("@Seat", row.Cells["Seat"].Value);
+                        SqlCommand comm = new SqlCommand("update Absentees Set Status=@Status where Reg_no=@Reg_no and Name=@Name and Date=@Date and Session=@Session and Room_No=@Room_No", con.ActiveCon());
                         comm.Parameters.AddWithValue("@Reg_no", row.Cells["Reg_no"].Value);
                         comm.Parameters.AddWithValue("@Name", row.Cells["Name"].Value);
-                        comm.Parameters.AddWithValue("@Status", row.Cells["Status"].Value);
-                        if (Unv_radio.Checked)
-                            comm.Parameters.AddWithValue("@Branch", row.Cells["Branch"].Value);
-                        else
-                            comm.Parameters.AddWithValue("@Branch", row.Cells["Class"].Value);
-                        comm.Parameters.AddWithValue("@Exam_Code", row.Cells["Exam_Code"].Value);
-                        comm.Parameters.AddWithValue("@Course", row.Cells["Course"].Value);
+                        comm.Parameters.AddWithValue("@Status", row.Cells["Status"].Value);                        
                         comm.Parameters.AddWithValue("@Date", Date_combobox.Text);
                         comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
+                        comm.Parameters.AddWithValue("@Room_No", Room_combobox.Text);
                         comm.ExecuteNonQuery();
                     }
                     MessageBox.Show("Update Complete", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

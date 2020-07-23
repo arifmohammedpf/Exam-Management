@@ -39,8 +39,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.SubjectName_Combobox = new System.Windows.Forms.ComboBox();
             this.No_of_Present_ViewText = new System.Windows.Forms.TextBox();
             this.No_of_Absent_ViewText = new System.Windows.Forms.TextBox();
             this.Examination_Textbox = new System.Windows.Forms.TextBox();
@@ -187,28 +185,6 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Exam Code";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(15, 206);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(126, 24);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Subject Name";
-            // 
-            // SubjectName_Combobox
-            // 
-            this.SubjectName_Combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.SubjectName_Combobox.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SubjectName_Combobox.FormattingEnabled = true;
-            this.SubjectName_Combobox.Location = new System.Drawing.Point(153, 199);
-            this.SubjectName_Combobox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.SubjectName_Combobox.Name = "SubjectName_Combobox";
-            this.SubjectName_Combobox.Size = new System.Drawing.Size(320, 32);
-            this.SubjectName_Combobox.TabIndex = 1;
-            // 
             // No_of_Present_ViewText
             // 
             this.No_of_Present_ViewText.Enabled = false;
@@ -288,7 +264,7 @@
             // Search_btn
             // 
             this.Search_btn.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Search_btn.Location = new System.Drawing.Point(153, 237);
+            this.Search_btn.Location = new System.Drawing.Point(153, 196);
             this.Search_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Search_btn.Name = "Search_btn";
             this.Search_btn.Size = new System.Drawing.Size(91, 37);
@@ -340,7 +316,6 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.Eamination_Label);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -351,7 +326,6 @@
             this.Controls.Add(this.No_of_Absent_ViewText);
             this.Controls.Add(this.No_of_Present_ViewText);
             this.Controls.Add(this.No_of_candidates_ViewText);
-            this.Controls.Add(this.SubjectName_Combobox);
             this.Controls.Add(this.ExamCode_combobox);
             this.Controls.Add(this.Branch_combobox);
             this.Controls.Add(this.Session_combobox);
@@ -382,8 +356,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox SubjectName_Combobox;
         private System.Windows.Forms.TextBox No_of_Present_ViewText;
         private System.Windows.Forms.TextBox No_of_Absent_ViewText;
         private System.Windows.Forms.TextBox Examination_Textbox;

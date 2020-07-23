@@ -94,6 +94,7 @@
             this.Display_examtype_textbox = new System.Windows.Forms.TextBox();
             this.Unv_radio = new System.Windows.Forms.RadioButton();
             this.Series_radio = new System.Windows.Forms.RadioButton();
+            this.SearchDGVFill = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Alloted_dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -112,6 +113,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.SearchDGVFill);
             this.panel1.Controls.Add(this.Alloted_dgv);
             this.panel1.Controls.Add(this.MultiAllotment_button);
             this.panel1.Controls.Add(this.SingleAllotment_button);
@@ -204,7 +206,7 @@
             this.Session_combobox.Location = new System.Drawing.Point(97, 63);
             this.Session_combobox.Margin = new System.Windows.Forms.Padding(4);
             this.Session_combobox.Name = "Session_combobox";
-            this.Session_combobox.Size = new System.Drawing.Size(300, 32);
+            this.Session_combobox.Size = new System.Drawing.Size(221, 32);
             this.Session_combobox.TabIndex = 1;
             this.Session_combobox.SelectedIndexChanged += new System.EventHandler(this.Session_combobox_SelectedIndexChanged);
             // 
@@ -849,6 +851,16 @@
             this.Series_radio.UseVisualStyleBackColor = true;
             this.Series_radio.CheckedChanged += new System.EventHandler(this.Series_radio_CheckedChanged);
             // 
+            // SearchDGVFill
+            // 
+            this.SearchDGVFill.Location = new System.Drawing.Point(326, 63);
+            this.SearchDGVFill.Name = "SearchDGVFill";
+            this.SearchDGVFill.Size = new System.Drawing.Size(91, 32);
+            this.SearchDGVFill.TabIndex = 6;
+            this.SearchDGVFill.Text = "Search";
+            this.SearchDGVFill.UseVisualStyleBackColor = true;
+            this.SearchDGVFill.Click += new System.EventHandler(this.SearchDGVFill_Click);
+            // 
             // Allotment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -965,5 +977,6 @@
         private System.Windows.Forms.TextBox Display_examtype_textbox;
         private System.Windows.Forms.RadioButton Series_radio;
         private System.Windows.Forms.RadioButton Unv_radio;
+        private System.Windows.Forms.Button SearchDGVFill;
     }
 }

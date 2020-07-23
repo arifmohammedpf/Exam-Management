@@ -787,7 +787,7 @@ namespace Exam_Cell
         {
             if(UnvCheckbox.Checked)
             {
-                studentsdgvfilter();
+                Studentsdgvfilter();
             }
         }
 
@@ -795,11 +795,12 @@ namespace Exam_Cell
         {
             if (UnvCheckbox.Checked)
             {
-                studentsdgvfilter();
+                Studentsdgvfilter();
             }
         }
-         void studentsdgvfilter()
+         void Studentsdgvfilter()
          {
+            headerchkbox.Checked = false;
             string branchvalue = UnvBranchCombobox.Text;
             string yoavalue = YOACombobox.Text;
 

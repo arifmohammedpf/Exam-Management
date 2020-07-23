@@ -599,7 +599,7 @@ namespace Exam_Cell
                                 command.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value.ToString());
                                 command.ExecuteNonQuery();
                                 //will also delete from Class
-                                SqlCommand command2 = new SqlCommand("Delete Class Reg_No=@Reg_no", con.ActiveCon());                   
+                                SqlCommand command2 = new SqlCommand("Delete Class where Reg_No=@Reg_no", con.ActiveCon());                   
                                 command2.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
                                 command2.ExecuteNonQuery();
                             }
