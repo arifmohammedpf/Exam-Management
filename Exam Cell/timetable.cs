@@ -55,23 +55,40 @@ namespace Exam_Cell
         {
 
         }
-
-
+        BindingSource source = new BindingSource();
+        BindingSource source2 = new BindingSource();
+        void TimetableFill()
+        {
+            headerchkbox.Checked = false;
+            SqlCommand command = new SqlCommand("select * from Timetable order by Date,Session", con.ActiveCon());
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table_Time = new DataTable();
+            adapter.Fill(table_Time);
+            source.DataSource = null;
+            source.DataSource = table_Time;
+            Timetableview_dgv.DataSource = source;
+        }
+        void CourseFill()
+        {
+            headerchkbox.Checked = false;
+            SqlCommand command = new SqlCommand("select * from Scheme order by Branch,Semester", con.ActiveCon());
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table_course = new DataTable();
+            adapter.Fill(table_course);
+            source2.DataSource = null;
+            source2.DataSource = table_course;
+            Course_Select_dgv.DataSource = source2;
+        }
         CheckBox headerchkbox = new CheckBox();
         private void formtimetable_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'exam_CellTimeTableNew.Timetable' table. You can move, or remove it, as needed.
-            this.timetableTableAdapter1.Fill(this.exam_CellTimeTableNew.Timetable);
-            
-            // TODO: This line of code loads data into the 'exam_CellScheme.Scheme' table. You can move, or remove it, as needed.
-            this.schemeTableAdapter.Fill(this.exam_CellScheme.Scheme);
-            try
-            {
+        {            
+            //try
+            //{
                 BranchComboboxFill();
                 SemesterComboboxFill();
-                
-                Course_Select_dgv.DataSource = schemeBindingSource;
-                Timetableview_dgv.DataSource = timetableBindingSource1;
+
+                CourseFill();
+                TimetableFill();
                 Course_Select_dgv.RowsDefaultCellStyle.ForeColor = Color.Black;
                 Timetableview_dgv.RowsDefaultCellStyle.ForeColor = Color.Black;
 
@@ -90,8 +107,8 @@ namespace Exam_Cell
 
                 AddHeaderchckbox(); //header checkbox added to candidate dgv
                 headerchkbox.MouseClick += new MouseEventHandler(Headerchckbox_Mouseclick);
-            }
-            catch (Exception) { MessageBox.Show("Try Again", "Form Load", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            //}
+            //catch (Exception) { MessageBox.Show("Try Again", "Form Load", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         void AddHeaderchckbox()
@@ -168,7 +185,7 @@ namespace Exam_Cell
                 top[0] = "-Select-";
                 dt.Rows.InsertAt(top, 0);
                 dt.Load(reader);
-
+                Branch_combobox.DisplayMember = "Branch";
                 Branch_combobox.ValueMember = "Branch";
                 Branch_combobox.DataSource = dt;
 
@@ -193,7 +210,7 @@ namespace Exam_Cell
                 top[0] = "-Select-";
                 dt.Rows.InsertAt(top, 0);
                 dt.Load(reader);
-
+                Semester_combobox.DisplayMember = "Semester";
                 Semester_combobox.ValueMember = "Semester";
                 Semester_combobox.DataSource = dt;
             }
@@ -201,7 +218,7 @@ namespace Exam_Cell
         }
 
 
-
+        int clearcount = 0;
         private void Add_btn_Click(object sender, EventArgs e)
         {
             try
@@ -215,7 +232,6 @@ namespace Exam_Cell
                         if (checkboxselect)
                         {
                             flag = 1;
-                           
                             SqlCommand comm = new SqlCommand("Insert into Timetable(Date,Session,Exam_Code,Course,Semester,Branch)Values(" + "@Date,@Session,@Exam_Code,@Course,@Semester,@Branch)", con.ActiveCon());
                             comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
                             comm.Parameters.AddWithValue("@Session", Session_combobox.SelectedItem.ToString());
@@ -229,14 +245,11 @@ namespace Exam_Cell
                     if (flag == 1)
                     {
                         Undo_backup_function(flag);
-                        MessageBox.Show("Success", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Session_combobox.SelectedIndex = 0;
-                        //Course_Select_dgv.Update();
-                        //Course_Select_dgv.Refresh();
-                        //Timetableview_dgv.Update();
-                        //Timetableview_dgv.Refresh();
-                        this.timetableTableAdapter1.Fill(this.exam_CellTimeTableNew.Timetable);
-                        this.schemeTableAdapter.Fill(this.exam_CellScheme.Scheme);
+                        Examcode_box.Clear();
+                        CourseFill();
+                        TimetableFill();
+                        MessageBox.Show("Success", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else MessageBox.Show("No Course Selected", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -251,10 +264,8 @@ namespace Exam_Cell
                 //Course_Select_dgv.Refresh();
                 //Timetableview_dgv.Update();
                 //Timetableview_dgv.Refresh();
-                this.timetableTableAdapter1.Fill(this.exam_CellTimeTableNew.Timetable);
-                this.schemeTableAdapter.Fill(this.exam_CellScheme.Scheme);
-
-
+                CourseFill();
+                TimetableFill();
             }
         }
 
@@ -291,7 +302,7 @@ namespace Exam_Cell
                     if (filter.Length > 0) filter += " And ";
                     filter += string.Format("Sub_Code Like '%{0}%'", examcode);
                 }
-                schemeBindingSource.Filter=filter ;
+                source2.Filter=filter ;
             }
             catch (Exception) { MessageBox.Show("Try Again", "coursedgvfilter", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
@@ -339,7 +350,7 @@ namespace Exam_Cell
             catch (Exception) { MessageBox.Show("Try Again", "Branchwise_radio_CheckedChanged", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
-        void timetablefilter()
+        void Timetablefilter()
         {
             try
             {
@@ -358,21 +369,21 @@ namespace Exam_Cell
                     if (filter.Length > 0) filter += " And ";
                     filter += string.Format("Exam_Code Like '%{0}%'", examcode);
                 }
-                timetableBindingSource1.Filter = filter;
+                source.Filter = filter;
             }
             catch (Exception) { MessageBox.Show("Try Again", "timetablefilter", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         
 
-            private void SheduledBranch_SelectedIndexChanged(object sender, EventArgs e)
+        private void SheduledBranch_SelectedIndexChanged(object sender, EventArgs e)
         {
-            timetablefilter();
+            Timetablefilter();
         }
 
         private void SheduledExamcode_TextChanged(object sender, EventArgs e)
         {
-            timetablefilter();
+            Timetablefilter();
         }
         void SheduledBranchComboboxFill()
         {
@@ -388,7 +399,7 @@ namespace Exam_Cell
                 top[0] = "-Select-";
                 dt.Rows.InsertAt(top, 0);
                 dt.Load(reader);
-
+                SheduledBranch.DisplayMember = "Branch";
                 SheduledBranch.ValueMember = "Branch";
                 SheduledBranch.DataSource = dt;
             }
@@ -412,7 +423,7 @@ namespace Exam_Cell
                 top[0] = "-Select-";
                 dt.Rows.InsertAt(top, 0);
                 dt.Load(reader);
-
+                Datepick_box.DisplayMember = "Date";
                 Datepick_box.ValueMember = "Date";
                 Datepick_box.DataSource = dt;
             }
@@ -427,9 +438,9 @@ namespace Exam_Cell
             try
             {
                 if (Datepick_box.Text != "-Select-")
-                    timetableBindingSource1.Filter = string.Format("Date Like '%{0}%'", Datepick_box.Text);
+                    source.Filter = string.Format("Date Like '%{0}%'", Datepick_box.Text);
                 else
-                    timetableBindingSource1.RemoveFilter();
+                    source.RemoveFilter();
 
             }
             catch (Exception)
@@ -443,19 +454,28 @@ namespace Exam_Cell
             int i,count;
             if (f == 1)
             {
-                foreach (DataGridViewRow dr in Course_Select_dgv.Rows)
+                if(clearcount==0)
                 {
-                    bool checkboxselect = Convert.ToBoolean(dr.Cells["checkBoxColumn"].Value);
-                    if (checkboxselect)
+                    foreach (DataGridViewRow dr in Course_Select_dgv.Rows)
                     {
-                        Undo_backup.date.Add(DateTimePicker.Text);
-                        Undo_backup.session.Add(Session_combobox.SelectedItem.ToString());
-                        Undo_backup.examcode.Add(dr.Cells["Sub_Code"].Value.ToString());
-                        Undo_backup.semester.Add(dr.Cells["Semester"].Value.ToString());
-                        Undo_backup.branch.Add(dr.Cells["Branch"].Value.ToString());                                            
+                        bool checkboxselect = Convert.ToBoolean(dr.Cells["checkBoxColumn"].Value);
+                        if (checkboxselect)
+                        {
+                            Undo_backup.date.Add(DateTimePicker.Text);
+                            Undo_backup.session.Add(Session_combobox.SelectedItem.ToString());
+                            Undo_backup.examcode.Add(dr.Cells["Sub_Code"].Value.ToString());
+                            Undo_backup.semester.Add(dr.Cells["Semester"].Value.ToString());
+                            Undo_backup.branch.Add(dr.Cells["Branch"].Value.ToString());
+                        }
                     }
+                    clearcount++;
                 }
-               
+                else
+                {
+                    Clear_list();
+                    clearcount = 0;
+                    Undo_backup_function(1);
+                }
             }
             else if(Undo_backup.session.Count!=0)
             {
@@ -475,8 +495,8 @@ namespace Exam_Cell
                     }
                     Clear_list();
                     MessageBox.Show("Undo Successfull");
-                    this.timetableTableAdapter1.Fill(this.exam_CellTimeTableNew.Timetable);
-                    this.schemeTableAdapter.Fill(this.exam_CellScheme.Scheme);
+                    CourseFill();
+                    TimetableFill();
                 }
                 else { }
                 

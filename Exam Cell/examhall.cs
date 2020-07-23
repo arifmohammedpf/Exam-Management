@@ -19,14 +19,19 @@ namespace Exam_Cell
             InitializeComponent();
         }
 
-
+        void RoomsdgvFill()
+        {
+            headerchkbox.Checked = false;
+            SqlCommand command = new SqlCommand("select * from Rooms order by Priority", con.ActiveCon());
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable table_scheme = new DataTable();
+            adapter.Fill(table_scheme);
+            Rooms_dgv.DataSource = table_scheme;
+        }
         CheckBox headerchkbox = new CheckBox();
         private void examhall_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'exam_Cell_Rooms.Rooms' table. You can move, or remove it, as needed.
-            this.roomsTableAdapter.Fill(this.exam_Cell_Rooms.Rooms);
-            
-            Rooms_dgv.DataSource = roomsBindingSource;
+            RoomsdgvFill();
             Rooms_dgv.RowsDefaultCellStyle.ForeColor = Color.Black;
             FillCapacity();
             Priority_combobox.SelectedIndex = 0;
@@ -183,7 +188,7 @@ namespace Exam_Cell
             Priority_combobox.SelectedIndex = 0;
             A_series_textbox.ResetText();
             B_series_textbox.ResetText();
-            this.roomsTableAdapter.Fill(this.exam_Cell_Rooms.Rooms);
+            RoomsdgvFill();
             FillCapacity();
         }
         private void TotalRoom_textbox_TextChanged(object sender, EventArgs e)
@@ -257,12 +262,13 @@ namespace Exam_Cell
                         SqlCommand comm = new SqlCommand("Update Rooms set Priority=@Priority where Room_No=@Room_No", con.ActiveCon());
                         comm.Parameters.AddWithValue("@Room_No", dr.Cells["Room_No"].Value);
                         comm.Parameters.AddWithValue("@Priority", Priority_combobox.SelectedItem);
-                        comm.ExecuteNonQuery();
-                        
+                        comm.ExecuteNonQuery();                        
                     }
                 }
                 if(f==0)
                     MessageBox.Show("No Selection made", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show("Selected Priority Updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Cleardata();
             }
             else
@@ -287,7 +293,7 @@ namespace Exam_Cell
                 foreach (DataGridViewRow row in Rooms_dgv.SelectedRows)
                 {
                     RoomNo_textbox.Text = row.Cells["Room_No"].Value.ToString();
-                    Priority_combobox.Text = row.Cells["Priority"].Value.ToString();
+                    Priority_combobox.SelectedItem = row.Cells["Priority"].Value.ToString();
                     A_series_textbox.Text = row.Cells["A_Series"].Value.ToString();
                     B_series_textbox.Text = row.Cells["B_Series"].Value.ToString();
                     break;

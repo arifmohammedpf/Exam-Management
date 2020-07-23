@@ -124,7 +124,7 @@
             this.DeleteAll_btn.Name = "DeleteAll_btn";
             this.DeleteAll_btn.Size = new System.Drawing.Size(132, 38);
             this.DeleteAll_btn.TabIndex = 2;
-            this.DeleteAll_btn.Text = "CLEANUP";
+            this.DeleteAll_btn.Text = "Delete All";
             this.DeleteAll_btn.UseVisualStyleBackColor = false;
             this.DeleteAll_btn.Click += new System.EventHandler(this.DeleteAll_btn_Click);
             // 

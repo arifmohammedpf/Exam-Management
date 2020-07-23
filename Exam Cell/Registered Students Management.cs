@@ -118,7 +118,7 @@ namespace Exam_Cell
         BindingSource SeriesAllotbinding = new BindingSource();        
         void University_fill()
         {
-            SqlCommand command = new SqlCommand("select * from Registered_candidates order by Reg_no", con.ActiveCon());
+            SqlCommand command = new SqlCommand("select * from Registered_candidates order by Branch,Reg_no", con.ActiveCon());
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable Unv_students = new DataTable();
             adapter.Fill(Unv_students);
@@ -140,7 +140,7 @@ namespace Exam_Cell
         }
         void UniversityAlloted_fill()
         {
-            SqlCommand command = new SqlCommand("select * from University_Alloted order by Reg_No", con.ActiveCon());
+            SqlCommand command = new SqlCommand("select * from University_Alloted order by Date,Room_No,Reg_no", con.ActiveCon());
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable unv_allot = new DataTable();
             adapter.Fill(unv_allot);
@@ -151,7 +151,7 @@ namespace Exam_Cell
         }
         void SeriesAlloted_fill()
         {
-            SqlCommand command = new SqlCommand("select * from Series_Alloted order by Course, Class, Name", con.ActiveCon());
+            SqlCommand command = new SqlCommand("select * from Series_Alloted order by Date, Room_No, Name", con.ActiveCon());
             SqlDataAdapter adapter = new SqlDataAdapter(command);
             DataTable srs_allot = new DataTable();
             adapter.Fill(srs_allot);
@@ -166,11 +166,11 @@ namespace Exam_Cell
             {
                 Secure_tools_enabled();
                 Branch_ComboFill();
+                Semester_combobox.SelectedIndex = 0;
                 Series_radiobtn.Checked = false;
                 AllotUniversty_radiobtn.Checked = false;
                 AllotSeries_radiobtn.Checked = false;
                 University_fill();
-                Clear_function();
             }
         }
 
@@ -179,13 +179,12 @@ namespace Exam_Cell
             if(Series_radiobtn.Checked)
             {
                 Secure_tools_enabled();
-                Branch_ComboFill();
                 Univrsty_radiobtn.Checked = false;
                 AllotUniversty_radiobtn.Checked = false;
                 AllotSeries_radiobtn.Checked = false;
                 Series_fill();
-                Clear_function();
                 Branch_combobox.Enabled = false;
+                Semester_combobox.Enabled = false;
             }
         }
 
@@ -270,7 +269,6 @@ namespace Exam_Cell
                 Series_radiobtn.Checked = false;
                 AllotSeries_radiobtn.Checked = false;
                 UniversityAlloted_fill();
-                Clear_function();
                 Branch_combobox.Enabled = false;
                 Semester_combobox.Enabled = false;
             }
@@ -281,12 +279,10 @@ namespace Exam_Cell
             if(AllotSeries_radiobtn.Checked)
             {
                 Secure_tools_enabled();
-                Branch_ComboFill();
                 Univrsty_radiobtn.Checked = false;
                 Series_radiobtn.Checked = false;
                 AllotUniversty_radiobtn.Checked = false;
                 SeriesAlloted_fill();
-                Clear_function();
                 Branch_combobox.Enabled = false;
                 Semester_combobox.Enabled = false;
             }
@@ -381,14 +377,6 @@ namespace Exam_Cell
         }
         void Clear_function()
         {
-            if (Series_radiobtn.Checked)
-                Seriesbinding.RemoveFilter();
-            if (Univrsty_radiobtn.Checked)
-                Universitybinding.RemoveFilter();
-            if (AllotSeries_radiobtn.Checked)
-                SeriesAllotbinding.RemoveFilter();
-            if (AllotUniversty_radiobtn.Checked)
-                UniversityAllotbinding.RemoveFilter();
             Branch_combobox.SelectedIndex = 0;
             Semester_combobox.SelectedIndex = 0;
             Regno_textbox.Clear();
