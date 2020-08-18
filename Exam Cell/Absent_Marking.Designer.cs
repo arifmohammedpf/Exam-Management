@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Absent_Marking));
             this.Unv_radio = new System.Windows.Forms.RadioButton();
             this.Series_radio = new System.Windows.Forms.RadioButton();
             this.Panel = new System.Windows.Forms.Panel();
@@ -232,6 +233,7 @@
             this.Controls.Add(this.Series_radio);
             this.Controls.Add(this.Unv_radio);
             this.Controls.Add(this.Panel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Absent_Marking";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

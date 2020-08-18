@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registered_Students_Management));
             this.Registered_dgv = new System.Windows.Forms.DataGridView();
             this.Series_radiobtn = new System.Windows.Forms.RadioButton();
             this.Univrsty_radiobtn = new System.Windows.Forms.RadioButton();
@@ -259,6 +260,7 @@
             this.Controls.Add(this.DeleteAll_btn);
             this.Controls.Add(this.Delete_btn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Registered_Students_Management";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registered_Students_Management";

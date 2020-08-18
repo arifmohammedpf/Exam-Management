@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Absent_Statement));
             this.Date_combobox = new System.Windows.Forms.ComboBox();
             this.Session_combobox = new System.Windows.Forms.ComboBox();
             this.Branch_combobox = new System.Windows.Forms.ComboBox();
@@ -331,6 +332,7 @@
             this.Controls.Add(this.Session_combobox);
             this.Controls.Add(this.Date_combobox);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Absent_Statement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

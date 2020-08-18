@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.SearchDGVFill = new System.Windows.Forms.Button();
             this.Alloted_dgv = new System.Windows.Forms.DataGridView();
             this.MultiAllotment_button = new System.Windows.Forms.Button();
             this.SingleAllotment_button = new System.Windows.Forms.Button();
@@ -94,7 +95,6 @@
             this.Display_examtype_textbox = new System.Windows.Forms.TextBox();
             this.Unv_radio = new System.Windows.Forms.RadioButton();
             this.Series_radio = new System.Windows.Forms.RadioButton();
-            this.SearchDGVFill = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Alloted_dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -128,6 +128,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(664, 360);
             this.panel1.TabIndex = 1;
+            // 
+            // SearchDGVFill
+            // 
+            this.SearchDGVFill.Location = new System.Drawing.Point(326, 63);
+            this.SearchDGVFill.Name = "SearchDGVFill";
+            this.SearchDGVFill.Size = new System.Drawing.Size(91, 32);
+            this.SearchDGVFill.TabIndex = 6;
+            this.SearchDGVFill.Text = "Search";
+            this.SearchDGVFill.UseVisualStyleBackColor = true;
+            this.SearchDGVFill.Click += new System.EventHandler(this.SearchDGVFill_Click);
             // 
             // Alloted_dgv
             // 
@@ -251,6 +261,7 @@
             // 
             // NoOfStudents_Room
             // 
+            this.NoOfStudents_Room.Enabled = false;
             this.NoOfStudents_Room.Location = new System.Drawing.Point(424, 100);
             this.NoOfStudents_Room.Multiline = true;
             this.NoOfStudents_Room.Name = "NoOfStudents_Room";
@@ -386,6 +397,7 @@
             // 
             // NoOfStudents_Brief
             // 
+            this.NoOfStudents_Brief.Enabled = false;
             this.NoOfStudents_Brief.Location = new System.Drawing.Point(325, 214);
             this.NoOfStudents_Brief.Multiline = true;
             this.NoOfStudents_Brief.Name = "NoOfStudents_Brief";
@@ -850,16 +862,6 @@
             this.Series_radio.Text = "Series";
             this.Series_radio.UseVisualStyleBackColor = true;
             this.Series_radio.CheckedChanged += new System.EventHandler(this.Series_radio_CheckedChanged);
-            // 
-            // SearchDGVFill
-            // 
-            this.SearchDGVFill.Location = new System.Drawing.Point(326, 63);
-            this.SearchDGVFill.Name = "SearchDGVFill";
-            this.SearchDGVFill.Size = new System.Drawing.Size(91, 32);
-            this.SearchDGVFill.TabIndex = 6;
-            this.SearchDGVFill.Text = "Search";
-            this.SearchDGVFill.UseVisualStyleBackColor = true;
-            this.SearchDGVFill.Click += new System.EventHandler(this.SearchDGVFill_Click);
             // 
             // Allotment
             // 

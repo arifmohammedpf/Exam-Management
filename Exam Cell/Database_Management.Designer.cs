@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Database_Management));
             this.AddStudent_btn = new System.Windows.Forms.Button();
             this.Student_dgv = new System.Windows.Forms.DataGridView();
             this.YOA_textbox = new System.Windows.Forms.TextBox();
@@ -1008,6 +1009,7 @@
             this.Controls.Add(this.DefaultScheme_Panel);
             this.Controls.Add(this.RadioButton_panel);
             this.Controls.Add(this.Class_Managmnt_panel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Database_Management";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Database Management";

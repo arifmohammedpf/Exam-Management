@@ -464,7 +464,7 @@ namespace Exam_Cell
                         }
                         else if (Series_radio.Checked)
                         {
-                            SqlCommand comm = new SqlCommand("Select Room_No,Seat from Series_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
+                            SqlCommand comm = new SqlCommand("Select Room_No,Seat,Reg_no from Series_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
                             comm.Parameters.AddWithValue("@Room_No", fromroom);
                             SqlDataAdapter adapter = new SqlDataAdapter(comm);
                             DataTable dataTable = new DataTable();
@@ -727,15 +727,17 @@ namespace Exam_Cell
                                         }
 
                                         // rows
+                                        int rc = 0;
                                         for (int i = 0; i < dt.Rows.Count; i++)
                                         {
                                             if (dt.Rows[i]["Room_No"].ToString() == checkroom)
                                             {
-                                                worksheet.Cells[i + 6, 1].Value = i + 1;    //Sl.No Filling
+                                                worksheet.Cells[rc + 6, 1].Value = rc + 1;    //Sl.No Filling
                                                 for (int j = 0; j < dt.Columns.Count; j++)
                                                 {
-                                                    worksheet.Cells[i + 6, j + 2].Value = dt.Rows[i][j];
+                                                    worksheet.Cells[rc + 6, j + 2].Value = dt.Rows[i][j];
                                                 }
+                                                rc++;
                                             }
 
                                         }
@@ -1002,8 +1004,10 @@ namespace Exam_Cell
                                                 for(var i=0;i<coursedt.Rows.Count;i++)
                                                 {
                                                     if (j == 4)
+                                                    {
                                                         k++;
                                                         j = 1;
+                                                    }
                                                     worksheet.Cells[k , j].Value = coursedt.Rows[i][0] + " - " + coursedt.Rows[i][1] + " - " + coursedt.Rows[i][2];
                                                     j++;
                                                 }
@@ -1012,6 +1016,7 @@ namespace Exam_Cell
                                                     range.Style.Font.Name = "Arial";
                                                     range.Style.Font.Size = 14;
                                                     range.Style.Font.Bold = true;
+                                                    range.AutoFitColumns();
                                                 }
                                             }
                                             else
@@ -1026,15 +1031,15 @@ namespace Exam_Cell
                                                 int c = 6 ;
                                                 foreach(DataRow dataRow in coursedata.Rows)
                                                 {
-                                                    worksheet.Cells[c,1].Value = dataRow["Course"].ToString();
-                                                    c++;
+                                                    worksheet.Cells[c,1].Value = dataRow["Course"].ToString();                                                    
                                                     using (var range = worksheet.Cells[c,1])
                                                     {
                                                         range.Style.Font.Name = "Arial";
                                                         range.Style.Font.Size = 14;
                                                         range.Style.Font.Bold = true;
                                                     }
-                                                    SqlCommand coursecmd = new SqlCommand("SELECT Reg_no,Room_No,Seat from University_Alloted Where Date=@Date and Session=@Session and Course=@Course order by Reg_no", con.ActiveCon());
+                                                    c++;
+                                                    SqlCommand coursecmd = new SqlCommand("SELECT Reg_no,Room_No,Seat from Series_Alloted Where Date=@Date and Session=@Session and Course=@Course order by Reg_no", con.ActiveCon());
                                                     coursecmd.Parameters.AddWithValue("@Date", dr["Date"].ToString());
                                                     coursecmd.Parameters.AddWithValue("@Session", session);
                                                     coursecommand.Parameters.AddWithValue("@Course", dataRow["Course"].ToString());
