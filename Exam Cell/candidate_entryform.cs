@@ -31,88 +31,67 @@ namespace Exam_Cell
         
         // Main Form Open
         private void formti_Load(object sender, EventArgs e)
-        {            
-            try
-            {
-                this.WindowState = FormWindowState.Normal;
-                UnvBranchComboboxFill();
-                YoaComboboxFill();
-                UnvBranchCombobox.Enabled = false;
-                YOACombobox.Enabled = false;
-                SubjectDetails_groupbox.Enabled = false;
-                //Fill subject details box
-                Schemecomboboxfill();
-                Branchsecondcomboboxfill();
-                Semestercomboboxfill();
+        {
+            this.WindowState = FormWindowState.Normal;
+            UnvBranchComboboxFill();
+            YoaComboboxFill();
+            UnvBranchCombobox.Enabled = false;
+            YOACombobox.Enabled = false;
+            SubjectDetails_groupbox.Enabled = false;
+            //Fill subject details box
+            Schemecomboboxfill();
+            Branchsecondcomboboxfill();
+            Semestercomboboxfill();
 
-                //somehow dgv font became white,so it has to be changed to black
-                Candidate_datagridview.RowsDefaultCellStyle.ForeColor = Color.Black;
-                Courses_dgv.RowsDefaultCellStyle.ForeColor = Color.Black;
-                Candidate_datagridview.Enabled = false;
-                Courses_dgv.Enabled = false;
+            //somehow dgv font became white,so it has to be changed to black
+            Candidate_datagridview.RowsDefaultCellStyle.ForeColor = Color.Black;
+            Courses_dgv.RowsDefaultCellStyle.ForeColor = Color.Black;
+            Candidate_datagridview.Enabled = false;
+            Courses_dgv.Enabled = false;
 
-                //give checkboxes to both dgv
-                //courses dgv
-                DataGridViewCheckBoxColumn chkbox = new DataGridViewCheckBoxColumn();
-                chkbox.HeaderText = "";
-                chkbox.Width = 30;
-                chkbox.Name = "checkBoxColumn";
-                Courses_dgv.Columns.Insert(0, chkbox);
-                //candidate dgv
-                DataGridViewCheckBoxColumn chkbox2 = new DataGridViewCheckBoxColumn();
-                chkbox2.HeaderText = "";
-                chkbox2.Width = 30;
-                chkbox2.Name = "checkBox2Column";
-                Candidate_datagridview.Columns.Insert(0, chkbox2);
+            //give checkboxes to both dgv
+            //courses dgv
+            DataGridViewCheckBoxColumn chkbox = new DataGridViewCheckBoxColumn();
+            chkbox.HeaderText = "";
+            chkbox.Width = 30;
+            chkbox.Name = "checkBoxColumn";
+            Courses_dgv.Columns.Insert(0, chkbox);
+            //candidate dgv
+            DataGridViewCheckBoxColumn chkbox2 = new DataGridViewCheckBoxColumn();
+            chkbox2.HeaderText = "";
+            chkbox2.Width = 30;
+            chkbox2.Name = "checkBox2Column";
+            Candidate_datagridview.Columns.Insert(0, chkbox2);
 
-                AddHeaderchckbox(); //header checkbox added to candidate dgv
-                headerchkbox.MouseClick += new MouseEventHandler(Headerchckbox_Mouseclick);                
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "form load", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-
+            AddHeaderchckbox(); //header checkbox added to candidate dgv
+            headerchkbox.MouseClick += new MouseEventHandler(Headerchckbox_Mouseclick);
         }
 
         //function definition
         void AddHeaderchckbox()
         {
-            try
-            {
-                //Locate Header Cell to place checkbox in correct position
-                Point HeaderCellLocation = this.Candidate_datagridview.GetCellDisplayRectangle(0, -1, true).Location;
-                //place headercheckbox to the location
-                headerchkbox.Location = new Point(HeaderCellLocation.X + 8, HeaderCellLocation.Y + 2);
-                headerchkbox.BackColor = Color.White;
-                headerchkbox.Size = new Size(18, 18);
-                //add checkbox into dgv
-                Candidate_datagridview.Controls.Add(headerchkbox);
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "AddHeaderchckbox", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            //Locate Header Cell to place checkbox in correct position
+            Point HeaderCellLocation = this.Candidate_datagridview.GetCellDisplayRectangle(0, -1, true).Location;
+            //place headercheckbox to the location
+            headerchkbox.Location = new Point(HeaderCellLocation.X + 8, HeaderCellLocation.Y + 2);
+            headerchkbox.BackColor = Color.White;
+            headerchkbox.Size = new Size(18, 18);
+            //add checkbox into dgv
+            Candidate_datagridview.Controls.Add(headerchkbox);
         }
 
         private void Headerchckbox_Mouseclick(object sender, MouseEventArgs e)
         {
-            try
-            {
-                Headerchckboxclick((CheckBox)sender);
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "Headerchckbox_Mouseclick", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            Headerchckboxclick((CheckBox)sender);
         }
 
         //headerchckbox click event
         private void Headerchckboxclick(CheckBox Hcheckbox)
         {
+            foreach (DataGridViewRow row in Candidate_datagridview.Rows)
+                ((DataGridViewCheckBoxCell)row.Cells["checkBox2Column"]).Value = Hcheckbox.Checked;
 
-            try
-            {
-                foreach (DataGridViewRow row in Candidate_datagridview.Rows)
-                    ((DataGridViewCheckBoxCell)row.Cells["checkBox2Column"]).Value = Hcheckbox.Checked;
-
-                Candidate_datagridview.RefreshEdit();
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "Headerchckboxclick", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-
-
-
+            Candidate_datagridview.RefreshEdit();
         }
 
         void UnvBranchComboboxFill()
@@ -150,33 +129,28 @@ namespace Exam_Cell
         //Scheme combobox Populate
         void Schemecomboboxfill()
         {
-            try
-            {
-                //Scheme_combobox.Items.Add(new KeyValuePair<string, string>("-Select-", "-Select-"));
-                //Scheme_combobox.Items.Add(new KeyValuePair<string, string>("Scheme_2015", "Scheme_2015"));
-                //Scheme_combobox.Items.Add(new KeyValuePair<string, string>("Scheme_2019", "Scheme_2019"));
+            //Scheme_combobox.Items.Add(new KeyValuePair<string, string>("-Select-", "-Select-"));
+            //Scheme_combobox.Items.Add(new KeyValuePair<string, string>("Scheme_2015", "Scheme_2015"));
+            //Scheme_combobox.Items.Add(new KeyValuePair<string, string>("Scheme_2019", "Scheme_2019"));
 
-                //Scheme_combobox.DisplayMember = "key";
-                //Scheme_combobox.ValueMember = "value";
+            //Scheme_combobox.DisplayMember = "key";
+            //Scheme_combobox.ValueMember = "value";
 
-                //Scheme_combobox.SelectedIndex = 0;
+            //Scheme_combobox.SelectedIndex = 0;
 
-                string command = string.Format("Select Distinct Scheme from Scheme");
-                SqlCommand sc = new SqlCommand(command, con.ActiveCon());
-                SqlDataReader reader;
-                reader = sc.ExecuteReader();
-                DataTable dt = new DataTable();
-                dt.Columns.Add("Scheme", typeof(string)); // since we create new datatable, we give column first //here Scheme is column name
-                DataRow top = dt.NewRow();
-                top[0] = "-Select-";
-                dt.Rows.InsertAt(top, 0);
-                dt.Load(reader);
+            string command = string.Format("Select Distinct Scheme from Scheme");
+            SqlCommand sc = new SqlCommand(command, con.ActiveCon());
+            SqlDataReader reader;
+            reader = sc.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Scheme", typeof(string)); // since we create new datatable, we give column first //here Scheme is column name
+            DataRow top = dt.NewRow();
+            top[0] = "-Select-";
+            dt.Rows.InsertAt(top, 0);
+            dt.Load(reader);
 
-                Scheme_combobox.ValueMember = "Scheme";  // Whats the use of this lineofcode? // scheme is column name
-                Scheme_combobox.DataSource = dt;
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "Schemecomboboxfill", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-
+            Scheme_combobox.ValueMember = "Scheme";  // Whats the use of this lineofcode? // scheme is column name
+            Scheme_combobox.DataSource = dt;
         }
 
         //Branch combobox Populate
@@ -195,27 +169,19 @@ namespace Exam_Cell
             //Branch_combobox.ValueMember = "value";
             //Branch_combobox.SelectedIndex = 0;
 
-            try
-            {
-               
-                string command = string.Format("Select Distinct Branch from Scheme");
-                SqlCommand sc = new SqlCommand(command, con.ActiveCon());
-                SqlDataReader reader;
-                reader = sc.ExecuteReader();
-                DataTable dt = new DataTable();
-                dt.Columns.Add("Branch", typeof(string));
-                DataRow top = dt.NewRow();
-                top[0] = "-Select-";
-                dt.Rows.InsertAt(top, 0);
-                dt.Load(reader);
-               
-                Branch_combobox.ValueMember = "Branch";
-                Branch_combobox.DataSource = dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Branchsecondcomboboxfill", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            string command = string.Format("Select Distinct Branch from Scheme");
+            SqlCommand sc = new SqlCommand(command, con.ActiveCon());
+            SqlDataReader reader;
+            reader = sc.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Branch", typeof(string));
+            DataRow top = dt.NewRow();
+            top[0] = "-Select-";
+            dt.Rows.InsertAt(top, 0);
+            dt.Load(reader);
+
+            Branch_combobox.ValueMember = "Branch";
+            Branch_combobox.DataSource = dt;
 
             // IF WE USE BELOW METHOD TO POPULATE COMBOBOX THEN HOW TO USE DISPLAY AND VALUE MEMBERS LIKE combobox.selecteditem();??? please check
 
@@ -236,41 +202,32 @@ namespace Exam_Cell
         //Semester ComboBox Populate
         void Semestercomboboxfill()
         {
-            
+            //Semester_combobox.Items.Add("-Select-");
+            //Semester_combobox.Items.Add("Semester 1");
+            //Semester_combobox.Items.Add("Semester 2");
+            //Semester_combobox.Items.Add("Semester 3");
+            //Semester_combobox.Items.Add("Semester 4");
+            //Semester_combobox.Items.Add("Semester 5");
+            //Semester_combobox.Items.Add("Semester 6");
+            //Semester_combobox.Items.Add("Semester 7");
+            //Semester_combobox.Items.Add("Semester 8");
 
-            try
-            {
-                //Semester_combobox.Items.Add("-Select-");
-                //Semester_combobox.Items.Add("Semester 1");
-                //Semester_combobox.Items.Add("Semester 2");
-                //Semester_combobox.Items.Add("Semester 3");
-                //Semester_combobox.Items.Add("Semester 4");
-                //Semester_combobox.Items.Add("Semester 5");
-                //Semester_combobox.Items.Add("Semester 6");
-                //Semester_combobox.Items.Add("Semester 7");
-                //Semester_combobox.Items.Add("Semester 8");
+            //Semester_combobox.SelectedIndex = 0;
 
-                //Semester_combobox.SelectedIndex = 0;
 
-                
-                string command = string.Format("Select Distinct Semester from Scheme");
-                SqlCommand sc = new SqlCommand(command, con.ActiveCon());
-                SqlDataReader reader;
-                reader = sc.ExecuteReader();
-                DataTable dt = new DataTable();
-                dt.Columns.Add("Semester", typeof(string));
-                DataRow top = dt.NewRow();
-                top[0] = "-Select-";
-                dt.Rows.InsertAt(top, 0);
-                dt.Load(reader);
+            string command = string.Format("Select Distinct Semester from Scheme");
+            SqlCommand sc = new SqlCommand(command, con.ActiveCon());
+            SqlDataReader reader;
+            reader = sc.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Semester", typeof(string));
+            DataRow top = dt.NewRow();
+            top[0] = "-Select-";
+            dt.Rows.InsertAt(top, 0);
+            dt.Load(reader);
 
-                Semester_combobox.ValueMember = "Semester";
-                Semester_combobox.DataSource = dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Semestercomboboxfill", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            Semester_combobox.ValueMember = "Semester";
+            Semester_combobox.DataSource = dt;
         }
 
         //University RadioButton Event
@@ -395,43 +352,37 @@ namespace Exam_Cell
         //Scheme Combobox Event
         private void Scheme_combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
+            ////get selected item
+            //KeyValuePair<string, string> kvp = (KeyValuePair<string, string>)Scheme_combobox.SelectedItem;
+            //string value = kvp.Value.ToString();
+
+            // if (value == "Scheme_2015")
+            //{
+            //    Branch_combobox.SelectedIndex = 0;
+            //    Semester_combobox.SelectedIndex = 0;
+            //    scheme2015BindingSource2.RemoveFilter();
+            //    Courses_dgv.DataSource = scheme2015BindingSource2;
+            //}
+            //else if (value == "Scheme_2019")
+            //{
+            //    Branch_combobox.SelectedIndex = 0;
+            //    Semester_combobox.SelectedIndex = 0;
+            //    scheme2019BindingSource2.RemoveFilter();
+            //    Courses_dgv.DataSource = scheme2019BindingSource2;
+            //}
+            //else
+            //{
+            //    Courses_dgv.DataSource = null;
+
+            //}
+
+            //Course dgv fill
+
+            if (Series_rdbtn.Checked || Unvrsty_rdbtn.Checked)
             {
-                ////get selected item
-                //KeyValuePair<string, string> kvp = (KeyValuePair<string, string>)Scheme_combobox.SelectedItem;
-                //string value = kvp.Value.ToString();
-
-                // if (value == "Scheme_2015")
-                //{
-                //    Branch_combobox.SelectedIndex = 0;
-                //    Semester_combobox.SelectedIndex = 0;
-                //    scheme2015BindingSource2.RemoveFilter();
-                //    Courses_dgv.DataSource = scheme2015BindingSource2;
-                //}
-                //else if (value == "Scheme_2019")
-                //{
-                //    Branch_combobox.SelectedIndex = 0;
-                //    Semester_combobox.SelectedIndex = 0;
-                //    scheme2019BindingSource2.RemoveFilter();
-                //    Courses_dgv.DataSource = scheme2019BindingSource2;
-                //}
-                //else
-                //{
-                //    Courses_dgv.DataSource = null;
-
-                //}
-
-                //Course dgv fill
-                
-                if (Series_rdbtn.Checked || Unvrsty_rdbtn.Checked)
-                {
-                    Schemesourcefill();
-                    subjectdetailsfilter();
-                }    
-                
+                Schemesourcefill();
+                subjectdetailsfilter();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "Scheme_combobox_SelectedIndexChanged", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-            
         }
 
                
@@ -439,69 +390,54 @@ namespace Exam_Cell
         //Branch ComboBox Event
         private void Branch_combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
-            {
-                if (Series_rdbtn.Checked || Unvrsty_rdbtn.Checked)
-                    //Function Call for filter
-                    subjectdetailsfilter();
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "Branch_combobox_SelectedIndexChanged", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-               
+            if (Series_rdbtn.Checked || Unvrsty_rdbtn.Checked)
+                //Function Call for filter
+                subjectdetailsfilter();
         }
 
 
         //SemesterComboBox event
         private void Semester_combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
-            {
-                if (Series_rdbtn.Checked || Unvrsty_rdbtn.Checked)
-                    //Function Call for filter
-                    subjectdetailsfilter();
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "Semester_combobox_SelectedIndexChanged", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-                
+            if (Series_rdbtn.Checked || Unvrsty_rdbtn.Checked)
+                //Function Call for filter
+                subjectdetailsfilter();
         }
 
         //Filter function for Subject details
         void subjectdetailsfilter()
         {
-            try
+            ////Get selected items of Scheme,Branch,Semester Comboboxes
+            //KeyValuePair<string, string> keyValuePair = (KeyValuePair<string, string>)Scheme_combobox.SelectedItem;
+            //string schemekey = keyValuePair.Key.ToString();
+
+            string schemekey = Scheme_combobox.Text;
+            string branchvalue = Branch_combobox.Text;
+            string semvalue = Semester_combobox.Text;
+
+            //Filter dgv
+            if (schemekey != "-Select-")
             {
-                ////Get selected items of Scheme,Branch,Semester Comboboxes
-                //KeyValuePair<string, string> keyValuePair = (KeyValuePair<string, string>)Scheme_combobox.SelectedItem;
-                //string schemekey = keyValuePair.Key.ToString();
 
-                string schemekey = Scheme_combobox.Text;
-                string branchvalue = Branch_combobox.Text;
-                string semvalue = Semester_combobox.Text;
+                string filter = "";        //filter string for sql statements to be written
+                filter += string.Format("Scheme Like '%{0}%'", schemekey);
 
-                //Filter dgv
-                if (schemekey != "-Select-")
+                if (branchvalue != "-Select-")
                 {
-
-                    string filter = "";        //filter string for sql statements to be written
-                    filter += string.Format("Scheme Like '%{0}%'", schemekey);
-                    
-                    if (branchvalue != "-Select-")
-                    {
-                        if (filter.Length > 0) filter += " AND ";                    //Put AND if there is existing Sql statement in filter string
-                        filter += string.Format("Branch Like '%{0}%'", branchvalue);     //Put sql statement in filter string
-                    }
-                    if (semvalue != "-Select-")
-                    {
-                        if (filter.Length > 0) filter += " AND ";
-                        filter += string.Format("Semester Like '%{0}%'", semvalue);
-                    }
-                    schemesource.Filter = filter;
+                    if (filter.Length > 0) filter += " AND ";                    //Put AND if there is existing Sql statement in filter string
+                    filter += string.Format("Branch Like '%{0}%'", branchvalue);     //Put sql statement in filter string
                 }
-                else
+                if (semvalue != "-Select-")
                 {
-                    MessageBox.Show("Select Scheme");   //Error Box appear
+                    if (filter.Length > 0) filter += " AND ";
+                    filter += string.Format("Semester Like '%{0}%'", semvalue);
                 }
+                schemesource.Filter = filter;
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "subjectdetailsfilter", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-            
+            else
+            {
+                MessageBox.Show("Select Scheme");   //Error Box appear
+            }
         }
 
 
@@ -538,67 +474,57 @@ namespace Exam_Cell
         //Excel Select button click event
         private void Excel_btn_Click(object sender, EventArgs e)
         {
-            try
+            if (messflag == 0)
             {
-                if (messflag == 0)
+                messflag = 1;
+                MessageBox.Show("ExcelSheet Header Naming Must Be as follows : \n Register No ,Name, YOA, Branch", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            using (OpenFileDialog openFile = new OpenFileDialog() { Filter = "Excel Files|*.xls|*xlsx|*.xlsm" }) //check if | is needed last?
+            {
+                if (openFile.ShowDialog() == DialogResult.OK)
                 {
-                    messflag = 1;
-                    MessageBox.Show("ExcelSheet Header Naming Must Be as follows : \n Register No ,Name, YOA, Branch", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                using (OpenFileDialog openFile = new OpenFileDialog() { Filter = "Excel Files|*.xls|*xlsx|*.xlsm" }) //check if | is needed last?
-                {
-                    if (openFile.ShowDialog() == DialogResult.OK)
+                    Filepath_textbox.Text = openFile.FileName;  //Filepath_textbox.Text --- filepath is displayed in textbox
+                    using (var stream = File.Open(openFile.FileName, FileMode.Open, FileAccess.Read))
                     {
-                        Filepath_textbox.Text = openFile.FileName;  //Filepath_textbox.Text --- filepath is displayed in textbox
-                        using (var stream = File.Open(openFile.FileName, FileMode.Open, FileAccess.Read))
+                        using (IExcelDataReader reader = ExcelReaderFactory.CreateReader(stream))
                         {
-                            using (IExcelDataReader reader = ExcelReaderFactory.CreateReader(stream))
+                            DataSet result = reader.AsDataSet(new ExcelDataSetConfiguration()
                             {
-                                DataSet result = reader.AsDataSet(new ExcelDataSetConfiguration()
-                                {
-                                    ConfigureDataTable = (_) => new ExcelDataTableConfiguration() { UseHeaderRow = true }
-                                });
-                                tableCollection = result.Tables;
-                                Sheet_combobox.Items.Clear();
-                                foreach (DataTable table in tableCollection)
-                                    Sheet_combobox.Items.Add(table.TableName); //add sheet to combobox
-                            }
+                                ConfigureDataTable = (_) => new ExcelDataTableConfiguration() { UseHeaderRow = true }
+                            });
+                            tableCollection = result.Tables;
+                            Sheet_combobox.Items.Clear();
+                            foreach (DataTable table in tableCollection)
+                                Sheet_combobox.Items.Add(table.TableName); //add sheet to combobox
                         }
                     }
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "Excel_btn_Click", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-
         }
         //Sheet Combobox Event
         private void Sheet_combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
+            DataTable dt = tableCollection[Sheet_combobox.SelectedItem.ToString()];
+            //Candidate_datagridview.DataSource = dt;   // <-- what error this created ? why this wont work? please Check...
+
+            // these codes was used instead of that One Line Code above
+            if (dt != null)
             {
-                DataTable dt = tableCollection[Sheet_combobox.SelectedItem.ToString()];
-                //Candidate_datagridview.DataSource = dt;   // <-- what error this created ? why this wont work? please Check...
-
-                // these codes was used instead of that One Line Code above
-                if (dt != null)
+                List<ExcelStudents> excst = new List<ExcelStudents>(); //<--here ExcelStudents is class name
+                for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    List<ExcelStudents> excst = new List<ExcelStudents>(); //<--here ExcelStudents is class name
-                    for (int i = 0; i < dt.Rows.Count; i++)
-                    {
-                        ExcelStudents excclass = new ExcelStudents();
-                        excclass.Name = dt.Rows[i]["Student Name"].ToString();  //have to give Excel column names inside the[""]
-                        excclass.Reg_No = dt.Rows[i]["Register No"].ToString();
-                        excclass.Branch = dt.Rows[i]["Branch"].ToString();
-                        excclass.Semester = dt.Rows[i]["Semester"].ToString();
-                        excclass.Course = dt.Rows[i]["Course"].ToString();
+                    ExcelStudents excclass = new ExcelStudents();
+                    excclass.Name = dt.Rows[i]["Student Name"].ToString();  //have to give Excel column names inside the[""]
+                    excclass.Reg_No = dt.Rows[i]["Register No"].ToString();
+                    excclass.Branch = dt.Rows[i]["Branch"].ToString();
+                    excclass.Semester = dt.Rows[i]["Semester"].ToString();
+                    excclass.Course = dt.Rows[i]["Course"].ToString();
 
-                        excst.Add(excclass);
-                    }
-                    Candidate_datagridview.DataSource = excst;
-
+                    excst.Add(excclass);
                 }
+                Candidate_datagridview.DataSource = excst;
+
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "Sheet_combobox_SelectedIndexChanged", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-            
         }
 
         //// Import Button Event
@@ -621,23 +547,18 @@ namespace Exam_Cell
         //Class combobox Event
         private void Class_drpdwn_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
-            {
-                //Get selected item from Class combobox
-                string key = Class_drpdwn.Text;
+            //Get selected item from Class combobox
+            string key = Class_drpdwn.Text;
 
-                //Filter the dgv
-                if (key == "-Select-")
-                {
-                    source.RemoveFilter();  //remove filters 
-                }
-                else
-                {
-                    source.Filter = string.Format("Class LIKE '%{0}%'", key);   //filter with sql statement
-                }
+            //Filter the dgv
+            if (key == "-Select-")
+            {
+                source.RemoveFilter();  //remove filters 
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "Class_drpdwn_SelectedIndexChanged", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-            
+            else
+            {
+                source.Filter = string.Format("Class LIKE '%{0}%'", key);   //filter with sql statement
+            }
         }
 
 
@@ -649,138 +570,133 @@ namespace Exam_Cell
         //Register button click Event
         private void RegRegCnd_btn_Click(object sender, EventArgs e)        //PLEASE CHECK IF WE NEED SEPERATE TABLES FOR REGSTRD CANDIDTE IN SQL FOR SERIES AND UNVIRSTY....
         {
-            try
+            //For Series Exam
+            if (Series_rdbtn.Checked == true)
             {
-                //For Series Exam
-                if (Series_rdbtn.Checked == true)
+                if (Class_drpdwn.SelectedIndex != 0)
                 {
-                    if(Class_drpdwn.SelectedIndex != 0)
+                    int f = 0;
+                    //select checkbox from course dgv
+                    foreach (DataGridViewRow dr in Courses_dgv.Rows)
                     {
-                        int f = 0;
-                        //select checkbox from course dgv
-                        foreach (DataGridViewRow dr in Courses_dgv.Rows)
-                        {
-                            bool chkboxselected = Convert.ToBoolean(dr.Cells["checkBoxColumn"].Value);  //<--here checkBoxColumn is the name given for coursedgv checkbox in formload function
+                        bool chkboxselected = Convert.ToBoolean(dr.Cells["checkBoxColumn"].Value);  //<--here checkBoxColumn is the name given for coursedgv checkbox in formload function
 
-                            if (chkboxselected)
+                        if (chkboxselected)
+                        {
+                            //select checkbox from candidate dgv
+                            foreach (DataGridViewRow dr2 in Candidate_datagridview.Rows)
                             {
-                                //select checkbox from candidate dgv
-                                foreach (DataGridViewRow dr2 in Candidate_datagridview.Rows)
+                                bool checkbox2selected = Convert.ToBoolean(dr2.Cells["checkBox2Column"].Value);   //<--here checkBox2Column is the name given for candidte dgv checkbox in formload function
+                                if (checkbox2selected)
                                 {
-                                    bool checkbox2selected = Convert.ToBoolean(dr2.Cells["checkBox2Column"].Value);   //<--here checkBox2Column is the name given for candidte dgv checkbox in formload function
-                                    if (checkbox2selected)
-                                    {
-                                        f = 1; 
-                                        //selected datas from both dgv will be inserted to Table Registered Candidates
-                                        //here first bracket is sqltable column names and 2nd bracket with @ is refernce for values to be inserted
-                                        SqlCommand sqlcomm = new SqlCommand("Insert into Series_candidates(Name,Reg_no,Class,Semester,Course)Values(" + "@Name,@Reg_no,@Class,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
-                                                                                                                                                                                                                     //giving values to the reference...values from dgv
-                                        sqlcomm.Parameters.AddWithValue("@Reg_no", dr2.Cells["Reg_no"].Value);
-                                        sqlcomm.Parameters.AddWithValue("@Name", dr2.Cells["Name"].Value);            
-                                        sqlcomm.Parameters.AddWithValue("@Class", Class_drpdwn.Text);
-                                        sqlcomm.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value);
-                                        sqlcomm.Parameters.AddWithValue("@Course", dr.Cells["Course"].Value);
-                                        //execute sql query to insert into tables
-                                        sqlcomm.ExecuteNonQuery();
-                                    }
+                                    f = 1;
+                                    //selected datas from both dgv will be inserted to Table Registered Candidates
+                                    //here first bracket is sqltable column names and 2nd bracket with @ is refernce for values to be inserted
+                                    SqlCommand sqlcomm = new SqlCommand("Insert into Series_candidates(Name,Reg_no,Class,Semester,Course)Values(" + "@Name,@Reg_no,@Class,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
+                                                                                                                                                                                                                 //giving values to the reference...values from dgv
+                                    sqlcomm.Parameters.AddWithValue("@Reg_no", dr2.Cells["Reg_no"].Value);
+                                    sqlcomm.Parameters.AddWithValue("@Name", dr2.Cells["Name"].Value);
+                                    sqlcomm.Parameters.AddWithValue("@Class", Class_drpdwn.Text);
+                                    sqlcomm.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value);
+                                    sqlcomm.Parameters.AddWithValue("@Course", dr.Cells["Course"].Value);
+                                    //execute sql query to insert into tables
+                                    sqlcomm.ExecuteNonQuery();
                                 }
                             }
                         }
-                        if(f==1)
-                        {
-                            
-                            MessageBox.Show("Register Done", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                            MessageBox.Show("Select Student and Course to Register", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    else { MessageBox.Show("Select Class", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-                }
-
-                //For University Exams
-                else if (Unvrsty_rdbtn.Checked == true)
-                {
-                    if(UnvCheckbox.Checked)
+                    if (f == 1)
                     {
-                        int f = 0;
-                        //select checkbox from course dgv
-                        foreach (DataGridViewRow dr in Courses_dgv.Rows)
-                        {
-                            bool chkboxselected = Convert.ToBoolean(dr.Cells["checkBoxColumn"].Value);  //<--here checkBoxColumn is the name given for coursedgv checkbox in formload function
 
-                            if (chkboxselected)
-                            {
-                                //select checkbox from candidate dgv
-                                foreach (DataGridViewRow dr2 in Candidate_datagridview.Rows)
-                                {
-                                    bool checkbox2selected = Convert.ToBoolean(dr2.Cells["checkBox2Column"].Value);   //<--here checkBox2Column is the name given for candidte dgv checkbox in formload function
-                                    if (checkbox2selected)
-                                    {
-                                        f = 1;
-                                        //selected datas from both dgv will be inserted to Table Registered Candidates
-                                        //here first bracket is sqltable column names and 2nd bracket with @ is refernce for values to be inserted
-                                        SqlCommand sqlcomm = new SqlCommand("Insert into Registered_candidates(Name,Reg_no,Branch,Semester,Course)Values(" + "@Name,@Reg_no,@Branch,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
-                                                                                                                                                                                                                     //giving values to the reference...values from dgv
-                                        sqlcomm.Parameters.AddWithValue("@Reg_no", dr2.Cells["Reg_no"].Value);
-                                        sqlcomm.Parameters.AddWithValue("@Name", dr2.Cells["Name"].Value);           
-                                        sqlcomm.Parameters.AddWithValue("@Branch", dr2.Cells["Branch"].Value);
-                                        sqlcomm.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value);
-                                        sqlcomm.Parameters.AddWithValue("@Course", dr.Cells["Course"].Value);
-                                        //execute sql query to insert into tables
-                                        sqlcomm.ExecuteNonQuery();
-                                    }
-                                }
-                            }
-                        }
-                        if (f == 1)
-                        {
-                            if (UnvCheckbox.Checked)
-                            {
-                                UnvBranchCombobox.SelectedIndex = 0;
-                                YOACombobox.SelectedIndex = 0;
-                            }
-                            headerchkbox.Checked = false;
-                            MessageBox.Show("Register Done", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                            MessageBox.Show("Select Student and Course to Register", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Register Done", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
+                        MessageBox.Show("Select Student and Course to Register", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else { MessageBox.Show("Select Class", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            }
+
+            //For University Exams
+            else if (Unvrsty_rdbtn.Checked == true)
+            {
+                if (UnvCheckbox.Checked)
+                {
+                    int f = 0;
+                    //select checkbox from course dgv
+                    foreach (DataGridViewRow dr in Courses_dgv.Rows)
                     {
-                        int f = 0;
-                        //select checkbox from candidate dgv
-                        foreach (DataGridViewRow dr in Candidate_datagridview.Rows)
+                        bool chkboxselected = Convert.ToBoolean(dr.Cells["checkBoxColumn"].Value);  //<--here checkBoxColumn is the name given for coursedgv checkbox in formload function
+
+                        if (chkboxselected)
                         {
-                            bool checkboxselected = Convert.ToBoolean(dr.Cells["checkBox2Column"].Value);
-                            if (checkboxselected)
+                            //select checkbox from candidate dgv
+                            foreach (DataGridViewRow dr2 in Candidate_datagridview.Rows)
                             {
-                                f = 1;
-                                //selected datas from dgv will be inserted to Table Registered Candidates
-                                //here first bracket is sqltable column names and 2nd bracket with @ is refernce for values to be inserted
-                                SqlCommand sqlcomm = new SqlCommand("Insert into Registered_candidates(Name,Reg_no,Branch,Semester,Course)Values(" + "@Name,@Reg_no,@Branch,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
-                                                                                                                                                                                                                   //giving values to the reference...values from dgv
-                                sqlcomm.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
-                                sqlcomm.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value);           
-                                sqlcomm.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value);
-                                sqlcomm.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value);
-                                sqlcomm.Parameters.AddWithValue("@Course", dr.Cells["Course"].Value);
-                                //execute sql query to insert into tables
-                                sqlcomm.ExecuteNonQuery();
+                                bool checkbox2selected = Convert.ToBoolean(dr2.Cells["checkBox2Column"].Value);   //<--here checkBox2Column is the name given for candidte dgv checkbox in formload function
+                                if (checkbox2selected)
+                                {
+                                    f = 1;
+                                    //selected datas from both dgv will be inserted to Table Registered Candidates
+                                    //here first bracket is sqltable column names and 2nd bracket with @ is refernce for values to be inserted
+                                    SqlCommand sqlcomm = new SqlCommand("Insert into Registered_candidates(Name,Reg_no,Branch,Semester,Course)Values(" + "@Name,@Reg_no,@Branch,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
+                                                                                                                                                                                                                       //giving values to the reference...values from dgv
+                                    sqlcomm.Parameters.AddWithValue("@Reg_no", dr2.Cells["Reg_no"].Value);
+                                    sqlcomm.Parameters.AddWithValue("@Name", dr2.Cells["Name"].Value);
+                                    sqlcomm.Parameters.AddWithValue("@Branch", dr2.Cells["Branch"].Value);
+                                    sqlcomm.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value);
+                                    sqlcomm.Parameters.AddWithValue("@Course", dr.Cells["Course"].Value);
+                                    //execute sql query to insert into tables
+                                    sqlcomm.ExecuteNonQuery();
+                                }
                             }
                         }
-                        if (f == 1)
-                            MessageBox.Show("Register Done", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        else
-                            MessageBox.Show("Select Someone To Register", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                    if (f == 1)
+                    {
+                        if (UnvCheckbox.Checked)
+                        {
+                            UnvBranchCombobox.SelectedIndex = 0;
+                            YOACombobox.SelectedIndex = 0;
+                        }
+                        headerchkbox.Checked = false;
+                        MessageBox.Show("Register Done", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                        MessageBox.Show("Select Student and Course to Register", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show("Necessary details are not given", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    int f = 0;
+                    //select checkbox from candidate dgv
+                    foreach (DataGridViewRow dr in Candidate_datagridview.Rows)
+                    {
+                        bool checkboxselected = Convert.ToBoolean(dr.Cells["checkBox2Column"].Value);
+                        if (checkboxselected)
+                        {
+                            f = 1;
+                            //selected datas from dgv will be inserted to Table Registered Candidates
+                            //here first bracket is sqltable column names and 2nd bracket with @ is refernce for values to be inserted
+                            SqlCommand sqlcomm = new SqlCommand("Insert into Registered_candidates(Name,Reg_no,Branch,Semester,Course)Values(" + "@Name,@Reg_no,@Branch,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
+                                                                                                                                                                                                               //giving values to the reference...values from dgv
+                            sqlcomm.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
+                            sqlcomm.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value);
+                            sqlcomm.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value);
+                            sqlcomm.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value);
+                            sqlcomm.Parameters.AddWithValue("@Course", dr.Cells["Course"].Value);
+                            //execute sql query to insert into tables
+                            sqlcomm.ExecuteNonQuery();
+                        }
+                    }
+                    if (f == 1)
+                        MessageBox.Show("Register Done", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("Select Someone To Register", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "RegRegCnd_btn_Click", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-
+            else
+            {
+                MessageBox.Show("Necessary details are not given", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void UnvBranchCombobox_SelectedIndexChanged(object sender, EventArgs e)

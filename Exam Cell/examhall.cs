@@ -48,42 +48,29 @@ namespace Exam_Cell
 
         void AddHeaderchckbox()
         {
-            try
-            {
-                //Locate Header Cell to place checkbox in correct position
-                Point HeaderCellLocation = this.Rooms_dgv.GetCellDisplayRectangle(0, -1, true).Location;
-                //place headercheckbox to the location
-                headerchkbox.Location = new Point(HeaderCellLocation.X + 8, HeaderCellLocation.Y + 2);
-                headerchkbox.BackColor = Color.White;
-                headerchkbox.Size = new Size(18, 18);
-                //add checkbox into dgv
-                Rooms_dgv.Controls.Add(headerchkbox);
-            }
-            catch (Exception) { MessageBox.Show("Try Again", "AddHeaderchckbox", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            //Locate Header Cell to place checkbox in correct position
+            Point HeaderCellLocation = this.Rooms_dgv.GetCellDisplayRectangle(0, -1, true).Location;
+            //place headercheckbox to the location
+            headerchkbox.Location = new Point(HeaderCellLocation.X + 8, HeaderCellLocation.Y + 2);
+            headerchkbox.BackColor = Color.White;
+            headerchkbox.Size = new Size(18, 18);
+            //add checkbox into dgv
+            Rooms_dgv.Controls.Add(headerchkbox);
         }
 
         private void Headerchckbox_Mouseclick(object sender, MouseEventArgs e)
         {
-            try
-            {
-                Headerchckboxclick((CheckBox)sender);
-            }
-            catch (Exception) { MessageBox.Show("Try Again", "Headerchckbox_Mouseclick", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            Headerchckboxclick((CheckBox)sender);
         }
 
         //headerchckbox click event
         private void Headerchckboxclick(CheckBox Hcheckbox)
         {
+            foreach (DataGridViewRow row in Rooms_dgv.Rows)
+                ((DataGridViewCheckBoxCell)row.Cells["checkBoxColumn"]).Value = Hcheckbox.Checked;
 
-            try
-            {
-                foreach (DataGridViewRow row in Rooms_dgv.Rows)
-                    ((DataGridViewCheckBoxCell)row.Cells["checkBoxColumn"]).Value = Hcheckbox.Checked;
-
-                Rooms_dgv.RefreshEdit();
-                Fill_checked_capacity();
-            }
-            catch (Exception) { MessageBox.Show("Try Again", "Headercheckboxclick", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            Rooms_dgv.RefreshEdit();
+            Fill_checked_capacity();
         }
 
         void FillCapacity()
@@ -92,10 +79,10 @@ namespace Exam_Cell
             foreach (DataGridViewRow dr in Rooms_dgv.Rows)
             {
                if (int.TryParse(dr.Cells["A_Series"].Value.ToString(), out a) && int.TryParse(dr.Cells["B_Series"].Value.ToString(), out b))
-                {
+               {
                     result_a += a;
                     result_b += b;
-                }
+               }
                 
                 TotalRoom_textbox.Text = Rooms_dgv.RowCount.ToString();
                 TotalCapacity_textbox.Text = ("A - " + result_a + "  B - " + result_b);

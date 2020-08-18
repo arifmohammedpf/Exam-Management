@@ -182,41 +182,28 @@ namespace Exam_Cell
         //function definition
         void AddHeaderchckbox()
         {
-            try
-            {
-                //Locate Header Cell to place checkbox in correct position
-                Point HeaderCellLocation = this.Student_dgv.GetCellDisplayRectangle(0, -1, true).Location;
-                //place headercheckbox to the location
-                headerchkbox.Location = new Point(HeaderCellLocation.X + 8, HeaderCellLocation.Y + 2);
-                headerchkbox.BackColor = Color.White;
-                headerchkbox.Size = new Size(18, 18);
-                //add checkbox into dgv
-                Student_dgv.Controls.Add(headerchkbox);
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "AddHeaderchckbox", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            //Locate Header Cell to place checkbox in correct position
+            Point HeaderCellLocation = this.Student_dgv.GetCellDisplayRectangle(0, -1, true).Location;
+            //place headercheckbox to the location
+            headerchkbox.Location = new Point(HeaderCellLocation.X + 8, HeaderCellLocation.Y + 2);
+            headerchkbox.BackColor = Color.White;
+            headerchkbox.Size = new Size(18, 18);
+            //add checkbox into dgv
+            Student_dgv.Controls.Add(headerchkbox);
         }
 
         private void Headerchckbox_Mouseclick(object sender, MouseEventArgs e)
         {
-            try
-            {
-                Headerchckboxclick((CheckBox)sender);
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "Headerchckbox_Mouseclick", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            Headerchckboxclick((CheckBox)sender);
         }
 
         //headerchckbox click event
         private void Headerchckboxclick(CheckBox Hcheckbox)
         {
+            foreach (DataGridViewRow row in Student_dgv.Rows)
+                ((DataGridViewCheckBoxCell)row.Cells["checkBoxColumn2"]).Value = Hcheckbox.Checked;
 
-            try
-            {
-                foreach (DataGridViewRow row in Student_dgv.Rows)
-                    ((DataGridViewCheckBoxCell)row.Cells["checkBoxColumn2"]).Value = Hcheckbox.Checked;
-
-                Student_dgv.RefreshEdit();
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "Headerchckboxclick", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            Student_dgv.RefreshEdit();
         }
 
 
@@ -347,9 +334,7 @@ namespace Exam_Cell
             dt.Load(reader);
 
             UpdateBranch_combobox.ValueMember = "Branch";  //column name is given to get values to show in combobox
-            UpdateBranch_combobox.DataSource = dt;
-
-            
+            UpdateBranch_combobox.DataSource = dt;                        
         }
 
         void AssignClass_fill()
@@ -371,8 +356,6 @@ namespace Exam_Cell
                 dt2.Rows.Add(dr["Class"].ToString() + "  S"+dr["Semester"].ToString());
             AssignClass_combobox.ValueMember = "Combo";  //column name is given to get values to show in combobox
             AssignClass_combobox.DataSource = dt2;
-
-
         }
 
         private void ChangeScheme_btn_Click(object sender, EventArgs e)
@@ -497,7 +480,6 @@ namespace Exam_Cell
             else
             {
                 MessageBox.Show("Fill Necessary Details, Try again.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
-               
             }
         }
 
@@ -830,121 +812,87 @@ namespace Exam_Cell
         //Excel Select button click event
         private void SelectExcel_btn_Click(object sender, EventArgs e)
         {
-            try
+            if (messflag == 0)
             {
-                if(messflag==0)
+                messflag = 1;
+                MessageBox.Show("ExcelSheet Header Naming Must Be as follows : \n Register No ,Name, YOA, Branch", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            using (OpenFileDialog openFile = new OpenFileDialog() { Filter = "Excel Files|*.xls|*xlsx|*.xlsm" }) //check if | is needed last?
+            {
+                if (openFile.ShowDialog() == DialogResult.OK)
                 {
-                    messflag = 1;
-                    MessageBox.Show("ExcelSheet Header Naming Must Be as follows : \n Register No ,Name, YOA, Branch", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                using (OpenFileDialog openFile = new OpenFileDialog() { Filter = "Excel Files|*.xls|*xlsx|*.xlsm" }) //check if | is needed last?
-                {
-                    if (openFile.ShowDialog() == DialogResult.OK)
+                    Filepath_textbox.Text = openFile.FileName;  //Filepath_textbox.Text --- filepath is displayed in textbox
+                    using (var stream = File.Open(openFile.FileName, FileMode.Open, FileAccess.Read))
                     {
-                        Filepath_textbox.Text = openFile.FileName;  //Filepath_textbox.Text --- filepath is displayed in textbox
-                        using (var stream = File.Open(openFile.FileName, FileMode.Open, FileAccess.Read))
+                        using (IExcelDataReader reader = ExcelReaderFactory.CreateReader(stream))
                         {
-                            using (IExcelDataReader reader = ExcelReaderFactory.CreateReader(stream))
+                            DataSet result = reader.AsDataSet(new ExcelDataSetConfiguration()
                             {
-                                DataSet result = reader.AsDataSet(new ExcelDataSetConfiguration()
-                                {
-                                    ConfigureDataTable = (_) => new ExcelDataTableConfiguration() { UseHeaderRow = true }
-                                });
-                                tableCollection = result.Tables;
-                                Sheet_combobox.Items.Clear();
-                                foreach (DataTable table in tableCollection)
-                                    Sheet_combobox.Items.Add(table.TableName); //add sheet to combobox
-                            }
+                                ConfigureDataTable = (_) => new ExcelDataTableConfiguration() { UseHeaderRow = true }
+                            });
+                            tableCollection = result.Tables;
+                            Sheet_combobox.Items.Clear();
+                            foreach (DataTable table in tableCollection)
+                                Sheet_combobox.Items.Add(table.TableName); //add sheet to combobox
                         }
                     }
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "Excel_btn_Click", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         //Sheet Combobox Event
         private void Sheet_combobox_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            try
+            DataTable dt = tableCollection[Sheet_combobox.SelectedItem.ToString()];
+            //Candidate_datagridview.DataSource = dt;   // <-- what error this created ? why this wont work? please Check...
+
+            // these codes was used instead of that One Line Code above
+            if (dt != null)
             {
-                DataTable dt = tableCollection[Sheet_combobox.SelectedItem.ToString()];
-                //Candidate_datagridview.DataSource = dt;   // <-- what error this created ? why this wont work? please Check...
-
-                // these codes was used instead of that One Line Code above
-                if (dt != null)
+                List<ExcelDBManagement> excst = new List<ExcelDBManagement>(); //<--here ExcelStudents is class name
+                for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    List<ExcelDBManagement> excst = new List<ExcelDBManagement>(); //<--here ExcelStudents is class name
-                    for (int i = 0; i < dt.Rows.Count; i++)
-                    {
-                        ExcelDBManagement excclass = new ExcelDBManagement();
-                        excclass.Reg_no = dt.Rows[i]["Register No"].ToString();
-                        excclass.Name = dt.Rows[i]["Name"].ToString();  //have to give Excel column names inside the[""]
-                        excclass.Year_Of_Admission = dt.Rows[i]["YOA"].ToString();
-                        excclass.Branch = dt.Rows[i]["Branch"].ToString();
-                        excst.Add(excclass);
-                    }
-                    headerchkbox.Checked = false;
-                    Student_dgv.DataSource = excst;
-                    AddFromExcel_Btn.Enabled = true;
+                    ExcelDBManagement excclass = new ExcelDBManagement();
+                    excclass.Reg_no = dt.Rows[i]["Register No"].ToString();
+                    excclass.Name = dt.Rows[i]["Name"].ToString();  //have to give Excel column names inside the[""]
+                    excclass.Year_Of_Admission = dt.Rows[i]["YOA"].ToString();
+                    excclass.Branch = dt.Rows[i]["Branch"].ToString();
+                    excst.Add(excclass);
                 }
+                headerchkbox.Checked = false;
+                Student_dgv.DataSource = excst;
+                AddFromExcel_Btn.Enabled = true;
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "Sheet_combobox_SelectedIndexChanged", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-
         }
 
         private void AddFromExcel_Btn_Click(object sender, EventArgs e)
         {
-            try
+            int f = 0;
+            foreach (DataGridViewRow dr in Student_dgv.Rows)
             {
-                int f = 0;
-                foreach (DataGridViewRow dr in Student_dgv.Rows)
+                bool checkselected = Convert.ToBoolean(dr.Cells["CheckboxColumn2"].Value);
+                if (checkselected)
                 {
-                    bool checkselected = Convert.ToBoolean(dr.Cells["CheckboxColumn2"].Value);
-                    if (checkselected)
-                    {
-                        f = 1;
-                        SqlCommand command = new SqlCommand("insert into Students(Reg_no,Name,Year_Of_Admission,Branch)Values(" + "@Reg_no,@Name,@Year_Of_Admission,@Branch)", con.ActiveCon());
-                        command.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
-                        command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value);
-                        command.Parameters.AddWithValue("@Year_Of_Admission", dr.Cells["Year_Of_Admission"].Value);
-                        command.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value);
-                        command.ExecuteNonQuery();
+                    f = 1;
+                    SqlCommand command = new SqlCommand("insert into Students(Reg_no,Name,Year_Of_Admission,Branch)Values(" + "@Reg_no,@Name,@Year_Of_Admission,@Branch)", con.ActiveCon());
+                    command.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
+                    command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value);
+                    command.Parameters.AddWithValue("@Year_Of_Admission", dr.Cells["Year_Of_Admission"].Value);
+                    command.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value);
+                    command.ExecuteNonQuery();
 
-                    }
                 }
-                if (f == 1)
-                {
-                    MessageBox.Show("Add From Excel Completed", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    YearOfAdmissionFill();
-                    ClearAllStudent_Management();
-                    AddFromExcel_Btn.Enabled = false;
-                    Student_dgvFill();
-                }
-                else MessageBox.Show("Select any Students", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch(Exception ex) { MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-        }
-
-
-
-        //// Import Button Event
-        //private void Import_Btn_Click_1(object sender, EventArgs e)
-        //{
-        //    string connectionString = @"Data Source=DESKTOP-P1AI33U\SQLEXPRESS;Initial Catalog=Exam_Cell;Integrated Security=True;";
-        //    DapperPlusManager.Entity<ExcelDBManagement>().Table("Excel_Show"); //"Students" is Table name from sql to import
-        //    List<ExcelDBManagement> excst = studentsBindingSource.DataSource as List<ExcelDBManagement>;
-        //    if (excst != null)
-        //    {
-        //        using (IDbConnection db = new SqlConnection(connectionString))
-        //        {
-        //            db.BulkInsert(excst);
-        //        }
-        //        MessageBox.Show("Import Complete", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //    }
-        //    else
-        //        MessageBox.Show("Error, Try again", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //}
-
+            if (f == 1)
+            {
+                MessageBox.Show("Add From Excel Completed", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                YearOfAdmissionFill();
+                ClearAllStudent_Management();
+                AddFromExcel_Btn.Enabled = false;
+                Student_dgvFill();
+            }
+            else MessageBox.Show("Select any Students", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }        
     }
 }
                 

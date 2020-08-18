@@ -77,106 +77,77 @@ namespace Exam_Cell
 
         void AddHeaderchckbox()
         {
-            try
-            {
-                //Locate Header Cell to place checkbox in correct position
-                Point HeaderCellLocation = this.ScheduledExam_dgv.GetCellDisplayRectangle(0, -1, true).Location;
-                //place headercheckbox to the location
-                headerchkbox.Location = new Point(HeaderCellLocation.X + 8, HeaderCellLocation.Y + 2);
-                headerchkbox.BackColor = Color.White;
-                headerchkbox.Size = new Size(18, 18);
-                //add checkbox into dgv
-                ScheduledExam_dgv.Controls.Add(headerchkbox);
-            }
-            catch (Exception) { MessageBox.Show("Try Again", "AddHeaderchckbox", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            //Locate Header Cell to place checkbox in correct position
+            Point HeaderCellLocation = this.ScheduledExam_dgv.GetCellDisplayRectangle(0, -1, true).Location;
+            //place headercheckbox to the location
+            headerchkbox.Location = new Point(HeaderCellLocation.X + 8, HeaderCellLocation.Y + 2);
+            headerchkbox.BackColor = Color.White;
+            headerchkbox.Size = new Size(18, 18);
+            //add checkbox into dgv
+            ScheduledExam_dgv.Controls.Add(headerchkbox);
         }
 
         private void Headerchckbox_Mouseclick(object sender, MouseEventArgs e)
         {
-            try
-            {
-                Headerchckboxclick((CheckBox)sender);
-            }
-            catch (Exception) { MessageBox.Show("Try Again", "Headerchckbox_Mouseclick", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            Headerchckboxclick((CheckBox)sender);
         }
 
         //headerchckbox click event
         private void Headerchckboxclick(CheckBox Hcheckbox)
         {
+            foreach (DataGridViewRow row in ScheduledExam_dgv.Rows)
+                ((DataGridViewCheckBoxCell)row.Cells["checkBoxColumn"]).Value = Hcheckbox.Checked;
 
-            try
-            {
-                foreach (DataGridViewRow row in ScheduledExam_dgv.Rows)
-                    ((DataGridViewCheckBoxCell)row.Cells["checkBoxColumn"]).Value = Hcheckbox.Checked;
-
-                ScheduledExam_dgv.RefreshEdit();
-            }
-            catch (Exception) { MessageBox.Show("Try Again", "Headercheckboxclick", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            ScheduledExam_dgv.RefreshEdit();
         }
 
         void BranchComboboxFill()
         {
-            try
-            {
-                string command = string.Format("Select Distinct Branch from Scheme");
-                SqlCommand sc = new SqlCommand(command, con.ActiveCon());
-                SqlDataReader reader;
-                reader = sc.ExecuteReader();
-                DataTable dt = new DataTable();
-                dt.Columns.Add("Branch", typeof(string));
-                DataRow top = dt.NewRow();
-                top[0] = "-Select-";
-                dt.Rows.InsertAt(top, 0);
-                dt.Load(reader);
-                Branch_combobox.DisplayMember = "Branch";
-                Branch_combobox.ValueMember = "Branch";
-                Branch_combobox.DataSource = dt;
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Try Again", "BranchComboboxFill", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            string command = string.Format("Select Distinct Branch from Scheme");
+            SqlCommand sc = new SqlCommand(command, con.ActiveCon());
+            SqlDataReader reader;
+            reader = sc.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Branch", typeof(string));
+            DataRow top = dt.NewRow();
+            top[0] = "-Select-";
+            dt.Rows.InsertAt(top, 0);
+            dt.Load(reader);
+            Branch_combobox.DisplayMember = "Branch";
+            Branch_combobox.ValueMember = "Branch";
+            Branch_combobox.DataSource = dt;
         }
 
         void SemesterComboboxFill()
         {
-            try
-            {
-                string command = string.Format("Select Distinct Semester from Scheme");
-                SqlCommand sc = new SqlCommand(command, con.ActiveCon());
-                SqlDataReader reader;
-                reader = sc.ExecuteReader();
-                DataTable dt = new DataTable();
-                dt.Columns.Add("Semester", typeof(string));
-                DataRow top = dt.NewRow();
-                top[0] = "-Select-";
-                dt.Rows.InsertAt(top, 0);
-                dt.Load(reader);
-                Semester_combobox.DisplayMember = "Semester";
-                Semester_combobox.ValueMember = "Semester";
-                Semester_combobox.DataSource = dt;
-            }
-            catch (Exception) { MessageBox.Show("Try Again", "SemesterComboboxFill", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            string command = string.Format("Select Distinct Semester from Scheme");
+            SqlCommand sc = new SqlCommand(command, con.ActiveCon());
+            SqlDataReader reader;
+            reader = sc.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Semester", typeof(string));
+            DataRow top = dt.NewRow();
+            top[0] = "-Select-";
+            dt.Rows.InsertAt(top, 0);
+            dt.Load(reader);
+            Semester_combobox.DisplayMember = "Semester";
+            Semester_combobox.ValueMember = "Semester";
+            Semester_combobox.DataSource = dt;
         }
         private void Postpone_button_Click(object sender, EventArgs e)
-        {   
-            //try
-            //{
-                if(NewSession_combobox.SelectedItem.ToString() != "-Optional-")
-                {
-                    Postpone_with_session();
-                }
-                else
-                {
-                    Postpone_without_session();
-                }
-            //}
-            //catch (Exception) { MessageBox.Show("Try Again", "Postpone_button_Click", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        {
+            if (NewSession_combobox.SelectedItem.ToString() != "-Optional-")
+            {
+                Postpone_with_session();
+            }
+            else
+            {
+                Postpone_without_session();
+            }
         }
 
         void Postpone_with_session()
-        {
-            
+        {            
             int flag = 0;
             foreach (DataGridViewRow dr in ScheduledExam_dgv.Rows)
             {
@@ -240,39 +211,34 @@ namespace Exam_Cell
 
         void Coursedgvfilter()
         {
-            try
+            string branch = Branch_combobox.Text;
+            string semester = Semester_combobox.Text;
+            string examcode = Examcode_textbox.Text;
+            string date = DateTimePicker.Text;
+
+            string filter = "";
+            if (branch != "-Select-")
             {
-                string branch = Branch_combobox.Text;
-                string semester = Semester_combobox.Text;
-                string examcode = Examcode_textbox.Text;
-                string date = DateTimePicker.Text;
-
-
-                string filter = "";
-                if (branch != "-Select-")
-                {
-                    if (filter.Length > 0) filter += " And ";
-                    filter += string.Format("Branch Like '%{0}%'", branch);
-                }
-                if (semester != "-Select-")
-                {
-                    if (filter.Length > 0) filter += " And ";
-                    filter += string.Format("Semester Like '%{0}%'", semester);
-                }
-                if (examcode != "")
-                {
-                    if (filter.Length > 0) filter += " And ";
-                    filter += string.Format("Exam_Code Like '%{0}%'", examcode);
-                }
-                if (DateCheckbox.Checked)
-                {
-                    
-                    if (filter.Length > 0) filter += " And ";
-                    filter += string.Format("Date Like '%{0}%'", date);
-                }
-                source.Filter = filter;
+                if (filter.Length > 0) filter += " And ";
+                filter += string.Format("Branch Like '%{0}%'", branch);
             }
-            catch (Exception) { MessageBox.Show("Try Again", "coursedgvfilter", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            if (semester != "-Select-")
+            {
+                if (filter.Length > 0) filter += " And ";
+                filter += string.Format("Semester Like '%{0}%'", semester);
+            }
+            if (examcode != "")
+            {
+                if (filter.Length > 0) filter += " And ";
+                filter += string.Format("Exam_Code Like '%{0}%'", examcode);
+            }
+            if (DateCheckbox.Checked)
+            {
+
+                if (filter.Length > 0) filter += " And ";
+                filter += string.Format("Date Like '%{0}%'", date);
+            }
+            source.Filter = filter;
         }
 
         private void Branch_combobox_SelectedIndexChanged(object sender, EventArgs e)
