@@ -54,13 +54,13 @@ namespace Exam_Cell
             SemesterComboboxFill();
             ScheduledExam_dgv.RowsDefaultCellStyle.ForeColor = Color.Black;
             DateTimePicker.Format = DateTimePickerFormat.Custom;
-            DateTimePicker.CustomFormat = "dd/MM/yyyy";
+            DateTimePicker.CustomFormat = "dd-MM-yyyy";
             DateTimePicker.Value = DateTime.Now;
             Branch_combobox.SelectedIndex = 0;
             Semester_combobox.SelectedIndex = 0;
             NewSession_combobox.SelectedIndex = 0;
             NewDateTimePicker.Format = DateTimePickerFormat.Custom;
-            NewDateTimePicker.CustomFormat = "dd/MM/yyyy";
+            NewDateTimePicker.CustomFormat = "dd-MM-yyyy";
             NewDateTimePicker.Value = DateTime.Now;
             DateTimePicker.Enabled = false;
             

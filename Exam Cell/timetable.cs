@@ -92,7 +92,7 @@ namespace Exam_Cell
 
             Session_combobox.SelectedIndex = 0;
             DateTimePicker.Format = DateTimePickerFormat.Custom;
-            DateTimePicker.CustomFormat = "dd/MM/yyyy";
+            DateTimePicker.CustomFormat = "dd-MM-yyyy";
             DateTimePicker.Value = DateTime.Now;
             Branch_combobox.SelectedIndex = 0;
             Semester_combobox.SelectedIndex = 0;

@@ -777,22 +777,10 @@ namespace Exam_Cell
                                     /* below might get error since Date has '\' in between ... CHECK if we have to use array 
                                     or something else to remove the '\' .   */
 
-                                    //string path = Folder_path_text.Text + @"\Room Sheet " + dr["Date"].ToString() + " " + session + ".xlsx";                               
-                                    //if (f == 1)
-                                    //path = Folder_path_text.Text + @"\Signature Sheet " + dr["Date"].ToString() + " " + session + ".xlsx";
-
-                                    System.Text.StringBuilder stringBuilder = new StringBuilder(dr["Date"].ToString());
-                                    for (int i =0; i< stringBuilder.Length;i++)
-                                    {
-                                        if (stringBuilder[i].ToString() == @"\")
-                                        {
-                                            MessageBox.Show(stringBuilder[i].ToString());
-                                            stringBuilder[i] = '_';
-                                            MessageBox.Show(stringBuilder[i].ToString());
-                                        }
-                                    }
-                                    string path = stringBuilder.ToString();
-                                    path = Folder_path_text.Text + @"\Room Sheet " +  session + ".xlsx";
+                                    string path = Folder_path_text.Text + @"\Room Sheet " + dr["Date"].ToString() + " " + session + ".xlsx";
+                                    if (f == 1)
+                                        path = Folder_path_text.Text + @"\Signature Sheet " + dr["Date"].ToString() + " " + session + ".xlsx";
+                                    
                                     Stream stream = File.Create(path);
                                     package.SaveAs(stream);
                                     stream.Close();
@@ -1071,7 +1059,7 @@ namespace Exam_Cell
                                         //Save Excel File
                                         /* below might get error since Date has '\' in between ... CHECK if we have to use array 
                                         or something else to remove the '\' .   */
-                                        string path = Folder_path_text.Text + @"\Display Sheet "  + session + ".xlsx";
+                                        string path = Folder_path_text.Text + @"\Display Sheet " + dr["Date"].ToString() + session + ".xlsx";
                                         Stream stream = File.Create(path);
                                         package.SaveAs(stream);
                                         stream.Close();
@@ -1319,7 +1307,7 @@ namespace Exam_Cell
             ToStart_textbox.Clear();
             ToRoom_textbox.Clear();
             DateTimePicker.Format = DateTimePickerFormat.Custom;
-            DateTimePicker.CustomFormat = "dd/MM/yyyy";
+            DateTimePicker.CustomFormat = "dd-MM-yyyy";
             DateTimePicker.Value = DateTime.Now;
             Session_combobox.SelectedIndex = 0;
             FromSeries_combobox.SelectedIndex = 0;
