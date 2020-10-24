@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formti));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -170,6 +172,8 @@
             // 
             this.Courses_dgv.AllowUserToAddRows = false;
             this.Courses_dgv.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
+            this.Courses_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.Courses_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.Courses_dgv.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.Courses_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -194,6 +198,8 @@
             // 
             this.Candidate_datagridview.AllowUserToAddRows = false;
             this.Candidate_datagridview.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gainsboro;
+            this.Candidate_datagridview.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.Candidate_datagridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.Candidate_datagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Candidate_datagridview.Dock = System.Windows.Forms.DockStyle.Fill;

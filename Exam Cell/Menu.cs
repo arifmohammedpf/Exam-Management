@@ -91,14 +91,7 @@ namespace Exam_Cell
             ss.BringToFront();
         }
 
-        private void DatabasemanagementToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Database_Management ss = new Database_Management();
-            ss.MdiParent = this;
-            panel1.Controls.Add(ss);
-            ss.Show();
-            ss.BringToFront();
-        }
+        
 
         private void Absent_Marking_Menu_Click(object sender, EventArgs e)
         {
@@ -112,6 +105,24 @@ namespace Exam_Cell
         private void Absent_Statement_Menu_Click(object sender, EventArgs e)
         {
             Absent_Statement ss = new Absent_Statement();
+            ss.MdiParent = this;
+            panel1.Controls.Add(ss);
+            ss.Show();
+            ss.BringToFront();
+        }
+
+        private void StudentManagementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Student_Management ss = new Student_Management();
+            ss.MdiParent = this;
+            panel1.Controls.Add(ss);
+            ss.Show();
+            ss.BringToFront();
+        }
+
+        private void ClassBranchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Database_Management ss = new Database_Management();
             ss.MdiParent = this;
             panel1.Controls.Add(ss);
             ss.Show();

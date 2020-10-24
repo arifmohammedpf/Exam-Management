@@ -42,6 +42,8 @@
             this.InfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.StudentManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ClassBranchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,12 +105,14 @@
             // 
             // DatabasemanagementToolStripMenuItem
             // 
+            this.DatabasemanagementToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.StudentManagementToolStripMenuItem,
+            this.ClassBranchToolStripMenuItem});
             this.DatabasemanagementToolStripMenuItem.Font = new System.Drawing.Font("Segoe Print", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DatabasemanagementToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.DatabasemanagementToolStripMenuItem.Name = "DatabasemanagementToolStripMenuItem";
             this.DatabasemanagementToolStripMenuItem.Size = new System.Drawing.Size(305, 47);
             this.DatabasemanagementToolStripMenuItem.Text = "Database Management";
-            this.DatabasemanagementToolStripMenuItem.Click += new System.EventHandler(this.DatabasemanagementToolStripMenuItem_Click);
             // 
             // FilesToolStripMenuItem
             // 
@@ -188,6 +192,24 @@
             this.panel1.Size = new System.Drawing.Size(1661, 509);
             this.panel1.TabIndex = 3;
             // 
+            // StudentManagementToolStripMenuItem
+            // 
+            this.StudentManagementToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.StudentManagementToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.StudentManagementToolStripMenuItem.Name = "StudentManagementToolStripMenuItem";
+            this.StudentManagementToolStripMenuItem.Size = new System.Drawing.Size(263, 48);
+            this.StudentManagementToolStripMenuItem.Text = "Student";
+            this.StudentManagementToolStripMenuItem.Click += new System.EventHandler(this.StudentManagementToolStripMenuItem_Click);
+            // 
+            // ClassBranchToolStripMenuItem
+            // 
+            this.ClassBranchToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ClassBranchToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ClassBranchToolStripMenuItem.Name = "ClassBranchToolStripMenuItem";
+            this.ClassBranchToolStripMenuItem.Size = new System.Drawing.Size(263, 48);
+            this.ClassBranchToolStripMenuItem.Text = "Class/Branch";
+            this.ClassBranchToolStripMenuItem.Click += new System.EventHandler(this.ClassBranchToolStripMenuItem_Click);
+            // 
             // Menu_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -229,5 +251,7 @@
         private System.Windows.Forms.ToolStripMenuItem InfoToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolStripMenuItem StudentManagementToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ClassBranchToolStripMenuItem;
     }
 }

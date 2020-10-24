@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formtimetable));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -282,6 +284,8 @@
             // 
             this.Course_Select_dgv.AllowUserToAddRows = false;
             this.Course_Select_dgv.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
+            this.Course_Select_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.Course_Select_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.Course_Select_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Course_Select_dgv.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -430,6 +434,8 @@
             // 
             this.Timetableview_dgv.AllowUserToAddRows = false;
             this.Timetableview_dgv.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gainsboro;
+            this.Timetableview_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.Timetableview_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.Timetableview_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Timetableview_dgv.Dock = System.Windows.Forms.DockStyle.Fill;

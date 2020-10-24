@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.SearchDGVFill = new System.Windows.Forms.Button();
             this.Alloted_dgv = new System.Windows.Forms.DataGridView();
@@ -143,6 +147,8 @@
             // 
             this.Alloted_dgv.AllowUserToAddRows = false;
             this.Alloted_dgv.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
+            this.Alloted_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.Alloted_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.Alloted_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Alloted_dgv.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -285,6 +291,8 @@
             // 
             this.AllotedStudentsRooms_dgv.AllowUserToAddRows = false;
             this.AllotedStudentsRooms_dgv.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gainsboro;
+            this.AllotedStudentsRooms_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.AllotedStudentsRooms_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.AllotedStudentsRooms_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AllotedStudentsRooms_dgv.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -351,6 +359,8 @@
             // 
             this.AllotedRooms_dgv.AllowUserToAddRows = false;
             this.AllotedRooms_dgv.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
+            this.AllotedRooms_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.AllotedRooms_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.AllotedRooms_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AllotedRooms_dgv.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -385,6 +395,8 @@
             // 
             this.AllotedBrief_dgv.AllowUserToAddRows = false;
             this.AllotedBrief_dgv.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gainsboro;
+            this.AllotedBrief_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.AllotedBrief_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.AllotedBrief_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AllotedBrief_dgv.Dock = System.Windows.Forms.DockStyle.Top;

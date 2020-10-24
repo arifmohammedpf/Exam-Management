@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Absent_Marking));
             this.Unv_radio = new System.Windows.Forms.RadioButton();
             this.Series_radio = new System.Windows.Forms.RadioButton();
@@ -105,6 +106,8 @@
             // 
             this.Dgv.AllowUserToAddRows = false;
             this.Dgv.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
+            this.Dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.Dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.Dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dgv.Dock = System.Windows.Forms.DockStyle.Fill;
