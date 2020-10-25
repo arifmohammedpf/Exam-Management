@@ -98,11 +98,15 @@
             // 
             // Loginbuttn
             // 
-            this.Loginbuttn.BackColor = System.Drawing.Color.White;
+            this.Loginbuttn.BackColor = System.Drawing.Color.Transparent;
+            this.Loginbuttn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.Loginbuttn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(40)))));
+            this.Loginbuttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Loginbuttn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Loginbuttn.Location = new System.Drawing.Point(35, 212);
             this.Loginbuttn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Loginbuttn.Name = "Loginbuttn";
-            this.Loginbuttn.Size = new System.Drawing.Size(80, 37);
+            this.Loginbuttn.Size = new System.Drawing.Size(279, 37);
             this.Loginbuttn.TabIndex = 2;
             this.Loginbuttn.Text = "Login";
             this.Loginbuttn.UseVisualStyleBackColor = false;
