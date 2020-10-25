@@ -85,7 +85,7 @@ namespace Exam_Cell.Forms
                 activeForm.Close();
             activeForm = childForm;
             childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
             panelChildForm.Controls.Add(childForm);
             panelChildForm.Tag = childForm;
@@ -121,6 +121,16 @@ namespace Exam_Cell.Forms
         private void PostponeForm_btn_Click(object sender, EventArgs e)
         {
             OpenChildForm(new postponement());
+        }
+
+        private void MenuForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Exit_btn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
