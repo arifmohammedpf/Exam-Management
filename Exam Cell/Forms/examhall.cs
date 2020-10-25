@@ -92,40 +92,44 @@ namespace Exam_Cell
                 
         private void Save_button_Click(object sender, EventArgs e)
         {
-            if(Priority_combobox.SelectedIndex!=0)
+            DialogResult result = MessageBox.Show("Click Yes to Save", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if(result==DialogResult.Yes)
             {
-                int flag = 0;
-                if (Rooms_dgv.RowCount.ToString() != "0" && RoomNo_textbox.Text!="")
+                if (Priority_combobox.SelectedIndex != 0)
                 {
-                    foreach (DataGridViewRow dr in Rooms_dgv.Rows)
+                    int flag = 0;
+                    if (Rooms_dgv.RowCount.ToString() != "0" && RoomNo_textbox.Text != "")
                     {
-                        if (RoomNo_textbox.Text.Equals(dr.Cells["Room_No"].Value.ToString(), StringComparison.OrdinalIgnoreCase))
+                        foreach (DataGridViewRow dr in Rooms_dgv.Rows)
                         {
-                            flag = 1;
+                            if (RoomNo_textbox.Text.Equals(dr.Cells["Room_No"].Value.ToString(), StringComparison.OrdinalIgnoreCase))
+                            {
+                                flag = 1;
+                            }
+
                         }
-                        
+                        if (flag == 1)
+                        {
+                            SqlUpdateCommand();
+                        }
+                        else
+                        {
+                            SqlInsertCommand();
+                        }
                     }
-                    if(flag == 1)
-                    {
-                        SqlUpdateCommand();
-                    }
-                    else 
+                    else if (RoomNo_textbox.Text != "")
                     {
                         SqlInsertCommand();
                     }
-                }
-                else if (RoomNo_textbox.Text != "")
-                {
-                    SqlInsertCommand();
+                    else
+                    {
+                        MessageBox.Show("Enter Room", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Enter Room", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Select Priority", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-            else
-            {
-                MessageBox.Show("Select Priority", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
