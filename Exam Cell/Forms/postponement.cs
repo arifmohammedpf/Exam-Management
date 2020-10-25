@@ -136,13 +136,17 @@ namespace Exam_Cell
         }
         private void Postpone_button_Click(object sender, EventArgs e)
         {
-            if (NewSession_combobox.SelectedItem.ToString() != "-Optional-")
+            DialogResult result = MessageBox.Show("Click Yes to Confirm", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if(result == DialogResult.Yes)
             {
-                Postpone_with_session();
-            }
-            else
-            {
-                Postpone_without_session();
+                if (NewSession_combobox.SelectedItem.ToString() != "-Optional-")
+                {
+                    Postpone_with_session();
+                }
+                else
+                {
+                    Postpone_without_session();
+                }
             }
         }
 
