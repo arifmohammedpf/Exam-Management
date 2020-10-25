@@ -77,15 +77,19 @@ namespace Exam_Cell
 
         private void AddNewBranch_btn_Click(object sender, EventArgs e)
         {
-            if(NewBranch_textbox.Text != "")
+            DialogResult result = MessageBox.Show("Click Yes to Add New Branch", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (result == DialogResult.Yes)
             {
-                SqlCommand command = new SqlCommand("insert into Management(Branch)Values(" + " @Branch) ", con.ActiveCon());
-                command.Parameters.AddWithValue("@Branch", NewBranch_textbox.Text);
-                command.ExecuteNonQuery();
-                MessageBox.Show("New Branch Added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                BranchComboboxFill();
-                Clear_All_ClassManagement();
-            }
+                if (NewBranch_textbox.Text != "")
+                {
+                    SqlCommand command = new SqlCommand("insert into Management(Branch)Values(" + " @Branch) ", con.ActiveCon());
+                    command.Parameters.AddWithValue("@Branch", NewBranch_textbox.Text);
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("New Branch Added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    BranchComboboxFill();
+                    Clear_All_ClassManagement();
+                }
+            }                
         }
 
         private void DeleteBranch_btn_Click(object sender, EventArgs e)
@@ -176,31 +180,33 @@ namespace Exam_Cell
 
         private void AddNewCourse_btn_Click(object sender, EventArgs e)
         {
-            if(UpdateBranch_combobox.SelectedIndex!=0 && Semester_combobox.SelectedIndex!=0 && Course_textbox.Text != "" && Examcode_textbox.Text !="" && ACode_textbox.Text !="")
+            DialogResult result = MessageBox.Show("Click Yes to Add New Course", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (result == DialogResult.Yes)
             {
-                SqlCommand comm = new SqlCommand("Select Default_Scheme from Management where (Default_Scheme is not null)", con.ActiveCon());
-                string scheme = (string)comm.ExecuteScalar();
-                SqlCommand command = new SqlCommand("insert into Scheme(Scheme,Branch,Semester,Course,Sub_Code,Acode)Values(" + " @Scheme,@Branch,@Semester,@Course,@Sub_Code,@Acode) ", con.ActiveCon());
-                command.Parameters.AddWithValue("@Scheme", scheme);
-                command.Parameters.AddWithValue("@Branch", UpdateBranch_combobox.Text);
-                command.Parameters.AddWithValue("@Semester", Semester_combobox.Text);
-                command.Parameters.AddWithValue("@Course", Course_textbox.Text);
-                command.Parameters.AddWithValue("@Sub_Code", Examcode_textbox.Text);
-                command.Parameters.AddWithValue("@Acode", ACode_textbox.Text);
-                command.ExecuteNonQuery();                
-                Branch_dgv_Fill();
-                Course_textbox.Clear();
-                Examcode_textbox.Clear();
-                ACode_textbox.Clear();
-                NewcourseFilter();
-                MessageBox.Show("New Course Added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Fill Necessary Details, Try again.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
-            }
-
+                if (UpdateBranch_combobox.SelectedIndex != 0 && Semester_combobox.SelectedIndex != 0 && Course_textbox.Text != "" && Examcode_textbox.Text != "" && ACode_textbox.Text != "")
+                {
+                    SqlCommand comm = new SqlCommand("Select Default_Scheme from Management where (Default_Scheme is not null)", con.ActiveCon());
+                    string scheme = (string)comm.ExecuteScalar();
+                    SqlCommand command = new SqlCommand("insert into Scheme(Scheme,Branch,Semester,Course,Sub_Code,Acode)Values(" + " @Scheme,@Branch,@Semester,@Course,@Sub_Code,@Acode) ", con.ActiveCon());
+                    command.Parameters.AddWithValue("@Scheme", scheme);
+                    command.Parameters.AddWithValue("@Branch", UpdateBranch_combobox.Text);
+                    command.Parameters.AddWithValue("@Semester", Semester_combobox.Text);
+                    command.Parameters.AddWithValue("@Course", Course_textbox.Text);
+                    command.Parameters.AddWithValue("@Sub_Code", Examcode_textbox.Text);
+                    command.Parameters.AddWithValue("@Acode", ACode_textbox.Text);
+                    command.ExecuteNonQuery();
+                    Branch_dgv_Fill();
+                    Course_textbox.Clear();
+                    Examcode_textbox.Clear();
+                    ACode_textbox.Clear();
+                    NewcourseFilter();
+                    MessageBox.Show("New Course Added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Fill Necessary Details, Try again.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }               
         }
 
         void NewcourseFilter()
@@ -272,18 +278,22 @@ namespace Exam_Cell
 
         private void AddNewClass_btn_Click(object sender, EventArgs e)
         {
-            if (NewClassSem_combobox.SelectedIndex != 0)
+            DialogResult result = MessageBox.Show("Click Yes to Add New Class", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if(result == DialogResult.Yes)
             {
-                SqlCommand command = new SqlCommand("insert into Management(Class,Semester)Values(" + " @Class,@Semester) ", con.ActiveCon());
-                command.Parameters.AddWithValue("@Class", NewClass_textbox.Text);
-                command.Parameters.AddWithValue("@Semester", NewClassSem_combobox.Text);
-                command.ExecuteNonQuery();
-                MessageBox.Show("New Class Added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                NewClassSem_combobox.SelectedIndex = 0;
-                Class_dgv_Fill();
+                if (NewClassSem_combobox.SelectedIndex != 0)
+                {
+                    SqlCommand command = new SqlCommand("insert into Management(Class,Semester)Values(" + " @Class,@Semester) ", con.ActiveCon());
+                    command.Parameters.AddWithValue("@Class", NewClass_textbox.Text);
+                    command.Parameters.AddWithValue("@Semester", NewClassSem_combobox.Text);
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("New Class Added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    NewClassSem_combobox.SelectedIndex = 0;
+                    Class_dgv_Fill();
+                }
+                else
+                    MessageBox.Show("Select Semester", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
-                MessageBox.Show("Select Semester", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         void BranchComboboxFill()
@@ -344,8 +354,8 @@ namespace Exam_Cell
 
         private void Class_radiobtn_CheckedChanged(object sender, EventArgs e)
         {
-            Class_Managmnt_panel.BringToFront();
-            Class_Managmnt_panel.Enabled = true;
+            DefaultScheme_Panel.SendToBack();
+            groupBoxContents.Enabled = true;
             DefaultScheme_Panel.Enabled = false;
         }
 
@@ -357,13 +367,9 @@ namespace Exam_Cell
         {
             DefaultScheme_Panel.BringToFront();
             DefaultScheme_Panel.Enabled = true;
-            Class_Managmnt_panel.Enabled = false;
+            groupBoxContents.Enabled = false;
             Schemelabel();
         }
-
-
-
-                
     }
 }
                 
