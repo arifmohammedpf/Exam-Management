@@ -20,14 +20,8 @@ namespace Exam_Cell
             InitializeComponent();
         }
 
-        private void Absent_Marking_Load(object sender, EventArgs e)
-        {
-            Panel.Enabled = false;
-        }
-
         private void Unv_radio_CheckedChanged(object sender, EventArgs e)
         {
-            Panel.Enabled = true;
             DateComboboxFill();
             RoomNoComboboxFill();
             Session_combobox.SelectedIndex = 0;
@@ -37,7 +31,6 @@ namespace Exam_Cell
 
         private void Series_radio_CheckedChanged(object sender, EventArgs e)
         {
-            Panel.Enabled = true;
             DateComboboxFill();
             RoomNoComboboxFill();
             Session_combobox.SelectedIndex = 0;
@@ -195,12 +188,14 @@ namespace Exam_Cell
         // we need clear data so in absentStatement old dates and records wont show
         private void ClearData_btn_Click(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand("Delete Absentees", con.ActiveCon());
-            command.ExecuteNonQuery();
-            MessageBox.Show("Data Cleared", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DialogResult result = MessageBox.Show("Delete all previously entered data ? ", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if(result==DialogResult.Yes)
+            {
+                SqlCommand command = new SqlCommand("Delete Absentees", con.ActiveCon());
+                command.ExecuteNonQuery();
+                MessageBox.Show("Data Cleared", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
         }
-
-        
     }
 }
