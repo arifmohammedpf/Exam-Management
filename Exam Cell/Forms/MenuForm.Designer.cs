@@ -80,6 +80,8 @@
             // 
             this.Exit_btn.Dock = System.Windows.Forms.DockStyle.Top;
             this.Exit_btn.FlatAppearance.BorderSize = 0;
+            this.Exit_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Navy;
+            this.Exit_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(40)))));
             this.Exit_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Exit_btn.ForeColor = System.Drawing.Color.Gainsboro;
             this.Exit_btn.Location = new System.Drawing.Point(0, 650);
@@ -139,6 +141,8 @@
             // 
             this.Absentees_btn.Dock = System.Windows.Forms.DockStyle.Top;
             this.Absentees_btn.FlatAppearance.BorderSize = 0;
+            this.Absentees_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Navy;
+            this.Absentees_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(40)))));
             this.Absentees_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Absentees_btn.ForeColor = System.Drawing.Color.Gainsboro;
             this.Absentees_btn.Location = new System.Drawing.Point(0, 495);
@@ -155,6 +159,8 @@
             // 
             this.PostponeForm_btn.Dock = System.Windows.Forms.DockStyle.Top;
             this.PostponeForm_btn.FlatAppearance.BorderSize = 0;
+            this.PostponeForm_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Navy;
+            this.PostponeForm_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(40)))));
             this.PostponeForm_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PostponeForm_btn.ForeColor = System.Drawing.Color.Gainsboro;
             this.PostponeForm_btn.Location = new System.Drawing.Point(0, 445);
@@ -171,6 +177,8 @@
             // 
             this.AllotmentForm_btn.Dock = System.Windows.Forms.DockStyle.Top;
             this.AllotmentForm_btn.FlatAppearance.BorderSize = 0;
+            this.AllotmentForm_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Navy;
+            this.AllotmentForm_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(40)))));
             this.AllotmentForm_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AllotmentForm_btn.ForeColor = System.Drawing.Color.Gainsboro;
             this.AllotmentForm_btn.Location = new System.Drawing.Point(0, 395);
@@ -187,6 +195,8 @@
             // 
             this.TtableForm_btn.Dock = System.Windows.Forms.DockStyle.Top;
             this.TtableForm_btn.FlatAppearance.BorderSize = 0;
+            this.TtableForm_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Navy;
+            this.TtableForm_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(40)))));
             this.TtableForm_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TtableForm_btn.ForeColor = System.Drawing.Color.Gainsboro;
             this.TtableForm_btn.Location = new System.Drawing.Point(0, 345);
@@ -203,6 +213,8 @@
             // 
             this.RegStyMng_btn.Dock = System.Windows.Forms.DockStyle.Top;
             this.RegStyMng_btn.FlatAppearance.BorderSize = 0;
+            this.RegStyMng_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Navy;
+            this.RegStyMng_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(40)))));
             this.RegStyMng_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RegStyMng_btn.ForeColor = System.Drawing.Color.Gainsboro;
             this.RegStyMng_btn.Location = new System.Drawing.Point(0, 295);
@@ -219,6 +231,8 @@
             // 
             this.CandEntryForm_btn.Dock = System.Windows.Forms.DockStyle.Top;
             this.CandEntryForm_btn.FlatAppearance.BorderSize = 0;
+            this.CandEntryForm_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Navy;
+            this.CandEntryForm_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(40)))));
             this.CandEntryForm_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CandEntryForm_btn.ForeColor = System.Drawing.Color.Gainsboro;
             this.CandEntryForm_btn.Location = new System.Drawing.Point(0, 245);
@@ -235,6 +249,8 @@
             // 
             this.RoomForm_btn.Dock = System.Windows.Forms.DockStyle.Top;
             this.RoomForm_btn.FlatAppearance.BorderSize = 0;
+            this.RoomForm_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Navy;
+            this.RoomForm_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(40)))));
             this.RoomForm_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RoomForm_btn.ForeColor = System.Drawing.Color.Gainsboro;
             this.RoomForm_btn.Location = new System.Drawing.Point(0, 195);
@@ -294,6 +310,8 @@
             // 
             this.Dbm_btn.Dock = System.Windows.Forms.DockStyle.Top;
             this.Dbm_btn.FlatAppearance.BorderSize = 0;
+            this.Dbm_btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Navy;
+            this.Dbm_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(40)))));
             this.Dbm_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Dbm_btn.ForeColor = System.Drawing.Color.Gainsboro;
             this.Dbm_btn.Location = new System.Drawing.Point(0, 40);
