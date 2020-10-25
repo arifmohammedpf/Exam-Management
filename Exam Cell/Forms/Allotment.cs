@@ -1280,10 +1280,7 @@ namespace Exam_Cell
         BindingSource roomfill = new BindingSource();
         BindingSource dgvfill = new BindingSource();
         BindingSource briefdgv = new BindingSource();
-        private void Session_combobox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
+        
 
         private void AllocatedRoom_combobox_SelectedIndexChanged(object sender, EventArgs e)
         {

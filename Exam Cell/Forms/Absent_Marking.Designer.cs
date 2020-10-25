@@ -31,24 +31,24 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Absent_Marking));
             this.Panel = new System.Windows.Forms.Panel();
-            this.Dgv = new System.Windows.Forms.DataGridView();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.Unv_radio = new System.Windows.Forms.RadioButton();
-            this.Series_radio = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Date_combobox = new System.Windows.Forms.ComboBox();
-            this.Session_combobox = new System.Windows.Forms.ComboBox();
-            this.Room_combobox = new System.Windows.Forms.ComboBox();
-            this.Absentees_btn = new System.Windows.Forms.Button();
-            this.ClearData_btn = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.Series_radio = new System.Windows.Forms.RadioButton();
+            this.Unv_radio = new System.Windows.Forms.RadioButton();
             this.Search_btn = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.ClearData_btn = new System.Windows.Forms.Button();
+            this.Absentees_btn = new System.Windows.Forms.Button();
+            this.Room_combobox = new System.Windows.Forms.ComboBox();
+            this.Session_combobox = new System.Windows.Forms.ComboBox();
+            this.Date_combobox = new System.Windows.Forms.ComboBox();
+            this.Dgv = new System.Windows.Forms.DataGridView();
             this.Panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Dgv)).BeginInit();
-            this.groupBox3.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv)).BeginInit();
             this.SuspendLayout();
             // 
             // Panel
@@ -59,27 +59,26 @@
             this.Panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Panel.Location = new System.Drawing.Point(0, 0);
             this.Panel.Name = "Panel";
-            this.Panel.Size = new System.Drawing.Size(1437, 746);
+            this.Panel.Size = new System.Drawing.Size(1419, 866);
             this.Panel.TabIndex = 7;
             // 
-            // Dgv
+            // panel1
             // 
-            this.Dgv.AllowUserToAddRows = false;
-            this.Dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
-            this.Dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.Dgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.Dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dgv.Location = new System.Drawing.Point(762, 25);
-            this.Dgv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Dgv.Name = "Dgv";
-            this.Dgv.ReadOnly = true;
-            this.Dgv.RowTemplate.Height = 24;
-            this.Dgv.Size = new System.Drawing.Size(622, 710);
-            this.Dgv.TabIndex = 16;
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.Controls.Add(this.groupBox3);
+            this.panel1.Controls.Add(this.Search_btn);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.ClearData_btn);
+            this.panel1.Controls.Add(this.Absentees_btn);
+            this.panel1.Controls.Add(this.Room_combobox);
+            this.panel1.Controls.Add(this.Session_combobox);
+            this.panel1.Controls.Add(this.Date_combobox);
+            this.panel1.Location = new System.Drawing.Point(12, 25);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(669, 815);
+            this.panel1.TabIndex = 17;
             // 
             // groupBox3
             // 
@@ -89,7 +88,7 @@
             this.groupBox3.Controls.Add(this.Unv_radio);
             this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox3.Location = new System.Drawing.Point(134, 23);
+            this.groupBox3.Location = new System.Drawing.Point(148, 76);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -97,19 +96,6 @@
             this.groupBox3.TabIndex = 48;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Select Exam";
-            // 
-            // Unv_radio
-            // 
-            this.Unv_radio.AutoSize = true;
-            this.Unv_radio.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Unv_radio.Location = new System.Drawing.Point(36, 30);
-            this.Unv_radio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Unv_radio.Name = "Unv_radio";
-            this.Unv_radio.Size = new System.Drawing.Size(117, 26);
-            this.Unv_radio.TabIndex = 19;
-            this.Unv_radio.Text = "University";
-            this.Unv_radio.UseVisualStyleBackColor = true;
-            this.Unv_radio.CheckedChanged += new System.EventHandler(this.Unv_radio_CheckedChanged);
             // 
             // Series_radio
             // 
@@ -124,36 +110,119 @@
             this.Series_radio.UseVisualStyleBackColor = true;
             this.Series_radio.CheckedChanged += new System.EventHandler(this.Series_radio_CheckedChanged);
             // 
-            // panel1
+            // Unv_radio
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel1.Controls.Add(this.groupBox3);
-            this.panel1.Controls.Add(this.Search_btn);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.ClearData_btn);
-            this.panel1.Controls.Add(this.Absentees_btn);
-            this.panel1.Controls.Add(this.Room_combobox);
-            this.panel1.Controls.Add(this.Session_combobox);
-            this.panel1.Controls.Add(this.Date_combobox);
-            this.panel1.Location = new System.Drawing.Point(115, 25);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(641, 709);
-            this.panel1.TabIndex = 17;
+            this.Unv_radio.AutoSize = true;
+            this.Unv_radio.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Unv_radio.Location = new System.Drawing.Point(36, 30);
+            this.Unv_radio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Unv_radio.Name = "Unv_radio";
+            this.Unv_radio.Size = new System.Drawing.Size(117, 26);
+            this.Unv_radio.TabIndex = 19;
+            this.Unv_radio.Text = "University";
+            this.Unv_radio.UseVisualStyleBackColor = true;
+            this.Unv_radio.CheckedChanged += new System.EventHandler(this.Unv_radio_CheckedChanged);
             // 
-            // Date_combobox
+            // Search_btn
             // 
-            this.Date_combobox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Date_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Date_combobox.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Date_combobox.FormattingEnabled = true;
-            this.Date_combobox.Location = new System.Drawing.Point(207, 162);
-            this.Date_combobox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Date_combobox.Name = "Date_combobox";
-            this.Date_combobox.Size = new System.Drawing.Size(319, 32);
-            this.Date_combobox.TabIndex = 39;
+            this.Search_btn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Search_btn.BackColor = System.Drawing.Color.Olive;
+            this.Search_btn.FlatAppearance.BorderSize = 0;
+            this.Search_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.Search_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Search_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Search_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Search_btn.Location = new System.Drawing.Point(221, 390);
+            this.Search_btn.Name = "Search_btn";
+            this.Search_btn.Size = new System.Drawing.Size(91, 37);
+            this.Search_btn.TabIndex = 47;
+            this.Search_btn.Text = "Search";
+            this.Search_btn.UseVisualStyleBackColor = false;
+            this.Search_btn.Click += new System.EventHandler(this.Search_btn_Click);
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Location = new System.Drawing.Point(115, 328);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(94, 22);
+            this.label3.TabIndex = 44;
+            this.label3.Text = "Room No";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(115, 274);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 22);
+            this.label2.TabIndex = 45;
+            this.label2.Text = "Session";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(115, 220);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 22);
+            this.label1.TabIndex = 46;
+            this.label1.Text = "Date";
+            // 
+            // ClearData_btn
+            // 
+            this.ClearData_btn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ClearData_btn.BackColor = System.Drawing.Color.Maroon;
+            this.ClearData_btn.FlatAppearance.BorderSize = 0;
+            this.ClearData_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.ClearData_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ClearData_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClearData_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ClearData_btn.Location = new System.Drawing.Point(534, 776);
+            this.ClearData_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ClearData_btn.Name = "ClearData_btn";
+            this.ClearData_btn.Size = new System.Drawing.Size(132, 37);
+            this.ClearData_btn.TabIndex = 42;
+            this.ClearData_btn.Text = "Clear Data";
+            this.ClearData_btn.UseVisualStyleBackColor = false;
+            this.ClearData_btn.Click += new System.EventHandler(this.ClearData_btn_Click);
+            // 
+            // Absentees_btn
+            // 
+            this.Absentees_btn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Absentees_btn.BackColor = System.Drawing.Color.DarkGreen;
+            this.Absentees_btn.FlatAppearance.BorderSize = 0;
+            this.Absentees_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
+            this.Absentees_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Absentees_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Absentees_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Absentees_btn.Location = new System.Drawing.Point(221, 456);
+            this.Absentees_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Absentees_btn.Name = "Absentees_btn";
+            this.Absentees_btn.Size = new System.Drawing.Size(190, 52);
+            this.Absentees_btn.TabIndex = 43;
+            this.Absentees_btn.Text = "Enter Absentees";
+            this.Absentees_btn.UseVisualStyleBackColor = false;
+            this.Absentees_btn.Click += new System.EventHandler(this.Absentees_btn_Click);
+            // 
+            // Room_combobox
+            // 
+            this.Room_combobox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Room_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Room_combobox.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Room_combobox.FormattingEnabled = true;
+            this.Room_combobox.Location = new System.Drawing.Point(221, 323);
+            this.Room_combobox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Room_combobox.Name = "Room_combobox";
+            this.Room_combobox.Size = new System.Drawing.Size(319, 32);
+            this.Room_combobox.TabIndex = 40;
             // 
             // Session_combobox
             // 
@@ -165,119 +234,47 @@
             "-Select-",
             "Forenoon",
             "Afternoon"});
-            this.Session_combobox.Location = new System.Drawing.Point(207, 216);
+            this.Session_combobox.Location = new System.Drawing.Point(221, 269);
             this.Session_combobox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Session_combobox.Name = "Session_combobox";
             this.Session_combobox.Size = new System.Drawing.Size(319, 32);
             this.Session_combobox.TabIndex = 41;
             // 
-            // Room_combobox
+            // Date_combobox
             // 
-            this.Room_combobox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Room_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Room_combobox.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Room_combobox.FormattingEnabled = true;
-            this.Room_combobox.Location = new System.Drawing.Point(207, 270);
-            this.Room_combobox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Room_combobox.Name = "Room_combobox";
-            this.Room_combobox.Size = new System.Drawing.Size(319, 32);
-            this.Room_combobox.TabIndex = 40;
+            this.Date_combobox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Date_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Date_combobox.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Date_combobox.FormattingEnabled = true;
+            this.Date_combobox.Location = new System.Drawing.Point(221, 215);
+            this.Date_combobox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Date_combobox.Name = "Date_combobox";
+            this.Date_combobox.Size = new System.Drawing.Size(319, 32);
+            this.Date_combobox.TabIndex = 39;
             // 
-            // Absentees_btn
+            // Dgv
             // 
-            this.Absentees_btn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Absentees_btn.BackColor = System.Drawing.Color.DarkGreen;
-            this.Absentees_btn.FlatAppearance.BorderSize = 0;
-            this.Absentees_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
-            this.Absentees_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Absentees_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Absentees_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Absentees_btn.Location = new System.Drawing.Point(207, 403);
-            this.Absentees_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Absentees_btn.Name = "Absentees_btn";
-            this.Absentees_btn.Size = new System.Drawing.Size(190, 52);
-            this.Absentees_btn.TabIndex = 43;
-            this.Absentees_btn.Text = "Enter Absentees";
-            this.Absentees_btn.UseVisualStyleBackColor = false;
-            this.Absentees_btn.Click += new System.EventHandler(this.Absentees_btn_Click);
-            // 
-            // ClearData_btn
-            // 
-            this.ClearData_btn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ClearData_btn.BackColor = System.Drawing.Color.Maroon;
-            this.ClearData_btn.FlatAppearance.BorderSize = 0;
-            this.ClearData_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ClearData_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ClearData_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClearData_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClearData_btn.Location = new System.Drawing.Point(394, 659);
-            this.ClearData_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ClearData_btn.Name = "ClearData_btn";
-            this.ClearData_btn.Size = new System.Drawing.Size(132, 37);
-            this.ClearData_btn.TabIndex = 42;
-            this.ClearData_btn.Text = "Clear Data";
-            this.ClearData_btn.UseVisualStyleBackColor = false;
-            this.ClearData_btn.Click += new System.EventHandler(this.ClearData_btn_Click);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(101, 167);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 22);
-            this.label1.TabIndex = 46;
-            this.label1.Text = "Date";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(101, 221);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 22);
-            this.label2.TabIndex = 45;
-            this.label2.Text = "Session";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(101, 275);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 22);
-            this.label3.TabIndex = 44;
-            this.label3.Text = "Room No";
-            // 
-            // Search_btn
-            // 
-            this.Search_btn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Search_btn.BackColor = System.Drawing.Color.Olive;
-            this.Search_btn.FlatAppearance.BorderSize = 0;
-            this.Search_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.Search_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Search_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Search_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Search_btn.Location = new System.Drawing.Point(207, 337);
-            this.Search_btn.Name = "Search_btn";
-            this.Search_btn.Size = new System.Drawing.Size(91, 37);
-            this.Search_btn.TabIndex = 47;
-            this.Search_btn.Text = "Search";
-            this.Search_btn.UseVisualStyleBackColor = false;
-            this.Search_btn.Click += new System.EventHandler(this.Search_btn_Click);
+            this.Dgv.AllowUserToAddRows = false;
+            this.Dgv.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
+            this.Dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.Dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.Dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dgv.Location = new System.Drawing.Point(687, 25);
+            this.Dgv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Dgv.Name = "Dgv";
+            this.Dgv.ReadOnly = true;
+            this.Dgv.RowTemplate.Height = 24;
+            this.Dgv.Size = new System.Drawing.Size(720, 815);
+            this.Dgv.TabIndex = 16;
             // 
             // Absent_Marking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1437, 746);
+            this.ClientSize = new System.Drawing.Size(1419, 866);
             this.Controls.Add(this.Panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -286,11 +283,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Absent_Marking";
             this.Panel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Dgv)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv)).EndInit();
             this.ResumeLayout(false);
 
         }
