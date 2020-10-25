@@ -84,10 +84,10 @@
             this.Exit_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.Exit_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Exit_btn.ForeColor = System.Drawing.Color.Gainsboro;
-            this.Exit_btn.Location = new System.Drawing.Point(0, 650);
+            this.Exit_btn.Location = new System.Drawing.Point(0, 810);
             this.Exit_btn.Name = "Exit_btn";
             this.Exit_btn.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.Exit_btn.Size = new System.Drawing.Size(245, 50);
+            this.Exit_btn.Size = new System.Drawing.Size(224, 70);
             this.Exit_btn.TabIndex = 12;
             this.Exit_btn.Text = "Exit";
             this.Exit_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -100,9 +100,9 @@
             this.panelAbsentDropMenu.Controls.Add(this.AbsentStateForm_btn);
             this.panelAbsentDropMenu.Controls.Add(this.AbsentMarkForm_btn);
             this.panelAbsentDropMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelAbsentDropMenu.Location = new System.Drawing.Point(0, 545);
+            this.panelAbsentDropMenu.Location = new System.Drawing.Point(0, 705);
             this.panelAbsentDropMenu.Name = "panelAbsentDropMenu";
-            this.panelAbsentDropMenu.Size = new System.Drawing.Size(245, 105);
+            this.panelAbsentDropMenu.Size = new System.Drawing.Size(224, 105);
             this.panelAbsentDropMenu.TabIndex = 11;
             // 
             // AbsentStateForm_btn
@@ -115,7 +115,7 @@
             this.AbsentStateForm_btn.Location = new System.Drawing.Point(0, 50);
             this.AbsentStateForm_btn.Name = "AbsentStateForm_btn";
             this.AbsentStateForm_btn.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.AbsentStateForm_btn.Size = new System.Drawing.Size(245, 50);
+            this.AbsentStateForm_btn.Size = new System.Drawing.Size(224, 50);
             this.AbsentStateForm_btn.TabIndex = 1;
             this.AbsentStateForm_btn.Text = "Absent Statement";
             this.AbsentStateForm_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -132,7 +132,7 @@
             this.AbsentMarkForm_btn.Location = new System.Drawing.Point(0, 0);
             this.AbsentMarkForm_btn.Name = "AbsentMarkForm_btn";
             this.AbsentMarkForm_btn.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.AbsentMarkForm_btn.Size = new System.Drawing.Size(245, 50);
+            this.AbsentMarkForm_btn.Size = new System.Drawing.Size(224, 50);
             this.AbsentMarkForm_btn.TabIndex = 0;
             this.AbsentMarkForm_btn.Text = "Absent Marking";
             this.AbsentMarkForm_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -147,10 +147,10 @@
             this.Absentees_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.Absentees_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Absentees_btn.ForeColor = System.Drawing.Color.Gainsboro;
-            this.Absentees_btn.Location = new System.Drawing.Point(0, 495);
+            this.Absentees_btn.Location = new System.Drawing.Point(0, 635);
             this.Absentees_btn.Name = "Absentees_btn";
             this.Absentees_btn.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.Absentees_btn.Size = new System.Drawing.Size(245, 50);
+            this.Absentees_btn.Size = new System.Drawing.Size(224, 70);
             this.Absentees_btn.TabIndex = 9;
             this.Absentees_btn.Text = "Absentees";
             this.Absentees_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -165,10 +165,10 @@
             this.PostponeForm_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.PostponeForm_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PostponeForm_btn.ForeColor = System.Drawing.Color.Gainsboro;
-            this.PostponeForm_btn.Location = new System.Drawing.Point(0, 445);
+            this.PostponeForm_btn.Location = new System.Drawing.Point(0, 565);
             this.PostponeForm_btn.Name = "PostponeForm_btn";
             this.PostponeForm_btn.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.PostponeForm_btn.Size = new System.Drawing.Size(245, 50);
+            this.PostponeForm_btn.Size = new System.Drawing.Size(224, 70);
             this.PostponeForm_btn.TabIndex = 8;
             this.PostponeForm_btn.Text = "Postponement";
             this.PostponeForm_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -183,10 +183,10 @@
             this.AllotmentForm_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.AllotmentForm_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AllotmentForm_btn.ForeColor = System.Drawing.Color.Gainsboro;
-            this.AllotmentForm_btn.Location = new System.Drawing.Point(0, 395);
+            this.AllotmentForm_btn.Location = new System.Drawing.Point(0, 495);
             this.AllotmentForm_btn.Name = "AllotmentForm_btn";
             this.AllotmentForm_btn.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.AllotmentForm_btn.Size = new System.Drawing.Size(245, 50);
+            this.AllotmentForm_btn.Size = new System.Drawing.Size(224, 70);
             this.AllotmentForm_btn.TabIndex = 7;
             this.AllotmentForm_btn.Text = "Allotment";
             this.AllotmentForm_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -201,10 +201,10 @@
             this.TtableForm_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.TtableForm_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TtableForm_btn.ForeColor = System.Drawing.Color.Gainsboro;
-            this.TtableForm_btn.Location = new System.Drawing.Point(0, 345);
+            this.TtableForm_btn.Location = new System.Drawing.Point(0, 425);
             this.TtableForm_btn.Name = "TtableForm_btn";
             this.TtableForm_btn.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.TtableForm_btn.Size = new System.Drawing.Size(245, 50);
+            this.TtableForm_btn.Size = new System.Drawing.Size(224, 70);
             this.TtableForm_btn.TabIndex = 6;
             this.TtableForm_btn.Text = "Timetable";
             this.TtableForm_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -219,10 +219,10 @@
             this.RegStyMng_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.RegStyMng_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RegStyMng_btn.ForeColor = System.Drawing.Color.Gainsboro;
-            this.RegStyMng_btn.Location = new System.Drawing.Point(0, 295);
+            this.RegStyMng_btn.Location = new System.Drawing.Point(0, 355);
             this.RegStyMng_btn.Name = "RegStyMng_btn";
             this.RegStyMng_btn.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.RegStyMng_btn.Size = new System.Drawing.Size(245, 50);
+            this.RegStyMng_btn.Size = new System.Drawing.Size(224, 70);
             this.RegStyMng_btn.TabIndex = 5;
             this.RegStyMng_btn.Text = "Reg.Stu.Management";
             this.RegStyMng_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -237,10 +237,10 @@
             this.CandEntryForm_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.CandEntryForm_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CandEntryForm_btn.ForeColor = System.Drawing.Color.Gainsboro;
-            this.CandEntryForm_btn.Location = new System.Drawing.Point(0, 245);
+            this.CandEntryForm_btn.Location = new System.Drawing.Point(0, 285);
             this.CandEntryForm_btn.Name = "CandEntryForm_btn";
             this.CandEntryForm_btn.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.CandEntryForm_btn.Size = new System.Drawing.Size(245, 50);
+            this.CandEntryForm_btn.Size = new System.Drawing.Size(224, 70);
             this.CandEntryForm_btn.TabIndex = 4;
             this.CandEntryForm_btn.Text = "Candidate Entry";
             this.CandEntryForm_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -255,10 +255,10 @@
             this.RoomForm_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.RoomForm_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RoomForm_btn.ForeColor = System.Drawing.Color.Gainsboro;
-            this.RoomForm_btn.Location = new System.Drawing.Point(0, 195);
+            this.RoomForm_btn.Location = new System.Drawing.Point(0, 215);
             this.RoomForm_btn.Name = "RoomForm_btn";
             this.RoomForm_btn.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.RoomForm_btn.Size = new System.Drawing.Size(245, 50);
+            this.RoomForm_btn.Size = new System.Drawing.Size(224, 70);
             this.RoomForm_btn.TabIndex = 3;
             this.RoomForm_btn.Text = "Room";
             this.RoomForm_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -271,9 +271,9 @@
             this.panelDbmDropMenu.Controls.Add(this.ClassbranchForm_btn);
             this.panelDbmDropMenu.Controls.Add(this.StudentForm_btn);
             this.panelDbmDropMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelDbmDropMenu.Location = new System.Drawing.Point(0, 90);
+            this.panelDbmDropMenu.Location = new System.Drawing.Point(0, 110);
             this.panelDbmDropMenu.Name = "panelDbmDropMenu";
-            this.panelDbmDropMenu.Size = new System.Drawing.Size(245, 105);
+            this.panelDbmDropMenu.Size = new System.Drawing.Size(224, 105);
             this.panelDbmDropMenu.TabIndex = 2;
             // 
             // ClassbranchForm_btn
@@ -286,7 +286,7 @@
             this.ClassbranchForm_btn.Location = new System.Drawing.Point(0, 50);
             this.ClassbranchForm_btn.Name = "ClassbranchForm_btn";
             this.ClassbranchForm_btn.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.ClassbranchForm_btn.Size = new System.Drawing.Size(245, 50);
+            this.ClassbranchForm_btn.Size = new System.Drawing.Size(224, 50);
             this.ClassbranchForm_btn.TabIndex = 1;
             this.ClassbranchForm_btn.Text = "Class/Branch";
             this.ClassbranchForm_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -303,7 +303,7 @@
             this.StudentForm_btn.Location = new System.Drawing.Point(0, 0);
             this.StudentForm_btn.Name = "StudentForm_btn";
             this.StudentForm_btn.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.StudentForm_btn.Size = new System.Drawing.Size(245, 50);
+            this.StudentForm_btn.Size = new System.Drawing.Size(224, 50);
             this.StudentForm_btn.TabIndex = 0;
             this.StudentForm_btn.Text = "Student";
             this.StudentForm_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -321,7 +321,7 @@
             this.Dbm_btn.Location = new System.Drawing.Point(0, 40);
             this.Dbm_btn.Name = "Dbm_btn";
             this.Dbm_btn.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.Dbm_btn.Size = new System.Drawing.Size(245, 50);
+            this.Dbm_btn.Size = new System.Drawing.Size(224, 70);
             this.Dbm_btn.TabIndex = 1;
             this.Dbm_btn.Text = "Database Management";
             this.Dbm_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

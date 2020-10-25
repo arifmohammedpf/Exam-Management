@@ -103,7 +103,7 @@
             this.Delete_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Delete_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Delete_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Delete_btn.Location = new System.Drawing.Point(18, 152);
+            this.Delete_btn.Location = new System.Drawing.Point(19, 190);
             this.Delete_btn.Name = "Delete_btn";
             this.Delete_btn.Size = new System.Drawing.Size(132, 41);
             this.Delete_btn.TabIndex = 2;
@@ -174,7 +174,7 @@
             this.Branch_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Branch_combobox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Branch_combobox.FormattingEnabled = true;
-            this.Branch_combobox.Location = new System.Drawing.Point(15, 76);
+            this.Branch_combobox.Location = new System.Drawing.Point(18, 86);
             this.Branch_combobox.Name = "Branch_combobox";
             this.Branch_combobox.Size = new System.Drawing.Size(354, 29);
             this.Branch_combobox.TabIndex = 6;
@@ -195,7 +195,7 @@
             "6",
             "7",
             "8"});
-            this.Semester_combobox.Location = new System.Drawing.Point(15, 114);
+            this.Semester_combobox.Location = new System.Drawing.Point(18, 134);
             this.Semester_combobox.Name = "Semester_combobox";
             this.Semester_combobox.Size = new System.Drawing.Size(354, 29);
             this.Semester_combobox.TabIndex = 6;
@@ -204,7 +204,7 @@
             // Regno_textbox
             // 
             this.Regno_textbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Regno_textbox.Location = new System.Drawing.Point(15, 37);
+            this.Regno_textbox.Location = new System.Drawing.Point(18, 37);
             this.Regno_textbox.Name = "Regno_textbox";
             this.Regno_textbox.Size = new System.Drawing.Size(354, 30);
             this.Regno_textbox.TabIndex = 7;
@@ -219,7 +219,7 @@
             this.ClearBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ClearBtn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClearBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClearBtn.Location = new System.Drawing.Point(247, 152);
+            this.ClearBtn.Location = new System.Drawing.Point(250, 190);
             this.ClearBtn.Name = "ClearBtn";
             this.ClearBtn.Size = new System.Drawing.Size(122, 41);
             this.ClearBtn.TabIndex = 8;
@@ -278,7 +278,7 @@
             this.panel2.Controls.Add(this.ClearBtn);
             this.panel2.Location = new System.Drawing.Point(1102, 126);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(381, 208);
+            this.panel2.Size = new System.Drawing.Size(381, 248);
             this.panel2.TabIndex = 11;
             // 
             // Registered_Students_Management

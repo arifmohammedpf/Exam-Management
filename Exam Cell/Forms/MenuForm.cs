@@ -130,7 +130,11 @@ namespace Exam_Cell.Forms
 
         private void Exit_btn_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult result = MessageBox.Show("Exit ?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if(result==DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
     }
 }
