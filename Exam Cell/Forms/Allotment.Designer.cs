@@ -130,12 +130,12 @@
             this.panel1.Location = new System.Drawing.Point(4, 45);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(664, 360);
+            this.panel1.Size = new System.Drawing.Size(632, 360);
             this.panel1.TabIndex = 1;
             // 
             // SearchDGVFill
             // 
-            this.SearchDGVFill.Location = new System.Drawing.Point(326, 63);
+            this.SearchDGVFill.Location = new System.Drawing.Point(310, 63);
             this.SearchDGVFill.Name = "SearchDGVFill";
             this.SearchDGVFill.Size = new System.Drawing.Size(91, 32);
             this.SearchDGVFill.TabIndex = 6;
@@ -156,14 +156,14 @@
             this.Alloted_dgv.Name = "Alloted_dgv";
             this.Alloted_dgv.ReadOnly = true;
             this.Alloted_dgv.RowTemplate.Height = 24;
-            this.Alloted_dgv.Size = new System.Drawing.Size(664, 251);
+            this.Alloted_dgv.Size = new System.Drawing.Size(632, 251);
             this.Alloted_dgv.TabIndex = 5;
             // 
             // MultiAllotment_button
             // 
-            this.MultiAllotment_button.Location = new System.Drawing.Point(432, 58);
+            this.MultiAllotment_button.Location = new System.Drawing.Point(407, 58);
             this.MultiAllotment_button.Name = "MultiAllotment_button";
-            this.MultiAllotment_button.Size = new System.Drawing.Size(219, 43);
+            this.MultiAllotment_button.Size = new System.Drawing.Size(222, 43);
             this.MultiAllotment_button.TabIndex = 4;
             this.MultiAllotment_button.Text = "Series Allotment";
             this.MultiAllotment_button.UseVisualStyleBackColor = true;
@@ -171,9 +171,9 @@
             // 
             // SingleAllotment_button
             // 
-            this.SingleAllotment_button.Location = new System.Drawing.Point(432, 3);
+            this.SingleAllotment_button.Location = new System.Drawing.Point(407, 3);
             this.SingleAllotment_button.Name = "SingleAllotment_button";
-            this.SingleAllotment_button.Size = new System.Drawing.Size(219, 43);
+            this.SingleAllotment_button.Size = new System.Drawing.Size(222, 43);
             this.SingleAllotment_button.TabIndex = 4;
             this.SingleAllotment_button.Text = "University Allotment";
             this.SingleAllotment_button.UseVisualStyleBackColor = true;
@@ -204,7 +204,7 @@
             // DateTimePicker
             // 
             this.DateTimePicker.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DateTimePicker.Location = new System.Drawing.Point(97, 11);
+            this.DateTimePicker.Location = new System.Drawing.Point(90, 11);
             this.DateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.DateTimePicker.Name = "DateTimePicker";
             this.DateTimePicker.Size = new System.Drawing.Size(300, 28);
@@ -219,10 +219,10 @@
             "-Select-",
             "Forenoon",
             "Afternoon"});
-            this.Session_combobox.Location = new System.Drawing.Point(97, 63);
+            this.Session_combobox.Location = new System.Drawing.Point(90, 63);
             this.Session_combobox.Margin = new System.Windows.Forms.Padding(4);
             this.Session_combobox.Name = "Session_combobox";
-            this.Session_combobox.Size = new System.Drawing.Size(221, 32);
+            this.Session_combobox.Size = new System.Drawing.Size(213, 32);
             this.Session_combobox.TabIndex = 1;
             this.Session_combobox.SelectedIndexChanged += new System.EventHandler(this.Session_combobox_SelectedIndexChanged);
             // 
@@ -250,9 +250,9 @@
             this.Generation_Panel.Controls.Add(this.SignatureSheet_button);
             this.Generation_Panel.Controls.Add(this.label3);
             this.Generation_Panel.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Generation_Panel.Location = new System.Drawing.Point(675, 12);
+            this.Generation_Panel.Location = new System.Drawing.Point(652, 12);
             this.Generation_Panel.Name = "Generation_Panel";
-            this.Generation_Panel.Size = new System.Drawing.Size(547, 581);
+            this.Generation_Panel.Size = new System.Drawing.Size(535, 581);
             this.Generation_Panel.TabIndex = 2;
             // 
             // AllocatedRoom_combobox
@@ -300,7 +300,7 @@
             this.AllotedStudentsRooms_dgv.Name = "AllotedStudentsRooms_dgv";
             this.AllotedStudentsRooms_dgv.ReadOnly = true;
             this.AllotedStudentsRooms_dgv.RowTemplate.Height = 24;
-            this.AllotedStudentsRooms_dgv.Size = new System.Drawing.Size(547, 433);
+            this.AllotedStudentsRooms_dgv.Size = new System.Drawing.Size(535, 433);
             this.AllotedStudentsRooms_dgv.TabIndex = 5;
             // 
             // Clear_button
@@ -368,16 +368,16 @@
             this.AllotedRooms_dgv.Name = "AllotedRooms_dgv";
             this.AllotedRooms_dgv.ReadOnly = true;
             this.AllotedRooms_dgv.RowTemplate.Height = 24;
-            this.AllotedRooms_dgv.Size = new System.Drawing.Size(467, 456);
+            this.AllotedRooms_dgv.Size = new System.Drawing.Size(445, 456);
             this.AllotedRooms_dgv.TabIndex = 4;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.AllotedRooms_dgv);
             this.panel3.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(1242, 12);
+            this.panel3.Location = new System.Drawing.Point(1193, 12);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(467, 456);
+            this.panel3.Size = new System.Drawing.Size(445, 456);
             this.panel3.TabIndex = 5;
             // 
             // panel4
@@ -388,7 +388,7 @@
             this.panel4.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel4.Location = new System.Drawing.Point(4, 435);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(664, 262);
+            this.panel4.Size = new System.Drawing.Size(632, 262);
             this.panel4.TabIndex = 6;
             // 
             // AllotedBrief_dgv
@@ -404,7 +404,7 @@
             this.AllotedBrief_dgv.Name = "AllotedBrief_dgv";
             this.AllotedBrief_dgv.ReadOnly = true;
             this.AllotedBrief_dgv.RowTemplate.Height = 24;
-            this.AllotedBrief_dgv.Size = new System.Drawing.Size(664, 208);
+            this.AllotedBrief_dgv.Size = new System.Drawing.Size(632, 208);
             this.AllotedBrief_dgv.TabIndex = 5;
             // 
             // NoOfStudents_Brief
@@ -451,9 +451,9 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox1.Location = new System.Drawing.Point(1242, 476);
+            this.groupBox1.Location = new System.Drawing.Point(1193, 476);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(467, 221);
+            this.groupBox1.Size = new System.Drawing.Size(445, 221);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Shifting Students";
@@ -648,7 +648,7 @@
             this.RoomExcel_panel.Controls.Add(this.label15);
             this.RoomExcel_panel.Controls.Add(this.MonthYear_textbox);
             this.RoomExcel_panel.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RoomExcel_panel.Location = new System.Drawing.Point(753, 33);
+            this.RoomExcel_panel.Location = new System.Drawing.Point(730, 33);
             this.RoomExcel_panel.Name = "RoomExcel_panel";
             this.RoomExcel_panel.Size = new System.Drawing.Size(400, 324);
             this.RoomExcel_panel.TabIndex = 8;
@@ -706,7 +706,7 @@
             // 
             this.Folder_path_text.Enabled = false;
             this.Folder_path_text.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Folder_path_text.Location = new System.Drawing.Point(675, 603);
+            this.Folder_path_text.Location = new System.Drawing.Point(652, 603);
             this.Folder_path_text.Name = "Folder_path_text";
             this.Folder_path_text.ReadOnly = true;
             this.Folder_path_text.Size = new System.Drawing.Size(327, 33);
@@ -715,7 +715,7 @@
             // Save_Path
             // 
             this.Save_Path.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Save_Path.Location = new System.Drawing.Point(675, 646);
+            this.Save_Path.Location = new System.Drawing.Point(652, 646);
             this.Save_Path.Name = "Save_Path";
             this.Save_Path.Size = new System.Drawing.Size(327, 47);
             this.Save_Path.TabIndex = 3;
@@ -731,7 +731,7 @@
             this.Signature_panel.Controls.Add(this.label18);
             this.Signature_panel.Controls.Add(this.Signature_examtype_textbox);
             this.Signature_panel.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Signature_panel.Location = new System.Drawing.Point(753, 33);
+            this.Signature_panel.Location = new System.Drawing.Point(730, 33);
             this.Signature_panel.Name = "Signature_panel";
             this.Signature_panel.Size = new System.Drawing.Size(400, 324);
             this.Signature_panel.TabIndex = 8;
@@ -793,7 +793,7 @@
             this.DisplaySheet_Panel.Controls.Add(this.label20);
             this.DisplaySheet_Panel.Controls.Add(this.Display_examtype_textbox);
             this.DisplaySheet_Panel.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DisplaySheet_Panel.Location = new System.Drawing.Point(753, 33);
+            this.DisplaySheet_Panel.Location = new System.Drawing.Point(730, 33);
             this.DisplaySheet_Panel.Name = "DisplaySheet_Panel";
             this.DisplaySheet_Panel.Size = new System.Drawing.Size(400, 324);
             this.DisplaySheet_Panel.TabIndex = 8;
@@ -880,7 +880,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1754, 709);
+            this.ClientSize = new System.Drawing.Size(1659, 709);
             this.Controls.Add(this.Series_radio);
             this.Controls.Add(this.Unv_radio);
             this.Controls.Add(this.Folder_path_text);

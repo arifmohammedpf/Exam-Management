@@ -99,41 +99,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Absent_Marking.cs">
+    <Compile Include="Forms\Absent_Marking.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Absent_Marking.Designer.cs">
+    <Compile Include="Forms\Absent_Marking.Designer.cs">
       <DependentUpon>Absent_Marking.cs</DependentUpon>
     </Compile>
-    <Compile Include="Absent_Statement.cs">
+    <Compile Include="Forms\Absent_Statement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Absent_Statement.Designer.cs">
+    <Compile Include="Forms\Absent_Statement.Designer.cs">
       <DependentUpon>Absent_Statement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Allotment.cs">
+    <Compile Include="Forms\Allotment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Allotment.Designer.cs">
+    <Compile Include="Forms\Allotment.Designer.cs">
       <DependentUpon>Allotment.cs</DependentUpon>
     </Compile>
-    <Compile Include="candidate_entryform.cs">
+    <Compile Include="Forms\candidate_entryform.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="candidate_entryform.Designer.cs">
+    <Compile Include="Forms\candidate_entryform.Designer.cs">
       <DependentUpon>candidate_entryform.cs</DependentUpon>
     </Compile>
-    <Compile Include="Connection.cs" />
-    <Compile Include="Database_Management.cs">
+    <Compile Include="Forms\Connection.cs" />
+    <Compile Include="Forms\Database_Management.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Database_Management.Designer.cs">
+    <Compile Include="Forms\Database_Management.Designer.cs">
       <DependentUpon>Database_Management.cs</DependentUpon>
     </Compile>
-    <Compile Include="examhall.cs">
+    <Compile Include="Forms\examhall.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="examhall.Designer.cs">
+    <Compile Include="Forms\examhall.Designer.cs">
       <DependentUpon>examhall.cs</DependentUpon>
     </Compile>
     <Compile Include="Exam_CellDataSet1.Designer.cs">
@@ -191,73 +191,73 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Exam_Cell_Rooms.xsd</DependentUpon>
     </Compile>
-    <Compile Include="ExcelDBManagement.cs" />
-    <Compile Include="ExcelStudents.cs" />
-    <Compile Include="login.cs">
+    <Compile Include="Forms\ExcelDBManagement.cs" />
+    <Compile Include="Forms\ExcelStudents.cs" />
+    <Compile Include="Forms\login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="login.Designer.cs">
+    <Compile Include="Forms\login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
-    <Compile Include="postponement.cs">
+    <Compile Include="Forms\MenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="postponement.Designer.cs">
+    <Compile Include="Forms\MenuForm.Designer.cs">
+      <DependentUpon>MenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\postponement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\postponement.Designer.cs">
       <DependentUpon>postponement.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Menu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Menu.Designer.cs">
-      <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Registered Students Management.cs">
+    <Compile Include="Forms\Registered Students Management.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registered Students Management.Designer.cs">
+    <Compile Include="Forms\Registered Students Management.Designer.cs">
       <DependentUpon>Registered Students Management.cs</DependentUpon>
     </Compile>
-    <Compile Include="Student_Management.cs">
+    <Compile Include="Forms\Student_Management.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Student_Management.Designer.cs">
+    <Compile Include="Forms\Student_Management.Designer.cs">
       <DependentUpon>Student_Management.cs</DependentUpon>
     </Compile>
-    <Compile Include="timetable.cs">
+    <Compile Include="Forms\timetable.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="timetable.Designer.cs">
+    <Compile Include="Forms\timetable.Designer.cs">
       <DependentUpon>timetable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Undo_backup.cs" />
-    <EmbeddedResource Include="Absent_Marking.resx">
+    <Compile Include="Forms\Undo_backup.cs" />
+    <EmbeddedResource Include="Forms\Absent_Marking.resx">
       <DependentUpon>Absent_Marking.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Absent_Statement.resx">
+    <EmbeddedResource Include="Forms\Absent_Statement.resx">
       <DependentUpon>Absent_Statement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Allotment.resx">
+    <EmbeddedResource Include="Forms\Allotment.resx">
       <DependentUpon>Allotment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="candidate_entryform.resx">
+    <EmbeddedResource Include="Forms\candidate_entryform.resx">
       <DependentUpon>candidate_entryform.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Database_Management.resx">
+    <EmbeddedResource Include="Forms\Database_Management.resx">
       <DependentUpon>Database_Management.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="examhall.resx">
+    <EmbeddedResource Include="Forms\examhall.resx">
       <DependentUpon>examhall.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="login.resx">
+    <EmbeddedResource Include="Forms\login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="postponement.resx">
-      <DependentUpon>postponement.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\MenuForm.resx">
+      <DependentUpon>MenuForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu.resx">
-      <DependentUpon>Menu.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\postponement.resx">
+      <DependentUpon>postponement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -269,13 +269,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Registered Students Management.resx">
+    <EmbeddedResource Include="Forms\Registered Students Management.resx">
       <DependentUpon>Registered Students Management.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Student_Management.resx">
+    <EmbeddedResource Include="Forms\Student_Management.resx">
       <DependentUpon>Student_Management.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="timetable.resx">
+    <EmbeddedResource Include="Forms\timetable.resx">
       <DependentUpon>timetable.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Exam Cell_TemporaryKey.pfx" />

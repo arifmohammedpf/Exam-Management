@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Exam_Cell.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -38,7 +39,7 @@ namespace Exam_Cell
             if(Username.Text=="admin"&&Password.Text=="admin")
             {
                 this.Hide();
-                Menu_Form ss = new Menu_Form();
+                MenuForm ss = new MenuForm();
                 ss.Show();
             }
             else
