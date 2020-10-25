@@ -255,6 +255,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.Registered_dgv);
             this.panel1.Controls.Add(this.DeleteAll_btn);

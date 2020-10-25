@@ -184,52 +184,57 @@ namespace Exam_Cell
         int clearcount = 0;
         private void Add_btn_Click(object sender, EventArgs e)
         {
-            try
+            DialogResult result = MessageBox.Show("Click Yes to Add", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (result == DialogResult.Yes)
             {
-                if (Session_combobox.Text != "-Select-")
+                try
                 {
-                    int flag = 0;
-                    foreach (DataGridViewRow dr in Course_Select_dgv.Rows)
+                    if (Session_combobox.Text != "-Select-")
                     {
-                        bool checkboxselect = Convert.ToBoolean(dr.Cells["checkBoxColumn"].Value);
-                        if (checkboxselect)
+                        int flag = 0;
+                        foreach (DataGridViewRow dr in Course_Select_dgv.Rows)
                         {
-                            flag = 1;
-                            SqlCommand comm = new SqlCommand("Insert into Timetable(Date,Session,Exam_Code,Course,Semester,Branch)Values(" + "@Date,@Session,@Exam_Code,@Course,@Semester,@Branch)", con.ActiveCon());
-                            comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
-                            comm.Parameters.AddWithValue("@Session", Session_combobox.SelectedItem.ToString());
-                            comm.Parameters.AddWithValue("@Exam_Code", dr.Cells["Sub_Code"].Value);
-                            comm.Parameters.AddWithValue("@Course", dr.Cells["Course"].Value);
-                            comm.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value);
-                            comm.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value);
-                            comm.ExecuteNonQuery();                          
+                            bool checkboxselect = Convert.ToBoolean(dr.Cells["checkBoxColumn"].Value);
+                            if (checkboxselect)
+                            {
+                                flag = 1;
+                                SqlCommand comm = new SqlCommand("Insert into Timetable(Date,Session,Exam_Code,Course,Semester,Branch)Values(" + "@Date,@Session,@Exam_Code,@Course,@Semester,@Branch)", con.ActiveCon());
+                                comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
+                                comm.Parameters.AddWithValue("@Session", Session_combobox.SelectedItem.ToString());
+                                comm.Parameters.AddWithValue("@Exam_Code", dr.Cells["Sub_Code"].Value);
+                                comm.Parameters.AddWithValue("@Course", dr.Cells["Course"].Value);
+                                comm.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value);
+                                comm.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value);
+                                comm.ExecuteNonQuery();
+                            }
                         }
+                        if (flag == 1)
+                        {
+                            Undo_backup_function(flag);
+                            Session_combobox.SelectedIndex = 0;
+                            Examcode_box.Clear();
+                            CourseFill();
+                            TimetableFill();
+                            MessageBox.Show("Success", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else MessageBox.Show("No Course Selected", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    if (flag == 1)
-                    {
-                        Undo_backup_function(flag);
-                        Session_combobox.SelectedIndex = 0;
-                        Examcode_box.Clear();
-                        CourseFill();
-                        TimetableFill();
-                        MessageBox.Show("Success", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else MessageBox.Show("No Course Selected", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else MessageBox.Show("Select Session", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else MessageBox.Show("Select Session", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Try Again", "Exception Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Session_combobox.SelectedIndex = 0;
+                    //Course_Select_dgv.Update();
+                    //Course_Select_dgv.Refresh();
+                    //Timetableview_dgv.Update();
+                    //Timetableview_dgv.Refresh();
+                    CourseFill();
+                    TimetableFill();
+                }
             }
-            catch (Exception)
-            {
-                MessageBox.Show("Try Again","Exception Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                Session_combobox.SelectedIndex = 0;
-                //Course_Select_dgv.Update();
-                //Course_Select_dgv.Refresh();
-                //Timetableview_dgv.Update();
-                //Timetableview_dgv.Refresh();
-                CourseFill();
-                TimetableFill();
-            }
+                
         }
 
         private void Examcode_box_TextChanged(object sender, EventArgs e)
@@ -418,8 +423,12 @@ namespace Exam_Cell
 
         private void Undo_btn_Click(object sender, EventArgs e)
         {
-            int f = 0;
-            Undo_backup_function(f);
+            DialogResult result = MessageBox.Show("Undo last action ?", "Alert", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if(result==DialogResult.OK)
+            {
+                int f = 0;
+                Undo_backup_function(f);
+            }
         }
 
         void Clear_list()
