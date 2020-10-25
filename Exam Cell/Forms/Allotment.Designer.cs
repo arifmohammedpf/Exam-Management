@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelContainer = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Save_Path = new System.Windows.Forms.Button();
@@ -74,6 +74,10 @@
             this.Session_combobox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Generation_Panel = new System.Windows.Forms.Panel();
+            this.Clear_button = new System.Windows.Forms.Button();
+            this.DisplayPrint_button = new System.Windows.Forms.Button();
+            this.RoomPrint_button = new System.Windows.Forms.Button();
+            this.SignatureSheet_button = new System.Windows.Forms.Button();
             this.AllocatedRoom_combobox = new System.Windows.Forms.ComboBox();
             this.NoOfStudents_Room = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -97,10 +101,6 @@
             this.Excel_generate_btn = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.MonthYear_textbox = new System.Windows.Forms.TextBox();
-            this.Clear_button = new System.Windows.Forms.Button();
-            this.DisplayPrint_button = new System.Windows.Forms.Button();
-            this.RoomPrint_button = new System.Windows.Forms.Button();
-            this.SignatureSheet_button = new System.Windows.Forms.Button();
             this.panelContainer.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -149,9 +149,9 @@
             // 
             // Save_Path
             // 
-            this.Save_Path.BackColor = System.Drawing.Color.Navy;
+            this.Save_Path.BackColor = System.Drawing.Color.DarkSlateGray;
             this.Save_Path.FlatAppearance.BorderSize = 0;
-            this.Save_Path.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.Save_Path.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SlateGray;
             this.Save_Path.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Save_Path.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Save_Path.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -220,8 +220,8 @@
             // 
             this.AllotedRooms_dgv.AllowUserToAddRows = false;
             this.AllotedRooms_dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle29.BackColor = System.Drawing.Color.Gainsboro;
-            this.AllotedRooms_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
+            this.AllotedRooms_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.AllotedRooms_dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.AllotedRooms_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.AllotedRooms_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -472,8 +472,8 @@
             // 
             this.AllotedBrief_dgv.AllowUserToAddRows = false;
             this.AllotedBrief_dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle31.BackColor = System.Drawing.Color.Gainsboro;
-            this.AllotedBrief_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gainsboro;
+            this.AllotedBrief_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.AllotedBrief_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.AllotedBrief_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AllotedBrief_dgv.Dock = System.Windows.Forms.DockStyle.Top;
@@ -546,8 +546,8 @@
             // 
             this.Alloted_dgv.AllowUserToAddRows = false;
             this.Alloted_dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle30.BackColor = System.Drawing.Color.Gainsboro;
-            this.Alloted_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
+            this.Alloted_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.Alloted_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.Alloted_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Alloted_dgv.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -560,9 +560,9 @@
             // 
             // MultiAllotment_button
             // 
-            this.MultiAllotment_button.BackColor = System.Drawing.Color.Navy;
+            this.MultiAllotment_button.BackColor = System.Drawing.Color.DarkSlateGray;
             this.MultiAllotment_button.FlatAppearance.BorderSize = 0;
-            this.MultiAllotment_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.MultiAllotment_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SlateGray;
             this.MultiAllotment_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MultiAllotment_button.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MultiAllotment_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -665,6 +665,70 @@
             this.Generation_Panel.Size = new System.Drawing.Size(535, 581);
             this.Generation_Panel.TabIndex = 11;
             // 
+            // Clear_button
+            // 
+            this.Clear_button.BackColor = System.Drawing.Color.Maroon;
+            this.Clear_button.FlatAppearance.BorderSize = 0;
+            this.Clear_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.Clear_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Clear_button.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Clear_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Clear_button.Location = new System.Drawing.Point(213, 19);
+            this.Clear_button.Name = "Clear_button";
+            this.Clear_button.Size = new System.Drawing.Size(106, 46);
+            this.Clear_button.TabIndex = 7;
+            this.Clear_button.Text = "Clear";
+            this.Clear_button.UseVisualStyleBackColor = false;
+            this.Clear_button.Click += new System.EventHandler(this.Clear_button_Click);
+            // 
+            // DisplayPrint_button
+            // 
+            this.DisplayPrint_button.BackColor = System.Drawing.Color.DarkGreen;
+            this.DisplayPrint_button.FlatAppearance.BorderSize = 0;
+            this.DisplayPrint_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
+            this.DisplayPrint_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DisplayPrint_button.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DisplayPrint_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DisplayPrint_button.Location = new System.Drawing.Point(208, 86);
+            this.DisplayPrint_button.Name = "DisplayPrint_button";
+            this.DisplayPrint_button.Size = new System.Drawing.Size(150, 46);
+            this.DisplayPrint_button.TabIndex = 8;
+            this.DisplayPrint_button.Text = "Display Print";
+            this.DisplayPrint_button.UseVisualStyleBackColor = false;
+            this.DisplayPrint_button.Click += new System.EventHandler(this.DisplayPrint_button_Click);
+            // 
+            // RoomPrint_button
+            // 
+            this.RoomPrint_button.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.RoomPrint_button.FlatAppearance.BorderSize = 0;
+            this.RoomPrint_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SlateGray;
+            this.RoomPrint_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RoomPrint_button.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RoomPrint_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.RoomPrint_button.Location = new System.Drawing.Point(368, 86);
+            this.RoomPrint_button.Name = "RoomPrint_button";
+            this.RoomPrint_button.Size = new System.Drawing.Size(154, 46);
+            this.RoomPrint_button.TabIndex = 9;
+            this.RoomPrint_button.Text = "Room Print";
+            this.RoomPrint_button.UseVisualStyleBackColor = false;
+            this.RoomPrint_button.Click += new System.EventHandler(this.RoomPrint_button_Click);
+            // 
+            // SignatureSheet_button
+            // 
+            this.SignatureSheet_button.BackColor = System.Drawing.Color.Olive;
+            this.SignatureSheet_button.FlatAppearance.BorderSize = 0;
+            this.SignatureSheet_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.SignatureSheet_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SignatureSheet_button.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SignatureSheet_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.SignatureSheet_button.Location = new System.Drawing.Point(327, 19);
+            this.SignatureSheet_button.Name = "SignatureSheet_button";
+            this.SignatureSheet_button.Size = new System.Drawing.Size(180, 46);
+            this.SignatureSheet_button.TabIndex = 10;
+            this.SignatureSheet_button.Text = "Signature Sheet";
+            this.SignatureSheet_button.UseVisualStyleBackColor = false;
+            this.SignatureSheet_button.Click += new System.EventHandler(this.SignatureSheet_button_Click);
+            // 
             // AllocatedRoom_combobox
             // 
             this.AllocatedRoom_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -701,8 +765,8 @@
             // 
             this.AllotedStudentsRooms_dgv.AllowUserToAddRows = false;
             this.AllotedStudentsRooms_dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle32.BackColor = System.Drawing.Color.Gainsboro;
-            this.AllotedStudentsRooms_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gainsboro;
+            this.AllotedStudentsRooms_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.AllotedStudentsRooms_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.AllotedStudentsRooms_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AllotedStudentsRooms_dgv.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -949,70 +1013,6 @@
             this.MonthYear_textbox.Name = "MonthYear_textbox";
             this.MonthYear_textbox.Size = new System.Drawing.Size(378, 33);
             this.MonthYear_textbox.TabIndex = 1;
-            // 
-            // Clear_button
-            // 
-            this.Clear_button.BackColor = System.Drawing.Color.Maroon;
-            this.Clear_button.FlatAppearance.BorderSize = 0;
-            this.Clear_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.Clear_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Clear_button.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Clear_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Clear_button.Location = new System.Drawing.Point(213, 19);
-            this.Clear_button.Name = "Clear_button";
-            this.Clear_button.Size = new System.Drawing.Size(106, 46);
-            this.Clear_button.TabIndex = 7;
-            this.Clear_button.Text = "Clear";
-            this.Clear_button.UseVisualStyleBackColor = false;
-            this.Clear_button.Click += new System.EventHandler(this.Clear_button_Click);
-            // 
-            // DisplayPrint_button
-            // 
-            this.DisplayPrint_button.BackColor = System.Drawing.Color.DarkGreen;
-            this.DisplayPrint_button.FlatAppearance.BorderSize = 0;
-            this.DisplayPrint_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
-            this.DisplayPrint_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DisplayPrint_button.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DisplayPrint_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.DisplayPrint_button.Location = new System.Drawing.Point(208, 86);
-            this.DisplayPrint_button.Name = "DisplayPrint_button";
-            this.DisplayPrint_button.Size = new System.Drawing.Size(150, 46);
-            this.DisplayPrint_button.TabIndex = 8;
-            this.DisplayPrint_button.Text = "Display Print";
-            this.DisplayPrint_button.UseVisualStyleBackColor = false;
-            this.DisplayPrint_button.Click += new System.EventHandler(this.DisplayPrint_button_Click);
-            // 
-            // RoomPrint_button
-            // 
-            this.RoomPrint_button.BackColor = System.Drawing.Color.Navy;
-            this.RoomPrint_button.FlatAppearance.BorderSize = 0;
-            this.RoomPrint_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.RoomPrint_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RoomPrint_button.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RoomPrint_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.RoomPrint_button.Location = new System.Drawing.Point(368, 86);
-            this.RoomPrint_button.Name = "RoomPrint_button";
-            this.RoomPrint_button.Size = new System.Drawing.Size(154, 46);
-            this.RoomPrint_button.TabIndex = 9;
-            this.RoomPrint_button.Text = "Room Print";
-            this.RoomPrint_button.UseVisualStyleBackColor = false;
-            this.RoomPrint_button.Click += new System.EventHandler(this.RoomPrint_button_Click);
-            // 
-            // SignatureSheet_button
-            // 
-            this.SignatureSheet_button.BackColor = System.Drawing.Color.Olive;
-            this.SignatureSheet_button.FlatAppearance.BorderSize = 0;
-            this.SignatureSheet_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.SignatureSheet_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SignatureSheet_button.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SignatureSheet_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.SignatureSheet_button.Location = new System.Drawing.Point(327, 19);
-            this.SignatureSheet_button.Name = "SignatureSheet_button";
-            this.SignatureSheet_button.Size = new System.Drawing.Size(180, 46);
-            this.SignatureSheet_button.TabIndex = 10;
-            this.SignatureSheet_button.Text = "Signature Sheet";
-            this.SignatureSheet_button.UseVisualStyleBackColor = false;
-            this.SignatureSheet_button.Click += new System.EventHandler(this.SignatureSheet_button_Click);
             // 
             // Allotment
             // 
