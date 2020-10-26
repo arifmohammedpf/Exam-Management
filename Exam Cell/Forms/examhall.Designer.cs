@@ -342,7 +342,7 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.Rooms_dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.Rooms_dgv.Size = new System.Drawing.Size(609, 713);
+            this.Rooms_dgv.Size = new System.Drawing.Size(531, 713);
             this.Rooms_dgv.TabIndex = 17;
             this.Rooms_dgv.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.Rooms_dgv_CellEndEdit);
             this.Rooms_dgv.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Rooms_dgv_CellMouseUp);
