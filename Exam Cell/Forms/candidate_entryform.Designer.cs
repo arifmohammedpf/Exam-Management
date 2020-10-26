@@ -29,10 +29,49 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formti));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Courses_dgv = new System.Windows.Forms.DataGridView();
+            this.Candidate_datagridview = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.Excel_Group = new System.Windows.Forms.GroupBox();
+            this.Filepath_textbox = new System.Windows.Forms.TextBox();
+            this.Sheet_combobox = new System.Windows.Forms.ComboBox();
+            this.Excel_btn = new System.Windows.Forms.Button();
+            this.RegRegCnd_btn = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.Series_rdbtn = new System.Windows.Forms.RadioButton();
+            this.Unvrsty_rdbtn = new System.Windows.Forms.RadioButton();
+            this.Unv_Student_details_groupbox = new System.Windows.Forms.GroupBox();
+            this.UnvCheckbox = new System.Windows.Forms.CheckBox();
+            this.YOACombobox = new System.Windows.Forms.ComboBox();
+            this.UnvBranchCombobox = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.Series_Student_details_groupbox = new System.Windows.Forms.GroupBox();
+            this.Class_drpdwn = new System.Windows.Forms.ComboBox();
+            this.Class_label = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.Extra_Name_Textbox = new System.Windows.Forms.TextBox();
+            this.Extra_Reg_no_Textbox = new System.Windows.Forms.TextBox();
+            this.ExtraReg_btn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.SubjectDetails_groupbox = new System.Windows.Forms.GroupBox();
+            this.Semester_combobox = new System.Windows.Forms.ComboBox();
+            this.Branch_combobox = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.Scheme_combobox = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.excelShowBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.exam_CellDataSetExcelStudents = new Exam_Cell.Exam_CellDataSetExcelStudents();
             this.excel_ShowTableAdapter = new Exam_Cell.Exam_CellDataSetExcelStudentsTableAdapters.Excel_ShowTableAdapter();
@@ -67,40 +106,16 @@
             this.exam_CellDataSetStudentsNew = new Exam_Cell.Exam_CellDataSetStudentsNew();
             this.studentsBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.studentsTableAdapter3 = new Exam_Cell.Exam_CellDataSetStudentsNewTableAdapters.StudentsTableAdapter();
-            this.Candidate_datagridview = new System.Windows.Forms.DataGridView();
-            this.Courses_dgv = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.ExtraReg_btn = new System.Windows.Forms.Button();
-            this.Extra_Reg_no_Textbox = new System.Windows.Forms.TextBox();
-            this.Extra_Name_Textbox = new System.Windows.Forms.TextBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.Scheme_combobox = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.Branch_combobox = new System.Windows.Forms.ComboBox();
-            this.Semester_combobox = new System.Windows.Forms.ComboBox();
-            this.SubjectDetails_groupbox = new System.Windows.Forms.GroupBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.Excel_Group = new System.Windows.Forms.GroupBox();
-            this.Filepath_textbox = new System.Windows.Forms.TextBox();
-            this.Sheet_combobox = new System.Windows.Forms.ComboBox();
-            this.Excel_btn = new System.Windows.Forms.Button();
-            this.RegRegCnd_btn = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.Series_rdbtn = new System.Windows.Forms.RadioButton();
-            this.Unvrsty_rdbtn = new System.Windows.Forms.RadioButton();
-            this.Unv_Student_details_groupbox = new System.Windows.Forms.GroupBox();
-            this.UnvCheckbox = new System.Windows.Forms.CheckBox();
-            this.YOACombobox = new System.Windows.Forms.ComboBox();
-            this.UnvBranchCombobox = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.Series_Student_details_groupbox = new System.Windows.Forms.GroupBox();
-            this.Class_drpdwn = new System.Windows.Forms.ComboBox();
-            this.Class_label = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Courses_dgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Candidate_datagridview)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.Excel_Group.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.Unv_Student_details_groupbox.SuspendLayout();
+            this.Series_Student_details_groupbox.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.SubjectDetails_groupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.excelShowBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellDataSetExcelStudents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellDataSet_Tables)).BeginInit();
@@ -123,24 +138,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.schemeBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellDataSetStudentsNew)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Candidate_datagridview)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Courses_dgv)).BeginInit();
-            this.groupBox4.SuspendLayout();
-            this.SubjectDetails_groupbox.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.Excel_Group.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.Unv_Student_details_groupbox.SuspendLayout();
-            this.Series_Student_details_groupbox.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.Courses_dgv);
             this.panel1.Controls.Add(this.Candidate_datagridview);
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.groupBox4);
             this.panel1.Controls.Add(this.SubjectDetails_groupbox);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -148,356 +154,108 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1738, 1055);
+            this.panel1.Size = new System.Drawing.Size(1791, 984);
             this.panel1.TabIndex = 0;
-            // 
-            // excelShowBindingSource
-            // 
-            this.excelShowBindingSource.DataMember = "Excel_Show";
-            this.excelShowBindingSource.DataSource = this.exam_CellDataSetExcelStudents;
-            // 
-            // exam_CellDataSetExcelStudents
-            // 
-            this.exam_CellDataSetExcelStudents.DataSetName = "Exam_CellDataSetExcelStudents";
-            this.exam_CellDataSetExcelStudents.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // excel_ShowTableAdapter
-            // 
-            this.excel_ShowTableAdapter.ClearBeforeFill = true;
-            // 
-            // exam_CellDataSet_Tables
-            // 
-            this.exam_CellDataSet_Tables.DataSetName = "Exam_CellDataSet_Tables";
-            this.exam_CellDataSet_Tables.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // studentsBindingSource
-            // 
-            this.studentsBindingSource.DataMember = "Students";
-            this.studentsBindingSource.DataSource = this.exam_CellDataSet_Tables;
-            // 
-            // studentsTableAdapter
-            // 
-            this.studentsTableAdapter.ClearBeforeFill = true;
-            // 
-            // scheme2015BindingSource
-            // 
-            this.scheme2015BindingSource.DataMember = "Scheme_2015";
-            this.scheme2015BindingSource.DataSource = this.exam_CellDataSet_Tables;
-            // 
-            // scheme_2015TableAdapter
-            // 
-            this.scheme_2015TableAdapter.ClearBeforeFill = true;
-            // 
-            // scheme2019BindingSource
-            // 
-            this.scheme2019BindingSource.DataMember = "Scheme_2019";
-            this.scheme2019BindingSource.DataSource = this.exam_CellDataSet_Tables;
-            // 
-            // scheme_2019TableAdapter
-            // 
-            this.scheme_2019TableAdapter.ClearBeforeFill = true;
-            // 
-            // exam_CellDataSet_Students
-            // 
-            this.exam_CellDataSet_Students.DataSetName = "Exam_CellDataSet_Students";
-            this.exam_CellDataSet_Students.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // studentsBindingSource1
-            // 
-            this.studentsBindingSource1.DataMember = "Students";
-            this.studentsBindingSource1.DataSource = this.exam_CellDataSet_Students;
-            // 
-            // studentsTableAdapter1
-            // 
-            this.studentsTableAdapter1.ClearBeforeFill = true;
-            // 
-            // exam_CellDataSet
-            // 
-            this.exam_CellDataSet.DataSetName = "Exam_CellDataSet";
-            this.exam_CellDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // studentsBindingSource2
-            // 
-            this.studentsBindingSource2.DataMember = "Students";
-            this.studentsBindingSource2.DataSource = this.exam_CellDataSet;
-            // 
-            // studentsTableAdapter2
-            // 
-            this.studentsTableAdapter2.ClearBeforeFill = true;
-            // 
-            // exam_CellDataSet1
-            // 
-            this.exam_CellDataSet1.DataSetName = "Exam_CellDataSet1";
-            this.exam_CellDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // registeredcandidatesBindingSource
-            // 
-            this.registeredcandidatesBindingSource.DataMember = "Registered_candidates";
-            this.registeredcandidatesBindingSource.DataSource = this.exam_CellDataSet1;
-            // 
-            // registered_candidatesTableAdapter
-            // 
-            this.registered_candidatesTableAdapter.ClearBeforeFill = true;
-            // 
-            // scheme2015BindingSource1
-            // 
-            this.scheme2015BindingSource1.DataMember = "Scheme_2015";
-            this.scheme2015BindingSource1.DataSource = this.exam_CellDataSet_Tables;
-            // 
-            // scheme2019BindingSource1
-            // 
-            this.scheme2019BindingSource1.DataMember = "Scheme_2019";
-            this.scheme2019BindingSource1.DataSource = this.exam_CellDataSet_Tables;
-            // 
-            // exam_CellDataSet_forscheme1519
-            // 
-            this.exam_CellDataSet_forscheme1519.DataSetName = "Exam_CellDataSet_forscheme1519";
-            this.exam_CellDataSet_forscheme1519.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // scheme2015BindingSource2
-            // 
-            this.scheme2015BindingSource2.DataMember = "Scheme_2015";
-            this.scheme2015BindingSource2.DataSource = this.exam_CellDataSet_forscheme1519;
-            // 
-            // scheme_2015TableAdapter1
-            // 
-            this.scheme_2015TableAdapter1.ClearBeforeFill = true;
-            // 
-            // scheme2019BindingSource2
-            // 
-            this.scheme2019BindingSource2.DataMember = "Scheme_2019";
-            this.scheme2019BindingSource2.DataSource = this.exam_CellDataSet_forscheme1519;
-            // 
-            // scheme_2019TableAdapter1
-            // 
-            this.scheme_2019TableAdapter1.ClearBeforeFill = true;
-            // 
-            // schemeBindingSource
-            // 
-            this.schemeBindingSource.DataMember = "Scheme";
-            this.schemeBindingSource.DataSource = this.exam_CellDataSet_forscheme1519;
-            // 
-            // schemeTableAdapter
-            // 
-            this.schemeTableAdapter.ClearBeforeFill = true;
-            // 
-            // exam_CellScheme
-            // 
-            this.exam_CellScheme.DataSetName = "Exam_CellScheme";
-            this.exam_CellScheme.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // schemeBindingSource1
-            // 
-            this.schemeBindingSource1.DataMember = "Scheme";
-            this.schemeBindingSource1.DataSource = this.exam_CellScheme;
-            // 
-            // schemeTableAdapter1
-            // 
-            this.schemeTableAdapter1.ClearBeforeFill = true;
-            // 
-            // exam_CellDataSetStudentsNew
-            // 
-            this.exam_CellDataSetStudentsNew.DataSetName = "Exam_CellDataSetStudentsNew";
-            this.exam_CellDataSetStudentsNew.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // studentsBindingSource3
-            // 
-            this.studentsBindingSource3.DataMember = "Students";
-            this.studentsBindingSource3.DataSource = this.exam_CellDataSetStudentsNew;
-            // 
-            // studentsTableAdapter3
-            // 
-            this.studentsTableAdapter3.ClearBeforeFill = true;
-            // 
-            // Candidate_datagridview
-            // 
-            this.Candidate_datagridview.AllowUserToAddRows = false;
-            this.Candidate_datagridview.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gainsboro;
-            this.Candidate_datagridview.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.Candidate_datagridview.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Candidate_datagridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.Candidate_datagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Candidate_datagridview.Location = new System.Drawing.Point(21, 407);
-            this.Candidate_datagridview.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Candidate_datagridview.Name = "Candidate_datagridview";
-            this.Candidate_datagridview.RowTemplate.Height = 24;
-            this.Candidate_datagridview.Size = new System.Drawing.Size(846, 632);
-            this.Candidate_datagridview.TabIndex = 35;
             // 
             // Courses_dgv
             // 
             this.Courses_dgv.AllowUserToAddRows = false;
             this.Courses_dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.OliveDrab;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.YellowGreen;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             this.Courses_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.Courses_dgv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Courses_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.Courses_dgv.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.Courses_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Courses_dgv.Location = new System.Drawing.Point(911, 407);
-            this.Courses_dgv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Courses_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.Courses_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.Courses_dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
+            this.Courses_dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Courses_dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Courses_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.Courses_dgv.ColumnHeadersHeight = 40;
+            this.Courses_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.Courses_dgv.EnableHeadersVisualStyles = false;
+            this.Courses_dgv.GridColor = System.Drawing.Color.SteelBlue;
+            this.Courses_dgv.Location = new System.Drawing.Point(923, 339);
+            this.Courses_dgv.Margin = new System.Windows.Forms.Padding(4);
             this.Courses_dgv.Name = "Courses_dgv";
-            this.Courses_dgv.RowTemplate.Height = 24;
-            this.Courses_dgv.Size = new System.Drawing.Size(800, 632);
-            this.Courses_dgv.TabIndex = 36;
+            this.Courses_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Courses_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DarkGoldenrod;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 11F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkKhaki;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.Courses_dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.Courses_dgv.Size = new System.Drawing.Size(841, 632);
+            this.Courses_dgv.TabIndex = 38;
             // 
-            // label2
+            // Candidate_datagridview
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(9, 37);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 22);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Register No";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(375, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 22);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Name";
-            // 
-            // ExtraReg_btn
-            // 
-            this.ExtraReg_btn.BackColor = System.Drawing.Color.DarkGreen;
-            this.ExtraReg_btn.FlatAppearance.BorderSize = 0;
-            this.ExtraReg_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
-            this.ExtraReg_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ExtraReg_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExtraReg_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ExtraReg_btn.Location = new System.Drawing.Point(587, 72);
-            this.ExtraReg_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ExtraReg_btn.Name = "ExtraReg_btn";
-            this.ExtraReg_btn.Size = new System.Drawing.Size(129, 44);
-            this.ExtraReg_btn.TabIndex = 16;
-            this.ExtraReg_btn.Text = "Register";
-            this.ExtraReg_btn.UseVisualStyleBackColor = false;
-            this.ExtraReg_btn.Click += new System.EventHandler(this.ExtraReg_btn_Click);
-            // 
-            // Extra_Reg_no_Textbox
-            // 
-            this.Extra_Reg_no_Textbox.Location = new System.Drawing.Point(130, 34);
-            this.Extra_Reg_no_Textbox.Name = "Extra_Reg_no_Textbox";
-            this.Extra_Reg_no_Textbox.Size = new System.Drawing.Size(239, 30);
-            this.Extra_Reg_no_Textbox.TabIndex = 17;
-            // 
-            // Extra_Name_Textbox
-            // 
-            this.Extra_Name_Textbox.Location = new System.Drawing.Point(443, 34);
-            this.Extra_Name_Textbox.Name = "Extra_Name_Textbox";
-            this.Extra_Name_Textbox.Size = new System.Drawing.Size(273, 30);
-            this.Extra_Name_Textbox.TabIndex = 17;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.groupBox4.Controls.Add(this.Extra_Name_Textbox);
-            this.groupBox4.Controls.Add(this.Extra_Reg_no_Textbox);
-            this.groupBox4.Controls.Add(this.ExtraReg_btn);
-            this.groupBox4.Controls.Add(this.label1);
-            this.groupBox4.Controls.Add(this.label2);
-            this.groupBox4.Enabled = false;
-            this.groupBox4.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox4.Location = new System.Drawing.Point(970, 70);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox4.Size = new System.Drawing.Size(741, 125);
-            this.groupBox4.TabIndex = 24;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Extra Candidate Registration";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(11, 113);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(76, 22);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Branch";
-            // 
-            // Scheme_combobox
-            // 
-            this.Scheme_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Scheme_combobox.FormattingEnabled = true;
-            this.Scheme_combobox.Location = new System.Drawing.Point(115, 47);
-            this.Scheme_combobox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Scheme_combobox.Name = "Scheme_combobox";
-            this.Scheme_combobox.Size = new System.Drawing.Size(349, 29);
-            this.Scheme_combobox.TabIndex = 16;
-            this.Scheme_combobox.SelectedIndexChanged += new System.EventHandler(this.Scheme_combobox_SelectedIndexChanged);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(560, 75);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(92, 22);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "Semester";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(11, 50);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(84, 22);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Scheme";
-            // 
-            // Branch_combobox
-            // 
-            this.Branch_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Branch_combobox.FormattingEnabled = true;
-            this.Branch_combobox.Location = new System.Drawing.Point(115, 110);
-            this.Branch_combobox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Branch_combobox.Name = "Branch_combobox";
-            this.Branch_combobox.Size = new System.Drawing.Size(349, 29);
-            this.Branch_combobox.TabIndex = 18;
-            this.Branch_combobox.SelectedIndexChanged += new System.EventHandler(this.Branch_combobox_SelectedIndexChanged);
-            // 
-            // Semester_combobox
-            // 
-            this.Semester_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Semester_combobox.FormattingEnabled = true;
-            this.Semester_combobox.Location = new System.Drawing.Point(486, 110);
-            this.Semester_combobox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Semester_combobox.Name = "Semester_combobox";
-            this.Semester_combobox.Size = new System.Drawing.Size(245, 29);
-            this.Semester_combobox.TabIndex = 17;
-            this.Semester_combobox.SelectedIndexChanged += new System.EventHandler(this.Semester_combobox_SelectedIndexChanged);
-            // 
-            // SubjectDetails_groupbox
-            // 
-            this.SubjectDetails_groupbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.SubjectDetails_groupbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.SubjectDetails_groupbox.Controls.Add(this.Semester_combobox);
-            this.SubjectDetails_groupbox.Controls.Add(this.Branch_combobox);
-            this.SubjectDetails_groupbox.Controls.Add(this.label6);
-            this.SubjectDetails_groupbox.Controls.Add(this.label8);
-            this.SubjectDetails_groupbox.Controls.Add(this.Scheme_combobox);
-            this.SubjectDetails_groupbox.Controls.Add(this.label7);
-            this.SubjectDetails_groupbox.Enabled = false;
-            this.SubjectDetails_groupbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SubjectDetails_groupbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.SubjectDetails_groupbox.Location = new System.Drawing.Point(970, 199);
-            this.SubjectDetails_groupbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.SubjectDetails_groupbox.Name = "SubjectDetails_groupbox";
-            this.SubjectDetails_groupbox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.SubjectDetails_groupbox.Size = new System.Drawing.Size(741, 180);
-            this.SubjectDetails_groupbox.TabIndex = 25;
-            this.SubjectDetails_groupbox.TabStop = false;
-            this.SubjectDetails_groupbox.Text = "Subject Details";
+            this.Candidate_datagridview.AllowUserToAddRows = false;
+            this.Candidate_datagridview.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.LightGreen;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 10F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            this.Candidate_datagridview.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.Candidate_datagridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.Candidate_datagridview.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.Candidate_datagridview.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
+            this.Candidate_datagridview.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Candidate_datagridview.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Candidate_datagridview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.Candidate_datagridview.ColumnHeadersHeight = 40;
+            this.Candidate_datagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.Candidate_datagridview.EnableHeadersVisualStyles = false;
+            this.Candidate_datagridview.GridColor = System.Drawing.Color.SteelBlue;
+            this.Candidate_datagridview.Location = new System.Drawing.Point(21, 339);
+            this.Candidate_datagridview.Margin = new System.Windows.Forms.Padding(4);
+            this.Candidate_datagridview.Name = "Candidate_datagridview";
+            this.Candidate_datagridview.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Candidate_datagridview.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 11F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            this.Candidate_datagridview.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.Candidate_datagridview.Size = new System.Drawing.Size(883, 632);
+            this.Candidate_datagridview.TabIndex = 37;
             // 
             // panel2
             // 
@@ -507,7 +265,7 @@
             this.panel2.Controls.Add(this.groupBox3);
             this.panel2.Controls.Add(this.Unv_Student_details_groupbox);
             this.panel2.Controls.Add(this.Series_Student_details_groupbox);
-            this.panel2.Location = new System.Drawing.Point(12, 75);
+            this.panel2.Location = new System.Drawing.Point(12, 12);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(855, 327);
             this.panel2.TabIndex = 1;
@@ -724,12 +482,327 @@
             this.Class_label.TabIndex = 12;
             this.Class_label.Text = "Class";
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.groupBox4.Controls.Add(this.Extra_Name_Textbox);
+            this.groupBox4.Controls.Add(this.Extra_Reg_no_Textbox);
+            this.groupBox4.Controls.Add(this.ExtraReg_btn);
+            this.groupBox4.Controls.Add(this.label1);
+            this.groupBox4.Controls.Add(this.label2);
+            this.groupBox4.Enabled = false;
+            this.groupBox4.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox4.Location = new System.Drawing.Point(1023, 7);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox4.Size = new System.Drawing.Size(741, 125);
+            this.groupBox4.TabIndex = 24;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Extra Candidate Registration";
+            // 
+            // Extra_Name_Textbox
+            // 
+            this.Extra_Name_Textbox.Location = new System.Drawing.Point(443, 34);
+            this.Extra_Name_Textbox.Name = "Extra_Name_Textbox";
+            this.Extra_Name_Textbox.Size = new System.Drawing.Size(273, 30);
+            this.Extra_Name_Textbox.TabIndex = 17;
+            // 
+            // Extra_Reg_no_Textbox
+            // 
+            this.Extra_Reg_no_Textbox.Location = new System.Drawing.Point(130, 34);
+            this.Extra_Reg_no_Textbox.Name = "Extra_Reg_no_Textbox";
+            this.Extra_Reg_no_Textbox.Size = new System.Drawing.Size(239, 30);
+            this.Extra_Reg_no_Textbox.TabIndex = 17;
+            // 
+            // ExtraReg_btn
+            // 
+            this.ExtraReg_btn.BackColor = System.Drawing.Color.DarkGreen;
+            this.ExtraReg_btn.FlatAppearance.BorderSize = 0;
+            this.ExtraReg_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
+            this.ExtraReg_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ExtraReg_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExtraReg_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ExtraReg_btn.Location = new System.Drawing.Point(587, 72);
+            this.ExtraReg_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ExtraReg_btn.Name = "ExtraReg_btn";
+            this.ExtraReg_btn.Size = new System.Drawing.Size(129, 44);
+            this.ExtraReg_btn.TabIndex = 16;
+            this.ExtraReg_btn.Text = "Register";
+            this.ExtraReg_btn.UseVisualStyleBackColor = false;
+            this.ExtraReg_btn.Click += new System.EventHandler(this.ExtraReg_btn_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(375, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 22);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Name";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(9, 37);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(113, 22);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Register No";
+            // 
+            // SubjectDetails_groupbox
+            // 
+            this.SubjectDetails_groupbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SubjectDetails_groupbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.SubjectDetails_groupbox.Controls.Add(this.Semester_combobox);
+            this.SubjectDetails_groupbox.Controls.Add(this.Branch_combobox);
+            this.SubjectDetails_groupbox.Controls.Add(this.label6);
+            this.SubjectDetails_groupbox.Controls.Add(this.label8);
+            this.SubjectDetails_groupbox.Controls.Add(this.Scheme_combobox);
+            this.SubjectDetails_groupbox.Controls.Add(this.label7);
+            this.SubjectDetails_groupbox.Enabled = false;
+            this.SubjectDetails_groupbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SubjectDetails_groupbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.SubjectDetails_groupbox.Location = new System.Drawing.Point(1023, 136);
+            this.SubjectDetails_groupbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.SubjectDetails_groupbox.Name = "SubjectDetails_groupbox";
+            this.SubjectDetails_groupbox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.SubjectDetails_groupbox.Size = new System.Drawing.Size(741, 180);
+            this.SubjectDetails_groupbox.TabIndex = 25;
+            this.SubjectDetails_groupbox.TabStop = false;
+            this.SubjectDetails_groupbox.Text = "Subject Details";
+            // 
+            // Semester_combobox
+            // 
+            this.Semester_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Semester_combobox.FormattingEnabled = true;
+            this.Semester_combobox.Location = new System.Drawing.Point(486, 110);
+            this.Semester_combobox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Semester_combobox.Name = "Semester_combobox";
+            this.Semester_combobox.Size = new System.Drawing.Size(245, 29);
+            this.Semester_combobox.TabIndex = 17;
+            this.Semester_combobox.SelectedIndexChanged += new System.EventHandler(this.Semester_combobox_SelectedIndexChanged);
+            // 
+            // Branch_combobox
+            // 
+            this.Branch_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Branch_combobox.FormattingEnabled = true;
+            this.Branch_combobox.Location = new System.Drawing.Point(115, 110);
+            this.Branch_combobox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Branch_combobox.Name = "Branch_combobox";
+            this.Branch_combobox.Size = new System.Drawing.Size(349, 29);
+            this.Branch_combobox.TabIndex = 18;
+            this.Branch_combobox.SelectedIndexChanged += new System.EventHandler(this.Branch_combobox_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(11, 50);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(84, 22);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Scheme";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(560, 75);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(92, 22);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Semester";
+            // 
+            // Scheme_combobox
+            // 
+            this.Scheme_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Scheme_combobox.FormattingEnabled = true;
+            this.Scheme_combobox.Location = new System.Drawing.Point(115, 47);
+            this.Scheme_combobox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Scheme_combobox.Name = "Scheme_combobox";
+            this.Scheme_combobox.Size = new System.Drawing.Size(349, 29);
+            this.Scheme_combobox.TabIndex = 16;
+            this.Scheme_combobox.SelectedIndexChanged += new System.EventHandler(this.Scheme_combobox_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(11, 113);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(76, 22);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Branch";
+            // 
+            // excelShowBindingSource
+            // 
+            this.excelShowBindingSource.DataMember = "Excel_Show";
+            this.excelShowBindingSource.DataSource = this.exam_CellDataSetExcelStudents;
+            // 
+            // exam_CellDataSetExcelStudents
+            // 
+            this.exam_CellDataSetExcelStudents.DataSetName = "Exam_CellDataSetExcelStudents";
+            this.exam_CellDataSetExcelStudents.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // excel_ShowTableAdapter
+            // 
+            this.excel_ShowTableAdapter.ClearBeforeFill = true;
+            // 
+            // exam_CellDataSet_Tables
+            // 
+            this.exam_CellDataSet_Tables.DataSetName = "Exam_CellDataSet_Tables";
+            this.exam_CellDataSet_Tables.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // studentsBindingSource
+            // 
+            this.studentsBindingSource.DataMember = "Students";
+            this.studentsBindingSource.DataSource = this.exam_CellDataSet_Tables;
+            // 
+            // studentsTableAdapter
+            // 
+            this.studentsTableAdapter.ClearBeforeFill = true;
+            // 
+            // scheme2015BindingSource
+            // 
+            this.scheme2015BindingSource.DataMember = "Scheme_2015";
+            this.scheme2015BindingSource.DataSource = this.exam_CellDataSet_Tables;
+            // 
+            // scheme_2015TableAdapter
+            // 
+            this.scheme_2015TableAdapter.ClearBeforeFill = true;
+            // 
+            // scheme2019BindingSource
+            // 
+            this.scheme2019BindingSource.DataMember = "Scheme_2019";
+            this.scheme2019BindingSource.DataSource = this.exam_CellDataSet_Tables;
+            // 
+            // scheme_2019TableAdapter
+            // 
+            this.scheme_2019TableAdapter.ClearBeforeFill = true;
+            // 
+            // exam_CellDataSet_Students
+            // 
+            this.exam_CellDataSet_Students.DataSetName = "Exam_CellDataSet_Students";
+            this.exam_CellDataSet_Students.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // studentsBindingSource1
+            // 
+            this.studentsBindingSource1.DataMember = "Students";
+            this.studentsBindingSource1.DataSource = this.exam_CellDataSet_Students;
+            // 
+            // studentsTableAdapter1
+            // 
+            this.studentsTableAdapter1.ClearBeforeFill = true;
+            // 
+            // exam_CellDataSet
+            // 
+            this.exam_CellDataSet.DataSetName = "Exam_CellDataSet";
+            this.exam_CellDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // studentsBindingSource2
+            // 
+            this.studentsBindingSource2.DataMember = "Students";
+            this.studentsBindingSource2.DataSource = this.exam_CellDataSet;
+            // 
+            // studentsTableAdapter2
+            // 
+            this.studentsTableAdapter2.ClearBeforeFill = true;
+            // 
+            // exam_CellDataSet1
+            // 
+            this.exam_CellDataSet1.DataSetName = "Exam_CellDataSet1";
+            this.exam_CellDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // registeredcandidatesBindingSource
+            // 
+            this.registeredcandidatesBindingSource.DataMember = "Registered_candidates";
+            this.registeredcandidatesBindingSource.DataSource = this.exam_CellDataSet1;
+            // 
+            // registered_candidatesTableAdapter
+            // 
+            this.registered_candidatesTableAdapter.ClearBeforeFill = true;
+            // 
+            // scheme2015BindingSource1
+            // 
+            this.scheme2015BindingSource1.DataMember = "Scheme_2015";
+            this.scheme2015BindingSource1.DataSource = this.exam_CellDataSet_Tables;
+            // 
+            // scheme2019BindingSource1
+            // 
+            this.scheme2019BindingSource1.DataMember = "Scheme_2019";
+            this.scheme2019BindingSource1.DataSource = this.exam_CellDataSet_Tables;
+            // 
+            // exam_CellDataSet_forscheme1519
+            // 
+            this.exam_CellDataSet_forscheme1519.DataSetName = "Exam_CellDataSet_forscheme1519";
+            this.exam_CellDataSet_forscheme1519.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // scheme2015BindingSource2
+            // 
+            this.scheme2015BindingSource2.DataMember = "Scheme_2015";
+            this.scheme2015BindingSource2.DataSource = this.exam_CellDataSet_forscheme1519;
+            // 
+            // scheme_2015TableAdapter1
+            // 
+            this.scheme_2015TableAdapter1.ClearBeforeFill = true;
+            // 
+            // scheme2019BindingSource2
+            // 
+            this.scheme2019BindingSource2.DataMember = "Scheme_2019";
+            this.scheme2019BindingSource2.DataSource = this.exam_CellDataSet_forscheme1519;
+            // 
+            // scheme_2019TableAdapter1
+            // 
+            this.scheme_2019TableAdapter1.ClearBeforeFill = true;
+            // 
+            // schemeBindingSource
+            // 
+            this.schemeBindingSource.DataMember = "Scheme";
+            this.schemeBindingSource.DataSource = this.exam_CellDataSet_forscheme1519;
+            // 
+            // schemeTableAdapter
+            // 
+            this.schemeTableAdapter.ClearBeforeFill = true;
+            // 
+            // exam_CellScheme
+            // 
+            this.exam_CellScheme.DataSetName = "Exam_CellScheme";
+            this.exam_CellScheme.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // schemeBindingSource1
+            // 
+            this.schemeBindingSource1.DataMember = "Scheme";
+            this.schemeBindingSource1.DataSource = this.exam_CellScheme;
+            // 
+            // schemeTableAdapter1
+            // 
+            this.schemeTableAdapter1.ClearBeforeFill = true;
+            // 
+            // exam_CellDataSetStudentsNew
+            // 
+            this.exam_CellDataSetStudentsNew.DataSetName = "Exam_CellDataSetStudentsNew";
+            this.exam_CellDataSetStudentsNew.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // studentsBindingSource3
+            // 
+            this.studentsBindingSource3.DataMember = "Students";
+            this.studentsBindingSource3.DataSource = this.exam_CellDataSetStudentsNew;
+            // 
+            // studentsTableAdapter3
+            // 
+            this.studentsTableAdapter3.ClearBeforeFill = true;
+            // 
             // formti
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1738, 1055);
+            this.ClientSize = new System.Drawing.Size(1791, 984);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -740,6 +813,21 @@
             this.Text = "Candidate Entry";
             this.Load += new System.EventHandler(this.formti_Load);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Courses_dgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Candidate_datagridview)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.Excel_Group.ResumeLayout(false);
+            this.Excel_Group.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.Unv_Student_details_groupbox.ResumeLayout(false);
+            this.Unv_Student_details_groupbox.PerformLayout();
+            this.Series_Student_details_groupbox.ResumeLayout(false);
+            this.Series_Student_details_groupbox.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.SubjectDetails_groupbox.ResumeLayout(false);
+            this.SubjectDetails_groupbox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.excelShowBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellDataSetExcelStudents)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellDataSet_Tables)).EndInit();
@@ -762,21 +850,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.schemeBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellDataSetStudentsNew)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Candidate_datagridview)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Courses_dgv)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.SubjectDetails_groupbox.ResumeLayout(false);
-            this.SubjectDetails_groupbox.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.Excel_Group.ResumeLayout(false);
-            this.Excel_Group.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.Unv_Student_details_groupbox.ResumeLayout(false);
-            this.Unv_Student_details_groupbox.PerformLayout();
-            this.Series_Student_details_groupbox.ResumeLayout(false);
-            this.Series_Student_details_groupbox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -836,8 +909,6 @@
         private System.Windows.Forms.GroupBox Series_Student_details_groupbox;
         private System.Windows.Forms.ComboBox Class_drpdwn;
         private System.Windows.Forms.Label Class_label;
-        private System.Windows.Forms.DataGridView Courses_dgv;
-        private System.Windows.Forms.DataGridView Candidate_datagridview;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TextBox Extra_Name_Textbox;
         private System.Windows.Forms.TextBox Extra_Reg_no_Textbox;
@@ -851,5 +922,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox Scheme_combobox;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridView Candidate_datagridview;
+        private System.Windows.Forms.DataGridView Courses_dgv;
     }
 }

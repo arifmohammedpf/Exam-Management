@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(postponement));
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -48,7 +51,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.DateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.ScheduledExam_dgv = new System.Windows.Forms.DataGridView();
             this.Clear_button = new System.Windows.Forms.Button();
             this.exam_CellDataSetTimetable = new Exam_Cell.Exam_CellDataSetTimetable();
             this.timetableBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -56,23 +58,24 @@
             this.exam_CellTimeTableNew = new Exam_Cell.Exam_CellTimeTableNew();
             this.timetableBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.timetableTableAdapter1 = new Exam_Cell.Exam_CellTimeTableNewTableAdapters.TimetableTableAdapter();
+            this.ScheduledExam_dgv = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ScheduledExam_dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellDataSetTimetable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timetableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellTimeTableNew)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timetableBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ScheduledExam_dgv)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.ScheduledExam_dgv);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Controls.Add(this.ScheduledExam_dgv);
             this.panel1.Controls.Add(this.Clear_button);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -265,21 +268,6 @@
             this.label2.Text = "Semester :";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // ScheduledExam_dgv
-            // 
-            this.ScheduledExam_dgv.AllowUserToAddRows = false;
-            this.ScheduledExam_dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
-            this.ScheduledExam_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.ScheduledExam_dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ScheduledExam_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.ScheduledExam_dgv.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.ScheduledExam_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ScheduledExam_dgv.Location = new System.Drawing.Point(11, 285);
-            this.ScheduledExam_dgv.Name = "ScheduledExam_dgv";
-            this.ScheduledExam_dgv.Size = new System.Drawing.Size(1291, 387);
-            this.ScheduledExam_dgv.TabIndex = 7;
-            // 
             // Clear_button
             // 
             this.Clear_button.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -325,6 +313,57 @@
             // 
             this.timetableTableAdapter1.ClearBeforeFill = true;
             // 
+            // ScheduledExam_dgv
+            // 
+            this.ScheduledExam_dgv.AllowUserToAddRows = false;
+            this.ScheduledExam_dgv.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGreen;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.ScheduledExam_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.ScheduledExam_dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ScheduledExam_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.ScheduledExam_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.ScheduledExam_dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
+            this.ScheduledExam_dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ScheduledExam_dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ScheduledExam_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.ScheduledExam_dgv.ColumnHeadersHeight = 40;
+            this.ScheduledExam_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.ScheduledExam_dgv.EnableHeadersVisualStyles = false;
+            this.ScheduledExam_dgv.GridColor = System.Drawing.Color.SteelBlue;
+            this.ScheduledExam_dgv.Location = new System.Drawing.Point(11, 285);
+            this.ScheduledExam_dgv.Margin = new System.Windows.Forms.Padding(4);
+            this.ScheduledExam_dgv.Name = "ScheduledExam_dgv";
+            this.ScheduledExam_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ScheduledExam_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 11F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.ScheduledExam_dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.ScheduledExam_dgv.Size = new System.Drawing.Size(1291, 387);
+            this.ScheduledExam_dgv.TabIndex = 10;
+            // 
             // postponement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -344,11 +383,11 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ScheduledExam_dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellDataSetTimetable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timetableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellTimeTableNew)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timetableBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ScheduledExam_dgv)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -377,8 +416,8 @@
         private Exam_CellTimeTableNew exam_CellTimeTableNew;
         private System.Windows.Forms.BindingSource timetableBindingSource1;
         private Exam_CellTimeTableNewTableAdapters.TimetableTableAdapter timetableTableAdapter1;
-        private System.Windows.Forms.DataGridView ScheduledExam_dgv;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridView ScheduledExam_dgv;
     }
 }

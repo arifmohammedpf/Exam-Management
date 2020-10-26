@@ -29,8 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formtimetable));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -65,9 +71,9 @@
             this.timetableBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.timetableTableAdapter1 = new Exam_Cell.Exam_CellTimeTableNewTableAdapters.TimetableTableAdapter();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.Course_Select_dgv = new System.Windows.Forms.DataGridView();
-            this.Timetableview_dgv = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Timetableview_dgv = new System.Windows.Forms.DataGridView();
+            this.Course_Select_dgv = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timetableBindingSource)).BeginInit();
@@ -77,9 +83,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellTimeTableNew)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timetableBindingSource1)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Course_Select_dgv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Timetableview_dgv)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Timetableview_dgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Course_Select_dgv)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -437,37 +443,6 @@
             this.panel4.Size = new System.Drawing.Size(1692, 954);
             this.panel4.TabIndex = 4;
             // 
-            // Course_Select_dgv
-            // 
-            this.Course_Select_dgv.AllowUserToAddRows = false;
-            this.Course_Select_dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gainsboro;
-            this.Course_Select_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.Course_Select_dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Course_Select_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.Course_Select_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Course_Select_dgv.Location = new System.Drawing.Point(635, 19);
-            this.Course_Select_dgv.Margin = new System.Windows.Forms.Padding(4);
-            this.Course_Select_dgv.Name = "Course_Select_dgv";
-            this.Course_Select_dgv.Size = new System.Drawing.Size(1038, 476);
-            this.Course_Select_dgv.TabIndex = 5;
-            // 
-            // Timetableview_dgv
-            // 
-            this.Timetableview_dgv.AllowUserToAddRows = false;
-            this.Timetableview_dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
-            this.Timetableview_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.Timetableview_dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Timetableview_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.Timetableview_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Timetableview_dgv.Location = new System.Drawing.Point(15, 503);
-            this.Timetableview_dgv.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Timetableview_dgv.Name = "Timetableview_dgv";
-            this.Timetableview_dgv.ReadOnly = true;
-            this.Timetableview_dgv.Size = new System.Drawing.Size(1100, 439);
-            this.Timetableview_dgv.TabIndex = 6;
-            // 
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -487,6 +462,109 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Scheduled Exam";
+            // 
+            // Timetableview_dgv
+            // 
+            this.Timetableview_dgv.AllowUserToAddRows = false;
+            this.Timetableview_dgv.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.OliveDrab;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.YellowGreen;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.Timetableview_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.Timetableview_dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Timetableview_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.Timetableview_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.Timetableview_dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
+            this.Timetableview_dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Timetableview_dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Timetableview_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.Timetableview_dgv.ColumnHeadersHeight = 40;
+            this.Timetableview_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.Timetableview_dgv.EnableHeadersVisualStyles = false;
+            this.Timetableview_dgv.GridColor = System.Drawing.Color.SteelBlue;
+            this.Timetableview_dgv.Location = new System.Drawing.Point(15, 503);
+            this.Timetableview_dgv.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Timetableview_dgv.Name = "Timetableview_dgv";
+            this.Timetableview_dgv.ReadOnly = true;
+            this.Timetableview_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightSalmon;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Timetableview_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DarkGoldenrod;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 11F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkKhaki;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.Timetableview_dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.Timetableview_dgv.Size = new System.Drawing.Size(1100, 439);
+            this.Timetableview_dgv.TabIndex = 6;
+            // 
+            // Course_Select_dgv
+            // 
+            this.Course_Select_dgv.AllowUserToAddRows = false;
+            this.Course_Select_dgv.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.LightGreen;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 10F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            this.Course_Select_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.Course_Select_dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Course_Select_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.Course_Select_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.Course_Select_dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
+            this.Course_Select_dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Course_Select_dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 12F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Course_Select_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.Course_Select_dgv.ColumnHeadersHeight = 40;
+            this.Course_Select_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.Course_Select_dgv.EnableHeadersVisualStyles = false;
+            this.Course_Select_dgv.GridColor = System.Drawing.Color.SteelBlue;
+            this.Course_Select_dgv.Location = new System.Drawing.Point(635, 19);
+            this.Course_Select_dgv.Margin = new System.Windows.Forms.Padding(4);
+            this.Course_Select_dgv.Name = "Course_Select_dgv";
+            this.Course_Select_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Course_Select_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 11F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            this.Course_Select_dgv.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.Course_Select_dgv.Size = new System.Drawing.Size(1038, 476);
+            this.Course_Select_dgv.TabIndex = 5;
             // 
             // formtimetable
             // 
@@ -514,10 +592,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellTimeTableNew)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timetableBindingSource1)).EndInit();
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Course_Select_dgv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Timetableview_dgv)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Timetableview_dgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Course_Select_dgv)).EndInit();
             this.ResumeLayout(false);
 
         }

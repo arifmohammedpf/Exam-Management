@@ -30,33 +30,36 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(examhall));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.RoomNo_textbox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.Priority_combobox = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.TotalCapacity_textbox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.TotalRoom_textbox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.A_series_textbox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.B_series_textbox = new System.Windows.Forms.TextBox();
             this.UpdatePriority_button = new System.Windows.Forms.Button();
             this.Save_button = new System.Windows.Forms.Button();
-            this.B_series_textbox = new System.Windows.Forms.TextBox();
-            this.A_series_textbox = new System.Windows.Forms.TextBox();
-            this.RoomNo_textbox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Rooms_dgv = new System.Windows.Forms.DataGridView();
             this.exam_Cell_Rooms = new Exam_Cell.Exam_Cell_Rooms();
             this.roomsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.roomsTableAdapter = new Exam_Cell.Exam_Cell_RoomsTableAdapters.RoomsTableAdapter();
             this.roomsTableAdapter1 = new Exam_Cell.Exam_Cell_RoomsTableAdapters.RoomsTableAdapter();
-            this.Rooms_dgv = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Rooms_dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_Cell_Rooms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roomsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Rooms_dgv)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -72,6 +75,49 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1277, 739);
             this.panel2.TabIndex = 1;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.Controls.Add(this.RoomNo_textbox);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.Priority_combobox);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.TotalCapacity_textbox);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.TotalRoom_textbox);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.A_series_textbox);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.B_series_textbox);
+            this.panel1.Controls.Add(this.UpdatePriority_button);
+            this.panel1.Controls.Add(this.Save_button);
+            this.panel1.Location = new System.Drawing.Point(10, 10);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(582, 714);
+            this.panel1.TabIndex = 18;
+            // 
+            // RoomNo_textbox
+            // 
+            this.RoomNo_textbox.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RoomNo_textbox.Location = new System.Drawing.Point(120, 114);
+            this.RoomNo_textbox.Margin = new System.Windows.Forms.Padding(4);
+            this.RoomNo_textbox.Name = "RoomNo_textbox";
+            this.RoomNo_textbox.Size = new System.Drawing.Size(310, 33);
+            this.RoomNo_textbox.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(120, 88);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(104, 22);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Room No :";
             // 
             // Priority_combobox
             // 
@@ -115,6 +161,18 @@
             this.Priority_combobox.Size = new System.Drawing.Size(307, 32);
             this.Priority_combobox.TabIndex = 16;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(120, 156);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(69, 22);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Priority";
+            // 
             // TotalCapacity_textbox
             // 
             this.TotalCapacity_textbox.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -124,6 +182,18 @@
             this.TotalCapacity_textbox.ReadOnly = true;
             this.TotalCapacity_textbox.Size = new System.Drawing.Size(232, 33);
             this.TotalCapacity_textbox.TabIndex = 15;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Location = new System.Drawing.Point(120, 222);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(79, 22);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "A Series";
             // 
             // TotalRoom_textbox
             // 
@@ -135,6 +205,18 @@
             this.TotalRoom_textbox.Size = new System.Drawing.Size(232, 33);
             this.TotalRoom_textbox.TabIndex = 14;
             this.TotalRoom_textbox.TextChanged += new System.EventHandler(this.TotalRoom_textbox_TextChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label4.Location = new System.Drawing.Point(120, 291);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(75, 22);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "B Series";
             // 
             // label6
             // 
@@ -148,6 +230,15 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "Total Capacity :";
             // 
+            // A_series_textbox
+            // 
+            this.A_series_textbox.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.A_series_textbox.Location = new System.Drawing.Point(120, 248);
+            this.A_series_textbox.Margin = new System.Windows.Forms.Padding(4);
+            this.A_series_textbox.Name = "A_series_textbox";
+            this.A_series_textbox.Size = new System.Drawing.Size(310, 33);
+            this.A_series_textbox.TabIndex = 7;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -159,6 +250,15 @@
             this.label5.Size = new System.Drawing.Size(121, 22);
             this.label5.TabIndex = 12;
             this.label5.Text = "Total Room :";
+            // 
+            // B_series_textbox
+            // 
+            this.B_series_textbox.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.B_series_textbox.Location = new System.Drawing.Point(120, 317);
+            this.B_series_textbox.Margin = new System.Windows.Forms.Padding(4);
+            this.B_series_textbox.Name = "B_series_textbox";
+            this.B_series_textbox.Size = new System.Drawing.Size(310, 33);
+            this.B_series_textbox.TabIndex = 8;
             // 
             // UpdatePriority_button
             // 
@@ -194,80 +294,56 @@
             this.Save_button.UseVisualStyleBackColor = false;
             this.Save_button.Click += new System.EventHandler(this.Save_button_Click);
             // 
-            // B_series_textbox
+            // Rooms_dgv
             // 
-            this.B_series_textbox.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.B_series_textbox.Location = new System.Drawing.Point(120, 317);
-            this.B_series_textbox.Margin = new System.Windows.Forms.Padding(4);
-            this.B_series_textbox.Name = "B_series_textbox";
-            this.B_series_textbox.Size = new System.Drawing.Size(310, 33);
-            this.B_series_textbox.TabIndex = 8;
-            // 
-            // A_series_textbox
-            // 
-            this.A_series_textbox.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.A_series_textbox.Location = new System.Drawing.Point(120, 248);
-            this.A_series_textbox.Margin = new System.Windows.Forms.Padding(4);
-            this.A_series_textbox.Name = "A_series_textbox";
-            this.A_series_textbox.Size = new System.Drawing.Size(310, 33);
-            this.A_series_textbox.TabIndex = 7;
-            // 
-            // RoomNo_textbox
-            // 
-            this.RoomNo_textbox.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RoomNo_textbox.Location = new System.Drawing.Point(120, 114);
-            this.RoomNo_textbox.Margin = new System.Windows.Forms.Padding(4);
-            this.RoomNo_textbox.Name = "RoomNo_textbox";
-            this.RoomNo_textbox.Size = new System.Drawing.Size(310, 33);
-            this.RoomNo_textbox.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(120, 291);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 22);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "B Series";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(120, 222);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 22);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "A Series";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(120, 156);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 22);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Priority";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(120, 88);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 22);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Room No :";
+            this.Rooms_dgv.AllowUserToAddRows = false;
+            this.Rooms_dgv.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGreen;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.Rooms_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.Rooms_dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Rooms_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.Rooms_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.Rooms_dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
+            this.Rooms_dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Rooms_dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Rooms_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.Rooms_dgv.ColumnHeadersHeight = 40;
+            this.Rooms_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.Rooms_dgv.EnableHeadersVisualStyles = false;
+            this.Rooms_dgv.GridColor = System.Drawing.Color.SteelBlue;
+            this.Rooms_dgv.Location = new System.Drawing.Point(599, 11);
+            this.Rooms_dgv.Margin = new System.Windows.Forms.Padding(4);
+            this.Rooms_dgv.Name = "Rooms_dgv";
+            this.Rooms_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Rooms_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.Rooms_dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.Rooms_dgv.Size = new System.Drawing.Size(663, 713);
+            this.Rooms_dgv.TabIndex = 17;
             // 
             // exam_Cell_Rooms
             // 
@@ -287,43 +363,6 @@
             // 
             this.roomsTableAdapter1.ClearBeforeFill = true;
             // 
-            // Rooms_dgv
-            // 
-            this.Rooms_dgv.AllowUserToAddRows = false;
-            this.Rooms_dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
-            this.Rooms_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.Rooms_dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Rooms_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.Rooms_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Rooms_dgv.Location = new System.Drawing.Point(599, 11);
-            this.Rooms_dgv.Margin = new System.Windows.Forms.Padding(4);
-            this.Rooms_dgv.Name = "Rooms_dgv";
-            this.Rooms_dgv.Size = new System.Drawing.Size(663, 713);
-            this.Rooms_dgv.TabIndex = 17;
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel1.Controls.Add(this.RoomNo_textbox);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.Priority_combobox);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.TotalCapacity_textbox);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.TotalRoom_textbox);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.A_series_textbox);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.B_series_textbox);
-            this.panel1.Controls.Add(this.UpdatePriority_button);
-            this.panel1.Controls.Add(this.Save_button);
-            this.panel1.Location = new System.Drawing.Point(10, 10);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(582, 714);
-            this.panel1.TabIndex = 18;
-            // 
             // examhall
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -340,11 +379,11 @@
             this.Text = "Exam Hall Settings";
             this.Load += new System.EventHandler(this.examhall_Load);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.exam_Cell_Rooms)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.roomsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Rooms_dgv)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Rooms_dgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.exam_Cell_Rooms)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roomsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

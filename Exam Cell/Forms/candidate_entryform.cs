@@ -43,9 +43,7 @@ namespace Exam_Cell
             Branchsecondcomboboxfill();
             Semestercomboboxfill();
 
-            //somehow dgv font became white,so it has to be changed to black
-            Candidate_datagridview.RowsDefaultCellStyle.ForeColor = Color.Black;
-            Courses_dgv.RowsDefaultCellStyle.ForeColor = Color.Black;
+            
             Candidate_datagridview.Enabled = false;
             Courses_dgv.Enabled = false;
 
@@ -73,8 +71,8 @@ namespace Exam_Cell
             //Locate Header Cell to place checkbox in correct position
             Point HeaderCellLocation = this.Candidate_datagridview.GetCellDisplayRectangle(0, -1, true).Location;
             //place headercheckbox to the location
-            headerchkbox.Location = new Point(HeaderCellLocation.X + 8, HeaderCellLocation.Y + 2);
-            headerchkbox.BackColor = Color.White;
+            headerchkbox.Location = new Point(HeaderCellLocation.X + 8, HeaderCellLocation.Y + 13);
+            headerchkbox.BackColor = Color.RoyalBlue;
             headerchkbox.Size = new Size(18, 18);
             //add checkbox into dgv
             Candidate_datagridview.Controls.Add(headerchkbox);

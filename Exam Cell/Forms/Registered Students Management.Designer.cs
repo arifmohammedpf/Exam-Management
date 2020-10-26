@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registered_Students_Management));
             this.Series_radiobtn = new System.Windows.Forms.RadioButton();
             this.Univrsty_radiobtn = new System.Windows.Forms.RadioButton();
@@ -43,14 +46,14 @@
             this.Regno_textbox = new System.Windows.Forms.TextBox();
             this.ClearBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.Registered_dgv = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.Registered_dgv = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.AllotGroupbox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Registered_dgv)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Registered_dgv)).BeginInit();
             this.SuspendLayout();
             // 
             // Series_radiobtn
@@ -238,26 +241,11 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Reg_No";
             // 
-            // Registered_dgv
-            // 
-            this.Registered_dgv.AllowUserToAddRows = false;
-            this.Registered_dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
-            this.Registered_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.Registered_dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Registered_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.Registered_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Registered_dgv.Location = new System.Drawing.Point(23, 126);
-            this.Registered_dgv.Name = "Registered_dgv";
-            this.Registered_dgv.RowTemplate.Height = 24;
-            this.Registered_dgv.Size = new System.Drawing.Size(1062, 739);
-            this.Registered_dgv.TabIndex = 10;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.Registered_dgv);
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.DeleteAll_btn);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.AllotGroupbox);
@@ -281,6 +269,57 @@
             this.panel2.Size = new System.Drawing.Size(381, 248);
             this.panel2.TabIndex = 11;
             // 
+            // Registered_dgv
+            // 
+            this.Registered_dgv.AllowUserToAddRows = false;
+            this.Registered_dgv.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGreen;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.Registered_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.Registered_dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Registered_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.Registered_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.Registered_dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
+            this.Registered_dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Registered_dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Registered_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.Registered_dgv.ColumnHeadersHeight = 40;
+            this.Registered_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.Registered_dgv.EnableHeadersVisualStyles = false;
+            this.Registered_dgv.GridColor = System.Drawing.Color.SteelBlue;
+            this.Registered_dgv.Location = new System.Drawing.Point(13, 126);
+            this.Registered_dgv.Margin = new System.Windows.Forms.Padding(4);
+            this.Registered_dgv.Name = "Registered_dgv";
+            this.Registered_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Registered_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 11F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.Registered_dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.Registered_dgv.Size = new System.Drawing.Size(1062, 739);
+            this.Registered_dgv.TabIndex = 12;
+            // 
             // Registered_Students_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -298,10 +337,10 @@
             this.groupBox1.PerformLayout();
             this.AllotGroupbox.ResumeLayout(false);
             this.AllotGroupbox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Registered_dgv)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Registered_dgv)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -320,8 +359,8 @@
         private System.Windows.Forms.TextBox Regno_textbox;
         private System.Windows.Forms.Button ClearBtn;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView Registered_dgv;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView Registered_dgv;
     }
 }

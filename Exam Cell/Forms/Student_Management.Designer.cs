@@ -29,7 +29,11 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Student_mngmnt_panel = new System.Windows.Forms.Panel();
+            this.Student_dgv = new System.Windows.Forms.DataGridView();
             this.ClassDgvView_checkbox = new System.Windows.Forms.CheckBox();
             this.UpgradeSemester_groupbox = new System.Windows.Forms.GroupBox();
             this.UpgradeSem_btn = new System.Windows.Forms.Button();
@@ -61,13 +65,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.Delete_btn = new System.Windows.Forms.Button();
-            this.Student_dgv = new System.Windows.Forms.DataGridView();
             this.Student_mngmnt_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Student_dgv)).BeginInit();
             this.UpgradeSemester_groupbox.SuspendLayout();
             this.ImportGroupbox.SuspendLayout();
             this.AssignClass_groupbox.SuspendLayout();
             this.add_stdnt_groupbox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Student_dgv)).BeginInit();
             this.SuspendLayout();
             // 
             // Student_mngmnt_panel
@@ -83,8 +86,59 @@
             this.Student_mngmnt_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Student_mngmnt_panel.Location = new System.Drawing.Point(0, 0);
             this.Student_mngmnt_panel.Name = "Student_mngmnt_panel";
-            this.Student_mngmnt_panel.Size = new System.Drawing.Size(1478, 718);
+            this.Student_mngmnt_panel.Size = new System.Drawing.Size(1697, 718);
             this.Student_mngmnt_panel.TabIndex = 6;
+            // 
+            // Student_dgv
+            // 
+            this.Student_dgv.AllowUserToAddRows = false;
+            this.Student_dgv.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGreen;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.Student_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.Student_dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Student_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.Student_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.Student_dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
+            this.Student_dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Student_dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Student_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.Student_dgv.ColumnHeadersHeight = 40;
+            this.Student_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.Student_dgv.EnableHeadersVisualStyles = false;
+            this.Student_dgv.GridColor = System.Drawing.Color.SteelBlue;
+            this.Student_dgv.Location = new System.Drawing.Point(482, 264);
+            this.Student_dgv.Name = "Student_dgv";
+            this.Student_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Student_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 11F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.Student_dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.Student_dgv.RowTemplate.Height = 24;
+            this.Student_dgv.Size = new System.Drawing.Size(1193, 442);
+            this.Student_dgv.TabIndex = 10;
             // 
             // ClassDgvView_checkbox
             // 
@@ -92,7 +146,7 @@
             this.ClassDgvView_checkbox.AutoSize = true;
             this.ClassDgvView_checkbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClassDgvView_checkbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClassDgvView_checkbox.Location = new System.Drawing.Point(226, 625);
+            this.ClassDgvView_checkbox.Location = new System.Drawing.Point(335, 625);
             this.ClassDgvView_checkbox.Name = "ClassDgvView_checkbox";
             this.ClassDgvView_checkbox.Size = new System.Drawing.Size(128, 26);
             this.ClassDgvView_checkbox.TabIndex = 6;
@@ -108,7 +162,7 @@
             this.UpgradeSemester_groupbox.Controls.Add(this.DegradeClass_btn);
             this.UpgradeSemester_groupbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UpgradeSemester_groupbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.UpgradeSemester_groupbox.Location = new System.Drawing.Point(1188, 3);
+            this.UpgradeSemester_groupbox.Location = new System.Drawing.Point(1297, 3);
             this.UpgradeSemester_groupbox.Name = "UpgradeSemester_groupbox";
             this.UpgradeSemester_groupbox.Size = new System.Drawing.Size(268, 234);
             this.UpgradeSemester_groupbox.TabIndex = 9;
@@ -156,7 +210,7 @@
             this.ImportGroupbox.Controls.Add(this.AddFromExcel_Btn);
             this.ImportGroupbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ImportGroupbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ImportGroupbox.Location = new System.Drawing.Point(28, 264);
+            this.ImportGroupbox.Location = new System.Drawing.Point(137, 264);
             this.ImportGroupbox.Name = "ImportGroupbox";
             this.ImportGroupbox.Size = new System.Drawing.Size(326, 252);
             this.ImportGroupbox.TabIndex = 8;
@@ -227,7 +281,7 @@
             this.AssignClass_groupbox.Controls.Add(this.label13);
             this.AssignClass_groupbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AssignClass_groupbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.AssignClass_groupbox.Location = new System.Drawing.Point(672, 3);
+            this.AssignClass_groupbox.Location = new System.Drawing.Point(781, 3);
             this.AssignClass_groupbox.Name = "AssignClass_groupbox";
             this.AssignClass_groupbox.Size = new System.Drawing.Size(500, 234);
             this.AssignClass_groupbox.TabIndex = 7;
@@ -345,7 +399,7 @@
             this.add_stdnt_groupbox.Controls.Add(this.label4);
             this.add_stdnt_groupbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.add_stdnt_groupbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.add_stdnt_groupbox.Location = new System.Drawing.Point(3, 3);
+            this.add_stdnt_groupbox.Location = new System.Drawing.Point(112, 3);
             this.add_stdnt_groupbox.Name = "add_stdnt_groupbox";
             this.add_stdnt_groupbox.Size = new System.Drawing.Size(658, 234);
             this.add_stdnt_groupbox.TabIndex = 6;
@@ -483,7 +537,7 @@
             this.Delete_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Delete_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Delete_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Delete_btn.Location = new System.Drawing.Point(226, 668);
+            this.Delete_btn.Location = new System.Drawing.Point(335, 668);
             this.Delete_btn.Name = "Delete_btn";
             this.Delete_btn.Size = new System.Drawing.Size(128, 36);
             this.Delete_btn.TabIndex = 0;
@@ -491,27 +545,12 @@
             this.Delete_btn.UseVisualStyleBackColor = false;
             this.Delete_btn.Click += new System.EventHandler(this.Delete_btn_Click);
             // 
-            // Student_dgv
-            // 
-            this.Student_dgv.AllowUserToAddRows = false;
-            this.Student_dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
-            this.Student_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.Student_dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Student_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.Student_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Student_dgv.Location = new System.Drawing.Point(368, 264);
-            this.Student_dgv.Name = "Student_dgv";
-            this.Student_dgv.RowTemplate.Height = 24;
-            this.Student_dgv.Size = new System.Drawing.Size(1088, 442);
-            this.Student_dgv.TabIndex = 10;
-            // 
             // Student_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1478, 718);
+            this.ClientSize = new System.Drawing.Size(1697, 718);
             this.Controls.Add(this.Student_mngmnt_panel);
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -520,6 +559,7 @@
             this.Load += new System.EventHandler(this.Student_Management_Load);
             this.Student_mngmnt_panel.ResumeLayout(false);
             this.Student_mngmnt_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Student_dgv)).EndInit();
             this.UpgradeSemester_groupbox.ResumeLayout(false);
             this.ImportGroupbox.ResumeLayout(false);
             this.ImportGroupbox.PerformLayout();
@@ -527,7 +567,6 @@
             this.AssignClass_groupbox.PerformLayout();
             this.add_stdnt_groupbox.ResumeLayout(false);
             this.add_stdnt_groupbox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Student_dgv)).EndInit();
             this.ResumeLayout(false);
 
         }
