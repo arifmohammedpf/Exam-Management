@@ -112,8 +112,8 @@ namespace Exam_Cell
             //Locate Header Cell to place checkbox in correct position
             Point HeaderCellLocation = this.Course_Select_dgv.GetCellDisplayRectangle(0, -1, true).Location;
             //place headercheckbox to the location
-            headerchkbox.Location = new Point(HeaderCellLocation.X + 8, HeaderCellLocation.Y + 2);
-            headerchkbox.BackColor = Color.White;
+            headerchkbox.Location = new Point(HeaderCellLocation.X + 8, HeaderCellLocation.Y + 13);
+            headerchkbox.BackColor = Color.RoyalBlue;
             headerchkbox.Size = new Size(18, 18);
             //add checkbox into dgv
             Course_Select_dgv.Controls.Add(headerchkbox);
