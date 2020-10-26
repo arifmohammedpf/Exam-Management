@@ -268,7 +268,7 @@ namespace Exam_Cell
         }
 
         // auto fill boxes
-        private void Rooms_dgv_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void Rooms_dgv_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             int f = 0;
             foreach (DataGridViewRow dr in Rooms_dgv.Rows)
@@ -279,7 +279,7 @@ namespace Exam_Cell
                     f = 1;
                 }
             }
-            if(f==0)
+            if (f == 0)
             {
                 foreach (DataGridViewRow row in Rooms_dgv.SelectedRows)
                 {
@@ -290,7 +290,6 @@ namespace Exam_Cell
                     break;
                 }
             }
-                    
         }
     }
 }

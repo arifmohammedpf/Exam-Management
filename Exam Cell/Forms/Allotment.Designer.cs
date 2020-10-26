@@ -181,6 +181,7 @@
             this.AllotedRooms_dgv.Location = new System.Drawing.Point(1241, 95);
             this.AllotedRooms_dgv.Margin = new System.Windows.Forms.Padding(4);
             this.AllotedRooms_dgv.Name = "AllotedRooms_dgv";
+            this.AllotedRooms_dgv.ReadOnly = true;
             this.AllotedRooms_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.SteelBlue;
@@ -641,6 +642,7 @@
             this.Alloted_dgv.Location = new System.Drawing.Point(0, 123);
             this.Alloted_dgv.Margin = new System.Windows.Forms.Padding(4);
             this.Alloted_dgv.Name = "Alloted_dgv";
+            this.Alloted_dgv.ReadOnly = true;
             this.Alloted_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle11.BackColor = System.Drawing.Color.SteelBlue;

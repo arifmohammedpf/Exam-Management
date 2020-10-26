@@ -301,6 +301,7 @@
             this.Dgv.RowTemplate.Height = 24;
             this.Dgv.Size = new System.Drawing.Size(720, 815);
             this.Dgv.TabIndex = 16;
+            this.Dgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ChangeStatusEvent);
             // 
             // Absent_Marking
             // 
