@@ -35,6 +35,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(postponement));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ScheduledExam_dgv = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.NewDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
@@ -58,15 +59,14 @@
             this.exam_CellTimeTableNew = new Exam_Cell.Exam_CellTimeTableNew();
             this.timetableBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.timetableTableAdapter1 = new Exam_Cell.Exam_CellTimeTableNewTableAdapters.TimetableTableAdapter();
-            this.ScheduledExam_dgv = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ScheduledExam_dgv)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellDataSetTimetable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timetableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellTimeTableNew)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timetableBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ScheduledExam_dgv)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -84,6 +84,57 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1318, 677);
             this.panel1.TabIndex = 0;
+            // 
+            // ScheduledExam_dgv
+            // 
+            this.ScheduledExam_dgv.AllowUserToAddRows = false;
+            this.ScheduledExam_dgv.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGreen;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.ScheduledExam_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.ScheduledExam_dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ScheduledExam_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.ScheduledExam_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.ScheduledExam_dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
+            this.ScheduledExam_dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ScheduledExam_dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ScheduledExam_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.ScheduledExam_dgv.ColumnHeadersHeight = 40;
+            this.ScheduledExam_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.ScheduledExam_dgv.EnableHeadersVisualStyles = false;
+            this.ScheduledExam_dgv.GridColor = System.Drawing.Color.SteelBlue;
+            this.ScheduledExam_dgv.Location = new System.Drawing.Point(11, 285);
+            this.ScheduledExam_dgv.Margin = new System.Windows.Forms.Padding(4);
+            this.ScheduledExam_dgv.Name = "ScheduledExam_dgv";
+            this.ScheduledExam_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ScheduledExam_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 11F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.ScheduledExam_dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.ScheduledExam_dgv.Size = new System.Drawing.Size(1291, 387);
+            this.ScheduledExam_dgv.TabIndex = 10;
             // 
             // groupBox2
             // 
@@ -313,57 +364,6 @@
             // 
             this.timetableTableAdapter1.ClearBeforeFill = true;
             // 
-            // ScheduledExam_dgv
-            // 
-            this.ScheduledExam_dgv.AllowUserToAddRows = false;
-            this.ScheduledExam_dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGreen;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.ScheduledExam_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.ScheduledExam_dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ScheduledExam_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.ScheduledExam_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.ScheduledExam_dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
-            this.ScheduledExam_dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ScheduledExam_dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ScheduledExam_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.ScheduledExam_dgv.ColumnHeadersHeight = 40;
-            this.ScheduledExam_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.ScheduledExam_dgv.EnableHeadersVisualStyles = false;
-            this.ScheduledExam_dgv.GridColor = System.Drawing.Color.SteelBlue;
-            this.ScheduledExam_dgv.Location = new System.Drawing.Point(11, 285);
-            this.ScheduledExam_dgv.Margin = new System.Windows.Forms.Padding(4);
-            this.ScheduledExam_dgv.Name = "ScheduledExam_dgv";
-            this.ScheduledExam_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ScheduledExam_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightSeaGreen;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 11F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.ScheduledExam_dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.ScheduledExam_dgv.Size = new System.Drawing.Size(1291, 387);
-            this.ScheduledExam_dgv.TabIndex = 10;
-            // 
             // postponement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -379,6 +379,7 @@
             this.Text = "Postponement";
             this.Load += new System.EventHandler(this.postponement_Load);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ScheduledExam_dgv)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -387,7 +388,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.timetableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellTimeTableNew)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timetableBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ScheduledExam_dgv)).EndInit();
             this.ResumeLayout(false);
 
         }

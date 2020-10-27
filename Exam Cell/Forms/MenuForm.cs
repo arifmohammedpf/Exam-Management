@@ -18,11 +18,13 @@ namespace Exam_Cell.Forms
             CustomDesign();
         }
 
+        Control Temp_btn=null;
         private void MoveSidePanel(Control btn)
         {
-            MenuSidePanel.Visible = true;
-            MenuSidePanel.Top = btn.Top;
-            MenuSidePanel.Height = btn.Height;
+            if(Temp_btn!=null)
+                Temp_btn.BackColor = Color.FromArgb(11, 7, 17);
+            btn.BackColor = Color.Teal;
+            Temp_btn = btn;
         }
         private void CustomDesign()
         {

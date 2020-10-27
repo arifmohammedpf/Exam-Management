@@ -468,11 +468,11 @@
             // 
             this.Timetableview_dgv.AllowUserToAddRows = false;
             this.Timetableview_dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.OliveDrab;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightSeaGreen;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.YellowGreen;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             this.Timetableview_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.Timetableview_dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -499,18 +499,18 @@
             this.Timetableview_dgv.ReadOnly = true;
             this.Timetableview_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightSalmon;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.SteelBlue;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.Timetableview_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DarkGoldenrod;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightGreen;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 11F);
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkKhaki;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Green;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.Timetableview_dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.Timetableview_dgv.Size = new System.Drawing.Size(1100, 439);
@@ -559,7 +559,7 @@
             this.Course_Select_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.LightSeaGreen;
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 11F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(5);
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;

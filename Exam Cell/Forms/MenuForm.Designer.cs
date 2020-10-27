@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelSideMenu = new System.Windows.Forms.Panel();
+            this.MenuSidePanel = new System.Windows.Forms.Panel();
             this.Exit_btn = new System.Windows.Forms.Button();
             this.panelAbsentDropMenu = new System.Windows.Forms.Panel();
             this.AbsentStateForm_btn = new System.Windows.Forms.Button();
@@ -46,7 +47,6 @@
             this.Dbm_btn = new System.Windows.Forms.Button();
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.MenuSidePanel = new System.Windows.Forms.Panel();
             this.panelSideMenu.SuspendLayout();
             this.panelAbsentDropMenu.SuspendLayout();
             this.panelDbmDropMenu.SuspendLayout();
@@ -77,6 +77,14 @@
             this.panelSideMenu.Padding = new System.Windows.Forms.Padding(0, 40, 0, 40);
             this.panelSideMenu.Size = new System.Drawing.Size(245, 864);
             this.panelSideMenu.TabIndex = 0;
+            // 
+            // MenuSidePanel
+            // 
+            this.MenuSidePanel.BackColor = System.Drawing.Color.Lavender;
+            this.MenuSidePanel.Location = new System.Drawing.Point(1, 40);
+            this.MenuSidePanel.Name = "MenuSidePanel";
+            this.MenuSidePanel.Size = new System.Drawing.Size(10, 70);
+            this.MenuSidePanel.TabIndex = 13;
             // 
             // Exit_btn
             // 
@@ -350,14 +358,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // MenuSidePanel
-            // 
-            this.MenuSidePanel.BackColor = System.Drawing.Color.Lavender;
-            this.MenuSidePanel.Location = new System.Drawing.Point(1, 40);
-            this.MenuSidePanel.Name = "MenuSidePanel";
-            this.MenuSidePanel.Size = new System.Drawing.Size(10, 70);
-            this.MenuSidePanel.TabIndex = 13;
             // 
             // MenuForm
             // 

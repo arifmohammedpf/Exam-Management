@@ -161,11 +161,11 @@
             // 
             this.Courses_dgv.AllowUserToAddRows = false;
             this.Courses_dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.OliveDrab;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightSeaGreen;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.YellowGreen;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             this.Courses_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.Courses_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
@@ -197,11 +197,11 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.Courses_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DarkGoldenrod;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightGreen;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 11F);
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkKhaki;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Green;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.Courses_dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.Courses_dgv.Size = new System.Drawing.Size(841, 632);

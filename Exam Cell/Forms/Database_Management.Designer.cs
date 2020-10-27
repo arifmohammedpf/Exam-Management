@@ -35,6 +35,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Database_Management));
             this.Class_Managmnt_panel = new System.Windows.Forms.Panel();
+            this.Scheme_dgv = new System.Windows.Forms.DataGridView();
             this.RadioButton_panel = new System.Windows.Forms.Panel();
             this.Class_radiobtn = new System.Windows.Forms.RadioButton();
             this.DefaultScheme_radiobtn = new System.Windows.Forms.RadioButton();
@@ -73,8 +74,8 @@
             this.exam_CellDataSet_Students = new Exam_Cell.Exam_CellDataSet_Students();
             this.studentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.studentsTableAdapter = new Exam_Cell.Exam_CellDataSet_StudentsTableAdapters.StudentsTableAdapter();
-            this.Scheme_dgv = new System.Windows.Forms.DataGridView();
             this.Class_Managmnt_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Scheme_dgv)).BeginInit();
             this.RadioButton_panel.SuspendLayout();
             this.groupBoxContents.SuspendLayout();
             this.NewClassGroupbox.SuspendLayout();
@@ -83,7 +84,6 @@
             this.DefaultScheme_Panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellDataSet_Students)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Scheme_dgv)).BeginInit();
             this.SuspendLayout();
             // 
             // Class_Managmnt_panel
@@ -97,6 +97,57 @@
             this.Class_Managmnt_panel.Name = "Class_Managmnt_panel";
             this.Class_Managmnt_panel.Size = new System.Drawing.Size(1644, 900);
             this.Class_Managmnt_panel.TabIndex = 7;
+            // 
+            // Scheme_dgv
+            // 
+            this.Scheme_dgv.AllowUserToAddRows = false;
+            this.Scheme_dgv.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGreen;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.Scheme_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.Scheme_dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Scheme_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.Scheme_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.Scheme_dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
+            this.Scheme_dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Scheme_dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Scheme_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.Scheme_dgv.ColumnHeadersHeight = 40;
+            this.Scheme_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.Scheme_dgv.EnableHeadersVisualStyles = false;
+            this.Scheme_dgv.GridColor = System.Drawing.Color.SteelBlue;
+            this.Scheme_dgv.Location = new System.Drawing.Point(669, 120);
+            this.Scheme_dgv.Margin = new System.Windows.Forms.Padding(4);
+            this.Scheme_dgv.Name = "Scheme_dgv";
+            this.Scheme_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Scheme_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 11F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.Scheme_dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.Scheme_dgv.Size = new System.Drawing.Size(963, 751);
+            this.Scheme_dgv.TabIndex = 11;
             // 
             // RadioButton_panel
             // 
@@ -554,57 +605,6 @@
             // 
             this.studentsTableAdapter.ClearBeforeFill = true;
             // 
-            // Scheme_dgv
-            // 
-            this.Scheme_dgv.AllowUserToAddRows = false;
-            this.Scheme_dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGreen;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.Scheme_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.Scheme_dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Scheme_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.Scheme_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.Scheme_dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
-            this.Scheme_dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Scheme_dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Scheme_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.Scheme_dgv.ColumnHeadersHeight = 40;
-            this.Scheme_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.Scheme_dgv.EnableHeadersVisualStyles = false;
-            this.Scheme_dgv.GridColor = System.Drawing.Color.SteelBlue;
-            this.Scheme_dgv.Location = new System.Drawing.Point(669, 120);
-            this.Scheme_dgv.Margin = new System.Windows.Forms.Padding(4);
-            this.Scheme_dgv.Name = "Scheme_dgv";
-            this.Scheme_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Scheme_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightSeaGreen;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 11F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.Scheme_dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.Scheme_dgv.Size = new System.Drawing.Size(963, 751);
-            this.Scheme_dgv.TabIndex = 11;
-            // 
             // Database_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -620,6 +620,7 @@
             this.Text = "Database Management";
             this.Load += new System.EventHandler(this.Database_Management_Load);
             this.Class_Managmnt_panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Scheme_dgv)).EndInit();
             this.RadioButton_panel.ResumeLayout(false);
             this.RadioButton_panel.PerformLayout();
             this.groupBoxContents.ResumeLayout(false);
@@ -634,7 +635,6 @@
             this.DefaultScheme_Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellDataSet_Students)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Scheme_dgv)).EndInit();
             this.ResumeLayout(false);
 
         }

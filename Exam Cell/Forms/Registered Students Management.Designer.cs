@@ -47,13 +47,13 @@
             this.ClearBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.Registered_dgv = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             this.AllotGroupbox.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Registered_dgv)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // Series_radiobtn
@@ -255,20 +255,6 @@
             this.panel1.Size = new System.Drawing.Size(1496, 877);
             this.panel1.TabIndex = 11;
             // 
-            // panel2
-            // 
-            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel2.Controls.Add(this.Delete_btn);
-            this.panel2.Controls.Add(this.Branch_combobox);
-            this.panel2.Controls.Add(this.Semester_combobox);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.Regno_textbox);
-            this.panel2.Controls.Add(this.ClearBtn);
-            this.panel2.Location = new System.Drawing.Point(1102, 126);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(381, 248);
-            this.panel2.TabIndex = 11;
-            // 
             // Registered_dgv
             // 
             this.Registered_dgv.AllowUserToAddRows = false;
@@ -312,13 +298,27 @@
             this.Registered_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightSeaGreen;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 11F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.Registered_dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.Registered_dgv.Size = new System.Drawing.Size(1062, 739);
             this.Registered_dgv.TabIndex = 12;
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel2.Controls.Add(this.Delete_btn);
+            this.panel2.Controls.Add(this.Branch_combobox);
+            this.panel2.Controls.Add(this.Semester_combobox);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.Regno_textbox);
+            this.panel2.Controls.Add(this.ClearBtn);
+            this.panel2.Location = new System.Drawing.Point(1102, 126);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(381, 248);
+            this.panel2.TabIndex = 11;
             // 
             // Registered_Students_Management
             // 
@@ -338,9 +338,9 @@
             this.AllotGroupbox.ResumeLayout(false);
             this.AllotGroupbox.PerformLayout();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Registered_dgv)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Registered_dgv)).EndInit();
             this.ResumeLayout(false);
 
         }
