@@ -74,6 +74,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Timetableview_dgv = new System.Windows.Forms.DataGridView();
             this.Course_Select_dgv = new System.Windows.Forms.DataGridView();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timetableBindingSource)).BeginInit();
@@ -566,6 +567,11 @@
             this.Course_Select_dgv.Size = new System.Drawing.Size(1038, 476);
             this.Course_Select_dgv.TabIndex = 5;
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // formtimetable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -638,5 +644,6 @@
         private System.Windows.Forms.DataGridView Timetableview_dgv;
         private System.Windows.Forms.DataGridView Course_Select_dgv;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

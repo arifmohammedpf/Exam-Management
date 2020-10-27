@@ -21,10 +21,7 @@ namespace Exam_Cell
             InitializeComponent();
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+       
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -41,20 +38,7 @@ namespace Exam_Cell
 
         }
 
-        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
+       
         BindingSource source = new BindingSource();
         BindingSource source2 = new BindingSource();
         void TimetableFill()
@@ -85,17 +69,11 @@ namespace Exam_Cell
             BranchComboboxFill();
             SemesterComboboxFill();
 
-            CourseFill();
-            TimetableFill();
-            Course_Select_dgv.RowsDefaultCellStyle.ForeColor = Color.Black;
-            Timetableview_dgv.RowsDefaultCellStyle.ForeColor = Color.Black;
-
             Session_combobox.SelectedIndex = 0;
             DateTimePicker.Format = DateTimePickerFormat.Custom;
             DateTimePicker.CustomFormat = "dd-MM-yyyy";
             DateTimePicker.Value = DateTime.Now;
-            Branch_combobox.SelectedIndex = 0;
-            Semester_combobox.SelectedIndex = 0;
+            
 
             DataGridViewCheckBoxColumn chkbox = new DataGridViewCheckBoxColumn();
             chkbox.HeaderText = "";
@@ -105,6 +83,8 @@ namespace Exam_Cell
 
             AddHeaderchckbox(); //header checkbox added to candidate dgv
             headerchkbox.MouseClick += new MouseEventHandler(Headerchckbox_Mouseclick);
+
+            timer1.Start();
         }
 
         void AddHeaderchckbox()
@@ -438,6 +418,13 @@ namespace Exam_Cell
             Undo_backup.examcode.Clear();
             Undo_backup.semester.Clear();
             Undo_backup.branch.Clear();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            CourseFill();
+            TimetableFill();
         }
     }    
 }

@@ -100,7 +100,7 @@
             // 
             this.Loginbuttn.BackColor = System.Drawing.Color.Transparent;
             this.Loginbuttn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.Loginbuttn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(40)))));
+            this.Loginbuttn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Navy;
             this.Loginbuttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Loginbuttn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Loginbuttn.Location = new System.Drawing.Point(35, 212);

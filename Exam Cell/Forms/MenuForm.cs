@@ -18,10 +18,17 @@ namespace Exam_Cell.Forms
             CustomDesign();
         }
 
+        private void MoveSidePanel(Control btn)
+        {
+            MenuSidePanel.Visible = true;
+            MenuSidePanel.Top = btn.Top;
+            MenuSidePanel.Height = btn.Height;
+        }
         private void CustomDesign()
         {
             panelAbsentDropMenu.Visible = false;
             panelDbmDropMenu.Visible = false;
+            MenuSidePanel.Visible = false;
         }
 
         private void HideDropMenu()
@@ -51,24 +58,28 @@ namespace Exam_Cell.Forms
 
         private void StudentForm_btn_Click(object sender, EventArgs e)
         {
+            MoveSidePanel(Dbm_btn);
             OpenChildForm(new Student_Management());
             HideDropMenu();
         }
 
         private void ClassbranchForm_btn_Click(object sender, EventArgs e)
         {
+            MoveSidePanel(Dbm_btn);
             OpenChildForm(new Database_Management());
             HideDropMenu();
         }
 
         private void AbsentMarkForm_btn_Click(object sender, EventArgs e)
         {
+            MoveSidePanel(Absentees_btn);
             OpenChildForm(new Absent_Marking());
             HideDropMenu();
         }
 
         private void AbsentStateForm_btn_Click(object sender, EventArgs e)
         {
+            MoveSidePanel(Absentees_btn);
             OpenChildForm(new Absent_Statement());
             HideDropMenu();
         }
@@ -95,31 +106,43 @@ namespace Exam_Cell.Forms
 
         private void CandEntryForm_btn_Click(object sender, EventArgs e)
         {
+            HideDropMenu();
+            MoveSidePanel(CandEntryForm_btn);
             OpenChildForm(new formti());
         }
 
         private void RoomForm_btn_Click(object sender, EventArgs e)
         {
+            HideDropMenu();
+            MoveSidePanel(RoomForm_btn);
             OpenChildForm(new examhall());
         }
 
         private void RegStyMng_btn_Click(object sender, EventArgs e)
         {
+            HideDropMenu();
+            MoveSidePanel(RegStyMng_btn);
             OpenChildForm(new Registered_Students_Management());
         }
 
         private void TtableForm_btn_Click(object sender, EventArgs e)
         {
+            HideDropMenu();
+            MoveSidePanel(TtableForm_btn);
             OpenChildForm(new formtimetable());
         }
 
         private void AllotmentForm_btn_Click(object sender, EventArgs e)
         {
+            HideDropMenu();
+            MoveSidePanel(AllotmentForm_btn);
             OpenChildForm(new Allotment());
         }
 
         private void PostponeForm_btn_Click(object sender, EventArgs e)
         {
+            HideDropMenu();
+            MoveSidePanel(PostponeForm_btn);
             OpenChildForm(new postponement());
         }
 

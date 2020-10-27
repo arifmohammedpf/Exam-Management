@@ -46,6 +46,7 @@
             this.Dbm_btn = new System.Windows.Forms.Button();
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.MenuSidePanel = new System.Windows.Forms.Panel();
             this.panelSideMenu.SuspendLayout();
             this.panelAbsentDropMenu.SuspendLayout();
             this.panelDbmDropMenu.SuspendLayout();
@@ -57,6 +58,7 @@
             // 
             this.panelSideMenu.AutoScroll = true;
             this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.panelSideMenu.Controls.Add(this.MenuSidePanel);
             this.panelSideMenu.Controls.Add(this.Exit_btn);
             this.panelSideMenu.Controls.Add(this.panelAbsentDropMenu);
             this.panelSideMenu.Controls.Add(this.Absentees_btn);
@@ -349,6 +351,14 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // MenuSidePanel
+            // 
+            this.MenuSidePanel.BackColor = System.Drawing.Color.Lavender;
+            this.MenuSidePanel.Location = new System.Drawing.Point(1, 40);
+            this.MenuSidePanel.Name = "MenuSidePanel";
+            this.MenuSidePanel.Size = new System.Drawing.Size(10, 70);
+            this.MenuSidePanel.TabIndex = 13;
+            // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -393,5 +403,6 @@
         private System.Windows.Forms.Button PostponeForm_btn;
         private System.Windows.Forms.Panel panelChildForm;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel MenuSidePanel;
     }
 }
