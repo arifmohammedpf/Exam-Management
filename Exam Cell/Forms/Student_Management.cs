@@ -24,8 +24,8 @@ namespace Exam_Cell
 
         CheckBox headerchkbox = new CheckBox();
         private void Student_Management_Load(object sender, EventArgs e)
-        {
-            Student_dgv.RowsDefaultCellStyle.ForeColor = Color.Black;
+        {           
+
             //studentdgv
             DataGridViewCheckBoxColumn checkbox2 = new DataGridViewCheckBoxColumn();
             checkbox2.HeaderText = "";
@@ -33,16 +33,19 @@ namespace Exam_Cell
             checkbox2.Name = "CheckboxColumn2";
             Student_dgv.Columns.Insert(0, checkbox2);
 
-            AddHeaderchckbox(); //header checkbox added to candidate dgv
+            AddHeaderchckbox(); //header checkbox added to student dgv
             headerchkbox.MouseClick += new MouseEventHandler(Headerchckbox_Mouseclick);
 
-            Student_dgvFill();
             AssignClass_fill();
             StudentBranchComboboxFill();
             ClassBranchComboboxFill();
             YearOfAdmissionFill();
             ClassDgvView_checkbox.Checked = false;
-            ClearAllStudent_Management();
+
+            timer1.Start();
+            //Student_dgvFill();
+            //ClearAllStudent_Management();
+
         }
 
         //function definition
@@ -75,13 +78,10 @@ namespace Exam_Cell
         void AssignClass_fill()
         {
             SqlCommand sc = new SqlCommand("Select Class,Semester from Management where (Class is not null) and (Semester is not null)", con.ActiveCon());
-            SqlDataReader reader;
-            reader = sc.ExecuteReader();
+            SqlDataAdapter adapter = new SqlDataAdapter(sc);
             DataTable dt = new DataTable();
-            dt.Columns.Add("Class", typeof(string));
-            dt.Columns.Add("Semester", typeof(string));
-            dt.Load(reader);
-
+            adapter.Fill(dt);
+            
             DataTable dt2 = new DataTable();
             dt2.Columns.Add("Combo", typeof(string)); // in datatable, a column should be created before adding rows
             DataRow top = dt2.NewRow();
@@ -379,14 +379,12 @@ namespace Exam_Cell
         void StudentBranchComboboxFill()
         {
             SqlCommand sc = new SqlCommand("Select Branch from Management where Branch is not null", con.ActiveCon());
-            SqlDataReader reader;
-            reader = sc.ExecuteReader();
+            SqlDataAdapter adapter = new SqlDataAdapter(sc);
             DataTable dt = new DataTable();
-            dt.Columns.Add("Branch", typeof(string)); // in datatable, a column should be created before adding rows
+            adapter.Fill(dt);
             DataRow top = dt.NewRow();
             top[0] = "-Select-";
             dt.Rows.InsertAt(top, 0);
-            dt.Load(reader);
 
             Branch_combobox.ValueMember = "Branch";
             Branch_combobox.DataSource = dt;
@@ -394,34 +392,28 @@ namespace Exam_Cell
         void ClassBranchComboboxFill()
         {
             SqlCommand sc = new SqlCommand("Select Branch from Management where Branch is not null", con.ActiveCon());
-            SqlDataReader reader;
-            reader = sc.ExecuteReader();
+            SqlDataAdapter adapter = new SqlDataAdapter(sc);
             DataTable dt = new DataTable();
-            dt.Columns.Add("Branch", typeof(string)); // in datatable, a column should be created before adding rows
+            adapter.Fill(dt);
             DataRow top = dt.NewRow();
             top[0] = "-Select-";
             dt.Rows.InsertAt(top, 0);
-            dt.Load(reader);
 
             AssignClassBranch_combobox.ValueMember = "Branch";
             AssignClassBranch_combobox.DataSource = dt;
-            AssignClassBranch_combobox.SelectedIndex = 0;
         }
         void YearOfAdmissionFill()
         {
             SqlCommand sc = new SqlCommand("Select distinct Year_Of_Admission from Students", con.ActiveCon());
-            SqlDataReader reader;
-            reader = sc.ExecuteReader();
+            SqlDataAdapter adapter = new SqlDataAdapter(sc);
             DataTable dt = new DataTable();
-            dt.Columns.Add("Year_Of_Admission", typeof(string)); // in datatable, a column should be created before adding rows
+            adapter.Fill(dt);
             DataRow top = dt.NewRow();
             top[0] = "-Select-";
             dt.Rows.InsertAt(top, 0);
-            dt.Load(reader);
 
             AssignClassYOA_combobox.ValueMember = "Year_Of_Admission";
             AssignClassYOA_combobox.DataSource = dt;
-            AssignClassYOA_combobox.SelectedIndex = 0;
         }
 
         private void AssignClass_combobox_SelectedIndexChanged(object sender, EventArgs e)
@@ -551,6 +543,12 @@ namespace Exam_Cell
                 Student_dgvFill();
             }
             else MessageBox.Show("Select any Students", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            Student_dgvFill();
         }
     }
 }
