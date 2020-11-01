@@ -59,7 +59,7 @@
             this.Series_Student_details_groupbox = new System.Windows.Forms.GroupBox();
             this.Class_drpdwn = new System.Windows.Forms.ComboBox();
             this.Class_label = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupboxExtraReg = new System.Windows.Forms.GroupBox();
             this.Extra_Name_Textbox = new System.Windows.Forms.TextBox();
             this.Extra_Reg_no_Textbox = new System.Windows.Forms.TextBox();
             this.ExtraReg_btn = new System.Windows.Forms.Button();
@@ -114,7 +114,7 @@
             this.groupBox3.SuspendLayout();
             this.Unv_Student_details_groupbox.SuspendLayout();
             this.Series_Student_details_groupbox.SuspendLayout();
-            this.groupBox4.SuspendLayout();
+            this.groupboxExtraReg.SuspendLayout();
             this.SubjectDetails_groupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.excelShowBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellDataSetExcelStudents)).BeginInit();
@@ -147,7 +147,7 @@
             this.panel1.Controls.Add(this.Courses_dgv);
             this.panel1.Controls.Add(this.Candidate_datagridview);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.groupBox4);
+            this.panel1.Controls.Add(this.groupboxExtraReg);
             this.panel1.Controls.Add(this.SubjectDetails_groupbox);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -482,26 +482,26 @@
             this.Class_label.TabIndex = 12;
             this.Class_label.Text = "Class";
             // 
-            // groupBox4
+            // groupboxExtraReg
             // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.groupBox4.Controls.Add(this.Extra_Name_Textbox);
-            this.groupBox4.Controls.Add(this.Extra_Reg_no_Textbox);
-            this.groupBox4.Controls.Add(this.ExtraReg_btn);
-            this.groupBox4.Controls.Add(this.label1);
-            this.groupBox4.Controls.Add(this.label2);
-            this.groupBox4.Enabled = false;
-            this.groupBox4.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox4.Location = new System.Drawing.Point(1023, 7);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox4.Size = new System.Drawing.Size(741, 125);
-            this.groupBox4.TabIndex = 24;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Extra Candidate Registration";
+            this.groupboxExtraReg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupboxExtraReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.groupboxExtraReg.Controls.Add(this.Extra_Name_Textbox);
+            this.groupboxExtraReg.Controls.Add(this.Extra_Reg_no_Textbox);
+            this.groupboxExtraReg.Controls.Add(this.ExtraReg_btn);
+            this.groupboxExtraReg.Controls.Add(this.label1);
+            this.groupboxExtraReg.Controls.Add(this.label2);
+            this.groupboxExtraReg.Enabled = false;
+            this.groupboxExtraReg.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupboxExtraReg.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupboxExtraReg.Location = new System.Drawing.Point(1023, 7);
+            this.groupboxExtraReg.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupboxExtraReg.Name = "groupboxExtraReg";
+            this.groupboxExtraReg.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupboxExtraReg.Size = new System.Drawing.Size(741, 125);
+            this.groupboxExtraReg.TabIndex = 24;
+            this.groupboxExtraReg.TabStop = false;
+            this.groupboxExtraReg.Text = "Extra Candidate Registration";
             // 
             // Extra_Name_Textbox
             // 
@@ -824,8 +824,8 @@
             this.Unv_Student_details_groupbox.PerformLayout();
             this.Series_Student_details_groupbox.ResumeLayout(false);
             this.Series_Student_details_groupbox.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            this.groupboxExtraReg.ResumeLayout(false);
+            this.groupboxExtraReg.PerformLayout();
             this.SubjectDetails_groupbox.ResumeLayout(false);
             this.SubjectDetails_groupbox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.excelShowBindingSource)).EndInit();
@@ -909,7 +909,7 @@
         private System.Windows.Forms.GroupBox Series_Student_details_groupbox;
         private System.Windows.Forms.ComboBox Class_drpdwn;
         private System.Windows.Forms.Label Class_label;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupboxExtraReg;
         private System.Windows.Forms.TextBox Extra_Name_Textbox;
         private System.Windows.Forms.TextBox Extra_Reg_no_Textbox;
         private System.Windows.Forms.Button ExtraReg_btn;

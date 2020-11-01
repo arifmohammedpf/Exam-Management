@@ -124,6 +124,12 @@
       <DependentUpon>candidate_entryform.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Connection.cs" />
+    <Compile Include="Forms\CustomMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomMessageBox.Designer.cs">
+      <DependentUpon>CustomMessageBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Database_Management.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,6 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\candidate_entryform.resx">
       <DependentUpon>candidate_entryform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomMessageBox.resx">
+      <DependentUpon>CustomMessageBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Database_Management.resx">
       <DependentUpon>Database_Management.cs</DependentUpon>

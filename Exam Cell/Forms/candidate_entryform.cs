@@ -245,6 +245,7 @@ namespace Exam_Cell
                 Series_Student_details_groupbox.Enabled = false;   //student details box disabled since not needed
                 Excel_Group.Enabled = true;        //excel group box enabled           
                 Sheet_combobox.ResetText();
+                groupboxExtraReg.Enabled = true; // extra reg for university
                 
                 
                 //ARE THESE NEEDED?
@@ -293,7 +294,8 @@ namespace Exam_Cell
                 Series_Student_details_groupbox.Enabled = true;     //rest enabled
                 SubjectDetails_groupbox.Enabled = true;
                 Courses_dgv.Enabled = true;
-                Candidate_datagridview.Enabled = true;                
+                Candidate_datagridview.Enabled = true;
+                groupboxExtraReg.Enabled = false; // extra reg for university
             }
         }
 
@@ -769,10 +771,10 @@ namespace Exam_Cell
                     if (checkboxselected)
                     {
                         f = 1;
-                        //selected datas from dgv will be inserted to Table Registered Candidates
+                        
                         //here first bracket is sqltable column names and 2nd bracket with @ is refernce for values to be inserted
                         SqlCommand sqlcomm = new SqlCommand("Insert into Registered_candidates(Name,Reg_no,Branch,Semester,Course)Values(" + "@Name,@Reg_no,@Branch,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
-                                                                                                                                                                                                           //giving values to the reference...values from dgv
+                        //giving values to the reference...values from dgv                                                                                                                                                                            
                         sqlcomm.Parameters.AddWithValue("@Reg_no", Extra_Reg_no_Textbox.Text);
                         sqlcomm.Parameters.AddWithValue("@Name", Extra_Name_Textbox.Text);
                         sqlcomm.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value);
@@ -786,6 +788,10 @@ namespace Exam_Cell
                     MessageBox.Show("Register Done", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
                     MessageBox.Show("Select Course To Register", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Enter Reg_No and Name", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
