@@ -36,14 +36,16 @@ namespace Exam_Cell
             AddHeaderchckbox(); //header checkbox added to student dgv
             headerchkbox.MouseClick += new MouseEventHandler(Headerchckbox_Mouseclick);
 
-            AssignClass_fill();
-            StudentBranchComboboxFill();
-            ClassBranchComboboxFill();
-            YearOfAdmissionFill();
-            ClassDgvView_checkbox.Checked = false;
+            //timer1.Start();
 
-            timer1.Start();
+            //AssignClass_fill();
+            //StudentBranchComboboxFill();
+            //ClassBranchComboboxFill();
+            //YearOfAdmissionFill();
+            //ClassDgvView_checkbox.Checked = false;
             //Student_dgvFill();
+
+
             //ClearAllStudent_Management();
 
         }
@@ -548,6 +550,11 @@ namespace Exam_Cell
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer1.Stop();
+            AssignClass_fill();
+            StudentBranchComboboxFill();
+            ClassBranchComboboxFill();
+            YearOfAdmissionFill();
+            ClassDgvView_checkbox.Checked = false;
             Student_dgvFill();
         }
     }

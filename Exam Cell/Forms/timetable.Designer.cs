@@ -251,7 +251,6 @@
             this.label2.Size = new System.Drawing.Size(82, 22);
             this.label2.TabIndex = 3;
             this.label2.Text = "Session :";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // DateTimePicker
             // 
@@ -277,7 +276,6 @@
             this.Session_combobox.Name = "Session_combobox";
             this.Session_combobox.Size = new System.Drawing.Size(353, 29);
             this.Session_combobox.TabIndex = 1;
-            this.Session_combobox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -289,7 +287,6 @@
             this.label1.Size = new System.Drawing.Size(66, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Date :";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // Datepick_box
             // 
@@ -570,6 +567,7 @@
             // timer1
             // 
             this.timer1.Enabled = true;
+            this.timer1.Interval = 60;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // formtimetable

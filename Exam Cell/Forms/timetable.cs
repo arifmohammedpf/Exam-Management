@@ -23,21 +23,6 @@ namespace Exam_Cell
 
        
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
        
         BindingSource source = new BindingSource();
         BindingSource source2 = new BindingSource();
@@ -66,8 +51,12 @@ namespace Exam_Cell
         CheckBox headerchkbox = new CheckBox();
         private void formtimetable_Load(object sender, EventArgs e)
         {
-            BranchComboboxFill();
-            SemesterComboboxFill();
+            //timer1.Start();
+
+            //BranchComboboxFill();
+            //SemesterComboboxFill();
+            //CourseFill();
+            //TimetableFill();
 
             Session_combobox.SelectedIndex = 0;
             DateTimePicker.Format = DateTimePickerFormat.Custom;
@@ -84,7 +73,7 @@ namespace Exam_Cell
             AddHeaderchckbox(); //header checkbox added to candidate dgv
             headerchkbox.MouseClick += new MouseEventHandler(Headerchckbox_Mouseclick);
 
-            timer1.Start();
+            
         }
 
         void AddHeaderchckbox()
@@ -131,14 +120,12 @@ namespace Exam_Cell
         {
             string command = string.Format("Select Distinct Branch from Scheme");
             SqlCommand sc = new SqlCommand(command, con.ActiveCon());
-            SqlDataReader reader;
-            reader = sc.ExecuteReader();
+            SqlDataAdapter adapter = new SqlDataAdapter(sc);
             DataTable dt = new DataTable();
-            dt.Columns.Add("Branch", typeof(string));
+            adapter.Fill(dt);
             DataRow top = dt.NewRow();
             top[0] = "-Select-";
             dt.Rows.InsertAt(top, 0);
-            dt.Load(reader);
             Branch_combobox.DisplayMember = "Branch";
             Branch_combobox.ValueMember = "Branch";
             Branch_combobox.DataSource = dt;
@@ -147,14 +134,12 @@ namespace Exam_Cell
         {
             string command = string.Format("Select Distinct Semester from Scheme");
             SqlCommand sc = new SqlCommand(command, con.ActiveCon());
-            SqlDataReader reader;
-            reader = sc.ExecuteReader();
+            SqlDataAdapter adapter = new SqlDataAdapter(sc);
             DataTable dt = new DataTable();
-            dt.Columns.Add("Semester", typeof(string));
+            adapter.Fill(dt);
             DataRow top = dt.NewRow();
             top[0] = "-Select-";
             dt.Rows.InsertAt(top, 0);
-            dt.Load(reader);
             Semester_combobox.DisplayMember = "Semester";
             Semester_combobox.ValueMember = "Semester";
             Semester_combobox.DataSource = dt;
@@ -308,14 +293,12 @@ namespace Exam_Cell
         {
             string command = string.Format("Select Distinct Branch from Scheme");
             SqlCommand sc = new SqlCommand(command, con.ActiveCon());
-            SqlDataReader reader;
-            reader = sc.ExecuteReader();
+            SqlDataAdapter adapter = new SqlDataAdapter(sc);
             DataTable dt = new DataTable();
-            dt.Columns.Add("Branch", typeof(string));
+            adapter.Fill(dt);
             DataRow top = dt.NewRow();
             top[0] = "-Select-";
             dt.Rows.InsertAt(top, 0);
-            dt.Load(reader);
             SheduledBranch.DisplayMember = "Branch";
             SheduledBranch.ValueMember = "Branch";
             SheduledBranch.DataSource = dt;
@@ -325,14 +308,12 @@ namespace Exam_Cell
         {
             string command = string.Format("Select Date from Timetable");
             SqlCommand sc = new SqlCommand(command, con.ActiveCon());
-            SqlDataReader reader;
-            reader = sc.ExecuteReader();
+            SqlDataAdapter adapter = new SqlDataAdapter(sc);
             DataTable dt = new DataTable();
-            dt.Columns.Add("Date", typeof(string));
+            adapter.Fill(dt);
             DataRow top = dt.NewRow();
             top[0] = "-Select-";
             dt.Rows.InsertAt(top, 0);
-            dt.Load(reader);
             Datepick_box.DisplayMember = "Date";
             Datepick_box.ValueMember = "Date";
             Datepick_box.DataSource = dt;
@@ -423,6 +404,8 @@ namespace Exam_Cell
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer1.Stop();
+            BranchComboboxFill();
+            SemesterComboboxFill();
             CourseFill();
             TimetableFill();
         }
