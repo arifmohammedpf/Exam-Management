@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Exam_Cell.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,7 @@ namespace Exam_Cell
     public partial class postponement : Form
     {
         Connection con = new Connection();
+        CustomMessageBox msgbox = new CustomMessageBox();
         public postponement()
         {
             InitializeComponent();
@@ -128,8 +130,9 @@ namespace Exam_Cell
         }
         private void Postpone_button_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Click Yes to Confirm", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if(result == DialogResult.Yes)
+            msgbox.show("Click Yes to Confirm", "Confirmation", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Information);
+            var result = msgbox.ReturnValue;
+            if (result == "Yes")
             {
                 if (NewSession_combobox.SelectedItem.ToString() != "-Optional-")
                 {
@@ -164,9 +167,9 @@ namespace Exam_Cell
             if (flag == 1)
             {
                 ScheduledExamFill();
-                MessageBox.Show("Exam Postponed", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                msgbox.show("Exam Postponed", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
             }
-            else { MessageBox.Show("Please Select Exam to be postponed", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            else { msgbox.show("Please Select Exam to be postponed", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error); }
         }
 
         void Postpone_without_session()
@@ -190,9 +193,9 @@ namespace Exam_Cell
             if (flag == 1)
             {
                 ScheduledExamFill();
-                MessageBox.Show("Exam Postponed", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                msgbox.show("Exam Postponed", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
             }
-            else { MessageBox.Show("Please Select Exam to be postponed", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            else { msgbox.show("Please Select Exam to be postponed", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error); }
         }
 
         private void Clear_button_Click(object sender, EventArgs e)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Exam_Cell.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,7 @@ namespace Exam_Cell
     public partial class examhall : Form
     {
         Connection con = new Connection();
+        CustomMessageBox msgbox = new CustomMessageBox();
         public examhall()
         {
             InitializeComponent();
@@ -92,8 +94,9 @@ namespace Exam_Cell
                 
         private void Save_button_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Click Yes to Save", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if(result==DialogResult.Yes)
+            msgbox.show("Click Yes to Save", "Confirmation", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Information);
+            var result = msgbox.ReturnValue;
+            if (result=="Yes")
             {
                 if (Priority_combobox.SelectedIndex != 0)
                 {
@@ -123,12 +126,12 @@ namespace Exam_Cell
                     }
                     else
                     {
-                        MessageBox.Show("Enter Room", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        msgbox.show("Enter Room", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Select Priority", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    msgbox.show("Select Priority", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                 }
             }
         }
@@ -143,12 +146,12 @@ namespace Exam_Cell
                 comm.Parameters.AddWithValue("@A_series", a);
                 comm.Parameters.AddWithValue("@B_series", b);
                 comm.ExecuteNonQuery();
-                MessageBox.Show("New Room Saved");
+                msgbox.show("New Room Saved", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 Cleardata();
             }
             else
             {
-                MessageBox.Show("A & B Series must be Numbers","Alert",MessageBoxButtons.OK,MessageBoxIcon.Error); 
+                msgbox.show("A & B Series must be Numbers","Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error); 
             }
             
         }
@@ -163,12 +166,12 @@ namespace Exam_Cell
                 comm.Parameters.AddWithValue("@A_series", a);
                 comm.Parameters.AddWithValue("@B_series", b);
                 comm.ExecuteNonQuery();
-                MessageBox.Show(RoomNo_textbox.Text+" Updated");
+                msgbox.show(RoomNo_textbox.Text + " Updated", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 Cleardata();
             }
             else
             {
-                MessageBox.Show("A & B Series must be Numbers", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                msgbox.show("A & B Series must be Numbers", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
             
         }
@@ -257,13 +260,13 @@ namespace Exam_Cell
                     }
                 }
                 if(f==0)
-                    MessageBox.Show("No Selection made", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    msgbox.show("No Selection made", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                 else
-                    MessageBox.Show("Selected Priority Updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    msgbox.show("Selected Priority Updated", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 Cleardata();
             }
             else
-                MessageBox.Show("Select A Priority", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                msgbox.show("Select A Priority", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
 
         }
 

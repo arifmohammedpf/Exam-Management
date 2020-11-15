@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Exam_Cell.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,7 @@ namespace Exam_Cell
     public partial class Registered_Students_Management : Form
     {
         Connection con = new Connection();
+        CustomMessageBox msgbox = new CustomMessageBox();
         public Registered_Students_Management()
         {
             InitializeComponent();
@@ -35,14 +37,15 @@ namespace Exam_Cell
 
         private void DeleteAll_btn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("You are going to Delete every Students in the list, Are You Sure ?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if(result == DialogResult.Yes)
+            msgbox.show("You are going to Delete every Students in the list, Are You Sure ?", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
+            var result = msgbox.ReturnValue;
+            if (result == "Yes")
             {
                 if (Univrsty_radiobtn.Checked)
                 {
                     SqlCommand command = new SqlCommand("Delete Registered_candidates", con.ActiveCon());
                     command.ExecuteNonQuery();
-                    MessageBox.Show("All Candidates Deleted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    msgbox.show("All Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     University_fill();
                     Clear_function();
                 }
@@ -50,7 +53,7 @@ namespace Exam_Cell
                 {
                     SqlCommand command = new SqlCommand("Delete Series_candidates", con.ActiveCon());
                     command.ExecuteNonQuery();
-                    MessageBox.Show("All Candidates Deleted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    msgbox.show("All Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     Series_fill();
                     Clear_function();
                 }
@@ -58,7 +61,7 @@ namespace Exam_Cell
                 {
                     SqlCommand command = new SqlCommand("Delete University_Alloted", con.ActiveCon());
                     command.ExecuteNonQuery();
-                    MessageBox.Show("All Alloted Candidates Deleted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    msgbox.show("All Alloted Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     UniversityAlloted_fill();
                     Clear_function();
                 }
@@ -66,7 +69,7 @@ namespace Exam_Cell
                 {
                     SqlCommand command = new SqlCommand("Delete Series_Alloted", con.ActiveCon());
                     command.ExecuteNonQuery();
-                    MessageBox.Show("All Alloted Candidates Deleted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    msgbox.show("All Alloted Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     SeriesAlloted_fill();
                     Clear_function();
                 }
@@ -177,8 +180,9 @@ namespace Exam_Cell
 
         private void Delete_btn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you really want to Delete ?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if(result == DialogResult.Yes)
+            msgbox.show("Do you really want to Delete ?", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
+            var result = msgbox.ReturnValue;
+            if (result == "Yes")
             {
                 if (Univrsty_radiobtn.Checked)
                 {
@@ -192,7 +196,7 @@ namespace Exam_Cell
                             command.ExecuteNonQuery();
                         }
                     }
-                    MessageBox.Show("Selected Candidates Deleted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    msgbox.show("Selected Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     University_fill();
                     Clear_function();
                 }
@@ -208,7 +212,7 @@ namespace Exam_Cell
                             command.ExecuteNonQuery();
                         }
                     }
-                    MessageBox.Show("Selected Candidates Deleted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    msgbox.show("Selected Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     Series_fill();
                     Clear_function();
                 }
@@ -224,7 +228,7 @@ namespace Exam_Cell
                             command.ExecuteNonQuery();
                         }
                     }
-                    MessageBox.Show("Selected Alloted Candidates Deleted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    msgbox.show("Selected Alloted Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     SeriesAlloted_fill();
                     Clear_function();
                 }
@@ -240,7 +244,7 @@ namespace Exam_Cell
                             command.ExecuteNonQuery();
                         }
                     }
-                    MessageBox.Show("Selected Alloted Candidates Deleted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    msgbox.show("Selected Alloted Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     UniversityAlloted_fill();
                     Clear_function();
                 }

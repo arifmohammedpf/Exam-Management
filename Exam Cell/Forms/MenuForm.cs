@@ -12,6 +12,7 @@ namespace Exam_Cell.Forms
 {
     public partial class MenuForm : Form
     {
+        CustomMessageBox msgbox = new CustomMessageBox();
         public MenuForm()
         {
             InitializeComponent();
@@ -155,8 +156,9 @@ namespace Exam_Cell.Forms
 
         private void Exit_btn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Exit ?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if(result==DialogResult.Yes)
+            msgbox.show("Exit ?", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Warning);
+            var result = msgbox.ReturnValue;
+            if (result=="Yes")
             {
                 Application.Exit();
             }

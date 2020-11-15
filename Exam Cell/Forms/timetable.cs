@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Exam_Cell.Forms;
 
 namespace Exam_Cell
 {
     public partial class formtimetable : Form
     {
         Connection con = new Connection();
+        CustomMessageBox msgbox = new CustomMessageBox();
         Undo_backup undo = new Undo_backup();
         
         public formtimetable()
@@ -149,8 +151,9 @@ namespace Exam_Cell
         int clearcount = 0;
         private void Add_btn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Click Yes to Add", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (result == DialogResult.Yes)
+            msgbox.show("Click Yes to Add", "Confirmation", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Information);
+            var result = msgbox.ReturnValue;
+            if (result == "Yes")
             {
                 try
                 {
@@ -180,16 +183,16 @@ namespace Exam_Cell
                             Examcode_box.Clear();
                             CourseFill();
                             TimetableFill();
-                            MessageBox.Show("Success", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            msgbox.show("Success", "", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                         }
-                        else MessageBox.Show("No Course Selected", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else msgbox.show("No Course Selected", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                     }
-                    else MessageBox.Show("Select Session", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else msgbox.show("Select Session", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
 
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Try Again", "Exception Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    msgbox.show("Try Again", "Exception Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                     Session_combobox.SelectedIndex = 0;
                     //Course_Select_dgv.Update();
                     //Course_Select_dgv.Refresh();
@@ -357,8 +360,9 @@ namespace Exam_Cell
             }
             else if(Undo_backup.session.Count!=0)
             {
-                DialogResult result = MessageBox.Show("Do you want to Undo last operation ?", "Warning", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
-                if(result==DialogResult.Yes)
+                msgbox.show("Do you want to Undo last operation ?", "Warning", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Warning);
+                var result = msgbox.ReturnValue;
+                if (result=="Yes")
                 {
                     count = Undo_backup.session.Count;
                     for (i = 0; i < count; i++)
@@ -372,7 +376,7 @@ namespace Exam_Cell
                         comm.ExecuteNonQuery();
                     }
                     Clear_list();
-                    MessageBox.Show("Undo Successfull");
+                    msgbox.show("Undo Successfull", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);                    
                     CourseFill();
                     TimetableFill();
                 }
@@ -384,8 +388,9 @@ namespace Exam_Cell
 
         private void Undo_btn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Undo last action ?", "Alert", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            if(result==DialogResult.OK)
+            msgbox.show("Undo last action ?", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Warning);
+            var result = msgbox.ReturnValue;
+            if (result=="Yes")
             {
                 int f = 0;
                 Undo_backup_function(f);

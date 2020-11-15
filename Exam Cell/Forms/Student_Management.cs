@@ -1,4 +1,5 @@
-﻿using ExcelDataReader;
+﻿using Exam_Cell.Forms;
+using ExcelDataReader;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace Exam_Cell
     public partial class Student_Management : Form
     {
         Connection con = new Connection();
+        CustomMessageBox msgbox = new CustomMessageBox();
 
         public Student_Management()
         {
@@ -114,15 +116,15 @@ namespace Exam_Cell
                 }
                 if (f == 1)
                 {
-                    MessageBox.Show("Students Added to Class", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    msgbox.show("Students Added to Class", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     AssignClass_combobox.SelectedIndex = 0;
                     Student_dgvFill();
                 }
                 else
-                    MessageBox.Show("Select Any Students", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    msgbox.show("Select Any Students", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
             else
-                MessageBox.Show("Select Class", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                msgbox.show("Select Class", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
         }
         void ClearAllStudent_Management()
         {
@@ -152,7 +154,7 @@ namespace Exam_Cell
             }
             else
             {
-                MessageBox.Show("Fill Necessary Details, Try again.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                msgbox.show("Fill Necessary Details, Try again.", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
         }
 
@@ -206,8 +208,9 @@ namespace Exam_Cell
 
         private void Delete_btn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you really want to Delete ?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            msgbox.show("Do you really want to Delete ?", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
+            var result = msgbox.ReturnValue;
+            if (result == "Yes")
             {
                 if (AddFromExcel_Btn.Enabled == false)
                 {
@@ -229,13 +232,13 @@ namespace Exam_Cell
                         }
                         if (f == 1)
                         {
-                            MessageBox.Show("Delete Done.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            msgbox.show("Delete Done.", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                             ClearAllStudent_Management();
                             Class_StudentsFill();
                         }
                         else
                         {
-                            MessageBox.Show("Select any Students to delete, Try again.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            msgbox.show("Select any Students to delete, Try again.", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                         }
                     }
                     else
@@ -261,15 +264,15 @@ namespace Exam_Cell
                         }
                         if (f == 1)
                         {
-                            MessageBox.Show("Delete Done.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            msgbox.show("Delete Done.", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                             Student_dgvFill();
                         }
                         else
-                            MessageBox.Show("Select any Students to delete, Try again.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            msgbox.show("Select any Students to delete, Try again.", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                     }
                 }
                 else
-                    MessageBox.Show("You Cannot delete an Excel data, Try again.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    msgbox.show("You Cannot delete an Excel data, Try again.", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
         }
 
@@ -313,8 +316,9 @@ namespace Exam_Cell
 
         private void UpgradeSem_btn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("You Are Going To UPGRADE Every Class Semester. Are You Sure?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            msgbox.show("You Are Going To UPGRADE Every Class Semester. Are You Sure?", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
+            var result = msgbox.ReturnValue;
+            if (result == "Yes")
             {
                 SqlCommand sc = new SqlCommand("Select Class,Semester from Management where (Class is not null) and (Semester is not null)", con.ActiveCon());
                 SqlDataReader reader;
@@ -341,14 +345,15 @@ namespace Exam_Cell
                 command3.ExecuteNonQuery();
                 AssignClass_fill();
                 Class_StudentsFill();
-                MessageBox.Show("Upgrade Done", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                msgbox.show("Upgrade Done", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
             }
         }
 
         private void DegradeClass_btn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("You Are Going To DEGRADE Every Class Semester. Are You Sure?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            msgbox.show("You Are Going To DEGRADE Every Class Semester. Are You Sure?", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
+            var result = msgbox.ReturnValue;
+            if (result == "Yes")
             {
                 SqlCommand sc = new SqlCommand("Select Class,Semester from Management where (Class is not null) and (Semester is not null)", con.ActiveCon());
                 SqlDataReader reader;
@@ -375,7 +380,7 @@ namespace Exam_Cell
                 command.ExecuteNonQuery();
                 AssignClass_fill();
                 Class_StudentsFill();
-                MessageBox.Show("Degrade Done", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                msgbox.show("Degrade Done", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
             }
         }
         void StudentBranchComboboxFill()
@@ -468,7 +473,7 @@ namespace Exam_Cell
             if (messflag == 0)
             {
                 messflag = 1;
-                MessageBox.Show("ExcelSheet Header Naming Must Be as follows : \n Register No ,Name, YOA, Branch", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                msgbox.show("ExcelSheet Header Naming Must Be as follows : \n Register No ,Name, YOA, Branch", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Warning);
             }
             using (OpenFileDialog openFile = new OpenFileDialog() { Filter = "Excel Files|*.xls|*xlsx|*.xlsm" }) //check if | is needed last?
             {
@@ -538,13 +543,13 @@ namespace Exam_Cell
             }
             if (f == 1)
             {
-                MessageBox.Show("Add From Excel Completed", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                msgbox.show("Add From Excel Completed", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 YearOfAdmissionFill();
                 ClearAllStudent_Management();
                 AddFromExcel_Btn.Enabled = false;
                 Student_dgvFill();
             }
-            else MessageBox.Show("Select any Students", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else msgbox.show("Select any Students", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
         }
 
         private void timer1_Tick(object sender, EventArgs e)

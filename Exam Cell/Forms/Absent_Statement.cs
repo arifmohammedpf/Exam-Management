@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Exam_Cell.Forms;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 
@@ -17,7 +18,7 @@ namespace Exam_Cell
     public partial class Absent_Statement : Form
     {
         Connection con = new Connection();
-        
+        CustomMessageBox msgbox = new CustomMessageBox();
         public Absent_Statement()
         {
             InitializeComponent();
@@ -229,17 +230,17 @@ namespace Exam_Cell
                         No_of_candidates_ViewText.Clear();
                         No_of_Present_ViewText.Clear();
                         No_of_Absent_ViewText.Clear();
-                        MessageBox.Show("Excel file created", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        msgbox.show("Excel file created", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Search Students First", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    msgbox.show("Search Students First", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                 }
 
             }
             else
-                MessageBox.Show("Filepath is not given", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                msgbox.show("Filepath is not given", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
         }
 
         private void Filepath_button_Click(object sender, EventArgs e)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Exam_Cell.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,8 @@ namespace Exam_Cell
     public partial class Absent_Marking : Form
     {
         Connection con = new Connection();
+        CustomMessageBox msgbox = new CustomMessageBox();
+
         public Absent_Marking()
         {
             InitializeComponent();
@@ -26,7 +29,6 @@ namespace Exam_Cell
             RoomNoComboboxFill();
             Session_combobox.SelectedIndex = 0;
             Dgv.DataSource = null;
-
         }
 
         private void Series_radio_CheckedChanged(object sender, EventArgs e)
@@ -154,7 +156,7 @@ namespace Exam_Cell
                             comm.Parameters.AddWithValue("@Room_No", Room_combobox.Text);
                             comm.ExecuteNonQuery();
                     }
-                    MessageBox.Show("Insert Complete", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    msgbox.show("Insert Complete", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -169,11 +171,11 @@ namespace Exam_Cell
                         comm.Parameters.AddWithValue("@Room_No", Room_combobox.Text);
                         comm.ExecuteNonQuery();
                     }
-                    MessageBox.Show("Update Complete", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    msgbox.show("Update Complete", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 }
             }
             else
-                MessageBox.Show("Nothing to Save", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                msgbox.show("Nothing to Save", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
         }
 
         //private void Statement_form_btn_Click(object sender, EventArgs e)
@@ -188,12 +190,13 @@ namespace Exam_Cell
         // we need clear data so in absentStatement old dates and records wont show
         private void ClearData_btn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Delete all previously entered data ? ", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if(result==DialogResult.Yes)
+            msgbox.show("Delete all previously entered data ? ", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Warning);
+            var result = msgbox.ReturnValue;
+            if (result=="Yes")
             {
                 SqlCommand command = new SqlCommand("Delete Absentees", con.ActiveCon());
                 command.ExecuteNonQuery();
-                MessageBox.Show("Data Cleared", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                msgbox.show("Data Cleared", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
             }
 
         }

@@ -12,13 +12,15 @@ using System.Runtime.InteropServices;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using System.IO;
+using Exam_Cell.Forms;
 
 namespace Exam_Cell
 {
     public partial class Allotment : Form
     {
         Connection con = new Connection();
-        
+        CustomMessageBox msgbox = new CustomMessageBox();
+
         public Allotment()
         {
             InitializeComponent();
@@ -37,7 +39,7 @@ namespace Exam_Cell
             adapter2.Fill(table_students);
             if (table_students.Rows.Count == 0)
             {
-                MessageBox.Show("No Candidates Registered to Allot, Register the candidates First", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                msgbox.show("No Candidates Registered to Allot, Register the candidates First", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                 return;
             }            
             //get rooms details
@@ -47,7 +49,7 @@ namespace Exam_Cell
             adapter3.Fill(table_rooms);
             if (table_rooms.Rows.Count == 0)
             {
-                MessageBox.Show("No Rooms Assigned to Allot, Create Rooms First", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                msgbox.show("No Rooms Assigned to Allot, Create Rooms First", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                 return;
             }           
             //get distinct dates
@@ -57,7 +59,7 @@ namespace Exam_Cell
             adapterdate.Fill(table_distinctdate);
             if(table_distinctdate.Rows.Count==0)
             {
-                MessageBox.Show("No Timetable Assigned to Allot, Create Timetable First", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                msgbox.show("No Timetable Assigned to Allot, Create Timetable First", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                 return;                
             }
 
@@ -223,7 +225,7 @@ namespace Exam_Cell
             //        session = "Afternoon";
             //    }              
             //}
-            MessageBox.Show("University Seating Allot Completed", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            msgbox.show("University Seating Allot Completed", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
         }
 
         void Allot_Series()
@@ -235,7 +237,7 @@ namespace Exam_Cell
             adapter2.Fill(table_students);
             if (table_students.Rows.Count == 0)
             {
-                MessageBox.Show("No Candidates Registered to Allot, Register the candidates First", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                msgbox.show("No Candidates Registered to Allot, Register the candidates First", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                 return;
             }
 
@@ -247,7 +249,7 @@ namespace Exam_Cell
             Alloted_dgv.DataSource = table_rooms;
             if (table_rooms.Rows.Count == 0)
             {
-                MessageBox.Show("No Rooms Assigned to Allot, Create Rooms First", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                msgbox.show("No Rooms Assigned to Allot, Create Rooms First", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                 return;
             }
             //get distinct dates
@@ -257,7 +259,7 @@ namespace Exam_Cell
             adapterdate.Fill(table_distinctdate);
             if (table_distinctdate.Rows.Count == 0)
             {
-                MessageBox.Show("No Timetable Assigned to Allot, Create Timetable First", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                msgbox.show("No Timetable Assigned to Allot, Create Timetable First", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                 return;
             }
             int totalstudents = table_students.Rows.Count;
@@ -408,7 +410,7 @@ namespace Exam_Cell
                     session = "Afternoon";
                 }
             }
-            MessageBox.Show("Series Seating Allot Completed", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            msgbox.show("Series Seating Allot Completed", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
         }
 
         private void MultiAllotment_button_Click(object sender, EventArgs e)
@@ -420,8 +422,9 @@ namespace Exam_Cell
         {
             if (FromSeries_combobox.SelectedIndex != 0 && ToSeries_combobox.SelectedIndex != 0 && FromRoom_textbox.Text != "" && FromStart_textbox.Text != "" && FromEnd_textbox.Text != "" && ToRoom_textbox.Text != "" && ToStart_textbox.Text != "")
             {
-                DialogResult result = MessageBox.Show("Are You Sure To SHIFT the Selected Students ?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
+                msgbox.show("Are You Sure To SHIFT the Selected Students ?", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
+                var result = msgbox.ReturnValue;
+                if (result == "Yes")
                 {
                     try
                     {
@@ -460,7 +463,7 @@ namespace Exam_Cell
                                 comm2.Parameters.AddWithValue("@Reg_no", dataRow["Reg_no"]);
                                 comm2.ExecuteNonQuery();
                             }
-                            MessageBox.Show("Shift Completed", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            msgbox.show("Shift Completed", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                         }
                         else if (Series_radio.Checked)
                         {
@@ -492,18 +495,18 @@ namespace Exam_Cell
                                 comm2.Parameters.AddWithValue("@Reg_no", dataRow["Reg_no"]);
                                 comm2.ExecuteNonQuery();
                             }
-                            MessageBox.Show("Shift Completed", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            msgbox.show("Shift Completed", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                         }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.ToString(), "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        msgbox.show(ex.ToString(), "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Give necessary details", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                msgbox.show("Give necessary details", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
             
         }
@@ -533,7 +536,7 @@ namespace Exam_Cell
                 Excel_Generation_function(0);
             }
             else
-                MessageBox.Show("Select Exam Type", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                msgbox.show("Select Exam Type", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
         }
 
         private void RoomPanelClose_btn_Click(object sender, EventArgs e)
@@ -566,7 +569,7 @@ namespace Exam_Cell
                 Excel_Generation_function(1);
             }
             else
-                MessageBox.Show("Select Exam Type", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                msgbox.show("Select Exam Type", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
         }
 
         void Excel_Generation_function(int f)
@@ -586,7 +589,7 @@ namespace Exam_Cell
 
                 if (dstnctdatatable.Rows.Count == 0)
                 {
-                    MessageBox.Show("Allot Students First", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    msgbox.show("Allot Students First", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                     if (f == 0)
                     {
                         Generation_Panel.BringToFront();
@@ -795,11 +798,11 @@ namespace Exam_Cell
                     }
                 }
                 if (flag == 0)
-                    MessageBox.Show("Excel files created", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    msgbox.show("Excel files created", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Filepath is not given", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                msgbox.show("Filepath is not given", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
             if (f == 0)
             {
@@ -835,7 +838,7 @@ namespace Exam_Cell
                     if (dstnctdatatable.Rows.Count == 0)
                     {
                         flag = 1;
-                        MessageBox.Show("Allot Students First", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        msgbox.show("Allot Students First", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                         Generation_Panel.BringToFront();
                         Generation_Panel.Enabled = true;
                         DisplaySheet_Panel.Enabled = false;
@@ -1071,18 +1074,18 @@ namespace Exam_Cell
                         }
                     }
                     if(flag==0)
-                        MessageBox.Show("Excel files created", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        msgbox.show("Excel files created", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Filepath is not given", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    msgbox.show("Filepath is not given", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                 }
                 Generation_Panel.BringToFront();
                 Generation_Panel.Enabled = true;
                 DisplaySheet_Panel.Enabled = false;
             }
             else
-                MessageBox.Show("Select Exam Type", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                msgbox.show("Select Exam Type", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
         }
 
         private void DisplayPanel_closebtn_Click(object sender, EventArgs e)
@@ -1315,8 +1318,9 @@ namespace Exam_Cell
         {
             if(FromSeries_combobox.SelectedIndex!=0 && ToSeries_combobox.SelectedIndex!=0 && FromRoom_textbox.Text!="" && FromStart_textbox.Text!="" && FromEnd_textbox.Text !="" && ToRoom_textbox.Text!="" && ToStart_textbox.Text !="")
             {
-                DialogResult result = MessageBox.Show("Are You Sure To SWAP the Selected Students ?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
+                msgbox.show("Are You Sure To SWAP the Selected Students ?", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
+                var result = msgbox.ReturnValue;
+                if (result == "Yes")
                 {
                     try
                     {
@@ -1384,7 +1388,7 @@ namespace Exam_Cell
                                 comm3.Parameters.AddWithValue("@Reg_no", dataRow["Reg_no"]);
                                 comm3.ExecuteNonQuery();
                             }
-                            MessageBox.Show("Swap Completed", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            msgbox.show("Swap Completed", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                         }
                         else if (Series_radio.Checked)
                         {
@@ -1444,17 +1448,17 @@ namespace Exam_Cell
                                 comm3.Parameters.AddWithValue("@Reg_no", dataRow["Reg_no"]);
                                 comm3.ExecuteNonQuery();
                             }
-                            MessageBox.Show("Swap Completed", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            msgbox.show("Swap Completed", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                         }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.ToString(), "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        msgbox.show(ex.ToString(), "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Give necessary Details", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    msgbox.show("Give necessary Details", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                 }
             }
         }

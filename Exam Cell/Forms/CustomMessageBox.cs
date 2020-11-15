@@ -20,19 +20,19 @@ namespace Exam_Cell.Forms
 
         //COPY BELOW CODE TO CALL CUSTOM MESSAGE BOX !
         //CustomMessageBox msgbox = new CustomMessageBox();
-        //msgbox.show("Message", "Title", CustomMessageBox.MessageBoxButton.YesNo, CustomMessageBox.MessageBoxIcon.Error);
+        //msgbox.show("Message", "Title", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Error);
         //var result = msgbox.ReturnValue;
 
-        public enum MessageBoxButton
+        public enum MessageBoxButtons
         {
             OK=0,YesNo=1
         };
         public enum MessageBoxIcon
         {
-            Info = 0, Warning = 1, Error = 2, Question = 3
+            Information = 0, Warning = 1, Error = 2, Question = 3
         };
         public string ReturnValue { get; set; }
-        public void show(string msg, string title, MessageBoxButton button, MessageBoxIcon icon)
+        public void show(string msg, string title, MessageBoxButtons button, MessageBoxIcon icon)
         {
             
             labelMessage.Text = "";
@@ -40,13 +40,13 @@ namespace Exam_Cell.Forms
             labelMessage.Text = msg;
             labelTitle.Text = title;
 
-            if(MessageBoxButton.OK==button)
+            if(MessageBoxButtons.OK==button)
             {
                 btnOk.Visible = true;
                 btnYes.Visible = false;
                 btnNo.Visible = false;
             }
-            else if (MessageBoxButton.YesNo == button)
+            else if (MessageBoxButtons.YesNo == button)
             {
                 btnOk.Visible = false;
                 btnYes.Visible = true;
@@ -57,7 +57,7 @@ namespace Exam_Cell.Forms
             {
                 pictureIcon.Image = SystemIcons.Error.ToBitmap();
             }
-            else if (MessageBoxIcon.Info == icon)
+            else if (MessageBoxIcon.Information == icon)
             {
                 pictureIcon.Image = SystemIcons.Information.ToBitmap();
             }
@@ -71,19 +71,19 @@ namespace Exam_Cell.Forms
         
         private void btnYes_Click(object sender, EventArgs e)
         {
-            ReturnValue = "YES";
+            ReturnValue = "Yes";
             this.Hide();
         }
 
         private void btnNo_Click(object sender, EventArgs e)
         {
-            ReturnValue = "NO";
+            ReturnValue = "No";
             this.Hide();
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            ReturnValue = "OK";
+            ReturnValue = "Ok";
             this.Hide();
         }
     }

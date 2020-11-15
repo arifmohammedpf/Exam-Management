@@ -1,4 +1,5 @@
-﻿using ExcelDataReader;
+﻿using Exam_Cell.Forms;
+using ExcelDataReader;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace Exam_Cell
     public partial class Database_Management : Form
     {
         Connection con = new Connection();
+        CustomMessageBox msgbox = new CustomMessageBox();
         BindingSource Scheme_Source = new BindingSource();
         BindingSource Class_Source = new BindingSource();
 
@@ -77,15 +79,16 @@ namespace Exam_Cell
 
         private void AddNewBranch_btn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Click Yes to Add New Branch", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (result == DialogResult.Yes)
+            msgbox.show("Click Yes to Add New Branch", "Confirmation", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Information);
+            var result = msgbox.ReturnValue;
+            if (result == "Yes")
             {
                 if (NewBranch_textbox.Text != "")
                 {
                     SqlCommand command = new SqlCommand("insert into Management(Branch)Values(" + " @Branch) ", con.ActiveCon());
                     command.Parameters.AddWithValue("@Branch", NewBranch_textbox.Text);
                     command.ExecuteNonQuery();
-                    MessageBox.Show("New Branch Added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    msgbox.show("New Branch Added", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     BranchComboboxFill();
                     Clear_All_ClassManagement();
                 }
@@ -94,8 +97,9 @@ namespace Exam_Cell
 
         private void DeleteBranch_btn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you really want to Delete ?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            msgbox.show("Do you really want to Delete ?", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
+            var result = msgbox.ReturnValue;
+            if (result == "Yes")
             {                
                 try
                 {
@@ -110,7 +114,7 @@ namespace Exam_Cell
                 BranchComboboxFill();
                 Clear_All_ClassManagement();
                 Branch_dgv_Fill();
-                MessageBox.Show("Branch Delete Done", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                msgbox.show("Branch Delete Done", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
             }
         }
                 
@@ -121,8 +125,9 @@ namespace Exam_Cell
 
         private void DeleteClass_btn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you really want to Delete ?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            msgbox.show("Do you really want to Delete ?", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
+            var result = msgbox.ReturnValue;
+            if (result == "Yes")
             {
                 int f = 0;
                 foreach (DataGridViewRow dr in Scheme_dgv.Rows)
@@ -140,10 +145,10 @@ namespace Exam_Cell
                 if (f == 1)
                 {
                     Class_dgv_Fill();
-                    MessageBox.Show("Delete Done.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    msgbox.show("Delete Done.", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 }
                 else
-                    MessageBox.Show("Select any Class to delete, Try again.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    msgbox.show("Select any Class to delete, Try again.", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
         }
 
@@ -180,8 +185,9 @@ namespace Exam_Cell
 
         private void AddNewCourse_btn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Click Yes to Add New Course", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (result == DialogResult.Yes)
+            msgbox.show("Click Yes to Add New Course", "Confirmation", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Information);
+            var result = msgbox.ReturnValue;
+            if (result == "Yes")
             {
                 if (UpdateBranch_combobox.SelectedIndex != 0 && Semester_combobox.SelectedIndex != 0 && Course_textbox.Text != "" && Examcode_textbox.Text != "" && ACode_textbox.Text != "")
                 {
@@ -200,11 +206,11 @@ namespace Exam_Cell
                     Examcode_textbox.Clear();
                     ACode_textbox.Clear();
                     NewcourseFilter();
-                    MessageBox.Show("New Course Added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    msgbox.show("New Course Added", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Fill Necessary Details, Try again.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    msgbox.show("Fill Necessary Details, Try again.", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                 }
             }               
         }
@@ -250,8 +256,9 @@ namespace Exam_Cell
 
         private void DeleteCourse_btn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you really want to Delete ?", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            msgbox.show("Do you really want to Delete ?", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
+            var result = msgbox.ReturnValue;
+            if (result == "Yes")
             {
                 int f = 0;
                 foreach (DataGridViewRow dr in Scheme_dgv.Rows)
@@ -269,17 +276,18 @@ namespace Exam_Cell
                 {
                     Clear_All_ClassManagement();
                     Branch_dgv_Fill();
-                    MessageBox.Show("Course Delete Done.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    msgbox.show("Course Delete Done.", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 }
                 else
-                    MessageBox.Show("Select any Course to delete, Try again.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    msgbox.show("Select any Course to delete, Try again.", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
         }
 
         private void AddNewClass_btn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Click Yes to Add New Class", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if(result == DialogResult.Yes)
+            msgbox.show("Click Yes to Add New Class", "Confirmation", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Information);
+            var result = msgbox.ReturnValue;
+            if (result == "Yes")
             {
                 if (NewClassSem_combobox.SelectedIndex != 0)
                 {
@@ -287,12 +295,12 @@ namespace Exam_Cell
                     command.Parameters.AddWithValue("@Class", NewClass_textbox.Text);
                     command.Parameters.AddWithValue("@Semester", NewClassSem_combobox.Text);
                     command.ExecuteNonQuery();
-                    MessageBox.Show("New Class Added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    msgbox.show("New Class Added", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     NewClassSem_combobox.SelectedIndex = 0;
                     Class_dgv_Fill();
                 }
                 else
-                    MessageBox.Show("Select Semester", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    msgbox.show("Select Semester", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
         }
 
@@ -334,7 +342,7 @@ namespace Exam_Cell
                 }
             }
             else
-                MessageBox.Show("Type New Default Scheme", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                msgbox.show("Type New Default Scheme", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
         }
         void Schemelabel()
         {
@@ -346,7 +354,7 @@ namespace Exam_Cell
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                msgbox.show(ex.ToString(), "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
         }
 
