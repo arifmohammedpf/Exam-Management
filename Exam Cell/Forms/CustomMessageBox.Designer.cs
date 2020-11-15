@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelMessage = new System.Windows.Forms.Label();
+            this.labelTitle = new System.Windows.Forms.Label();
+            this.pictureIcon = new System.Windows.Forms.PictureBox();
             this.btnYes = new System.Windows.Forms.Button();
             this.btnNo = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
-            this.pictureIcon = new System.Windows.Forms.PictureBox();
-            this.labelTitle = new System.Windows.Forms.Label();
-            this.labelMessage = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureIcon)).BeginInit();
             this.SuspendLayout();
@@ -51,58 +51,28 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(715, 337);
+            this.panel1.Size = new System.Drawing.Size(500, 300);
             this.panel1.TabIndex = 0;
             // 
-            // btnYes
+            // labelMessage
             // 
-            this.btnYes.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnYes.BackColor = System.Drawing.Color.Green;
-            this.btnYes.FlatAppearance.BorderSize = 0;
-            this.btnYes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGreen;
-            this.btnYes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnYes.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnYes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnYes.Location = new System.Drawing.Point(406, 270);
-            this.btnYes.Name = "btnYes";
-            this.btnYes.Size = new System.Drawing.Size(135, 47);
-            this.btnYes.TabIndex = 0;
-            this.btnYes.Text = "YES";
-            this.btnYes.UseVisualStyleBackColor = false;
-            this.btnYes.Click += new System.EventHandler(this.btnYes_Click);
+            this.labelMessage.AutoSize = true;
+            this.labelMessage.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMessage.Location = new System.Drawing.Point(170, 147);
+            this.labelMessage.Name = "labelMessage";
+            this.labelMessage.Size = new System.Drawing.Size(125, 35);
+            this.labelMessage.TabIndex = 7;
+            this.labelMessage.Text = "Message";
             // 
-            // btnNo
+            // labelTitle
             // 
-            this.btnNo.BackColor = System.Drawing.Color.Brown;
-            this.btnNo.FlatAppearance.BorderSize = 0;
-            this.btnNo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkRed;
-            this.btnNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNo.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnNo.Location = new System.Drawing.Point(559, 271);
-            this.btnNo.Name = "btnNo";
-            this.btnNo.Size = new System.Drawing.Size(135, 47);
-            this.btnNo.TabIndex = 1;
-            this.btnNo.Text = "NO";
-            this.btnNo.UseVisualStyleBackColor = false;
-            this.btnNo.Click += new System.EventHandler(this.btnNo_Click);
-            // 
-            // btnOk
-            // 
-            this.btnOk.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnOk.BackColor = System.Drawing.Color.Green;
-            this.btnOk.FlatAppearance.BorderSize = 0;
-            this.btnOk.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGreen;
-            this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOk.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOk.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnOk.Location = new System.Drawing.Point(559, 271);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(135, 47);
-            this.btnOk.TabIndex = 2;
-            this.btnOk.Text = "OK";
-            this.btnOk.UseVisualStyleBackColor = false;
-            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            this.labelTitle.AutoSize = true;
+            this.labelTitle.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelTitle.Location = new System.Drawing.Point(5, 9);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(69, 35);
+            this.labelTitle.TabIndex = 6;
+            this.labelTitle.Text = "Title";
             // 
             // pictureIcon
             // 
@@ -113,31 +83,62 @@
             this.pictureIcon.TabIndex = 5;
             this.pictureIcon.TabStop = false;
             // 
-            // labelTitle
+            // btnYes
             // 
-            this.labelTitle.AutoSize = true;
-            this.labelTitle.Font = new System.Drawing.Font("Century Gothic", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitle.Location = new System.Drawing.Point(326, 24);
-            this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(58, 27);
-            this.labelTitle.TabIndex = 6;
-            this.labelTitle.Text = "Title";
+            this.btnYes.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnYes.BackColor = System.Drawing.Color.Green;
+            this.btnYes.FlatAppearance.BorderSize = 0;
+            this.btnYes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGreen;
+            this.btnYes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnYes.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnYes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnYes.Location = new System.Drawing.Point(176, 253);
+            this.btnYes.Name = "btnYes";
+            this.btnYes.Size = new System.Drawing.Size(135, 47);
+            this.btnYes.TabIndex = 0;
+            this.btnYes.Text = "YES";
+            this.btnYes.UseVisualStyleBackColor = false;
+            this.btnYes.Click += new System.EventHandler(this.btnYes_Click);
             // 
-            // labelMessage
+            // btnNo
             // 
-            this.labelMessage.AutoSize = true;
-            this.labelMessage.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMessage.Location = new System.Drawing.Point(170, 147);
-            this.labelMessage.Name = "labelMessage";
-            this.labelMessage.Size = new System.Drawing.Size(96, 23);
-            this.labelMessage.TabIndex = 7;
-            this.labelMessage.Text = "Message";
+            this.btnNo.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnNo.BackColor = System.Drawing.Color.Brown;
+            this.btnNo.FlatAppearance.BorderSize = 0;
+            this.btnNo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkRed;
+            this.btnNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNo.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnNo.Location = new System.Drawing.Point(329, 253);
+            this.btnNo.Name = "btnNo";
+            this.btnNo.Size = new System.Drawing.Size(135, 47);
+            this.btnNo.TabIndex = 1;
+            this.btnNo.Text = "NO";
+            this.btnNo.UseVisualStyleBackColor = false;
+            this.btnNo.Click += new System.EventHandler(this.btnNo_Click);
+            // 
+            // btnOk
+            // 
+            this.btnOk.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnOk.BackColor = System.Drawing.Color.Green;
+            this.btnOk.FlatAppearance.BorderSize = 0;
+            this.btnOk.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGreen;
+            this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOk.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOk.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnOk.Location = new System.Drawing.Point(329, 253);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(135, 47);
+            this.btnOk.TabIndex = 2;
+            this.btnOk.Text = "OK";
+            this.btnOk.UseVisualStyleBackColor = false;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // CustomMessageBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(715, 337);
+            this.ClientSize = new System.Drawing.Size(500, 300);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CustomMessageBox";

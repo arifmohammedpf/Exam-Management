@@ -351,7 +351,7 @@ namespace Exam_Cell
 
         private void DegradeClass_btn_Click(object sender, EventArgs e)
         {
-            msgbox.show("You Are Going To DEGRADE Every Class Semester. Are You Sure?", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
+            msgbox.show("You Are Going To DEGRADE Every Class Semester.\n Are You Sure?", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
             var result = msgbox.ReturnValue;
             if (result == "Yes")
             {

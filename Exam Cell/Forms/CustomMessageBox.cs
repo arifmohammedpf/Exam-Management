@@ -39,8 +39,13 @@ namespace Exam_Cell.Forms
             labelTitle.Text = "";
             labelMessage.Text = msg;
             labelTitle.Text = title;
+            MessageBox.Show(msg.Length.ToString());
+            if(msg.Length < 21)
+                Size = new Size(((msg.Length) * 35) + 200, 300);
+            else
+                Size = new Size(((msg.Length)*10)+200, 300);
 
-            if(MessageBoxButtons.OK==button)
+            if (MessageBoxButtons.OK==button)
             {
                 btnOk.Visible = true;
                 btnYes.Visible = false;
@@ -64,6 +69,10 @@ namespace Exam_Cell.Forms
             else if (MessageBoxIcon.Warning == icon)
             {
                 pictureIcon.Image = SystemIcons.Warning.ToBitmap();
+            }
+            else if (MessageBoxIcon.Question == icon)
+            {
+                pictureIcon.Image = SystemIcons.Question.ToBitmap();
             }
 
             this.ShowDialog();
