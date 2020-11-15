@@ -39,7 +39,6 @@ namespace Exam_Cell.Forms
             labelTitle.Text = "";
             labelMessage.Text = msg;
             labelTitle.Text = title;
-            MessageBox.Show(msg.Length.ToString());
             if(msg.Length < 21)
                 Size = new Size(((msg.Length) * 35) + 200, 300);
             else
