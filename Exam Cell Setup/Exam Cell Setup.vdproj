@@ -15,44 +15,20 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_015C9BBA47EF47819B3A20CE419BB62C"
+        "MsmKey" = "8:_0AA4B918B5024F25AFC751C310CE460C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_0F712618CD844B70ACEEE52375149082"
+        "MsmKey" = "8:_1567D0A3CBEC47E39652D9385635B0AB"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_15FDD738C647D73D382E027188F3C4AA"
-        "OwnerKey" = "8:_A564850E1F4948409CCFA87A89D045D2"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_21ACF8F7CC934CC8AC32F7DBE5357023"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_225974C973654993BB9E55E13786B672"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_233D3D967BE64AE2BB9C3556252F18ED"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_2887CE0C475D4BAC884C4AF989A28D63"
-        "OwnerKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_9D9CD4F217A34497942FBE90E2837214"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -64,7 +40,7 @@
         "Entry"
         {
         "MsmKey" = "8:_2C11917074449260C1ADD4E83674D4C4"
-        "OwnerKey" = "8:_2887CE0C475D4BAC884C4AF989A28D63"
+        "OwnerKey" = "8:_6D127324F41640189A95E7F192A48D93"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -76,103 +52,121 @@
         "Entry"
         {
         "MsmKey" = "8:_45BA53119282FC82B864CD731BA2BBA2"
-        "OwnerKey" = "8:_A161265435F94384948591BAFBA4A21D"
+        "OwnerKey" = "8:_DCBA494B7839424793C99D6C3EF88B10"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_45BA53119282FC82B864CD731BA2BBA2"
-        "OwnerKey" = "8:_A564850E1F4948409CCFA87A89D045D2"
+        "OwnerKey" = "8:_9D9CD4F217A34497942FBE90E2837214"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_5A8B775FAF5940A4AB799D2808FDC2F3"
+        "MsmKey" = "8:_61950C8715AC4126BCF197C45F2C338E"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_672012C02081409A81B57713F8E6B6CC"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_6D127324F41640189A95E7F192A48D93"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_6EC372626EA24646AE796C97140FDE61"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_7A4777EB67BD14B45DE9E5838E1C9D89"
-        "OwnerKey" = "8:_A564850E1F4948409CCFA87A89D045D2"
+        "OwnerKey" = "8:_9D9CD4F217A34497942FBE90E2837214"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_8562D181E657449F8A96636A42D847BC"
+        "MsmKey" = "8:_80C8C76EC58D49AB9705F1B0C577BF97"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_8DA48E6F5DC943409502FB2E50D09157"
+        "MsmKey" = "8:_8BB6E02F60DF4DB99D55473410C1B58B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_A161265435F94384948591BAFBA4A21D"
+        "MsmKey" = "8:_8BF95140BE80479698D5E9FA9D5234BD"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_A564850E1F4948409CCFA87A89D045D2"
+        "MsmKey" = "8:_9D9CD4F217A34497942FBE90E2837214"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_BD0D6D58786440F793AA9A35E8237352"
+        "MsmKey" = "8:_9E1346858C284A4693E71E0A938B8D0C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_D97FE74708794E8391A0ECCA6FCC78F6"
+        "MsmKey" = "8:_A2F4B4131609404EBF132B1DDE004662"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_DDF0464F71974838979B97A34DC5E2F2"
+        "MsmKey" = "8:_D397FA7C9C8C43ABAFEDBADF684F6519"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_E87016C2E56D4C1EB70C7A9CAE9B05C3"
+        "MsmKey" = "8:_DCBA494B7839424793C99D6C3EF88B10"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_ECAE0D7E54934DCB874003AFCFD4B14C"
+        "MsmKey" = "8:_EE746306A11B4FBAB4EEABD17AD6E595"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_ECAE0D7E54934DCB874003AFCFD4B14C"
+        "OwnerKey" = "8:_80C8C76EC58D49AB9705F1B0C577BF97"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2887CE0C475D4BAC884C4AF989A28D63"
+        "OwnerKey" = "8:_6D127324F41640189A95E7F192A48D93"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A161265435F94384948591BAFBA4A21D"
+        "OwnerKey" = "8:_DCBA494B7839424793C99D6C3EF88B10"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A564850E1F4948409CCFA87A89D045D2"
+        "OwnerKey" = "8:_9D9CD4F217A34497942FBE90E2837214"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -207,7 +201,7 @@
         "DisplayName" = "8:Debug"
         "IsDebugOnly" = "11:TRUE"
         "IsReleaseOnly" = "11:FALSE"
-        "OutputFilename" = "8:Debug\\Exam Cell Setup.msi"
+        "OutputFilename" = "8:Debug\\Application_only_setup.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -221,7 +215,7 @@
             {
             "Enabled" = "11:TRUE"
             "PromptEnabled" = "11:TRUE"
-            "PrerequisitesLocation" = "2:1"
+            "PrerequisitesLocation" = "2:2"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
                 "Items"
@@ -230,6 +224,11 @@
                     {
                     "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
                     "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.SqlServer.SqlLocalDB.11.1"
+                    {
+                    "Name" = "8:SQL Server 2012 Express LocalDB"
+                    "ProductCode" = "8:Microsoft.SqlServer.SqlLocalDB.11.1"
                     }
                 }
             }
@@ -299,10 +298,10 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_015C9BBA47EF47819B3A20CE419BB62C"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0AA4B918B5024F25AFC751C310CE460C"
             {
-            "SourcePath" = "8:..\\Exam Cell\\bin\\Release\\Exam Cell.pdb"
-            "TargetName" = "8:Exam Cell.pdb"
+            "SourcePath" = "8:..\\Exam Cell\\bin\\Release\\ExcelDataReader.xml"
+            "TargetName" = "8:ExcelDataReader.xml"
             "Tag" = "8:"
             "Folder" = "8:_01CEB60F5E1E4996B9447F81A72F2DF9"
             "Condition" = "8:"
@@ -319,10 +318,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0F712618CD844B70ACEEE52375149082"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1567D0A3CBEC47E39652D9385635B0AB"
             {
-            "SourcePath" = "8:..\\Exam Cell\\bin\\Release\\ExcelDataReader.pdb"
-            "TargetName" = "8:ExcelDataReader.pdb"
+            "SourcePath" = "8:..\\Exam Cell\\kmea.ico"
+            "TargetName" = "8:kmea.ico"
             "Tag" = "8:"
             "Folder" = "8:_01CEB60F5E1E4996B9447F81A72F2DF9"
             "Condition" = "8:"
@@ -368,97 +367,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_21ACF8F7CC934CC8AC32F7DBE5357023"
-            {
-            "SourcePath" = "8:..\\Exam Cell\\bin\\Release\\Exam Cell.exe.manifest"
-            "TargetName" = "8:Exam Cell.exe.manifest"
-            "Tag" = "8:"
-            "Folder" = "8:_01CEB60F5E1E4996B9447F81A72F2DF9"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_225974C973654993BB9E55E13786B672"
-            {
-            "SourcePath" = "8:..\\Exam Cell\\bin\\Release\\EPPlus.xml"
-            "TargetName" = "8:EPPlus.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_01CEB60F5E1E4996B9447F81A72F2DF9"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_233D3D967BE64AE2BB9C3556252F18ED"
-            {
-            "SourcePath" = "8:..\\Exam Cell\\kmea.ico"
-            "TargetName" = "8:kmea.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_01CEB60F5E1E4996B9447F81A72F2DF9"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2887CE0C475D4BAC884C4AF989A28D63"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_2887CE0C475D4BAC884C4AF989A28D63"
-                    {
-                    "Name" = "8:ExcelDataReader.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\Exam Cell\\bin\\Release\\ExcelDataReader.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_01CEB60F5E1E4996B9447F81A72F2DF9"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2C11917074449260C1ADD4E83674D4C4"
@@ -523,10 +431,81 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5A8B775FAF5940A4AB799D2808FDC2F3"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_61950C8715AC4126BCF197C45F2C338E"
             {
-            "SourcePath" = "8:..\\Exam Cell\\bin\\Release\\ExcelDataReader.xml"
-            "TargetName" = "8:ExcelDataReader.xml"
+            "SourcePath" = "8:..\\Exam Cell\\bin\\Release\\EPPlus.xml"
+            "TargetName" = "8:EPPlus.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_01CEB60F5E1E4996B9447F81A72F2DF9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_672012C02081409A81B57713F8E6B6CC"
+            {
+            "SourcePath" = "8:..\\Exam Cell\\bin\\Release\\Exam_Cell_log.ldf"
+            "TargetName" = "8:Exam_Cell_log.ldf"
+            "Tag" = "8:"
+            "Folder" = "8:_01CEB60F5E1E4996B9447F81A72F2DF9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6D127324F41640189A95E7F192A48D93"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_6D127324F41640189A95E7F192A48D93"
+                    {
+                    "Name" = "8:ExcelDataReader.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\Exam Cell\\bin\\Release\\ExcelDataReader.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_01CEB60F5E1E4996B9447F81A72F2DF9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6EC372626EA24646AE796C97140FDE61"
+            {
+            "SourcePath" = "8:..\\Exam Cell\\bin\\Release\\Exam_Cell.mdf"
+            "TargetName" = "8:Exam_Cell.mdf"
             "Tag" = "8:"
             "Folder" = "8:_01CEB60F5E1E4996B9447F81A72F2DF9"
             "Condition" = "8:"
@@ -574,10 +553,21 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8562D181E657449F8A96636A42D847BC"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_80C8C76EC58D49AB9705F1B0C577BF97"
             {
-            "SourcePath" = "8:..\\Exam Cell\\bin\\Release\\Exam Cell.application"
-            "TargetName" = "8:Exam Cell.application"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:EPPlus, Version=5.2.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_80C8C76EC58D49AB9705F1B0C577BF97"
+                    {
+                    "Name" = "8:EPPlus.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\Exam Cell\\bin\\Release\\EPPlus.dll"
+            "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_01CEB60F5E1E4996B9447F81A72F2DF9"
             "Condition" = "8:"
@@ -594,7 +584,27 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8DA48E6F5DC943409502FB2E50D09157"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8BB6E02F60DF4DB99D55473410C1B58B"
+            {
+            "SourcePath" = "8:..\\Exam Cell\\bin\\Release\\Exam Cell.exe.config"
+            "TargetName" = "8:Exam Cell.exe.config"
+            "Tag" = "8:"
+            "Folder" = "8:_01CEB60F5E1E4996B9447F81A72F2DF9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8BF95140BE80479698D5E9FA9D5234BD"
             {
             "SourcePath" = "8:..\\Exam Cell\\bin\\Release\\ExcelDataReader.DataSet.pdb"
             "TargetName" = "8:ExcelDataReader.DataSet.pdb"
@@ -614,45 +624,14 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A161265435F94384948591BAFBA4A21D"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:ExcelDataReader.DataSet, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_A161265435F94384948591BAFBA4A21D"
-                    {
-                    "Name" = "8:ExcelDataReader.DataSet.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\Exam Cell\\bin\\Release\\ExcelDataReader.DataSet.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_01CEB60F5E1E4996B9447F81A72F2DF9"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A564850E1F4948409CCFA87A89D045D2"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9D9CD4F217A34497942FBE90E2837214"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:Exam Cell, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_A564850E1F4948409CCFA87A89D045D2"
+                    "_9D9CD4F217A34497942FBE90E2837214"
                     {
                     "Name" = "8:Exam Cell.exe"
                     "Attributes" = "3:512"
@@ -676,7 +655,27 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BD0D6D58786440F793AA9A35E8237352"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9E1346858C284A4693E71E0A938B8D0C"
+            {
+            "SourcePath" = "8:..\\Exam Cell\\bin\\Release\\Exam Cell.pdb"
+            "TargetName" = "8:Exam Cell.pdb"
+            "Tag" = "8:"
+            "Folder" = "8:_01CEB60F5E1E4996B9447F81A72F2DF9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A2F4B4131609404EBF132B1DDE004662"
             {
             "SourcePath" = "8:..\\Exam Cell\\bin\\Release\\ExcelDataReader.DataSet.xml"
             "TargetName" = "8:ExcelDataReader.DataSet.xml"
@@ -696,10 +695,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D97FE74708794E8391A0ECCA6FCC78F6"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D397FA7C9C8C43ABAFEDBADF684F6519"
             {
-            "SourcePath" = "8:..\\Exam Cell\\bin\\Release\\Exam_Cell_log.ldf"
-            "TargetName" = "8:Exam_Cell_log.ldf"
+            "SourcePath" = "8:..\\Exam Cell\\bin\\Release\\ExcelDataReader.pdb"
+            "TargetName" = "8:ExcelDataReader.pdb"
             "Tag" = "8:"
             "Folder" = "8:_01CEB60F5E1E4996B9447F81A72F2DF9"
             "Condition" = "8:"
@@ -716,61 +715,41 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DDF0464F71974838979B97A34DC5E2F2"
-            {
-            "SourcePath" = "8:..\\Exam Cell\\bin\\Release\\Exam Cell.exe.config"
-            "TargetName" = "8:Exam Cell.exe.config"
-            "Tag" = "8:"
-            "Folder" = "8:_01CEB60F5E1E4996B9447F81A72F2DF9"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E87016C2E56D4C1EB70C7A9CAE9B05C3"
-            {
-            "SourcePath" = "8:..\\Exam Cell\\bin\\Release\\Exam_Cell.mdf"
-            "TargetName" = "8:Exam_Cell.mdf"
-            "Tag" = "8:"
-            "Folder" = "8:_01CEB60F5E1E4996B9447F81A72F2DF9"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_ECAE0D7E54934DCB874003AFCFD4B14C"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_DCBA494B7839424793C99D6C3EF88B10"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:EPPlus, Version=5.2.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:ExcelDataReader.DataSet, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_ECAE0D7E54934DCB874003AFCFD4B14C"
+                    "_DCBA494B7839424793C99D6C3EF88B10"
                     {
-                    "Name" = "8:EPPlus.dll"
+                    "Name" = "8:ExcelDataReader.DataSet.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:..\\Exam Cell\\bin\\Release\\EPPlus.dll"
+            "SourcePath" = "8:..\\Exam Cell\\bin\\Release\\ExcelDataReader.DataSet.dll"
             "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_01CEB60F5E1E4996B9447F81A72F2DF9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EE746306A11B4FBAB4EEABD17AD6E595"
+            {
+            "SourcePath" = "8:..\\Exam Cell\\bin\\Release\\Exam Cell.exe.manifest"
+            "TargetName" = "8:Exam Cell.exe.manifest"
             "Tag" = "8:"
             "Folder" = "8:_01CEB60F5E1E4996B9447F81A72F2DF9"
             "Condition" = "8:"
@@ -872,7 +851,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:_233D3D967BE64AE2BB9C3556252F18ED"
+        "ARPPRODUCTICON" = "8:_1567D0A3CBEC47E39652D9385635B0AB"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -975,7 +954,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_2F2D7A46526C421698C06F627341D7B9"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_584D20B9EED14EEC9E92C3BC5E4C5771"
             {
             "Name" = "8:Exam Cell.exe"
             "Arguments" = "8:"
@@ -983,13 +962,13 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_A564850E1F4948409CCFA87A89D045D2"
+            "Target" = "8:_9D9CD4F217A34497942FBE90E2837214"
             "Folder" = "8:_B2EB1122B2B240709EF046EFCC6D2BAE"
             "WorkingFolder" = "8:_01CEB60F5E1E4996B9447F81A72F2DF9"
-            "Icon" = "8:_233D3D967BE64AE2BB9C3556252F18ED"
+            "Icon" = "8:_1567D0A3CBEC47E39652D9385635B0AB"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_4A4C1273293341A8B8F20A8B6010BA52"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_67C13309E3CE422185AB7203478C40EF"
             {
             "Name" = "8:Exam Cell.exe"
             "Arguments" = "8:"
@@ -997,10 +976,10 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_A564850E1F4948409CCFA87A89D045D2"
+            "Target" = "8:_9D9CD4F217A34497942FBE90E2837214"
             "Folder" = "8:_094A63348D18496B9518BC0E0DB7BD25"
             "WorkingFolder" = "8:_01CEB60F5E1E4996B9447F81A72F2DF9"
-            "Icon" = "8:_233D3D967BE64AE2BB9C3556252F18ED"
+            "Icon" = "8:_1567D0A3CBEC47E39652D9385635B0AB"
             "Feature" = "8:"
             }
         }
