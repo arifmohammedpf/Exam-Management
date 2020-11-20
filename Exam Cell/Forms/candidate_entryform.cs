@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using System.Data.OleDb;
 using System.IO;
 using ExcelDataReader;
 using System.Collections;
@@ -95,24 +95,35 @@ namespace Exam_Cell
 
         void UnvBranchComboboxFill()
         {
+            try
+            {
             string command = string.Format("Select Distinct Branch from Scheme");
-            SqlCommand sc = new SqlCommand(command, con.ActiveCon());
-            SqlDataReader reader;
-            reader = sc.ExecuteReader();
+            OleDbCommand sc = new OleDbCommand(command, con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
             DataTable dt = new DataTable();
-            dt.Columns.Add("Branch", typeof(string));
+            adapter.Fill(dt);
             DataRow top = dt.NewRow();
             top[0] = "-Select-";
             dt.Rows.InsertAt(top, 0);
-            dt.Load(reader);
             UnvBranchCombobox.DisplayMember = "Branch";
             UnvBranchCombobox.ValueMember = "Branch";
             UnvBranchCombobox.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
 
         void YoaComboboxFill()
         {
-            SqlDataAdapter sda = new SqlDataAdapter("Select Distinct Year_Of_Admission from Students", con.ActiveCon());
+            try
+            {
+            OleDbDataAdapter sda = new OleDbDataAdapter("Select Distinct Year_Of_Admission from Students", con.ActiveCon());
             DataTable dtbl = new DataTable();
             sda.Fill(dtbl);
             //display -select-
@@ -123,6 +134,15 @@ namespace Exam_Cell
             YOACombobox.DisplayMember = "Year_Of_Admission";
             YOACombobox.ValueMember = "Year_Of_Admission";
             YOACombobox.DataSource = dtbl;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
 
         //Scheme combobox Populate
@@ -137,19 +157,28 @@ namespace Exam_Cell
 
             //Scheme_combobox.SelectedIndex = 0;
 
+            try
+            {
             string command = string.Format("Select Distinct Scheme from Scheme");
-            SqlCommand sc = new SqlCommand(command, con.ActiveCon());
-            SqlDataReader reader;
-            reader = sc.ExecuteReader();
+            OleDbCommand sc = new OleDbCommand(command, con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
             DataTable dt = new DataTable();
-            dt.Columns.Add("Scheme", typeof(string)); // since we create new datatable, we give column first //here Scheme is column name
+            adapter.Fill(dt);
             DataRow top = dt.NewRow();
             top[0] = "-Select-";
             dt.Rows.InsertAt(top, 0);
-            dt.Load(reader);
 
             Scheme_combobox.ValueMember = "Scheme";  // Whats the use of this lineofcode? // scheme is column name
             Scheme_combobox.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
 
         //Branch combobox Populate
@@ -168,24 +197,33 @@ namespace Exam_Cell
             //Branch_combobox.ValueMember = "value";
             //Branch_combobox.SelectedIndex = 0;
 
+            try
+            {
             string command = string.Format("Select Distinct Branch from Scheme");
-            SqlCommand sc = new SqlCommand(command, con.ActiveCon());
-            SqlDataReader reader;
-            reader = sc.ExecuteReader();
+            OleDbCommand sc = new OleDbCommand(command, con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
             DataTable dt = new DataTable();
-            dt.Columns.Add("Branch", typeof(string));
+            adapter.Fill(dt);
             DataRow top = dt.NewRow();
             top[0] = "-Select-";
             dt.Rows.InsertAt(top, 0);
-            dt.Load(reader);
 
             Branch_combobox.ValueMember = "Branch";
             Branch_combobox.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
 
             // IF WE USE BELOW METHOD TO POPULATE COMBOBOX THEN HOW TO USE DISPLAY AND VALUE MEMBERS LIKE combobox.selecteditem();??? please check
 
             ////sqlconnection
-            //SqlDataAdapter sda = new SqlDataAdapter("Select Distinct Branch from Students", con.ActiveCon());
+            //OleDbDataAdapter sda = new OleDbDataAdapter("Select Distinct Branch from Students", con.ActiveCon());
             //DataTable dtbl = new DataTable();
             //sda.Fill(dtbl);
             ////display -select-
@@ -214,19 +252,28 @@ namespace Exam_Cell
             //Semester_combobox.SelectedIndex = 0;
 
 
+            try
+            {
             string command = string.Format("Select Distinct Semester from Scheme");
-            SqlCommand sc = new SqlCommand(command, con.ActiveCon());
-            SqlDataReader reader;
-            reader = sc.ExecuteReader();
+            OleDbCommand sc = new OleDbCommand(command, con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
             DataTable dt = new DataTable();
-            dt.Columns.Add("Semester", typeof(string));
+            adapter.Fill(dt);
             DataRow top = dt.NewRow();
             top[0] = "-Select-";
             dt.Rows.InsertAt(top, 0);
-            dt.Load(reader);
 
             Semester_combobox.ValueMember = "Semester";
             Semester_combobox.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
 
         //University RadioButton Event
@@ -259,25 +306,47 @@ namespace Exam_Cell
         BindingSource source = new BindingSource();
         void Sourcefill()
         {
+            try
+            {
             headerchkbox.Checked = false;
-            SqlCommand command = new SqlCommand("select * from Class order by Class", con.ActiveCon());
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            OleDbCommand command = new OleDbCommand("select * from Class order by Class", con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(command);
             DataTable table_Students = new DataTable();
             adapter.Fill(table_Students);
             source.DataSource = null;
             source.DataSource = table_Students;
             Candidate_datagridview.DataSource = source;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
         void Unvsourcefill()
         {
+            try
+            {
             headerchkbox.Checked = false;
-            SqlCommand command = new SqlCommand("select * from Students order by Branch,Reg_no", con.ActiveCon());
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            OleDbCommand command = new OleDbCommand("select * from Students order by Branch,Reg_no", con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(command);
             DataTable table_Students = new DataTable();
             adapter.Fill(table_Students);
             source.DataSource = null;
             source.DataSource = table_Students;
             Candidate_datagridview.DataSource = source;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
         //Series RadioButton Event
         private void Series_rdbtn_CheckedChanged(object sender, EventArgs e)
@@ -301,27 +370,36 @@ namespace Exam_Cell
         }
 
         void classcomboboxfill()
-        {
+        {            
+            try
+            {
             string command = string.Format("Select Distinct Class from Class");
-            SqlCommand sc = new SqlCommand(command, con.ActiveCon());
-            SqlDataReader reader;
-            reader = sc.ExecuteReader();
+            OleDbCommand sc = new OleDbCommand(command, con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
             DataTable dt = new DataTable();
-            dt.Columns.Add("Class", typeof(string));
+            adapter.Fill(dt);
             DataRow top = dt.NewRow();
             top[0] = "-Select-";
             dt.Rows.InsertAt(top, 0);
-            dt.Load(reader);
 
             Class_drpdwn.ValueMember = "Class";
             Class_drpdwn.DataSource = dt;
             Class_drpdwn.SelectedIndex = 0; //set selected index as first index
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
 
         //DELETE IF BRANCH FILTER IS NOT NEEDED FOR UNIVERSITY DGV
         //void Branchcomboboxfill()
         //{   //sqlconnection
-        //    SqlDataAdapter sda = new SqlDataAdapter("Select Distinct Branch from Students", con.ActiveCon());
+        //    OleDbDataAdapter sda = new OleDbDataAdapter("Select Distinct Branch from Students", con.ActiveCon());
         //    DataTable dtbl = new DataTable();
         //    sda.Fill(dtbl);
         //    //display -select-
@@ -342,13 +420,24 @@ namespace Exam_Cell
         BindingSource schemesource = new BindingSource();
         void Schemesourcefill()
         {
-            SqlCommand command = new SqlCommand("select * from Scheme order by Branch", con.ActiveCon());
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            try
+            {
+            OleDbCommand command = new OleDbCommand("select * from Scheme order by Branch", con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(command);
             DataTable table_Scheme = new DataTable();
             adapter.Fill(table_Scheme);
             schemesource.DataSource = null;
             schemesource.DataSource = table_Scheme;
             Courses_dgv.DataSource = schemesource;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
         //Scheme Combobox Event
         private void Scheme_combobox_SelectedIndexChanged(object sender, EventArgs e)
@@ -447,7 +536,7 @@ namespace Exam_Cell
         //{
 
         //    //sql connection
-        //    SqlDataAdapter sda = new SqlDataAdapter("Select Distinct Year_Of_Admission from Students", con.ActiveCon());
+        //    OleDbDataAdapter sda = new OleDbDataAdapter("Select Distinct Year_Of_Admission from Students", con.ActiveCon());
         //    DataTable dtbl = new DataTable();
         //    sda.Fill(dtbl);
         //    //display -select-
@@ -576,6 +665,8 @@ namespace Exam_Cell
             {
                 if (Class_drpdwn.SelectedIndex != 0)
                 {
+                    try
+                    {
                     int f = 0;
                     //select checkbox from course dgv
                     foreach (DataGridViewRow dr in Courses_dgv.Rows)
@@ -593,7 +684,7 @@ namespace Exam_Cell
                                     f = 1;
                                     //selected datas from both dgv will be inserted to Table Registered Candidates
                                     //here first bracket is sqltable column names and 2nd bracket with @ is refernce for values to be inserted
-                                    SqlCommand sqlcomm = new SqlCommand("Insert into Series_candidates(Name,Reg_no,Class,Semester,Course)Values(" + "@Name,@Reg_no,@Class,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
+                                    OleDbCommand sqlcomm = new OleDbCommand("Insert into Series_candidates(Name,Reg_no,Class,Semester,Course)Values(" + "@Name,@Reg_no,@Class,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
                                                                                                                                                                                                                  //giving values to the reference...values from dgv
                                     sqlcomm.Parameters.AddWithValue("@Reg_no", dr2.Cells["Reg_no"].Value);
                                     sqlcomm.Parameters.AddWithValue("@Name", dr2.Cells["Name"].Value);
@@ -613,6 +704,15 @@ namespace Exam_Cell
                     }
                     else
                         msgbox.show("Select Student and Course to Register", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                    finally
+                    {
+                        con.CloseCon();
+                    }
                 }
                 else { msgbox.show("Select Class", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error); }
             }
@@ -620,6 +720,8 @@ namespace Exam_Cell
             //For University Exams
             else if (Unvrsty_rdbtn.Checked == true)
             {
+                try
+                {
                 if (UnvCheckbox.Checked)
                 {
                     int f = 0;
@@ -639,7 +741,7 @@ namespace Exam_Cell
                                     f = 1;
                                     //selected datas from both dgv will be inserted to Table Registered Candidates
                                     //here first bracket is sqltable column names and 2nd bracket with @ is refernce for values to be inserted
-                                    SqlCommand sqlcomm = new SqlCommand("Insert into Registered_candidates(Name,Reg_no,Branch,Semester,Course)Values(" + "@Name,@Reg_no,@Branch,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
+                                    OleDbCommand sqlcomm = new OleDbCommand("Insert into Registered_candidates(Name,Reg_no,Branch,Semester,Course)Values(" + "@Name,@Reg_no,@Branch,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
                                                                                                                                                                                                                        //giving values to the reference...values from dgv
                                     sqlcomm.Parameters.AddWithValue("@Reg_no", dr2.Cells["Reg_no"].Value);
                                     sqlcomm.Parameters.AddWithValue("@Name", dr2.Cells["Name"].Value);
@@ -677,7 +779,7 @@ namespace Exam_Cell
                             f = 1;
                             //selected datas from dgv will be inserted to Table Registered Candidates
                             //here first bracket is sqltable column names and 2nd bracket with @ is refernce for values to be inserted
-                            SqlCommand sqlcomm = new SqlCommand("Insert into Registered_candidates(Name,Reg_no,Branch,Semester,Course)Values(" + "@Name,@Reg_no,@Branch,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
+                            OleDbCommand sqlcomm = new OleDbCommand("Insert into Registered_candidates(Name,Reg_no,Branch,Semester,Course)Values(" + "@Name,@Reg_no,@Branch,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
                                                                                                                                                                                                                //giving values to the reference...values from dgv
                             sqlcomm.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
                             sqlcomm.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value);
@@ -692,6 +794,15 @@ namespace Exam_Cell
                         msgbox.show("Register Done", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     else
                         msgbox.show("Select Someone To Register", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    con.CloseCon();
                 }
             }
             else
@@ -774,7 +885,7 @@ namespace Exam_Cell
                         f = 1;
                         
                         //here first bracket is sqltable column names and 2nd bracket with @ is refernce for values to be inserted
-                        SqlCommand sqlcomm = new SqlCommand("Insert into Registered_candidates(Name,Reg_no,Branch,Semester,Course)Values(" + "@Name,@Reg_no,@Branch,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
+                        OleDbCommand sqlcomm = new OleDbCommand("Insert into Registered_candidates(Name,Reg_no,Branch,Semester,Course)Values(" + "@Name,@Reg_no,@Branch,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
                         //giving values to the reference...values from dgv                                                                                                                                                                            
                         sqlcomm.Parameters.AddWithValue("@Reg_no", Extra_Reg_no_Textbox.Text);
                         sqlcomm.Parameters.AddWithValue("@Name", Extra_Name_Textbox.Text);

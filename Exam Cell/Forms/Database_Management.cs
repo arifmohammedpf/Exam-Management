@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.OleDb;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -28,26 +28,48 @@ namespace Exam_Cell
 
         void Class_dgv_Fill()
         {
+            try
+            {
             Class_dgv_radiobtn.Checked = true;
-            SqlCommand command = new SqlCommand("select Class,Semester from Management Where (Class is not null) and (Semester is not null) order by Semester,Class", con.ActiveCon());
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            OleDbCommand command = new OleDbCommand("select Class,Semester from Management Where (Class is not null) and (Semester is not null) order by Semester,Class", con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(command);
             DataTable table_class = new DataTable();
             adapter.Fill(table_class);
             Class_Source.DataSource = null;
             Class_Source.DataSource = table_class;
             Scheme_dgv.DataSource = Class_Source;
-            
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
+
         }
 
         void Branch_dgv_Fill()
         {          
-            SqlCommand command = new SqlCommand("select * from Scheme order by Scheme desc", con.ActiveCon());
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            try
+            {
+            OleDbCommand command = new OleDbCommand("select * from Scheme order by Scheme desc", con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(command);
             DataTable table_scheme = new DataTable();
             adapter.Fill(table_scheme);
             Scheme_Source.DataSource = null;
             Scheme_Source.DataSource = table_scheme;
             Scheme_dgv.DataSource = Scheme_Source;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
 
         }
         private void Branch_dgv_radiobtn_CheckedChanged(object sender, EventArgs e)
@@ -81,18 +103,29 @@ namespace Exam_Cell
         {
             msgbox.show("Click Yes to Add New Branch", "Confirmation", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Information);
             var result = msgbox.ReturnValue;
+            try
+            {
             if (result == "Yes")
             {
                 if (NewBranch_textbox.Text != "")
                 {
-                    SqlCommand command = new SqlCommand("insert into Management(Branch)Values(" + " @Branch) ", con.ActiveCon());
+                    OleDbCommand command = new OleDbCommand("insert into Management(Branch)Values(" + " @Branch) ", con.ActiveCon());
                     command.Parameters.AddWithValue("@Branch", NewBranch_textbox.Text);
                     command.ExecuteNonQuery();
                     msgbox.show("New Branch Added", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     BranchComboboxFill();
                     Clear_All_ClassManagement();
                 }
-            }                
+            }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
 
         private void DeleteBranch_btn_Click(object sender, EventArgs e)
@@ -103,18 +136,20 @@ namespace Exam_Cell
             {                
                 try
                 {
-                    SqlCommand command2 = new SqlCommand("delete Scheme where Branch=@Branch", con.ActiveCon());
+                    OleDbCommand command2 = new OleDbCommand("delete Scheme where Branch=@Branch", con.ActiveCon());
                     command2.Parameters.AddWithValue("@Branch", UpdateBranch_combobox.Text);
-                    command2.ExecuteNonQuery();                    
+                    command2.ExecuteNonQuery();
+                    con.CloseCon();
                 }
                 catch (Exception) { }
-                SqlCommand command = new SqlCommand("delete Management where Branch=@Branch", con.ActiveCon());
+                OleDbCommand command = new OleDbCommand("delete Management where Branch=@Branch", con.ActiveCon());
                 command.Parameters.AddWithValue("@Branch", UpdateBranch_combobox.Text);
                 command.ExecuteNonQuery();
                 BranchComboboxFill();
                 Clear_All_ClassManagement();
                 Branch_dgv_Fill();
                 msgbox.show("Branch Delete Done", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                con.CloseCon();
             }
         }
                 
@@ -127,6 +162,8 @@ namespace Exam_Cell
         {
             msgbox.show("Do you really want to Delete ?", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
             var result = msgbox.ReturnValue;
+            try
+            {
             if (result == "Yes")
             {
                 int f = 0;
@@ -136,7 +173,7 @@ namespace Exam_Cell
                     if (checkselected)
                     {
                         f = 1;
-                        SqlCommand command = new SqlCommand("delete Management where Class=@Class and Semester=@Semester", con.ActiveCon());
+                        OleDbCommand command = new OleDbCommand("delete Management where Class=@Class and Semester=@Semester", con.ActiveCon());
                         command.Parameters.AddWithValue("@Class", dr.Cells["Class"].Value.ToString());
                         command.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value.ToString());
                         command.ExecuteNonQuery();
@@ -149,6 +186,15 @@ namespace Exam_Cell
                 }
                 else
                     msgbox.show("Select any Class to delete, Try again.", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+            }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
             }
         }
 
@@ -187,13 +233,15 @@ namespace Exam_Cell
         {
             msgbox.show("Click Yes to Add New Course", "Confirmation", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Information);
             var result = msgbox.ReturnValue;
+            try
+            {
             if (result == "Yes")
             {
                 if (UpdateBranch_combobox.SelectedIndex != 0 && Semester_combobox.SelectedIndex != 0 && Course_textbox.Text != "" && Examcode_textbox.Text != "" && ACode_textbox.Text != "")
                 {
-                    SqlCommand comm = new SqlCommand("Select Default_Scheme from Management where (Default_Scheme is not null)", con.ActiveCon());
+                    OleDbCommand comm = new OleDbCommand("Select Default_Scheme from Management where (Default_Scheme is not null)", con.ActiveCon());
                     string scheme = (string)comm.ExecuteScalar();
-                    SqlCommand command = new SqlCommand("insert into Scheme(Scheme,Branch,Semester,Course,Sub_Code,Acode)Values(" + " @Scheme,@Branch,@Semester,@Course,@Sub_Code,@Acode) ", con.ActiveCon());
+                    OleDbCommand command = new OleDbCommand("insert into Scheme(Scheme,Branch,Semester,Course,Sub_Code,Acode)Values(" + " @Scheme,@Branch,@Semester,@Course,@Sub_Code,@Acode) ", con.ActiveCon());
                     command.Parameters.AddWithValue("@Scheme", scheme);
                     command.Parameters.AddWithValue("@Branch", UpdateBranch_combobox.Text);
                     command.Parameters.AddWithValue("@Semester", Semester_combobox.Text);
@@ -212,7 +260,16 @@ namespace Exam_Cell
                 {
                     msgbox.show("Fill Necessary Details, Try again.", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                 }
-            }               
+            }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
 
         void NewcourseFilter()
@@ -258,6 +315,8 @@ namespace Exam_Cell
         {
             msgbox.show("Do you really want to Delete ?", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
             var result = msgbox.ReturnValue;
+            try
+            {
             if (result == "Yes")
             {
                 int f = 0;
@@ -267,7 +326,7 @@ namespace Exam_Cell
                     if (checkselected)
                     {
                         f = 1;
-                        SqlCommand command = new SqlCommand("delete Scheme where Course=@Course", con.ActiveCon());
+                        OleDbCommand command = new OleDbCommand("delete Scheme where Course=@Course", con.ActiveCon());
                         command.Parameters.AddWithValue("@Course", dr.Cells["Course"].Value.ToString());
                         command.ExecuteNonQuery();
                     }
@@ -281,17 +340,28 @@ namespace Exam_Cell
                 else
                     msgbox.show("Select any Course to delete, Try again.", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
 
         private void AddNewClass_btn_Click(object sender, EventArgs e)
         {
             msgbox.show("Click Yes to Add New Class", "Confirmation", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Information);
             var result = msgbox.ReturnValue;
+            try
+            {
             if (result == "Yes")
             {
                 if (NewClassSem_combobox.SelectedIndex != 0)
                 {
-                    SqlCommand command = new SqlCommand("insert into Management(Class,Semester)Values(" + " @Class,@Semester) ", con.ActiveCon());
+                    OleDbCommand command = new OleDbCommand("insert into Management(Class,Semester)Values(" + " @Class,@Semester) ", con.ActiveCon());
                     command.Parameters.AddWithValue("@Class", NewClass_textbox.Text);
                     command.Parameters.AddWithValue("@Semester", NewClassSem_combobox.Text);
                     command.ExecuteNonQuery();
@@ -302,22 +372,40 @@ namespace Exam_Cell
                 else
                     msgbox.show("Select Semester", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
 
         void BranchComboboxFill()
         {
-            SqlCommand sc = new SqlCommand("Select Branch from Management where Branch is not null", con.ActiveCon());
-            SqlDataReader reader;
-            reader = sc.ExecuteReader();
+            try
+            {
+            OleDbCommand sc = new OleDbCommand("Select Branch from Management where Branch is not null", con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
             DataTable dt = new DataTable();
-            dt.Columns.Add("Branch", typeof(string)); // in datatable, a column should be created before adding rows
+            adapter.Fill(dt);
             DataRow top = dt.NewRow();
             top[0] = "-Select-";
             dt.Rows.InsertAt(top, 0);
-            dt.Load(reader);
 
             UpdateBranch_combobox.ValueMember = "Branch";  //column name is given to get values to show in combobox
-            UpdateBranch_combobox.DataSource = dt;                        
+            UpdateBranch_combobox.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
 
         
@@ -326,19 +414,30 @@ namespace Exam_Cell
         {
             if (ChangeScheme_textbox.Text != "")
             {
+                try
+                {
                 if(Scheme_label.Text != "")
                 {
-                    SqlCommand comm = new SqlCommand("update Management set Default_Scheme=@Default_Scheme where (Default_Scheme is not null)", con.ActiveCon());
+                    OleDbCommand comm = new OleDbCommand("update Management set Default_Scheme=@Default_Scheme where (Default_Scheme is not null)", con.ActiveCon());
                     comm.Parameters.AddWithValue("@Default_Scheme", ChangeScheme_textbox.Text);
                     comm.ExecuteNonQuery();
                     Schemelabel();
                 }
                 else
                 {
-                    SqlCommand comm = new SqlCommand("insert into Management(Default_Scheme)Values(" + " Default_Scheme=@Default_Scheme)", con.ActiveCon());
+                    OleDbCommand comm = new OleDbCommand("insert into Management(Default_Scheme)Values(" + " Default_Scheme=@Default_Scheme)", con.ActiveCon());
                     comm.Parameters.AddWithValue("@Default_Scheme", ChangeScheme_textbox.Text);
                     comm.ExecuteNonQuery();
                     Schemelabel();
+                }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    con.CloseCon();
                 }
             }
             else
@@ -348,13 +447,17 @@ namespace Exam_Cell
         {
             try
             {
-                SqlCommand comm = new SqlCommand("Select Default_Scheme from Management where (Default_Scheme is not null)", con.ActiveCon());
+                OleDbCommand comm = new OleDbCommand("Select Default_Scheme from Management where (Default_Scheme is not null)", con.ActiveCon());
                 string scheme = (string)comm.ExecuteScalar();
                 Scheme_label.Text = scheme;
             }
             catch(Exception ex)
             {
                 msgbox.show(ex.ToString(), "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+            }
+            finally
+            {
+                con.CloseCon();
             }
         }
 

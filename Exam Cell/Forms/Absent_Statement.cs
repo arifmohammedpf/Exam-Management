@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.OleDb;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -37,9 +37,11 @@ namespace Exam_Cell
         }
 
         void DateComboboxFill()
-        {
-            SqlCommand comm = new SqlCommand("select distinct Date from Absentees order by Date", con.ActiveCon());
-            SqlDataAdapter adapter = new SqlDataAdapter(comm);
+        {            
+            try
+            {
+            OleDbCommand comm = new OleDbCommand("select distinct Date from Absentees order by Date", con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
             DataTable table = new DataTable();
             adapter.Fill(table);
             //for -select-
@@ -50,11 +52,22 @@ namespace Exam_Cell
             Date_combobox.DisplayMember = "Date";
             Date_combobox.ValueMember = "Date";
             Date_combobox.DataSource = table;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
         void BranchComboboxFill()
         {
-            SqlCommand comm = new SqlCommand("select distinct Branch from Absentees order by Branch", con.ActiveCon());
-            SqlDataAdapter adapter = new SqlDataAdapter(comm);
+            try
+            {
+            OleDbCommand comm = new OleDbCommand("select distinct Branch from Absentees order by Branch", con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
             DataTable table = new DataTable();
             adapter.Fill(table);
             //for -select-
@@ -65,11 +78,22 @@ namespace Exam_Cell
             Branch_combobox.DisplayMember = "Branch";
             Branch_combobox.ValueMember = "Branch";
             Branch_combobox.DataSource = table;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
         void Exam_CodeComboboxFill()
         {
-            SqlCommand comm = new SqlCommand("select distinct Exam_Code from Absentees order by Exam_Code", con.ActiveCon());
-            SqlDataAdapter adapter = new SqlDataAdapter(comm);
+            try
+            {
+            OleDbCommand comm = new OleDbCommand("select distinct Exam_Code from Absentees order by Exam_Code", con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
             DataTable table = new DataTable();
             adapter.Fill(table);
             //for -select-
@@ -80,11 +104,20 @@ namespace Exam_Cell
             ExamCode_combobox.DisplayMember = "Exam_Code";
             ExamCode_combobox.ValueMember = "Exam_Code";
             ExamCode_combobox.DataSource = table;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
         //void SubjectComboboxFill()
         //{
-        //    SqlCommand comm = new SqlCommand("select distinct Course from Absentees order by Course", con.ActiveCon());
-        //    SqlDataAdapter adapter = new SqlDataAdapter(comm);
+        //    OleDbCommand comm = new OleDbCommand("select distinct Course from Absentees order by Course", con.ActiveCon());
+        //    OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
         //    DataTable table = new DataTable();
         //    adapter.Fill(table);
         //    //for -select-
@@ -100,17 +133,27 @@ namespace Exam_Cell
         DataTable table = new DataTable();
         private void Search_btn_Click(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand("select Reg_no,Name,Status,Branch,Course,Exam_Code from Absentees Where Date=@Date and Session=@Session and Branch=@Branch and Exam_Code=@Exam_Code order by Reg_no", con.ActiveCon());
+            try
+            {
+            OleDbCommand command = new OleDbCommand("select Reg_no,Name,Status,Branch,Course,Exam_Code from Absentees Where Date=@Date and Session=@Session and Branch=@Branch and Exam_Code=@Exam_Code order by Reg_no", con.ActiveCon());
             command.Parameters.AddWithValue("@Date", Date_combobox.Text);
             command.Parameters.AddWithValue("@Session", Session_combobox.Text);
             command.Parameters.AddWithValue("@Branch", Branch_combobox.Text);
             command.Parameters.AddWithValue("@Exam_Code", ExamCode_combobox.Text);
-            SqlDataAdapter adapter = new SqlDataAdapter(command);            
+            OleDbDataAdapter adapter = new OleDbDataAdapter(command);            
             adapter.Fill(table);
             Dgv.DataSource = null;
             Dgv.DataSource = table;
-
-            NoofcandidatesFill();            
+            NoofcandidatesFill();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
 
         private void Prepare_Statement_btn_Click(object sender, EventArgs e)
@@ -120,11 +163,13 @@ namespace Exam_Cell
 
                 if (table.Rows.Count != 0)
                 {
+                    try
+                    {
                     using (var package = new ExcelPackage())
                     {
                         //Add a new worksheet to the empty workbook
                         var worksheet = package.Workbook.Worksheets.Add(Branch_combobox.Text);
-                        SqlCommand command2 = new SqlCommand("select Year_Of_Admission from Students where Reg_no=@Reg_no", con.ActiveCon());
+                        OleDbCommand command2 = new OleDbCommand("select Year_Of_Admission from Students where Reg_no=@Reg_no", con.ActiveCon());
                         command2.Parameters.AddWithValue("@Reg_no", table.Rows[0]["Reg_no"].ToString());
                         string semester = (string)command2.ExecuteScalar();
                         //Insert Items to ExcelSheet
@@ -231,6 +276,15 @@ namespace Exam_Cell
                         No_of_Present_ViewText.Clear();
                         No_of_Absent_ViewText.Clear();
                         msgbox.show("Excel file created", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                    }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                    finally
+                    {
+                        con.CloseCon();
                     }
                 }
                 else

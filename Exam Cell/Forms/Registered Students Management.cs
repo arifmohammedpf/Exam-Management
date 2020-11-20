@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -39,11 +39,13 @@ namespace Exam_Cell
         {
             msgbox.show("You are going to Delete every Students in the list, Are You Sure ?", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
             var result = msgbox.ReturnValue;
+            try
+            {
             if (result == "Yes")
             {
                 if (Univrsty_radiobtn.Checked)
                 {
-                    SqlCommand command = new SqlCommand("Delete Registered_candidates", con.ActiveCon());
+                    OleDbCommand command = new OleDbCommand("Delete Registered_candidates", con.ActiveCon());
                     command.ExecuteNonQuery();
                     msgbox.show("All Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     University_fill();
@@ -51,7 +53,7 @@ namespace Exam_Cell
                 }
                 else if (Series_radiobtn.Checked)
                 {
-                    SqlCommand command = new SqlCommand("Delete Series_candidates", con.ActiveCon());
+                    OleDbCommand command = new OleDbCommand("Delete Series_candidates", con.ActiveCon());
                     command.ExecuteNonQuery();
                     msgbox.show("All Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     Series_fill();
@@ -59,7 +61,7 @@ namespace Exam_Cell
                 }
                 else if (AllotUniversty_radiobtn.Checked)
                 {
-                    SqlCommand command = new SqlCommand("Delete University_Alloted", con.ActiveCon());
+                    OleDbCommand command = new OleDbCommand("Delete University_Alloted", con.ActiveCon());
                     command.ExecuteNonQuery();
                     msgbox.show("All Alloted Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     UniversityAlloted_fill();
@@ -67,12 +69,21 @@ namespace Exam_Cell
                 }
                 else if (AllotSeries_radiobtn.Checked)
                 {
-                    SqlCommand command = new SqlCommand("Delete Series_Alloted", con.ActiveCon());
+                    OleDbCommand command = new OleDbCommand("Delete Series_Alloted", con.ActiveCon());
                     command.ExecuteNonQuery();
                     msgbox.show("All Alloted Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     SeriesAlloted_fill();
                     Clear_function();
                 }
+            }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
             }
 
         }
@@ -108,47 +119,91 @@ namespace Exam_Cell
         BindingSource SeriesAllotbinding = new BindingSource();        
         void University_fill()
         {
-            SqlCommand command = new SqlCommand("select * from Registered_candidates order by Branch,Reg_no", con.ActiveCon());
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            try
+            {
+            OleDbCommand command = new OleDbCommand("select * from Registered_candidates order by Branch,Reg_no", con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(command);
             DataTable Unv_students = new DataTable();
             adapter.Fill(Unv_students);
             Universitybinding.DataSource = null;
             Universitybinding.DataSource = Unv_students;
             Registered_dgv.DataSource = null;
             Registered_dgv.DataSource = Universitybinding;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
         void Series_fill()
         {
-            SqlCommand command = new SqlCommand("select * from Series_candidates order by Course, Class, Name", con.ActiveCon());
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            try
+            {
+            OleDbCommand command = new OleDbCommand("select * from Series_candidates order by Course, Class, Name", con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(command);
             DataTable Srs_students = new DataTable();
             adapter.Fill(Srs_students);
             Seriesbinding.DataSource = null;
             Seriesbinding.DataSource = Srs_students;
             Registered_dgv.DataSource = null;
             Registered_dgv.DataSource = Seriesbinding;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
         void UniversityAlloted_fill()
         {
-            SqlCommand command = new SqlCommand("select * from University_Alloted order by Date,Room_No,Reg_no", con.ActiveCon());
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            try
+            {
+            OleDbCommand command = new OleDbCommand("select * from University_Alloted order by Date,Room_No,Reg_no", con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(command);
             DataTable unv_allot = new DataTable();
             adapter.Fill(unv_allot);
             UniversityAllotbinding.DataSource = null;
             UniversityAllotbinding.DataSource = unv_allot;
             Registered_dgv.DataSource = null;
             Registered_dgv.DataSource = UniversityAllotbinding;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
         void SeriesAlloted_fill()
         {
-            SqlCommand command = new SqlCommand("select * from Series_Alloted order by Date, Room_No, Name", con.ActiveCon());
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            try
+            {
+            OleDbCommand command = new OleDbCommand("select * from Series_Alloted order by Date, Room_No, Name", con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(command);
             DataTable srs_allot = new DataTable();
             adapter.Fill(srs_allot);
             SeriesAllotbinding.DataSource = null;
             SeriesAllotbinding.DataSource = srs_allot;
             Registered_dgv.DataSource = null;
             Registered_dgv.DataSource = SeriesAllotbinding;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
         private void Univrsty_radiobtn_CheckedChanged(object sender, EventArgs e)
         {
@@ -182,6 +237,8 @@ namespace Exam_Cell
         {
             msgbox.show("Do you really want to Delete ?", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
             var result = msgbox.ReturnValue;
+            try
+            {
             if (result == "Yes")
             {
                 if (Univrsty_radiobtn.Checked)
@@ -191,7 +248,7 @@ namespace Exam_Cell
                         bool checkselect = Convert.ToBoolean(dr.Cells["checkBoxColumn"].Value);
                         if (checkselect)
                         {
-                            SqlCommand command = new SqlCommand("Delete Registered_candidates where Reg_no=@Reg_no", con.ActiveCon());
+                            OleDbCommand command = new OleDbCommand("Delete Registered_candidates where Reg_no=@Reg_no", con.ActiveCon());
                             command.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
                             command.ExecuteNonQuery();
                         }
@@ -207,7 +264,7 @@ namespace Exam_Cell
                         bool checkselect = Convert.ToBoolean(dr.Cells["checkBoxColumn"].Value);
                         if (checkselect)
                         {
-                            SqlCommand command = new SqlCommand("Delete Series_candidates where Reg_no=@Reg_no", con.ActiveCon());
+                            OleDbCommand command = new OleDbCommand("Delete Series_candidates where Reg_no=@Reg_no", con.ActiveCon());
                             command.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
                             command.ExecuteNonQuery();
                         }
@@ -223,7 +280,7 @@ namespace Exam_Cell
                         bool checkselect = Convert.ToBoolean(dr.Cells["checkBoxColumn"].Value);
                         if (checkselect)
                         {
-                            SqlCommand command = new SqlCommand("Delete Series_Alloted where Reg_no=@Reg_no", con.ActiveCon());
+                            OleDbCommand command = new OleDbCommand("Delete Series_Alloted where Reg_no=@Reg_no", con.ActiveCon());
                             command.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
                             command.ExecuteNonQuery();
                         }
@@ -239,7 +296,7 @@ namespace Exam_Cell
                         bool checkselect = Convert.ToBoolean(dr.Cells["checkBoxColumn"].Value);
                         if (checkselect)
                         {
-                            SqlCommand command = new SqlCommand("Delete University_Alloted where Reg_no=@Reg_no", con.ActiveCon());
+                            OleDbCommand command = new OleDbCommand("Delete University_Alloted where Reg_no=@Reg_no", con.ActiveCon());
                             command.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
                             command.ExecuteNonQuery();
                         }
@@ -248,6 +305,15 @@ namespace Exam_Cell
                     UniversityAlloted_fill();
                     Clear_function();
                 }
+            }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
             }
         }
 
@@ -370,18 +436,28 @@ namespace Exam_Cell
         }
         void Branch_ComboFill()
         {
-            SqlCommand sc = new SqlCommand("Select Distinct Branch from Scheme", con.ActiveCon());
-            SqlDataReader reader;
-            reader = sc.ExecuteReader();
+            try
+            {
+            OleDbCommand sc = new OleDbCommand("Select Distinct Branch from Scheme", con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
             DataTable dt = new DataTable();
-            dt.Columns.Add("Branch", typeof(string)); // in datatable, a column should be created before adding rows
+            adapter.Fill(dt);
+            
             DataRow top = dt.NewRow();
             top[0] = "-Select Branch-";
             dt.Rows.InsertAt(top, 0);
-            dt.Load(reader);
 
             Branch_combobox.ValueMember = "Branch";  //column name is given to get values to show in combobox
             Branch_combobox.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
         void Secure_tools_disabled()
         {

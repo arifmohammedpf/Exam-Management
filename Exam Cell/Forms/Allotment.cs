@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using System.Data.OleDb;
 using System.Runtime.InteropServices;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
@@ -32,31 +32,36 @@ namespace Exam_Cell
         }
         void Allot_University()
         {                        
+            try
+            {
             //get registered students details
-            SqlCommand command2 = new SqlCommand("select * from Registered_candidates order by Reg_no", con.ActiveCon());
-            SqlDataAdapter adapter2 = new SqlDataAdapter(command2);
+            OleDbCommand command2 = new OleDbCommand("select * from Registered_candidates order by Reg_no", con.ActiveCon());
+            OleDbDataAdapter adapter2 = new OleDbDataAdapter(command2);
             DataTable table_students = new DataTable();
             adapter2.Fill(table_students);
+            con.CloseCon();
             if (table_students.Rows.Count == 0)
             {
                 msgbox.show("No Candidates Registered to Allot, Register the candidates First", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                 return;
             }            
             //get rooms details
-            SqlCommand command3 = new SqlCommand("select * from Rooms order by Priority", con.ActiveCon());
-            SqlDataAdapter adapter3 = new SqlDataAdapter(command3);
+            OleDbCommand command3 = new OleDbCommand("select * from Rooms order by Priority", con.ActiveCon());
+            OleDbDataAdapter adapter3 = new OleDbDataAdapter(command3);
             DataTable table_rooms = new DataTable();
             adapter3.Fill(table_rooms);
+            con.CloseCon();
             if (table_rooms.Rows.Count == 0)
             {
                 msgbox.show("No Rooms Assigned to Allot, Create Rooms First", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                 return;
             }           
             //get distinct dates
-            SqlCommand commanddate = new SqlCommand("select distinct Date from Timetable order by Date", con.ActiveCon());
-            SqlDataAdapter adapterdate = new SqlDataAdapter(commanddate);
+            OleDbCommand commanddate = new OleDbCommand("select distinct Date from Timetable order by Date", con.ActiveCon());
+            OleDbDataAdapter adapterdate = new OleDbDataAdapter(commanddate);
             DataTable table_distinctdate = new DataTable();
             adapterdate.Fill(table_distinctdate);
+            con.CloseCon();
             if(table_distinctdate.Rows.Count==0)
             {
                 msgbox.show("No Timetable Assigned to Allot, Create Timetable First", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
@@ -72,12 +77,13 @@ namespace Exam_Cell
                 for (int z = 0; z < 2; z++)
                 {
                     //Get Timetable details
-                    SqlCommand command = new SqlCommand("select Date,Session,Course,Exam_Code from Timetable where Date=@Date and Session=@Session order by Date,Session,Course", con.ActiveCon());
+                    OleDbCommand command = new OleDbCommand("select Date,Session,Course,Exam_Code from Timetable where Date=@Date and Session=@Session order by Date,Session,Course", con.ActiveCon());
                     command.Parameters.AddWithValue("@Date", rowdate["Date"].ToString());
                     command.Parameters.AddWithValue("@Session", session);
-                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    OleDbDataAdapter adapter = new OleDbDataAdapter(command);
                     DataTable table_timetable = new DataTable();
                     adapter.Fill(table_timetable);
+                    con.CloseCon();
 
                     if (table_timetable.Rows.Count != 0)
                     {
@@ -115,7 +121,7 @@ namespace Exam_Cell
                             int flag=0;
                             for(int i=0;i<series;i++)
                             {
-                                SqlCommand command4 = new SqlCommand("insert into University_Alloted(Date,Room_No,Seat,Session,Reg_no,Name,Branch,Exam_Code,Course)Values(" + "@Date,@Room_No,@Seat,@Session,@Reg_no,@Name,@Branch,@Exam_Code,@Course)", con.ActiveCon());
+                                OleDbCommand command4 = new OleDbCommand("insert into University_Alloted(Date,Room_No,Seat,Session,Reg_no,Name,Branch,Exam_Code,Course)Values(" + "@Date,@Room_No,@Seat,@Session,@Reg_no,@Name,@Branch,@Exam_Code,@Course)", con.ActiveCon());
                                 command4.Parameters.AddWithValue("@Date", date_students[count]);
                                 command4.Parameters.AddWithValue("@Room_No", roomrow["Room_No"].ToString());
                                 command4.Parameters.AddWithValue("@Seat", "A" + (i + 1));
@@ -126,7 +132,7 @@ namespace Exam_Cell
                                 command4.Parameters.AddWithValue("@Exam_Code", Exam_Code_students[count]);
                                 command4.Parameters.AddWithValue("@Course", course_students[count]);
                                 command4.ExecuteNonQuery();
-                                
+                                con.CloseCon();
                                 if (reg_students.Last() == reg_students[count])
                                 {
                                     flag = 1;
@@ -150,10 +156,10 @@ namespace Exam_Cell
             //    for (int z = 0; z < 2; z++)
             //    {
             //        //Get Timetable details
-            //        SqlCommand command = new SqlCommand("select Date,Session,Course,Exam_Code from Timetable where Date=@Date and Session=@Session order by Date,Session", con.ActiveCon());
+            //        OleDbCommand command = new OleDbCommand("select Date,Session,Course,Exam_Code from Timetable where Date=@Date and Session=@Session order by Date,Session", con.ActiveCon());
             //        command.Parameters.AddWithValue("@Date", rowdate["Date"].ToString());
             //        command.Parameters.AddWithValue("@Session", session);
-            //        SqlDataAdapter adapter = new SqlDataAdapter(command);
+            //        OleDbDataAdapter adapter = new OleDbDataAdapter(command);
             //        DataTable table_timetable = new DataTable();
             //        adapter.Fill(table_timetable);
 
@@ -194,7 +200,7 @@ namespace Exam_Cell
             //                int count = 0;
             //                for (int i = 0; i < series; i++)
             //                {
-            //                    SqlCommand command4 = new SqlCommand("insert into University_Alloted(Date,Room_No,Seat,Session,Reg_no,Name,Branch,Exam_Code,Course)Values(" + "@Date,@Room_No,@Seat,@Session,@Reg_no,@Name,@Branch,@Exam_Code,@Course)", con.ActiveCon());
+            //                    OleDbCommand command4 = new OleDbCommand("insert into University_Alloted(Date,Room_No,Seat,Session,Reg_no,Name,Branch,Exam_Code,Course)Values(" + "@Date,@Room_No,@Seat,@Session,@Reg_no,@Name,@Branch,@Exam_Code,@Course)", con.ActiveCon());
             //                    command4.Parameters.AddWithValue("@Date", date);
             //                    command4.Parameters.AddWithValue("@Room_No", room);
             //                    command4.Parameters.AddWithValue("@Seat", "A" + (j + 1));
@@ -226,15 +232,24 @@ namespace Exam_Cell
             //    }              
             //}
             msgbox.show("University Seating Allot Completed", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         void Allot_Series()
         {            
+            try
+            {
             //get registered students details
-            SqlCommand command2 = new SqlCommand("select * from Series_candidates order by Course, Class, Name", con.ActiveCon());
-            SqlDataAdapter adapter2 = new SqlDataAdapter(command2);
+            OleDbCommand command2 = new OleDbCommand("select * from Series_candidates order by Course, Class, Name", con.ActiveCon());
+            OleDbDataAdapter adapter2 = new OleDbDataAdapter(command2);
             DataTable table_students = new DataTable();
             adapter2.Fill(table_students);
+                con.CloseCon();
             if (table_students.Rows.Count == 0)
             {
                 msgbox.show("No Candidates Registered to Allot, Register the candidates First", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
@@ -242,21 +257,23 @@ namespace Exam_Cell
             }
 
             //get rooms details
-            SqlCommand command3 = new SqlCommand("select * from Rooms order by Priority", con.ActiveCon());
-            SqlDataAdapter adapter3 = new SqlDataAdapter(command3);
+            OleDbCommand command3 = new OleDbCommand("select * from Rooms order by Priority", con.ActiveCon());
+            OleDbDataAdapter adapter3 = new OleDbDataAdapter(command3);
             DataTable table_rooms = new DataTable();
             adapter3.Fill(table_rooms);
             Alloted_dgv.DataSource = table_rooms;
+                con.CloseCon();
             if (table_rooms.Rows.Count == 0)
             {
                 msgbox.show("No Rooms Assigned to Allot, Create Rooms First", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                 return;
             }
             //get distinct dates
-            SqlCommand commanddate = new SqlCommand("select distinct Date from Timetable order by Date", con.ActiveCon());
-            SqlDataAdapter adapterdate = new SqlDataAdapter(commanddate);
+            OleDbCommand commanddate = new OleDbCommand("select distinct Date from Timetable order by Date", con.ActiveCon());
+            OleDbDataAdapter adapterdate = new OleDbDataAdapter(commanddate);
             DataTable table_distinctdate = new DataTable();
             adapterdate.Fill(table_distinctdate);
+                con.CloseCon();
             if (table_distinctdate.Rows.Count == 0)
             {
                 msgbox.show("No Timetable Assigned to Allot, Create Timetable First", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
@@ -270,12 +287,13 @@ namespace Exam_Cell
                 for (int z = 0; z < 2; z++)
                 {
                     //Get Timtable details
-                    SqlCommand command = new SqlCommand("select Date,Session,Course,Exam_Code from Timetable where Date=@Date and Session=@Session order by Date,Session,Course", con.ActiveCon());
+                    OleDbCommand command = new OleDbCommand("select Date,Session,Course,Exam_Code from Timetable where Date=@Date and Session=@Session order by Date,Session,Course", con.ActiveCon());
                     command.Parameters.AddWithValue("@Date", rowdate["Date"].ToString());
                     command.Parameters.AddWithValue("@Session", session);
-                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    OleDbDataAdapter adapter = new OleDbDataAdapter(command);
                     DataTable table_timetable = new DataTable();
                     adapter.Fill(table_timetable);
+                        con.CloseCon();
 
                     if (table_timetable.Rows.Count != 0)
                     {
@@ -355,7 +373,7 @@ namespace Exam_Cell
                             int flag = 0 ;
                             for(int i=0;i<series;i++)
                             {
-                                SqlCommand command4 = new SqlCommand("insert into Series_Alloted(Date,Room_No,Seat,Session,Reg_no,Name,Class,Exam_Code,Course)Values(" + "@Date,@Room_No,@Seat,@Session,@Reg_no,@Name,@Class,@Exam_Code,@Course)", con.ActiveCon());
+                                OleDbCommand command4 = new OleDbCommand("insert into Series_Alloted(Date,Room_No,Seat,Session,Reg_no,Name,Class,Exam_Code,Course)Values(" + "@Date,@Room_No,@Seat,@Session,@Reg_no,@Name,@Class,@Exam_Code,@Course)", con.ActiveCon());
                                 command4.Parameters.AddWithValue("@Date", date_studentsA[count]);
                                 command4.Parameters.AddWithValue("@Room_No", roomrow["Room_No"].ToString());
                                 command4.Parameters.AddWithValue("@Seat", "A" + (i + 1));
@@ -366,6 +384,7 @@ namespace Exam_Cell
                                 command4.Parameters.AddWithValue("@Exam_Code", examcode_studentsA[count]);
                                 command4.Parameters.AddWithValue("@Course", course_studentsA[count]);
                                 command4.ExecuteNonQuery();
+                                    con.CloseCon();
 
                                 if (reg_studentsA.Last() == reg_studentsA[count])
                                 {
@@ -384,7 +403,7 @@ namespace Exam_Cell
                             int flag = 0;
                             for (int i = 0; i < series; i++)
                             {
-                                SqlCommand command4 = new SqlCommand("insert into Series_Alloted(Date,Room_No,Seat,Session,Reg_no,Name,Class,Exam_Code,Course)Values(" + "@Date,@Room_No,@Seat,@Session,@Reg_no,@Name,@Class,@Exam_Code,@Course)", con.ActiveCon());
+                                OleDbCommand command4 = new OleDbCommand("insert into Series_Alloted(Date,Room_No,Seat,Session,Reg_no,Name,Class,Exam_Code,Course)Values(" + "@Date,@Room_No,@Seat,@Session,@Reg_no,@Name,@Class,@Exam_Code,@Course)", con.ActiveCon());
                                 command4.Parameters.AddWithValue("@Date", date_studentsB[count]);
                                 command4.Parameters.AddWithValue("@Room_No", roomrow["Room_No"].ToString());
                                 command4.Parameters.AddWithValue("@Seat", "B" + (i + 1));
@@ -395,6 +414,7 @@ namespace Exam_Cell
                                 command4.Parameters.AddWithValue("@Exam_Code", examcode_studentsB[count]);
                                 command4.Parameters.AddWithValue("@Course", course_studentsB[count]);
                                 command4.ExecuteNonQuery();
+                                    con.CloseCon();
 
                                 if (reg_studentsB.Last() == reg_studentsB[count])
                                 {
@@ -411,6 +431,12 @@ namespace Exam_Cell
                 }
             }
             msgbox.show("Series Seating Allot Completed", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void MultiAllotment_button_Click(object sender, EventArgs e)
@@ -435,12 +461,12 @@ namespace Exam_Cell
                         int tostartint = Int32.Parse(tostart);
                         if (Unv_radio.Checked)
                         {
-                            SqlCommand comm = new SqlCommand("Select Room_No,Seat,Reg_no from University_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
+                            OleDbCommand comm = new OleDbCommand("Select Room_No,Seat,Reg_no from University_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
                             comm.Parameters.AddWithValue("@Room_No", fromroom);
-                            SqlDataAdapter adapter = new SqlDataAdapter(comm);
+                            OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
                             DataTable dataTable = new DataTable();
                             adapter.Fill(dataTable);
-
+                            con.CloseCon();
                             for (int i = fromstartint; i <= fromendint; i++)
                             {
                                 MessageBox.Show(fromseries + i); ///////////////////for testing...after that delete this line
@@ -457,21 +483,23 @@ namespace Exam_Cell
                             }
                             foreach (DataRow dataRow in dataTable.Rows)
                             {
-                                SqlCommand comm2 = new SqlCommand("update University_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
+                                OleDbCommand comm2 = new OleDbCommand("update University_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
                                 comm2.Parameters.AddWithValue("@Room_No", dataRow["Room_No"]);
                                 comm2.Parameters.AddWithValue("@Seat", dataRow["Seat"]);
                                 comm2.Parameters.AddWithValue("@Reg_no", dataRow["Reg_no"]);
                                 comm2.ExecuteNonQuery();
                             }
                             msgbox.show("Shift Completed", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                            con.CloseCon();
                         }
                         else if (Series_radio.Checked)
                         {
-                            SqlCommand comm = new SqlCommand("Select Room_No,Seat,Reg_no from Series_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
+                            OleDbCommand comm = new OleDbCommand("Select Room_No,Seat,Reg_no from Series_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
                             comm.Parameters.AddWithValue("@Room_No", fromroom);
-                            SqlDataAdapter adapter = new SqlDataAdapter(comm);
+                            OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
                             DataTable dataTable = new DataTable();
                             adapter.Fill(dataTable);
+                            con.CloseCon();
 
                             for (int i = fromstartint; i <= fromendint; i++)
                             {
@@ -489,13 +517,14 @@ namespace Exam_Cell
                             }
                             foreach (DataRow dataRow in dataTable.Rows)
                             {
-                                SqlCommand comm2 = new SqlCommand("update Series_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
+                                OleDbCommand comm2 = new OleDbCommand("update Series_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
                                 comm2.Parameters.AddWithValue("@Room_No", dataRow["Room_No"]);
                                 comm2.Parameters.AddWithValue("@Seat", dataRow["Seat"]);
                                 comm2.Parameters.AddWithValue("@Reg_no", dataRow["Reg_no"]);
                                 comm2.ExecuteNonQuery();
                             }
                             msgbox.show("Shift Completed", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                            con.CloseCon();
                         }
                     }
                     catch (Exception ex)
@@ -576,6 +605,8 @@ namespace Exam_Cell
         {
             if (Folder_path_text.Text != "")
             {
+                try
+                {
                 int flag = 0;
                 string commandtext;
                 if (Series_radio.Checked)
@@ -583,10 +614,10 @@ namespace Exam_Cell
                 else
                     commandtext = "SELECT Distinct Date from University_Alloted";
                 DataTable dstnctdatatable = new DataTable();
-                SqlCommand command = new SqlCommand(commandtext, con.ActiveCon());
-                SqlDataAdapter distinctadapter = new SqlDataAdapter(command);
+                OleDbCommand command = new OleDbCommand(commandtext, con.ActiveCon());
+                OleDbDataAdapter distinctadapter = new OleDbDataAdapter(command);
                 distinctadapter.Fill(dstnctdatatable);
-
+                con.CloseCon();
                 if (dstnctdatatable.Rows.Count == 0)
                 {
                     msgbox.show("Allot Students First", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
@@ -617,38 +648,42 @@ namespace Exam_Cell
                             if (Series_radio.Checked)
                             {
                                 //Create a query and fill the data table with the data from the DB            
-                                SqlCommand cmd = new SqlCommand("SELECT Seat,Reg_no,Name,Exam_code,Room_No from Series_Alloted Where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
+                                OleDbCommand cmd = new OleDbCommand("SELECT Seat,Reg_no,Name,Exam_code,Room_No from Series_Alloted Where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
                                 cmd.Parameters.AddWithValue("@Date", dr["Date"].ToString());
                                 cmd.Parameters.AddWithValue("@Session", session);
-                                SqlDataAdapter adptr = new SqlDataAdapter(cmd);
+                                OleDbDataAdapter adptr = new OleDbDataAdapter(cmd);
                                 adptr.Fill(dt);
+                                con.CloseCon();
                             }
                             else
                             {
                                 //Create a query and fill the data table with the data from the DB            
-                                SqlCommand cmd = new SqlCommand("SELECT Seat,Reg_no,Name,Exam_code,Room_No from University_Alloted Where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
+                                OleDbCommand cmd = new OleDbCommand("SELECT Seat,Reg_no,Name,Exam_code,Room_No from University_Alloted Where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
                                 cmd.Parameters.AddWithValue("@Date", dr["Date"].ToString());
                                 cmd.Parameters.AddWithValue("@Session", session);
-                                SqlDataAdapter adptr = new SqlDataAdapter(cmd);
+                                OleDbDataAdapter adptr = new OleDbDataAdapter(cmd);
                                 adptr.Fill(dt);
+                                con.CloseCon();
                             }
 
                             DataTable dstnctroomdatatable = new DataTable();
                             if(Series_radio.Checked)
                             {
-                                SqlCommand commandroom = new SqlCommand("SELECT Distinct Room_No from Series_Alloted Where Date=@Date and Session=@Session", con.ActiveCon());
+                                OleDbCommand commandroom = new OleDbCommand("SELECT Distinct Room_No from Series_Alloted Where Date=@Date and Session=@Session", con.ActiveCon());
                                 commandroom.Parameters.AddWithValue("@Date", dr["Date"].ToString());
                                 commandroom.Parameters.AddWithValue("@Session", session);
-                                SqlDataAdapter distinctroomadapter = new SqlDataAdapter(commandroom);
+                                OleDbDataAdapter distinctroomadapter = new OleDbDataAdapter(commandroom);
                                 distinctroomadapter.Fill(dstnctroomdatatable);
+                                con.CloseCon();
                             }
                             else
                             {
-                                SqlCommand commandroom = new SqlCommand("SELECT Distinct Room_No from University_Alloted Where Date=@Date and Session=@Session", con.ActiveCon());
+                                OleDbCommand commandroom = new OleDbCommand("SELECT Distinct Room_No from University_Alloted Where Date=@Date and Session=@Session", con.ActiveCon());
                                 commandroom.Parameters.AddWithValue("@Date", dr["Date"].ToString());
                                 commandroom.Parameters.AddWithValue("@Session", session);
-                                SqlDataAdapter distinctroomadapter = new SqlDataAdapter(commandroom);
+                                OleDbDataAdapter distinctroomadapter = new OleDbDataAdapter(commandroom);
                                 distinctroomadapter.Fill(dstnctroomdatatable);
+                                con.CloseCon();
                             }
 
                             if (dt.Rows.Count != 0)
@@ -799,7 +834,13 @@ namespace Exam_Cell
                 }
                 if (flag == 0)
                     msgbox.show("Excel files created", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
+
             else
             {
                 msgbox.show("Filepath is not given", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
@@ -824,6 +865,8 @@ namespace Exam_Cell
             {
                 if (Folder_path_text.Text != "")
                 {
+                    try
+                    {
                     int flag = 0;
                     string commandtext;
                     if (Series_radio.Checked)
@@ -831,10 +874,10 @@ namespace Exam_Cell
                     else
                         commandtext = "SELECT Distinct Date from University_Alloted";
                     DataTable dstnctdatatable = new DataTable();
-                    SqlCommand command = new SqlCommand(commandtext, con.ActiveCon());
-                    SqlDataAdapter distinctadapter = new SqlDataAdapter(command);
+                    OleDbCommand command = new OleDbCommand(commandtext, con.ActiveCon());
+                    OleDbDataAdapter distinctadapter = new OleDbDataAdapter(command);
                     distinctadapter.Fill(dstnctdatatable);
-
+                        con.CloseCon();
                     if (dstnctdatatable.Rows.Count == 0)
                     {
                         flag = 1;
@@ -857,39 +900,40 @@ namespace Exam_Cell
                                 if (Series_radio.Checked)
                                 {
                                     //Create a query and fill the data table with the data from the DB            
-                                    SqlCommand cmd = new SqlCommand("SELECT Reg_no,Room_No,Seat,Exam_code,Course,Class from Series_Alloted Where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
+                                    OleDbCommand cmd = new OleDbCommand("SELECT Reg_no,Room_No,Seat,Exam_code,Course,Class from Series_Alloted Where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
                                     cmd.Parameters.AddWithValue("@Date", dr["Date"].ToString());
                                     cmd.Parameters.AddWithValue("@Session", session);
-                                    SqlDataAdapter adptr = new SqlDataAdapter(cmd);
+                                    OleDbDataAdapter adptr = new OleDbDataAdapter(cmd);
                                     adptr.Fill(dt);
                                 }
                                 else
                                 {
                                     //Create a query and fill the data table with the data from the DB            
-                                    SqlCommand cmd = new SqlCommand("SELECT Reg_no,Room_No,Seat,Exam_code,Course,Branch from University_Alloted Where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
+                                    OleDbCommand cmd = new OleDbCommand("SELECT Reg_no,Room_No,Seat,Exam_code,Course,Branch from University_Alloted Where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
                                     cmd.Parameters.AddWithValue("@Date", dr["Date"].ToString());
                                     cmd.Parameters.AddWithValue("@Session", session);
-                                    SqlDataAdapter adptr = new SqlDataAdapter(cmd);
+                                    OleDbDataAdapter adptr = new OleDbDataAdapter(cmd);
                                     adptr.Fill(dt);
                                 }
+                                con.CloseCon();
                                 DataTable dt2 = new DataTable();
                                 if (Unv_radio.Checked)
                                 {                                    
-                                    SqlCommand commandroom = new SqlCommand("SELECT Distinct Branch from University_Alloted Where Date=@Date and Session=@Session", con.ActiveCon());
+                                    OleDbCommand commandroom = new OleDbCommand("SELECT Distinct Branch from University_Alloted Where Date=@Date and Session=@Session", con.ActiveCon());
                                     commandroom.Parameters.AddWithValue("@Date", dr["Date"].ToString());
                                     commandroom.Parameters.AddWithValue("@Session", session);
-                                    SqlDataAdapter adptr2 = new SqlDataAdapter(commandroom);
+                                    OleDbDataAdapter adptr2 = new OleDbDataAdapter(commandroom);
                                     adptr2.Fill(dt2);
                                 }
                                 else
                                 {                                    
-                                    SqlCommand commandroom = new SqlCommand("SELECT Distinct Class from Series_Alloted Where Date=@Date and Session=@Session", con.ActiveCon());
+                                    OleDbCommand commandroom = new OleDbCommand("SELECT Distinct Class from Series_Alloted Where Date=@Date and Session=@Session", con.ActiveCon());
                                     commandroom.Parameters.AddWithValue("@Date", dr["Date"].ToString());
                                     commandroom.Parameters.AddWithValue("@Session", session);
-                                    SqlDataAdapter adptr2 = new SqlDataAdapter(commandroom);
+                                    OleDbDataAdapter adptr2 = new OleDbDataAdapter(commandroom);
                                     adptr2.Fill(dt2);
                                 }
-                                
+                                con.CloseCon();
 
                                 //dt.Columns.Add("Branch", typeof(string));
                                 //foreach (DataRow getreg in dt.Rows)
@@ -972,7 +1016,7 @@ namespace Exam_Cell
 
                                             if(Unv_radio.Checked)
                                             {                                                
-                                                SqlCommand coursecommand = new SqlCommand("Select Course from University_Alloted where Branch=@Branch and Date=@Date and Session=@Session ", con.ActiveCon());
+                                                OleDbCommand coursecommand = new OleDbCommand("Select Course from University_Alloted where Branch=@Branch and Date=@Date and Session=@Session ", con.ActiveCon());
                                                 coursecommand.Parameters.AddWithValue("@Branch", checkbranch);
                                                 coursecommand.Parameters.AddWithValue("@Date", dr["Date"].ToString());
                                                 coursecommand.Parameters.AddWithValue("@Session", session);
@@ -984,13 +1028,14 @@ namespace Exam_Cell
                                                     range.Style.Font.Size = 14;
                                                     range.Style.Font.Bold = true;
                                                 } 
-                                                SqlCommand coursecmd = new SqlCommand("SELECT Reg_no,Room_No,Seat from University_Alloted Where Date=@Date and Session=@Session and Course=@Course order by Reg_no", con.ActiveCon());
+                                                OleDbCommand coursecmd = new OleDbCommand("SELECT Reg_no,Room_No,Seat from University_Alloted Where Date=@Date and Session=@Session and Course=@Course order by Reg_no", con.ActiveCon());
                                                 coursecmd.Parameters.AddWithValue("@Date", dr["Date"].ToString());
                                                 coursecmd.Parameters.AddWithValue("@Session", session);
                                                 coursecmd.Parameters.AddWithValue("@Course", Course);
                                                 DataTable coursedt = new DataTable();
-                                                SqlDataAdapter courseadptr = new SqlDataAdapter(coursecmd);
+                                                OleDbDataAdapter courseadptr = new OleDbDataAdapter(coursecmd);
                                                 courseadptr.Fill(coursedt);
+                                                con.CloseCon();
                                                 int j = 1, k = 7;
                                                 for(var i=0;i<coursedt.Rows.Count;i++)
                                                 {
@@ -1012,13 +1057,14 @@ namespace Exam_Cell
                                             }
                                             else
                                             {
-                                                SqlCommand coursecommand = new SqlCommand("Select Distinct Course from Series_Alloted where Class=@Class and Date=@Date and Session=@Session ", con.ActiveCon());
+                                                OleDbCommand coursecommand = new OleDbCommand("Select Distinct Course from Series_Alloted where Class=@Class and Date=@Date and Session=@Session ", con.ActiveCon());
                                                 coursecommand.Parameters.AddWithValue("@Class", checkbranch);
                                                 coursecommand.Parameters.AddWithValue("@Date", dr["Date"].ToString());
                                                 coursecommand.Parameters.AddWithValue("@Session", session);
                                                 DataTable coursedata = new DataTable();
-                                                SqlDataAdapter coursedataadptr = new SqlDataAdapter(coursecommand);
+                                                OleDbDataAdapter coursedataadptr = new OleDbDataAdapter(coursecommand);
                                                 coursedataadptr.Fill(coursedata);
+                                                con.CloseCon();
                                                 int c = 6 ;
                                                 foreach(DataRow dataRow in coursedata.Rows)
                                                 {
@@ -1030,13 +1076,14 @@ namespace Exam_Cell
                                                         range.Style.Font.Bold = true;
                                                     }
                                                     c++;
-                                                    SqlCommand coursecmd = new SqlCommand("SELECT Reg_no,Room_No,Seat from Series_Alloted Where Date=@Date and Session=@Session and Course=@Course order by Reg_no", con.ActiveCon());
+                                                    OleDbCommand coursecmd = new OleDbCommand("SELECT Reg_no,Room_No,Seat from Series_Alloted Where Date=@Date and Session=@Session and Course=@Course order by Reg_no", con.ActiveCon());
                                                     coursecmd.Parameters.AddWithValue("@Date", dr["Date"].ToString());
                                                     coursecmd.Parameters.AddWithValue("@Session", session);
                                                     coursecommand.Parameters.AddWithValue("@Course", dataRow["Course"].ToString());
                                                     DataTable coursedt = new DataTable();
-                                                    SqlDataAdapter courseadptr = new SqlDataAdapter(coursecmd);
+                                                    OleDbDataAdapter courseadptr = new OleDbDataAdapter(coursecmd);
                                                     courseadptr.Fill(coursedt);
+                                                    con.CloseCon();
                                                     int j = 1;
                                                     for (var i = 0; i < coursedt.Rows.Count; i++)
                                                     {
@@ -1075,6 +1122,12 @@ namespace Exam_Cell
                     }
                     if(flag==0)
                         msgbox.show("Excel files created", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
                 }
                 else
                 {
@@ -1118,34 +1171,37 @@ namespace Exam_Cell
 
         void AllotedDGVFill()
         {
+            try
+            {
             DataTable dataTable = new DataTable();
             if (Unv_radio.Checked)
             {
-                SqlCommand comm = new SqlCommand("select * from University_Alloted where Date=@Date and Session=@Session order by Room_No,Seat",con.ActiveCon());
+                OleDbCommand comm = new OleDbCommand("select * from University_Alloted where Date=@Date and Session=@Session order by Room_No,Seat",con.ActiveCon());
                 comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
                 comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
-                SqlDataAdapter adapter = new SqlDataAdapter(comm);                
+                OleDbDataAdapter adapter = new OleDbDataAdapter(comm);                
                 adapter.Fill(dataTable);                
             }
             else
             {
-                SqlCommand comm = new SqlCommand("select * from Series_Alloted where Date=@Date and Session=@Session order by Room_No,Seat",con.ActiveCon());
+                OleDbCommand comm = new OleDbCommand("select * from Series_Alloted where Date=@Date and Session=@Session order by Room_No,Seat",con.ActiveCon());
                 comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
                 comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
-                SqlDataAdapter adapter = new SqlDataAdapter(comm);
+                OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
                 adapter.Fill(dataTable);
             }
+            con.CloseCon();
             dgvfill.DataSource = null;
             dgvfill.DataSource = dataTable;
             Alloted_dgv.DataSource = null;
             Alloted_dgv.DataSource = dgvfill;
             NoOfStudents_Brief.Text = dataTable.Rows.Count.ToString();
 
-            SqlCommand comm2 = new SqlCommand("select Room_No,A_Series,B_Series from Rooms", con.ActiveCon());
-            SqlDataAdapter adapter2 = new SqlDataAdapter(comm2);
+            OleDbCommand comm2 = new OleDbCommand("select Room_No,A_Series,B_Series from Rooms", con.ActiveCon());
+            OleDbDataAdapter adapter2 = new OleDbDataAdapter(comm2);
             DataTable dataTable2 = new DataTable();
             adapter2.Fill(dataTable2);
-
+            con.CloseCon();
             DataTable dataTable3 = dataTable2.Clone();
             foreach (DataRow dr2 in dataTable2.Rows)
             {
@@ -1162,44 +1218,53 @@ namespace Exam_Cell
             AllotedRooms_dgv.DataSource = null;
             AllotedRooms_dgv.DataSource = roomfill;
 
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
         void AllotedBriefDGVFill()
         {
             if (Unv_radio.Checked)
             {
-                SqlCommand comm = new SqlCommand("select Distinct Exam_Code,Course from University_Alloted where Date=@Date and Session=@Session", con.ActiveCon());
+                OleDbCommand comm = new OleDbCommand("select Distinct Exam_Code,Course from University_Alloted where Date=@Date and Session=@Session", con.ActiveCon());
                 comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
                 comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
-                SqlDataAdapter adapter = new SqlDataAdapter(comm);
+                OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
                 DataTable dataTablebrief = new DataTable();
                 adapter.Fill(dataTablebrief);
+                con.CloseCon();
                 dataTablebrief.Columns.Add("No of Students", typeof(int));
                 foreach (DataRow dr in dataTablebrief.Rows)
                 {
-                    SqlCommand comm2 = new SqlCommand("select Count(Reg_No) from University_Alloted where Exam_Code=@Exam_Code", con.ActiveCon());
+                    OleDbCommand comm2 = new OleDbCommand("select Count(Reg_No) from University_Alloted where Exam_Code=@Exam_Code", con.ActiveCon());
                     comm2.Parameters.AddWithValue("@Exam_Code", dr["Exam_Code"]);
                     int count = (int)comm2.ExecuteScalar();
                     dr["No of Students"] = count;
                 }
+                con.CloseCon();
                 briefdgv.DataSource = null;
                 briefdgv.DataSource = dataTablebrief;
             }
             else
             {
-                SqlCommand comm = new SqlCommand("select Distinct Exam_Code,Class from Series_Alloted where Date=@Date and Session=@Session", con.ActiveCon());
+                OleDbCommand comm = new OleDbCommand("select Distinct Exam_Code,Class from Series_Alloted where Date=@Date and Session=@Session", con.ActiveCon());
                 comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
                 comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
-                SqlDataAdapter adapter = new SqlDataAdapter(comm);
+                OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
+                con.CloseCon();
                 dataTable.Columns.Add("No of Students", typeof(int));
                 foreach (DataRow dr in dataTable.Rows)
                 {
-                    SqlCommand comm2 = new SqlCommand("select Count(Reg_No) from Series_Alloted where Exam_Code=@Exam_Code", con.ActiveCon());
+                    OleDbCommand comm2 = new OleDbCommand("select Count(Reg_No) from Series_Alloted where Exam_Code=@Exam_Code", con.ActiveCon());
                     comm2.Parameters.AddWithValue("@Exam_Code", dr["Exam_Code"]);
                     int count = (int)comm2.ExecuteScalar();
                     dr["No of Students"] = count;
                 }
+                con.CloseCon();
                 briefdgv.DataSource = null;
                 briefdgv.DataSource = dataTable;
             }
@@ -1210,29 +1275,31 @@ namespace Exam_Cell
         {
             if (Unv_radio.Checked)
             {
-                SqlCommand comm = new SqlCommand("select Reg_no,Name,Exam_Code,Room_No,Seat from University_Alloted where Date=@Date and Session=@Session and Room_No=@Room_No order by Seat", con.ActiveCon());
+                OleDbCommand comm = new OleDbCommand("select Reg_no,Name,Exam_Code,Room_No,Seat from University_Alloted where Date=@Date and Session=@Session and Room_No=@Room_No order by Seat", con.ActiveCon());
                 comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
                 comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
                 comm.Parameters.AddWithValue("@Room_No", AllocatedRoom_combobox.Text);
-                SqlDataAdapter adapter = new SqlDataAdapter(comm);
+                OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
                 DataTable dataTabledgv = new DataTable();
                 adapter.Fill(dataTabledgv);
                 AllotedStudentsRooms_dgv.DataSource = null;
                 AllotedStudentsRooms_dgv.DataSource = dataTabledgv;
                 NoOfStudents_Room.Text = dataTabledgv.Rows.Count.ToString();
+                con.CloseCon();
             }
             else if (Series_radio.Checked)
             {
-                SqlCommand comm = new SqlCommand("select Reg_no,Name,Exam_Code,Room_No,Seat from Series_Alloted where Date=@Date and Session=@Session and Room_No=@Room_No order by Seat", con.ActiveCon());
+                OleDbCommand comm = new OleDbCommand("select Reg_no,Name,Exam_Code,Room_No,Seat from Series_Alloted where Date=@Date and Session=@Session and Room_No=@Room_No order by Seat", con.ActiveCon());
                 comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
                 comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
                 comm.Parameters.AddWithValue("@Room_No", AllocatedRoom_combobox.Text);
-                SqlDataAdapter adapter = new SqlDataAdapter(comm);
+                OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
                 AllotedStudentsRooms_dgv.DataSource = null;
                 AllotedStudentsRooms_dgv.DataSource = dataTable;
                 NoOfStudents_Room.Text = dataTable.Rows.Count.ToString();
+                con.CloseCon();
             }
         }        
         void AllocatedRoomComboboxFill()
@@ -1240,21 +1307,21 @@ namespace Exam_Cell
             DataTable dataTablecombo = new DataTable();
             if(Series_radio.Checked)
             {
-                SqlCommand comm = new SqlCommand("select Distinct Room_No from Series_Alloted where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
+                OleDbCommand comm = new OleDbCommand("select Distinct Room_No from Series_Alloted where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
                 comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
                 comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
-                SqlDataAdapter adapter = new SqlDataAdapter(comm);
+                OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
                 adapter.Fill(dataTablecombo);
             }
             else
             {
-                SqlCommand comm = new SqlCommand("select Distinct Room_No from University_Alloted where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
+                OleDbCommand comm = new OleDbCommand("select Distinct Room_No from University_Alloted where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
                 comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
                 comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
-                SqlDataAdapter adapter = new SqlDataAdapter(comm);
+                OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
                 adapter.Fill(dataTablecombo);
             }
-
+            con.CloseCon();
             DataRow top = dataTablecombo.NewRow();
             top[0] = "-Select-";
             dataTablecombo.Rows.InsertAt(top, 0);
@@ -1332,16 +1399,18 @@ namespace Exam_Cell
                         int fromtemp = fromstartint, totemp = tostartint;
                         if (Unv_radio.Checked)
                         {
-                            SqlCommand comm = new SqlCommand("Select Room_No,Seat,Reg_no from University_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
+                            OleDbCommand comm = new OleDbCommand("Select Room_No,Seat,Reg_no from University_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
                             comm.Parameters.AddWithValue("@Room_No", fromroom);
-                            SqlDataAdapter adapter = new SqlDataAdapter(comm);
+                            OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
                             DataTable dataTable = new DataTable();
                             adapter.Fill(dataTable);
-                            SqlCommand comm2 = new SqlCommand("Select Room_No,Seat,Reg_no from University_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
+                            con.CloseCon();
+                            OleDbCommand comm2 = new OleDbCommand("Select Room_No,Seat,Reg_no from University_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
                             comm2.Parameters.AddWithValue("@Room_No", toroom);
-                            SqlDataAdapter adapter2 = new SqlDataAdapter(comm2);
+                            OleDbDataAdapter adapter2 = new OleDbDataAdapter(comm2);
                             DataTable dataTable2 = new DataTable();
                             adapter2.Fill(dataTable2);
+                            con.CloseCon();
                             int f = 0;
                             for (int i = fromstartint; i <= fromendint; i++)
                             {
@@ -1374,34 +1443,38 @@ namespace Exam_Cell
                             }
                             foreach (DataRow dataRow in dataTable.Rows)
                             {
-                                SqlCommand comm3 = new SqlCommand("update University_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
+                                OleDbCommand comm3 = new OleDbCommand("update University_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
                                 comm3.Parameters.AddWithValue("@Room_No", dataRow["Room_No"]);
                                 comm3.Parameters.AddWithValue("@Seat", dataRow["Seat"]);
                                 comm3.Parameters.AddWithValue("@Reg_no", dataRow["Reg_no"]);
                                 comm3.ExecuteNonQuery();
+                                con.CloseCon();
                             }
                             foreach (DataRow dataRow in dataTable2.Rows)
                             {
-                                SqlCommand comm3 = new SqlCommand("update University_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
+                                OleDbCommand comm3 = new OleDbCommand("update University_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
                                 comm3.Parameters.AddWithValue("@Room_No", dataRow["Room_No"]);
                                 comm3.Parameters.AddWithValue("@Seat", dataRow["Seat"]);
                                 comm3.Parameters.AddWithValue("@Reg_no", dataRow["Reg_no"]);
                                 comm3.ExecuteNonQuery();
+                                con.CloseCon();
                             }
                             msgbox.show("Swap Completed", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                         }
                         else if (Series_radio.Checked)
                         {
-                            SqlCommand comm = new SqlCommand("Select Room_No,Seat,Reg_no from Series_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
+                            OleDbCommand comm = new OleDbCommand("Select Room_No,Seat,Reg_no from Series_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
                             comm.Parameters.AddWithValue("@Room_No", fromroom);
-                            SqlDataAdapter adapter = new SqlDataAdapter(comm);
+                            OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
                             DataTable dataTable = new DataTable();
                             adapter.Fill(dataTable);
-                            SqlCommand comm2 = new SqlCommand("Select Room_No,Seat,Reg_no from Series_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
+                            con.CloseCon();
+                            OleDbCommand comm2 = new OleDbCommand("Select Room_No,Seat,Reg_no from Series_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
                             comm2.Parameters.AddWithValue("@Room_No", toroom);
-                            SqlDataAdapter adapter2 = new SqlDataAdapter(comm2);
+                            OleDbDataAdapter adapter2 = new OleDbDataAdapter(comm2);
                             DataTable dataTable2 = new DataTable();
                             adapter2.Fill(dataTable2);
+                            con.CloseCon();
                             int f = 0;
                             for (int i = fromstartint; i <= fromendint; i++)
                             {
@@ -1434,19 +1507,21 @@ namespace Exam_Cell
                             }
                             foreach (DataRow dataRow in dataTable.Rows)
                             {
-                                SqlCommand comm3 = new SqlCommand("update Series_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
+                                OleDbCommand comm3 = new OleDbCommand("update Series_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
                                 comm3.Parameters.AddWithValue("@Room_No", dataRow["Room_No"]);
                                 comm3.Parameters.AddWithValue("@Seat", dataRow["Seat"]);
                                 comm3.Parameters.AddWithValue("@Reg_no", dataRow["Reg_no"]);
                                 comm3.ExecuteNonQuery();
+                                con.CloseCon();
                             }
                             foreach (DataRow dataRow in dataTable2.Rows)
                             {
-                                SqlCommand comm3 = new SqlCommand("update Series_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
+                                OleDbCommand comm3 = new OleDbCommand("update Series_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
                                 comm3.Parameters.AddWithValue("@Room_No", dataRow["Room_No"]);
                                 comm3.Parameters.AddWithValue("@Seat", dataRow["Seat"]);
                                 comm3.Parameters.AddWithValue("@Reg_no", dataRow["Reg_no"]);
                                 comm3.ExecuteNonQuery();
+                                con.CloseCon();
                             }
                             msgbox.show("Swap Completed", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                         }

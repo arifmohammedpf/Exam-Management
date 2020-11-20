@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.OleDb;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -81,11 +81,12 @@ namespace Exam_Cell
 
         void AssignClass_fill()
         {
-            SqlCommand sc = new SqlCommand("Select Class,Semester from Management where (Class is not null) and (Semester is not null)", con.ActiveCon());
-            SqlDataAdapter adapter = new SqlDataAdapter(sc);
+            try
+            {
+            OleDbCommand sc = new OleDbCommand("Select Class,Semester from Management where (Class is not null) and (Semester is not null)", con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
-            
             DataTable dt2 = new DataTable();
             dt2.Columns.Add("Combo", typeof(string)); // in datatable, a column should be created before adding rows
             DataRow top = dt2.NewRow();
@@ -95,6 +96,15 @@ namespace Exam_Cell
                 dt2.Rows.Add(dr["Class"].ToString() + "  S" + dr["Semester"].ToString());
             AssignClass_combobox.ValueMember = "Combo";  //column name is given to get values to show in combobox
             AssignClass_combobox.DataSource = dt2;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
         private void AssignClass_btn_Click(object sender, EventArgs e)
         {
@@ -106,12 +116,23 @@ namespace Exam_Cell
                     bool checkselected = Convert.ToBoolean(dr.Cells["CheckboxColumn2"].Value);
                     if (checkselected)
                     {
+                        try
+                        {
                         f = 1;
-                        SqlCommand command = new SqlCommand("insert into Class(Reg_No,Name,Class)Values(" + "@Reg_No,@Name,@Class )", con.ActiveCon());
+                        OleDbCommand command = new OleDbCommand("insert into Class(Reg_No,Name,Class)Values(" + "@Reg_No,@Name,@Class )", con.ActiveCon());
                         command.Parameters.AddWithValue("@Reg_No", dr.Cells["Reg_no"].Value.ToString());
                         command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value.ToString());
                         command.Parameters.AddWithValue("@Class", AssignClass_combobox.Text);
                         command.ExecuteNonQuery();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.ToString());
+                        }
+                        finally
+                        {
+                            con.CloseCon();
+                        }
                     }
                 }
                 if (f == 1)
@@ -142,7 +163,9 @@ namespace Exam_Cell
         {
             if (Branch_combobox.SelectedIndex != 0 && Regno_textbox.Text != "" && Name_textbox.Text != "" && YOA_textbox.Text != "")
             {
-                SqlCommand command = new SqlCommand("insert into Students(Reg_no,Name,Year_Of_Admission,Branch)Values(" + "@Reg_no,@Name,@Year_Of_Admission,@Branch)", con.ActiveCon());
+                try
+                {
+                OleDbCommand command = new OleDbCommand("insert into Students(Reg_no,Name,Year_Of_Admission,Branch)Values(" + "@Reg_no,@Name,@Year_Of_Admission,@Branch)", con.ActiveCon());
                 command.Parameters.AddWithValue("@Reg_no", Regno_textbox.Text);
                 command.Parameters.AddWithValue("@Name", Name_textbox.Text);
                 command.Parameters.AddWithValue("@Year_Of_Admission", YOA_textbox.Text);
@@ -151,6 +174,15 @@ namespace Exam_Cell
                 YearOfAdmissionFill();
                 ClearAllStudent_Management();
                 Student_dgvFill();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    con.CloseCon();
+                }
             }
             else
             {
@@ -185,25 +217,47 @@ namespace Exam_Cell
         BindingSource ClassView_Source = new BindingSource();
         void Student_dgvFill()
         {
+            try
+            {
             headerchkbox.Checked = false;
-            SqlCommand command = new SqlCommand("select * from Students order by Year_Of_Admission desc,Branch", con.ActiveCon());
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            OleDbCommand command = new OleDbCommand("select * from Students order by Year_Of_Admission desc,Branch", con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(command);
             DataTable table_Students = new DataTable();
             adapter.Fill(table_Students);
             Student_Source.DataSource = null;
             Student_Source.DataSource = table_Students;
             Student_dgv.DataSource = Student_Source;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
         void Class_StudentsFill()
         {
+            try
+            {
             headerchkbox.Checked = false;
-            SqlCommand command = new SqlCommand("select * from Class order by Class desc", con.ActiveCon());
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            OleDbCommand command = new OleDbCommand("select * from Class order by Class desc", con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(command);
             DataTable table_Students = new DataTable();
             adapter.Fill(table_Students);
             ClassView_Source.DataSource = null;
             ClassView_Source.DataSource = table_Students;
             Student_dgv.DataSource = ClassView_Source;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
 
         private void Delete_btn_Click(object sender, EventArgs e)
@@ -222,12 +276,23 @@ namespace Exam_Cell
                             bool Selected = Convert.ToBoolean(dr.Cells["CheckboxColumn2"].Value);
                             if (Selected)
                             {
+                                try
+                                {
                                 f = 1;
-                                SqlCommand command = new SqlCommand("Delete Class Where Class=@Class and Name=@Name and Reg_No=@Reg_No", con.ActiveCon());
+                                OleDbCommand command = new OleDbCommand("Delete Class Where Class=@Class and Name=@Name and Reg_No=@Reg_No", con.ActiveCon());
                                 command.Parameters.AddWithValue("@Class", dr.Cells["Class"].Value);
                                 command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value);
                                 command.Parameters.AddWithValue("@Reg_No", dr.Cells["Reg_No"].Value);
                                 command.ExecuteNonQuery();
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show(ex.ToString());
+                                }
+                                finally
+                                {
+                                    con.CloseCon();
+                                }
                             }
                         }
                         if (f == 1)
@@ -249,17 +314,28 @@ namespace Exam_Cell
                             bool Selected = Convert.ToBoolean(dr.Cells["CheckboxColumn2"].Value);
                             if (Selected)
                             {
+                                try
+                                {
                                 f = 1;
-                                SqlCommand command = new SqlCommand("delete Students where Reg_no=@Reg_no and Name=@Name and Year_Of_Admission=@Year_Of_Admission and Branch=@Branch", con.ActiveCon());
+                                OleDbCommand command = new OleDbCommand("delete Students where Reg_no=@Reg_no and Name=@Name and Year_Of_Admission=@Year_Of_Admission and Branch=@Branch", con.ActiveCon());
                                 command.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value.ToString());
                                 command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value.ToString());
                                 command.Parameters.AddWithValue("@Year_Of_Admission", dr.Cells["Year_Of_Admission"].Value.ToString());
                                 command.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value.ToString());
                                 command.ExecuteNonQuery();
                                 //will also delete from Class
-                                SqlCommand command2 = new SqlCommand("Delete Class where Reg_No=@Reg_no", con.ActiveCon());
+                                OleDbCommand command2 = new OleDbCommand("Delete Class where Reg_No=@Reg_no", con.ActiveCon());
                                 command2.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
                                 command2.ExecuteNonQuery();
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show(ex.ToString());
+                                }
+                                finally
+                                {
+                                    con.CloseCon();
+                                }
                             }
                         }
                         if (f == 1)
@@ -320,14 +396,13 @@ namespace Exam_Cell
             var result = msgbox.ReturnValue;
             if (result == "Yes")
             {
-                SqlCommand sc = new SqlCommand("Select Class,Semester from Management where (Class is not null) and (Semester is not null)", con.ActiveCon());
-                SqlDataReader reader;
-                reader = sc.ExecuteReader();
+                try
+                {
+                OleDbCommand sc = new OleDbCommand("Select Class,Semester from Management where (Class is not null) and (Semester is not null)", con.ActiveCon());
+                OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
                 DataTable dt = new DataTable();
-                dt.Columns.Add("Class", typeof(string));
-                dt.Columns.Add("Semester", typeof(string));
-                dt.Load(reader);
-
+                adapter.Fill(dt);
+          
                 foreach (DataRow dr in dt.Rows)
                 {
                     string checksem = dr["Class"].ToString() + "  S" + dr["Semester"].ToString();
@@ -335,17 +410,25 @@ namespace Exam_Cell
                     bool res = int.TryParse(sem, out int newsem);
                     newsem++;
                     newclass = dr["Class"].ToString() + "  S" + newsem;
-                    SqlCommand command2 = new SqlCommand("update Class set Class=@Class where Class=@OldClass", con.ActiveCon());
+                    OleDbCommand command2 = new OleDbCommand("update Class set Class=@Class where Class=@OldClass", con.ActiveCon());
                     command2.Parameters.AddWithValue("@OldClass", checksem);
                     command2.Parameters.AddWithValue("@Class", newclass);
-                    command2.ExecuteNonQuery();
+                    command2.ExecuteNonQuery();                    
                 }
-
-                SqlCommand command3 = new SqlCommand("update Management set Semester= Semester + 1", con.ActiveCon());
+                OleDbCommand command3 = new OleDbCommand("update Management set Semester= Semester + 1", con.ActiveCon());
                 command3.ExecuteNonQuery();
                 AssignClass_fill();
                 Class_StudentsFill();
                 msgbox.show("Upgrade Done", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    con.CloseCon();
+                }
             }
         }
 
@@ -355,14 +438,13 @@ namespace Exam_Cell
             var result = msgbox.ReturnValue;
             if (result == "Yes")
             {
-                SqlCommand sc = new SqlCommand("Select Class,Semester from Management where (Class is not null) and (Semester is not null)", con.ActiveCon());
-                SqlDataReader reader;
-                reader = sc.ExecuteReader();
+                try
+                {
+                OleDbCommand sc = new OleDbCommand("Select Class,Semester from Management where (Class is not null) and (Semester is not null)", con.ActiveCon());
+                OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
                 DataTable dt = new DataTable();
-                dt.Columns.Add("Class", typeof(string));
-                dt.Columns.Add("Semester", typeof(string));
-                dt.Load(reader);
-
+                adapter.Fill(dt);
+                
                 foreach (DataRow dr in dt.Rows)
                 {
                     string checksem = dr["Class"].ToString() + "  S" + dr["Semester"].ToString();
@@ -370,23 +452,34 @@ namespace Exam_Cell
                     bool res = int.TryParse(sem, out int newsem);
                     newsem--;
                     newclass = dr["Class"].ToString() + "  S" + newsem;
-                    SqlCommand command2 = new SqlCommand("update Class set Class=@Class where Class=@OldClass", con.ActiveCon());
+                    OleDbCommand command2 = new OleDbCommand("update Class set Class=@Class where Class=@OldClass", con.ActiveCon());
                     command2.Parameters.AddWithValue("@OldClass", checksem);
                     command2.Parameters.AddWithValue("@Class", newclass);
                     command2.ExecuteNonQuery();
                 }
 
-                SqlCommand command = new SqlCommand("update Management set Semester= Semester - 1", con.ActiveCon());
+                OleDbCommand command = new OleDbCommand("update Management set Semester= Semester - 1", con.ActiveCon());
                 command.ExecuteNonQuery();
                 AssignClass_fill();
                 Class_StudentsFill();
                 msgbox.show("Degrade Done", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    con.CloseCon();
+                }
             }
         }
         void StudentBranchComboboxFill()
         {
-            SqlCommand sc = new SqlCommand("Select Branch from Management where Branch is not null", con.ActiveCon());
-            SqlDataAdapter adapter = new SqlDataAdapter(sc);
+            try
+            {
+            OleDbCommand sc = new OleDbCommand("Select Branch from Management where Branch is not null", con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             DataRow top = dt.NewRow();
@@ -395,11 +488,22 @@ namespace Exam_Cell
 
             Branch_combobox.ValueMember = "Branch";
             Branch_combobox.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
         void ClassBranchComboboxFill()
         {
-            SqlCommand sc = new SqlCommand("Select Branch from Management where Branch is not null", con.ActiveCon());
-            SqlDataAdapter adapter = new SqlDataAdapter(sc);
+            try
+            {
+            OleDbCommand sc = new OleDbCommand("Select Branch from Management where Branch is not null", con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             DataRow top = dt.NewRow();
@@ -408,11 +512,22 @@ namespace Exam_Cell
 
             AssignClassBranch_combobox.ValueMember = "Branch";
             AssignClassBranch_combobox.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
         void YearOfAdmissionFill()
         {
-            SqlCommand sc = new SqlCommand("Select distinct Year_Of_Admission from Students", con.ActiveCon());
-            SqlDataAdapter adapter = new SqlDataAdapter(sc);
+            try
+            {
+            OleDbCommand sc = new OleDbCommand("Select distinct Year_Of_Admission from Students", con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             DataRow top = dt.NewRow();
@@ -421,6 +536,15 @@ namespace Exam_Cell
 
             AssignClassYOA_combobox.ValueMember = "Year_Of_Admission";
             AssignClassYOA_combobox.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
 
         private void AssignClass_combobox_SelectedIndexChanged(object sender, EventArgs e)
@@ -531,14 +655,24 @@ namespace Exam_Cell
                 bool checkselected = Convert.ToBoolean(dr.Cells["CheckboxColumn2"].Value);
                 if (checkselected)
                 {
+                    try
+                    {
                     f = 1;
-                    SqlCommand command = new SqlCommand("insert into Students(Reg_no,Name,Year_Of_Admission,Branch)Values(" + "@Reg_no,@Name,@Year_Of_Admission,@Branch)", con.ActiveCon());
+                    OleDbCommand command = new OleDbCommand("insert into Students(Reg_no,Name,Year_Of_Admission,Branch)Values(" + "@Reg_no,@Name,@Year_Of_Admission,@Branch)", con.ActiveCon());
                     command.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
                     command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value);
                     command.Parameters.AddWithValue("@Year_Of_Admission", dr.Cells["Year_Of_Admission"].Value);
                     command.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value);
                     command.ExecuteNonQuery();
-
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                    finally
+                    {
+                        con.CloseCon();
+                    }
                 }
             }
             if (f == 1)

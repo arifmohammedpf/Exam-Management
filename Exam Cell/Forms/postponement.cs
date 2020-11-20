@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -31,14 +31,25 @@ namespace Exam_Cell
         BindingSource source = new BindingSource();
         void ScheduledExamFill()
         {
+            try
+            {
             headerchkbox.Checked = false;
-            SqlCommand command = new SqlCommand("select * from Timetable order by Date,Session", con.ActiveCon());
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            OleDbCommand command = new OleDbCommand("select * from Timetable order by Date,Session", con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(command);
             DataTable table_Time = new DataTable();
             adapter.Fill(table_Time);
             source.DataSource = null;
             source.DataSource = table_Time;
             ScheduledExam_dgv.DataSource = source;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
         CheckBox headerchkbox = new CheckBox();
         private void postponement_Load(object sender, EventArgs e)
@@ -97,36 +108,54 @@ namespace Exam_Cell
 
         void BranchComboboxFill()
         {
+            try
+            {
             string command = string.Format("Select Distinct Branch from Scheme");
-            SqlCommand sc = new SqlCommand(command, con.ActiveCon());
-            SqlDataReader reader;
-            reader = sc.ExecuteReader();
+            OleDbCommand sc = new OleDbCommand(command, con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
             DataTable dt = new DataTable();
-            dt.Columns.Add("Branch", typeof(string));
+            adapter.Fill(dt);            
             DataRow top = dt.NewRow();
             top[0] = "-Select-";
             dt.Rows.InsertAt(top, 0);
-            dt.Load(reader);
             Branch_combobox.DisplayMember = "Branch";
             Branch_combobox.ValueMember = "Branch";
             Branch_combobox.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
 
         void SemesterComboboxFill()
         {
+            try
+            {
             string command = string.Format("Select Distinct Semester from Scheme");
-            SqlCommand sc = new SqlCommand(command, con.ActiveCon());
-            SqlDataReader reader;
-            reader = sc.ExecuteReader();
+            OleDbCommand sc = new OleDbCommand(command, con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
             DataTable dt = new DataTable();
-            dt.Columns.Add("Semester", typeof(string));
+            adapter.Fill(dt);            
             DataRow top = dt.NewRow();
             top[0] = "-Select-";
             dt.Rows.InsertAt(top, 0);
-            dt.Load(reader);
             Semester_combobox.DisplayMember = "Semester";
             Semester_combobox.ValueMember = "Semester";
             Semester_combobox.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
         private void Postpone_button_Click(object sender, EventArgs e)
         {
@@ -147,6 +176,8 @@ namespace Exam_Cell
 
         void Postpone_with_session()
         {            
+            try
+            {
             int flag = 0;
             foreach (DataGridViewRow dr in ScheduledExam_dgv.Rows)
             {
@@ -155,7 +186,7 @@ namespace Exam_Cell
                 {
                     flag = 1;
                     string date = NewDateTimePicker.Text;
-                    SqlCommand comm = new SqlCommand("Update Timetable set Date=@Date,Session=@Session where Exam_Code=@Examcode and Branch=@Branch", con.ActiveCon());
+                    OleDbCommand comm = new OleDbCommand("Update Timetable set Date=@Date,Session=@Session where Exam_Code=@Examcode and Branch=@Branch", con.ActiveCon());
                     comm.Parameters.AddWithValue("@Date", date);
                     comm.Parameters.AddWithValue("@Session", NewSession_combobox.SelectedItem);
                     comm.Parameters.AddWithValue("@Examcode", dr.Cells["Exam_Code"].Value);
@@ -170,10 +201,21 @@ namespace Exam_Cell
                 msgbox.show("Exam Postponed", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
             }
             else { msgbox.show("Please Select Exam to be postponed", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error); }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
 
         void Postpone_without_session()
         {
+            try
+            {
             int flag = 0;
             foreach (DataGridViewRow dr in ScheduledExam_dgv.Rows)
             {
@@ -182,7 +224,7 @@ namespace Exam_Cell
                 {
                     flag = 1;
                     string date = NewDateTimePicker.Text;
-                    SqlCommand comm = new SqlCommand("Update Timetable set Date=@Date where Exam_Code=@Examcode and Branch=@Branch", con.ActiveCon());
+                    OleDbCommand comm = new OleDbCommand("Update Timetable set Date=@Date where Exam_Code=@Examcode and Branch=@Branch", con.ActiveCon());
                     comm.Parameters.AddWithValue("@Date", date);
                     comm.Parameters.AddWithValue("@Examcode", dr.Cells["Exam_Code"].Value);
                     comm.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value);
@@ -196,6 +238,15 @@ namespace Exam_Cell
                 msgbox.show("Exam Postponed", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
             }
             else { msgbox.show("Please Select Exam to be postponed", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error); }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
 
         private void Clear_button_Click(object sender, EventArgs e)

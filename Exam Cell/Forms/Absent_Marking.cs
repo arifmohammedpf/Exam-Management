@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -41,8 +41,10 @@ namespace Exam_Cell
 
         void DateComboboxFill()
         {
-            SqlCommand comm = new SqlCommand("select distinct Date from Timetable order by Date", con.ActiveCon());
-            SqlDataAdapter adapter = new SqlDataAdapter(comm);
+            try
+            {
+            OleDbCommand comm = new OleDbCommand("select distinct Date from Timetable order by Date", con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
             DataTable table = new DataTable();
             adapter.Fill(table);
             //for -select-
@@ -53,13 +55,24 @@ namespace Exam_Cell
             Date_combobox.DisplayMember = "Date";
             Date_combobox.ValueMember = "Date";
             Date_combobox.DataSource = table;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
 
         }
         
         void RoomNoComboboxFill()
         {
-            SqlCommand comm = new SqlCommand("select Room_No from Rooms order by Room_No", con.ActiveCon());
-            SqlDataAdapter adapter = new SqlDataAdapter(comm);
+            try
+            {
+            OleDbCommand comm = new OleDbCommand("select Room_No from Rooms order by Room_No", con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
             DataTable table = new DataTable();
             adapter.Fill(table);
             //for -select-
@@ -70,17 +83,28 @@ namespace Exam_Cell
             Room_combobox.DisplayMember = "Room_No";
             Room_combobox.ValueMember = "Room_No";
             Room_combobox.DataSource = table;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
         
         private void Search_btn_Click(object sender, EventArgs e)
         {
+            try
+            {
             if(Series_radio.Checked)
             {
-                SqlCommand command = new SqlCommand("select Seat,Reg_no,Name,Class,Course,Exam_Code from Series_Alloted Where Date=@Date and Session=@Session and Room_No=@Room_No order by Seat", con.ActiveCon());
+                OleDbCommand command = new OleDbCommand("select Seat,Reg_no,Name,Class,Course,Exam_Code from Series_Alloted Where Date=@Date and Session=@Session and Room_No=@Room_No order by Seat", con.ActiveCon());
                 command.Parameters.AddWithValue("@Date", Date_combobox.Text);
                 command.Parameters.AddWithValue("@Session", Session_combobox.Text);
                 command.Parameters.AddWithValue("@Room_No", Room_combobox.Text);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                OleDbDataAdapter adapter = new OleDbDataAdapter(command);
                 DataTable table = new DataTable();
                 adapter.Fill(table);                
                 table.Columns.Add("Status", typeof(string)).SetOrdinal(3);
@@ -93,11 +117,11 @@ namespace Exam_Cell
             }
             else if(Unv_radio.Checked)
             {
-                SqlCommand comm = new SqlCommand("select Seat,Reg_no,Name,Branch,Exam_Code,Course from University_Alloted Where Date=@Date and Session=@Session and Room_No=@Room_No order by Seat", con.ActiveCon());
+                OleDbCommand comm = new OleDbCommand("select Seat,Reg_no,Name,Branch,Exam_Code,Course from University_Alloted Where Date=@Date and Session=@Session and Room_No=@Room_No order by Seat", con.ActiveCon());
                 comm.Parameters.AddWithValue("@Date", Date_combobox.Text);
                 comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
                 comm.Parameters.AddWithValue("@Room_No", Room_combobox.Text);
-                SqlDataAdapter adapter = new SqlDataAdapter(comm);
+                OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
                 DataTable table = new DataTable();
                 adapter.Fill(table);
                 table.Columns.Add("Status", typeof(string)).SetOrdinal(3);
@@ -107,6 +131,15 @@ namespace Exam_Cell
                 }                
                 Dgv.DataSource = null;
                 Dgv.DataSource = table;
+            }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
             }
         }
 
@@ -130,9 +163,11 @@ namespace Exam_Cell
 
         private void Absentees_btn_Click(object sender, EventArgs e)
         {
+            try
+            {
             if (Dgv.Rows.Count != 0)
             {                
-                SqlCommand command = new SqlCommand("Select Count(*) from Absentees where Date=@Date and Session=@Session and Room_No=@Room_No ", con.ActiveCon());
+                OleDbCommand command = new OleDbCommand("Select Count(*) from Absentees where Date=@Date and Session=@Session and Room_No=@Room_No ", con.ActiveCon());
                 command.Parameters.AddWithValue("@Date", Date_combobox.Text);
                 command.Parameters.AddWithValue("@Session", Session_combobox.Text);
                 command.Parameters.AddWithValue("@Room_No", Room_combobox.Text);
@@ -141,7 +176,7 @@ namespace Exam_Cell
                 {
                     foreach (DataGridViewRow row in Dgv.Rows)
                     {
-                        SqlCommand comm = new SqlCommand("insert into Absentees(Reg_no,Name,Status,Branch,Exam_Code,Course,Date,Session,Room_No)Values(" + " @Reg_no,@Name,@Status,@Branch,@Exam_Code,@Course,@Date,@Session,@Room_No)", con.ActiveCon());
+                        OleDbCommand comm = new OleDbCommand("insert into Absentees(Reg_no,Name,Status,Branch,Exam_Code,Course,Date,Session,Room_No)Values(" + " @Reg_no,@Name,@Status,@Branch,@Exam_Code,@Course,@Date,@Session,@Room_No)", con.ActiveCon());
                             comm.Parameters.AddWithValue("@Reg_no", row.Cells["Reg_no"].Value);
                             comm.Parameters.AddWithValue("@Name", row.Cells["Name"].Value);
                             comm.Parameters.AddWithValue("@Status", row.Cells["Status"].Value);
@@ -162,7 +197,7 @@ namespace Exam_Cell
                 {
                     foreach(DataGridViewRow row in Dgv.Rows)
                     {
-                        SqlCommand comm = new SqlCommand("update Absentees Set Status=@Status where Reg_no=@Reg_no and Name=@Name and Date=@Date and Session=@Session and Room_No=@Room_No", con.ActiveCon());
+                        OleDbCommand comm = new OleDbCommand("update Absentees Set Status=@Status where Reg_no=@Reg_no and Name=@Name and Date=@Date and Session=@Session and Room_No=@Room_No", con.ActiveCon());
                         comm.Parameters.AddWithValue("@Reg_no", row.Cells["Reg_no"].Value);
                         comm.Parameters.AddWithValue("@Name", row.Cells["Name"].Value);
                         comm.Parameters.AddWithValue("@Status", row.Cells["Status"].Value);                        
@@ -176,6 +211,15 @@ namespace Exam_Cell
             }
             else
                 msgbox.show("Nothing to Save", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
 
         //private void Statement_form_btn_Click(object sender, EventArgs e)
@@ -192,11 +236,22 @@ namespace Exam_Cell
         {
             msgbox.show("Delete all previously entered data ? ", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Warning);
             var result = msgbox.ReturnValue;
+            try
+            {
             if (result=="Yes")
             {
-                SqlCommand command = new SqlCommand("Delete Absentees", con.ActiveCon());
+                OleDbCommand command = new OleDbCommand("Delete Absentees", con.ActiveCon());
                 command.ExecuteNonQuery();
                 msgbox.show("Data Cleared", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+            }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
             }
 
         }

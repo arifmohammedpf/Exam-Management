@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -23,12 +23,23 @@ namespace Exam_Cell
 
         void RoomsdgvFill()
         {
+            try
+            {
             headerchkbox.Checked = false;
-            SqlCommand command = new SqlCommand("select * from Rooms order by Priority", con.ActiveCon());
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            OleDbCommand command = new OleDbCommand("select * from Rooms order by Priority", con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(command);
             DataTable table_scheme = new DataTable();
             adapter.Fill(table_scheme);
             Rooms_dgv.DataSource = table_scheme;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
         CheckBox headerchkbox = new CheckBox();
         private void examhall_Load(object sender, EventArgs e)
@@ -138,9 +149,11 @@ namespace Exam_Cell
 
         void SqlInsertCommand()
         {
+            try
+            {
             if (int.TryParse(A_series_textbox.Text, out int a) && int.TryParse(B_series_textbox.Text, out int b))
             {
-                SqlCommand comm = new SqlCommand("Insert into Rooms(Room_No,Priority,A_Series,B_Series)Values(" + "@RoomNo,@Priority,@A_series,@B_series)", con.ActiveCon());
+                OleDbCommand comm = new OleDbCommand("Insert into Rooms(Room_No,Priority,A_Series,B_Series)Values(" + "@RoomNo,@Priority,@A_series,@B_series)", con.ActiveCon());
                 comm.Parameters.AddWithValue("@RoomNo", RoomNo_textbox.Text);
                 comm.Parameters.AddWithValue("@Priority", Priority_combobox.SelectedItem);
                 comm.Parameters.AddWithValue("@A_series", a);
@@ -153,14 +166,24 @@ namespace Exam_Cell
             {
                 msgbox.show("A & B Series must be Numbers","Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error); 
             }
-            
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
 
         void SqlUpdateCommand()
         {
+            try
+            {
             if (int.TryParse(A_series_textbox.Text, out int a) && int.TryParse(B_series_textbox.Text, out int b))
             {
-                SqlCommand comm = new SqlCommand("Update Rooms set Priority=@Priority,A_Series=@A_series,B_Series=@B_series where Room_No=@RoomNo", con.ActiveCon());
+                OleDbCommand comm = new OleDbCommand("Update Rooms set Priority=@Priority,A_Series=@A_series,B_Series=@B_series where Room_No=@RoomNo", con.ActiveCon());
                 comm.Parameters.AddWithValue("@RoomNo", RoomNo_textbox.Text);
                 comm.Parameters.AddWithValue("@Priority", Priority_combobox.SelectedItem);
                 comm.Parameters.AddWithValue("@A_series", a);
@@ -173,7 +196,15 @@ namespace Exam_Cell
             {
                 msgbox.show("A & B Series must be Numbers", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
-            
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
 
         void Cleardata()
@@ -244,6 +275,8 @@ namespace Exam_Cell
        
         private void UpdatePriority_button_Click(object sender, EventArgs e)
         {
+            try
+            {
             int f = 0;
             if(Priority_combobox.SelectedIndex != 0 )
             {
@@ -253,7 +286,7 @@ namespace Exam_Cell
                     if (chckselect)
                     {
                         f = 1;
-                        SqlCommand comm = new SqlCommand("Update Rooms set Priority=@Priority where Room_No=@Room_No", con.ActiveCon());
+                        OleDbCommand comm = new OleDbCommand("Update Rooms set Priority=@Priority where Room_No=@Room_No", con.ActiveCon());
                         comm.Parameters.AddWithValue("@Room_No", dr.Cells["Room_No"].Value);
                         comm.Parameters.AddWithValue("@Priority", Priority_combobox.SelectedItem);
                         comm.ExecuteNonQuery();                        
@@ -267,7 +300,15 @@ namespace Exam_Cell
             }
             else
                 msgbox.show("Select A Priority", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
-
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
 
         // auto fill boxes

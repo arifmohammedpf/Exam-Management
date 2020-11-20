@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using System.Data.OleDb;
 using Exam_Cell.Forms;
 
 namespace Exam_Cell
@@ -31,24 +31,46 @@ namespace Exam_Cell
         void TimetableFill()
         {
             headerchkbox.Checked = false;
-            SqlCommand command = new SqlCommand("select * from Timetable order by Date,Session", con.ActiveCon());
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
-            DataTable table_Time = new DataTable();
-            adapter.Fill(table_Time);
-            source.DataSource = null;
-            source.DataSource = table_Time;
-            Timetableview_dgv.DataSource = source;
+            try
+            {
+                OleDbCommand command = new OleDbCommand("select * from Timetable order by Date,Session", con.ActiveCon());
+                OleDbDataAdapter adapter = new OleDbDataAdapter(command);
+                DataTable table_Time = new DataTable();
+                adapter.Fill(table_Time);
+                source.DataSource = null;
+                source.DataSource = table_Time;
+                Timetableview_dgv.DataSource = source;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
         void CourseFill()
         {
             headerchkbox.Checked = false;
-            SqlCommand command = new SqlCommand("select * from Scheme order by Branch,Semester", con.ActiveCon());
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            try
+            {
+            OleDbCommand command = new OleDbCommand("select * from Scheme order by Branch,Semester", con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(command);
             DataTable table_course = new DataTable();
             adapter.Fill(table_course);
             source2.DataSource = null;
             source2.DataSource = table_course;
             Course_Select_dgv.DataSource = source2;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
         CheckBox headerchkbox = new CheckBox();
         private void formtimetable_Load(object sender, EventArgs e)
@@ -120,9 +142,11 @@ namespace Exam_Cell
         }
         void BranchComboboxFill()
         {
+            try
+            {
             string command = string.Format("Select Distinct Branch from Scheme");
-            SqlCommand sc = new SqlCommand(command, con.ActiveCon());
-            SqlDataAdapter adapter = new SqlDataAdapter(sc);
+            OleDbCommand sc = new OleDbCommand(command, con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             DataRow top = dt.NewRow();
@@ -131,12 +155,23 @@ namespace Exam_Cell
             Branch_combobox.DisplayMember = "Branch";
             Branch_combobox.ValueMember = "Branch";
             Branch_combobox.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
         void SemesterComboboxFill()
         {
+            try
+            {
             string command = string.Format("Select Distinct Semester from Scheme");
-            SqlCommand sc = new SqlCommand(command, con.ActiveCon());
-            SqlDataAdapter adapter = new SqlDataAdapter(sc);
+            OleDbCommand sc = new OleDbCommand(command, con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             DataRow top = dt.NewRow();
@@ -145,6 +180,15 @@ namespace Exam_Cell
             Semester_combobox.DisplayMember = "Semester";
             Semester_combobox.ValueMember = "Semester";
             Semester_combobox.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
 
 
@@ -166,7 +210,7 @@ namespace Exam_Cell
                             if (checkboxselect)
                             {
                                 flag = 1;
-                                SqlCommand comm = new SqlCommand("Insert into Timetable(Date,Session,Exam_Code,Course,Semester,Branch)Values(" + "@Date,@Session,@Exam_Code,@Course,@Semester,@Branch)", con.ActiveCon());
+                                OleDbCommand comm = new OleDbCommand("Insert into Timetable(Date,Session,Exam_Code,Course,Semester,Branch)Values(" + "@Date,@Session,@Exam_Code,@Course,@Semester,@Branch)", con.ActiveCon());
                                 comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
                                 comm.Parameters.AddWithValue("@Session", Session_combobox.SelectedItem.ToString());
                                 comm.Parameters.AddWithValue("@Exam_Code", dr.Cells["Sub_Code"].Value);
@@ -174,6 +218,7 @@ namespace Exam_Cell
                                 comm.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value);
                                 comm.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value);
                                 comm.ExecuteNonQuery();
+                                con.CloseCon();
                             }
                         }
                         if (flag == 1)
@@ -190,9 +235,9 @@ namespace Exam_Cell
                     else msgbox.show("Select Session", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
 
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    msgbox.show("Try Again", "Exception Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                    msgbox.show(ex.ToString(), "Exception Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                     Session_combobox.SelectedIndex = 0;
                     //Course_Select_dgv.Update();
                     //Course_Select_dgv.Refresh();
@@ -294,9 +339,11 @@ namespace Exam_Cell
         }
         void SheduledBranchComboboxFill()
         {
+            try
+            {
             string command = string.Format("Select Distinct Branch from Scheme");
-            SqlCommand sc = new SqlCommand(command, con.ActiveCon());
-            SqlDataAdapter adapter = new SqlDataAdapter(sc);
+            OleDbCommand sc = new OleDbCommand(command, con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             DataRow top = dt.NewRow();
@@ -305,13 +352,24 @@ namespace Exam_Cell
             SheduledBranch.DisplayMember = "Branch";
             SheduledBranch.ValueMember = "Branch";
             SheduledBranch.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
 
         void DateComboboxFill()
         {
+            try
+            {
             string command = string.Format("Select Date from Timetable");
-            SqlCommand sc = new SqlCommand(command, con.ActiveCon());
-            SqlDataAdapter adapter = new SqlDataAdapter(sc);
+            OleDbCommand sc = new OleDbCommand(command, con.ActiveCon());
+            OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             DataRow top = dt.NewRow();
@@ -320,6 +378,15 @@ namespace Exam_Cell
             Datepick_box.DisplayMember = "Date";
             Datepick_box.ValueMember = "Date";
             Datepick_box.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
         }
 
         private void Datepick_box_SelectedIndexChanged(object sender, EventArgs e)
@@ -367,13 +434,24 @@ namespace Exam_Cell
                     count = Undo_backup.session.Count;
                     for (i = 0; i < count; i++)
                     {
-                        SqlCommand comm = new SqlCommand("Delete from Timetable where Date=@Date and Session=@Session and Exam_Code=@Exam_Code and Semester=@Semester and Branch=@Branch", con.ActiveCon());
+                        try
+                        {
+                        OleDbCommand comm = new OleDbCommand("Delete from Timetable where Date=@Date and Session=@Session and Exam_Code=@Exam_Code and Semester=@Semester and Branch=@Branch", con.ActiveCon());
                         comm.Parameters.AddWithValue("@Date", Undo_backup.date[i]);
                         comm.Parameters.AddWithValue("@Session", Undo_backup.session[i]);
                         comm.Parameters.AddWithValue("@Exam_Code", Undo_backup.examcode[i]);
                         comm.Parameters.AddWithValue("@Semester", Undo_backup.semester[i]);
                         comm.Parameters.AddWithValue("@Branch", Undo_backup.branch[i]);
                         comm.ExecuteNonQuery();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.ToString());
+                        }
+                        finally
+                        {
+                            con.CloseCon();
+                        }
                     }
                     Clear_list();
                     msgbox.show("Undo Successfull", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);                    
