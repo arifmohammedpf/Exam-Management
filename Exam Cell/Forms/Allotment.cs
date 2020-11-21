@@ -451,7 +451,7 @@ namespace Exam_Cell
                                         dataRow["Room_No"] = toroom;
                                         dataRow["Seat"] = toseries + tostartint;
                                         tostartint++;
-                                        break;
+                                        //break;
                                     }
                                 }
                             }
@@ -483,7 +483,7 @@ namespace Exam_Cell
                                         dataRow["Room_No"] = toroom;
                                         dataRow["Seat"] = toseries + tostartint;
                                         tostartint++;
-                                        break;
+                                        //break;
                                     }
                                 }
                             }
@@ -1354,7 +1354,7 @@ namespace Exam_Cell
                                         dataRow["Room_No"] = toroom;
                                         dataRow["Seat"] = toseries + totemp;
                                         totemp++;
-                                        break;
+                                        //break;
                                     }
                                 }
                             }
@@ -1368,7 +1368,7 @@ namespace Exam_Cell
                                         dataRow["Room_No"] = fromroom;
                                         dataRow["Seat"] = fromseries + fromtemp;
                                         fromtemp++;
-                                        break;
+                                        //break;
                                     }
                                 }
                             }
@@ -1414,7 +1414,7 @@ namespace Exam_Cell
                                         dataRow["Room_No"] = toroom;
                                         dataRow["Seat"] = toseries + totemp;
                                         totemp++;
-                                        break;
+                                        //break;
                                     }
                                 }
                             }
@@ -1428,7 +1428,7 @@ namespace Exam_Cell
                                         dataRow["Room_No"] = fromroom;
                                         dataRow["Seat"] = fromseries + fromtemp;
                                         fromtemp++;
-                                        break;
+                                        //break;
                                     }
                                 }
                             }

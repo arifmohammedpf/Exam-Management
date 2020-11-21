@@ -457,12 +457,12 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Exam_Cell.mdf">
+    <Content Include="ExamCellDatabase.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Exam_Cell_log.ldf">
+    <Content Include="ExamCellDatabase_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>Exam_Cell.mdf</DependentUpon>
+      <DependentUpon>ExamCellDatabase.mdf</DependentUpon>
     </Content>
     <Content Include="kmea.ico" />
   </ItemGroup>

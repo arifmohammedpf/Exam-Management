@@ -9,7 +9,7 @@ namespace Exam_Cell
 {
     public class Connection
     {
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Exam_Cell.mdf;Integrated Security=True");
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\ExamCellDatabase.mdf;Integrated Security=False");
         public SqlConnection ActiveCon()
         {
             if(con.State==ConnectionState.Closed)
