@@ -26,8 +26,8 @@ namespace Exam_Cell.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Exam_Cell.mdf" +
-            ";Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\ExamCellDatab" +
+            "ase.mdf;Integrated Security=True")]
         public string Exam_CellConnectionString {
             get {
                 return ((string)(this["Exam_CellConnectionString"]));
@@ -37,8 +37,8 @@ namespace Exam_Cell.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Exam_Cell.mdf" +
-            ";Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\ExamCellDatab" +
+            "ase.mdf;Integrated Security=True")]
         public string Exam_CellConnectionString1 {
             get {
                 return ((string)(this["Exam_CellConnectionString1"]));
