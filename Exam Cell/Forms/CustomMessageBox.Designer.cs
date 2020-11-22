@@ -35,15 +35,16 @@
             this.btnYes = new System.Windows.Forms.Button();
             this.btnNo = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureIcon)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel1.BackColor = System.Drawing.Color.MidnightBlue;
             this.panel1.Controls.Add(this.labelMessage);
-            this.panel1.Controls.Add(this.labelTitle);
             this.panel1.Controls.Add(this.pictureIcon);
             this.panel1.Controls.Add(this.btnYes);
             this.panel1.Controls.Add(this.btnNo);
@@ -57,20 +58,22 @@
             // labelMessage
             // 
             this.labelMessage.AutoSize = true;
-            this.labelMessage.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMessage.Font = new System.Drawing.Font("Arial Narrow", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMessage.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.labelMessage.Location = new System.Drawing.Point(170, 147);
             this.labelMessage.Name = "labelMessage";
-            this.labelMessage.Size = new System.Drawing.Size(125, 35);
+            this.labelMessage.Size = new System.Drawing.Size(113, 33);
             this.labelMessage.TabIndex = 7;
             this.labelMessage.Text = "Message";
             // 
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
-            this.labelTitle.Font = new System.Drawing.Font("Adobe Fan Heiti Std B", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelTitle.Location = new System.Drawing.Point(5, 9);
+            this.labelTitle.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelTitle.Location = new System.Drawing.Point(12, 12);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(69, 35);
+            this.labelTitle.Size = new System.Drawing.Size(76, 32);
             this.labelTitle.TabIndex = 6;
             this.labelTitle.Text = "Title";
             // 
@@ -134,11 +137,22 @@
             this.btnOk.UseVisualStyleBackColor = false;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Navy;
+            this.panel2.Controls.Add(this.labelTitle);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(500, 58);
+            this.panel2.TabIndex = 1;
+            // 
             // CustomMessageBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(500, 300);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CustomMessageBox";
@@ -148,6 +162,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureIcon)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -161,5 +177,6 @@
         private System.Windows.Forms.Label labelMessage;
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.PictureBox pictureIcon;
+        private System.Windows.Forms.Panel panel2;
     }
 }
