@@ -433,6 +433,41 @@ namespace Exam_Cell
                         int fromstartint = Int32.Parse(fromstart);
                         int fromendint = Int32.Parse(fromend);
                         int tostartint = Int32.Parse(tostart);
+
+
+                        // ----- validating user inputs ----- //
+                        if (fromendint < fromstartint || fromendint < 0 || fromstartint < 0 || tostartint < 0)
+                        {
+                            msgbox.show("Please fill datas correctly.", "Invalid inputs", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                            return;
+                        }
+                        else
+                        {
+                            SqlCommand comm = new SqlCommand("Select @series from Rooms where Room_No=@Room_No", con.ActiveCon());
+                            comm.Parameters.AddWithValue("@series", fromseries);
+                            comm.Parameters.AddWithValue("@Room_No", fromroom);
+                            int fromseriesCount = (Int32)comm.ExecuteScalar();
+                            if (fromseriesCount < fromendint)
+                            {
+                                msgbox.show("Given Series End-number is larger than Room Capacity.\n Please enter correct input.", "Invalid inputs", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                                return;
+                            }
+
+                            SqlCommand comm2 = new SqlCommand("Select @series from Rooms where Room_No=@Room_No", con.ActiveCon());
+                            comm2.Parameters.AddWithValue("@series", toseries);
+                            comm2.Parameters.AddWithValue("@Room_No", toroom);
+                            int toseriesCount = (Int32)comm2.ExecuteScalar();
+                            int toRoomCount = (toseriesCount - tostartint) + 1;
+                            int fromRoomCount = (fromendint - fromstartint) + 1;
+                            if (fromRoomCount > toRoomCount)
+                            {
+                                msgbox.show("Not enough seats in selected Room", "Unable to Shift", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                                return;
+                            }
+                        }
+                        // ----- validating user inputs ----- //
+
+
                         if (Unv_radio.Checked)
                         {
                             SqlCommand comm = new SqlCommand("Select Room_No,Seat,Reg_no from University_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
@@ -500,7 +535,7 @@ namespace Exam_Cell
                     }
                     catch (Exception ex)
                     {
-                        msgbox.show(ex.ToString(), "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                        msgbox.show(ex.ToString(), "Exception Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                     }
                 }
             }
@@ -1329,6 +1364,41 @@ namespace Exam_Cell
                         int fromstartint = Int32.Parse(fromstart);
                         int fromendint = Int32.Parse(fromend);
                         int tostartint = Int32.Parse(tostart);
+
+
+                        // ----- validating user inputs ----- //
+                        if (fromendint < fromstartint || fromendint < 0 || fromstartint < 0 || tostartint < 0)
+                        {
+                            msgbox.show("Please fill datas correctly.", "Invalid inputs", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                            return;
+                        }
+                        else
+                        {
+                            SqlCommand comm = new SqlCommand("Select @series from Rooms where Room_No=@Room_No", con.ActiveCon());
+                            comm.Parameters.AddWithValue("@series", fromseries);
+                            comm.Parameters.AddWithValue("@Room_No", fromroom);
+                            int fromseriesCount = (Int32)comm.ExecuteScalar();
+                            if(fromseriesCount < fromendint)
+                            {
+                                msgbox.show("Given Series End-number is larger than Room Capacity.\n Please enter correct input.", "Invalid inputs", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                                return;
+                            }
+
+                            SqlCommand comm2 = new SqlCommand("Select @series from Rooms where Room_No=@Room_No", con.ActiveCon());
+                            comm2.Parameters.AddWithValue("@series", toseries);
+                            comm2.Parameters.AddWithValue("@Room_No", toroom);
+                            int toseriesCount = (Int32)comm2.ExecuteScalar();
+                            int toRoomCount = (toseriesCount - tostartint) + 1;
+                            int fromRoomCount = (fromendint - fromstartint) + 1;
+                            if (fromRoomCount > toRoomCount)
+                            {
+                                msgbox.show("Not enough seats in selected Room", "Unable to Swap", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                                return;
+                            }
+                        }
+                        // ----- validating user inputs ----- //
+
+
                         int fromtemp = fromstartint, totemp = tostartint;
                         if (Unv_radio.Checked)
                         {
@@ -1453,7 +1523,7 @@ namespace Exam_Cell
                     }
                     catch (Exception ex)
                     {
-                        msgbox.show(ex.ToString(), "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                        msgbox.show(ex.ToString(), "Exception Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                     }
                 }
                 else

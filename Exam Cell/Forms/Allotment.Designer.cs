@@ -317,8 +317,8 @@
             this.ToSeries_combobox.FormattingEnabled = true;
             this.ToSeries_combobox.Items.AddRange(new object[] {
             "-",
-            "A",
-            "B"});
+            "A_Series",
+            "B_Series"});
             this.ToSeries_combobox.Location = new System.Drawing.Point(170, 127);
             this.ToSeries_combobox.Name = "ToSeries_combobox";
             this.ToSeries_combobox.Size = new System.Drawing.Size(51, 29);
@@ -331,8 +331,8 @@
             this.FromSeries_combobox.FormattingEnabled = true;
             this.FromSeries_combobox.Items.AddRange(new object[] {
             "-",
-            "A",
-            "B"});
+            "A_Series",
+            "B_Series"});
             this.FromSeries_combobox.Location = new System.Drawing.Point(170, 56);
             this.FromSeries_combobox.Name = "FromSeries_combobox";
             this.FromSeries_combobox.Size = new System.Drawing.Size(51, 29);
