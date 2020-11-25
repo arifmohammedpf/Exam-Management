@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.OleDb;
+using System.Data.SQLite;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -40,8 +40,8 @@ namespace Exam_Cell
         {            
             try
             {
-            OleDbCommand comm = new OleDbCommand("select distinct Date from Absentees order by Date", con.ActiveCon());
-            OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
+            SQLiteCommand comm = new SQLiteCommand("select distinct Date from Absentees order by Date", con.ActiveCon());
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
             DataTable table = new DataTable();
             adapter.Fill(table);
             //for -select-
@@ -66,8 +66,8 @@ namespace Exam_Cell
         {
             try
             {
-            OleDbCommand comm = new OleDbCommand("select distinct Branch from Absentees order by Branch", con.ActiveCon());
-            OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
+            SQLiteCommand comm = new SQLiteCommand("select distinct Branch from Absentees order by Branch", con.ActiveCon());
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
             DataTable table = new DataTable();
             adapter.Fill(table);
             //for -select-
@@ -92,8 +92,8 @@ namespace Exam_Cell
         {
             try
             {
-            OleDbCommand comm = new OleDbCommand("select distinct Exam_Code from Absentees order by Exam_Code", con.ActiveCon());
-            OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
+            SQLiteCommand comm = new SQLiteCommand("select distinct Exam_Code from Absentees order by Exam_Code", con.ActiveCon());
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
             DataTable table = new DataTable();
             adapter.Fill(table);
             //for -select-
@@ -116,8 +116,8 @@ namespace Exam_Cell
         }
         //void SubjectComboboxFill()
         //{
-        //    OleDbCommand comm = new OleDbCommand("select distinct Course from Absentees order by Course", con.ActiveCon());
-        //    OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
+        //    SQLiteCommand comm = new SQLiteCommand("select distinct Course from Absentees order by Course", con.ActiveCon());
+        //    SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
         //    DataTable table = new DataTable();
         //    adapter.Fill(table);
         //    //for -select-
@@ -135,12 +135,12 @@ namespace Exam_Cell
         {
             try
             {
-            OleDbCommand command = new OleDbCommand("select Reg_no,Name,Status,Branch,Course,Exam_Code from Absentees Where Date=@Date and Session=@Session and Branch=@Branch and Exam_Code=@Exam_Code order by Reg_no", con.ActiveCon());
+            SQLiteCommand command = new SQLiteCommand("select Reg_no,Name,Status,Branch,Course,Exam_Code from Absentees Where Date=@Date and Session=@Session and Branch=@Branch and Exam_Code=@Exam_Code order by Reg_no", con.ActiveCon());
             command.Parameters.AddWithValue("@Date", Date_combobox.Text);
             command.Parameters.AddWithValue("@Session", Session_combobox.Text);
             command.Parameters.AddWithValue("@Branch", Branch_combobox.Text);
             command.Parameters.AddWithValue("@Exam_Code", ExamCode_combobox.Text);
-            OleDbDataAdapter adapter = new OleDbDataAdapter(command);            
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);            
             adapter.Fill(table);
             Dgv.DataSource = null;
             Dgv.DataSource = table;
@@ -169,7 +169,7 @@ namespace Exam_Cell
                     {
                         //Add a new worksheet to the empty workbook
                         var worksheet = package.Workbook.Worksheets.Add(Branch_combobox.Text);
-                        OleDbCommand command2 = new OleDbCommand("select Year_Of_Admission from Students where Reg_no=@Reg_no", con.ActiveCon());
+                        SQLiteCommand command2 = new SQLiteCommand("select Year_Of_Admission from Students where Reg_no=@Reg_no", con.ActiveCon());
                         command2.Parameters.AddWithValue("@Reg_no", table.Rows[0]["Reg_no"].ToString());
                         string semester = (string)command2.ExecuteScalar();
                         //Insert Items to ExcelSheet

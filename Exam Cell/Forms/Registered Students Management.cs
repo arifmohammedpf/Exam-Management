@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.OleDb;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -45,7 +45,7 @@ namespace Exam_Cell
             {
                 if (Univrsty_radiobtn.Checked)
                 {
-                    OleDbCommand command = new OleDbCommand("Delete Registered_candidates", con.ActiveCon());
+                    SQLiteCommand command = new SQLiteCommand("Delete Registered_candidates", con.ActiveCon());
                     command.ExecuteNonQuery();
                     msgbox.show("All Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     University_fill();
@@ -53,7 +53,7 @@ namespace Exam_Cell
                 }
                 else if (Series_radiobtn.Checked)
                 {
-                    OleDbCommand command = new OleDbCommand("Delete Series_candidates", con.ActiveCon());
+                    SQLiteCommand command = new SQLiteCommand("Delete Series_candidates", con.ActiveCon());
                     command.ExecuteNonQuery();
                     msgbox.show("All Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     Series_fill();
@@ -61,7 +61,7 @@ namespace Exam_Cell
                 }
                 else if (AllotUniversty_radiobtn.Checked)
                 {
-                    OleDbCommand command = new OleDbCommand("Delete University_Alloted", con.ActiveCon());
+                    SQLiteCommand command = new SQLiteCommand("Delete University_Alloted", con.ActiveCon());
                     command.ExecuteNonQuery();
                     msgbox.show("All Alloted Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     UniversityAlloted_fill();
@@ -69,7 +69,7 @@ namespace Exam_Cell
                 }
                 else if (AllotSeries_radiobtn.Checked)
                 {
-                    OleDbCommand command = new OleDbCommand("Delete Series_Alloted", con.ActiveCon());
+                    SQLiteCommand command = new SQLiteCommand("Delete Series_Alloted", con.ActiveCon());
                     command.ExecuteNonQuery();
                     msgbox.show("All Alloted Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     SeriesAlloted_fill();
@@ -121,8 +121,8 @@ namespace Exam_Cell
         {
             try
             {
-            OleDbCommand command = new OleDbCommand("select * from Registered_candidates order by Branch,Reg_no", con.ActiveCon());
-            OleDbDataAdapter adapter = new OleDbDataAdapter(command);
+            SQLiteCommand command = new SQLiteCommand("select * from Registered_candidates order by Branch,Reg_no", con.ActiveCon());
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
             DataTable Unv_students = new DataTable();
             adapter.Fill(Unv_students);
             Universitybinding.DataSource = null;
@@ -143,8 +143,8 @@ namespace Exam_Cell
         {
             try
             {
-            OleDbCommand command = new OleDbCommand("select * from Series_candidates order by Course, Class, Name", con.ActiveCon());
-            OleDbDataAdapter adapter = new OleDbDataAdapter(command);
+            SQLiteCommand command = new SQLiteCommand("select * from Series_candidates order by Course, Class, Name", con.ActiveCon());
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
             DataTable Srs_students = new DataTable();
             adapter.Fill(Srs_students);
             Seriesbinding.DataSource = null;
@@ -165,8 +165,8 @@ namespace Exam_Cell
         {
             try
             {
-            OleDbCommand command = new OleDbCommand("select * from University_Alloted order by Date,Room_No,Reg_no", con.ActiveCon());
-            OleDbDataAdapter adapter = new OleDbDataAdapter(command);
+            SQLiteCommand command = new SQLiteCommand("select * from University_Alloted order by Date,Room_No,Reg_no", con.ActiveCon());
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
             DataTable unv_allot = new DataTable();
             adapter.Fill(unv_allot);
             UniversityAllotbinding.DataSource = null;
@@ -187,8 +187,8 @@ namespace Exam_Cell
         {
             try
             {
-            OleDbCommand command = new OleDbCommand("select * from Series_Alloted order by Date, Room_No, Name", con.ActiveCon());
-            OleDbDataAdapter adapter = new OleDbDataAdapter(command);
+            SQLiteCommand command = new SQLiteCommand("select * from Series_Alloted order by Date, Room_No, Name", con.ActiveCon());
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
             DataTable srs_allot = new DataTable();
             adapter.Fill(srs_allot);
             SeriesAllotbinding.DataSource = null;
@@ -248,7 +248,7 @@ namespace Exam_Cell
                         bool checkselect = Convert.ToBoolean(dr.Cells["checkBoxColumn"].Value);
                         if (checkselect)
                         {
-                            OleDbCommand command = new OleDbCommand("Delete Registered_candidates where Reg_no=@Reg_no", con.ActiveCon());
+                            SQLiteCommand command = new SQLiteCommand("Delete Registered_candidates where Reg_no=@Reg_no", con.ActiveCon());
                             command.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
                             command.ExecuteNonQuery();
                         }
@@ -264,7 +264,7 @@ namespace Exam_Cell
                         bool checkselect = Convert.ToBoolean(dr.Cells["checkBoxColumn"].Value);
                         if (checkselect)
                         {
-                            OleDbCommand command = new OleDbCommand("Delete Series_candidates where Reg_no=@Reg_no", con.ActiveCon());
+                            SQLiteCommand command = new SQLiteCommand("Delete Series_candidates where Reg_no=@Reg_no", con.ActiveCon());
                             command.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
                             command.ExecuteNonQuery();
                         }
@@ -280,7 +280,7 @@ namespace Exam_Cell
                         bool checkselect = Convert.ToBoolean(dr.Cells["checkBoxColumn"].Value);
                         if (checkselect)
                         {
-                            OleDbCommand command = new OleDbCommand("Delete Series_Alloted where Reg_no=@Reg_no", con.ActiveCon());
+                            SQLiteCommand command = new SQLiteCommand("Delete Series_Alloted where Reg_no=@Reg_no", con.ActiveCon());
                             command.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
                             command.ExecuteNonQuery();
                         }
@@ -296,7 +296,7 @@ namespace Exam_Cell
                         bool checkselect = Convert.ToBoolean(dr.Cells["checkBoxColumn"].Value);
                         if (checkselect)
                         {
-                            OleDbCommand command = new OleDbCommand("Delete University_Alloted where Reg_no=@Reg_no", con.ActiveCon());
+                            SQLiteCommand command = new SQLiteCommand("Delete University_Alloted where Reg_no=@Reg_no", con.ActiveCon());
                             command.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
                             command.ExecuteNonQuery();
                         }
@@ -438,8 +438,8 @@ namespace Exam_Cell
         {
             try
             {
-            OleDbCommand sc = new OleDbCommand("Select Distinct Branch from Scheme", con.ActiveCon());
-            OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
+            SQLiteCommand sc = new SQLiteCommand("Select Distinct Branch from Scheme", con.ActiveCon());
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(sc);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             

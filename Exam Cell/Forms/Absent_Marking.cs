@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.OleDb;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -43,8 +43,8 @@ namespace Exam_Cell
         {
             try
             {
-            OleDbCommand comm = new OleDbCommand("select distinct Date from Timetable order by Date", con.ActiveCon());
-            OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
+            SQLiteCommand comm = new SQLiteCommand("select distinct Date from Timetable order by Date", con.ActiveCon());
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
             DataTable table = new DataTable();
             adapter.Fill(table);
             //for -select-
@@ -71,8 +71,8 @@ namespace Exam_Cell
         {
             try
             {
-            OleDbCommand comm = new OleDbCommand("select Room_No from Rooms order by Room_No", con.ActiveCon());
-            OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
+            SQLiteCommand comm = new SQLiteCommand("select Room_No from Rooms order by Room_No", con.ActiveCon());
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
             DataTable table = new DataTable();
             adapter.Fill(table);
             //for -select-
@@ -100,11 +100,11 @@ namespace Exam_Cell
             {
             if(Series_radio.Checked)
             {
-                OleDbCommand command = new OleDbCommand("select Seat,Reg_no,Name,Class,Course,Exam_Code from Series_Alloted Where Date=@Date and Session=@Session and Room_No=@Room_No order by Seat", con.ActiveCon());
+                SQLiteCommand command = new SQLiteCommand("select Seat,Reg_no,Name,Class,Course,Exam_Code from Series_Alloted Where Date=@Date and Session=@Session and Room_No=@Room_No order by Seat", con.ActiveCon());
                 command.Parameters.AddWithValue("@Date", Date_combobox.Text);
                 command.Parameters.AddWithValue("@Session", Session_combobox.Text);
                 command.Parameters.AddWithValue("@Room_No", Room_combobox.Text);
-                OleDbDataAdapter adapter = new OleDbDataAdapter(command);
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
                 DataTable table = new DataTable();
                 adapter.Fill(table);                
                 table.Columns.Add("Status", typeof(string)).SetOrdinal(3);
@@ -117,11 +117,11 @@ namespace Exam_Cell
             }
             else if(Unv_radio.Checked)
             {
-                OleDbCommand comm = new OleDbCommand("select Seat,Reg_no,Name,Branch,Exam_Code,Course from University_Alloted Where Date=@Date and Session=@Session and Room_No=@Room_No order by Seat", con.ActiveCon());
+                SQLiteCommand comm = new SQLiteCommand("select Seat,Reg_no,Name,Branch,Exam_Code,Course from University_Alloted Where Date=@Date and Session=@Session and Room_No=@Room_No order by Seat", con.ActiveCon());
                 comm.Parameters.AddWithValue("@Date", Date_combobox.Text);
                 comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
                 comm.Parameters.AddWithValue("@Room_No", Room_combobox.Text);
-                OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
                 DataTable table = new DataTable();
                 adapter.Fill(table);
                 table.Columns.Add("Status", typeof(string)).SetOrdinal(3);
@@ -167,7 +167,7 @@ namespace Exam_Cell
             {
             if (Dgv.Rows.Count != 0)
             {                
-                OleDbCommand command = new OleDbCommand("Select Count(*) from Absentees where Date=@Date and Session=@Session and Room_No=@Room_No ", con.ActiveCon());
+                SQLiteCommand command = new SQLiteCommand("Select Count(*) from Absentees where Date=@Date and Session=@Session and Room_No=@Room_No ", con.ActiveCon());
                 command.Parameters.AddWithValue("@Date", Date_combobox.Text);
                 command.Parameters.AddWithValue("@Session", Session_combobox.Text);
                 command.Parameters.AddWithValue("@Room_No", Room_combobox.Text);
@@ -176,7 +176,7 @@ namespace Exam_Cell
                 {
                     foreach (DataGridViewRow row in Dgv.Rows)
                     {
-                        OleDbCommand comm = new OleDbCommand("insert into Absentees(Reg_no,Name,Status,Branch,Exam_Code,Course,Date,Session,Room_No)Values(" + " @Reg_no,@Name,@Status,@Branch,@Exam_Code,@Course,@Date,@Session,@Room_No)", con.ActiveCon());
+                        SQLiteCommand comm = new SQLiteCommand("insert into Absentees(Reg_no,Name,Status,Branch,Exam_Code,Course,Date,Session,Room_No)Values(" + " @Reg_no,@Name,@Status,@Branch,@Exam_Code,@Course,@Date,@Session,@Room_No)", con.ActiveCon());
                             comm.Parameters.AddWithValue("@Reg_no", row.Cells["Reg_no"].Value);
                             comm.Parameters.AddWithValue("@Name", row.Cells["Name"].Value);
                             comm.Parameters.AddWithValue("@Status", row.Cells["Status"].Value);
@@ -197,7 +197,7 @@ namespace Exam_Cell
                 {
                     foreach(DataGridViewRow row in Dgv.Rows)
                     {
-                        OleDbCommand comm = new OleDbCommand("update Absentees Set Status=@Status where Reg_no=@Reg_no and Name=@Name and Date=@Date and Session=@Session and Room_No=@Room_No", con.ActiveCon());
+                        SQLiteCommand comm = new SQLiteCommand("update Absentees Set Status=@Status where Reg_no=@Reg_no and Name=@Name and Date=@Date and Session=@Session and Room_No=@Room_No", con.ActiveCon());
                         comm.Parameters.AddWithValue("@Reg_no", row.Cells["Reg_no"].Value);
                         comm.Parameters.AddWithValue("@Name", row.Cells["Name"].Value);
                         comm.Parameters.AddWithValue("@Status", row.Cells["Status"].Value);                        
@@ -240,7 +240,7 @@ namespace Exam_Cell
             {
             if (result=="Yes")
             {
-                OleDbCommand command = new OleDbCommand("Delete Absentees", con.ActiveCon());
+                SQLiteCommand command = new SQLiteCommand("Delete Absentees", con.ActiveCon());
                 command.ExecuteNonQuery();
                 msgbox.show("Data Cleared", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
             }

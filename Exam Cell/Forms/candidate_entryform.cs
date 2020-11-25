@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OleDb;
+using System.Data.SQLite;
 using System.IO;
 using ExcelDataReader;
 using System.Collections;
@@ -98,8 +98,8 @@ namespace Exam_Cell
             try
             {
             string command = string.Format("Select Distinct Branch from Scheme");
-            OleDbCommand sc = new OleDbCommand(command, con.ActiveCon());
-            OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
+            SQLiteCommand sc = new SQLiteCommand(command, con.ActiveCon());
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(sc);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             DataRow top = dt.NewRow();
@@ -123,7 +123,7 @@ namespace Exam_Cell
         {
             try
             {
-            OleDbDataAdapter sda = new OleDbDataAdapter("Select Distinct Year_Of_Admission from Students", con.ActiveCon());
+            SQLiteDataAdapter sda = new SQLiteDataAdapter("Select Distinct Year_Of_Admission from Students", con.ActiveCon());
             DataTable dtbl = new DataTable();
             sda.Fill(dtbl);
             //display -select-
@@ -160,8 +160,8 @@ namespace Exam_Cell
             try
             {
             string command = string.Format("Select Distinct Scheme from Scheme");
-            OleDbCommand sc = new OleDbCommand(command, con.ActiveCon());
-            OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
+            SQLiteCommand sc = new SQLiteCommand(command, con.ActiveCon());
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(sc);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             DataRow top = dt.NewRow();
@@ -200,8 +200,8 @@ namespace Exam_Cell
             try
             {
             string command = string.Format("Select Distinct Branch from Scheme");
-            OleDbCommand sc = new OleDbCommand(command, con.ActiveCon());
-            OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
+            SQLiteCommand sc = new SQLiteCommand(command, con.ActiveCon());
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(sc);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             DataRow top = dt.NewRow();
@@ -223,7 +223,7 @@ namespace Exam_Cell
             // IF WE USE BELOW METHOD TO POPULATE COMBOBOX THEN HOW TO USE DISPLAY AND VALUE MEMBERS LIKE combobox.selecteditem();??? please check
 
             ////sqlconnection
-            //OleDbDataAdapter sda = new OleDbDataAdapter("Select Distinct Branch from Students", con.ActiveCon());
+            //SQLiteDataAdapter sda = new SQLiteDataAdapter("Select Distinct Branch from Students", con.ActiveCon());
             //DataTable dtbl = new DataTable();
             //sda.Fill(dtbl);
             ////display -select-
@@ -255,8 +255,8 @@ namespace Exam_Cell
             try
             {
             string command = string.Format("Select Distinct Semester from Scheme");
-            OleDbCommand sc = new OleDbCommand(command, con.ActiveCon());
-            OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
+            SQLiteCommand sc = new SQLiteCommand(command, con.ActiveCon());
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(sc);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             DataRow top = dt.NewRow();
@@ -309,8 +309,8 @@ namespace Exam_Cell
             try
             {
             headerchkbox.Checked = false;
-            OleDbCommand command = new OleDbCommand("select * from Class order by Class", con.ActiveCon());
-            OleDbDataAdapter adapter = new OleDbDataAdapter(command);
+            SQLiteCommand command = new SQLiteCommand("select * from Class order by Class", con.ActiveCon());
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
             DataTable table_Students = new DataTable();
             adapter.Fill(table_Students);
             source.DataSource = null;
@@ -331,8 +331,8 @@ namespace Exam_Cell
             try
             {
             headerchkbox.Checked = false;
-            OleDbCommand command = new OleDbCommand("select * from Students order by Branch,Reg_no", con.ActiveCon());
-            OleDbDataAdapter adapter = new OleDbDataAdapter(command);
+            SQLiteCommand command = new SQLiteCommand("select * from Students order by Branch,Reg_no", con.ActiveCon());
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
             DataTable table_Students = new DataTable();
             adapter.Fill(table_Students);
             source.DataSource = null;
@@ -374,8 +374,8 @@ namespace Exam_Cell
             try
             {
             string command = string.Format("Select Distinct Class from Class");
-            OleDbCommand sc = new OleDbCommand(command, con.ActiveCon());
-            OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
+            SQLiteCommand sc = new SQLiteCommand(command, con.ActiveCon());
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(sc);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             DataRow top = dt.NewRow();
@@ -399,7 +399,7 @@ namespace Exam_Cell
         //DELETE IF BRANCH FILTER IS NOT NEEDED FOR UNIVERSITY DGV
         //void Branchcomboboxfill()
         //{   //sqlconnection
-        //    OleDbDataAdapter sda = new OleDbDataAdapter("Select Distinct Branch from Students", con.ActiveCon());
+        //    SQLiteDataAdapter sda = new SQLiteDataAdapter("Select Distinct Branch from Students", con.ActiveCon());
         //    DataTable dtbl = new DataTable();
         //    sda.Fill(dtbl);
         //    //display -select-
@@ -422,8 +422,8 @@ namespace Exam_Cell
         {
             try
             {
-            OleDbCommand command = new OleDbCommand("select * from Scheme order by Branch", con.ActiveCon());
-            OleDbDataAdapter adapter = new OleDbDataAdapter(command);
+            SQLiteCommand command = new SQLiteCommand("select * from Scheme order by Branch", con.ActiveCon());
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
             DataTable table_Scheme = new DataTable();
             adapter.Fill(table_Scheme);
             schemesource.DataSource = null;
@@ -536,7 +536,7 @@ namespace Exam_Cell
         //{
 
         //    //sql connection
-        //    OleDbDataAdapter sda = new OleDbDataAdapter("Select Distinct Year_Of_Admission from Students", con.ActiveCon());
+        //    SQLiteDataAdapter sda = new SQLiteDataAdapter("Select Distinct Year_Of_Admission from Students", con.ActiveCon());
         //    DataTable dtbl = new DataTable();
         //    sda.Fill(dtbl);
         //    //display -select-
@@ -684,7 +684,7 @@ namespace Exam_Cell
                                     f = 1;
                                     //selected datas from both dgv will be inserted to Table Registered Candidates
                                     //here first bracket is sqltable column names and 2nd bracket with @ is refernce for values to be inserted
-                                    OleDbCommand sqlcomm = new OleDbCommand("Insert into Series_candidates(Name,Reg_no,Class,Semester,Course)Values(" + "@Name,@Reg_no,@Class,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
+                                    SQLiteCommand sqlcomm = new SQLiteCommand("Insert into Series_candidates(Name,Reg_no,Class,Semester,Course)Values(" + "@Name,@Reg_no,@Class,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
                                                                                                                                                                                                                  //giving values to the reference...values from dgv
                                     sqlcomm.Parameters.AddWithValue("@Reg_no", dr2.Cells["Reg_no"].Value);
                                     sqlcomm.Parameters.AddWithValue("@Name", dr2.Cells["Name"].Value);
@@ -741,7 +741,7 @@ namespace Exam_Cell
                                     f = 1;
                                     //selected datas from both dgv will be inserted to Table Registered Candidates
                                     //here first bracket is sqltable column names and 2nd bracket with @ is refernce for values to be inserted
-                                    OleDbCommand sqlcomm = new OleDbCommand("Insert into Registered_candidates(Name,Reg_no,Branch,Semester,Course)Values(" + "@Name,@Reg_no,@Branch,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
+                                    SQLiteCommand sqlcomm = new SQLiteCommand("Insert into Registered_candidates(Name,Reg_no,Branch,Semester,Course)Values(" + "@Name,@Reg_no,@Branch,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
                                                                                                                                                                                                                        //giving values to the reference...values from dgv
                                     sqlcomm.Parameters.AddWithValue("@Reg_no", dr2.Cells["Reg_no"].Value);
                                     sqlcomm.Parameters.AddWithValue("@Name", dr2.Cells["Name"].Value);
@@ -779,7 +779,7 @@ namespace Exam_Cell
                             f = 1;
                             //selected datas from dgv will be inserted to Table Registered Candidates
                             //here first bracket is sqltable column names and 2nd bracket with @ is refernce for values to be inserted
-                            OleDbCommand sqlcomm = new OleDbCommand("Insert into Registered_candidates(Name,Reg_no,Branch,Semester,Course)Values(" + "@Name,@Reg_no,@Branch,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
+                            SQLiteCommand sqlcomm = new SQLiteCommand("Insert into Registered_candidates(Name,Reg_no,Branch,Semester,Course)Values(" + "@Name,@Reg_no,@Branch,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
                                                                                                                                                                                                                //giving values to the reference...values from dgv
                             sqlcomm.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
                             sqlcomm.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value);
@@ -885,7 +885,7 @@ namespace Exam_Cell
                         f = 1;
                         
                         //here first bracket is sqltable column names and 2nd bracket with @ is refernce for values to be inserted
-                        OleDbCommand sqlcomm = new OleDbCommand("Insert into Registered_candidates(Name,Reg_no,Branch,Semester,Course)Values(" + "@Name,@Reg_no,@Branch,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
+                        SQLiteCommand sqlcomm = new SQLiteCommand("Insert into Registered_candidates(Name,Reg_no,Branch,Semester,Course)Values(" + "@Name,@Reg_no,@Branch,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
                         //giving values to the reference...values from dgv                                                                                                                                                                            
                         sqlcomm.Parameters.AddWithValue("@Reg_no", Extra_Reg_no_Textbox.Text);
                         sqlcomm.Parameters.AddWithValue("@Name", Extra_Name_Textbox.Text);

@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.OleDb;
+using System.Data.SQLite;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -83,8 +83,8 @@ namespace Exam_Cell
         {
             try
             {
-            OleDbCommand sc = new OleDbCommand("Select Class,Semester from Management where (Class is not null) and (Semester is not null)", con.ActiveCon());
-            OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
+            SQLiteCommand sc = new SQLiteCommand("Select Class,Semester from Management where (Class is not null) and (Semester is not null)", con.ActiveCon());
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(sc);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             DataTable dt2 = new DataTable();
@@ -119,7 +119,7 @@ namespace Exam_Cell
                         try
                         {
                         f = 1;
-                        OleDbCommand command = new OleDbCommand("insert into Class(Reg_No,Name,Class)Values(" + "@Reg_No,@Name,@Class )", con.ActiveCon());
+                        SQLiteCommand command = new SQLiteCommand("insert into Class(Reg_No,Name,Class)Values(" + "@Reg_No,@Name,@Class )", con.ActiveCon());
                         command.Parameters.AddWithValue("@Reg_No", dr.Cells["Reg_no"].Value.ToString());
                         command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value.ToString());
                         command.Parameters.AddWithValue("@Class", AssignClass_combobox.Text);
@@ -165,7 +165,7 @@ namespace Exam_Cell
             {
                 try
                 {
-                OleDbCommand command = new OleDbCommand("insert into Students(Reg_no,Name,Year_Of_Admission,Branch)Values(" + "@Reg_no,@Name,@Year_Of_Admission,@Branch)", con.ActiveCon());
+                SQLiteCommand command = new SQLiteCommand("insert into Students(Reg_no,Name,Year_Of_Admission,Branch)Values(" + "@Reg_no,@Name,@Year_Of_Admission,@Branch)", con.ActiveCon());
                 command.Parameters.AddWithValue("@Reg_no", Regno_textbox.Text);
                 command.Parameters.AddWithValue("@Name", Name_textbox.Text);
                 command.Parameters.AddWithValue("@Year_Of_Admission", YOA_textbox.Text);
@@ -220,8 +220,8 @@ namespace Exam_Cell
             try
             {
             headerchkbox.Checked = false;
-            OleDbCommand command = new OleDbCommand("select * from Students order by Year_Of_Admission desc,Branch", con.ActiveCon());
-            OleDbDataAdapter adapter = new OleDbDataAdapter(command);
+            SQLiteCommand command = new SQLiteCommand("select * from Students order by Year_Of_Admission desc,Branch", con.ActiveCon());
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
             DataTable table_Students = new DataTable();
             adapter.Fill(table_Students);
             Student_Source.DataSource = null;
@@ -242,8 +242,8 @@ namespace Exam_Cell
             try
             {
             headerchkbox.Checked = false;
-            OleDbCommand command = new OleDbCommand("select * from Class order by Class desc", con.ActiveCon());
-            OleDbDataAdapter adapter = new OleDbDataAdapter(command);
+            SQLiteCommand command = new SQLiteCommand("select * from Class order by Class desc", con.ActiveCon());
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
             DataTable table_Students = new DataTable();
             adapter.Fill(table_Students);
             ClassView_Source.DataSource = null;
@@ -279,7 +279,7 @@ namespace Exam_Cell
                                 try
                                 {
                                 f = 1;
-                                OleDbCommand command = new OleDbCommand("Delete Class Where Class=@Class and Name=@Name and Reg_No=@Reg_No", con.ActiveCon());
+                                SQLiteCommand command = new SQLiteCommand("Delete Class Where Class=@Class and Name=@Name and Reg_No=@Reg_No", con.ActiveCon());
                                 command.Parameters.AddWithValue("@Class", dr.Cells["Class"].Value);
                                 command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value);
                                 command.Parameters.AddWithValue("@Reg_No", dr.Cells["Reg_No"].Value);
@@ -317,14 +317,14 @@ namespace Exam_Cell
                                 try
                                 {
                                 f = 1;
-                                OleDbCommand command = new OleDbCommand("delete Students where Reg_no=@Reg_no and Name=@Name and Year_Of_Admission=@Year_Of_Admission and Branch=@Branch", con.ActiveCon());
+                                SQLiteCommand command = new SQLiteCommand("delete Students where Reg_no=@Reg_no and Name=@Name and Year_Of_Admission=@Year_Of_Admission and Branch=@Branch", con.ActiveCon());
                                 command.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value.ToString());
                                 command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value.ToString());
                                 command.Parameters.AddWithValue("@Year_Of_Admission", dr.Cells["Year_Of_Admission"].Value.ToString());
                                 command.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value.ToString());
                                 command.ExecuteNonQuery();
                                 //will also delete from Class
-                                OleDbCommand command2 = new OleDbCommand("Delete Class where Reg_No=@Reg_no", con.ActiveCon());
+                                SQLiteCommand command2 = new SQLiteCommand("Delete Class where Reg_No=@Reg_no", con.ActiveCon());
                                 command2.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
                                 command2.ExecuteNonQuery();
                                 }
@@ -398,8 +398,8 @@ namespace Exam_Cell
             {
                 try
                 {
-                OleDbCommand sc = new OleDbCommand("Select Class,Semester from Management where (Class is not null) and (Semester is not null)", con.ActiveCon());
-                OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
+                SQLiteCommand sc = new SQLiteCommand("Select Class,Semester from Management where (Class is not null) and (Semester is not null)", con.ActiveCon());
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(sc);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
           
@@ -410,12 +410,12 @@ namespace Exam_Cell
                     bool res = int.TryParse(sem, out int newsem);
                     newsem++;
                     newclass = dr["Class"].ToString() + "  S" + newsem;
-                    OleDbCommand command2 = new OleDbCommand("update Class set Class=@Class where Class=@OldClass", con.ActiveCon());
+                    SQLiteCommand command2 = new SQLiteCommand("update Class set Class=@Class where Class=@OldClass", con.ActiveCon());
                     command2.Parameters.AddWithValue("@OldClass", checksem);
                     command2.Parameters.AddWithValue("@Class", newclass);
                     command2.ExecuteNonQuery();                    
                 }
-                OleDbCommand command3 = new OleDbCommand("update Management set Semester= Semester + 1", con.ActiveCon());
+                SQLiteCommand command3 = new SQLiteCommand("update Management set Semester= Semester + 1", con.ActiveCon());
                 command3.ExecuteNonQuery();
                 AssignClass_fill();
                 Class_StudentsFill();
@@ -440,8 +440,8 @@ namespace Exam_Cell
             {
                 try
                 {
-                OleDbCommand sc = new OleDbCommand("Select Class,Semester from Management where (Class is not null) and (Semester is not null)", con.ActiveCon());
-                OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
+                SQLiteCommand sc = new SQLiteCommand("Select Class,Semester from Management where (Class is not null) and (Semester is not null)", con.ActiveCon());
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(sc);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 
@@ -452,13 +452,13 @@ namespace Exam_Cell
                     bool res = int.TryParse(sem, out int newsem);
                     newsem--;
                     newclass = dr["Class"].ToString() + "  S" + newsem;
-                    OleDbCommand command2 = new OleDbCommand("update Class set Class=@Class where Class=@OldClass", con.ActiveCon());
+                    SQLiteCommand command2 = new SQLiteCommand("update Class set Class=@Class where Class=@OldClass", con.ActiveCon());
                     command2.Parameters.AddWithValue("@OldClass", checksem);
                     command2.Parameters.AddWithValue("@Class", newclass);
                     command2.ExecuteNonQuery();
                 }
 
-                OleDbCommand command = new OleDbCommand("update Management set Semester= Semester - 1", con.ActiveCon());
+                SQLiteCommand command = new SQLiteCommand("update Management set Semester= Semester - 1", con.ActiveCon());
                 command.ExecuteNonQuery();
                 AssignClass_fill();
                 Class_StudentsFill();
@@ -478,8 +478,8 @@ namespace Exam_Cell
         {
             try
             {
-            OleDbCommand sc = new OleDbCommand("Select Branch from Management where Branch is not null", con.ActiveCon());
-            OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
+            SQLiteCommand sc = new SQLiteCommand("Select Branch from Management where Branch is not null", con.ActiveCon());
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(sc);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             DataRow top = dt.NewRow();
@@ -502,8 +502,8 @@ namespace Exam_Cell
         {
             try
             {
-            OleDbCommand sc = new OleDbCommand("Select Branch from Management where Branch is not null", con.ActiveCon());
-            OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
+            SQLiteCommand sc = new SQLiteCommand("Select Branch from Management where Branch is not null", con.ActiveCon());
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(sc);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             DataRow top = dt.NewRow();
@@ -526,8 +526,8 @@ namespace Exam_Cell
         {
             try
             {
-            OleDbCommand sc = new OleDbCommand("Select distinct Year_Of_Admission from Students", con.ActiveCon());
-            OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
+            SQLiteCommand sc = new SQLiteCommand("Select distinct Year_Of_Admission from Students", con.ActiveCon());
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(sc);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             DataRow top = dt.NewRow();
@@ -658,7 +658,7 @@ namespace Exam_Cell
                     try
                     {
                     f = 1;
-                    OleDbCommand command = new OleDbCommand("insert into Students(Reg_no,Name,Year_Of_Admission,Branch)Values(" + "@Reg_no,@Name,@Year_Of_Admission,@Branch)", con.ActiveCon());
+                    SQLiteCommand command = new SQLiteCommand("insert into Students(Reg_no,Name,Year_Of_Admission,Branch)Values(" + "@Reg_no,@Name,@Year_Of_Admission,@Branch)", con.ActiveCon());
                     command.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
                     command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value);
                     command.Parameters.AddWithValue("@Year_Of_Admission", dr.Cells["Year_Of_Admission"].Value);

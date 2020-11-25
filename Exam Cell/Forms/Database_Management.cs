@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.OleDb;
+using System.Data.SQLite;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -31,8 +31,8 @@ namespace Exam_Cell
             try
             {
             Class_dgv_radiobtn.Checked = true;
-            OleDbCommand command = new OleDbCommand("select Class,Semester from Management Where (Class is not null) and (Semester is not null) order by Semester,Class", con.ActiveCon());
-            OleDbDataAdapter adapter = new OleDbDataAdapter(command);
+            SQLiteCommand command = new SQLiteCommand("select Class,Semester from Management Where (Class is not null) and (Semester is not null) order by Semester,Class", con.ActiveCon());
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
             DataTable table_class = new DataTable();
             adapter.Fill(table_class);
             Class_Source.DataSource = null;
@@ -54,8 +54,8 @@ namespace Exam_Cell
         {          
             try
             {
-            OleDbCommand command = new OleDbCommand("select * from Scheme order by Scheme desc", con.ActiveCon());
-            OleDbDataAdapter adapter = new OleDbDataAdapter(command);
+            SQLiteCommand command = new SQLiteCommand("select * from Scheme order by Scheme desc", con.ActiveCon());
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
             DataTable table_scheme = new DataTable();
             adapter.Fill(table_scheme);
             Scheme_Source.DataSource = null;
@@ -109,7 +109,7 @@ namespace Exam_Cell
             {
                 if (NewBranch_textbox.Text != "")
                 {
-                    OleDbCommand command = new OleDbCommand("insert into Management(Branch)Values(" + " @Branch) ", con.ActiveCon());
+                    SQLiteCommand command = new SQLiteCommand("insert into Management(Branch)Values(" + " @Branch) ", con.ActiveCon());
                     command.Parameters.AddWithValue("@Branch", NewBranch_textbox.Text);
                     command.ExecuteNonQuery();
                     msgbox.show("New Branch Added", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
@@ -136,13 +136,13 @@ namespace Exam_Cell
             {                
                 try
                 {
-                    OleDbCommand command2 = new OleDbCommand("delete Scheme where Branch=@Branch", con.ActiveCon());
+                    SQLiteCommand command2 = new SQLiteCommand("delete Scheme where Branch=@Branch", con.ActiveCon());
                     command2.Parameters.AddWithValue("@Branch", UpdateBranch_combobox.Text);
                     command2.ExecuteNonQuery();
                     con.CloseCon();
                 }
                 catch (Exception) { }
-                OleDbCommand command = new OleDbCommand("delete Management where Branch=@Branch", con.ActiveCon());
+                SQLiteCommand command = new SQLiteCommand("delete Management where Branch=@Branch", con.ActiveCon());
                 command.Parameters.AddWithValue("@Branch", UpdateBranch_combobox.Text);
                 command.ExecuteNonQuery();
                 BranchComboboxFill();
@@ -173,7 +173,7 @@ namespace Exam_Cell
                     if (checkselected)
                     {
                         f = 1;
-                        OleDbCommand command = new OleDbCommand("delete Management where Class=@Class and Semester=@Semester", con.ActiveCon());
+                        SQLiteCommand command = new SQLiteCommand("delete Management where Class=@Class and Semester=@Semester", con.ActiveCon());
                         command.Parameters.AddWithValue("@Class", dr.Cells["Class"].Value.ToString());
                         command.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value.ToString());
                         command.ExecuteNonQuery();
@@ -239,9 +239,9 @@ namespace Exam_Cell
             {
                 if (UpdateBranch_combobox.SelectedIndex != 0 && Semester_combobox.SelectedIndex != 0 && Course_textbox.Text != "" && Examcode_textbox.Text != "" && ACode_textbox.Text != "")
                 {
-                    OleDbCommand comm = new OleDbCommand("Select Default_Scheme from Management where (Default_Scheme is not null)", con.ActiveCon());
+                    SQLiteCommand comm = new SQLiteCommand("Select Default_Scheme from Management where (Default_Scheme is not null)", con.ActiveCon());
                     string scheme = (string)comm.ExecuteScalar();
-                    OleDbCommand command = new OleDbCommand("insert into Scheme(Scheme,Branch,Semester,Course,Sub_Code,Acode)Values(" + " @Scheme,@Branch,@Semester,@Course,@Sub_Code,@Acode) ", con.ActiveCon());
+                    SQLiteCommand command = new SQLiteCommand("insert into Scheme(Scheme,Branch,Semester,Course,Sub_Code,Acode)Values(" + " @Scheme,@Branch,@Semester,@Course,@Sub_Code,@Acode) ", con.ActiveCon());
                     command.Parameters.AddWithValue("@Scheme", scheme);
                     command.Parameters.AddWithValue("@Branch", UpdateBranch_combobox.Text);
                     command.Parameters.AddWithValue("@Semester", Semester_combobox.Text);
@@ -326,7 +326,7 @@ namespace Exam_Cell
                     if (checkselected)
                     {
                         f = 1;
-                        OleDbCommand command = new OleDbCommand("delete Scheme where Course=@Course", con.ActiveCon());
+                        SQLiteCommand command = new SQLiteCommand("delete Scheme where Course=@Course", con.ActiveCon());
                         command.Parameters.AddWithValue("@Course", dr.Cells["Course"].Value.ToString());
                         command.ExecuteNonQuery();
                     }
@@ -361,7 +361,7 @@ namespace Exam_Cell
             {
                 if (NewClassSem_combobox.SelectedIndex != 0)
                 {
-                    OleDbCommand command = new OleDbCommand("insert into Management(Class,Semester)Values(" + " @Class,@Semester) ", con.ActiveCon());
+                    SQLiteCommand command = new SQLiteCommand("insert into Management(Class,Semester)Values(" + " @Class,@Semester) ", con.ActiveCon());
                     command.Parameters.AddWithValue("@Class", NewClass_textbox.Text);
                     command.Parameters.AddWithValue("@Semester", NewClassSem_combobox.Text);
                     command.ExecuteNonQuery();
@@ -387,8 +387,8 @@ namespace Exam_Cell
         {
             try
             {
-            OleDbCommand sc = new OleDbCommand("Select Branch from Management where Branch is not null", con.ActiveCon());
-            OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
+            SQLiteCommand sc = new SQLiteCommand("Select Branch from Management where Branch is not null", con.ActiveCon());
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(sc);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             DataRow top = dt.NewRow();
@@ -418,14 +418,14 @@ namespace Exam_Cell
                 {
                 if(Scheme_label.Text != "")
                 {
-                    OleDbCommand comm = new OleDbCommand("update Management set Default_Scheme=@Default_Scheme where (Default_Scheme is not null)", con.ActiveCon());
+                    SQLiteCommand comm = new SQLiteCommand("update Management set Default_Scheme=@Default_Scheme where (Default_Scheme is not null)", con.ActiveCon());
                     comm.Parameters.AddWithValue("@Default_Scheme", ChangeScheme_textbox.Text);
                     comm.ExecuteNonQuery();
                     Schemelabel();
                 }
                 else
                 {
-                    OleDbCommand comm = new OleDbCommand("insert into Management(Default_Scheme)Values(" + " Default_Scheme=@Default_Scheme)", con.ActiveCon());
+                    SQLiteCommand comm = new SQLiteCommand("insert into Management(Default_Scheme)Values(" + " Default_Scheme=@Default_Scheme)", con.ActiveCon());
                     comm.Parameters.AddWithValue("@Default_Scheme", ChangeScheme_textbox.Text);
                     comm.ExecuteNonQuery();
                     Schemelabel();
@@ -447,7 +447,7 @@ namespace Exam_Cell
         {
             try
             {
-                OleDbCommand comm = new OleDbCommand("Select Default_Scheme from Management where (Default_Scheme is not null)", con.ActiveCon());
+                SQLiteCommand comm = new SQLiteCommand("Select Default_Scheme from Management where (Default_Scheme is not null)", con.ActiveCon());
                 string scheme = (string)comm.ExecuteScalar();
                 Scheme_label.Text = scheme;
             }

@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
-using System.Data.SqlClient;
-using System.Data.OleDb;
+using System.Data.SQLite;
+
 
 namespace Exam_Cell
 {
     public class Connection
     {
         //SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Exam_Cell.mdf;Integrated Security=True");
-        OleDbConnection con = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=testapp.accdb");
-        public OleDbConnection ActiveCon()
+        SQLiteConnection con = new SQLiteConnection(@"Data Source=.\ExamCellDB.db;Version=3;New=False;Compress=True;");
+        public SQLiteConnection ActiveCon()
         {
             if(con.State==ConnectionState.Closed)
             {
@@ -21,7 +21,7 @@ namespace Exam_Cell
             }
             return con;
         }
-        public OleDbConnection CloseCon()
+        public SQLiteConnection CloseCon()
         {
             if(con.State==ConnectionState.Open)
             {

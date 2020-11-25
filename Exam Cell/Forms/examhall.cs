@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.OleDb;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -26,8 +26,8 @@ namespace Exam_Cell
             try
             {
             headerchkbox.Checked = false;
-            OleDbCommand command = new OleDbCommand("select * from Rooms order by Priority", con.ActiveCon());
-            OleDbDataAdapter adapter = new OleDbDataAdapter(command);
+            SQLiteCommand command = new SQLiteCommand("select * from Rooms order by Priority", con.ActiveCon());
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
             DataTable table_scheme = new DataTable();
             adapter.Fill(table_scheme);
             Rooms_dgv.DataSource = table_scheme;
@@ -44,10 +44,11 @@ namespace Exam_Cell
         CheckBox headerchkbox = new CheckBox();
         private void examhall_Load(object sender, EventArgs e)
         {
-            RoomsdgvFill();
-            Rooms_dgv.RowsDefaultCellStyle.ForeColor = Color.Black;
-            FillCapacity();
-            Priority_combobox.SelectedIndex = 0;
+            // below code added to timer
+            //RoomsdgvFill();
+            //Rooms_dgv.RowsDefaultCellStyle.ForeColor = Color.Black;
+            //FillCapacity();
+            //Priority_combobox.SelectedIndex = 0;
 
             DataGridViewCheckBoxColumn checkbox = new DataGridViewCheckBoxColumn();
             checkbox.HeaderText = "";
@@ -153,7 +154,7 @@ namespace Exam_Cell
             {
             if (int.TryParse(A_series_textbox.Text, out int a) && int.TryParse(B_series_textbox.Text, out int b))
             {
-                OleDbCommand comm = new OleDbCommand("Insert into Rooms(Room_No,Priority,A_Series,B_Series)Values(" + "@RoomNo,@Priority,@A_series,@B_series)", con.ActiveCon());
+                SQLiteCommand comm = new SQLiteCommand("Insert into Rooms(Room_No,Priority,A_Series,B_Series)Values(" + "@RoomNo,@Priority,@A_series,@B_series)", con.ActiveCon());
                 comm.Parameters.AddWithValue("@RoomNo", RoomNo_textbox.Text);
                 comm.Parameters.AddWithValue("@Priority", Priority_combobox.SelectedItem);
                 comm.Parameters.AddWithValue("@A_series", a);
@@ -183,7 +184,7 @@ namespace Exam_Cell
             {
             if (int.TryParse(A_series_textbox.Text, out int a) && int.TryParse(B_series_textbox.Text, out int b))
             {
-                OleDbCommand comm = new OleDbCommand("Update Rooms set Priority=@Priority,A_Series=@A_series,B_Series=@B_series where Room_No=@RoomNo", con.ActiveCon());
+                SQLiteCommand comm = new SQLiteCommand("Update Rooms set Priority=@Priority,A_Series=@A_series,B_Series=@B_series where Room_No=@RoomNo", con.ActiveCon());
                 comm.Parameters.AddWithValue("@RoomNo", RoomNo_textbox.Text);
                 comm.Parameters.AddWithValue("@Priority", Priority_combobox.SelectedItem);
                 comm.Parameters.AddWithValue("@A_series", a);
@@ -286,7 +287,7 @@ namespace Exam_Cell
                     if (chckselect)
                     {
                         f = 1;
-                        OleDbCommand comm = new OleDbCommand("Update Rooms set Priority=@Priority where Room_No=@Room_No", con.ActiveCon());
+                        SQLiteCommand comm = new SQLiteCommand("Update Rooms set Priority=@Priority where Room_No=@Room_No", con.ActiveCon());
                         comm.Parameters.AddWithValue("@Room_No", dr.Cells["Room_No"].Value);
                         comm.Parameters.AddWithValue("@Priority", Priority_combobox.SelectedItem);
                         comm.ExecuteNonQuery();                        
@@ -334,6 +335,15 @@ namespace Exam_Cell
                     break;
                 }
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            RoomsdgvFill();
+            Rooms_dgv.RowsDefaultCellStyle.ForeColor = Color.Black;
+            FillCapacity();
+            Priority_combobox.SelectedIndex = 0;
         }
     }
 }

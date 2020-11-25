@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OleDb;
+using System.Data.SQLite;
 using System.Runtime.InteropServices;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
@@ -35,8 +35,8 @@ namespace Exam_Cell
             try
             {
             //get registered students details
-            OleDbCommand command2 = new OleDbCommand("select * from Registered_candidates order by Reg_no", con.ActiveCon());
-            OleDbDataAdapter adapter2 = new OleDbDataAdapter(command2);
+            SQLiteCommand command2 = new SQLiteCommand("select * from Registered_candidates order by Reg_no", con.ActiveCon());
+            SQLiteDataAdapter adapter2 = new SQLiteDataAdapter(command2);
             DataTable table_students = new DataTable();
             adapter2.Fill(table_students);
             con.CloseCon();
@@ -46,8 +46,8 @@ namespace Exam_Cell
                 return;
             }            
             //get rooms details
-            OleDbCommand command3 = new OleDbCommand("select * from Rooms order by Priority", con.ActiveCon());
-            OleDbDataAdapter adapter3 = new OleDbDataAdapter(command3);
+            SQLiteCommand command3 = new SQLiteCommand("select * from Rooms order by Priority", con.ActiveCon());
+            SQLiteDataAdapter adapter3 = new SQLiteDataAdapter(command3);
             DataTable table_rooms = new DataTable();
             adapter3.Fill(table_rooms);
             con.CloseCon();
@@ -57,8 +57,8 @@ namespace Exam_Cell
                 return;
             }           
             //get distinct dates
-            OleDbCommand commanddate = new OleDbCommand("select distinct Date from Timetable order by Date", con.ActiveCon());
-            OleDbDataAdapter adapterdate = new OleDbDataAdapter(commanddate);
+            SQLiteCommand commanddate = new SQLiteCommand("select distinct Date from Timetable order by Date", con.ActiveCon());
+            SQLiteDataAdapter adapterdate = new SQLiteDataAdapter(commanddate);
             DataTable table_distinctdate = new DataTable();
             adapterdate.Fill(table_distinctdate);
             con.CloseCon();
@@ -77,10 +77,10 @@ namespace Exam_Cell
                 for (int z = 0; z < 2; z++)
                 {
                     //Get Timetable details
-                    OleDbCommand command = new OleDbCommand("select Date,Session,Course,Exam_Code from Timetable where Date=@Date and Session=@Session order by Date,Session,Course", con.ActiveCon());
+                    SQLiteCommand command = new SQLiteCommand("select Date,Session,Course,Exam_Code from Timetable where Date=@Date and Session=@Session order by Date,Session,Course", con.ActiveCon());
                     command.Parameters.AddWithValue("@Date", rowdate["Date"].ToString());
                     command.Parameters.AddWithValue("@Session", session);
-                    OleDbDataAdapter adapter = new OleDbDataAdapter(command);
+                    SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
                     DataTable table_timetable = new DataTable();
                     adapter.Fill(table_timetable);
                     con.CloseCon();
@@ -121,7 +121,7 @@ namespace Exam_Cell
                             int flag=0;
                             for(int i=0;i<series;i++)
                             {
-                                OleDbCommand command4 = new OleDbCommand("insert into University_Alloted(Date,Room_No,Seat,Session,Reg_no,Name,Branch,Exam_Code,Course)Values(" + "@Date,@Room_No,@Seat,@Session,@Reg_no,@Name,@Branch,@Exam_Code,@Course)", con.ActiveCon());
+                                SQLiteCommand command4 = new SQLiteCommand("insert into University_Alloted(Date,Room_No,Seat,Session,Reg_no,Name,Branch,Exam_Code,Course)Values(" + "@Date,@Room_No,@Seat,@Session,@Reg_no,@Name,@Branch,@Exam_Code,@Course)", con.ActiveCon());
                                 command4.Parameters.AddWithValue("@Date", date_students[count]);
                                 command4.Parameters.AddWithValue("@Room_No", roomrow["Room_No"].ToString());
                                 command4.Parameters.AddWithValue("@Seat", "A" + (i + 1));
@@ -156,10 +156,10 @@ namespace Exam_Cell
             //    for (int z = 0; z < 2; z++)
             //    {
             //        //Get Timetable details
-            //        OleDbCommand command = new OleDbCommand("select Date,Session,Course,Exam_Code from Timetable where Date=@Date and Session=@Session order by Date,Session", con.ActiveCon());
+            //        SQLiteCommand command = new SQLiteCommand("select Date,Session,Course,Exam_Code from Timetable where Date=@Date and Session=@Session order by Date,Session", con.ActiveCon());
             //        command.Parameters.AddWithValue("@Date", rowdate["Date"].ToString());
             //        command.Parameters.AddWithValue("@Session", session);
-            //        OleDbDataAdapter adapter = new OleDbDataAdapter(command);
+            //        SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
             //        DataTable table_timetable = new DataTable();
             //        adapter.Fill(table_timetable);
 
@@ -200,7 +200,7 @@ namespace Exam_Cell
             //                int count = 0;
             //                for (int i = 0; i < series; i++)
             //                {
-            //                    OleDbCommand command4 = new OleDbCommand("insert into University_Alloted(Date,Room_No,Seat,Session,Reg_no,Name,Branch,Exam_Code,Course)Values(" + "@Date,@Room_No,@Seat,@Session,@Reg_no,@Name,@Branch,@Exam_Code,@Course)", con.ActiveCon());
+            //                    SQLiteCommand command4 = new SQLiteCommand("insert into University_Alloted(Date,Room_No,Seat,Session,Reg_no,Name,Branch,Exam_Code,Course)Values(" + "@Date,@Room_No,@Seat,@Session,@Reg_no,@Name,@Branch,@Exam_Code,@Course)", con.ActiveCon());
             //                    command4.Parameters.AddWithValue("@Date", date);
             //                    command4.Parameters.AddWithValue("@Room_No", room);
             //                    command4.Parameters.AddWithValue("@Seat", "A" + (j + 1));
@@ -245,8 +245,8 @@ namespace Exam_Cell
             try
             {
             //get registered students details
-            OleDbCommand command2 = new OleDbCommand("select * from Series_candidates order by Course, Class, Name", con.ActiveCon());
-            OleDbDataAdapter adapter2 = new OleDbDataAdapter(command2);
+            SQLiteCommand command2 = new SQLiteCommand("select * from Series_candidates order by Course, Class, Name", con.ActiveCon());
+            SQLiteDataAdapter adapter2 = new SQLiteDataAdapter(command2);
             DataTable table_students = new DataTable();
             adapter2.Fill(table_students);
                 con.CloseCon();
@@ -257,8 +257,8 @@ namespace Exam_Cell
             }
 
             //get rooms details
-            OleDbCommand command3 = new OleDbCommand("select * from Rooms order by Priority", con.ActiveCon());
-            OleDbDataAdapter adapter3 = new OleDbDataAdapter(command3);
+            SQLiteCommand command3 = new SQLiteCommand("select * from Rooms order by Priority", con.ActiveCon());
+            SQLiteDataAdapter adapter3 = new SQLiteDataAdapter(command3);
             DataTable table_rooms = new DataTable();
             adapter3.Fill(table_rooms);
             Alloted_dgv.DataSource = table_rooms;
@@ -269,8 +269,8 @@ namespace Exam_Cell
                 return;
             }
             //get distinct dates
-            OleDbCommand commanddate = new OleDbCommand("select distinct Date from Timetable order by Date", con.ActiveCon());
-            OleDbDataAdapter adapterdate = new OleDbDataAdapter(commanddate);
+            SQLiteCommand commanddate = new SQLiteCommand("select distinct Date from Timetable order by Date", con.ActiveCon());
+            SQLiteDataAdapter adapterdate = new SQLiteDataAdapter(commanddate);
             DataTable table_distinctdate = new DataTable();
             adapterdate.Fill(table_distinctdate);
                 con.CloseCon();
@@ -287,10 +287,10 @@ namespace Exam_Cell
                 for (int z = 0; z < 2; z++)
                 {
                     //Get Timtable details
-                    OleDbCommand command = new OleDbCommand("select Date,Session,Course,Exam_Code from Timetable where Date=@Date and Session=@Session order by Date,Session,Course", con.ActiveCon());
+                    SQLiteCommand command = new SQLiteCommand("select Date,Session,Course,Exam_Code from Timetable where Date=@Date and Session=@Session order by Date,Session,Course", con.ActiveCon());
                     command.Parameters.AddWithValue("@Date", rowdate["Date"].ToString());
                     command.Parameters.AddWithValue("@Session", session);
-                    OleDbDataAdapter adapter = new OleDbDataAdapter(command);
+                    SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
                     DataTable table_timetable = new DataTable();
                     adapter.Fill(table_timetable);
                         con.CloseCon();
@@ -373,7 +373,7 @@ namespace Exam_Cell
                             int flag = 0 ;
                             for(int i=0;i<series;i++)
                             {
-                                OleDbCommand command4 = new OleDbCommand("insert into Series_Alloted(Date,Room_No,Seat,Session,Reg_no,Name,Class,Exam_Code,Course)Values(" + "@Date,@Room_No,@Seat,@Session,@Reg_no,@Name,@Class,@Exam_Code,@Course)", con.ActiveCon());
+                                SQLiteCommand command4 = new SQLiteCommand("insert into Series_Alloted(Date,Room_No,Seat,Session,Reg_no,Name,Class,Exam_Code,Course)Values(" + "@Date,@Room_No,@Seat,@Session,@Reg_no,@Name,@Class,@Exam_Code,@Course)", con.ActiveCon());
                                 command4.Parameters.AddWithValue("@Date", date_studentsA[count]);
                                 command4.Parameters.AddWithValue("@Room_No", roomrow["Room_No"].ToString());
                                 command4.Parameters.AddWithValue("@Seat", "A" + (i + 1));
@@ -403,7 +403,7 @@ namespace Exam_Cell
                             int flag = 0;
                             for (int i = 0; i < series; i++)
                             {
-                                OleDbCommand command4 = new OleDbCommand("insert into Series_Alloted(Date,Room_No,Seat,Session,Reg_no,Name,Class,Exam_Code,Course)Values(" + "@Date,@Room_No,@Seat,@Session,@Reg_no,@Name,@Class,@Exam_Code,@Course)", con.ActiveCon());
+                                SQLiteCommand command4 = new SQLiteCommand("insert into Series_Alloted(Date,Room_No,Seat,Session,Reg_no,Name,Class,Exam_Code,Course)Values(" + "@Date,@Room_No,@Seat,@Session,@Reg_no,@Name,@Class,@Exam_Code,@Course)", con.ActiveCon());
                                 command4.Parameters.AddWithValue("@Date", date_studentsB[count]);
                                 command4.Parameters.AddWithValue("@Room_No", roomrow["Room_No"].ToString());
                                 command4.Parameters.AddWithValue("@Seat", "B" + (i + 1));
@@ -469,7 +469,7 @@ namespace Exam_Cell
                         }
                         else
                         {
-                            OleDbCommand comm = new OleDbCommand("Select @series from Rooms where Room_No=@Room_No", con.ActiveCon());
+                            SQLiteCommand comm = new SQLiteCommand("Select @series from Rooms where Room_No=@Room_No", con.ActiveCon());
                             comm.Parameters.AddWithValue("@series", fromseries);
                             comm.Parameters.AddWithValue("@Room_No", fromroom);
                             int fromseriesCount = (Int32)comm.ExecuteScalar();
@@ -479,7 +479,7 @@ namespace Exam_Cell
                                 return;
                             }
 
-                            OleDbCommand comm2 = new OleDbCommand("Select @series from Rooms where Room_No=@Room_No", con.ActiveCon());
+                            SQLiteCommand comm2 = new SQLiteCommand("Select @series from Rooms where Room_No=@Room_No", con.ActiveCon());
                             comm2.Parameters.AddWithValue("@series", toseries);
                             comm2.Parameters.AddWithValue("@Room_No", toroom);
                             int toseriesCount = (Int32)comm2.ExecuteScalar();
@@ -496,9 +496,9 @@ namespace Exam_Cell
 
                         if (Unv_radio.Checked)
                         {
-                            OleDbCommand comm = new OleDbCommand("Select Room_No,Seat,Reg_no from University_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
+                            SQLiteCommand comm = new SQLiteCommand("Select Room_No,Seat,Reg_no from University_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
                             comm.Parameters.AddWithValue("@Room_No", fromroom);
-                            OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
+                            SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
                             DataTable dataTable = new DataTable();
                             adapter.Fill(dataTable);
                             con.CloseCon();
@@ -518,7 +518,7 @@ namespace Exam_Cell
                             }
                             foreach (DataRow dataRow in dataTable.Rows)
                             {
-                                OleDbCommand comm2 = new OleDbCommand("update University_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
+                                SQLiteCommand comm2 = new SQLiteCommand("update University_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
                                 comm2.Parameters.AddWithValue("@Room_No", dataRow["Room_No"]);
                                 comm2.Parameters.AddWithValue("@Seat", dataRow["Seat"]);
                                 comm2.Parameters.AddWithValue("@Reg_no", dataRow["Reg_no"]);
@@ -529,9 +529,9 @@ namespace Exam_Cell
                         }
                         else if (Series_radio.Checked)
                         {
-                            OleDbCommand comm = new OleDbCommand("Select Room_No,Seat,Reg_no from Series_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
+                            SQLiteCommand comm = new SQLiteCommand("Select Room_No,Seat,Reg_no from Series_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
                             comm.Parameters.AddWithValue("@Room_No", fromroom);
-                            OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
+                            SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
                             DataTable dataTable = new DataTable();
                             adapter.Fill(dataTable);
                             con.CloseCon();
@@ -552,7 +552,7 @@ namespace Exam_Cell
                             }
                             foreach (DataRow dataRow in dataTable.Rows)
                             {
-                                OleDbCommand comm2 = new OleDbCommand("update Series_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
+                                SQLiteCommand comm2 = new SQLiteCommand("update Series_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
                                 comm2.Parameters.AddWithValue("@Room_No", dataRow["Room_No"]);
                                 comm2.Parameters.AddWithValue("@Seat", dataRow["Seat"]);
                                 comm2.Parameters.AddWithValue("@Reg_no", dataRow["Reg_no"]);
@@ -649,8 +649,8 @@ namespace Exam_Cell
                 else
                     commandtext = "SELECT Distinct Date from University_Alloted";
                 DataTable dstnctdatatable = new DataTable();
-                OleDbCommand command = new OleDbCommand(commandtext, con.ActiveCon());
-                OleDbDataAdapter distinctadapter = new OleDbDataAdapter(command);
+                SQLiteCommand command = new SQLiteCommand(commandtext, con.ActiveCon());
+                SQLiteDataAdapter distinctadapter = new SQLiteDataAdapter(command);
                 distinctadapter.Fill(dstnctdatatable);
                 con.CloseCon();
                 if (dstnctdatatable.Rows.Count == 0)
@@ -683,20 +683,20 @@ namespace Exam_Cell
                             if (Series_radio.Checked)
                             {
                                 //Create a query and fill the data table with the data from the DB            
-                                OleDbCommand cmd = new OleDbCommand("SELECT Seat,Reg_no,Name,Exam_code,Room_No from Series_Alloted Where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
+                                SQLiteCommand cmd = new SQLiteCommand("SELECT Seat,Reg_no,Name,Exam_code,Room_No from Series_Alloted Where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
                                 cmd.Parameters.AddWithValue("@Date", dr["Date"].ToString());
                                 cmd.Parameters.AddWithValue("@Session", session);
-                                OleDbDataAdapter adptr = new OleDbDataAdapter(cmd);
+                                SQLiteDataAdapter adptr = new SQLiteDataAdapter(cmd);
                                 adptr.Fill(dt);
                                 con.CloseCon();
                             }
                             else
                             {
                                 //Create a query and fill the data table with the data from the DB            
-                                OleDbCommand cmd = new OleDbCommand("SELECT Seat,Reg_no,Name,Exam_code,Room_No from University_Alloted Where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
+                                SQLiteCommand cmd = new SQLiteCommand("SELECT Seat,Reg_no,Name,Exam_code,Room_No from University_Alloted Where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
                                 cmd.Parameters.AddWithValue("@Date", dr["Date"].ToString());
                                 cmd.Parameters.AddWithValue("@Session", session);
-                                OleDbDataAdapter adptr = new OleDbDataAdapter(cmd);
+                                SQLiteDataAdapter adptr = new SQLiteDataAdapter(cmd);
                                 adptr.Fill(dt);
                                 con.CloseCon();
                             }
@@ -704,19 +704,19 @@ namespace Exam_Cell
                             DataTable dstnctroomdatatable = new DataTable();
                             if(Series_radio.Checked)
                             {
-                                OleDbCommand commandroom = new OleDbCommand("SELECT Distinct Room_No from Series_Alloted Where Date=@Date and Session=@Session", con.ActiveCon());
+                                SQLiteCommand commandroom = new SQLiteCommand("SELECT Distinct Room_No from Series_Alloted Where Date=@Date and Session=@Session", con.ActiveCon());
                                 commandroom.Parameters.AddWithValue("@Date", dr["Date"].ToString());
                                 commandroom.Parameters.AddWithValue("@Session", session);
-                                OleDbDataAdapter distinctroomadapter = new OleDbDataAdapter(commandroom);
+                                SQLiteDataAdapter distinctroomadapter = new SQLiteDataAdapter(commandroom);
                                 distinctroomadapter.Fill(dstnctroomdatatable);
                                 con.CloseCon();
                             }
                             else
                             {
-                                OleDbCommand commandroom = new OleDbCommand("SELECT Distinct Room_No from University_Alloted Where Date=@Date and Session=@Session", con.ActiveCon());
+                                SQLiteCommand commandroom = new SQLiteCommand("SELECT Distinct Room_No from University_Alloted Where Date=@Date and Session=@Session", con.ActiveCon());
                                 commandroom.Parameters.AddWithValue("@Date", dr["Date"].ToString());
                                 commandroom.Parameters.AddWithValue("@Session", session);
-                                OleDbDataAdapter distinctroomadapter = new OleDbDataAdapter(commandroom);
+                                SQLiteDataAdapter distinctroomadapter = new SQLiteDataAdapter(commandroom);
                                 distinctroomadapter.Fill(dstnctroomdatatable);
                                 con.CloseCon();
                             }
@@ -909,8 +909,8 @@ namespace Exam_Cell
                     else
                         commandtext = "SELECT Distinct Date from University_Alloted";
                     DataTable dstnctdatatable = new DataTable();
-                    OleDbCommand command = new OleDbCommand(commandtext, con.ActiveCon());
-                    OleDbDataAdapter distinctadapter = new OleDbDataAdapter(command);
+                    SQLiteCommand command = new SQLiteCommand(commandtext, con.ActiveCon());
+                    SQLiteDataAdapter distinctadapter = new SQLiteDataAdapter(command);
                     distinctadapter.Fill(dstnctdatatable);
                         con.CloseCon();
                     if (dstnctdatatable.Rows.Count == 0)
@@ -935,37 +935,37 @@ namespace Exam_Cell
                                 if (Series_radio.Checked)
                                 {
                                     //Create a query and fill the data table with the data from the DB            
-                                    OleDbCommand cmd = new OleDbCommand("SELECT Reg_no,Room_No,Seat,Exam_code,Course,Class from Series_Alloted Where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
+                                    SQLiteCommand cmd = new SQLiteCommand("SELECT Reg_no,Room_No,Seat,Exam_code,Course,Class from Series_Alloted Where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
                                     cmd.Parameters.AddWithValue("@Date", dr["Date"].ToString());
                                     cmd.Parameters.AddWithValue("@Session", session);
-                                    OleDbDataAdapter adptr = new OleDbDataAdapter(cmd);
+                                    SQLiteDataAdapter adptr = new SQLiteDataAdapter(cmd);
                                     adptr.Fill(dt);
                                 }
                                 else
                                 {
                                     //Create a query and fill the data table with the data from the DB            
-                                    OleDbCommand cmd = new OleDbCommand("SELECT Reg_no,Room_No,Seat,Exam_code,Course,Branch from University_Alloted Where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
+                                    SQLiteCommand cmd = new SQLiteCommand("SELECT Reg_no,Room_No,Seat,Exam_code,Course,Branch from University_Alloted Where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
                                     cmd.Parameters.AddWithValue("@Date", dr["Date"].ToString());
                                     cmd.Parameters.AddWithValue("@Session", session);
-                                    OleDbDataAdapter adptr = new OleDbDataAdapter(cmd);
+                                    SQLiteDataAdapter adptr = new SQLiteDataAdapter(cmd);
                                     adptr.Fill(dt);
                                 }
                                 con.CloseCon();
                                 DataTable dt2 = new DataTable();
                                 if (Unv_radio.Checked)
                                 {                                    
-                                    OleDbCommand commandroom = new OleDbCommand("SELECT Distinct Branch from University_Alloted Where Date=@Date and Session=@Session", con.ActiveCon());
+                                    SQLiteCommand commandroom = new SQLiteCommand("SELECT Distinct Branch from University_Alloted Where Date=@Date and Session=@Session", con.ActiveCon());
                                     commandroom.Parameters.AddWithValue("@Date", dr["Date"].ToString());
                                     commandroom.Parameters.AddWithValue("@Session", session);
-                                    OleDbDataAdapter adptr2 = new OleDbDataAdapter(commandroom);
+                                    SQLiteDataAdapter adptr2 = new SQLiteDataAdapter(commandroom);
                                     adptr2.Fill(dt2);
                                 }
                                 else
                                 {                                    
-                                    OleDbCommand commandroom = new OleDbCommand("SELECT Distinct Class from Series_Alloted Where Date=@Date and Session=@Session", con.ActiveCon());
+                                    SQLiteCommand commandroom = new SQLiteCommand("SELECT Distinct Class from Series_Alloted Where Date=@Date and Session=@Session", con.ActiveCon());
                                     commandroom.Parameters.AddWithValue("@Date", dr["Date"].ToString());
                                     commandroom.Parameters.AddWithValue("@Session", session);
-                                    OleDbDataAdapter adptr2 = new OleDbDataAdapter(commandroom);
+                                    SQLiteDataAdapter adptr2 = new SQLiteDataAdapter(commandroom);
                                     adptr2.Fill(dt2);
                                 }
                                 con.CloseCon();
@@ -1051,7 +1051,7 @@ namespace Exam_Cell
 
                                             if(Unv_radio.Checked)
                                             {                                                
-                                                OleDbCommand coursecommand = new OleDbCommand("Select Course from University_Alloted where Branch=@Branch and Date=@Date and Session=@Session ", con.ActiveCon());
+                                                SQLiteCommand coursecommand = new SQLiteCommand("Select Course from University_Alloted where Branch=@Branch and Date=@Date and Session=@Session ", con.ActiveCon());
                                                 coursecommand.Parameters.AddWithValue("@Branch", checkbranch);
                                                 coursecommand.Parameters.AddWithValue("@Date", dr["Date"].ToString());
                                                 coursecommand.Parameters.AddWithValue("@Session", session);
@@ -1063,12 +1063,12 @@ namespace Exam_Cell
                                                     range.Style.Font.Size = 14;
                                                     range.Style.Font.Bold = true;
                                                 } 
-                                                OleDbCommand coursecmd = new OleDbCommand("SELECT Reg_no,Room_No,Seat from University_Alloted Where Date=@Date and Session=@Session and Course=@Course order by Reg_no", con.ActiveCon());
+                                                SQLiteCommand coursecmd = new SQLiteCommand("SELECT Reg_no,Room_No,Seat from University_Alloted Where Date=@Date and Session=@Session and Course=@Course order by Reg_no", con.ActiveCon());
                                                 coursecmd.Parameters.AddWithValue("@Date", dr["Date"].ToString());
                                                 coursecmd.Parameters.AddWithValue("@Session", session);
                                                 coursecmd.Parameters.AddWithValue("@Course", Course);
                                                 DataTable coursedt = new DataTable();
-                                                OleDbDataAdapter courseadptr = new OleDbDataAdapter(coursecmd);
+                                                SQLiteDataAdapter courseadptr = new SQLiteDataAdapter(coursecmd);
                                                 courseadptr.Fill(coursedt);
                                                 con.CloseCon();
                                                 int j = 1, k = 7;
@@ -1092,12 +1092,12 @@ namespace Exam_Cell
                                             }
                                             else
                                             {
-                                                OleDbCommand coursecommand = new OleDbCommand("Select Distinct Course from Series_Alloted where Class=@Class and Date=@Date and Session=@Session ", con.ActiveCon());
+                                                SQLiteCommand coursecommand = new SQLiteCommand("Select Distinct Course from Series_Alloted where Class=@Class and Date=@Date and Session=@Session ", con.ActiveCon());
                                                 coursecommand.Parameters.AddWithValue("@Class", checkbranch);
                                                 coursecommand.Parameters.AddWithValue("@Date", dr["Date"].ToString());
                                                 coursecommand.Parameters.AddWithValue("@Session", session);
                                                 DataTable coursedata = new DataTable();
-                                                OleDbDataAdapter coursedataadptr = new OleDbDataAdapter(coursecommand);
+                                                SQLiteDataAdapter coursedataadptr = new SQLiteDataAdapter(coursecommand);
                                                 coursedataadptr.Fill(coursedata);
                                                 con.CloseCon();
                                                 int c = 6 ;
@@ -1111,12 +1111,12 @@ namespace Exam_Cell
                                                         range.Style.Font.Bold = true;
                                                     }
                                                     c++;
-                                                    OleDbCommand coursecmd = new OleDbCommand("SELECT Reg_no,Room_No,Seat from Series_Alloted Where Date=@Date and Session=@Session and Course=@Course order by Reg_no", con.ActiveCon());
+                                                    SQLiteCommand coursecmd = new SQLiteCommand("SELECT Reg_no,Room_No,Seat from Series_Alloted Where Date=@Date and Session=@Session and Course=@Course order by Reg_no", con.ActiveCon());
                                                     coursecmd.Parameters.AddWithValue("@Date", dr["Date"].ToString());
                                                     coursecmd.Parameters.AddWithValue("@Session", session);
                                                     coursecommand.Parameters.AddWithValue("@Course", dataRow["Course"].ToString());
                                                     DataTable coursedt = new DataTable();
-                                                    OleDbDataAdapter courseadptr = new OleDbDataAdapter(coursecmd);
+                                                    SQLiteDataAdapter courseadptr = new SQLiteDataAdapter(coursecmd);
                                                     courseadptr.Fill(coursedt);
                                                     con.CloseCon();
                                                     int j = 1;
@@ -1211,18 +1211,18 @@ namespace Exam_Cell
             DataTable dataTable = new DataTable();
             if (Unv_radio.Checked)
             {
-                OleDbCommand comm = new OleDbCommand("select * from University_Alloted where Date=@Date and Session=@Session order by Room_No,Seat",con.ActiveCon());
+                SQLiteCommand comm = new SQLiteCommand("select * from University_Alloted where Date=@Date and Session=@Session order by Room_No,Seat",con.ActiveCon());
                 comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
                 comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
-                OleDbDataAdapter adapter = new OleDbDataAdapter(comm);                
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);                
                 adapter.Fill(dataTable);                
             }
             else
             {
-                OleDbCommand comm = new OleDbCommand("select * from Series_Alloted where Date=@Date and Session=@Session order by Room_No,Seat",con.ActiveCon());
+                SQLiteCommand comm = new SQLiteCommand("select * from Series_Alloted where Date=@Date and Session=@Session order by Room_No,Seat",con.ActiveCon());
                 comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
                 comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
-                OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
                 adapter.Fill(dataTable);
             }
             con.CloseCon();
@@ -1232,8 +1232,8 @@ namespace Exam_Cell
             Alloted_dgv.DataSource = dgvfill;
             NoOfStudents_Brief.Text = dataTable.Rows.Count.ToString();
 
-            OleDbCommand comm2 = new OleDbCommand("select Room_No,A_Series,B_Series from Rooms", con.ActiveCon());
-            OleDbDataAdapter adapter2 = new OleDbDataAdapter(comm2);
+            SQLiteCommand comm2 = new SQLiteCommand("select Room_No,A_Series,B_Series from Rooms", con.ActiveCon());
+            SQLiteDataAdapter adapter2 = new SQLiteDataAdapter(comm2);
             DataTable dataTable2 = new DataTable();
             adapter2.Fill(dataTable2);
             con.CloseCon();
@@ -1263,17 +1263,17 @@ namespace Exam_Cell
         {
             if (Unv_radio.Checked)
             {
-                OleDbCommand comm = new OleDbCommand("select Distinct Exam_Code,Course from University_Alloted where Date=@Date and Session=@Session", con.ActiveCon());
+                SQLiteCommand comm = new SQLiteCommand("select Distinct Exam_Code,Course from University_Alloted where Date=@Date and Session=@Session", con.ActiveCon());
                 comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
                 comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
-                OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
                 DataTable dataTablebrief = new DataTable();
                 adapter.Fill(dataTablebrief);
                 con.CloseCon();
                 dataTablebrief.Columns.Add("No of Students", typeof(int));
                 foreach (DataRow dr in dataTablebrief.Rows)
                 {
-                    OleDbCommand comm2 = new OleDbCommand("select Count(Reg_No) from University_Alloted where Exam_Code=@Exam_Code", con.ActiveCon());
+                    SQLiteCommand comm2 = new SQLiteCommand("select Count(Reg_No) from University_Alloted where Exam_Code=@Exam_Code", con.ActiveCon());
                     comm2.Parameters.AddWithValue("@Exam_Code", dr["Exam_Code"]);
                     int count = (int)comm2.ExecuteScalar();
                     dr["No of Students"] = count;
@@ -1284,17 +1284,17 @@ namespace Exam_Cell
             }
             else
             {
-                OleDbCommand comm = new OleDbCommand("select Distinct Exam_Code,Class from Series_Alloted where Date=@Date and Session=@Session", con.ActiveCon());
+                SQLiteCommand comm = new SQLiteCommand("select Distinct Exam_Code,Class from Series_Alloted where Date=@Date and Session=@Session", con.ActiveCon());
                 comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
                 comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
-                OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
                 con.CloseCon();
                 dataTable.Columns.Add("No of Students", typeof(int));
                 foreach (DataRow dr in dataTable.Rows)
                 {
-                    OleDbCommand comm2 = new OleDbCommand("select Count(Reg_No) from Series_Alloted where Exam_Code=@Exam_Code", con.ActiveCon());
+                    SQLiteCommand comm2 = new SQLiteCommand("select Count(Reg_No) from Series_Alloted where Exam_Code=@Exam_Code", con.ActiveCon());
                     comm2.Parameters.AddWithValue("@Exam_Code", dr["Exam_Code"]);
                     int count = (int)comm2.ExecuteScalar();
                     dr["No of Students"] = count;
@@ -1310,11 +1310,11 @@ namespace Exam_Cell
         {
             if (Unv_radio.Checked)
             {
-                OleDbCommand comm = new OleDbCommand("select Reg_no,Name,Exam_Code,Room_No,Seat from University_Alloted where Date=@Date and Session=@Session and Room_No=@Room_No order by Seat", con.ActiveCon());
+                SQLiteCommand comm = new SQLiteCommand("select Reg_no,Name,Exam_Code,Room_No,Seat from University_Alloted where Date=@Date and Session=@Session and Room_No=@Room_No order by Seat", con.ActiveCon());
                 comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
                 comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
                 comm.Parameters.AddWithValue("@Room_No", AllocatedRoom_combobox.Text);
-                OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
                 DataTable dataTabledgv = new DataTable();
                 adapter.Fill(dataTabledgv);
                 AllotedStudentsRooms_dgv.DataSource = null;
@@ -1324,11 +1324,11 @@ namespace Exam_Cell
             }
             else if (Series_radio.Checked)
             {
-                OleDbCommand comm = new OleDbCommand("select Reg_no,Name,Exam_Code,Room_No,Seat from Series_Alloted where Date=@Date and Session=@Session and Room_No=@Room_No order by Seat", con.ActiveCon());
+                SQLiteCommand comm = new SQLiteCommand("select Reg_no,Name,Exam_Code,Room_No,Seat from Series_Alloted where Date=@Date and Session=@Session and Room_No=@Room_No order by Seat", con.ActiveCon());
                 comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
                 comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
                 comm.Parameters.AddWithValue("@Room_No", AllocatedRoom_combobox.Text);
-                OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
                 AllotedStudentsRooms_dgv.DataSource = null;
@@ -1342,18 +1342,18 @@ namespace Exam_Cell
             DataTable dataTablecombo = new DataTable();
             if(Series_radio.Checked)
             {
-                OleDbCommand comm = new OleDbCommand("select Distinct Room_No from Series_Alloted where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
+                SQLiteCommand comm = new SQLiteCommand("select Distinct Room_No from Series_Alloted where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
                 comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
                 comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
-                OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
                 adapter.Fill(dataTablecombo);
             }
             else
             {
-                OleDbCommand comm = new OleDbCommand("select Distinct Room_No from University_Alloted where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
+                SQLiteCommand comm = new SQLiteCommand("select Distinct Room_No from University_Alloted where Date=@Date and Session=@Session order by Room_No", con.ActiveCon());
                 comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
                 comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
-                OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
                 adapter.Fill(dataTablecombo);
             }
             con.CloseCon();
@@ -1442,7 +1442,7 @@ namespace Exam_Cell
                         }
                         else
                         {
-                            OleDbCommand comm = new OleDbCommand("Select @series from Rooms where Room_No=@Room_No", con.ActiveCon());
+                            SQLiteCommand comm = new SQLiteCommand("Select @series from Rooms where Room_No=@Room_No", con.ActiveCon());
                             comm.Parameters.AddWithValue("@series", fromseries);
                             comm.Parameters.AddWithValue("@Room_No", fromroom);
                             int fromseriesCount = (Int32)comm.ExecuteScalar();
@@ -1452,7 +1452,7 @@ namespace Exam_Cell
                                 return;
                             }
 
-                            OleDbCommand comm2 = new OleDbCommand("Select @series from Rooms where Room_No=@Room_No", con.ActiveCon());
+                            SQLiteCommand comm2 = new SQLiteCommand("Select @series from Rooms where Room_No=@Room_No", con.ActiveCon());
                             comm2.Parameters.AddWithValue("@series", toseries);
                             comm2.Parameters.AddWithValue("@Room_No", toroom);
                             int toseriesCount = (Int32)comm2.ExecuteScalar();
@@ -1469,15 +1469,15 @@ namespace Exam_Cell
 
                         if (Unv_radio.Checked)
                         {
-                            OleDbCommand comm = new OleDbCommand("Select Room_No,Seat,Reg_no from University_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
+                            SQLiteCommand comm = new SQLiteCommand("Select Room_No,Seat,Reg_no from University_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
                             comm.Parameters.AddWithValue("@Room_No", fromroom);
-                            OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
+                            SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
                             DataTable dataTable = new DataTable();
                             adapter.Fill(dataTable);
                             con.CloseCon();
-                            OleDbCommand comm2 = new OleDbCommand("Select Room_No,Seat,Reg_no from University_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
+                            SQLiteCommand comm2 = new SQLiteCommand("Select Room_No,Seat,Reg_no from University_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
                             comm2.Parameters.AddWithValue("@Room_No", toroom);
-                            OleDbDataAdapter adapter2 = new OleDbDataAdapter(comm2);
+                            SQLiteDataAdapter adapter2 = new SQLiteDataAdapter(comm2);
                             DataTable dataTable2 = new DataTable();
                             adapter2.Fill(dataTable2);
                             con.CloseCon();
@@ -1513,7 +1513,7 @@ namespace Exam_Cell
                             }
                             foreach (DataRow dataRow in dataTable.Rows)
                             {
-                                OleDbCommand comm3 = new OleDbCommand("update University_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
+                                SQLiteCommand comm3 = new SQLiteCommand("update University_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
                                 comm3.Parameters.AddWithValue("@Room_No", dataRow["Room_No"]);
                                 comm3.Parameters.AddWithValue("@Seat", dataRow["Seat"]);
                                 comm3.Parameters.AddWithValue("@Reg_no", dataRow["Reg_no"]);
@@ -1522,7 +1522,7 @@ namespace Exam_Cell
                             }
                             foreach (DataRow dataRow in dataTable2.Rows)
                             {
-                                OleDbCommand comm3 = new OleDbCommand("update University_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
+                                SQLiteCommand comm3 = new SQLiteCommand("update University_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
                                 comm3.Parameters.AddWithValue("@Room_No", dataRow["Room_No"]);
                                 comm3.Parameters.AddWithValue("@Seat", dataRow["Seat"]);
                                 comm3.Parameters.AddWithValue("@Reg_no", dataRow["Reg_no"]);
@@ -1533,15 +1533,15 @@ namespace Exam_Cell
                         }
                         else if (Series_radio.Checked)
                         {
-                            OleDbCommand comm = new OleDbCommand("Select Room_No,Seat,Reg_no from Series_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
+                            SQLiteCommand comm = new SQLiteCommand("Select Room_No,Seat,Reg_no from Series_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
                             comm.Parameters.AddWithValue("@Room_No", fromroom);
-                            OleDbDataAdapter adapter = new OleDbDataAdapter(comm);
+                            SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
                             DataTable dataTable = new DataTable();
                             adapter.Fill(dataTable);
                             con.CloseCon();
-                            OleDbCommand comm2 = new OleDbCommand("Select Room_No,Seat,Reg_no from Series_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
+                            SQLiteCommand comm2 = new SQLiteCommand("Select Room_No,Seat,Reg_no from Series_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
                             comm2.Parameters.AddWithValue("@Room_No", toroom);
-                            OleDbDataAdapter adapter2 = new OleDbDataAdapter(comm2);
+                            SQLiteDataAdapter adapter2 = new SQLiteDataAdapter(comm2);
                             DataTable dataTable2 = new DataTable();
                             adapter2.Fill(dataTable2);
                             con.CloseCon();
@@ -1577,7 +1577,7 @@ namespace Exam_Cell
                             }
                             foreach (DataRow dataRow in dataTable.Rows)
                             {
-                                OleDbCommand comm3 = new OleDbCommand("update Series_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
+                                SQLiteCommand comm3 = new SQLiteCommand("update Series_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
                                 comm3.Parameters.AddWithValue("@Room_No", dataRow["Room_No"]);
                                 comm3.Parameters.AddWithValue("@Seat", dataRow["Seat"]);
                                 comm3.Parameters.AddWithValue("@Reg_no", dataRow["Reg_no"]);
@@ -1586,7 +1586,7 @@ namespace Exam_Cell
                             }
                             foreach (DataRow dataRow in dataTable2.Rows)
                             {
-                                OleDbCommand comm3 = new OleDbCommand("update Series_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
+                                SQLiteCommand comm3 = new SQLiteCommand("update Series_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
                                 comm3.Parameters.AddWithValue("@Room_No", dataRow["Room_No"]);
                                 comm3.Parameters.AddWithValue("@Seat", dataRow["Seat"]);
                                 comm3.Parameters.AddWithValue("@Reg_no", dataRow["Reg_no"]);

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.OleDb;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -34,8 +34,8 @@ namespace Exam_Cell
             try
             {
             headerchkbox.Checked = false;
-            OleDbCommand command = new OleDbCommand("select * from Timetable order by Date,Session", con.ActiveCon());
-            OleDbDataAdapter adapter = new OleDbDataAdapter(command);
+            SQLiteCommand command = new SQLiteCommand("select * from Timetable order by Date,Session", con.ActiveCon());
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
             DataTable table_Time = new DataTable();
             adapter.Fill(table_Time);
             source.DataSource = null;
@@ -111,8 +111,8 @@ namespace Exam_Cell
             try
             {
             string command = string.Format("Select Distinct Branch from Scheme");
-            OleDbCommand sc = new OleDbCommand(command, con.ActiveCon());
-            OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
+            SQLiteCommand sc = new SQLiteCommand(command, con.ActiveCon());
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(sc);
             DataTable dt = new DataTable();
             adapter.Fill(dt);            
             DataRow top = dt.NewRow();
@@ -137,8 +137,8 @@ namespace Exam_Cell
             try
             {
             string command = string.Format("Select Distinct Semester from Scheme");
-            OleDbCommand sc = new OleDbCommand(command, con.ActiveCon());
-            OleDbDataAdapter adapter = new OleDbDataAdapter(sc);
+            SQLiteCommand sc = new SQLiteCommand(command, con.ActiveCon());
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(sc);
             DataTable dt = new DataTable();
             adapter.Fill(dt);            
             DataRow top = dt.NewRow();
@@ -186,7 +186,7 @@ namespace Exam_Cell
                 {
                     flag = 1;
                     string date = NewDateTimePicker.Text;
-                    OleDbCommand comm = new OleDbCommand("Update Timetable set Date=@Date,Session=@Session where Exam_Code=@Examcode and Branch=@Branch", con.ActiveCon());
+                    SQLiteCommand comm = new SQLiteCommand("Update Timetable set Date=@Date,Session=@Session where Exam_Code=@Examcode and Branch=@Branch", con.ActiveCon());
                     comm.Parameters.AddWithValue("@Date", date);
                     comm.Parameters.AddWithValue("@Session", NewSession_combobox.SelectedItem);
                     comm.Parameters.AddWithValue("@Examcode", dr.Cells["Exam_Code"].Value);
@@ -224,7 +224,7 @@ namespace Exam_Cell
                 {
                     flag = 1;
                     string date = NewDateTimePicker.Text;
-                    OleDbCommand comm = new OleDbCommand("Update Timetable set Date=@Date where Exam_Code=@Examcode and Branch=@Branch", con.ActiveCon());
+                    SQLiteCommand comm = new SQLiteCommand("Update Timetable set Date=@Date where Exam_Code=@Examcode and Branch=@Branch", con.ActiveCon());
                     comm.Parameters.AddWithValue("@Date", date);
                     comm.Parameters.AddWithValue("@Examcode", dr.Cells["Exam_Code"].Value);
                     comm.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value);

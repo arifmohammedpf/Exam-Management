@@ -55,6 +55,7 @@
             this.roomsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.roomsTableAdapter = new Exam_Cell.Exam_Cell_RoomsTableAdapters.RoomsTableAdapter();
             this.roomsTableAdapter1 = new Exam_Cell.Exam_Cell_RoomsTableAdapters.RoomsTableAdapter();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Rooms_dgv)).BeginInit();
@@ -366,6 +367,12 @@
             // 
             this.roomsTableAdapter1.ClearBeforeFill = true;
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 60;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // examhall
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -413,5 +420,6 @@
         private Exam_Cell_RoomsTableAdapters.RoomsTableAdapter roomsTableAdapter1;
         private System.Windows.Forms.DataGridView Rooms_dgv;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
