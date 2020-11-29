@@ -45,7 +45,7 @@ namespace Exam_Cell
             {
                 if (Univrsty_radiobtn.Checked)
                 {
-                    SQLiteCommand command = new SQLiteCommand("Delete Registered_candidates", con.ActiveCon());
+                    SQLiteCommand command = new SQLiteCommand("Delete from Registered_candidates", con.ActiveCon());
                     command.ExecuteNonQuery();
                     msgbox.show("All Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     University_fill();
@@ -53,7 +53,7 @@ namespace Exam_Cell
                 }
                 else if (Series_radiobtn.Checked)
                 {
-                    SQLiteCommand command = new SQLiteCommand("Delete Series_candidates", con.ActiveCon());
+                    SQLiteCommand command = new SQLiteCommand("Delete from Series_candidates", con.ActiveCon());
                     command.ExecuteNonQuery();
                     msgbox.show("All Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     Series_fill();
@@ -61,7 +61,7 @@ namespace Exam_Cell
                 }
                 else if (AllotUniversty_radiobtn.Checked)
                 {
-                    SQLiteCommand command = new SQLiteCommand("Delete University_Alloted", con.ActiveCon());
+                    SQLiteCommand command = new SQLiteCommand("Delete from University_Alloted", con.ActiveCon());
                     command.ExecuteNonQuery();
                     msgbox.show("All Alloted Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     UniversityAlloted_fill();
@@ -69,7 +69,7 @@ namespace Exam_Cell
                 }
                 else if (AllotSeries_radiobtn.Checked)
                 {
-                    SQLiteCommand command = new SQLiteCommand("Delete Series_Alloted", con.ActiveCon());
+                    SQLiteCommand command = new SQLiteCommand("Delete from Series_Alloted", con.ActiveCon());
                     command.ExecuteNonQuery();
                     msgbox.show("All Alloted Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     SeriesAlloted_fill();
@@ -241,6 +241,7 @@ namespace Exam_Cell
             {
             if (result == "Yes")
             {
+                        int f = 0;
                 if (Univrsty_radiobtn.Checked)
                 {
                     foreach (DataGridViewRow dr in Registered_dgv.Rows)
@@ -248,15 +249,23 @@ namespace Exam_Cell
                         bool checkselect = Convert.ToBoolean(dr.Cells["checkBoxColumn"].Value);
                         if (checkselect)
                         {
-                            SQLiteCommand command = new SQLiteCommand("Delete Registered_candidates where Reg_no=@Reg_no", con.ActiveCon());
+                                f = 1;
+                            SQLiteCommand command = new SQLiteCommand("Delete from Registered_candidates where Reg_no=@Reg_no", con.ActiveCon());
                             command.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
                             command.ExecuteNonQuery();
                         }
                     }
-                    msgbox.show("Selected Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
-                    University_fill();
-                    Clear_function();
-                }
+                        if (f == 1)
+                        {
+                            msgbox.show("Selected Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                            University_fill();
+                            Clear_function();
+                        }
+                        else
+                        {
+                            msgbox.show("No Candidates Selected", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                        }
+                    }
                 else if (Series_radiobtn.Checked)
                 {
                     foreach (DataGridViewRow dr in Registered_dgv.Rows)
@@ -264,15 +273,23 @@ namespace Exam_Cell
                         bool checkselect = Convert.ToBoolean(dr.Cells["checkBoxColumn"].Value);
                         if (checkselect)
                         {
-                            SQLiteCommand command = new SQLiteCommand("Delete Series_candidates where Reg_no=@Reg_no", con.ActiveCon());
+                                f = 1;
+                            SQLiteCommand command = new SQLiteCommand("Delete from Series_candidates where Reg_no=@Reg_no", con.ActiveCon());
                             command.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
                             command.ExecuteNonQuery();
                         }
                     }
-                    msgbox.show("Selected Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
-                    Series_fill();
-                    Clear_function();
-                }
+                        if (f == 1)
+                        {
+                            msgbox.show("Selected Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                            Series_fill();
+                            Clear_function();
+                        }
+                        else
+                        {
+                            msgbox.show("No Candidates Selected", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                        }
+                    }
                 else if (AllotSeries_radiobtn.Checked)
                 {
                     foreach (DataGridViewRow dr in Registered_dgv.Rows)
@@ -280,15 +297,23 @@ namespace Exam_Cell
                         bool checkselect = Convert.ToBoolean(dr.Cells["checkBoxColumn"].Value);
                         if (checkselect)
                         {
-                            SQLiteCommand command = new SQLiteCommand("Delete Series_Alloted where Reg_no=@Reg_no", con.ActiveCon());
+                                f = 1;
+                            SQLiteCommand command = new SQLiteCommand("Delete from Series_Alloted where Reg_no=@Reg_no", con.ActiveCon());
                             command.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
                             command.ExecuteNonQuery();
                         }
                     }
-                    msgbox.show("Selected Alloted Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
-                    SeriesAlloted_fill();
-                    Clear_function();
-                }
+                        if (f == 1)
+                        {
+                            msgbox.show("Selected Alloted Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                            SeriesAlloted_fill();
+                            Clear_function();
+                        }
+                        else
+                        {
+                            msgbox.show("No Candidates Selected", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                        }
+                    }
                 else if (AllotUniversty_radiobtn.Checked)
                 {
                     foreach (DataGridViewRow dr in Registered_dgv.Rows)
@@ -296,15 +321,23 @@ namespace Exam_Cell
                         bool checkselect = Convert.ToBoolean(dr.Cells["checkBoxColumn"].Value);
                         if (checkselect)
                         {
-                            SQLiteCommand command = new SQLiteCommand("Delete University_Alloted where Reg_no=@Reg_no", con.ActiveCon());
+                                f = 1;
+                            SQLiteCommand command = new SQLiteCommand("Delete from University_Alloted where Reg_no=@Reg_no", con.ActiveCon());
                             command.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
                             command.ExecuteNonQuery();
                         }
                     }
-                    msgbox.show("Selected Alloted Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
-                    UniversityAlloted_fill();
-                    Clear_function();
-                }
+                        if (f == 1)
+                        {
+                            msgbox.show("Selected Alloted Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                            UniversityAlloted_fill();
+                            Clear_function();
+                        }
+                        else
+                        {
+                            msgbox.show("No Candidates Selected", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                        }
+                    }
             }
             }
             catch (Exception ex)

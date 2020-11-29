@@ -279,7 +279,7 @@ namespace Exam_Cell
                                 try
                                 {
                                 f = 1;
-                                SQLiteCommand command = new SQLiteCommand("Delete Class Where Class=@Class and Name=@Name and Reg_No=@Reg_No", con.ActiveCon());
+                                SQLiteCommand command = new SQLiteCommand("Delete from Class Where Class=@Class and Name=@Name and Reg_No=@Reg_No", con.ActiveCon());
                                 command.Parameters.AddWithValue("@Class", dr.Cells["Class"].Value);
                                 command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value);
                                 command.Parameters.AddWithValue("@Reg_No", dr.Cells["Reg_No"].Value);
@@ -317,7 +317,7 @@ namespace Exam_Cell
                                 try
                                 {
                                 f = 1;
-                                SQLiteCommand command = new SQLiteCommand("delete Students where Reg_no=@Reg_no and Name=@Name and Year_Of_Admission=@Year_Of_Admission and Branch=@Branch", con.ActiveCon());
+                                SQLiteCommand command = new SQLiteCommand("delete from Students where Reg_no=@Reg_no and Name=@Name and Year_Of_Admission=@Year_Of_Admission and Branch=@Branch", con.ActiveCon());
                                 command.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value.ToString());
                                 command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value.ToString());
                                 command.Parameters.AddWithValue("@Year_Of_Admission", dr.Cells["Year_Of_Admission"].Value.ToString());

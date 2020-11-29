@@ -136,13 +136,13 @@ namespace Exam_Cell
             {                
                 try
                 {
-                    SQLiteCommand command2 = new SQLiteCommand("delete Scheme where Branch=@Branch", con.ActiveCon());
+                    SQLiteCommand command2 = new SQLiteCommand("delete from Scheme where Branch=@Branch", con.ActiveCon());
                     command2.Parameters.AddWithValue("@Branch", UpdateBranch_combobox.Text);
                     command2.ExecuteNonQuery();
                     con.CloseCon();
                 }
                 catch (Exception) { }
-                SQLiteCommand command = new SQLiteCommand("delete Management where Branch=@Branch", con.ActiveCon());
+                SQLiteCommand command = new SQLiteCommand("delete from Management where Branch=@Branch", con.ActiveCon());
                 command.Parameters.AddWithValue("@Branch", UpdateBranch_combobox.Text);
                 command.ExecuteNonQuery();
                 BranchComboboxFill();
@@ -173,7 +173,7 @@ namespace Exam_Cell
                     if (checkselected)
                     {
                         f = 1;
-                        SQLiteCommand command = new SQLiteCommand("delete Management where Class=@Class and Semester=@Semester", con.ActiveCon());
+                        SQLiteCommand command = new SQLiteCommand("delete from Management where Class=@Class and Semester=@Semester", con.ActiveCon());
                         command.Parameters.AddWithValue("@Class", dr.Cells["Class"].Value.ToString());
                         command.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value.ToString());
                         command.ExecuteNonQuery();
@@ -326,7 +326,7 @@ namespace Exam_Cell
                     if (checkselected)
                     {
                         f = 1;
-                        SQLiteCommand command = new SQLiteCommand("delete Scheme where Course=@Course", con.ActiveCon());
+                        SQLiteCommand command = new SQLiteCommand("delete from Scheme where Course=@Course", con.ActiveCon());
                         command.Parameters.AddWithValue("@Course", dr.Cells["Course"].Value.ToString());
                         command.ExecuteNonQuery();
                     }
