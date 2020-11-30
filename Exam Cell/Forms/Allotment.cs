@@ -850,9 +850,9 @@ namespace Exam_Cell
                                     /* below might get error since Date has '\' in between ... CHECK if we have to use array 
                                     or something else to remove the '\' .   */
 
-                                    string path = Folder_path_text.Text + @"\Room Sheets\Room Sheet " + dr["Date"].ToString() + " " + session + ".xlsx";
+                                    string path = Folder_path_text.Text + @"\Room Sheet " + dr["Date"].ToString() + " " + session + ".xlsx";
                                     if (f == 1)
-                                        path = Folder_path_text.Text + @"\Signature Sheets\Signature Sheet " + dr["Date"].ToString() + " " + session + ".xlsx";
+                                        path = Folder_path_text.Text + @"\Signature Sheet " + dr["Date"].ToString() + " " + session + ".xlsx";
                                     
                                     Stream stream = File.Create(path);
                                     package.SaveAs(stream);
@@ -1144,7 +1144,7 @@ namespace Exam_Cell
                                         //Save Excel File
                                         /* below might get error since Date has '\' in between ... CHECK if we have to use array 
                                         or something else to remove the '\' .   */
-                                        string path = Folder_path_text.Text + @"\Display Sheets\Display Sheet " + dr["Date"].ToString() + session + ".xlsx";
+                                        string path = Folder_path_text.Text + @"\Display Sheet " + dr["Date"].ToString() + session + ".xlsx";
                                         Stream stream = File.Create(path);
                                         package.SaveAs(stream);
                                         stream.Close();
@@ -1276,7 +1276,7 @@ namespace Exam_Cell
                 {
                     SQLiteCommand comm2 = new SQLiteCommand("select Count(Reg_No) from University_Alloted where Exam_Code=@Exam_Code", con.ActiveCon());
                     comm2.Parameters.AddWithValue("@Exam_Code", dr["Exam_Code"]);
-                    int count = (int)comm2.ExecuteScalar();
+                    int count = comm2.ExecuteNonQuery();
                     dr["No of Students"] = count;
                 }
                 con.CloseCon();
@@ -1297,7 +1297,7 @@ namespace Exam_Cell
                 {
                     SQLiteCommand comm2 = new SQLiteCommand("select Count(Reg_No) from Series_Alloted where Exam_Code=@Exam_Code", con.ActiveCon());
                     comm2.Parameters.AddWithValue("@Exam_Code", dr["Exam_Code"]);
-                    int count = (int)comm2.ExecuteScalar();
+                    int count = comm2.ExecuteNonQuery();
                     dr["No of Students"] = count;
                 }
                 con.CloseCon();
