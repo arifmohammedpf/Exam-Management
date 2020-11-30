@@ -171,7 +171,8 @@ namespace Exam_Cell
                 command.Parameters.AddWithValue("@Date", Date_combobox.Text);
                 command.Parameters.AddWithValue("@Session", Session_combobox.Text);
                 command.Parameters.AddWithValue("@Room_No", Room_combobox.Text);
-                int checkdt = (int)command.ExecuteScalar();
+                int checkdt = Convert.ToInt32(command.ExecuteScalar());
+                    MessageBox.Show(checkdt.ToString());
                 if (checkdt== 0)
                 {
                     foreach (DataGridViewRow row in Dgv.Rows)

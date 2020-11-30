@@ -131,6 +131,7 @@ namespace Exam_Cell
         //}
 
         DataTable table = new DataTable();
+        BindingSource binding = new BindingSource();
         private void Search_btn_Click(object sender, EventArgs e)
         {
             try
@@ -140,10 +141,12 @@ namespace Exam_Cell
             command.Parameters.AddWithValue("@Session", Session_combobox.Text);
             command.Parameters.AddWithValue("@Branch", Branch_combobox.Text);
             command.Parameters.AddWithValue("@Exam_Code", ExamCode_combobox.Text);
-            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);            
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
+            table.Clear();
             adapter.Fill(table);
-            Dgv.DataSource = null;
-            Dgv.DataSource = table;
+            binding.DataSource = null;
+            binding.DataSource = table;
+            Dgv.DataSource = binding;            
             NoofcandidatesFill();
             }
             catch (Exception ex)
@@ -244,6 +247,7 @@ namespace Exam_Cell
                                 worksheet.Cells[i + 7, j + 2].Value = table.Rows[i][j];
                                 if (table.Rows[i][j].ToString() == "Absent")
                                 {
+                                    worksheet.Cells[i+7,j+2].Style.Fill.PatternType = ExcelFillStyle.Solid;
                                     worksheet.Cells[i + 7, j + 2].Style.Fill.BackgroundColor.SetColor(Color.Yellow);
                                     worksheet.Cells[i + 7, j + 2].Style.Font.Color.SetColor(Color.Red);
                                 }
@@ -275,6 +279,8 @@ namespace Exam_Cell
                         No_of_candidates_ViewText.Clear();
                         No_of_Present_ViewText.Clear();
                         No_of_Absent_ViewText.Clear();
+                        table.Clear();
+                        Dgv.DataSource = null;
                         msgbox.show("Excel file created", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     }
                     }

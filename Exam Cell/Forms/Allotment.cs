@@ -472,7 +472,7 @@ namespace Exam_Cell
                             SQLiteCommand comm = new SQLiteCommand("Select @series from Rooms where Room_No=@Room_No", con.ActiveCon());
                             comm.Parameters.AddWithValue("@series", fromseries);
                             comm.Parameters.AddWithValue("@Room_No", fromroom);
-                            int fromseriesCount = (Int32)comm.ExecuteScalar();
+                            int fromseriesCount = Convert.ToInt32(comm.ExecuteScalar());
                             if (fromseriesCount < fromendint)
                             {
                                 msgbox.show("Given Series End-number is larger than Room Capacity.\n Please enter correct input.", "Invalid inputs", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
@@ -482,7 +482,7 @@ namespace Exam_Cell
                             SQLiteCommand comm2 = new SQLiteCommand("Select @series from Rooms where Room_No=@Room_No", con.ActiveCon());
                             comm2.Parameters.AddWithValue("@series", toseries);
                             comm2.Parameters.AddWithValue("@Room_No", toroom);
-                            int toseriesCount = (Int32)comm2.ExecuteScalar();
+                            int toseriesCount = Convert.ToInt32(comm2.ExecuteScalar());
                             int toRoomCount = (toseriesCount - tostartint) + 1;
                             int fromRoomCount = (fromendint - fromstartint) + 1;
                             if (fromRoomCount > toRoomCount)
@@ -1373,6 +1373,8 @@ namespace Exam_Cell
             Generation_Panel.Enabled = true;
             panel1.Enabled = true;
             groupBox1.Enabled = true;
+            SingleAllotment_button.Enabled = true;
+            MultiAllotment_button.Enabled = false;
             RefreshAll();
         }
 
@@ -1381,6 +1383,8 @@ namespace Exam_Cell
             Generation_Panel.Enabled = true;
             panel1.Enabled = true;
             groupBox1.Enabled = true;
+            SingleAllotment_button.Enabled = false;
+            MultiAllotment_button.Enabled = true;
             RefreshAll();
         }
         BindingSource roomfill = new BindingSource();
@@ -1446,7 +1450,7 @@ namespace Exam_Cell
                             SQLiteCommand comm = new SQLiteCommand("Select @series from Rooms where Room_No=@Room_No", con.ActiveCon());
                             comm.Parameters.AddWithValue("@series", fromseries);
                             comm.Parameters.AddWithValue("@Room_No", fromroom);
-                            int fromseriesCount = (Int32)comm.ExecuteScalar();
+                            int fromseriesCount = Convert.ToInt32( comm.ExecuteScalar());
                             if (fromseriesCount < fromendint)
                             {
                                 msgbox.show("Given Series End-number is larger than Room Capacity.\n Please enter correct input.", "Invalid inputs", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
@@ -1456,7 +1460,7 @@ namespace Exam_Cell
                             SQLiteCommand comm2 = new SQLiteCommand("Select @series from Rooms where Room_No=@Room_No", con.ActiveCon());
                             comm2.Parameters.AddWithValue("@series", toseries);
                             comm2.Parameters.AddWithValue("@Room_No", toroom);
-                            int toseriesCount = (Int32)comm2.ExecuteScalar();
+                            int toseriesCount = Convert.ToInt32(comm2.ExecuteScalar());
                             int toRoomCount = (toseriesCount - tostartint) + 1;
                             int fromRoomCount = (fromendint - fromstartint) + 1;
                             if (fromRoomCount > toRoomCount)

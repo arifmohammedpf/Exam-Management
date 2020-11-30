@@ -105,9 +105,9 @@
             // 
             this.Filepath_textbox.Enabled = false;
             this.Filepath_textbox.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Filepath_textbox.Location = new System.Drawing.Point(197, 537);
+            this.Filepath_textbox.Location = new System.Drawing.Point(142, 537);
             this.Filepath_textbox.Name = "Filepath_textbox";
-            this.Filepath_textbox.Size = new System.Drawing.Size(212, 31);
+            this.Filepath_textbox.Size = new System.Drawing.Size(328, 31);
             this.Filepath_textbox.TabIndex = 27;
             // 
             // Examination_Textbox
@@ -214,10 +214,10 @@
             this.Filepath_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Filepath_button.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Filepath_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Filepath_button.Location = new System.Drawing.Point(222, 607);
+            this.Filepath_button.Location = new System.Drawing.Point(142, 605);
             this.Filepath_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Filepath_button.Name = "Filepath_button";
-            this.Filepath_button.Size = new System.Drawing.Size(163, 38);
+            this.Filepath_button.Size = new System.Drawing.Size(328, 38);
             this.Filepath_button.TabIndex = 17;
             this.Filepath_button.Text = "Select Path";
             this.Filepath_button.UseVisualStyleBackColor = false;
@@ -248,10 +248,10 @@
             this.Prepare_Statement_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Prepare_Statement_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Prepare_Statement_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Prepare_Statement_btn.Location = new System.Drawing.Point(206, 682);
+            this.Prepare_Statement_btn.Location = new System.Drawing.Point(142, 679);
             this.Prepare_Statement_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Prepare_Statement_btn.Name = "Prepare_Statement_btn";
-            this.Prepare_Statement_btn.Size = new System.Drawing.Size(195, 46);
+            this.Prepare_Statement_btn.Size = new System.Drawing.Size(328, 46);
             this.Prepare_Statement_btn.TabIndex = 15;
             this.Prepare_Statement_btn.Text = "Prepare Statement";
             this.Prepare_Statement_btn.UseVisualStyleBackColor = false;
