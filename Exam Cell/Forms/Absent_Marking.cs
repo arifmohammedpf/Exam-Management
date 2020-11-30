@@ -172,7 +172,7 @@ namespace Exam_Cell
                 command.Parameters.AddWithValue("@Session", Session_combobox.Text);
                 command.Parameters.AddWithValue("@Room_No", Room_combobox.Text);
                 int checkdt = Convert.ToInt32(command.ExecuteScalar());
-                    MessageBox.Show(checkdt.ToString());
+                   
                 if (checkdt== 0)
                 {
                     foreach (DataGridViewRow row in Dgv.Rows)

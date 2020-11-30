@@ -672,8 +672,13 @@ namespace Exam_Cell
                 }
                 else
                 {
-                    foreach (DataRow dr in dstnctdatatable.Rows)
-                    {
+                        string createRoomPath = Folder_path_text.Text + @"\Room Sheets";
+                        string createSignaturePath = Folder_path_text.Text + @"\Signature Sheets";
+                        Directory.CreateDirectory(createRoomPath);
+                        Directory.CreateDirectory(createSignaturePath);
+
+                        foreach (DataRow dr in dstnctdatatable.Rows)
+                        {
 
                         string session = "Forenoon";
                         for (int count = 0; count < 2; count++)
@@ -790,7 +795,10 @@ namespace Exam_Cell
                                         worksheet.Cells[5, 1].Style.Font.Size = 10;
                                         worksheet.Cells[5, 1].Style.Font.Bold = true;
                                         if (f == 1)
+                                            {
                                             worksheet.Cells[5, dt.Columns.Count + 2].Value = "Signature";
+                                            worksheet.Cells[5, dt.Columns.Count + 2].Style.Font.Bold = true;
+                                            }
                                         for (int i = 0; i < dt.Columns.Count; i++)
                                         {
                                             worksheet.Cells[5, i + 2].Value = dt.Columns[i].ColumnName;
@@ -814,11 +822,11 @@ namespace Exam_Cell
                                             }
 
                                         }
+                                        worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns();
                                         if (f == 0)
                                         {
-                                            using (var range = worksheet.Cells[5, 1, dt.Rows.Count + 4, dt.Columns.Count + 1])
+                                            using (var range = worksheet.Cells[5, 1, rc + 5, dt.Columns.Count + 1])
                                             {
-                                                range.AutoFitColumns();
                                                 range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
                                                 range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
                                                 range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
@@ -827,34 +835,35 @@ namespace Exam_Cell
                                         }
                                         else if (f == 1)
                                         {
-                                            using (var range = worksheet.Cells[5, 1, dt.Rows.Count + 4, dt.Columns.Count + 2])
-                                            {
-                                                range.AutoFitColumns();
-                                                range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
-                                                range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
-                                                range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
-                                                range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
-                                            }
-                                            worksheet.Cells[dt.Rows.Count + 6, 1].Value = " Write the Register Numbers of the absentees in the box";
-                                            using (var range = worksheet.Cells[dt.Rows.Count + 7, 1, dt.Rows.Count + 15, 4])
+                                            using (var range = worksheet.Cells[5, 1, rc + 5, dt.Columns.Count + 2])
                                             {
                                                 range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
                                                 range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
                                                 range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
                                                 range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
                                             }
-                                            worksheet.Cells[dt.Rows.Count + 15, 5].Value = " Name and Signature of Invigilator(s)";
+                                            worksheet.Cells[rc + 7, 1].Value = " Write the Register Numbers of the absentees in the box";
+                                            using (var range = worksheet.Cells[rc + 8, 1, rc + 16, 4])
+                                            {
+                                                range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                                                range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                                                range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                                                range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                                            }
+                                            worksheet.Cells[rc + 16, 5].Value = " Name and Signature of Invigilator(s)";
                                         }
                                     }
-                                    //Save Excel File
-                                    /* below might get error since Date has '\' in between ... CHECK if we have to use array 
-                                    or something else to remove the '\' .   */
+                                        //Save Excel File
+                                        /* below might get error since Date has '\' in between ... CHECK if we have to use array 
+                                        or something else to remove the '\' .   */
 
-                                    string path = Folder_path_text.Text + @"\Room Sheet " + dr["Date"].ToString() + " " + session + ".xlsx";
-                                    if (f == 1)
-                                        path = Folder_path_text.Text + @"\Signature Sheet " + dr["Date"].ToString() + " " + session + ".xlsx";
-                                    
-                                    Stream stream = File.Create(path);
+                                        
+                                        string path = createRoomPath + @"\Room Sheet " + dr["Date"].ToString() + " " + session + ".xlsx";
+                                        if (f == 1)
+                                        { path = createSignaturePath + @"\Signature Sheet " + dr["Date"].ToString() + " " + session + ".xlsx"; }
+
+
+                                        Stream stream = File.Create(path);
                                     package.SaveAs(stream);
                                     stream.Close();
 
@@ -924,8 +933,11 @@ namespace Exam_Cell
                     }
                     else
                     {
-                        foreach (DataRow dr in dstnctdatatable.Rows)
-                        {
+                            string createDisplayPath = Folder_path_text.Text + @"\Display Sheets";
+                            Directory.CreateDirectory(createDisplayPath);
+
+                            foreach (DataRow dr in dstnctdatatable.Rows)
+                            {
 
                             string session = "Forenoon";
                             for (int count = 0; count < 2; count++)
@@ -1087,7 +1099,6 @@ namespace Exam_Cell
                                                     range.Style.Font.Name = "Arial";
                                                     range.Style.Font.Size = 14;
                                                     range.Style.Font.Bold = true;
-                                                    range.AutoFitColumns();
                                                 }
                                             }
                                             else
@@ -1135,16 +1146,16 @@ namespace Exam_Cell
                                                         range.Style.Font.Name = "Arial";
                                                         range.Style.Font.Size = 14;
                                                         range.Style.Font.Bold = true;
-                                                        range.AutoFitColumns();
                                                     }
                                                     c++;
                                                 }                                                
-                                            }                                            
+                                            }
+                                            worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns();
                                         }
                                         //Save Excel File
                                         /* below might get error since Date has '\' in between ... CHECK if we have to use array 
                                         or something else to remove the '\' .   */
-                                        string path = Folder_path_text.Text + @"\Display Sheet " + dr["Date"].ToString() + session + ".xlsx";
+                                        string path = createDisplayPath + @"\Display Sheet " + dr["Date"].ToString() + " " + session + ".xlsx";
                                         Stream stream = File.Create(path);
                                         package.SaveAs(stream);
                                         stream.Close();
@@ -1276,7 +1287,7 @@ namespace Exam_Cell
                 {
                     SQLiteCommand comm2 = new SQLiteCommand("select Count(Reg_No) from University_Alloted where Exam_Code=@Exam_Code", con.ActiveCon());
                     comm2.Parameters.AddWithValue("@Exam_Code", dr["Exam_Code"]);
-                    int count = comm2.ExecuteNonQuery();
+                    int count = Convert.ToInt32(comm2.ExecuteScalar());
                     dr["No of Students"] = count;
                 }
                 con.CloseCon();
@@ -1297,7 +1308,7 @@ namespace Exam_Cell
                 {
                     SQLiteCommand comm2 = new SQLiteCommand("select Count(Reg_No) from Series_Alloted where Exam_Code=@Exam_Code", con.ActiveCon());
                     comm2.Parameters.AddWithValue("@Exam_Code", dr["Exam_Code"]);
-                    int count = comm2.ExecuteNonQuery();
+                    int count = Convert.ToInt32(comm2.ExecuteScalar());
                     dr["No of Students"] = count;
                 }
                 con.CloseCon();

@@ -168,8 +168,11 @@ namespace Exam_Cell
                 {
                     try
                     {
-                    using (var package = new ExcelPackage())
-                    {
+                        string createStatePath = Filepath_textbox.Text + @"\Attendance Sheets";
+                        Directory.CreateDirectory(createStatePath);
+
+                        using (var package = new ExcelPackage())
+                        {
                         //Add a new worksheet to the empty workbook
                         var worksheet = package.Workbook.Worksheets.Add(Branch_combobox.Text);
                         SQLiteCommand command2 = new SQLiteCommand("select Year_Of_Admission from Students where Reg_no=@Reg_no", con.ActiveCon());
@@ -181,9 +184,9 @@ namespace Exam_Cell
                         worksheet.Cells["A3"].Value = "ATTENDANCE STATEMENT";
                         worksheet.Cells["A4"].Value = Date_combobox.Text;
                         worksheet.Cells["D4"].Value = Session_combobox.Text;
-                        worksheet.Cells["A5"].Value = "Branch: " + Branch_combobox.Text;
+                        worksheet.Cells["A5"].Value = Branch_combobox.Text;
                         worksheet.Cells["C5"].Value = "Year: " + semester;
-                        worksheet.Cells["D5"].Value = "Subject: " + Dgv.Rows[0].Cells["Course"].Value.ToString() + " " + ExamCode_combobox.Text;
+                        worksheet.Cells["D5"].Value = Dgv.Rows[0].Cells["Course"].Value.ToString() + " " + ExamCode_combobox.Text;
 
                         using (var range = worksheet.Cells["A1:D1"])
                         {
@@ -208,20 +211,17 @@ namespace Exam_Cell
                             range.Style.Font.Name = "Arial";
                             range.Style.Font.Size = 12;
                             range.Style.Font.Bold = true;
-                        }
+                        }                        
                         using (var range = worksheet.Cells["A4:D4"])
                         {
-                            range.AutoFitColumns();
                             range.Style.Font.Name = "Arial";
-                            range.Style.Font.Size = 12;
+                            range.Style.Font.Size = 11;
                             range.Style.Font.Bold = true;
                         }
                         using (var range = worksheet.Cells["A5:D5"])
                         {
-                            range.AutoFitColumns();
-                            range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
                             range.Style.Font.Name = "Arial";
-                            range.Style.Font.Size = 12;
+                            range.Style.Font.Size = 11;
                             range.Style.Font.Bold = true;
                         }
 
@@ -262,13 +262,14 @@ namespace Exam_Cell
                             range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
                             range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
                         }
+                        worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns();
                         worksheet.Cells[count, 3].Value = "No of Present = " + No_of_Present_ViewText.Text;
                         worksheet.Cells[count + 1, 3].Value = "No of Absent = " + No_of_Absent_ViewText.Text;
 
 
 
                         //Save Excel File  
-                        string path = Filepath_textbox.Text + @"\Attendance Statement " +  Session_combobox.Text + ".xlsx"; 
+                        string path = createStatePath + @"\AttndncStatmnt " + Session_combobox.Text +" "+ ExamCode_combobox.Text + " " + Branch_combobox.Text + ".xlsx"; 
                         Stream stream = File.Create(path);
                         package.SaveAs(stream);
                         stream.Close();                       
