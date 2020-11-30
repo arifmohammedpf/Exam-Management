@@ -367,7 +367,7 @@ namespace Exam_Cell
         {
             try
             {
-            string command = string.Format("Select Date from Timetable");
+            string command = string.Format("Select Distinct Date from Timetable");
             SQLiteCommand sc = new SQLiteCommand(command, con.ActiveCon());
             SQLiteDataAdapter adapter = new SQLiteDataAdapter(sc);
             DataTable dt = new DataTable();
@@ -454,9 +454,9 @@ namespace Exam_Cell
                         }
                     }
                     Clear_list();
-                    msgbox.show("Undo Successfull", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);                    
                     CourseFill();
                     TimetableFill();
+                    msgbox.show("Undo Successfull", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);                    
                 }
                 else { }
                 
@@ -465,14 +465,9 @@ namespace Exam_Cell
         }
 
         private void Undo_btn_Click(object sender, EventArgs e)
-        {
-            msgbox.show("Undo last action ?", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Warning);
-            var result = msgbox.ReturnValue;
-            if (result=="Yes")
-            {
+        {            
                 int f = 0;
-                Undo_backup_function(f);
-            }
+                Undo_backup_function(f);            
         }
 
         void Clear_list()

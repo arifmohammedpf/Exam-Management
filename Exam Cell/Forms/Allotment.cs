@@ -512,7 +512,7 @@ namespace Exam_Cell
                                         dataRow["Room_No"] = toroom;
                                         dataRow["Seat"] = toseries + tostartint;
                                         tostartint++;
-                                        break;
+                                        //break;
                                     }
                                 }
                             }
@@ -546,7 +546,7 @@ namespace Exam_Cell
                                         dataRow["Room_No"] = toroom;
                                         dataRow["Seat"] = toseries + tostartint;
                                         tostartint++;
-                                        break;
+                                        //break;
                                     }
                                 }
                             }
@@ -850,9 +850,9 @@ namespace Exam_Cell
                                     /* below might get error since Date has '\' in between ... CHECK if we have to use array 
                                     or something else to remove the '\' .   */
 
-                                    string path = Folder_path_text.Text + @"\Room Sheet " + dr["Date"].ToString() + " " + session + ".xlsx";
+                                    string path = Folder_path_text.Text + @"\Room Sheets\Room Sheet " + dr["Date"].ToString() + " " + session + ".xlsx";
                                     if (f == 1)
-                                        path = Folder_path_text.Text + @"\Signature Sheet " + dr["Date"].ToString() + " " + session + ".xlsx";
+                                        path = Folder_path_text.Text + @"\Signature Sheets\Signature Sheet " + dr["Date"].ToString() + " " + session + ".xlsx";
                                     
                                     Stream stream = File.Create(path);
                                     package.SaveAs(stream);
@@ -1144,7 +1144,7 @@ namespace Exam_Cell
                                         //Save Excel File
                                         /* below might get error since Date has '\' in between ... CHECK if we have to use array 
                                         or something else to remove the '\' .   */
-                                        string path = Folder_path_text.Text + @"\Display Sheet " + dr["Date"].ToString() + session + ".xlsx";
+                                        string path = Folder_path_text.Text + @"\Display Sheets\Display Sheet " + dr["Date"].ToString() + session + ".xlsx";
                                         Stream stream = File.Create(path);
                                         package.SaveAs(stream);
                                         stream.Close();
@@ -1245,6 +1245,7 @@ namespace Exam_Cell
                     if (dr["Room_No"].ToString() == dr2["Room_No"].ToString())
                     {
                         dataTable3.ImportRow(dr2);
+                        break;
                     }
                 }
             }
@@ -1493,7 +1494,7 @@ namespace Exam_Cell
                                         dataRow["Room_No"] = toroom;
                                         dataRow["Seat"] = toseries + totemp;
                                         totemp++;
-                                        break;
+                                        //break;
                                     }
                                 }
                             }
@@ -1507,7 +1508,7 @@ namespace Exam_Cell
                                         dataRow["Room_No"] = fromroom;
                                         dataRow["Seat"] = fromseries + fromtemp;
                                         fromtemp++;
-                                        break;
+                                        //break;
                                     }
                                 }
                             }
@@ -1557,7 +1558,7 @@ namespace Exam_Cell
                                         dataRow["Room_No"] = toroom;
                                         dataRow["Seat"] = toseries + totemp;
                                         totemp++;
-                                        break;
+                                        //break;
                                     }
                                 }
                             }
@@ -1571,7 +1572,7 @@ namespace Exam_Cell
                                         dataRow["Room_No"] = fromroom;
                                         dataRow["Seat"] = fromseries + fromtemp;
                                         fromtemp++;
-                                        break;
+                                        //break;
                                     }
                                 }
                             }
