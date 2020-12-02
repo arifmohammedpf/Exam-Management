@@ -59,6 +59,9 @@
             this.exam_CellTimeTableNew = new Exam_Cell.Exam_CellTimeTableNew();
             this.timetableBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.timetableTableAdapter1 = new Exam_Cell.Exam_CellTimeTableNewTableAdapters.TimetableTableAdapter();
+            this.timerHeader = new System.Windows.Forms.Timer(this.components);
+            this.label7 = new System.Windows.Forms.Label();
+            this.progressPanel = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ScheduledExam_dgv)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -67,12 +70,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.timetableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellTimeTableNew)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timetableBindingSource1)).BeginInit();
+            this.progressPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.progressPanel);
             this.panel1.Controls.Add(this.ScheduledExam_dgv);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox1);
@@ -364,6 +369,33 @@
             // 
             this.timetableTableAdapter1.ClearBeforeFill = true;
             // 
+            // timerHeader
+            // 
+            this.timerHeader.Interval = 10;
+            this.timerHeader.Tick += new System.EventHandler(this.timerHeader_Tick);
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(129, 32);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(159, 33);
+            this.label7.TabIndex = 42;
+            this.label7.Text = "Processing ...";
+            // 
+            // progressPanel
+            // 
+            this.progressPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.progressPanel.BackColor = System.Drawing.Color.Navy;
+            this.progressPanel.Controls.Add(this.label7);
+            this.progressPanel.Location = new System.Drawing.Point(456, 248);
+            this.progressPanel.Name = "progressPanel";
+            this.progressPanel.Size = new System.Drawing.Size(410, 100);
+            this.progressPanel.TabIndex = 43;
+            this.progressPanel.Visible = false;
+            // 
             // postponement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -388,6 +420,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.timetableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_CellTimeTableNew)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timetableBindingSource1)).EndInit();
+            this.progressPanel.ResumeLayout(false);
+            this.progressPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -419,5 +453,8 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView ScheduledExam_dgv;
+        private System.Windows.Forms.Timer timerHeader;
+        private System.Windows.Forms.Panel progressPanel;
+        private System.Windows.Forms.Label label7;
     }
 }

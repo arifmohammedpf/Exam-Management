@@ -65,11 +65,19 @@ namespace Exam_Cell
             Student_dgv.Controls.Add(headerchkbox);
         }
 
+        object send; 
         private void Headerchckbox_Mouseclick(object sender, MouseEventArgs e)
         {
-            Headerchckboxclick((CheckBox)sender);
+            send = sender;
+            progressPanel.Show();
+            timerHeaderCheck.Start();
         }
-
+        private void timerHeaderCheck_Tick(object sender, EventArgs e)
+        {
+            timerHeaderCheck.Stop();
+            Headerchckboxclick((CheckBox)send);
+            progressPanel.Hide();
+        }
         //headerchckbox click event
         private void Headerchckboxclick(CheckBox Hcheckbox)
         {
@@ -191,6 +199,17 @@ namespace Exam_Cell
         }
 
         private void ClassDgvView_checkbox_CheckedChanged(object sender, EventArgs e)
+        {
+            progressPanel.Show();
+            timerCheckbox.Start();
+        }
+        private void timerCheckbox_Tick(object sender, EventArgs e)
+        {
+            timerCheckbox.Stop();
+            ClassviewCheckBoxFunction();
+            progressPanel.Hide();
+        }
+        void ClassviewCheckBoxFunction()
         {
             if (ClassDgvView_checkbox.Checked)
             {
@@ -625,29 +644,46 @@ namespace Exam_Cell
         //Sheet Combobox Event
         private void Sheet_combobox_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            DataTable dt = tableCollection[Sheet_combobox.SelectedItem.ToString()];
-            //Candidate_datagridview.DataSource = dt;   // <-- what error this created ? why this wont work? please Check...
-
-            // these codes was used instead of that One Line Code above
-            if (dt != null)
+            try
             {
-                List<ExcelDBManagement> excst = new List<ExcelDBManagement>(); //<--here ExcelStudents is class name
-                for (int i = 0; i < dt.Rows.Count; i++)
+                DataTable dt = tableCollection[Sheet_combobox.SelectedItem.ToString()];
+                //Candidate_datagridview.DataSource = dt;   // <-- what error this created ? why this wont work? please Check...
+
+                // these codes was used instead of that One Line Code above
+                if (dt != null)
                 {
-                    ExcelDBManagement excclass = new ExcelDBManagement();
-                    excclass.Reg_no = dt.Rows[i]["Register No"].ToString();
-                    excclass.Name = dt.Rows[i]["Name"].ToString();  //have to give Excel column names inside the[""]
-                    excclass.Year_Of_Admission = dt.Rows[i]["YOA"].ToString();
-                    excclass.Branch = dt.Rows[i]["Branch"].ToString();
-                    excst.Add(excclass);
+                    List<ExcelDBManagement> excst = new List<ExcelDBManagement>(); //<--here ExcelStudents is class name
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        ExcelDBManagement excclass = new ExcelDBManagement();
+                        excclass.Reg_no = dt.Rows[i]["Register No"].ToString();
+                        excclass.Name = dt.Rows[i]["Name"].ToString();  //have to give Excel column names inside the[""]
+                        excclass.Year_Of_Admission = dt.Rows[i]["YOA"].ToString();
+                        excclass.Branch = dt.Rows[i]["Branch"].ToString();
+                        excst.Add(excclass);
+                    }
+                    headerchkbox.Checked = false;
+                    Student_dgv.DataSource = excst;
+                    AddFromExcel_Btn.Enabled = true;
                 }
-                headerchkbox.Checked = false;
-                Student_dgv.DataSource = excst;
-                AddFromExcel_Btn.Enabled = true;
+            }
+            catch(Exception ex)
+            {
+                msgbox.show(ex.ToString(), "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
         }
 
         private void AddFromExcel_Btn_Click(object sender, EventArgs e)
+        {
+            progressPanel.Show();
+            timerExcelAdd.Start();
+        }
+        private void timerExcelAdd_Tick(object sender, EventArgs e)
+        {
+            timerExcelAdd.Stop();
+            AddFromExcelFunction();
+        }
+        void AddFromExcelFunction()
         {
             int f = 0;
             foreach (DataGridViewRow dr in Student_dgv.Rows)
@@ -657,13 +693,13 @@ namespace Exam_Cell
                 {
                     try
                     {
-                    f = 1;
-                    SQLiteCommand command = new SQLiteCommand("insert into Students(Reg_no,Name,Year_Of_Admission,Branch)Values(" + "@Reg_no,@Name,@Year_Of_Admission,@Branch)", con.ActiveCon());
-                    command.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
-                    command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value);
-                    command.Parameters.AddWithValue("@Year_Of_Admission", dr.Cells["Year_Of_Admission"].Value);
-                    command.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value);
-                    command.ExecuteNonQuery();
+                        f = 1;
+                        SQLiteCommand command = new SQLiteCommand("insert into Students(Reg_no,Name,Year_Of_Admission,Branch)Values(" + "@Reg_no,@Name,@Year_Of_Admission,@Branch)", con.ActiveCon());
+                        command.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
+                        command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value);
+                        command.Parameters.AddWithValue("@Year_Of_Admission", dr.Cells["Year_Of_Admission"].Value);
+                        command.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value);
+                        command.ExecuteNonQuery();
                     }
                     catch (Exception ex)
                     {
@@ -696,5 +732,7 @@ namespace Exam_Cell
             ClassDgvView_checkbox.Checked = false;
             Student_dgvFill();
         }
+
+        
     }
 }

@@ -28,7 +28,11 @@ namespace Exam_Cell
 
         private void SingleAllotment_button_Click(object sender, EventArgs e)
         {
-            Allot_University();
+            using (ProgressForm progressForm = new ProgressForm(Allot_University))
+            {
+                progressForm.ShowDialog(this);
+            }
+                //Allot_University();
         }
         void Allot_University()
         {                        
@@ -441,10 +445,18 @@ namespace Exam_Cell
 
         private void MultiAllotment_button_Click(object sender, EventArgs e)
         {
-            Allot_Series();
+            using (ProgressForm progressForm = new ProgressForm(Allot_Series))
+            {
+                progressForm.ShowDialog(this);
+            }
+            //Allot_Series();
         }
 
         private void Shift_button_Click(object sender, EventArgs e)
+        {
+            ShiftFunction();
+        }
+        void ShiftFunction()
         {
             if (FromSeries_combobox.SelectedIndex != 0 && ToSeries_combobox.SelectedIndex != 0 && FromRoom_textbox.Text != "" && FromStart_textbox.Text != "" && FromEnd_textbox.Text != "" && ToRoom_textbox.Text != "" && ToStart_textbox.Text != "")
             {
@@ -572,7 +584,6 @@ namespace Exam_Cell
             {
                 msgbox.show("Give necessary details", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
-            
         }
 
         private void RoomPrint_button_Click(object sender, EventArgs e)
@@ -1434,7 +1445,11 @@ namespace Exam_Cell
 
         private void Swap_button_Click(object sender, EventArgs e)
         {
-            if(FromSeries_combobox.SelectedIndex!=0 && ToSeries_combobox.SelectedIndex!=0 && FromRoom_textbox.Text!="" && FromStart_textbox.Text!="" && FromEnd_textbox.Text !="" && ToRoom_textbox.Text!="" && ToStart_textbox.Text !="")
+            SwapFunction();
+        }
+        void SwapFunction()
+        {
+            if (FromSeries_combobox.SelectedIndex != 0 && ToSeries_combobox.SelectedIndex != 0 && FromRoom_textbox.Text != "" && FromStart_textbox.Text != "" && FromEnd_textbox.Text != "" && ToRoom_textbox.Text != "" && ToStart_textbox.Text != "")
             {
                 msgbox.show("Are You Sure To SWAP the Selected Students ?", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
                 var result = msgbox.ReturnValue;
@@ -1461,7 +1476,7 @@ namespace Exam_Cell
                             SQLiteCommand comm = new SQLiteCommand("Select @series from Rooms where Room_No=@Room_No", con.ActiveCon());
                             comm.Parameters.AddWithValue("@series", fromseries);
                             comm.Parameters.AddWithValue("@Room_No", fromroom);
-                            int fromseriesCount = Convert.ToInt32( comm.ExecuteScalar());
+                            int fromseriesCount = Convert.ToInt32(comm.ExecuteScalar());
                             if (fromseriesCount < fromendint)
                             {
                                 msgbox.show("Given Series End-number is larger than Room Capacity.\n Please enter correct input.", "Invalid inputs", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
@@ -1624,10 +1639,7 @@ namespace Exam_Cell
             }
         }
 
-        private void DateTimePicker_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void Clear_button_Click(object sender, EventArgs e)
         {

@@ -235,7 +235,7 @@ namespace Exam_Cell
         // we need clear data so in absentStatement old dates and records wont show
         private void ClearData_btn_Click(object sender, EventArgs e)
         {
-            msgbox.show("Delete all previously entered data ? ", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Warning);
+            msgbox.show("Delete all previously Marked Records ? ", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Warning);
             var result = msgbox.ReturnValue;
             try
             {

@@ -21,7 +21,7 @@ namespace Exam_Cell
             InitializeComponent();
         }
 
-        CheckBox headerchkbox = new CheckBox();
+        //CheckBox headerchkbox = new CheckBox();
         private void Registered_Students_Management_Load(object sender, EventArgs e)
         {
             Secure_tools_disabled();
@@ -31,8 +31,8 @@ namespace Exam_Cell
             chkbox.Name = "checkBoxColumn";
             Registered_dgv.Columns.Insert(0, chkbox);
 
-            AddHeaderchckbox(); //header checkbox added to candidate dgv
-            headerchkbox.MouseClick += new MouseEventHandler(Headerchckbox_Mouseclick);
+            //AddHeaderchckbox(); //header checkbox added to candidate dgv
+            //headerchkbox.MouseClick += new MouseEventHandler(Headerchckbox_Mouseclick);
         }
 
         private void DeleteAll_btn_Click(object sender, EventArgs e)
@@ -47,7 +47,7 @@ namespace Exam_Cell
                 {
                     SQLiteCommand command = new SQLiteCommand("Delete from Registered_candidates", con.ActiveCon());
                     command.ExecuteNonQuery();
-                    msgbox.show("All Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                    msgbox.show("All Registered Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     University_fill();
                     Clear_function();
                 }
@@ -55,7 +55,7 @@ namespace Exam_Cell
                 {
                     SQLiteCommand command = new SQLiteCommand("Delete from Series_candidates", con.ActiveCon());
                     command.ExecuteNonQuery();
-                    msgbox.show("All Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                    msgbox.show("All Registered Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     Series_fill();
                     Clear_function();
                 }
@@ -88,31 +88,32 @@ namespace Exam_Cell
 
         }
 
-        void AddHeaderchckbox()
-        {
-            //Locate Header Cell to place checkbox in correct position
-            Point HeaderCellLocation = this.Registered_dgv.GetCellDisplayRectangle(0, -1, true).Location;
-            //place headercheckbox to the location
-            headerchkbox.Location = new Point(HeaderCellLocation.X + 8, HeaderCellLocation.Y + 13);
-            headerchkbox.BackColor = Color.RoyalBlue;
-            headerchkbox.Size = new Size(18, 18);
-            //add checkbox into dgv
-            Registered_dgv.Controls.Add(headerchkbox);
-        }
+        //void AddHeaderchckbox()
+        //{
+        //    //Locate Header Cell to place checkbox in correct position
+        //    Point HeaderCellLocation = this.Registered_dgv.GetCellDisplayRectangle(0, -1, true).Location;
+        //    //place headercheckbox to the location
+        //    headerchkbox.Location = new Point(HeaderCellLocation.X + 8, HeaderCellLocation.Y + 13);
+        //    headerchkbox.BackColor = Color.RoyalBlue;
+        //    headerchkbox.Size = new Size(18, 18);
+        //    //add checkbox into dgv
+        //    Registered_dgv.Controls.Add(headerchkbox);
+        //}
 
-        private void Headerchckbox_Mouseclick(object sender, MouseEventArgs e)
-        {
-            Headerchckboxclick((CheckBox)sender);
-        }
+        //private void Headerchckbox_Mouseclick(object sender, MouseEventArgs e)
+        //{
+        //    Headerchckboxclick((CheckBox)sender);
+        //}
 
-        //headerchckbox click event
-        private void Headerchckboxclick(CheckBox Hcheckbox)
-        {
-            foreach (DataGridViewRow row in Registered_dgv.Rows)
-                ((DataGridViewCheckBoxCell)row.Cells["checkBoxColumn"]).Value = Hcheckbox.Checked;
+        ////headerchckbox click event
+        //private void Headerchckboxclick(CheckBox Hcheckbox)
+        //{
+        //    foreach (DataGridViewRow row in Registered_dgv.Rows)
+        //        ((DataGridViewCheckBoxCell)row.Cells["checkBoxColumn"]).Value = Hcheckbox.Checked;
 
-            Registered_dgv.RefreshEdit();
-        }
+        //    Registered_dgv.RefreshEdit();
+        //}
+
         BindingSource Universitybinding = new BindingSource();
         BindingSource UniversityAllotbinding = new BindingSource();
         BindingSource Seriesbinding = new BindingSource();

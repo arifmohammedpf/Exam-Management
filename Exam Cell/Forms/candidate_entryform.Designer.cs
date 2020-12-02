@@ -39,6 +39,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formti));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.progressPanel = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             this.Courses_dgv = new System.Windows.Forms.DataGridView();
             this.Candidate_datagridview = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -106,7 +108,10 @@
             this.exam_CellDataSetStudentsNew = new Exam_Cell.Exam_CellDataSetStudentsNew();
             this.studentsBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.studentsTableAdapter3 = new Exam_Cell.Exam_CellDataSetStudentsNewTableAdapters.StudentsTableAdapter();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.timerHeaderCheck = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
+            this.progressPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Courses_dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Candidate_datagridview)).BeginInit();
             this.panel2.SuspendLayout();
@@ -144,6 +149,7 @@
             // 
             this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.panel1.Controls.Add(this.progressPanel);
             this.panel1.Controls.Add(this.Courses_dgv);
             this.panel1.Controls.Add(this.Candidate_datagridview);
             this.panel1.Controls.Add(this.panel2);
@@ -156,6 +162,27 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1791, 984);
             this.panel1.TabIndex = 0;
+            // 
+            // progressPanel
+            // 
+            this.progressPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.progressPanel.BackColor = System.Drawing.Color.Navy;
+            this.progressPanel.Controls.Add(this.label5);
+            this.progressPanel.Location = new System.Drawing.Point(717, 363);
+            this.progressPanel.Name = "progressPanel";
+            this.progressPanel.Size = new System.Drawing.Size(410, 100);
+            this.progressPanel.TabIndex = 42;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(129, 32);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(159, 33);
+            this.label5.TabIndex = 42;
+            this.label5.Text = "Processing ...";
             // 
             // Courses_dgv
             // 
@@ -400,7 +427,7 @@
             // UnvCheckbox
             // 
             this.UnvCheckbox.AutoSize = true;
-            this.UnvCheckbox.Location = new System.Drawing.Point(756, 53);
+            this.UnvCheckbox.Location = new System.Drawing.Point(756, 52);
             this.UnvCheckbox.Name = "UnvCheckbox";
             this.UnvCheckbox.Size = new System.Drawing.Size(18, 17);
             this.UnvCheckbox.TabIndex = 15;
@@ -797,6 +824,16 @@
             // 
             this.studentsTableAdapter3.ClearBeforeFill = true;
             // 
+            // timer
+            // 
+            this.timer.Interval = 30;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // timerHeaderCheck
+            // 
+            this.timerHeaderCheck.Interval = 10;
+            this.timerHeaderCheck.Tick += new System.EventHandler(this.timerHeaderCheck_Tick);
+            // 
             // formti
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -813,6 +850,8 @@
             this.Text = "Candidate Entry";
             this.Load += new System.EventHandler(this.formti_Load);
             this.panel1.ResumeLayout(false);
+            this.progressPanel.ResumeLayout(false);
+            this.progressPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Courses_dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Candidate_datagridview)).EndInit();
             this.panel2.ResumeLayout(false);
@@ -924,5 +963,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView Candidate_datagridview;
         private System.Windows.Forms.DataGridView Courses_dgv;
+        private System.Windows.Forms.Panel progressPanel;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Timer timerHeaderCheck;
     }
 }

@@ -92,9 +92,18 @@ namespace Exam_Cell
             ScheduledExam_dgv.Controls.Add(headerchkbox);
         }
 
+        object send;
         private void Headerchckbox_Mouseclick(object sender, MouseEventArgs e)
         {
-            Headerchckboxclick((CheckBox)sender);
+            send = sender;
+            progressPanel.Show();
+            timerHeader.Start();
+        }
+        private void timerHeader_Tick(object sender, EventArgs e)
+        {
+            timerHeader.Stop();
+            Headerchckboxclick((CheckBox)send);
+            progressPanel.Hide();
         }
 
         //headerchckbox click event
@@ -324,5 +333,7 @@ namespace Exam_Cell
                 DateTimePicker.Enabled = false;
             }
         }
+
+        
     }
 }

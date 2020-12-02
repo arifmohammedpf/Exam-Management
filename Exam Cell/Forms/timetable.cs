@@ -94,37 +94,37 @@ namespace Exam_Cell
             chkbox.Name = "checkBoxColumn";
             Course_Select_dgv.Columns.Insert(0, chkbox);
 
-            AddHeaderchckbox(); //header checkbox added to candidate dgv
-            headerchkbox.MouseClick += new MouseEventHandler(Headerchckbox_Mouseclick);
+            //AddHeaderchckbox(); //header checkbox added to candidate dgv
+            //headerchkbox.MouseClick += new MouseEventHandler(Headerchckbox_Mouseclick);
 
-            
+
         }
 
-        void AddHeaderchckbox()
-        {
-            //Locate Header Cell to place checkbox in correct position
-            Point HeaderCellLocation = this.Course_Select_dgv.GetCellDisplayRectangle(0, -1, true).Location;
-            //place headercheckbox to the location
-            headerchkbox.Location = new Point(HeaderCellLocation.X + 8, HeaderCellLocation.Y + 13);
-            headerchkbox.BackColor = Color.RoyalBlue;
-            headerchkbox.Size = new Size(18, 18);
-            //add checkbox into dgv
-            Course_Select_dgv.Controls.Add(headerchkbox);
-        }
+        //void AddHeaderchckbox()
+        //{
+        //    //Locate Header Cell to place checkbox in correct position
+        //    Point HeaderCellLocation = this.Course_Select_dgv.GetCellDisplayRectangle(0, -1, true).Location;
+        //    //place headercheckbox to the location
+        //    headerchkbox.Location = new Point(HeaderCellLocation.X + 8, HeaderCellLocation.Y + 13);
+        //    headerchkbox.BackColor = Color.RoyalBlue;
+        //    headerchkbox.Size = new Size(18, 18);
+        //    //add checkbox into dgv
+        //    Course_Select_dgv.Controls.Add(headerchkbox);
+        //}
 
-        private void Headerchckbox_Mouseclick(object sender, MouseEventArgs e)
-        {
-            Headerchckboxclick((CheckBox)sender);
-        }
+        //private void Headerchckbox_Mouseclick(object sender, MouseEventArgs e)
+        //{
+        //    Headerchckboxclick((CheckBox)sender);
+        //}
 
-        //headerchckbox click event
-        private void Headerchckboxclick(CheckBox Hcheckbox)
-        {
-            foreach (DataGridViewRow row in Course_Select_dgv.Rows)
-                ((DataGridViewCheckBoxCell)row.Cells["checkBoxColumn"]).Value = Hcheckbox.Checked;
+        ////headerchckbox click event
+        //private void Headerchckboxclick(CheckBox Hcheckbox)
+        //{
+        //    foreach (DataGridViewRow row in Course_Select_dgv.Rows)
+        //        ((DataGridViewCheckBoxCell)row.Cells["checkBoxColumn"]).Value = Hcheckbox.Checked;
 
-            Course_Select_dgv.RefreshEdit();
-        }
+        //    Course_Select_dgv.RefreshEdit();
+        //}
 
 
         
