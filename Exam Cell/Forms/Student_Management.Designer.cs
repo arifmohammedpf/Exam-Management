@@ -34,12 +34,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Student_mngmnt_panel = new System.Windows.Forms.Panel();
+            this.progressPanel = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             this.Student_dgv = new System.Windows.Forms.DataGridView();
+            this.SelectAllCheckbox = new System.Windows.Forms.CheckBox();
             this.ClassDgvView_checkbox = new System.Windows.Forms.CheckBox();
             this.UpgradeSemester_groupbox = new System.Windows.Forms.GroupBox();
             this.UpgradeSem_btn = new System.Windows.Forms.Button();
             this.DegradeClass_btn = new System.Windows.Forms.Button();
             this.ImportGroupbox = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.Sheet_combobox = new System.Windows.Forms.ComboBox();
             this.Filepath_textbox = new System.Windows.Forms.TextBox();
             this.SelectExcel_btn = new System.Windows.Forms.Button();
@@ -68,17 +73,15 @@
             this.Delete_btn = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timerCheckbox = new System.Windows.Forms.Timer(this.components);
-            this.label5 = new System.Windows.Forms.Label();
-            this.progressPanel = new System.Windows.Forms.Panel();
             this.timerExcelAdd = new System.Windows.Forms.Timer(this.components);
             this.timerHeaderCheck = new System.Windows.Forms.Timer(this.components);
             this.Student_mngmnt_panel.SuspendLayout();
+            this.progressPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Student_dgv)).BeginInit();
             this.UpgradeSemester_groupbox.SuspendLayout();
             this.ImportGroupbox.SuspendLayout();
             this.AssignClass_groupbox.SuspendLayout();
             this.add_stdnt_groupbox.SuspendLayout();
-            this.progressPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // Student_mngmnt_panel
@@ -86,6 +89,7 @@
             this.Student_mngmnt_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.Student_mngmnt_panel.Controls.Add(this.progressPanel);
             this.Student_mngmnt_panel.Controls.Add(this.Student_dgv);
+            this.Student_mngmnt_panel.Controls.Add(this.SelectAllCheckbox);
             this.Student_mngmnt_panel.Controls.Add(this.ClassDgvView_checkbox);
             this.Student_mngmnt_panel.Controls.Add(this.UpgradeSemester_groupbox);
             this.Student_mngmnt_panel.Controls.Add(this.ImportGroupbox);
@@ -97,6 +101,28 @@
             this.Student_mngmnt_panel.Name = "Student_mngmnt_panel";
             this.Student_mngmnt_panel.Size = new System.Drawing.Size(1697, 718);
             this.Student_mngmnt_panel.TabIndex = 6;
+            // 
+            // progressPanel
+            // 
+            this.progressPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.progressPanel.BackColor = System.Drawing.Color.Navy;
+            this.progressPanel.Controls.Add(this.label5);
+            this.progressPanel.Location = new System.Drawing.Point(643, 309);
+            this.progressPanel.Name = "progressPanel";
+            this.progressPanel.Size = new System.Drawing.Size(410, 100);
+            this.progressPanel.TabIndex = 43;
+            this.progressPanel.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(129, 32);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(159, 33);
+            this.label5.TabIndex = 42;
+            this.label5.Text = "Processing ...";
             // 
             // Student_dgv
             // 
@@ -148,6 +174,19 @@
             this.Student_dgv.RowTemplate.Height = 24;
             this.Student_dgv.Size = new System.Drawing.Size(1193, 442);
             this.Student_dgv.TabIndex = 10;
+            // 
+            // SelectAllCheckbox
+            // 
+            this.SelectAllCheckbox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.SelectAllCheckbox.AutoSize = true;
+            this.SelectAllCheckbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectAllCheckbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.SelectAllCheckbox.Location = new System.Drawing.Point(335, 593);
+            this.SelectAllCheckbox.Name = "SelectAllCheckbox";
+            this.SelectAllCheckbox.Size = new System.Drawing.Size(113, 26);
+            this.SelectAllCheckbox.TabIndex = 6;
+            this.SelectAllCheckbox.Text = "Select All";
+            this.SelectAllCheckbox.UseVisualStyleBackColor = true;
             // 
             // ClassDgvView_checkbox
             // 
@@ -213,6 +252,8 @@
             // ImportGroupbox
             // 
             this.ImportGroupbox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ImportGroupbox.Controls.Add(this.label7);
+            this.ImportGroupbox.Controls.Add(this.label6);
             this.ImportGroupbox.Controls.Add(this.Sheet_combobox);
             this.ImportGroupbox.Controls.Add(this.Filepath_textbox);
             this.ImportGroupbox.Controls.Add(this.SelectExcel_btn);
@@ -221,10 +262,30 @@
             this.ImportGroupbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ImportGroupbox.Location = new System.Drawing.Point(137, 264);
             this.ImportGroupbox.Name = "ImportGroupbox";
-            this.ImportGroupbox.Size = new System.Drawing.Size(326, 252);
+            this.ImportGroupbox.Size = new System.Drawing.Size(326, 281);
             this.ImportGroupbox.TabIndex = 8;
             this.ImportGroupbox.TabStop = false;
             this.ImportGroupbox.Text = "Import Students";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(47, 250);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(240, 19);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "entire Excel Record will be saved.";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(50, 228);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(234, 19);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "No Checkbox selection required,";
             // 
             // Sheet_combobox
             // 
@@ -565,28 +626,6 @@
             this.timerCheckbox.Interval = 10;
             this.timerCheckbox.Tick += new System.EventHandler(this.timerCheckbox_Tick);
             // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(129, 32);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(159, 33);
-            this.label5.TabIndex = 42;
-            this.label5.Text = "Processing ...";
-            // 
-            // progressPanel
-            // 
-            this.progressPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.progressPanel.BackColor = System.Drawing.Color.Navy;
-            this.progressPanel.Controls.Add(this.label5);
-            this.progressPanel.Location = new System.Drawing.Point(643, 309);
-            this.progressPanel.Name = "progressPanel";
-            this.progressPanel.Size = new System.Drawing.Size(410, 100);
-            this.progressPanel.TabIndex = 43;
-            this.progressPanel.Visible = false;
-            // 
             // timerExcelAdd
             // 
             this.timerExcelAdd.Interval = 10;
@@ -595,7 +634,6 @@
             // timerHeaderCheck
             // 
             this.timerHeaderCheck.Interval = 10;
-            this.timerHeaderCheck.Tick += new System.EventHandler(this.timerHeaderCheck_Tick);
             // 
             // Student_Management
             // 
@@ -611,6 +649,8 @@
             this.Load += new System.EventHandler(this.Student_Management_Load);
             this.Student_mngmnt_panel.ResumeLayout(false);
             this.Student_mngmnt_panel.PerformLayout();
+            this.progressPanel.ResumeLayout(false);
+            this.progressPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Student_dgv)).EndInit();
             this.UpgradeSemester_groupbox.ResumeLayout(false);
             this.ImportGroupbox.ResumeLayout(false);
@@ -619,8 +659,6 @@
             this.AssignClass_groupbox.PerformLayout();
             this.add_stdnt_groupbox.ResumeLayout(false);
             this.add_stdnt_groupbox.PerformLayout();
-            this.progressPanel.ResumeLayout(false);
-            this.progressPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -666,5 +704,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Timer timerExcelAdd;
         private System.Windows.Forms.Timer timerHeaderCheck;
+        private System.Windows.Forms.CheckBox SelectAllCheckbox;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
     }
 }

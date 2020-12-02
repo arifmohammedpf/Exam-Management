@@ -35,11 +35,10 @@ namespace Exam_Cell
             checkbox2.Name = "CheckboxColumn2";
             Student_dgv.Columns.Insert(0, checkbox2);
 
-            AddHeaderchckbox(); //header checkbox added to student dgv
-            headerchkbox.MouseClick += new MouseEventHandler(Headerchckbox_Mouseclick);
+            //AddHeaderchckbox(); //header checkbox added to student dgv
+            //headerchkbox.MouseClick += new MouseEventHandler(Headerchckbox_Mouseclick);
 
-            //timer1.Start();
-
+            
             //AssignClass_fill();
             //StudentBranchComboboxFill();
             //ClassBranchComboboxFill();
@@ -53,39 +52,39 @@ namespace Exam_Cell
         }
 
         //function definition
-        void AddHeaderchckbox()
-        {
-            //Locate Header Cell to place checkbox in correct position
-            Point HeaderCellLocation = this.Student_dgv.GetCellDisplayRectangle(0, -1, true).Location;
-            //place headercheckbox to the location
-            headerchkbox.Location = new Point(HeaderCellLocation.X + 8, HeaderCellLocation.Y + 13);
-            headerchkbox.BackColor = Color.RoyalBlue;
-            headerchkbox.Size = new Size(18, 18);
-            //add checkbox into dgv
-            Student_dgv.Controls.Add(headerchkbox);
-        }
+        //void AddHeaderchckbox()
+        //{
+        //    //Locate Header Cell to place checkbox in correct position
+        //    Point HeaderCellLocation = this.Student_dgv.GetCellDisplayRectangle(0, -1, true).Location;
+        //    //place headercheckbox to the location
+        //    headerchkbox.Location = new Point(HeaderCellLocation.X + 8, HeaderCellLocation.Y + 13);
+        //    headerchkbox.BackColor = Color.RoyalBlue;
+        //    headerchkbox.Size = new Size(18, 18);
+        //    //add checkbox into dgv
+        //    Student_dgv.Controls.Add(headerchkbox);
+        //}
 
-        object send; 
-        private void Headerchckbox_Mouseclick(object sender, MouseEventArgs e)
-        {
-            send = sender;
-            progressPanel.Show();
-            timerHeaderCheck.Start();
-        }
-        private void timerHeaderCheck_Tick(object sender, EventArgs e)
-        {
-            timerHeaderCheck.Stop();
-            Headerchckboxclick((CheckBox)send);
-            progressPanel.Hide();
-        }
-        //headerchckbox click event
-        private void Headerchckboxclick(CheckBox Hcheckbox)
-        {
-            foreach (DataGridViewRow row in Student_dgv.Rows)
-                ((DataGridViewCheckBoxCell)row.Cells["checkBoxColumn2"]).Value = Hcheckbox.Checked;
+        //object send; 
+        //private void Headerchckbox_Mouseclick(object sender, MouseEventArgs e)
+        //{
+        //    send = sender;
+        //    progressPanel.Show();
+        //    timerHeaderCheck.Start();
+        //}
+        //private void timerHeaderCheck_Tick(object sender, EventArgs e)
+        //{
+        //    timerHeaderCheck.Stop();
+        //    Headerchckboxclick((CheckBox)send);
+        //    progressPanel.Hide();
+        //}
+        ////headerchckbox click event
+        //private void Headerchckboxclick(CheckBox Hcheckbox)
+        //{
+        //    foreach (DataGridViewRow row in Student_dgv.Rows)
+        //        ((DataGridViewCheckBoxCell)row.Cells["checkBoxColumn2"]).Value = Hcheckbox.Checked;
 
-            Student_dgv.RefreshEdit();
-        }
+        //    Student_dgv.RefreshEdit();
+        //}
 
         void AssignClass_fill()
         {
@@ -118,54 +117,94 @@ namespace Exam_Cell
         {
             if (AssignClass_combobox.SelectedIndex != 0)
             {
-                int f = 0;
-                foreach (DataGridViewRow dr in Student_dgv.Rows)
+                if(SelectAllCheckbox.Checked)
                 {
-                    bool checkselected = Convert.ToBoolean(dr.Cells["CheckboxColumn2"].Value);
-                    if (checkselected)
+                    foreach (DataGridViewRow dr in Student_dgv.Rows)
                     {
-                        try
-                        {
-                        f = 1;
-                        SQLiteCommand command = new SQLiteCommand("insert into Class(Reg_No,Name,Class)Values(" + "@Reg_No,@Name,@Class )", con.ActiveCon());
-                        command.Parameters.AddWithValue("@Reg_No", dr.Cells["Reg_no"].Value.ToString());
-                        command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value.ToString());
-                        command.Parameters.AddWithValue("@Class", AssignClass_combobox.Text);
-                        command.ExecuteNonQuery();
+                        
+                            try
+                            {
+                                SQLiteCommand command = new SQLiteCommand("insert into Class(Reg_No,Name,Class)Values(" + "@Reg_No,@Name,@Class )", con.ActiveCon());
+                                command.Parameters.AddWithValue("@Reg_No", dr.Cells["Reg_no"].Value.ToString());
+                                command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value.ToString());
+                                command.Parameters.AddWithValue("@Class", AssignClass_combobox.Text);
+                                command.ExecuteNonQuery();
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.ToString());
+                            }
+                            finally
+                            {
+                                con.CloseCon();
+                            }
                         }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.ToString());
-                        }
-                        finally
-                        {
-                            con.CloseCon();
-                        }
-                    }
-                }
-                if (f == 1)
-                {
-                    msgbox.show("Students Added to Class", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
-                    AssignClass_combobox.SelectedIndex = 0;
-                    Student_dgvFill();
+                    
+                        msgbox.show("Students Added to Class", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                        AssignClass_combobox.SelectedIndex = 0;
+                        Student_dgvFill();
+                    SelectAllCheckbox.Checked = false;
                 }
                 else
-                    msgbox.show("Select Any Students", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                {
+                    int f = 0;
+                    foreach (DataGridViewRow dr in Student_dgv.Rows)
+                    {
+                        bool checkselected = Convert.ToBoolean(dr.Cells["CheckboxColumn2"].Value);
+                        if (checkselected)
+                        {
+                            try
+                            {
+                                f = 1;
+                                SQLiteCommand command = new SQLiteCommand("insert into Class(Reg_No,Name,Class)Values(" + "@Reg_No,@Name,@Class )", con.ActiveCon());
+                                command.Parameters.AddWithValue("@Reg_No", dr.Cells["Reg_no"].Value.ToString());
+                                command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value.ToString());
+                                command.Parameters.AddWithValue("@Class", AssignClass_combobox.Text);
+                                command.ExecuteNonQuery();
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.ToString());
+                            }
+                            finally
+                            {
+                                con.CloseCon();
+                            }
+                        }
+                    }
+                    if (f == 1)
+                    {
+                        msgbox.show("Students Added to Class", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                        AssignClass_combobox.SelectedIndex = 0;
+                        Student_dgvFill();
+                    }
+                    else
+                        msgbox.show("Select Any Students", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                }
             }
             else
                 msgbox.show("Select Class", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
         }
         void ClearAllStudent_Management()
         {
+            SelectAllCheckbox.Checked = false;
+
+            if (ClassDgvView_checkbox.Checked)
+            {
+                AssignClass_combobox.SelectedIndex = 0;
+            }
+            else
+            {
             Regno_textbox.Clear();
             Name_textbox.Clear();
             YOA_textbox.Clear();
             Branch_combobox.SelectedIndex = 0;
-            AssignClass_combobox.SelectedIndex = 0;
             AssignClassYOA_combobox.SelectedIndex = 0;
             AssignClassBranch_combobox.SelectedIndex = 0;
             Filepath_textbox.Clear();
             Sheet_combobox.Items.Clear();
+            FilterStudentRecord();
+            }
         }
         private void AddStudent_btn_Click(object sender, EventArgs e)
         {
@@ -211,6 +250,8 @@ namespace Exam_Cell
         }
         void ClassviewCheckBoxFunction()
         {
+            SelectAllCheckbox.Checked = false;
+
             if (ClassDgvView_checkbox.Checked)
             {
                 Class_StudentsFill();
@@ -285,24 +326,21 @@ namespace Exam_Cell
             var result = msgbox.ReturnValue;
             if (result == "Yes")
             {
-                if (AddFromExcel_Btn.Enabled == false)
+                if (AddFromExcel_Btn.Enabled == true)
                 {
                     if (ClassDgvView_checkbox.Checked)
                     {
-                        int f = 0;
-                        foreach (DataGridViewRow dr in Student_dgv.Rows)
+                        if(SelectAllCheckbox.Checked)
                         {
-                            bool Selected = Convert.ToBoolean(dr.Cells["CheckboxColumn2"].Value);
-                            if (Selected)
+                            foreach (DataGridViewRow dr in Student_dgv.Rows)
                             {
                                 try
                                 {
-                                f = 1;
-                                SQLiteCommand command = new SQLiteCommand("Delete from Class Where Class=@Class and Name=@Name and Reg_No=@Reg_No", con.ActiveCon());
-                                command.Parameters.AddWithValue("@Class", dr.Cells["Class"].Value);
-                                command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value);
-                                command.Parameters.AddWithValue("@Reg_No", dr.Cells["Reg_No"].Value);
-                                command.ExecuteNonQuery();
+                                    SQLiteCommand command = new SQLiteCommand("Delete from Class Where Class=@Class and Name=@Name and Reg_No=@Reg_No", con.ActiveCon());
+                                    command.Parameters.AddWithValue("@Class", dr.Cells["Class"].Value);
+                                    command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value);
+                                    command.Parameters.AddWithValue("@Reg_No", dr.Cells["Reg_No"].Value);
+                                    command.ExecuteNonQuery();
                                 }
                                 catch (Exception ex)
                                 {
@@ -312,58 +350,124 @@ namespace Exam_Cell
                                 {
                                     con.CloseCon();
                                 }
-                            }
-                        }
-                        if (f == 1)
-                        {
-                            msgbox.show("Delete Done.", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
-                            ClearAllStudent_Management();
-                            Class_StudentsFill();
+                            }                            
+                                msgbox.show("Delete All Done.", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                                ClearAllStudent_Management();
+                                Class_StudentsFill();
+                            SelectAllCheckbox.Checked = false;
                         }
                         else
                         {
-                            msgbox.show("Select any Students to delete, Try again.", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                            int f = 0;
+                            foreach (DataGridViewRow dr in Student_dgv.Rows)
+                            {
+                                bool Selected = Convert.ToBoolean(dr.Cells["CheckboxColumn2"].Value);
+                                if (Selected)
+                                {
+                                    try
+                                    {
+                                        f = 1;
+                                        SQLiteCommand command = new SQLiteCommand("Delete from Class Where Class=@Class and Name=@Name and Reg_No=@Reg_No", con.ActiveCon());
+                                        command.Parameters.AddWithValue("@Class", dr.Cells["Class"].Value);
+                                        command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value);
+                                        command.Parameters.AddWithValue("@Reg_No", dr.Cells["Reg_No"].Value);
+                                        command.ExecuteNonQuery();
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        MessageBox.Show(ex.ToString());
+                                    }
+                                    finally
+                                    {
+                                        con.CloseCon();
+                                    }
+                                }
+                            }
+                            if (f == 1)
+                            {
+                                msgbox.show("Delete Done.", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                                ClearAllStudent_Management();
+                                Class_StudentsFill();
+                            }
+                            else
+                            {
+                                msgbox.show("Select any Students to delete, Try again.", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                            }
                         }
                     }
                     else
                     {
-                        int f = 0;
-                        foreach (DataGridViewRow dr in Student_dgv.Rows)
-                        {
-                            bool Selected = Convert.ToBoolean(dr.Cells["CheckboxColumn2"].Value);
-                            if (Selected)
+                        if (SelectAllCheckbox.Checked)
+                        {                            
+                            foreach (DataGridViewRow dr in Student_dgv.Rows)
                             {
-                                try
-                                {
-                                f = 1;
-                                SQLiteCommand command = new SQLiteCommand("delete from Students where Reg_no=@Reg_no and Name=@Name and Year_Of_Admission=@Year_Of_Admission and Branch=@Branch", con.ActiveCon());
-                                command.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value.ToString());
-                                command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value.ToString());
-                                command.Parameters.AddWithValue("@Year_Of_Admission", dr.Cells["Year_Of_Admission"].Value.ToString());
-                                command.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value.ToString());
-                                command.ExecuteNonQuery();
-                                //will also delete from Class
-                                SQLiteCommand command2 = new SQLiteCommand("Delete Class where Reg_No=@Reg_no", con.ActiveCon());
-                                command2.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
-                                command2.ExecuteNonQuery();
-                                }
-                                catch (Exception ex)
-                                {
-                                    MessageBox.Show(ex.ToString());
-                                }
-                                finally
-                                {
-                                    con.CloseCon();
-                                }
+                                    try
+                                    {
+                                        SQLiteCommand command = new SQLiteCommand("delete from Students where Reg_no=@Reg_no and Name=@Name and Year_Of_Admission=@Year_Of_Admission and Branch=@Branch", con.ActiveCon());
+                                        command.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value.ToString());
+                                        command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value.ToString());
+                                        command.Parameters.AddWithValue("@Year_Of_Admission", dr.Cells["Year_Of_Admission"].Value.ToString());
+                                        command.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value.ToString());
+                                        command.ExecuteNonQuery();
+                                        //will also delete from Class
+                                        SQLiteCommand command2 = new SQLiteCommand("Delete Class where Reg_No=@Reg_no", con.ActiveCon());
+                                        command2.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
+                                        command2.ExecuteNonQuery();
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        MessageBox.Show(ex.ToString());
+                                    }
+                                    finally
+                                    {
+                                        con.CloseCon();
+                                    }
+                                
                             }
-                        }
-                        if (f == 1)
-                        {
-                            msgbox.show("Delete Done.", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                            msgbox.show("Delete All Done.", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                             Student_dgvFill();
+                            SelectAllCheckbox.Checked = false;
                         }
                         else
-                            msgbox.show("Select any Students to delete, Try again.", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                        {
+                            int f = 0;
+                            foreach (DataGridViewRow dr in Student_dgv.Rows)
+                            {
+                                bool Selected = Convert.ToBoolean(dr.Cells["CheckboxColumn2"].Value);
+                                if (Selected)
+                                {
+                                    try
+                                    {
+                                        f = 1;
+                                        SQLiteCommand command = new SQLiteCommand("delete from Students where Reg_no=@Reg_no and Name=@Name and Year_Of_Admission=@Year_Of_Admission and Branch=@Branch", con.ActiveCon());
+                                        command.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value.ToString());
+                                        command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value.ToString());
+                                        command.Parameters.AddWithValue("@Year_Of_Admission", dr.Cells["Year_Of_Admission"].Value.ToString());
+                                        command.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value.ToString());
+                                        command.ExecuteNonQuery();
+                                        //will also delete from Class
+                                        SQLiteCommand command2 = new SQLiteCommand("Delete Class where Reg_No=@Reg_no", con.ActiveCon());
+                                        command2.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
+                                        command2.ExecuteNonQuery();
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        MessageBox.Show(ex.ToString());
+                                    }
+                                    finally
+                                    {
+                                        con.CloseCon();
+                                    }
+                                }
+                            }
+                            if (f == 1)
+                            {
+                                msgbox.show("Delete Done.", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                                Student_dgvFill();
+                            }
+                            else
+                                msgbox.show("Select any Students to delete, Try again.", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                        }
                     }
                 }
                 else
@@ -372,6 +476,10 @@ namespace Exam_Cell
         }
 
         private void Search_btn_Click(object sender, EventArgs e)
+        {
+            FilterStudentRecord();
+        }
+        void FilterStudentRecord()
         {
             string regno = Regno_textbox.Text;
             string name = Name_textbox.Text;
@@ -398,15 +506,10 @@ namespace Exam_Cell
             }
             Student_Source.Filter = filter;
         }
-
         private void Clear_btn_Click(object sender, EventArgs e)
         {
             ClearAllStudent_Management();
-            if (ClassDgvView_checkbox.Checked)
-                Class_StudentsFill();
-            else
-                Student_dgvFill();
-            AddFromExcel_Btn.Enabled = false;
+            AddFromExcel_Btn.Enabled = false;            
         }
 
         private void UpgradeSem_btn_Click(object sender, EventArgs e)
@@ -682,18 +785,19 @@ namespace Exam_Cell
         {
             timerExcelAdd.Stop();
             AddFromExcelFunction();
+            progressPanel.Hide();
         }
         void AddFromExcelFunction()
         {
-            int f = 0;
+            //int f = 0;
             foreach (DataGridViewRow dr in Student_dgv.Rows)
             {
-                bool checkselected = Convert.ToBoolean(dr.Cells["CheckboxColumn2"].Value);
-                if (checkselected)
-                {
+                //bool checkselected = Convert.ToBoolean(dr.Cells["CheckboxColumn2"].Value);
+                //if (checkselected)
+                //{
                     try
                     {
-                        f = 1;
+                        //f = 1;
                         SQLiteCommand command = new SQLiteCommand("insert into Students(Reg_no,Name,Year_Of_Admission,Branch)Values(" + "@Reg_no,@Name,@Year_Of_Admission,@Branch)", con.ActiveCon());
                         command.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
                         command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value);
@@ -709,17 +813,17 @@ namespace Exam_Cell
                     {
                         con.CloseCon();
                     }
-                }
+                //}
             }
-            if (f == 1)
-            {
-                msgbox.show("Add From Excel Completed", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+            //if (f == 1)
+            //{
                 YearOfAdmissionFill();
                 ClearAllStudent_Management();
                 AddFromExcel_Btn.Enabled = false;
                 Student_dgvFill();
-            }
-            else msgbox.show("Select any Students", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                msgbox.show("Add From Excel Completed", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+            //}
+            //else msgbox.show("Select any Students", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -732,7 +836,5 @@ namespace Exam_Cell
             ClassDgvView_checkbox.Checked = false;
             Student_dgvFill();
         }
-
-        
     }
 }

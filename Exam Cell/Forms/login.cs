@@ -19,33 +19,28 @@ namespace Exam_Cell
             
         }
 
-        private void bgpanel_Paint(object sender, PaintEventArgs e)
+        private void timer_Tick(object sender, EventArgs e)
         {
-
-        }
-
-        private void username_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void usrlabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void loginbuttn_Click(object sender, EventArgs e)
-        {
-            if(Username.Text=="admin"&&Password.Text=="admin")
+            if (this.Opacity > 0.0)
             {
-                this.Hide();
-                MenuForm ss = new MenuForm();
-                ss.Show();
+                this.Opacity -= 0.025;
             }
             else
             {
-                MessageBox.Show("Invalid Username or Password","Alert",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                timer.Stop();
+                MenuForm ss = new MenuForm();
+                ss.Show();
+                this.Hide();
+            }
+        }
 
+        private void timerLoading_Tick(object sender, EventArgs e)
+        {
+            panelLoader.Width += 6;
+            if (panelLoader.Width >= 710)
+            {
+                timerLoading.Stop();
+                timer.Start();
             }
         }
     }

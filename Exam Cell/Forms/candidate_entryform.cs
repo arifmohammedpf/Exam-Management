@@ -45,7 +45,6 @@ namespace Exam_Cell
             Schemecomboboxfill();
             Branchsecondcomboboxfill();
             Semestercomboboxfill();
-            progressPanel.Hide();
 
             
             Candidate_datagridview.Enabled = false;
@@ -65,44 +64,44 @@ namespace Exam_Cell
             chkbox2.Name = "checkBox2Column";
             Candidate_datagridview.Columns.Insert(0, chkbox2);
 
-            AddHeaderchckbox(); //header checkbox added to candidate dgv
-            headerchkbox.MouseClick += new MouseEventHandler(Headerchckbox_Mouseclick);
+            //AddHeaderchckbox(); //header checkbox added to candidate dgv
+            //headerchkbox.MouseClick += new MouseEventHandler(Headerchckbox_Mouseclick);
         }
 
         //function definition
-        void AddHeaderchckbox()
-        {
-            //Locate Header Cell to place checkbox in correct position
-            Point HeaderCellLocation = this.Candidate_datagridview.GetCellDisplayRectangle(0, -1, true).Location;
-            //place headercheckbox to the location
-            headerchkbox.Location = new Point(HeaderCellLocation.X + 8, HeaderCellLocation.Y + 13);
-            headerchkbox.BackColor = Color.RoyalBlue;
-            headerchkbox.Size = new Size(18, 18);
-            //add checkbox into dgv
-            Candidate_datagridview.Controls.Add(headerchkbox);
-        }
+        //void AddHeaderchckbox()
+        //{
+        //    //Locate Header Cell to place checkbox in correct position
+        //    Point HeaderCellLocation = this.Candidate_datagridview.GetCellDisplayRectangle(0, -1, true).Location;
+        //    //place headercheckbox to the location
+        //    headerchkbox.Location = new Point(HeaderCellLocation.X + 8, HeaderCellLocation.Y + 13);
+        //    headerchkbox.BackColor = Color.RoyalBlue;
+        //    headerchkbox.Size = new Size(18, 18);
+        //    //add checkbox into dgv
+        //    Candidate_datagridview.Controls.Add(headerchkbox);
+        //}
 
-        object send;
-        private void Headerchckbox_Mouseclick(object sender, MouseEventArgs e)
-        {
-            send = sender;
-            progressPanel.Show();
-            timerHeaderCheck.Start();            
-        }
-        private void timerHeaderCheck_Tick(object sender, EventArgs e)
-        {
-            timerHeaderCheck.Stop();
-            Headerchckboxclick((CheckBox)send);
-            progressPanel.Hide();
-        }
-        //headerchckbox click event
-        private void Headerchckboxclick(CheckBox Hcheckbox)
-        {
-            foreach (DataGridViewRow row in Candidate_datagridview.Rows)
-                ((DataGridViewCheckBoxCell)row.Cells["checkBox2Column"]).Value = Hcheckbox.Checked;
+        //object send;
+        //private void Headerchckbox_Mouseclick(object sender, MouseEventArgs e)
+        //{
+        //    send = sender;
+        //    progressPanel.Show();
+        //    timerHeaderCheck.Start();            
+        //}
+        //private void timerHeaderCheck_Tick(object sender, EventArgs e)
+        //{
+        //    timerHeaderCheck.Stop();
+        //    Headerchckboxclick((CheckBox)send);
+        //    progressPanel.Hide();
+        //}
+        ////headerchckbox click event
+        //private void Headerchckboxclick(CheckBox Hcheckbox)
+        //{
+        //    foreach (DataGridViewRow row in Candidate_datagridview.Rows)
+        //        ((DataGridViewCheckBoxCell)row.Cells["checkBox2Column"]).Value = Hcheckbox.Checked;
 
-            Candidate_datagridview.RefreshEdit();
-        }
+        //    Candidate_datagridview.RefreshEdit();
+        //}
 
         void UnvBranchComboboxFill()
         {
@@ -292,6 +291,8 @@ namespace Exam_Cell
         {
             if(Unvrsty_rdbtn.Checked==true)
             {
+                RegRegCnd_btn.Enabled = false;
+                SelectAllCheckbox.Enabled = false;
                 Unv_Student_details_groupbox.Enabled = true;
                 Unv_Student_details_groupbox.BringToFront();
                 Courses_dgv.Enabled = false;
@@ -364,6 +365,8 @@ namespace Exam_Cell
         {
             if (Series_rdbtn.Checked == true)
             {
+                RegRegCnd_btn.Enabled = true;
+                SelectAllCheckbox.Enabled = true;
                 Series_Student_details_groupbox.Enabled = true;
                 Unv_Student_details_groupbox.Enabled = false;
                 Series_Student_details_groupbox.BringToFront();
@@ -624,7 +627,7 @@ namespace Exam_Cell
                     excst.Add(excclass);
                 }
                 Candidate_datagridview.DataSource = excst;
-
+                RegRegCnd_btn.Enabled = true;
             }
         }
 
@@ -686,53 +689,103 @@ namespace Exam_Cell
             {
                 if (Class_drpdwn.SelectedIndex != 0)
                 {
-                    try
+                    if(SelectAllCheckbox.Checked)
                     {
-                        int f = 0;
-                        //select checkbox from course dgv
-                        foreach (DataGridViewRow dr in Courses_dgv.Rows)
+                        try
                         {
-                            bool chkboxselected = Convert.ToBoolean(dr.Cells["checkBoxColumn"].Value);  //<--here checkBoxColumn is the name given for coursedgv checkbox in formload function
-
-                            if (chkboxselected)
+                            int f = 0;
+                            //select checkbox from course dgv
+                            foreach (DataGridViewRow dr in Courses_dgv.Rows)
                             {
-                                //select checkbox from candidate dgv
-                                foreach (DataGridViewRow dr2 in Candidate_datagridview.Rows)
+                                bool chkboxselected = Convert.ToBoolean(dr.Cells["checkBoxColumn"].Value);  //<--here checkBoxColumn is the name given for coursedgv checkbox in formload function
+
+                                if (chkboxselected)
                                 {
-                                    bool checkbox2selected = Convert.ToBoolean(dr2.Cells["checkBox2Column"].Value);   //<--here checkBox2Column is the name given for candidte dgv checkbox in formload function
-                                    if (checkbox2selected)
+                                    f = 1;
+                                    //select all from candidate dgv
+                                    foreach (DataGridViewRow dr2 in Candidate_datagridview.Rows)
                                     {
-                                        f = 1;
-                                        //selected datas from both dgv will be inserted to Table Registered Candidates
-                                        //here first bracket is sqltable column names and 2nd bracket with @ is refernce for values to be inserted
-                                        SQLiteCommand sqlcomm = new SQLiteCommand("Insert into Series_candidates(Name,Reg_no,Class,Semester,Course)Values(" + "@Name,@Reg_no,@Class,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
-                                                                                                                                                                                                                           //giving values to the reference...values from dgv
-                                        sqlcomm.Parameters.AddWithValue("@Reg_no", dr2.Cells["Reg_no"].Value);
-                                        sqlcomm.Parameters.AddWithValue("@Name", dr2.Cells["Name"].Value);
-                                        sqlcomm.Parameters.AddWithValue("@Class", Class_drpdwn.Text);
-                                        sqlcomm.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value);
-                                        sqlcomm.Parameters.AddWithValue("@Course", dr.Cells["Course"].Value);
-                                        //execute sql query to insert into tables
-                                        sqlcomm.ExecuteNonQuery();
+                                            //selected datas from both dgv will be inserted to Table Registered Candidates
+                                            //here first bracket is sqltable column names and 2nd bracket with @ is refernce for values to be inserted
+                                            SQLiteCommand sqlcomm = new SQLiteCommand("Insert into Series_candidates(Name,Reg_no,Class,Semester,Course)Values(" + "@Name,@Reg_no,@Class,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
+                                                                                                                                                                                                                               //giving values to the reference...values from dgv
+                                            sqlcomm.Parameters.AddWithValue("@Reg_no", dr2.Cells["Reg_no"].Value);
+                                            sqlcomm.Parameters.AddWithValue("@Name", dr2.Cells["Name"].Value);
+                                            sqlcomm.Parameters.AddWithValue("@Class", Class_drpdwn.Text);
+                                            sqlcomm.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value);
+                                            sqlcomm.Parameters.AddWithValue("@Course", dr.Cells["Course"].Value);
+                                            //execute sql query to insert into tables
+                                            sqlcomm.ExecuteNonQuery();                                        
                                     }
                                 }
                             }
+                            if (f == 1)
+                            {
+                                msgbox.show("Register Done", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                                SelectAllCheckbox.Checked = false;
+                            }
+                            else
+                                msgbox.show("Select Course to Register", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                         }
-                        if (f == 1)
+                        catch (Exception ex)
                         {
-
-                            msgbox.show("Register Done", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                            MessageBox.Show(ex.ToString());
                         }
-                        else
-                            msgbox.show("Select Student and Course to Register", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                        finally
+                        {
+                            con.CloseCon();
+                        }
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        MessageBox.Show(ex.ToString());
-                    }
-                    finally
-                    {
-                        con.CloseCon();
+                        try
+                        {
+                            int f = 0;
+                            //select checkbox from course dgv
+                            foreach (DataGridViewRow dr in Courses_dgv.Rows)
+                            {
+                                bool chkboxselected = Convert.ToBoolean(dr.Cells["checkBoxColumn"].Value);  //<--here checkBoxColumn is the name given for coursedgv checkbox in formload function
+
+                                if (chkboxselected)
+                                {
+                                    //select checkbox from candidate dgv
+                                    foreach (DataGridViewRow dr2 in Candidate_datagridview.Rows)
+                                    {
+                                        bool checkbox2selected = Convert.ToBoolean(dr2.Cells["checkBox2Column"].Value);   //<--here checkBox2Column is the name given for candidte dgv checkbox in formload function
+                                        if (checkbox2selected)
+                                        {
+                                            f = 1;
+                                            //selected datas from both dgv will be inserted to Table Registered Candidates
+                                            //here first bracket is sqltable column names and 2nd bracket with @ is refernce for values to be inserted
+                                            SQLiteCommand sqlcomm = new SQLiteCommand("Insert into Series_candidates(Name,Reg_no,Class,Semester,Course)Values(" + "@Name,@Reg_no,@Class,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
+                                                                                                                                                                                                                               //giving values to the reference...values from dgv
+                                            sqlcomm.Parameters.AddWithValue("@Reg_no", dr2.Cells["Reg_no"].Value);
+                                            sqlcomm.Parameters.AddWithValue("@Name", dr2.Cells["Name"].Value);
+                                            sqlcomm.Parameters.AddWithValue("@Class", Class_drpdwn.Text);
+                                            sqlcomm.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value);
+                                            sqlcomm.Parameters.AddWithValue("@Course", dr.Cells["Course"].Value);
+                                            //execute sql query to insert into tables
+                                            sqlcomm.ExecuteNonQuery();
+                                        }
+                                    }
+                                }
+                            }
+                            if (f == 1)
+                            {
+
+                                msgbox.show("Register Done", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                            }
+                            else
+                                msgbox.show("Select Student and Course to Register", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.ToString());
+                        }
+                        finally
+                        {
+                            con.CloseCon();
+                        }
                     }
                 }
                 else { msgbox.show("Select Class", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error); }
@@ -745,59 +798,92 @@ namespace Exam_Cell
                 {
                     if (UnvCheckbox.Checked)
                     {
-                        int f = 0;
-                        //select checkbox from course dgv
-                        foreach (DataGridViewRow dr in Courses_dgv.Rows)
+                        if(SelectAllCheckbox.Checked)
                         {
-                            bool chkboxselected = Convert.ToBoolean(dr.Cells["checkBoxColumn"].Value);  //<--here checkBoxColumn is the name given for coursedgv checkbox in formload function
-
-                            if (chkboxselected)
+                            int f = 0;
+                            //select checkbox from course dgv
+                            foreach (DataGridViewRow dr in Courses_dgv.Rows)
                             {
-                                //select checkbox from candidate dgv
-                                foreach (DataGridViewRow dr2 in Candidate_datagridview.Rows)
+                                bool chkboxselected = Convert.ToBoolean(dr.Cells["checkBoxColumn"].Value);  //<--here checkBoxColumn is the name given for coursedgv checkbox in formload function
+
+                                if (chkboxselected)
                                 {
-                                    bool checkbox2selected = Convert.ToBoolean(dr2.Cells["checkBox2Column"].Value);   //<--here checkBox2Column is the name given for candidte dgv checkbox in formload function
-                                    if (checkbox2selected)
+                                    f = 1;
+                                    //select all from candidate dgv
+                                    foreach (DataGridViewRow dr2 in Candidate_datagridview.Rows)
                                     {
-                                        f = 1;
-                                        //selected datas from both dgv will be inserted to Table Registered Candidates
-                                        //here first bracket is sqltable column names and 2nd bracket with @ is refernce for values to be inserted
-                                        SQLiteCommand sqlcomm = new SQLiteCommand("Insert into Registered_candidates(Name,Reg_no,Branch,Semester,Course)Values(" + "@Name,@Reg_no,@Branch,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
-                                                                                                                                                                                                                                 //giving values to the reference...values from dgv
-                                        sqlcomm.Parameters.AddWithValue("@Reg_no", dr2.Cells["Reg_no"].Value);
-                                        sqlcomm.Parameters.AddWithValue("@Name", dr2.Cells["Name"].Value);
-                                        sqlcomm.Parameters.AddWithValue("@Branch", dr2.Cells["Branch"].Value);
-                                        sqlcomm.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value);
-                                        sqlcomm.Parameters.AddWithValue("@Course", dr.Cells["Course"].Value);
-                                        //execute sql query to insert into tables
-                                        sqlcomm.ExecuteNonQuery();
+                                            //selected datas from both dgv will be inserted to Table Registered Candidates
+                                            //here first bracket is sqltable column names and 2nd bracket with @ is refernce for values to be inserted
+                                            SQLiteCommand sqlcomm = new SQLiteCommand("Insert into Registered_candidates(Name,Reg_no,Branch,Semester,Course)Values(" + "@Name,@Reg_no,@Branch,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
+                                                                                                                                                                                                                                     //giving values to the reference...values from dgv
+                                            sqlcomm.Parameters.AddWithValue("@Reg_no", dr2.Cells["Reg_no"].Value);
+                                            sqlcomm.Parameters.AddWithValue("@Name", dr2.Cells["Name"].Value);
+                                            sqlcomm.Parameters.AddWithValue("@Branch", dr2.Cells["Branch"].Value);
+                                            sqlcomm.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value);
+                                            sqlcomm.Parameters.AddWithValue("@Course", dr.Cells["Course"].Value);
+                                            //execute sql query to insert into tables
+                                            sqlcomm.ExecuteNonQuery();                                        
                                     }
                                 }
                             }
-                        }
-                        if (f == 1)
-                        {
-                            if (UnvCheckbox.Checked)
+                            if (f == 1)
                             {
-                                UnvBranchCombobox.SelectedIndex = 0;
-                                YOACombobox.SelectedIndex = 0;
+                                    UnvBranchCombobox.SelectedIndex = 0;
+                                    YOACombobox.SelectedIndex = 0;
+                                //headerchkbox.Checked = false;
+                                SelectAllCheckbox.Checked = false;
+                                msgbox.show("Register Done", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                             }
-                            headerchkbox.Checked = false;
-                            msgbox.show("Register Done", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                            else
+                                msgbox.show("Select Course to Register", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                         }
                         else
-                            msgbox.show("Select Student and Course to Register", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                        {
+                            int f = 0;
+                            //select checkbox from course dgv
+                            foreach (DataGridViewRow dr in Courses_dgv.Rows)
+                            {
+                                bool chkboxselected = Convert.ToBoolean(dr.Cells["checkBoxColumn"].Value);  //<--here checkBoxColumn is the name given for coursedgv checkbox in formload function
+
+                                if (chkboxselected)
+                                {
+                                    //select checkbox from candidate dgv
+                                    foreach (DataGridViewRow dr2 in Candidate_datagridview.Rows)
+                                    {
+                                        bool checkbox2selected = Convert.ToBoolean(dr2.Cells["checkBox2Column"].Value);   //<--here checkBox2Column is the name given for candidte dgv checkbox in formload function
+                                        if (checkbox2selected)
+                                        {
+                                            f = 1;
+                                            //selected datas from both dgv will be inserted to Table Registered Candidates
+                                            //here first bracket is sqltable column names and 2nd bracket with @ is refernce for values to be inserted
+                                            SQLiteCommand sqlcomm = new SQLiteCommand("Insert into Registered_candidates(Name,Reg_no,Branch,Semester,Course)Values(" + "@Name,@Reg_no,@Branch,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
+                                                                                                                                                                                                                                     //giving values to the reference...values from dgv
+                                            sqlcomm.Parameters.AddWithValue("@Reg_no", dr2.Cells["Reg_no"].Value);
+                                            sqlcomm.Parameters.AddWithValue("@Name", dr2.Cells["Name"].Value);
+                                            sqlcomm.Parameters.AddWithValue("@Branch", dr2.Cells["Branch"].Value);
+                                            sqlcomm.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value);
+                                            sqlcomm.Parameters.AddWithValue("@Course", dr.Cells["Course"].Value);
+                                            //execute sql query to insert into tables
+                                            sqlcomm.ExecuteNonQuery();
+                                        }
+                                    }
+                                }
+                            }
+                            if (f == 1)
+                            {
+                                UnvBranchCombobox.SelectedIndex = 0;
+                                YOACombobox.SelectedIndex = 0;                                
+                                msgbox.show("Register Done", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                            }
+                            else
+                                msgbox.show("Select Student and Course to Register", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                        }
                     }
                     else
                     {
-                        int f = 0;
                         //select checkbox from candidate dgv
                         foreach (DataGridViewRow dr in Candidate_datagridview.Rows)
                         {
-                            bool checkboxselected = Convert.ToBoolean(dr.Cells["checkBox2Column"].Value);
-                            if (checkboxselected)
-                            {
-                                f = 1;
                                 //selected datas from dgv will be inserted to Table Registered Candidates
                                 //here first bracket is sqltable column names and 2nd bracket with @ is refernce for values to be inserted
                                 SQLiteCommand sqlcomm = new SQLiteCommand("Insert into Registered_candidates(Name,Reg_no,Branch,Semester,Course)Values(" + "@Name,@Reg_no,@Branch,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
@@ -809,12 +895,11 @@ namespace Exam_Cell
                                 sqlcomm.Parameters.AddWithValue("@Course", dr.Cells["Course"].Value);
                                 //execute sql query to insert into tables
                                 sqlcomm.ExecuteNonQuery();
-                            }
+                            
                         }
-                        if (f == 1)
-                            msgbox.show("Register Done", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
-                        else
-                            msgbox.show("Select Someone To Register", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                            SelectAllCheckbox.Checked = false;
+                            RegRegCnd_btn.Enabled = false;
+                            msgbox.show("Register Done from Excel Data", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     }
                 }
                 catch (Exception ex)
@@ -873,6 +958,7 @@ namespace Exam_Cell
         {
             if(UnvCheckbox.Checked)
             {
+                RegRegCnd_btn.Enabled = true;
                 Courses_dgv.Enabled = true;
                 Excel_Group.Enabled = false;
                 UnvBranchCombobox.Enabled = true;
@@ -880,9 +966,12 @@ namespace Exam_Cell
                 UnvBranchComboboxFill();
                 YoaComboboxFill();
                 Unvsourcefill();
+                SelectAllCheckbox.Enabled = true;
             }
             else
             {
+                RegRegCnd_btn.Enabled = false;
+                SelectAllCheckbox.Enabled = false;
                 Courses_dgv.Enabled = false;
                 Excel_Group.Enabled = true;
                 UnvBranchComboboxFill();
@@ -932,103 +1021,3 @@ namespace Exam_Cell
         
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

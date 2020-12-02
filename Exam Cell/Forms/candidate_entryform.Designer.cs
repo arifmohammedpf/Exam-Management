@@ -110,6 +110,7 @@
             this.studentsTableAdapter3 = new Exam_Cell.Exam_CellDataSetStudentsNewTableAdapters.StudentsTableAdapter();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.timerHeaderCheck = new System.Windows.Forms.Timer(this.components);
+            this.SelectAllCheckbox = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.progressPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Courses_dgv)).BeginInit();
@@ -172,6 +173,7 @@
             this.progressPanel.Name = "progressPanel";
             this.progressPanel.Size = new System.Drawing.Size(410, 100);
             this.progressPanel.TabIndex = 42;
+            this.progressPanel.Visible = false;
             // 
             // label5
             // 
@@ -287,6 +289,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.panel2.Controls.Add(this.SelectAllCheckbox);
             this.panel2.Controls.Add(this.Excel_Group);
             this.panel2.Controls.Add(this.RegRegCnd_btn);
             this.panel2.Controls.Add(this.groupBox3);
@@ -294,7 +297,7 @@
             this.panel2.Controls.Add(this.Series_Student_details_groupbox);
             this.panel2.Location = new System.Drawing.Point(12, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(855, 327);
+            this.panel2.Size = new System.Drawing.Size(993, 320);
             this.panel2.TabIndex = 1;
             // 
             // Excel_Group
@@ -307,7 +310,7 @@
             this.Excel_Group.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Excel_Group.Location = new System.Drawing.Point(4, 218);
             this.Excel_Group.Name = "Excel_Group";
-            this.Excel_Group.Size = new System.Drawing.Size(644, 87);
+            this.Excel_Group.Size = new System.Drawing.Size(774, 87);
             this.Excel_Group.TabIndex = 40;
             this.Excel_Group.TabStop = false;
             this.Excel_Group.Text = "Add From Excel";
@@ -315,19 +318,19 @@
             // Filepath_textbox
             // 
             this.Filepath_textbox.Enabled = false;
-            this.Filepath_textbox.Location = new System.Drawing.Point(154, 32);
+            this.Filepath_textbox.Location = new System.Drawing.Point(159, 32);
             this.Filepath_textbox.Name = "Filepath_textbox";
             this.Filepath_textbox.ReadOnly = true;
-            this.Filepath_textbox.Size = new System.Drawing.Size(221, 30);
+            this.Filepath_textbox.Size = new System.Drawing.Size(244, 30);
             this.Filepath_textbox.TabIndex = 18;
             // 
             // Sheet_combobox
             // 
             this.Sheet_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Sheet_combobox.FormattingEnabled = true;
-            this.Sheet_combobox.Location = new System.Drawing.Point(381, 32);
+            this.Sheet_combobox.Location = new System.Drawing.Point(424, 32);
             this.Sheet_combobox.Name = "Sheet_combobox";
-            this.Sheet_combobox.Size = new System.Drawing.Size(257, 29);
+            this.Sheet_combobox.Size = new System.Drawing.Size(327, 29);
             this.Sheet_combobox.TabIndex = 17;
             this.Sheet_combobox.SelectedIndexChanged += new System.EventHandler(this.Sheet_combobox_SelectedIndexChanged);
             // 
@@ -356,7 +359,7 @@
             this.RegRegCnd_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RegRegCnd_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RegRegCnd_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.RegRegCnd_btn.Location = new System.Drawing.Point(654, 230);
+            this.RegRegCnd_btn.Location = new System.Drawing.Point(788, 230);
             this.RegRegCnd_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RegRegCnd_btn.Name = "RegRegCnd_btn";
             this.RegRegCnd_btn.Size = new System.Drawing.Size(196, 75);
@@ -832,7 +835,18 @@
             // timerHeaderCheck
             // 
             this.timerHeaderCheck.Interval = 10;
-            this.timerHeaderCheck.Tick += new System.EventHandler(this.timerHeaderCheck_Tick);
+            // 
+            // SelectAllCheckbox
+            // 
+            this.SelectAllCheckbox.AutoSize = true;
+            this.SelectAllCheckbox.Enabled = false;
+            this.SelectAllCheckbox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectAllCheckbox.Location = new System.Drawing.Point(810, 153);
+            this.SelectAllCheckbox.Name = "SelectAllCheckbox";
+            this.SelectAllCheckbox.Size = new System.Drawing.Size(124, 27);
+            this.SelectAllCheckbox.TabIndex = 1;
+            this.SelectAllCheckbox.Text = "Select All";
+            this.SelectAllCheckbox.UseVisualStyleBackColor = true;
             // 
             // formti
             // 
@@ -855,6 +869,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Courses_dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Candidate_datagridview)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.Excel_Group.ResumeLayout(false);
             this.Excel_Group.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -967,5 +982,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Timer timerHeaderCheck;
+        private System.Windows.Forms.CheckBox SelectAllCheckbox;
     }
 }

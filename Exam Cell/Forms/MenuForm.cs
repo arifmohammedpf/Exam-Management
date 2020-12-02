@@ -160,6 +160,19 @@ namespace Exam_Cell.Forms
             var result = msgbox.ReturnValue;
             if (result=="Yes")
             {
+                timer.Start();
+            }
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            if (this.Opacity > 0.0)
+            {
+                this.Opacity -= 0.025;
+            }
+            else
+            {
+                timer.Stop();
                 Application.Exit();
             }
         }

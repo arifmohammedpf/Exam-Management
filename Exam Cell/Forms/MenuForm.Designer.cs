@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.MenuSidePanel = new System.Windows.Forms.Panel();
             this.Exit_btn = new System.Windows.Forms.Button();
@@ -47,6 +48,7 @@
             this.Dbm_btn = new System.Windows.Forms.Button();
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.panelSideMenu.SuspendLayout();
             this.panelAbsentDropMenu.SuspendLayout();
             this.panelDbmDropMenu.SuspendLayout();
@@ -359,6 +361,11 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // timer
+            // 
+            this.timer.Interval = 10;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -404,5 +411,6 @@
         private System.Windows.Forms.Panel panelChildForm;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel MenuSidePanel;
+        private System.Windows.Forms.Timer timer;
     }
 }
