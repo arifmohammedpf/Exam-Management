@@ -133,7 +133,7 @@ namespace Exam_Cell
                         }
                     
                         con.CloseCon();
-                        msgbox.show("Students Added to Class", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                        msgbox.show("Students Added to Class    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                         AssignClass_combobox.SelectedIndex = 0;
                         Student_dgvFill();
                     SelectAllCheckbox.Checked = false;
@@ -165,16 +165,16 @@ namespace Exam_Cell
                     if (f == 1)
                     {
                                 con.CloseCon();
-                        msgbox.show("Students Added to Class", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                        msgbox.show("Students Added to Class    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                         AssignClass_combobox.SelectedIndex = 0;
                         Student_dgvFill();
                     }
                     else
-                        msgbox.show("Select Any Students", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                        msgbox.show("Select Any Students    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                 }
             }
             else
-                msgbox.show("Select Class", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                msgbox.show("Select Class   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
         }
         void ClearAllStudent_Management()
         {
@@ -225,7 +225,7 @@ namespace Exam_Cell
             }
             else
             {
-                msgbox.show("Fill Necessary Details, Try again.", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                msgbox.show("Fill Necessary Details.    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
         }
 
@@ -310,7 +310,7 @@ namespace Exam_Cell
 
         private void Delete_btn_Click(object sender, EventArgs e)
         {
-            msgbox.show("Do you really want to Delete ?", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
+            msgbox.show("Do you really want to Delete ?     ", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
             var result = msgbox.ReturnValue;
             if (result == "Yes")
             {
@@ -337,7 +337,7 @@ namespace Exam_Cell
                                 
                             }                            
                                     con.CloseCon();
-                                msgbox.show("Delete All Done.", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                                msgbox.show("Delete All Done.   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                                 ClearAllStudent_Management();
                                 Class_StudentsFill();
                             SelectAllCheckbox.Checked = false;
@@ -371,13 +371,13 @@ namespace Exam_Cell
                             if (f == 1)
                             {
                                 con.CloseCon();
-                                msgbox.show("Delete Done.", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                                msgbox.show("Delete Done.   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                                 ClearAllStudent_Management();
                                 Class_StudentsFill();
                             }
                             else
                             {
-                                msgbox.show("Select any Students to delete, Try again.", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                                msgbox.show("Select any Students to delete.     ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                             }
                         }
                     }
@@ -408,7 +408,7 @@ namespace Exam_Cell
                                 
                             }
                             con.CloseCon();
-                            msgbox.show("Delete All Done.", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                            msgbox.show("Delete All Done.   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                             Student_dgvFill();
                             SelectAllCheckbox.Checked = false;
                         }
@@ -444,16 +444,16 @@ namespace Exam_Cell
                             if (f == 1)
                             {
                                 con.CloseCon();
-                                msgbox.show("Delete Done.", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                                msgbox.show("Delete Done.   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                                 Student_dgvFill();
                             }
                             else
-                                msgbox.show("Select any Students to delete, Try again.", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                                msgbox.show("Select any Students to delete.     ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                         }
                     }
                 }
                 else
-                    msgbox.show("You Cannot delete an Excel data, Try again.", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                    msgbox.show("You Cannot delete an Excel data.   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
         }
 
@@ -497,7 +497,7 @@ namespace Exam_Cell
 
         private void UpgradeSem_btn_Click(object sender, EventArgs e)
         {
-            msgbox.show("You Are Going To UPGRADE Every Class Semester. Are You Sure?", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
+            msgbox.show("You Are Going To UPGRADE Every Class Semester.     \n Are You Sure?   ", "Warning", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
             var result = msgbox.ReturnValue;
             if (result == "Yes")
             {
@@ -524,7 +524,7 @@ namespace Exam_Cell
                 command3.ExecuteNonQuery();
                 AssignClass_fill();
                 Class_StudentsFill();
-                msgbox.show("Upgrade Done", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                msgbox.show("Semester Upgrade Done   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
@@ -539,7 +539,7 @@ namespace Exam_Cell
 
         private void DegradeClass_btn_Click(object sender, EventArgs e)
         {
-            msgbox.show("You Are Going To DEGRADE Every Class Semester.\n Are You Sure?", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
+            msgbox.show("You Are Going To DEGRADE Every Class Semester.     \n Are You Sure?    ", "Warning", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
             var result = msgbox.ReturnValue;
             if (result == "Yes")
             {
@@ -567,7 +567,7 @@ namespace Exam_Cell
                 command.ExecuteNonQuery();
                 AssignClass_fill();
                 Class_StudentsFill();
-                msgbox.show("Degrade Done", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                msgbox.show("Degrade Done   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
@@ -702,7 +702,7 @@ namespace Exam_Cell
             if (messflag == 0)
             {
                 messflag = 1;
-                msgbox.show("ExcelSheet Header Naming Must Be as follows : \n Register No ,Name, YOA, Branch", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Warning);
+                msgbox.show("ExcelSheet must only contains Table data.  \n ExcelSheet Header Naming Must Be as follows :      \n Register No ,Name, YOA, Branch   ", "Warning", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Warning);
             }
             using (OpenFileDialog openFile = new OpenFileDialog() { Filter = "Excel Files|*.xls|*xlsx|*.xlsm" }) //check if | is needed last?
             {
@@ -755,7 +755,7 @@ namespace Exam_Cell
             }
             catch(Exception ex)
             {
-                msgbox.show(ex.ToString(), "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                msgbox.show(ex.ToString(), "Exception Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
         }
 
@@ -798,7 +798,7 @@ namespace Exam_Cell
                 ClearAllStudent_Management();
                 AddFromExcel_Btn.Enabled = false;
                 Student_dgvFill();
-                msgbox.show("Add From Excel Completed", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                msgbox.show("Add From Excel Completed   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
             //}
             //else msgbox.show("Select any Students", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
         }

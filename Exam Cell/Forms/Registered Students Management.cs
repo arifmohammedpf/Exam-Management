@@ -37,7 +37,7 @@ namespace Exam_Cell
 
         private void DeleteAll_btn_Click(object sender, EventArgs e)
         {
-            msgbox.show("You are going to Delete every Students in the list, Are You Sure ?", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
+            msgbox.show("You are going to Delete every Students in the list.    \n Are You Sure ?   ", "Warning", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
             var result = msgbox.ReturnValue;
             try
             {
@@ -47,7 +47,7 @@ namespace Exam_Cell
                 {
                     SQLiteCommand command = new SQLiteCommand("Delete from Registered_candidates", con.ActiveCon());
                     command.ExecuteNonQuery();
-                    msgbox.show("All Registered Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                    msgbox.show("All Registered Candidates Deleted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     University_fill();
                     Clear_function();
                 }
@@ -55,7 +55,7 @@ namespace Exam_Cell
                 {
                     SQLiteCommand command = new SQLiteCommand("Delete from Series_candidates", con.ActiveCon());
                     command.ExecuteNonQuery();
-                    msgbox.show("All Registered Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                    msgbox.show("All Registered Candidates Deleted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     Series_fill();
                     Clear_function();
                 }
@@ -63,7 +63,7 @@ namespace Exam_Cell
                 {
                     SQLiteCommand command = new SQLiteCommand("Delete from University_Alloted", con.ActiveCon());
                     command.ExecuteNonQuery();
-                    msgbox.show("All Alloted Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                    msgbox.show("All Alloted Candidates Deleted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     UniversityAlloted_fill();
                     Clear_function();
                 }
@@ -71,7 +71,7 @@ namespace Exam_Cell
                 {
                     SQLiteCommand command = new SQLiteCommand("Delete from Series_Alloted", con.ActiveCon());
                     command.ExecuteNonQuery();
-                    msgbox.show("All Alloted Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                    msgbox.show("All Alloted Candidates Deleted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     SeriesAlloted_fill();
                     Clear_function();
                 }
@@ -236,7 +236,7 @@ namespace Exam_Cell
 
         private void Delete_btn_Click(object sender, EventArgs e)
         {
-            msgbox.show("Do you really want to Delete ?", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
+            msgbox.show("Do you really want to Delete ?     ", "Confirm", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
             var result = msgbox.ReturnValue;
             try
             {
@@ -258,13 +258,13 @@ namespace Exam_Cell
                     }
                         if (f == 1)
                         {
-                            msgbox.show("Selected Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                            msgbox.show("Selected Candidates Deleted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                             University_fill();
                             Clear_function();
                         }
                         else
                         {
-                            msgbox.show("No Candidates Selected", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                            msgbox.show("No Candidates Selected     ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                         }
                     }
                 else if (Series_radiobtn.Checked)
@@ -282,13 +282,13 @@ namespace Exam_Cell
                     }
                         if (f == 1)
                         {
-                            msgbox.show("Selected Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                            msgbox.show("Selected Candidates Deleted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                             Series_fill();
                             Clear_function();
                         }
                         else
                         {
-                            msgbox.show("No Candidates Selected", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                            msgbox.show("No Candidates Selected     ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                         }
                     }
                 else if (AllotSeries_radiobtn.Checked)
@@ -306,13 +306,13 @@ namespace Exam_Cell
                     }
                         if (f == 1)
                         {
-                            msgbox.show("Selected Alloted Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                            msgbox.show("Selected Alloted Candidates Deleted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                             SeriesAlloted_fill();
                             Clear_function();
                         }
                         else
                         {
-                            msgbox.show("No Candidates Selected", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                            msgbox.show("No Candidates Selected     ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                         }
                     }
                 else if (AllotUniversty_radiobtn.Checked)
@@ -330,13 +330,13 @@ namespace Exam_Cell
                     }
                         if (f == 1)
                         {
-                            msgbox.show("Selected Alloted Candidates Deleted", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                            msgbox.show("Selected Alloted Candidates Deleted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                             UniversityAlloted_fill();
                             Clear_function();
                         }
                         else
                         {
-                            msgbox.show("No Candidates Selected", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                            msgbox.show("No Candidates Selected    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                         }
                     }
             }

@@ -168,7 +168,7 @@ namespace Exam_Cell
         }
         private void Postpone_button_Click(object sender, EventArgs e)
         {
-            msgbox.show("Click Yes to Confirm", "Confirmation", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Information);
+            msgbox.show("Click Yes to Confirm   ", "Confirm", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Warning);
             var result = msgbox.ReturnValue;
             if (result == "Yes")
             {
@@ -207,9 +207,9 @@ namespace Exam_Cell
             if (flag == 1)
             {
                 ScheduledExamFill();
-                msgbox.show("Exam Postponed", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                msgbox.show("Exam Postponed     ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
             }
-            else { msgbox.show("Please Select Exam to be postponed", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error); }
+            else { msgbox.show("Please Select Exam to be postponed     ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error); }
             }
             catch (Exception ex)
             {
@@ -244,9 +244,9 @@ namespace Exam_Cell
             if (flag == 1)
             {
                 ScheduledExamFill();
-                msgbox.show("Exam Postponed", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                msgbox.show("Exam Postponed     ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
             }
-            else { msgbox.show("Please Select Exam to be postponed", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error); }
+            else { msgbox.show("Please Select Exam to be postponed      ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error); }
             }
             catch (Exception ex)
             {

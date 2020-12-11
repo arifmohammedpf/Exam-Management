@@ -189,7 +189,7 @@ namespace Exam_Cell
         int clearcount = 0;
         private void Add_btn_Click(object sender, EventArgs e)
         {
-            msgbox.show("Click Yes to Add", "Confirmation", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Information);
+            msgbox.show("Click Yes to Add   ", "Confirm", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Information);
             var result = msgbox.ReturnValue;
             if (result == "Yes")
             {
@@ -222,11 +222,11 @@ namespace Exam_Cell
                             Examcode_box.Clear();
                             CourseFill();
                             TimetableFill();
-                            msgbox.show("Success", "", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                            msgbox.show("Data Inserted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                         }
-                        else msgbox.show("No Course Selected", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                        else msgbox.show("No Course Selected    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                     }
-                    else msgbox.show("Select Session", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                    else msgbox.show("Select Session    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
 
                 }
                 catch (Exception ex)
@@ -421,7 +421,7 @@ namespace Exam_Cell
             }
             else if(Undo_backup.session.Count!=0)
             {
-                msgbox.show("Do you want to Undo last operation ?", "Warning", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Warning);
+                msgbox.show("Do you want to Undo last operation ?   ", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
                 var result = msgbox.ReturnValue;
                 if (result=="Yes")
                 {
@@ -450,7 +450,7 @@ namespace Exam_Cell
                     Clear_list();
                     CourseFill();
                     TimetableFill();
-                    msgbox.show("Undo Successfull", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);                    
+                    msgbox.show("Last Operation have been Undone   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);                    
                 }
                 else { }
                 

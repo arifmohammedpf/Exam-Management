@@ -70,7 +70,7 @@
             // 
             // pictureIcon
             // 
-            this.pictureIcon.Location = new System.Drawing.Point(49, 114);
+            this.pictureIcon.Location = new System.Drawing.Point(49, 128);
             this.pictureIcon.Name = "pictureIcon";
             this.pictureIcon.Size = new System.Drawing.Size(115, 88);
             this.pictureIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
