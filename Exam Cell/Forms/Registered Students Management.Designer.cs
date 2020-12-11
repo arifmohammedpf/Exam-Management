@@ -86,7 +86,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.Controls.Add(this.Series_radiobtn);
             this.groupBox1.Controls.Add(this.Univrsty_radiobtn);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -116,7 +115,6 @@
             // 
             // DeleteAll_btn
             // 
-            this.DeleteAll_btn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.DeleteAll_btn.BackColor = System.Drawing.Color.Maroon;
             this.DeleteAll_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.DeleteAll_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -132,7 +130,6 @@
             // 
             // AllotGroupbox
             // 
-            this.AllotGroupbox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.AllotGroupbox.Controls.Add(this.AllotSeries_radiobtn);
             this.AllotGroupbox.Controls.Add(this.AllotUniversty_radiobtn);
             this.AllotGroupbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -243,6 +240,7 @@
             // 
             // panel1
             // 
+            this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.panel1.Controls.Add(this.Registered_dgv);
             this.panel1.Controls.Add(this.panel2);
@@ -266,7 +264,6 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Green;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             this.Registered_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.Registered_dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Registered_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.Registered_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.Registered_dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
@@ -308,7 +305,6 @@
             // 
             // panel2
             // 
-            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel2.Controls.Add(this.Delete_btn);
             this.panel2.Controls.Add(this.Branch_combobox);
             this.panel2.Controls.Add(this.Semester_combobox);

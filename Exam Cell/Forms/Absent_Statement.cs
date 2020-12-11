@@ -33,9 +33,16 @@ namespace Exam_Cell
             //SubjectComboboxFill();
             No_of_candidates_ViewText.Clear();
             No_of_Present_ViewText.Clear();
-            No_of_Absent_ViewText.Clear();            
+            No_of_Absent_ViewText.Clear();
+            GetFileSavepath();
         }
-
+        void GetFileSavepath()
+        {
+            SQLiteCommand comm = new SQLiteCommand("select Savepath from Management where Savepath is not null", con.ActiveCon());
+            string savepath = (string)comm.ExecuteScalar();
+            con.CloseCon();
+            Filepath_textbox.Text = savepath;
+        }
         void DateComboboxFill()
         {            
             try
@@ -161,7 +168,7 @@ namespace Exam_Cell
 
         private void Prepare_Statement_btn_Click(object sender, EventArgs e)
         {
-            if(Filepath_textbox.Text != "")
+            if(Filepath_textbox.Text != "PLEASE_ADD_PATH")
             {
 
                 if (table.Rows.Count != 0)
@@ -309,6 +316,10 @@ namespace Exam_Cell
             FolderBrowserDialog fp = new FolderBrowserDialog();
             if(fp.ShowDialog() == DialogResult.OK)
             {
+                SQLiteCommand comm = new SQLiteCommand("update Management set Savepath=@savepath where Savepath is not null", con.ActiveCon());
+                comm.Parameters.AddWithValue("@savepath", fp.SelectedPath.ToString());
+                comm.ExecuteNonQuery();
+                con.CloseCon();
                 Filepath_textbox.Text = fp.SelectedPath;
             }
         }

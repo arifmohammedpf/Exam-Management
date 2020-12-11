@@ -72,9 +72,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.Delete_btn = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.timerCheckbox = new System.Windows.Forms.Timer(this.components);
-            this.timerExcelAdd = new System.Windows.Forms.Timer(this.components);
-            this.timerHeaderCheck = new System.Windows.Forms.Timer(this.components);
+            this.timerTool = new System.Windows.Forms.Timer(this.components);
             this.Student_mngmnt_panel.SuspendLayout();
             this.progressPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Student_dgv)).BeginInit();
@@ -86,6 +84,7 @@
             // 
             // Student_mngmnt_panel
             // 
+            this.Student_mngmnt_panel.AutoScroll = true;
             this.Student_mngmnt_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.Student_mngmnt_panel.Controls.Add(this.progressPanel);
             this.Student_mngmnt_panel.Controls.Add(this.Student_dgv);
@@ -104,7 +103,6 @@
             // 
             // progressPanel
             // 
-            this.progressPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.progressPanel.BackColor = System.Drawing.Color.Navy;
             this.progressPanel.Controls.Add(this.label5);
             this.progressPanel.Location = new System.Drawing.Point(643, 309);
@@ -135,7 +133,6 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Green;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             this.Student_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.Student_dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Student_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.Student_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.Student_dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
@@ -177,7 +174,6 @@
             // 
             // SelectAllCheckbox
             // 
-            this.SelectAllCheckbox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.SelectAllCheckbox.AutoSize = true;
             this.SelectAllCheckbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SelectAllCheckbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -190,7 +186,6 @@
             // 
             // ClassDgvView_checkbox
             // 
-            this.ClassDgvView_checkbox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ClassDgvView_checkbox.AutoSize = true;
             this.ClassDgvView_checkbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClassDgvView_checkbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -204,7 +199,6 @@
             // 
             // UpgradeSemester_groupbox
             // 
-            this.UpgradeSemester_groupbox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.UpgradeSemester_groupbox.BackColor = System.Drawing.Color.Transparent;
             this.UpgradeSemester_groupbox.Controls.Add(this.UpgradeSem_btn);
             this.UpgradeSemester_groupbox.Controls.Add(this.DegradeClass_btn);
@@ -251,7 +245,6 @@
             // 
             // ImportGroupbox
             // 
-            this.ImportGroupbox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ImportGroupbox.Controls.Add(this.label7);
             this.ImportGroupbox.Controls.Add(this.label6);
             this.ImportGroupbox.Controls.Add(this.Sheet_combobox);
@@ -340,7 +333,6 @@
             // 
             // AssignClass_groupbox
             // 
-            this.AssignClass_groupbox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.AssignClass_groupbox.Controls.Add(this.AssignClass_combobox);
             this.AssignClass_groupbox.Controls.Add(this.AssignClassYOA_combobox);
             this.AssignClass_groupbox.Controls.Add(this.AssignClassBranch_combobox);
@@ -455,7 +447,6 @@
             // 
             // add_stdnt_groupbox
             // 
-            this.add_stdnt_groupbox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.add_stdnt_groupbox.Controls.Add(this.Branch_combobox);
             this.add_stdnt_groupbox.Controls.Add(this.Regno_textbox);
             this.add_stdnt_groupbox.Controls.Add(this.YOA_textbox);
@@ -600,7 +591,6 @@
             // 
             // Delete_btn
             // 
-            this.Delete_btn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Delete_btn.BackColor = System.Drawing.Color.Maroon;
             this.Delete_btn.FlatAppearance.BorderSize = 0;
             this.Delete_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -621,19 +611,10 @@
             this.timer1.Interval = 20;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // timerCheckbox
+            // timerTool
             // 
-            this.timerCheckbox.Interval = 10;
-            this.timerCheckbox.Tick += new System.EventHandler(this.timerCheckbox_Tick);
-            // 
-            // timerExcelAdd
-            // 
-            this.timerExcelAdd.Interval = 10;
-            this.timerExcelAdd.Tick += new System.EventHandler(this.timerExcelAdd_Tick);
-            // 
-            // timerHeaderCheck
-            // 
-            this.timerHeaderCheck.Interval = 10;
+            this.timerTool.Interval = 10;
+            this.timerTool.Tick += new System.EventHandler(this.timerTool_Tick);
             // 
             // Student_Management
             // 
@@ -699,11 +680,9 @@
         private System.Windows.Forms.Button Delete_btn;
         private System.Windows.Forms.DataGridView Student_dgv;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Timer timerCheckbox;
+        private System.Windows.Forms.Timer timerTool;
         private System.Windows.Forms.Panel progressPanel;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Timer timerExcelAdd;
-        private System.Windows.Forms.Timer timerHeaderCheck;
         private System.Windows.Forms.CheckBox SelectAllCheckbox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;

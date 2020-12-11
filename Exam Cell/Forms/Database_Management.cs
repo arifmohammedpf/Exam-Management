@@ -141,7 +141,7 @@ namespace Exam_Cell
                     command2.ExecuteNonQuery();
                     con.CloseCon();
                 }
-                catch (Exception) { }
+                catch (Exception ex) { MessageBox.Show(ex.ToString()); }
                 SQLiteCommand command = new SQLiteCommand("delete from Management where Branch=@Branch", con.ActiveCon());
                 command.Parameters.AddWithValue("@Branch", UpdateBranch_combobox.Text);
                 command.ExecuteNonQuery();

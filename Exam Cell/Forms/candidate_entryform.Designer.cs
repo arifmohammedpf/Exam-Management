@@ -44,6 +44,7 @@
             this.Courses_dgv = new System.Windows.Forms.DataGridView();
             this.Candidate_datagridview = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.SelectAllCheckbox = new System.Windows.Forms.CheckBox();
             this.Excel_Group = new System.Windows.Forms.GroupBox();
             this.Filepath_textbox = new System.Windows.Forms.TextBox();
             this.Sheet_combobox = new System.Windows.Forms.ComboBox();
@@ -52,15 +53,15 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.Series_rdbtn = new System.Windows.Forms.RadioButton();
             this.Unvrsty_rdbtn = new System.Windows.Forms.RadioButton();
+            this.Series_Student_details_groupbox = new System.Windows.Forms.GroupBox();
+            this.Class_drpdwn = new System.Windows.Forms.ComboBox();
+            this.Class_label = new System.Windows.Forms.Label();
             this.Unv_Student_details_groupbox = new System.Windows.Forms.GroupBox();
             this.UnvCheckbox = new System.Windows.Forms.CheckBox();
             this.YOACombobox = new System.Windows.Forms.ComboBox();
             this.UnvBranchCombobox = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.Series_Student_details_groupbox = new System.Windows.Forms.GroupBox();
-            this.Class_drpdwn = new System.Windows.Forms.ComboBox();
-            this.Class_label = new System.Windows.Forms.Label();
             this.groupboxExtraReg = new System.Windows.Forms.GroupBox();
             this.Extra_Name_Textbox = new System.Windows.Forms.TextBox();
             this.Extra_Reg_no_Textbox = new System.Windows.Forms.TextBox();
@@ -110,7 +111,6 @@
             this.studentsTableAdapter3 = new Exam_Cell.Exam_CellDataSetStudentsNewTableAdapters.StudentsTableAdapter();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.timerHeaderCheck = new System.Windows.Forms.Timer(this.components);
-            this.SelectAllCheckbox = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.progressPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Courses_dgv)).BeginInit();
@@ -118,8 +118,8 @@
             this.panel2.SuspendLayout();
             this.Excel_Group.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.Unv_Student_details_groupbox.SuspendLayout();
             this.Series_Student_details_groupbox.SuspendLayout();
+            this.Unv_Student_details_groupbox.SuspendLayout();
             this.groupboxExtraReg.SuspendLayout();
             this.SubjectDetails_groupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.excelShowBindingSource)).BeginInit();
@@ -166,7 +166,6 @@
             // 
             // progressPanel
             // 
-            this.progressPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.progressPanel.BackColor = System.Drawing.Color.Navy;
             this.progressPanel.Controls.Add(this.label5);
             this.progressPanel.Location = new System.Drawing.Point(717, 363);
@@ -293,12 +292,24 @@
             this.panel2.Controls.Add(this.Excel_Group);
             this.panel2.Controls.Add(this.RegRegCnd_btn);
             this.panel2.Controls.Add(this.groupBox3);
-            this.panel2.Controls.Add(this.Unv_Student_details_groupbox);
             this.panel2.Controls.Add(this.Series_Student_details_groupbox);
+            this.panel2.Controls.Add(this.Unv_Student_details_groupbox);
             this.panel2.Location = new System.Drawing.Point(12, 12);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(993, 320);
             this.panel2.TabIndex = 1;
+            // 
+            // SelectAllCheckbox
+            // 
+            this.SelectAllCheckbox.AutoSize = true;
+            this.SelectAllCheckbox.Enabled = false;
+            this.SelectAllCheckbox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectAllCheckbox.Location = new System.Drawing.Point(810, 153);
+            this.SelectAllCheckbox.Name = "SelectAllCheckbox";
+            this.SelectAllCheckbox.Size = new System.Drawing.Size(124, 27);
+            this.SelectAllCheckbox.TabIndex = 1;
+            this.SelectAllCheckbox.Text = "Select All";
+            this.SelectAllCheckbox.UseVisualStyleBackColor = true;
             // 
             // Excel_Group
             // 
@@ -409,6 +420,40 @@
             this.Unvrsty_rdbtn.UseVisualStyleBackColor = true;
             this.Unvrsty_rdbtn.CheckedChanged += new System.EventHandler(this.Unvrsty_rdbtn_CheckedChanged);
             // 
+            // Series_Student_details_groupbox
+            // 
+            this.Series_Student_details_groupbox.Controls.Add(this.Class_drpdwn);
+            this.Series_Student_details_groupbox.Controls.Add(this.Class_label);
+            this.Series_Student_details_groupbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Series_Student_details_groupbox.Location = new System.Drawing.Point(4, 107);
+            this.Series_Student_details_groupbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Series_Student_details_groupbox.Name = "Series_Student_details_groupbox";
+            this.Series_Student_details_groupbox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Series_Student_details_groupbox.Size = new System.Drawing.Size(788, 106);
+            this.Series_Student_details_groupbox.TabIndex = 36;
+            this.Series_Student_details_groupbox.TabStop = false;
+            this.Series_Student_details_groupbox.Text = "Student Details";
+            // 
+            // Class_drpdwn
+            // 
+            this.Class_drpdwn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Class_drpdwn.FormattingEnabled = true;
+            this.Class_drpdwn.Location = new System.Drawing.Point(114, 46);
+            this.Class_drpdwn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Class_drpdwn.Name = "Class_drpdwn";
+            this.Class_drpdwn.Size = new System.Drawing.Size(414, 32);
+            this.Class_drpdwn.TabIndex = 14;
+            this.Class_drpdwn.SelectedIndexChanged += new System.EventHandler(this.Class_drpdwn_SelectedIndexChanged);
+            // 
+            // Class_label
+            // 
+            this.Class_label.AutoSize = true;
+            this.Class_label.Location = new System.Drawing.Point(19, 49);
+            this.Class_label.Name = "Class_label";
+            this.Class_label.Size = new System.Drawing.Size(56, 26);
+            this.Class_label.TabIndex = 12;
+            this.Class_label.Text = "Class";
+            // 
             // Unv_Student_details_groupbox
             // 
             this.Unv_Student_details_groupbox.Controls.Add(this.UnvCheckbox);
@@ -479,42 +524,8 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "Branch";
             // 
-            // Series_Student_details_groupbox
-            // 
-            this.Series_Student_details_groupbox.Controls.Add(this.Class_drpdwn);
-            this.Series_Student_details_groupbox.Controls.Add(this.Class_label);
-            this.Series_Student_details_groupbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Series_Student_details_groupbox.Location = new System.Drawing.Point(4, 107);
-            this.Series_Student_details_groupbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Series_Student_details_groupbox.Name = "Series_Student_details_groupbox";
-            this.Series_Student_details_groupbox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Series_Student_details_groupbox.Size = new System.Drawing.Size(788, 106);
-            this.Series_Student_details_groupbox.TabIndex = 36;
-            this.Series_Student_details_groupbox.TabStop = false;
-            this.Series_Student_details_groupbox.Text = "Student Details";
-            // 
-            // Class_drpdwn
-            // 
-            this.Class_drpdwn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Class_drpdwn.FormattingEnabled = true;
-            this.Class_drpdwn.Location = new System.Drawing.Point(114, 46);
-            this.Class_drpdwn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Class_drpdwn.Name = "Class_drpdwn";
-            this.Class_drpdwn.Size = new System.Drawing.Size(414, 32);
-            this.Class_drpdwn.TabIndex = 14;
-            // 
-            // Class_label
-            // 
-            this.Class_label.AutoSize = true;
-            this.Class_label.Location = new System.Drawing.Point(19, 49);
-            this.Class_label.Name = "Class_label";
-            this.Class_label.Size = new System.Drawing.Size(56, 26);
-            this.Class_label.TabIndex = 12;
-            this.Class_label.Text = "Class";
-            // 
             // groupboxExtraReg
             // 
-            this.groupboxExtraReg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupboxExtraReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.groupboxExtraReg.Controls.Add(this.Extra_Name_Textbox);
             this.groupboxExtraReg.Controls.Add(this.Extra_Reg_no_Textbox);
@@ -586,7 +597,6 @@
             // 
             // SubjectDetails_groupbox
             // 
-            this.SubjectDetails_groupbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.SubjectDetails_groupbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.SubjectDetails_groupbox.Controls.Add(this.Semester_combobox);
             this.SubjectDetails_groupbox.Controls.Add(this.Branch_combobox);
@@ -836,18 +846,6 @@
             // 
             this.timerHeaderCheck.Interval = 10;
             // 
-            // SelectAllCheckbox
-            // 
-            this.SelectAllCheckbox.AutoSize = true;
-            this.SelectAllCheckbox.Enabled = false;
-            this.SelectAllCheckbox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectAllCheckbox.Location = new System.Drawing.Point(810, 153);
-            this.SelectAllCheckbox.Name = "SelectAllCheckbox";
-            this.SelectAllCheckbox.Size = new System.Drawing.Size(124, 27);
-            this.SelectAllCheckbox.TabIndex = 1;
-            this.SelectAllCheckbox.Text = "Select All";
-            this.SelectAllCheckbox.UseVisualStyleBackColor = true;
-            // 
             // formti
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -874,10 +872,10 @@
             this.Excel_Group.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.Unv_Student_details_groupbox.ResumeLayout(false);
-            this.Unv_Student_details_groupbox.PerformLayout();
             this.Series_Student_details_groupbox.ResumeLayout(false);
             this.Series_Student_details_groupbox.PerformLayout();
+            this.Unv_Student_details_groupbox.ResumeLayout(false);
+            this.Unv_Student_details_groupbox.PerformLayout();
             this.groupboxExtraReg.ResumeLayout(false);
             this.groupboxExtraReg.PerformLayout();
             this.SubjectDetails_groupbox.ResumeLayout(false);

@@ -2,14 +2,9 @@
 using ExcelDataReader;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SQLite;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Exam_Cell
@@ -134,12 +129,10 @@ namespace Exam_Cell
                             {
                                 MessageBox.Show(ex.ToString());
                             }
-                            finally
-                            {
-                                con.CloseCon();
-                            }
+                            
                         }
                     
+                        con.CloseCon();
                         msgbox.show("Students Added to Class", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                         AssignClass_combobox.SelectedIndex = 0;
                         Student_dgvFill();
@@ -166,14 +159,12 @@ namespace Exam_Cell
                             {
                                 MessageBox.Show(ex.ToString());
                             }
-                            finally
-                            {
-                                con.CloseCon();
-                            }
+                            
                         }
                     }
                     if (f == 1)
                     {
+                                con.CloseCon();
                         msgbox.show("Students Added to Class", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                         AssignClass_combobox.SelectedIndex = 0;
                         Student_dgvFill();
@@ -188,6 +179,7 @@ namespace Exam_Cell
         void ClearAllStudent_Management()
         {
             SelectAllCheckbox.Checked = false;
+            AddFromExcel_Btn.Enabled = false;
 
             if (ClassDgvView_checkbox.Checked)
             {
@@ -240,14 +232,10 @@ namespace Exam_Cell
         private void ClassDgvView_checkbox_CheckedChanged(object sender, EventArgs e)
         {
             progressPanel.Show();
-            timerCheckbox.Start();
+            timerFlag = "ClassViewCheckboxClick";
+            timerTool.Start();
         }
-        private void timerCheckbox_Tick(object sender, EventArgs e)
-        {
-            timerCheckbox.Stop();
-            ClassviewCheckBoxFunction();
-            progressPanel.Hide();
-        }
+        
         void ClassviewCheckBoxFunction()
         {
             SelectAllCheckbox.Checked = false;
@@ -346,11 +334,9 @@ namespace Exam_Cell
                                 {
                                     MessageBox.Show(ex.ToString());
                                 }
-                                finally
-                                {
-                                    con.CloseCon();
-                                }
+                                
                             }                            
+                                    con.CloseCon();
                                 msgbox.show("Delete All Done.", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                                 ClearAllStudent_Management();
                                 Class_StudentsFill();
@@ -379,12 +365,12 @@ namespace Exam_Cell
                                     }
                                     finally
                                     {
-                                        con.CloseCon();
                                     }
                                 }
                             }
                             if (f == 1)
                             {
+                                con.CloseCon();
                                 msgbox.show("Delete Done.", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                                 ClearAllStudent_Management();
                                 Class_StudentsFill();
@@ -418,12 +404,10 @@ namespace Exam_Cell
                                     {
                                         MessageBox.Show(ex.ToString());
                                     }
-                                    finally
-                                    {
-                                        con.CloseCon();
-                                    }
+                                    
                                 
                             }
+                            con.CloseCon();
                             msgbox.show("Delete All Done.", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                             Student_dgvFill();
                             SelectAllCheckbox.Checked = false;
@@ -454,14 +438,12 @@ namespace Exam_Cell
                                     {
                                         MessageBox.Show(ex.ToString());
                                     }
-                                    finally
-                                    {
-                                        con.CloseCon();
-                                    }
+                                    
                                 }
                             }
                             if (f == 1)
                             {
+                                con.CloseCon();
                                 msgbox.show("Delete Done.", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                                 Student_dgvFill();
                             }
@@ -508,8 +490,9 @@ namespace Exam_Cell
         }
         private void Clear_btn_Click(object sender, EventArgs e)
         {
-            ClearAllStudent_Management();
-            AddFromExcel_Btn.Enabled = false;            
+            progressPanel.Show();
+            timerFlag = "ClearBtnClick";
+            timerTool.Start();
         }
 
         private void UpgradeSem_btn_Click(object sender, EventArgs e)
@@ -779,14 +762,10 @@ namespace Exam_Cell
         private void AddFromExcel_Btn_Click(object sender, EventArgs e)
         {
             progressPanel.Show();
-            timerExcelAdd.Start();
+            timerFlag = "AddExcelBtnClick";
+            timerTool.Start();
         }
-        private void timerExcelAdd_Tick(object sender, EventArgs e)
-        {
-            timerExcelAdd.Stop();
-            AddFromExcelFunction();
-            progressPanel.Hide();
-        }
+        
         void AddFromExcelFunction()
         {
             //int f = 0;
@@ -809,14 +788,12 @@ namespace Exam_Cell
                     {
                         MessageBox.Show(ex.ToString());
                     }
-                    finally
-                    {
-                        con.CloseCon();
-                    }
+                    
                 //}
             }
             //if (f == 1)
             //{
+                con.CloseCon();
                 YearOfAdmissionFill();
                 ClearAllStudent_Management();
                 AddFromExcel_Btn.Enabled = false;
@@ -835,6 +812,25 @@ namespace Exam_Cell
             YearOfAdmissionFill();
             ClassDgvView_checkbox.Checked = false;
             Student_dgvFill();
+        }
+
+        string timerFlag;
+        private void timerTool_Tick(object sender, EventArgs e)
+        {
+            timerTool.Stop();
+            if (timerFlag=="AddExcelBtnClick")
+            {
+                AddFromExcelFunction();
+            }
+            else if (timerFlag == "ClassViewCheckboxClick")
+            {
+                ClassviewCheckBoxFunction();
+            }
+            else if(timerFlag== "ClearBtnClick")
+            {
+                ClearAllStudent_Management();
+            }
+            progressPanel.Hide();
         }
     }
 }

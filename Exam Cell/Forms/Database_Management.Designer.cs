@@ -88,6 +88,7 @@
             // 
             // Class_Managmnt_panel
             // 
+            this.Class_Managmnt_panel.AutoScroll = true;
             this.Class_Managmnt_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.Class_Managmnt_panel.Controls.Add(this.Scheme_dgv);
             this.Class_Managmnt_panel.Controls.Add(this.RadioButton_panel);
@@ -109,7 +110,6 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Green;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             this.Scheme_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.Scheme_dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Scheme_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.Scheme_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.Scheme_dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
@@ -151,7 +151,6 @@
             // 
             // RadioButton_panel
             // 
-            this.RadioButton_panel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RadioButton_panel.Controls.Add(this.Class_radiobtn);
             this.RadioButton_panel.Controls.Add(this.DefaultScheme_radiobtn);
             this.RadioButton_panel.Location = new System.Drawing.Point(437, 12);
@@ -187,7 +186,6 @@
             // 
             // groupBoxContents
             // 
-            this.groupBoxContents.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBoxContents.Controls.Add(this.NewClassGroupbox);
             this.groupBoxContents.Controls.Add(this.NewBranchGroupbox);
             this.groupBoxContents.Controls.Add(this.NewCourseGroupbox);
@@ -552,7 +550,6 @@
             // 
             // DefaultScheme_Panel
             // 
-            this.DefaultScheme_Panel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.DefaultScheme_Panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.DefaultScheme_Panel.Controls.Add(this.ChangeScheme_btn);
             this.DefaultScheme_Panel.Controls.Add(this.ChangeScheme_textbox);

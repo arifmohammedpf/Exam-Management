@@ -39,10 +39,10 @@ namespace Exam_Cell.Forms
             labelTitle.Text = "";
             labelMessage.Text = msg;
             labelTitle.Text = title;
-            if(msg.Length < 21)
-                Size = new Size(((msg.Length) * 35) + 200, 300);
-            else
-                Size = new Size(((msg.Length)*10)+200, 300);
+            //if(msg.Length < 21)
+            //    Size = new Size(((msg.Length) * 35) + 200, 300);
+            //else
+            //    Size = new Size(((msg.Length)*10)+200, 300);
 
             if (MessageBoxButtons.OK==button)
             {

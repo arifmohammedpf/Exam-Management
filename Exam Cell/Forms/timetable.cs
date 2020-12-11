@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
 using Exam_Cell.Forms;
@@ -218,11 +212,11 @@ namespace Exam_Cell
                                 comm.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value);
                                 comm.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value);
                                 comm.ExecuteNonQuery();
-                                con.CloseCon();
                             }
                         }
                         if (flag == 1)
                         {
+                            con.CloseCon();
                             Undo_backup_function(flag);
                             Session_combobox.SelectedIndex = 0;
                             Examcode_box.Clear();

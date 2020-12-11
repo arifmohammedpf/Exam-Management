@@ -56,6 +56,7 @@
             // 
             // Panel
             // 
+            this.Panel.AutoScroll = true;
             this.Panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.Panel.Controls.Add(this.panel1);
             this.Panel.Controls.Add(this.Dgv);
@@ -67,7 +68,6 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.Search_btn);
             this.panel1.Controls.Add(this.label3);
@@ -266,7 +266,6 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             this.Dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.Dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.Dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.Dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));

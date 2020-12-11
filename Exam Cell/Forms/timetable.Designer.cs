@@ -91,7 +91,6 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.Undo_btn);
             this.panel1.Controls.Add(this.Add_btn);
@@ -430,6 +429,7 @@
             // 
             // panel4
             // 
+            this.panel4.AutoScroll = true;
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.panel4.Controls.Add(this.groupBox1);
             this.panel4.Controls.Add(this.panel1);
@@ -443,7 +443,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.Controls.Add(this.Datepick_box);
             this.groupBox1.Controls.Add(this.Datewise_radio);
             this.groupBox1.Controls.Add(this.label7);
@@ -472,7 +471,6 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             this.Timetableview_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.Timetableview_dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Timetableview_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.Timetableview_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.Timetableview_dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
@@ -524,7 +522,6 @@
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Green;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
             this.Course_Select_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.Course_Select_dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Course_Select_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.Course_Select_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.Course_Select_dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));

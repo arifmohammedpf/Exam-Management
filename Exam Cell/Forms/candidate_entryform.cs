@@ -1,18 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
 using System.IO;
 using ExcelDataReader;
-using System.Collections;
 using Exam_Cell.Forms;
-using System.Threading;
 
 namespace Exam_Cell
 {
@@ -29,7 +22,7 @@ namespace Exam_Cell
 
 
 
-        CheckBox headerchkbox = new CheckBox();
+        //CheckBox headerchkbox = new CheckBox();
         
         // Main Form Open
         private void formti_Load(object sender, EventArgs e)
@@ -320,7 +313,8 @@ namespace Exam_Cell
         {
             try
             {
-            headerchkbox.Checked = false;
+                //headerchkbox.Checked = false;
+                SelectAllCheckbox.Checked = false;
             SQLiteCommand command = new SQLiteCommand("select * from Class order by Class", con.ActiveCon());
             SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
             DataTable table_Students = new DataTable();
@@ -342,7 +336,8 @@ namespace Exam_Cell
         {
             try
             {
-            headerchkbox.Checked = false;
+                //headerchkbox.Checked = false;
+                SelectAllCheckbox.Checked = false;
             SQLiteCommand command = new SQLiteCommand("select * from Students order by Branch,Reg_no", con.ActiveCon());
             SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
             DataTable table_Students = new DataTable();
@@ -409,27 +404,7 @@ namespace Exam_Cell
                 con.CloseCon();
             }
         }
-
-        //DELETE IF BRANCH FILTER IS NOT NEEDED FOR UNIVERSITY DGV
-        //void Branchcomboboxfill()
-        //{   //sqlconnection
-        //    SQLiteDataAdapter sda = new SQLiteDataAdapter("Select Distinct Branch from Students", con.ActiveCon());
-        //    DataTable dtbl = new DataTable();
-        //    sda.Fill(dtbl);
-        //    //display -select-
-        //    DataRow topItem = dtbl.NewRow();
-        //    topItem[0] = "-Select-";
-        //    dtbl.Rows.InsertAt(topItem, 0);
-
-        ////convert datatable to array for selecting 
-        //    ArrayList rows = new ArrayList();   //import using.system.collections for ArrayList
-        //    foreach (DataRow dataRow in dtbl.Rows)
-        //        rows.Add(string.Join(";", dataRow.ItemArray.Select(item => item.ToString())));
-        //    //display branches
-        //    Class_drpdwn.DisplayMember = "Branch";
-        //    Class_drpdwn.ValueMember = "Branch";
-        //    Class_drpdwn.DataSource = rows;
-        //}
+        
 
         BindingSource schemesource = new BindingSource();
         void Schemesourcefill()
@@ -543,34 +518,7 @@ namespace Exam_Cell
                 msgbox.show("Select Scheme", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
         }
-
-
-        //DELETE IF Y O A FILTER IS NOT NEEDED FOR UNIVERSITY DGV
-        //void Yearofadmissionboxfill()
-        //{
-
-        //    //sql connection
-        //    SQLiteDataAdapter sda = new SQLiteDataAdapter("Select Distinct Year_Of_Admission from Students", con.ActiveCon());
-        //    DataTable dtbl = new DataTable();
-        //    sda.Fill(dtbl);
-        //    //display -select-
-        //    DataRow topItem = dtbl.NewRow();
-        //    //topItem[0] = "-Select-";  //can't do becoz YOA is int Type
-        //    dtbl.Rows.InsertAt(topItem, 0);
-
-        //    // display YOA
-        //    YOA_drpdwn.DisplayMember = "Year_Of_Admission";
-        //    YOA_drpdwn.ValueMember = "Year_Of_Admission";
-        //    YOA_drpdwn.DataSource = dtbl;
-        //    YOA_drpdwn.SelectedIndex = 0;
-        //}
-
-
-
-
-
-
-
+        
 
         // EXCEL GROUP BOX EVENT START
         int messflag = 0;
@@ -663,13 +611,7 @@ namespace Exam_Cell
             {
                 source.Filter = string.Format("Class LIKE '%{0}%'", key);   //filter with sql statement
             }
-        }
-
-
-        
-
-
-        
+        }      
 
         //Register button click Event
         private void RegRegCnd_btn_Click(object sender, EventArgs e)        //PLEASE CHECK IF WE NEED SEPERATE TABLES FOR REGSTRD CANDIDTE IN SQL FOR SERIES AND UNVIRSTY....
@@ -708,7 +650,7 @@ namespace Exam_Cell
                                             //selected datas from both dgv will be inserted to Table Registered Candidates
                                             //here first bracket is sqltable column names and 2nd bracket with @ is refernce for values to be inserted
                                             SQLiteCommand sqlcomm = new SQLiteCommand("Insert into Series_candidates(Name,Reg_no,Class,Semester,Course)Values(" + "@Name,@Reg_no,@Class,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
-                                                                                                                                                                                                                               //giving values to the reference...values from dgv
+                                                    //giving values to the reference...values from dgv
                                             sqlcomm.Parameters.AddWithValue("@Reg_no", dr2.Cells["Reg_no"].Value);
                                             sqlcomm.Parameters.AddWithValue("@Name", dr2.Cells["Name"].Value);
                                             sqlcomm.Parameters.AddWithValue("@Class", Class_drpdwn.Text);
@@ -935,7 +877,8 @@ namespace Exam_Cell
         }
          void Studentsdgvfilter()
          {
-            headerchkbox.Checked = false;
+            //headerchkbox.Checked = false;
+            SelectAllCheckbox.Checked = false;
             string branchvalue = UnvBranchCombobox.Text;
             string yoavalue = YOACombobox.Text;
 
@@ -1017,7 +960,5 @@ namespace Exam_Cell
                 msgbox.show("Enter Reg_No and Name", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
         }
-
-        
     }
 }

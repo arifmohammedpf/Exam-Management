@@ -1,14 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
-using System.Runtime.InteropServices;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using System.IO;
@@ -136,9 +131,9 @@ namespace Exam_Cell
                                 command4.Parameters.AddWithValue("@Exam_Code", Exam_Code_students[count]);
                                 command4.Parameters.AddWithValue("@Course", course_students[count]);
                                 command4.ExecuteNonQuery();
-                                con.CloseCon();
                                 if (reg_students.Last() == reg_students[count])
                                 {
+                                    con.CloseCon();
                                     flag = 1;
                                     break;
                                 }
@@ -388,10 +383,10 @@ namespace Exam_Cell
                                 command4.Parameters.AddWithValue("@Exam_Code", examcode_studentsA[count]);
                                 command4.Parameters.AddWithValue("@Course", course_studentsA[count]);
                                 command4.ExecuteNonQuery();
-                                    con.CloseCon();
 
                                 if (reg_studentsA.Last() == reg_studentsA[count])
                                 {
+                                    con.CloseCon();
                                     flag = 1;
                                     break;
                                 }
@@ -418,10 +413,10 @@ namespace Exam_Cell
                                 command4.Parameters.AddWithValue("@Exam_Code", examcode_studentsB[count]);
                                 command4.Parameters.AddWithValue("@Course", course_studentsB[count]);
                                 command4.ExecuteNonQuery();
-                                    con.CloseCon();
 
                                 if (reg_studentsB.Last() == reg_studentsB[count])
                                 {
+                                    con.CloseCon();
                                     flag = 1;
                                     break;
                                 }
@@ -600,9 +595,13 @@ namespace Exam_Cell
             FolderBrowserDialog fdb = new FolderBrowserDialog(); 
                 if (fdb.ShowDialog() == DialogResult.OK)
                 {
+                    SQLiteCommand comm = new SQLiteCommand("update Management set Savepath=@savepath where Savepath is not null", con.ActiveCon());
+                    comm.Parameters.AddWithValue("@savepath", fdb.SelectedPath.ToString());
+                    comm.ExecuteNonQuery();
+                    con.CloseCon();
                     Folder_path_text.Text = fdb.SelectedPath;
                 }
-            }
+        }
 
         private void Excel_generate_btn_Click(object sender, EventArgs e)
         {
@@ -649,7 +648,7 @@ namespace Exam_Cell
 
         void Excel_Generation_function(int f)
         {
-            if (Folder_path_text.Text != "")
+            if (Folder_path_text.Text != "PLEASE_ADD_PATH")
             {
                 try
                 {
@@ -918,7 +917,7 @@ namespace Exam_Cell
         {
             if(Unv_radio.Checked || Series_radio.Checked)
             {
-                if (Folder_path_text.Text != "")
+                if (Folder_path_text.Text != "PLEASE_ADD_PATH")
                 {
                     try
                     {
@@ -1224,6 +1223,14 @@ namespace Exam_Cell
             DisplaySheet_Panel.Enabled = false;
             Signature_panel.Enabled = false;
             RoomExcel_panel.Enabled = false;
+            GetFileSavepath();
+        }
+        void GetFileSavepath()
+        {
+            SQLiteCommand comm = new SQLiteCommand("select Savepath from Management where Savepath is not null", con.ActiveCon());
+            string savepath = (string) comm.ExecuteScalar();
+            con.CloseCon();
+            Folder_path_text.Text = savepath;
         }
 
         void AllotedDGVFill()
@@ -1549,8 +1556,8 @@ namespace Exam_Cell
                                 comm3.Parameters.AddWithValue("@Seat", dataRow["Seat"]);
                                 comm3.Parameters.AddWithValue("@Reg_no", dataRow["Reg_no"]);
                                 comm3.ExecuteNonQuery();
-                                con.CloseCon();
                             }
+                            con.CloseCon();
                             foreach (DataRow dataRow in dataTable2.Rows)
                             {
                                 SQLiteCommand comm3 = new SQLiteCommand("update University_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
@@ -1558,8 +1565,8 @@ namespace Exam_Cell
                                 comm3.Parameters.AddWithValue("@Seat", dataRow["Seat"]);
                                 comm3.Parameters.AddWithValue("@Reg_no", dataRow["Reg_no"]);
                                 comm3.ExecuteNonQuery();
-                                con.CloseCon();
                             }
+                            con.CloseCon();
                             msgbox.show("Swap Completed", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                         }
                         else if (Series_radio.Checked)
@@ -1613,8 +1620,8 @@ namespace Exam_Cell
                                 comm3.Parameters.AddWithValue("@Seat", dataRow["Seat"]);
                                 comm3.Parameters.AddWithValue("@Reg_no", dataRow["Reg_no"]);
                                 comm3.ExecuteNonQuery();
-                                con.CloseCon();
                             }
+                            con.CloseCon();
                             foreach (DataRow dataRow in dataTable2.Rows)
                             {
                                 SQLiteCommand comm3 = new SQLiteCommand("update Series_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
@@ -1622,8 +1629,8 @@ namespace Exam_Cell
                                 comm3.Parameters.AddWithValue("@Seat", dataRow["Seat"]);
                                 comm3.Parameters.AddWithValue("@Reg_no", dataRow["Reg_no"]);
                                 comm3.ExecuteNonQuery();
-                                con.CloseCon();
                             }
+                            con.CloseCon();
                             msgbox.show("Swap Completed", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                         }
                     }
