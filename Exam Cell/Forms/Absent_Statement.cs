@@ -289,7 +289,7 @@ namespace Exam_Cell
                         No_of_Absent_ViewText.Clear();
                         table.Clear();
                         Dgv.DataSource = null;
-                        msgbox.show("Excel file created", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                        msgbox.show("Excel file created     ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     }
                     }
                     catch (Exception ex)
@@ -303,12 +303,12 @@ namespace Exam_Cell
                 }
                 else
                 {
-                    msgbox.show("Search Students First", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                    msgbox.show("Search Students First     ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                 }
 
             }
             else
-                msgbox.show("Filepath is not given", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                msgbox.show("Filepath is not given   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
         }
 
         private void Filepath_button_Click(object sender, EventArgs e)

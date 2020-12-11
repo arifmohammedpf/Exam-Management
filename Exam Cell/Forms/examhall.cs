@@ -101,7 +101,7 @@ namespace Exam_Cell
                 
         private void Save_button_Click(object sender, EventArgs e)
         {
-            msgbox.show("Click Yes to Save", "Confirmation", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Information);
+            msgbox.show("Click Yes to Save   ", "Confirm", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Warning);
             var result = msgbox.ReturnValue;
             if (result=="Yes")
             {
@@ -133,12 +133,12 @@ namespace Exam_Cell
                     }
                     else
                     {
-                        msgbox.show("Enter Room", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                        msgbox.show("Enter Room     ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    msgbox.show("Select Priority", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                    msgbox.show("Select Priority    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                 }
             }
         }
@@ -155,12 +155,12 @@ namespace Exam_Cell
                 comm.Parameters.AddWithValue("@A_series", a);
                 comm.Parameters.AddWithValue("@B_series", b);
                 comm.ExecuteNonQuery();
-                msgbox.show("New Room Saved", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                msgbox.show("New Room Saved    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 Cleardata();
             }
             else
             {
-                msgbox.show("A & B Series must be Numbers","Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error); 
+                msgbox.show("A & B Series must be Numbers     ","Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error); 
             }
             }
             catch (Exception ex)
@@ -185,12 +185,12 @@ namespace Exam_Cell
                 comm.Parameters.AddWithValue("@A_series", a);
                 comm.Parameters.AddWithValue("@B_series", b);
                 comm.ExecuteNonQuery();
-                msgbox.show(RoomNo_textbox.Text + " Updated", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                msgbox.show(RoomNo_textbox.Text + " Updated     ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 Cleardata();
             }
             else
             {
-                msgbox.show("A & B Series must be Numbers", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                msgbox.show("A & B Series must be Numbers    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
             }
             catch (Exception ex)
@@ -289,13 +289,13 @@ namespace Exam_Cell
                     }
                 }
                 if(f==0)
-                    msgbox.show("No Selection made", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                    msgbox.show("No Selection made   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                 else
-                    msgbox.show("Selected Priority Updated", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                    msgbox.show("Selected Priority Updated   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 Cleardata();
             }
             else
-                msgbox.show("Select A Priority", "Alert", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                msgbox.show("Select A Priority   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
