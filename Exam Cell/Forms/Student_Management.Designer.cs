@@ -85,6 +85,7 @@
             // Student_mngmnt_panel
             // 
             this.Student_mngmnt_panel.AutoScroll = true;
+            this.Student_mngmnt_panel.AutoSize = true;
             this.Student_mngmnt_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
             this.Student_mngmnt_panel.Controls.Add(this.progressPanel);
             this.Student_mngmnt_panel.Controls.Add(this.Student_dgv);
@@ -98,14 +99,14 @@
             this.Student_mngmnt_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Student_mngmnt_panel.Location = new System.Drawing.Point(0, 0);
             this.Student_mngmnt_panel.Name = "Student_mngmnt_panel";
-            this.Student_mngmnt_panel.Size = new System.Drawing.Size(1697, 718);
+            this.Student_mngmnt_panel.Size = new System.Drawing.Size(1280, 720);
             this.Student_mngmnt_panel.TabIndex = 6;
             // 
             // progressPanel
             // 
             this.progressPanel.BackColor = System.Drawing.Color.Navy;
             this.progressPanel.Controls.Add(this.label5);
-            this.progressPanel.Location = new System.Drawing.Point(643, 309);
+            this.progressPanel.Location = new System.Drawing.Point(602, 369);
             this.progressPanel.Name = "progressPanel";
             this.progressPanel.Size = new System.Drawing.Size(410, 100);
             this.progressPanel.TabIndex = 43;
@@ -133,6 +134,7 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gainsboro;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             this.Student_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.Student_dgv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.Student_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.Student_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.Student_dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
@@ -150,7 +152,7 @@
             this.Student_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.Student_dgv.EnableHeadersVisualStyles = false;
             this.Student_dgv.GridColor = System.Drawing.Color.SteelBlue;
-            this.Student_dgv.Location = new System.Drawing.Point(482, 264);
+            this.Student_dgv.Location = new System.Drawing.Point(332, 224);
             this.Student_dgv.Name = "Student_dgv";
             this.Student_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -169,15 +171,16 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.Student_dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.Student_dgv.RowTemplate.Height = 24;
-            this.Student_dgv.Size = new System.Drawing.Size(1193, 442);
+            this.Student_dgv.Size = new System.Drawing.Size(936, 442);
             this.Student_dgv.TabIndex = 10;
             // 
             // SelectAllCheckbox
             // 
+            this.SelectAllCheckbox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.SelectAllCheckbox.AutoSize = true;
             this.SelectAllCheckbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SelectAllCheckbox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.SelectAllCheckbox.Location = new System.Drawing.Point(335, 593);
+            this.SelectAllCheckbox.Location = new System.Drawing.Point(198, 555);
             this.SelectAllCheckbox.Name = "SelectAllCheckbox";
             this.SelectAllCheckbox.Size = new System.Drawing.Size(113, 26);
             this.SelectAllCheckbox.TabIndex = 6;
@@ -186,10 +189,11 @@
             // 
             // ClassDgvView_checkbox
             // 
+            this.ClassDgvView_checkbox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.ClassDgvView_checkbox.AutoSize = true;
             this.ClassDgvView_checkbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClassDgvView_checkbox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClassDgvView_checkbox.Location = new System.Drawing.Point(335, 625);
+            this.ClassDgvView_checkbox.Location = new System.Drawing.Point(198, 587);
             this.ClassDgvView_checkbox.Name = "ClassDgvView_checkbox";
             this.ClassDgvView_checkbox.Size = new System.Drawing.Size(128, 26);
             this.ClassDgvView_checkbox.TabIndex = 6;
@@ -199,14 +203,15 @@
             // 
             // UpgradeSemester_groupbox
             // 
+            this.UpgradeSemester_groupbox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.UpgradeSemester_groupbox.BackColor = System.Drawing.Color.Transparent;
             this.UpgradeSemester_groupbox.Controls.Add(this.UpgradeSem_btn);
             this.UpgradeSemester_groupbox.Controls.Add(this.DegradeClass_btn);
             this.UpgradeSemester_groupbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UpgradeSemester_groupbox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.UpgradeSemester_groupbox.Location = new System.Drawing.Point(1297, 3);
+            this.UpgradeSemester_groupbox.Location = new System.Drawing.Point(1000, 3);
             this.UpgradeSemester_groupbox.Name = "UpgradeSemester_groupbox";
-            this.UpgradeSemester_groupbox.Size = new System.Drawing.Size(268, 234);
+            this.UpgradeSemester_groupbox.Size = new System.Drawing.Size(268, 211);
             this.UpgradeSemester_groupbox.TabIndex = 9;
             this.UpgradeSemester_groupbox.TabStop = false;
             this.UpgradeSemester_groupbox.Text = "Upgrade Semester";
@@ -243,6 +248,7 @@
             // 
             // ImportGroupbox
             // 
+            this.ImportGroupbox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.ImportGroupbox.Controls.Add(this.label7);
             this.ImportGroupbox.Controls.Add(this.label6);
             this.ImportGroupbox.Controls.Add(this.Sheet_combobox);
@@ -251,7 +257,7 @@
             this.ImportGroupbox.Controls.Add(this.AddFromExcel_Btn);
             this.ImportGroupbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ImportGroupbox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ImportGroupbox.Location = new System.Drawing.Point(137, 264);
+            this.ImportGroupbox.Location = new System.Drawing.Point(0, 224);
             this.ImportGroupbox.Name = "ImportGroupbox";
             this.ImportGroupbox.Size = new System.Drawing.Size(326, 281);
             this.ImportGroupbox.TabIndex = 8;
@@ -329,6 +335,7 @@
             // 
             // AssignClass_groupbox
             // 
+            this.AssignClass_groupbox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.AssignClass_groupbox.Controls.Add(this.AssignClass_combobox);
             this.AssignClass_groupbox.Controls.Add(this.AssignClassYOA_combobox);
             this.AssignClass_groupbox.Controls.Add(this.AssignClassBranch_combobox);
@@ -339,9 +346,9 @@
             this.AssignClass_groupbox.Controls.Add(this.label13);
             this.AssignClass_groupbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AssignClass_groupbox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.AssignClass_groupbox.Location = new System.Drawing.Point(781, 3);
+            this.AssignClass_groupbox.Location = new System.Drawing.Point(551, 3);
             this.AssignClass_groupbox.Name = "AssignClass_groupbox";
-            this.AssignClass_groupbox.Size = new System.Drawing.Size(500, 234);
+            this.AssignClass_groupbox.Size = new System.Drawing.Size(443, 211);
             this.AssignClass_groupbox.TabIndex = 7;
             this.AssignClass_groupbox.TabStop = false;
             this.AssignClass_groupbox.Text = "Assign Class";
@@ -350,9 +357,9 @@
             // 
             this.AssignClass_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AssignClass_combobox.FormattingEnabled = true;
-            this.AssignClass_combobox.Location = new System.Drawing.Point(101, 136);
+            this.AssignClass_combobox.Location = new System.Drawing.Point(94, 110);
             this.AssignClass_combobox.Name = "AssignClass_combobox";
-            this.AssignClass_combobox.Size = new System.Drawing.Size(389, 29);
+            this.AssignClass_combobox.Size = new System.Drawing.Size(343, 29);
             this.AssignClass_combobox.TabIndex = 5;
             this.AssignClass_combobox.SelectedIndexChanged += new System.EventHandler(this.AssignClass_combobox_SelectedIndexChanged);
             // 
@@ -360,9 +367,9 @@
             // 
             this.AssignClassYOA_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AssignClassYOA_combobox.FormattingEnabled = true;
-            this.AssignClassYOA_combobox.Location = new System.Drawing.Point(101, 93);
+            this.AssignClassYOA_combobox.Location = new System.Drawing.Point(94, 77);
             this.AssignClassYOA_combobox.Name = "AssignClassYOA_combobox";
-            this.AssignClassYOA_combobox.Size = new System.Drawing.Size(389, 29);
+            this.AssignClassYOA_combobox.Size = new System.Drawing.Size(343, 29);
             this.AssignClassYOA_combobox.TabIndex = 5;
             this.AssignClassYOA_combobox.SelectedIndexChanged += new System.EventHandler(this.AssignClassYOA_combobox_SelectedIndexChanged);
             // 
@@ -370,9 +377,9 @@
             // 
             this.AssignClassBranch_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AssignClassBranch_combobox.FormattingEnabled = true;
-            this.AssignClassBranch_combobox.Location = new System.Drawing.Point(101, 51);
+            this.AssignClassBranch_combobox.Location = new System.Drawing.Point(94, 44);
             this.AssignClassBranch_combobox.Name = "AssignClassBranch_combobox";
-            this.AssignClassBranch_combobox.Size = new System.Drawing.Size(389, 29);
+            this.AssignClassBranch_combobox.Size = new System.Drawing.Size(343, 29);
             this.AssignClassBranch_combobox.TabIndex = 5;
             this.AssignClassBranch_combobox.SelectedIndexChanged += new System.EventHandler(this.AssignClassBranch_combobox_SelectedIndexChanged);
             // 
@@ -381,7 +388,7 @@
             this.Class_label.AutoSize = true;
             this.Class_label.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Class_label.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Class_label.Location = new System.Drawing.Point(17, 139);
+            this.Class_label.Location = new System.Drawing.Point(12, 113);
             this.Class_label.Name = "Class_label";
             this.Class_label.Size = new System.Drawing.Size(55, 22);
             this.Class_label.TabIndex = 3;
@@ -394,7 +401,7 @@
             this.AssignClass_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AssignClass_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AssignClass_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.AssignClass_btn.Location = new System.Drawing.Point(340, 178);
+            this.AssignClass_btn.Location = new System.Drawing.Point(287, 153);
             this.AssignClass_btn.Name = "AssignClass_btn";
             this.AssignClass_btn.Size = new System.Drawing.Size(150, 36);
             this.AssignClass_btn.TabIndex = 0;
@@ -409,7 +416,7 @@
             this.Clear_btn_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Clear_btn_2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Clear_btn_2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Clear_btn_2.Location = new System.Drawing.Point(101, 178);
+            this.Clear_btn_2.Location = new System.Drawing.Point(94, 153);
             this.Clear_btn_2.Name = "Clear_btn_2";
             this.Clear_btn_2.Size = new System.Drawing.Size(103, 36);
             this.Clear_btn_2.TabIndex = 0;
@@ -422,7 +429,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label12.Location = new System.Drawing.Point(12, 54);
+            this.label12.Location = new System.Drawing.Point(12, 47);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(76, 22);
             this.label12.TabIndex = 3;
@@ -433,7 +440,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label13.Location = new System.Drawing.Point(17, 96);
+            this.label13.Location = new System.Drawing.Point(12, 80);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(63, 22);
             this.label13.TabIndex = 3;
@@ -441,6 +448,7 @@
             // 
             // add_stdnt_groupbox
             // 
+            this.add_stdnt_groupbox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.add_stdnt_groupbox.Controls.Add(this.Branch_combobox);
             this.add_stdnt_groupbox.Controls.Add(this.Regno_textbox);
             this.add_stdnt_groupbox.Controls.Add(this.YOA_textbox);
@@ -454,9 +462,9 @@
             this.add_stdnt_groupbox.Controls.Add(this.label4);
             this.add_stdnt_groupbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.add_stdnt_groupbox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.add_stdnt_groupbox.Location = new System.Drawing.Point(112, 3);
+            this.add_stdnt_groupbox.Location = new System.Drawing.Point(0, 3);
             this.add_stdnt_groupbox.Name = "add_stdnt_groupbox";
-            this.add_stdnt_groupbox.Size = new System.Drawing.Size(658, 234);
+            this.add_stdnt_groupbox.Size = new System.Drawing.Size(545, 211);
             this.add_stdnt_groupbox.TabIndex = 6;
             this.add_stdnt_groupbox.TabStop = false;
             this.add_stdnt_groupbox.Text = "Add/Update Student";
@@ -465,23 +473,23 @@
             // 
             this.Branch_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Branch_combobox.FormattingEnabled = true;
-            this.Branch_combobox.Location = new System.Drawing.Point(130, 174);
+            this.Branch_combobox.Location = new System.Drawing.Point(91, 167);
             this.Branch_combobox.Name = "Branch_combobox";
-            this.Branch_combobox.Size = new System.Drawing.Size(506, 29);
+            this.Branch_combobox.Size = new System.Drawing.Size(448, 29);
             this.Branch_combobox.TabIndex = 5;
             // 
             // Regno_textbox
             // 
-            this.Regno_textbox.Location = new System.Drawing.Point(130, 51);
+            this.Regno_textbox.Location = new System.Drawing.Point(91, 44);
             this.Regno_textbox.Name = "Regno_textbox";
-            this.Regno_textbox.Size = new System.Drawing.Size(369, 30);
+            this.Regno_textbox.Size = new System.Drawing.Size(319, 30);
             this.Regno_textbox.TabIndex = 2;
             // 
             // YOA_textbox
             // 
-            this.YOA_textbox.Location = new System.Drawing.Point(130, 133);
+            this.YOA_textbox.Location = new System.Drawing.Point(91, 126);
             this.YOA_textbox.Name = "YOA_textbox";
-            this.YOA_textbox.Size = new System.Drawing.Size(369, 30);
+            this.YOA_textbox.Size = new System.Drawing.Size(319, 30);
             this.YOA_textbox.TabIndex = 2;
             // 
             // label3
@@ -489,7 +497,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(38, 90);
+            this.label3.Location = new System.Drawing.Point(9, 83);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 22);
             this.label3.TabIndex = 3;
@@ -497,9 +505,9 @@
             // 
             // Name_textbox
             // 
-            this.Name_textbox.Location = new System.Drawing.Point(130, 92);
+            this.Name_textbox.Location = new System.Drawing.Point(91, 85);
             this.Name_textbox.Name = "Name_textbox";
-            this.Name_textbox.Size = new System.Drawing.Size(369, 30);
+            this.Name_textbox.Size = new System.Drawing.Size(319, 30);
             this.Name_textbox.TabIndex = 2;
             // 
             // Search_btn
@@ -509,7 +517,7 @@
             this.Search_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Search_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Search_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Search_btn.Location = new System.Drawing.Point(513, 48);
+            this.Search_btn.Location = new System.Drawing.Point(416, 43);
             this.Search_btn.Name = "Search_btn";
             this.Search_btn.Size = new System.Drawing.Size(123, 33);
             this.Search_btn.TabIndex = 0;
@@ -524,7 +532,7 @@
             this.Clear_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Clear_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Clear_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Clear_btn.Location = new System.Drawing.Point(513, 88);
+            this.Clear_btn.Location = new System.Drawing.Point(416, 83);
             this.Clear_btn.Name = "Clear_btn";
             this.Clear_btn.Size = new System.Drawing.Size(123, 33);
             this.Clear_btn.TabIndex = 0;
@@ -539,7 +547,7 @@
             this.AddStudent_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddStudent_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddStudent_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.AddStudent_btn.Location = new System.Drawing.Point(513, 128);
+            this.AddStudent_btn.Location = new System.Drawing.Point(416, 123);
             this.AddStudent_btn.Name = "AddStudent_btn";
             this.AddStudent_btn.Size = new System.Drawing.Size(123, 33);
             this.AddStudent_btn.TabIndex = 0;
@@ -552,7 +560,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(41, 133);
+            this.label1.Location = new System.Drawing.Point(9, 126);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 22);
             this.label1.TabIndex = 3;
@@ -563,7 +571,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(26, 51);
+            this.label2.Location = new System.Drawing.Point(9, 44);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 22);
             this.label2.TabIndex = 3;
@@ -574,7 +582,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(28, 174);
+            this.label4.Location = new System.Drawing.Point(9, 167);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(76, 22);
             this.label4.TabIndex = 3;
@@ -582,12 +590,13 @@
             // 
             // Delete_btn
             // 
+            this.Delete_btn.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Delete_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.Delete_btn.FlatAppearance.BorderSize = 0;
             this.Delete_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Delete_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Delete_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Delete_btn.Location = new System.Drawing.Point(335, 668);
+            this.Delete_btn.Location = new System.Drawing.Point(198, 630);
             this.Delete_btn.Name = "Delete_btn";
             this.Delete_btn.Size = new System.Drawing.Size(128, 36);
             this.Delete_btn.TabIndex = 0;
@@ -610,8 +619,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1697, 718);
+            this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.Student_mngmnt_panel);
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -631,6 +641,7 @@
             this.add_stdnt_groupbox.ResumeLayout(false);
             this.add_stdnt_groupbox.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
