@@ -133,10 +133,10 @@ namespace Exam_Cell
                         }
                     
                         con.CloseCon();
-                        msgbox.show("Students Added to Class    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                         AssignClass_combobox.SelectedIndex = 0;
                         Student_dgvFill();
-                    SelectAllCheckbox.Checked = false;
+                        SelectAllCheckbox.Checked = false;
+                        msgbox.show("Students Added to Class    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -164,10 +164,10 @@ namespace Exam_Cell
                     }
                     if (f == 1)
                     {
-                                con.CloseCon();
-                        msgbox.show("Students Added to Class    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                        con.CloseCon();
                         AssignClass_combobox.SelectedIndex = 0;
                         Student_dgvFill();
+                        msgbox.show("Students Added to Class    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     }
                     else
                         msgbox.show("Select Any Students    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
@@ -314,7 +314,7 @@ namespace Exam_Cell
             var result = msgbox.ReturnValue;
             if (result == "Yes")
             {
-                if (AddFromExcel_Btn.Enabled == true)
+                if (AddFromExcel_Btn.Enabled != true)
                 {
                     if (ClassDgvView_checkbox.Checked)
                     {
@@ -337,10 +337,10 @@ namespace Exam_Cell
                                 
                             }                            
                                     con.CloseCon();
-                                msgbox.show("Delete All Done.   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                                 ClearAllStudent_Management();
                                 Class_StudentsFill();
                             SelectAllCheckbox.Checked = false;
+                                msgbox.show("Delete All Done.   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                         }
                         else
                         {
@@ -371,9 +371,9 @@ namespace Exam_Cell
                             if (f == 1)
                             {
                                 con.CloseCon();
-                                msgbox.show("Delete Done.   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                                 ClearAllStudent_Management();
                                 Class_StudentsFill();
+                                msgbox.show("Delete Done.   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                             }
                             else
                             {
@@ -408,9 +408,9 @@ namespace Exam_Cell
                                 
                             }
                             con.CloseCon();
-                            msgbox.show("Delete All Done.   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                             Student_dgvFill();
                             SelectAllCheckbox.Checked = false;
+                            msgbox.show("Delete All Done.   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                         }
                         else
                         {
@@ -444,8 +444,8 @@ namespace Exam_Cell
                             if (f == 1)
                             {
                                 con.CloseCon();
-                                msgbox.show("Delete Done.   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                                 Student_dgvFill();
+                                msgbox.show("Delete Done.   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                             }
                             else
                                 msgbox.show("Select any Students to delete.     ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
