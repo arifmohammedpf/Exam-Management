@@ -71,11 +71,12 @@
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1419, 866);
+            this.panel1.Size = new System.Drawing.Size(1280, 720);
             this.panel1.TabIndex = 8;
             // 
             // panel2
             // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel2.Controls.Add(this.Filepath_textbox);
             this.panel2.Controls.Add(this.Examination_Textbox);
             this.panel2.Controls.Add(this.label8);
@@ -96,16 +97,16 @@
             this.panel2.Controls.Add(this.Branch_combobox);
             this.panel2.Controls.Add(this.Session_combobox);
             this.panel2.Controls.Add(this.Date_combobox);
-            this.panel2.Location = new System.Drawing.Point(3, 28);
+            this.panel2.Location = new System.Drawing.Point(0, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(680, 826);
+            this.panel2.Size = new System.Drawing.Size(560, 714);
             this.panel2.TabIndex = 11;
             // 
             // Filepath_textbox
             // 
             this.Filepath_textbox.Enabled = false;
             this.Filepath_textbox.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Filepath_textbox.Location = new System.Drawing.Point(142, 537);
+            this.Filepath_textbox.Location = new System.Drawing.Point(142, 617);
             this.Filepath_textbox.Name = "Filepath_textbox";
             this.Filepath_textbox.Size = new System.Drawing.Size(328, 31);
             this.Filepath_textbox.TabIndex = 27;
@@ -214,7 +215,7 @@
             this.Filepath_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Filepath_button.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Filepath_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Filepath_button.Location = new System.Drawing.Point(142, 605);
+            this.Filepath_button.Location = new System.Drawing.Point(142, 653);
             this.Filepath_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Filepath_button.Name = "Filepath_button";
             this.Filepath_button.Size = new System.Drawing.Size(328, 38);
@@ -248,7 +249,7 @@
             this.Prepare_Statement_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Prepare_Statement_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Prepare_Statement_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Prepare_Statement_btn.Location = new System.Drawing.Point(142, 679);
+            this.Prepare_Statement_btn.Location = new System.Drawing.Point(142, 507);
             this.Prepare_Statement_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Prepare_Statement_btn.Name = "Prepare_Statement_btn";
             this.Prepare_Statement_btn.Size = new System.Drawing.Size(328, 46);
@@ -352,6 +353,7 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Green;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             this.Dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.Dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.Dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.Dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
@@ -369,7 +371,7 @@
             this.Dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.Dgv.EnableHeadersVisualStyles = false;
             this.Dgv.GridColor = System.Drawing.Color.SteelBlue;
-            this.Dgv.Location = new System.Drawing.Point(689, 28);
+            this.Dgv.Location = new System.Drawing.Point(566, 3);
             this.Dgv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Dgv.Name = "Dgv";
             this.Dgv.ReadOnly = true;
@@ -390,7 +392,7 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.Dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.Dgv.RowTemplate.Height = 24;
-            this.Dgv.Size = new System.Drawing.Size(718, 826);
+            this.Dgv.Size = new System.Drawing.Size(711, 714);
             this.Dgv.TabIndex = 10;
             // 
             // Absent_Statement
@@ -398,7 +400,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1419, 866);
+            this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

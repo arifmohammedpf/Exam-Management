@@ -75,7 +75,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1171, 739);
+            this.panel2.Size = new System.Drawing.Size(1280, 720);
             this.panel2.TabIndex = 1;
             // 
             // panel1
@@ -95,9 +95,9 @@
             this.panel1.Controls.Add(this.B_series_textbox);
             this.panel1.Controls.Add(this.UpdatePriority_button);
             this.panel1.Controls.Add(this.Save_button);
-            this.panel1.Location = new System.Drawing.Point(10, 10);
+            this.panel1.Location = new System.Drawing.Point(10, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(582, 714);
+            this.panel1.Size = new System.Drawing.Size(637, 709);
             this.panel1.TabIndex = 18;
             // 
             // RoomNo_textbox
@@ -178,7 +178,7 @@
             // TotalCapacity_textbox
             // 
             this.TotalCapacity_textbox.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalCapacity_textbox.Location = new System.Drawing.Point(284, 665);
+            this.TotalCapacity_textbox.Location = new System.Drawing.Point(252, 597);
             this.TotalCapacity_textbox.Margin = new System.Windows.Forms.Padding(4);
             this.TotalCapacity_textbox.Name = "TotalCapacity_textbox";
             this.TotalCapacity_textbox.ReadOnly = true;
@@ -200,7 +200,7 @@
             // TotalRoom_textbox
             // 
             this.TotalRoom_textbox.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalRoom_textbox.Location = new System.Drawing.Point(284, 614);
+            this.TotalRoom_textbox.Location = new System.Drawing.Point(252, 546);
             this.TotalRoom_textbox.Margin = new System.Windows.Forms.Padding(4);
             this.TotalRoom_textbox.Name = "TotalRoom_textbox";
             this.TotalRoom_textbox.ReadOnly = true;
@@ -225,7 +225,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Location = new System.Drawing.Point(116, 673);
+            this.label6.Location = new System.Drawing.Point(84, 605);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(155, 22);
@@ -246,7 +246,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(116, 622);
+            this.label5.Location = new System.Drawing.Point(84, 554);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(121, 22);
@@ -325,7 +325,7 @@
             this.Rooms_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.Rooms_dgv.EnableHeadersVisualStyles = false;
             this.Rooms_dgv.GridColor = System.Drawing.Color.SteelBlue;
-            this.Rooms_dgv.Location = new System.Drawing.Point(599, 11);
+            this.Rooms_dgv.Location = new System.Drawing.Point(654, 3);
             this.Rooms_dgv.Margin = new System.Windows.Forms.Padding(4);
             this.Rooms_dgv.Name = "Rooms_dgv";
             this.Rooms_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -344,7 +344,7 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.Rooms_dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.Rooms_dgv.Size = new System.Drawing.Size(531, 713);
+            this.Rooms_dgv.Size = new System.Drawing.Size(611, 709);
             this.Rooms_dgv.TabIndex = 17;
             this.Rooms_dgv.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.Rooms_dgv_CellEndEdit);
             this.Rooms_dgv.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Rooms_dgv_CellMouseUp);
@@ -379,7 +379,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1171, 739);
+            this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.panel2);
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

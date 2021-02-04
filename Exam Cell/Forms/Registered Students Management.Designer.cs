@@ -86,11 +86,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.Controls.Add(this.Series_radiobtn);
             this.groupBox1.Controls.Add(this.Univrsty_radiobtn);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox1.Location = new System.Drawing.Point(369, 12);
+            this.groupBox1.Location = new System.Drawing.Point(102, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(351, 85);
             this.groupBox1.TabIndex = 3;
@@ -115,12 +116,13 @@
             // 
             // DeleteAll_btn
             // 
+            this.DeleteAll_btn.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.DeleteAll_btn.BackColor = System.Drawing.Color.Maroon;
             this.DeleteAll_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.DeleteAll_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteAll_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleteAll_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.DeleteAll_btn.Location = new System.Drawing.Point(1091, 827);
+            this.DeleteAll_btn.Location = new System.Drawing.Point(887, 670);
             this.DeleteAll_btn.Name = "DeleteAll_btn";
             this.DeleteAll_btn.Size = new System.Drawing.Size(132, 38);
             this.DeleteAll_btn.TabIndex = 2;
@@ -130,11 +132,12 @@
             // 
             // AllotGroupbox
             // 
+            this.AllotGroupbox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.AllotGroupbox.Controls.Add(this.AllotSeries_radiobtn);
             this.AllotGroupbox.Controls.Add(this.AllotUniversty_radiobtn);
             this.AllotGroupbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AllotGroupbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.AllotGroupbox.Location = new System.Drawing.Point(767, 12);
+            this.AllotGroupbox.Location = new System.Drawing.Point(500, 12);
             this.AllotGroupbox.Name = "AllotGroupbox";
             this.AllotGroupbox.Size = new System.Drawing.Size(351, 85);
             this.AllotGroupbox.TabIndex = 4;
@@ -250,7 +253,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1496, 877);
+            this.panel1.Size = new System.Drawing.Size(1280, 720);
             this.panel1.TabIndex = 11;
             // 
             // Registered_dgv
@@ -264,6 +267,7 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Green;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             this.Registered_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.Registered_dgv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.Registered_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.Registered_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.Registered_dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
@@ -281,7 +285,7 @@
             this.Registered_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.Registered_dgv.EnableHeadersVisualStyles = false;
             this.Registered_dgv.GridColor = System.Drawing.Color.SteelBlue;
-            this.Registered_dgv.Location = new System.Drawing.Point(13, 126);
+            this.Registered_dgv.Location = new System.Drawing.Point(13, 140);
             this.Registered_dgv.Margin = new System.Windows.Forms.Padding(4);
             this.Registered_dgv.Name = "Registered_dgv";
             this.Registered_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -300,18 +304,19 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.Registered_dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.Registered_dgv.Size = new System.Drawing.Size(1062, 739);
+            this.Registered_dgv.Size = new System.Drawing.Size(867, 576);
             this.Registered_dgv.TabIndex = 12;
             // 
             // panel2
             // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.panel2.Controls.Add(this.Delete_btn);
             this.panel2.Controls.Add(this.Branch_combobox);
             this.panel2.Controls.Add(this.Semester_combobox);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.Regno_textbox);
             this.panel2.Controls.Add(this.ClearBtn);
-            this.panel2.Location = new System.Drawing.Point(1102, 126);
+            this.panel2.Location = new System.Drawing.Point(887, 140);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(381, 248);
             this.panel2.TabIndex = 11;
@@ -321,7 +326,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1496, 877);
+            this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

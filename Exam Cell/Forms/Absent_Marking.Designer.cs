@@ -63,11 +63,12 @@
             this.Panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Panel.Location = new System.Drawing.Point(0, 0);
             this.Panel.Name = "Panel";
-            this.Panel.Size = new System.Drawing.Size(1419, 866);
+            this.Panel.Size = new System.Drawing.Size(1280, 720);
             this.Panel.TabIndex = 7;
             // 
             // panel1
             // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.Search_btn);
             this.panel1.Controls.Add(this.label3);
@@ -78,9 +79,9 @@
             this.panel1.Controls.Add(this.Room_combobox);
             this.panel1.Controls.Add(this.Session_combobox);
             this.panel1.Controls.Add(this.Date_combobox);
-            this.panel1.Location = new System.Drawing.Point(12, 25);
+            this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(669, 815);
+            this.panel1.Size = new System.Drawing.Size(559, 714);
             this.panel1.TabIndex = 17;
             // 
             // groupBox3
@@ -91,7 +92,7 @@
             this.groupBox3.Controls.Add(this.Unv_radio);
             this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox3.Location = new System.Drawing.Point(148, 76);
+            this.groupBox3.Location = new System.Drawing.Point(97, 64);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -135,7 +136,7 @@
             this.Search_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Search_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Search_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Search_btn.Location = new System.Drawing.Point(221, 390);
+            this.Search_btn.Location = new System.Drawing.Point(170, 378);
             this.Search_btn.Name = "Search_btn";
             this.Search_btn.Size = new System.Drawing.Size(91, 37);
             this.Search_btn.TabIndex = 47;
@@ -149,7 +150,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(115, 328);
+            this.label3.Location = new System.Drawing.Point(64, 316);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(94, 22);
             this.label3.TabIndex = 44;
@@ -161,7 +162,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(115, 274);
+            this.label2.Location = new System.Drawing.Point(64, 262);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 22);
             this.label2.TabIndex = 45;
@@ -173,7 +174,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(115, 220);
+            this.label1.Location = new System.Drawing.Point(64, 208);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 22);
             this.label1.TabIndex = 46;
@@ -188,7 +189,7 @@
             this.ClearData_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ClearData_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClearData_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClearData_btn.Location = new System.Drawing.Point(534, 776);
+            this.ClearData_btn.Location = new System.Drawing.Point(419, 667);
             this.ClearData_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ClearData_btn.Name = "ClearData_btn";
             this.ClearData_btn.Size = new System.Drawing.Size(132, 37);
@@ -206,7 +207,7 @@
             this.Absentees_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Absentees_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Absentees_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Absentees_btn.Location = new System.Drawing.Point(221, 456);
+            this.Absentees_btn.Location = new System.Drawing.Point(170, 444);
             this.Absentees_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Absentees_btn.Name = "Absentees_btn";
             this.Absentees_btn.Size = new System.Drawing.Size(190, 52);
@@ -221,7 +222,7 @@
             this.Room_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Room_combobox.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Room_combobox.FormattingEnabled = true;
-            this.Room_combobox.Location = new System.Drawing.Point(221, 323);
+            this.Room_combobox.Location = new System.Drawing.Point(170, 311);
             this.Room_combobox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Room_combobox.Name = "Room_combobox";
             this.Room_combobox.Size = new System.Drawing.Size(319, 32);
@@ -237,7 +238,7 @@
             "-Select-",
             "Forenoon",
             "Afternoon"});
-            this.Session_combobox.Location = new System.Drawing.Point(221, 269);
+            this.Session_combobox.Location = new System.Drawing.Point(170, 257);
             this.Session_combobox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Session_combobox.Name = "Session_combobox";
             this.Session_combobox.Size = new System.Drawing.Size(319, 32);
@@ -249,7 +250,7 @@
             this.Date_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Date_combobox.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Date_combobox.FormattingEnabled = true;
-            this.Date_combobox.Location = new System.Drawing.Point(221, 215);
+            this.Date_combobox.Location = new System.Drawing.Point(170, 203);
             this.Date_combobox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Date_combobox.Name = "Date_combobox";
             this.Date_combobox.Size = new System.Drawing.Size(319, 32);
@@ -266,6 +267,7 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             this.Dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.Dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.Dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.Dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
@@ -283,7 +285,7 @@
             this.Dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.Dgv.EnableHeadersVisualStyles = false;
             this.Dgv.GridColor = System.Drawing.Color.SteelBlue;
-            this.Dgv.Location = new System.Drawing.Point(687, 25);
+            this.Dgv.Location = new System.Drawing.Point(565, 3);
             this.Dgv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Dgv.Name = "Dgv";
             this.Dgv.ReadOnly = true;
@@ -304,7 +306,7 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.Dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.Dgv.RowTemplate.Height = 24;
-            this.Dgv.Size = new System.Drawing.Size(720, 815);
+            this.Dgv.Size = new System.Drawing.Size(703, 714);
             this.Dgv.TabIndex = 16;
             this.Dgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ChangeStatusEvent);
             // 
@@ -313,7 +315,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1419, 866);
+            this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.Panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

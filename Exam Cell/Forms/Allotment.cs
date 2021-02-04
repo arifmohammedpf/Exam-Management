@@ -617,6 +617,7 @@ namespace Exam_Cell
         {
             Generation_Panel.BringToFront();
             Generation_Panel.Enabled = true;
+            RoomExcel_panel.SendToBack();
             RoomExcel_panel.Enabled = false;
         }
 
@@ -633,6 +634,7 @@ namespace Exam_Cell
         {
             Generation_Panel.BringToFront();
             Generation_Panel.Enabled = true;
+            Signature_panel.SendToBack();
             Signature_panel.Enabled = false;
         }
 
@@ -1201,6 +1203,7 @@ namespace Exam_Cell
         {
             Generation_Panel.BringToFront();
             Generation_Panel.Enabled = true;
+            DisplaySheet_Panel.SendToBack();
             DisplaySheet_Panel.Enabled = false;
         }
 
@@ -1399,22 +1402,30 @@ namespace Exam_Cell
 
         private void Unv_radio_CheckedChanged(object sender, EventArgs e)
         {
-            Generation_Panel.Enabled = true;
-            panel1.Enabled = true;
-            groupBox1.Enabled = true;
-            SingleAllotment_button.Enabled = true;
-            MultiAllotment_button.Enabled = false;
-            RefreshAll();
+            if (Unv_radio.Checked)
+            {
+                Generation_Panel.Enabled = true;
+                panel1.Enabled = true;
+                groupBox1.Enabled = true;
+                SingleAllotment_button.Enabled = true;
+                SingleAllotment_button.BringToFront();
+                MultiAllotment_button.Enabled = false;
+                RefreshAll();
+            }
         }
 
         private void Series_radio_CheckedChanged(object sender, EventArgs e)
         {
-            Generation_Panel.Enabled = true;
-            panel1.Enabled = true;
-            groupBox1.Enabled = true;
-            SingleAllotment_button.Enabled = false;
-            MultiAllotment_button.Enabled = true;
-            RefreshAll();
+            if (Series_radio.Checked)
+            {
+                Generation_Panel.Enabled = true;
+                panel1.Enabled = true;
+                groupBox1.Enabled = true;
+                SingleAllotment_button.Enabled = false;
+                MultiAllotment_button.Enabled = true;
+                MultiAllotment_button.BringToFront();
+                RefreshAll();
+            }
         }
         BindingSource roomfill = new BindingSource();
         BindingSource dgvfill = new BindingSource();

@@ -88,14 +88,15 @@
             this.panel1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1318, 677);
+            this.panel1.Size = new System.Drawing.Size(1280, 720);
             this.panel1.TabIndex = 0;
             // 
             // progressPanel
             // 
+            this.progressPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.progressPanel.BackColor = System.Drawing.Color.Navy;
             this.progressPanel.Controls.Add(this.label7);
-            this.progressPanel.Location = new System.Drawing.Point(456, 248);
+            this.progressPanel.Location = new System.Drawing.Point(425, 457);
             this.progressPanel.Name = "progressPanel";
             this.progressPanel.Size = new System.Drawing.Size(410, 100);
             this.progressPanel.TabIndex = 43;
@@ -123,6 +124,7 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Green;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             this.ScheduledExam_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.ScheduledExam_dgv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ScheduledExam_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.ScheduledExam_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.ScheduledExam_dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
@@ -140,7 +142,7 @@
             this.ScheduledExam_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.ScheduledExam_dgv.EnableHeadersVisualStyles = false;
             this.ScheduledExam_dgv.GridColor = System.Drawing.Color.SteelBlue;
-            this.ScheduledExam_dgv.Location = new System.Drawing.Point(11, 285);
+            this.ScheduledExam_dgv.Location = new System.Drawing.Point(4, 307);
             this.ScheduledExam_dgv.Margin = new System.Windows.Forms.Padding(4);
             this.ScheduledExam_dgv.Name = "ScheduledExam_dgv";
             this.ScheduledExam_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -159,11 +161,12 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.ScheduledExam_dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.ScheduledExam_dgv.Size = new System.Drawing.Size(1291, 387);
+            this.ScheduledExam_dgv.Size = new System.Drawing.Size(1270, 407);
             this.ScheduledExam_dgv.TabIndex = 10;
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox2.Controls.Add(this.NewDateTimePicker);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.Postpone_button);
@@ -171,9 +174,9 @@
             this.groupBox2.Controls.Add(this.NewSession_combobox);
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox2.Location = new System.Drawing.Point(705, 11);
+            this.groupBox2.Location = new System.Drawing.Point(686, 33);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(597, 268);
+            this.groupBox2.Size = new System.Drawing.Size(588, 268);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Postponement Settings";
@@ -181,7 +184,7 @@
             // NewDateTimePicker
             // 
             this.NewDateTimePicker.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewDateTimePicker.Location = new System.Drawing.Point(228, 75);
+            this.NewDateTimePicker.Location = new System.Drawing.Point(215, 75);
             this.NewDateTimePicker.Name = "NewDateTimePicker";
             this.NewDateTimePicker.Size = new System.Drawing.Size(334, 30);
             this.NewDateTimePicker.TabIndex = 8;
@@ -203,7 +206,7 @@
             this.Postpone_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Postpone_button.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Postpone_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Postpone_button.Location = new System.Drawing.Point(429, 183);
+            this.Postpone_button.Location = new System.Drawing.Point(416, 183);
             this.Postpone_button.Name = "Postpone_button";
             this.Postpone_button.Size = new System.Drawing.Size(133, 43);
             this.Postpone_button.TabIndex = 2;
@@ -229,13 +232,14 @@
             "-Optional-",
             "Forenoon",
             "Afternoon"});
-            this.NewSession_combobox.Location = new System.Drawing.Point(228, 130);
+            this.NewSession_combobox.Location = new System.Drawing.Point(215, 130);
             this.NewSession_combobox.Name = "NewSession_combobox";
             this.NewSession_combobox.Size = new System.Drawing.Size(334, 32);
             this.NewSession_combobox.TabIndex = 4;
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.Controls.Add(this.DateCheckbox);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.Examcode_textbox);
@@ -247,9 +251,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox1.Location = new System.Drawing.Point(11, 11);
+            this.groupBox1.Location = new System.Drawing.Point(4, 33);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(568, 268);
+            this.groupBox1.Size = new System.Drawing.Size(556, 268);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Exam Details";
@@ -258,7 +262,7 @@
             // 
             this.DateCheckbox.AutoSize = true;
             this.DateCheckbox.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DateCheckbox.Location = new System.Drawing.Point(524, 151);
+            this.DateCheckbox.Location = new System.Drawing.Point(516, 151);
             this.DateCheckbox.Name = "DateCheckbox";
             this.DateCheckbox.Size = new System.Drawing.Size(18, 17);
             this.DateCheckbox.TabIndex = 11;
@@ -268,7 +272,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(55, 60);
+            this.label1.Location = new System.Drawing.Point(47, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 22);
             this.label1.TabIndex = 6;
@@ -277,7 +281,7 @@
             // Examcode_textbox
             // 
             this.Examcode_textbox.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Examcode_textbox.Location = new System.Drawing.Point(175, 183);
+            this.Examcode_textbox.Location = new System.Drawing.Point(167, 183);
             this.Examcode_textbox.Name = "Examcode_textbox";
             this.Examcode_textbox.Size = new System.Drawing.Size(339, 33);
             this.Examcode_textbox.TabIndex = 10;
@@ -288,7 +292,7 @@
             this.Branch_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Branch_combobox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Branch_combobox.FormattingEnabled = true;
-            this.Branch_combobox.Location = new System.Drawing.Point(175, 57);
+            this.Branch_combobox.Location = new System.Drawing.Point(167, 57);
             this.Branch_combobox.Name = "Branch_combobox";
             this.Branch_combobox.Size = new System.Drawing.Size(339, 29);
             this.Branch_combobox.TabIndex = 3;
@@ -298,7 +302,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(15, 186);
+            this.label4.Location = new System.Drawing.Point(7, 186);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(126, 22);
             this.label4.TabIndex = 9;
@@ -309,7 +313,7 @@
             this.Semester_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Semester_combobox.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Semester_combobox.FormattingEnabled = true;
-            this.Semester_combobox.Location = new System.Drawing.Point(175, 99);
+            this.Semester_combobox.Location = new System.Drawing.Point(167, 99);
             this.Semester_combobox.Name = "Semester_combobox";
             this.Semester_combobox.Size = new System.Drawing.Size(339, 32);
             this.Semester_combobox.TabIndex = 4;
@@ -318,7 +322,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(75, 144);
+            this.label3.Location = new System.Drawing.Point(67, 144);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 22);
             this.label3.TabIndex = 8;
@@ -327,7 +331,7 @@
             // DateTimePicker
             // 
             this.DateTimePicker.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DateTimePicker.Location = new System.Drawing.Point(175, 142);
+            this.DateTimePicker.Location = new System.Drawing.Point(167, 142);
             this.DateTimePicker.Name = "DateTimePicker";
             this.DateTimePicker.Size = new System.Drawing.Size(339, 30);
             this.DateTimePicker.TabIndex = 5;
@@ -336,7 +340,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(39, 102);
+            this.label2.Location = new System.Drawing.Point(31, 102);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(102, 22);
             this.label2.TabIndex = 7;
@@ -345,13 +349,14 @@
             // 
             // Clear_button
             // 
+            this.Clear_button.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Clear_button.BackColor = System.Drawing.Color.Maroon;
             this.Clear_button.FlatAppearance.BorderSize = 0;
             this.Clear_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.Clear_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Clear_button.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Clear_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Clear_button.Location = new System.Drawing.Point(585, 241);
+            this.Clear_button.Location = new System.Drawing.Point(566, 263);
             this.Clear_button.Name = "Clear_button";
             this.Clear_button.Size = new System.Drawing.Size(114, 38);
             this.Clear_button.TabIndex = 1;
@@ -397,7 +402,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1318, 677);
+            this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
