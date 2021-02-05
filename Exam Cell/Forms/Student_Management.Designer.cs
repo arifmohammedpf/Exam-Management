@@ -142,10 +142,10 @@
             this.Student_dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Student_dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(39)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 12F);
             dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(45)))), ((int)(((byte)(180)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Maroon;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.Student_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
@@ -157,10 +157,10 @@
             this.Student_dgv.Name = "Student_dgv";
             this.Student_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(39)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(45)))), ((int)(((byte)(180)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Maroon;
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.Student_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
@@ -181,7 +181,7 @@
             this.SelectAllCheckbox.AutoSize = true;
             this.SelectAllCheckbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SelectAllCheckbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.SelectAllCheckbox.Location = new System.Drawing.Point(198, 555);
+            this.SelectAllCheckbox.Location = new System.Drawing.Point(177, 555);
             this.SelectAllCheckbox.Name = "SelectAllCheckbox";
             this.SelectAllCheckbox.Size = new System.Drawing.Size(113, 26);
             this.SelectAllCheckbox.TabIndex = 6;
@@ -194,7 +194,7 @@
             this.ClassDgvView_checkbox.AutoSize = true;
             this.ClassDgvView_checkbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClassDgvView_checkbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClassDgvView_checkbox.Location = new System.Drawing.Point(198, 587);
+            this.ClassDgvView_checkbox.Location = new System.Drawing.Point(177, 587);
             this.ClassDgvView_checkbox.Name = "ClassDgvView_checkbox";
             this.ClassDgvView_checkbox.Size = new System.Drawing.Size(128, 26);
             this.ClassDgvView_checkbox.TabIndex = 6;
@@ -599,7 +599,7 @@
             this.Delete_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Delete_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Delete_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Delete_btn.Location = new System.Drawing.Point(198, 630);
+            this.Delete_btn.Location = new System.Drawing.Point(177, 630);
             this.Delete_btn.Name = "Delete_btn";
             this.Delete_btn.Size = new System.Drawing.Size(128, 36);
             this.Delete_btn.TabIndex = 0;

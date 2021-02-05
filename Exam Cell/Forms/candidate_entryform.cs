@@ -287,6 +287,7 @@ namespace Exam_Cell
                 Unv_Student_details_groupbox.Enabled = true;
                 Unv_Student_details_groupbox.BringToFront();
                 Courses_dgv.Enabled = false;
+                SubjectDetails_groupbox.Enabled = false;
                 Candidate_datagridview.Enabled = true;
                 UnvCheckbox.Checked = false;
                 Candidate_datagridview.DataSource = null;
@@ -294,7 +295,6 @@ namespace Exam_Cell
                 YOACombobox.Enabled = false;
                 UnvBranchComboboxFill();
                 YoaComboboxFill();
-                SubjectDetails_groupbox.Enabled = true;
                 Series_Student_details_groupbox.Enabled = false;   //student details box disabled since not needed
                 Excel_Group.Enabled = true;        //excel group box enabled           
                 Sheet_combobox.ResetText();
@@ -460,8 +460,16 @@ namespace Exam_Cell
 
             if (Series_rdbtn.Checked || Unvrsty_rdbtn.Checked)
             {
-                Schemesourcefill();
-                subjectdetailsfilter();
+                //Schemesourcefill();
+                //subjectdetailsfilter();
+                if(Scheme_combobox.SelectedIndex == 0 && (Branch_combobox.SelectedIndex !=0 || Semester_combobox.SelectedIndex !=0))
+                {
+                    msgbox.show("Select Scheme   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                }
+                else
+                {
+                    sql_subject_filter();
+                }
             }
         }
 
@@ -471,8 +479,17 @@ namespace Exam_Cell
         private void Branch_combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (Series_rdbtn.Checked || Unvrsty_rdbtn.Checked)
-                //Function Call for filter
-                subjectdetailsfilter();
+            {                
+                //subjectdetailsfilter();
+                if(Scheme_combobox.SelectedIndex == 0)
+                {
+                    msgbox.show("Select Scheme   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                }
+                else
+                {
+                    sql_subject_filter();
+                }
+            }
         }
 
 
@@ -480,8 +497,55 @@ namespace Exam_Cell
         private void Semester_combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (Series_rdbtn.Checked || Unvrsty_rdbtn.Checked)
-                //Function Call for filter
-                subjectdetailsfilter();
+            {
+                //subjectdetailsfilter();
+                if (Scheme_combobox.SelectedIndex == 0)
+                {
+                    msgbox.show("Select Scheme   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                }
+                else
+                {
+                    sql_subject_filter();
+                }
+            }
+        }
+
+        void sql_subject_filter()
+        {
+            string schemekey = Scheme_combobox.Text;
+            string branchvalue = Branch_combobox.Text;
+            string semvalue = Semester_combobox.Text;
+
+            if (branchvalue != "-Select-" || semvalue != "-Select-")
+            {
+                if (branchvalue == "-Select-")
+                    branchvalue = "";
+                else if (semvalue == "-Select-")
+                    semvalue = "";
+                string comm = string.Format("Select * from Scheme where (Scheme = '{0}' and Branch Like '%{1}%' and Semester Like '%{2}%') order by Branch",schemekey, branchvalue, semvalue);
+                try
+                {
+                    SQLiteCommand command = new SQLiteCommand(comm, con.ActiveCon());
+                    SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
+                    DataTable table_Scheme = new DataTable();
+                    adapter.Fill(table_Scheme);
+                    schemesource.DataSource = null;
+                    schemesource.DataSource = table_Scheme;
+                    Courses_dgv.DataSource = schemesource;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    con.CloseCon();
+                }
+            }
+            else
+            {
+                Courses_dgv.DataSource = null;
+            }
         }
 
         //Filter function for Subject details
@@ -861,16 +925,13 @@ namespace Exam_Cell
             progressPanel.Hide();
         }
 
-        int first_time_load;
         private void UnvBranchCombobox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(UnvCheckbox.Checked)
             {
-                if (first_time_load == 0)
-                {
+                //Studentsdgvfilter();
+                display_unv_stdts_dgv();
 
-                }
-                Studentsdgvfilter();
             }
         }
 
@@ -878,9 +939,55 @@ namespace Exam_Cell
         {
             if (UnvCheckbox.Checked)
             {
-                Studentsdgvfilter();
+                //Studentsdgvfilter();
+                display_unv_stdts_dgv();
             }
         }
+
+        void display_unv_stdts_dgv()
+        {
+            SelectAllCheckbox.Checked = false;
+
+            string branchvalue = UnvBranchCombobox.Text;
+            string yoavalue = YOACombobox.Text;
+            if(branchvalue != "-Select-" || yoavalue != "-Select-")
+            {
+                if (branchvalue == "-Select-")
+                    branchvalue = "";
+                else if (yoavalue == "-Select-")
+                    yoavalue = "";
+                string comm = string.Format("Select * from Students where (Branch Like '%{0}%' and Year_Of_Admission Like '%{1}%') order by Branch,Reg_no", branchvalue, yoavalue);
+                sql_filter_dgv(comm);
+            }
+            else
+            {
+                Candidate_datagridview.DataSource = null;
+            }
+           
+            void sql_filter_dgv(string command_string)
+            {
+                try
+                {
+                    //headerchkbox.Checked = false;
+                    SelectAllCheckbox.Checked = false;
+                    SQLiteCommand command = new SQLiteCommand(command_string, con.ActiveCon());
+                    SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
+                    DataTable table_Students = new DataTable();
+                    adapter.Fill(table_Students);
+                    source.DataSource = null;
+                    source.DataSource = table_Students;
+                    Candidate_datagridview.DataSource = source;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    con.CloseCon();
+                }
+            }
+        } 
          void Studentsdgvfilter()
          {
             //headerchkbox.Checked = false;
@@ -907,15 +1014,15 @@ namespace Exam_Cell
         {
             if(UnvCheckbox.Checked)
             {
-                first_time_load = 0;
                 RegRegCnd_btn.Enabled = true;
                 Courses_dgv.Enabled = true;
+                SubjectDetails_groupbox.Enabled = true;
                 Excel_Group.Enabled = false;
                 UnvBranchCombobox.Enabled = true;
                 YOACombobox.Enabled = true;
                 UnvBranchComboboxFill();
                 YoaComboboxFill();
-                Unvsourcefill();
+                //Unvsourcefill();
                 SelectAllCheckbox.Enabled = true;
             }
             else
@@ -923,6 +1030,7 @@ namespace Exam_Cell
                 RegRegCnd_btn.Enabled = false;
                 SelectAllCheckbox.Enabled = false;
                 Courses_dgv.Enabled = false;
+                SubjectDetails_groupbox.Enabled = false;
                 Excel_Group.Enabled = true;
                 //UnvBranchComboboxFill();
                 //YoaComboboxFill();

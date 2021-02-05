@@ -52,15 +52,15 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.Series_rdbtn = new System.Windows.Forms.RadioButton();
             this.Unvrsty_rdbtn = new System.Windows.Forms.RadioButton();
-            this.Series_Student_details_groupbox = new System.Windows.Forms.GroupBox();
-            this.Class_drpdwn = new System.Windows.Forms.ComboBox();
-            this.Class_label = new System.Windows.Forms.Label();
             this.Unv_Student_details_groupbox = new System.Windows.Forms.GroupBox();
             this.UnvCheckbox = new System.Windows.Forms.CheckBox();
             this.YOACombobox = new System.Windows.Forms.ComboBox();
             this.UnvBranchCombobox = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.Series_Student_details_groupbox = new System.Windows.Forms.GroupBox();
+            this.Class_drpdwn = new System.Windows.Forms.ComboBox();
+            this.Class_label = new System.Windows.Forms.Label();
             this.groupboxExtraReg = new System.Windows.Forms.GroupBox();
             this.Extra_Name_Textbox = new System.Windows.Forms.TextBox();
             this.Extra_Reg_no_Textbox = new System.Windows.Forms.TextBox();
@@ -118,8 +118,8 @@
             this.panel2.SuspendLayout();
             this.Excel_Group.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.Series_Student_details_groupbox.SuspendLayout();
             this.Unv_Student_details_groupbox.SuspendLayout();
+            this.Series_Student_details_groupbox.SuspendLayout();
             this.groupboxExtraReg.SuspendLayout();
             this.SubjectDetails_groupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.excelShowBindingSource)).BeginInit();
@@ -339,7 +339,6 @@
             // 
             this.Excel_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
             this.Excel_btn.FlatAppearance.BorderSize = 0;
-            this.Excel_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.Excel_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Excel_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Excel_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -357,7 +356,6 @@
             this.RegRegCnd_btn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RegRegCnd_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
             this.RegRegCnd_btn.FlatAppearance.BorderSize = 0;
-            this.RegRegCnd_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
             this.RegRegCnd_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RegRegCnd_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RegRegCnd_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -411,44 +409,6 @@
             this.Unvrsty_rdbtn.Text = "University";
             this.Unvrsty_rdbtn.UseVisualStyleBackColor = true;
             this.Unvrsty_rdbtn.CheckedChanged += new System.EventHandler(this.Unvrsty_rdbtn_CheckedChanged);
-            // 
-            // Series_Student_details_groupbox
-            // 
-            this.Series_Student_details_groupbox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Series_Student_details_groupbox.Controls.Add(this.Class_drpdwn);
-            this.Series_Student_details_groupbox.Controls.Add(this.Class_label);
-            this.Series_Student_details_groupbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Series_Student_details_groupbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Series_Student_details_groupbox.Location = new System.Drawing.Point(3, 75);
-            this.Series_Student_details_groupbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Series_Student_details_groupbox.Name = "Series_Student_details_groupbox";
-            this.Series_Student_details_groupbox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Series_Student_details_groupbox.Size = new System.Drawing.Size(629, 75);
-            this.Series_Student_details_groupbox.TabIndex = 36;
-            this.Series_Student_details_groupbox.TabStop = false;
-            this.Series_Student_details_groupbox.Text = "Student Details";
-            // 
-            // Class_drpdwn
-            // 
-            this.Class_drpdwn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Class_drpdwn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Class_drpdwn.FormattingEnabled = true;
-            this.Class_drpdwn.Location = new System.Drawing.Point(114, 30);
-            this.Class_drpdwn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Class_drpdwn.Name = "Class_drpdwn";
-            this.Class_drpdwn.Size = new System.Drawing.Size(483, 29);
-            this.Class_drpdwn.TabIndex = 14;
-            this.Class_drpdwn.SelectedIndexChanged += new System.EventHandler(this.Class_drpdwn_SelectedIndexChanged);
-            // 
-            // Class_label
-            // 
-            this.Class_label.AutoSize = true;
-            this.Class_label.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Class_label.Location = new System.Drawing.Point(37, 33);
-            this.Class_label.Name = "Class_label";
-            this.Class_label.Size = new System.Drawing.Size(55, 22);
-            this.Class_label.TabIndex = 12;
-            this.Class_label.Text = "Class";
             // 
             // Unv_Student_details_groupbox
             // 
@@ -521,6 +481,44 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "Branch";
             // 
+            // Series_Student_details_groupbox
+            // 
+            this.Series_Student_details_groupbox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Series_Student_details_groupbox.Controls.Add(this.Class_drpdwn);
+            this.Series_Student_details_groupbox.Controls.Add(this.Class_label);
+            this.Series_Student_details_groupbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Series_Student_details_groupbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Series_Student_details_groupbox.Location = new System.Drawing.Point(3, 75);
+            this.Series_Student_details_groupbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Series_Student_details_groupbox.Name = "Series_Student_details_groupbox";
+            this.Series_Student_details_groupbox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Series_Student_details_groupbox.Size = new System.Drawing.Size(629, 75);
+            this.Series_Student_details_groupbox.TabIndex = 36;
+            this.Series_Student_details_groupbox.TabStop = false;
+            this.Series_Student_details_groupbox.Text = "Student Details";
+            // 
+            // Class_drpdwn
+            // 
+            this.Class_drpdwn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Class_drpdwn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Class_drpdwn.FormattingEnabled = true;
+            this.Class_drpdwn.Location = new System.Drawing.Point(114, 30);
+            this.Class_drpdwn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Class_drpdwn.Name = "Class_drpdwn";
+            this.Class_drpdwn.Size = new System.Drawing.Size(483, 29);
+            this.Class_drpdwn.TabIndex = 14;
+            this.Class_drpdwn.SelectedIndexChanged += new System.EventHandler(this.Class_drpdwn_SelectedIndexChanged);
+            // 
+            // Class_label
+            // 
+            this.Class_label.AutoSize = true;
+            this.Class_label.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Class_label.Location = new System.Drawing.Point(37, 33);
+            this.Class_label.Name = "Class_label";
+            this.Class_label.Size = new System.Drawing.Size(55, 22);
+            this.Class_label.TabIndex = 12;
+            this.Class_label.Text = "Class";
+            // 
             // groupboxExtraReg
             // 
             this.groupboxExtraReg.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -560,7 +558,6 @@
             // 
             this.ExtraReg_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
             this.ExtraReg_btn.FlatAppearance.BorderSize = 0;
-            this.ExtraReg_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
             this.ExtraReg_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ExtraReg_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ExtraReg_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -905,10 +902,10 @@
             this.Excel_Group.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.Series_Student_details_groupbox.ResumeLayout(false);
-            this.Series_Student_details_groupbox.PerformLayout();
             this.Unv_Student_details_groupbox.ResumeLayout(false);
             this.Unv_Student_details_groupbox.PerformLayout();
+            this.Series_Student_details_groupbox.ResumeLayout(false);
+            this.Series_Student_details_groupbox.PerformLayout();
             this.groupboxExtraReg.ResumeLayout(false);
             this.groupboxExtraReg.PerformLayout();
             this.SubjectDetails_groupbox.ResumeLayout(false);
