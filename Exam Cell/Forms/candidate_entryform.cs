@@ -28,8 +28,6 @@ namespace Exam_Cell
         private void formti_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Normal;
-            UnvBranchComboboxFill();
-            YoaComboboxFill();
             UnvBranchCombobox.Enabled = false;
             YOACombobox.Enabled = false;
             SubjectDetails_groupbox.Enabled = false;
@@ -294,6 +292,8 @@ namespace Exam_Cell
                 Candidate_datagridview.DataSource = null;
                 UnvBranchCombobox.Enabled = false;
                 YOACombobox.Enabled = false;
+                UnvBranchComboboxFill();
+                YoaComboboxFill();
                 SubjectDetails_groupbox.Enabled = true;
                 Series_Student_details_groupbox.Enabled = false;   //student details box disabled since not needed
                 Excel_Group.Enabled = true;        //excel group box enabled           
@@ -344,6 +344,7 @@ namespace Exam_Cell
             adapter.Fill(table_Students);
             source.DataSource = null;
             source.DataSource = table_Students;
+                Candidate_datagridview.DataSource = null;
             Candidate_datagridview.DataSource = source;
             }
             catch (Exception ex)
@@ -860,10 +861,15 @@ namespace Exam_Cell
             progressPanel.Hide();
         }
 
+        int first_time_load;
         private void UnvBranchCombobox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(UnvCheckbox.Checked)
             {
+                if (first_time_load == 0)
+                {
+
+                }
                 Studentsdgvfilter();
             }
         }
@@ -901,6 +907,7 @@ namespace Exam_Cell
         {
             if(UnvCheckbox.Checked)
             {
+                first_time_load = 0;
                 RegRegCnd_btn.Enabled = true;
                 Courses_dgv.Enabled = true;
                 Excel_Group.Enabled = false;
@@ -917,8 +924,8 @@ namespace Exam_Cell
                 SelectAllCheckbox.Enabled = false;
                 Courses_dgv.Enabled = false;
                 Excel_Group.Enabled = true;
-                UnvBranchComboboxFill();
-                YoaComboboxFill();
+                //UnvBranchComboboxFill();
+                //YoaComboboxFill();
                 UnvBranchCombobox.Enabled = false;
                 YOACombobox.Enabled = false;
                 Candidate_datagridview.DataSource = null;

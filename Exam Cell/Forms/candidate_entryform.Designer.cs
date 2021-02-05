@@ -166,9 +166,9 @@
             this.label5.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(129, 32);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(159, 33);
+            this.label5.Size = new System.Drawing.Size(164, 33);
             this.label5.TabIndex = 42;
-            this.label5.Text = "Processing ...";
+            this.label5.Text = "Please Wait...";
             // 
             // Courses_dgv
             // 
@@ -280,8 +280,8 @@
             this.panel2.Controls.Add(this.Excel_Group);
             this.panel2.Controls.Add(this.RegRegCnd_btn);
             this.panel2.Controls.Add(this.groupBox3);
-            this.panel2.Controls.Add(this.Series_Student_details_groupbox);
             this.panel2.Controls.Add(this.Unv_Student_details_groupbox);
+            this.panel2.Controls.Add(this.Series_Student_details_groupbox);
             this.panel2.Location = new System.Drawing.Point(3, 13);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(634, 315);
@@ -293,7 +293,7 @@
             this.SelectAllCheckbox.AutoSize = true;
             this.SelectAllCheckbox.Enabled = false;
             this.SelectAllCheckbox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectAllCheckbox.Location = new System.Drawing.Point(320, 263);
+            this.SelectAllCheckbox.Location = new System.Drawing.Point(311, 263);
             this.SelectAllCheckbox.Name = "SelectAllCheckbox";
             this.SelectAllCheckbox.Size = new System.Drawing.Size(124, 27);
             this.SelectAllCheckbox.TabIndex = 1;
@@ -319,7 +319,7 @@
             // Filepath_textbox
             // 
             this.Filepath_textbox.Enabled = false;
-            this.Filepath_textbox.Location = new System.Drawing.Point(116, 33);
+            this.Filepath_textbox.Location = new System.Drawing.Point(-1, 32);
             this.Filepath_textbox.Name = "Filepath_textbox";
             this.Filepath_textbox.ReadOnly = true;
             this.Filepath_textbox.Size = new System.Drawing.Size(220, 30);
@@ -329,7 +329,7 @@
             // 
             this.Sheet_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Sheet_combobox.FormattingEnabled = true;
-            this.Sheet_combobox.Location = new System.Drawing.Point(342, 33);
+            this.Sheet_combobox.Location = new System.Drawing.Point(341, 33);
             this.Sheet_combobox.Name = "Sheet_combobox";
             this.Sheet_combobox.Size = new System.Drawing.Size(278, 29);
             this.Sheet_combobox.TabIndex = 17;
@@ -337,13 +337,13 @@
             // 
             // Excel_btn
             // 
-            this.Excel_btn.BackColor = System.Drawing.Color.Olive;
+            this.Excel_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
             this.Excel_btn.FlatAppearance.BorderSize = 0;
             this.Excel_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.Excel_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Excel_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Excel_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Excel_btn.Location = new System.Drawing.Point(10, 27);
+            this.Excel_btn.Location = new System.Drawing.Point(230, 26);
             this.Excel_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Excel_btn.Name = "Excel_btn";
             this.Excel_btn.Size = new System.Drawing.Size(100, 42);
@@ -355,7 +355,7 @@
             // RegRegCnd_btn
             // 
             this.RegRegCnd_btn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.RegRegCnd_btn.BackColor = System.Drawing.Color.DarkGreen;
+            this.RegRegCnd_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
             this.RegRegCnd_btn.FlatAppearance.BorderSize = 0;
             this.RegRegCnd_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
             this.RegRegCnd_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -558,7 +558,7 @@
             // 
             // ExtraReg_btn
             // 
-            this.ExtraReg_btn.BackColor = System.Drawing.Color.DarkGreen;
+            this.ExtraReg_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
             this.ExtraReg_btn.FlatAppearance.BorderSize = 0;
             this.ExtraReg_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
             this.ExtraReg_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -861,6 +861,7 @@
             // 
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.AutoScroll = true;
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -881,9 +882,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BackgroundImage = global::Exam_Cell.Properties.Resources.FormBg__2_;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.progressPanel);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

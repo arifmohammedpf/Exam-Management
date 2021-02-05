@@ -21,8 +21,8 @@ namespace Exam_Cell
 
         CheckBox headerchkbox = new CheckBox();
         private void Student_Management_Load(object sender, EventArgs e)
-        {           
-
+        {
+            progressPanel.Show();
             //studentdgv
             DataGridViewCheckBoxColumn checkbox2 = new DataGridViewCheckBoxColumn();
             checkbox2.HeaderText = "";
@@ -812,6 +812,7 @@ namespace Exam_Cell
             YearOfAdmissionFill();
             ClassDgvView_checkbox.Checked = false;
             Student_dgvFill();
+            progressPanel.Hide();
         }
 
         string timerFlag;

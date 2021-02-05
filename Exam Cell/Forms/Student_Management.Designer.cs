@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Student_mngmnt_panel = new System.Windows.Forms.Panel();
             this.progressPanel = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
@@ -86,7 +86,7 @@
             // 
             this.Student_mngmnt_panel.AutoScroll = true;
             this.Student_mngmnt_panel.AutoSize = true;
-            this.Student_mngmnt_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(158)))), ((int)(((byte)(158)))));
+            this.Student_mngmnt_panel.BackColor = System.Drawing.Color.Transparent;
             this.Student_mngmnt_panel.Controls.Add(this.progressPanel);
             this.Student_mngmnt_panel.Controls.Add(this.Student_dgv);
             this.Student_mngmnt_panel.Controls.Add(this.SelectAllCheckbox);
@@ -104,9 +104,10 @@
             // 
             // progressPanel
             // 
+            this.progressPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.progressPanel.BackColor = System.Drawing.Color.Navy;
             this.progressPanel.Controls.Add(this.label5);
-            this.progressPanel.Location = new System.Drawing.Point(602, 369);
+            this.progressPanel.Location = new System.Drawing.Point(474, 312);
             this.progressPanel.Name = "progressPanel";
             this.progressPanel.Size = new System.Drawing.Size(410, 100);
             this.progressPanel.TabIndex = 43;
@@ -117,37 +118,37 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Comic Sans MS", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(129, 32);
+            this.label5.Location = new System.Drawing.Point(133, 32);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(159, 33);
+            this.label5.Size = new System.Drawing.Size(164, 33);
             this.label5.TabIndex = 42;
-            this.label5.Text = "Processing ...";
+            this.label5.Text = "Please Wait...";
             // 
             // Student_dgv
             // 
             this.Student_dgv.AllowUserToAddRows = false;
             this.Student_dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            this.Student_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 10F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            this.Student_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.Student_dgv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.Student_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.Student_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.Student_dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
             this.Student_dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Student_dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(39)))), ((int)(((byte)(160)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(45)))), ((int)(((byte)(180)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Student_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(39)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 12F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(45)))), ((int)(((byte)(180)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Student_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.Student_dgv.ColumnHeadersHeight = 40;
             this.Student_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.Student_dgv.EnableHeadersVisualStyles = false;
@@ -155,21 +156,21 @@
             this.Student_dgv.Location = new System.Drawing.Point(332, 224);
             this.Student_dgv.Name = "Student_dgv";
             this.Student_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(39)))), ((int)(((byte)(160)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(45)))), ((int)(((byte)(180)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Student_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 11F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.Student_dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(39)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(45)))), ((int)(((byte)(180)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Student_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 11F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            this.Student_dgv.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.Student_dgv.RowTemplate.Height = 24;
             this.Student_dgv.Size = new System.Drawing.Size(936, 442);
             this.Student_dgv.TabIndex = 10;
@@ -179,7 +180,7 @@
             this.SelectAllCheckbox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.SelectAllCheckbox.AutoSize = true;
             this.SelectAllCheckbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectAllCheckbox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.SelectAllCheckbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.SelectAllCheckbox.Location = new System.Drawing.Point(198, 555);
             this.SelectAllCheckbox.Name = "SelectAllCheckbox";
             this.SelectAllCheckbox.Size = new System.Drawing.Size(113, 26);
@@ -192,7 +193,7 @@
             this.ClassDgvView_checkbox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.ClassDgvView_checkbox.AutoSize = true;
             this.ClassDgvView_checkbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClassDgvView_checkbox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ClassDgvView_checkbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClassDgvView_checkbox.Location = new System.Drawing.Point(198, 587);
             this.ClassDgvView_checkbox.Name = "ClassDgvView_checkbox";
             this.ClassDgvView_checkbox.Size = new System.Drawing.Size(128, 26);
@@ -208,7 +209,7 @@
             this.UpgradeSemester_groupbox.Controls.Add(this.UpgradeSem_btn);
             this.UpgradeSemester_groupbox.Controls.Add(this.DegradeClass_btn);
             this.UpgradeSemester_groupbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpgradeSemester_groupbox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.UpgradeSemester_groupbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.UpgradeSemester_groupbox.Location = new System.Drawing.Point(1000, 3);
             this.UpgradeSemester_groupbox.Name = "UpgradeSemester_groupbox";
             this.UpgradeSemester_groupbox.Size = new System.Drawing.Size(268, 211);
@@ -256,7 +257,7 @@
             this.ImportGroupbox.Controls.Add(this.SelectExcel_btn);
             this.ImportGroupbox.Controls.Add(this.AddFromExcel_Btn);
             this.ImportGroupbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ImportGroupbox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ImportGroupbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ImportGroupbox.Location = new System.Drawing.Point(0, 224);
             this.ImportGroupbox.Name = "ImportGroupbox";
             this.ImportGroupbox.Size = new System.Drawing.Size(326, 281);
@@ -268,6 +269,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label7.Location = new System.Drawing.Point(47, 250);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(240, 19);
@@ -278,6 +280,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label6.Location = new System.Drawing.Point(50, 228);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(234, 19);
@@ -345,7 +348,7 @@
             this.AssignClass_groupbox.Controls.Add(this.label12);
             this.AssignClass_groupbox.Controls.Add(this.label13);
             this.AssignClass_groupbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AssignClass_groupbox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.AssignClass_groupbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.AssignClass_groupbox.Location = new System.Drawing.Point(551, 3);
             this.AssignClass_groupbox.Name = "AssignClass_groupbox";
             this.AssignClass_groupbox.Size = new System.Drawing.Size(443, 211);
@@ -387,7 +390,7 @@
             // 
             this.Class_label.AutoSize = true;
             this.Class_label.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Class_label.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Class_label.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Class_label.Location = new System.Drawing.Point(12, 113);
             this.Class_label.Name = "Class_label";
             this.Class_label.Size = new System.Drawing.Size(55, 22);
@@ -428,7 +431,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label12.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label12.Location = new System.Drawing.Point(12, 47);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(76, 22);
@@ -439,7 +442,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label13.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label13.Location = new System.Drawing.Point(12, 80);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(63, 22);
@@ -461,7 +464,7 @@
             this.add_stdnt_groupbox.Controls.Add(this.label2);
             this.add_stdnt_groupbox.Controls.Add(this.label4);
             this.add_stdnt_groupbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.add_stdnt_groupbox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.add_stdnt_groupbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.add_stdnt_groupbox.Location = new System.Drawing.Point(0, 3);
             this.add_stdnt_groupbox.Name = "add_stdnt_groupbox";
             this.add_stdnt_groupbox.Size = new System.Drawing.Size(545, 211);
@@ -496,7 +499,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label3.Location = new System.Drawing.Point(9, 83);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 22);
@@ -559,7 +562,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(9, 126);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 22);
@@ -570,7 +573,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Location = new System.Drawing.Point(9, 44);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 22);
@@ -581,7 +584,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.Location = new System.Drawing.Point(9, 167);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(76, 22);
@@ -607,7 +610,7 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 20;
+            this.timer1.Interval = 40;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // timerTool
@@ -621,6 +624,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BackgroundImage = global::Exam_Cell.Properties.Resources.FormBg__2_;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.Student_mngmnt_panel);
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
