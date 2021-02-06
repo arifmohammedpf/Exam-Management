@@ -181,8 +181,8 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             this.Courses_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.Courses_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.Courses_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.Courses_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.Courses_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.Courses_dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
             this.Courses_dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Courses_dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -232,8 +232,8 @@
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Green;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
             this.Candidate_datagridview.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.Candidate_datagridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.Candidate_datagridview.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.Candidate_datagridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.Candidate_datagridview.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.Candidate_datagridview.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
             this.Candidate_datagridview.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Candidate_datagridview.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -557,6 +557,7 @@
             // ExtraReg_btn
             // 
             this.ExtraReg_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
+            this.ExtraReg_btn.Cursor = System.Windows.Forms.Cursors.Default;
             this.ExtraReg_btn.FlatAppearance.BorderSize = 0;
             this.ExtraReg_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ExtraReg_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

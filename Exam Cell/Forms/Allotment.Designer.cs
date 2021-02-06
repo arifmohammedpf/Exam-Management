@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelContainer = new System.Windows.Forms.Panel();
             this.AllotedRooms_dgv = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -77,28 +77,24 @@
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Alloted_dgv = new System.Windows.Forms.DataGridView();
-            this.MultiAllotment_button = new System.Windows.Forms.Button();
+            this.SearchDGVFill = new System.Windows.Forms.Button();
             this.SingleAllotment_button = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.DateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.Session_combobox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.MultiAllotment_button = new System.Windows.Forms.Button();
             this.Generation_Panel = new System.Windows.Forms.Panel();
             this.AllotedStudentsRooms_dgv = new System.Windows.Forms.DataGridView();
             this.Clear_button = new System.Windows.Forms.Button();
             this.DisplayPrint_button = new System.Windows.Forms.Button();
             this.RoomPrint_button = new System.Windows.Forms.Button();
-            this.SignatureSheet_button = new System.Windows.Forms.Button();
             this.AllocatedRoom_combobox = new System.Windows.Forms.ComboBox();
             this.NoOfStudents_Room = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.DisplaySheet_Panel = new System.Windows.Forms.Panel();
-            this.label19 = new System.Windows.Forms.Label();
-            this.DisplayPanel_closebtn = new System.Windows.Forms.Button();
-            this.DisplaySheet_generate_btn = new System.Windows.Forms.Button();
-            this.label20 = new System.Windows.Forms.Label();
-            this.Display_examtype_textbox = new System.Windows.Forms.TextBox();
+            this.SignatureSheet_button = new System.Windows.Forms.Button();
             this.Signature_panel = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
             this.Signature_close_btn = new System.Windows.Forms.Button();
@@ -111,8 +107,12 @@
             this.Excel_generate_btn = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.MonthYear_textbox = new System.Windows.Forms.TextBox();
-            this.Session_combobox = new System.Windows.Forms.ComboBox();
-            this.SearchDGVFill = new System.Windows.Forms.Button();
+            this.DisplaySheet_Panel = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.DisplayPanel_closebtn = new System.Windows.Forms.Button();
+            this.DisplaySheet_generate_btn = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.Display_examtype_textbox = new System.Windows.Forms.TextBox();
             this.panelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AllotedRooms_dgv)).BeginInit();
             this.panel2.SuspendLayout();
@@ -125,9 +125,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Generation_Panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AllotedStudentsRooms_dgv)).BeginInit();
-            this.DisplaySheet_Panel.SuspendLayout();
             this.Signature_panel.SuspendLayout();
             this.RoomExcel_panel.SuspendLayout();
+            this.DisplaySheet_Panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelContainer
@@ -154,27 +154,27 @@
             // 
             this.AllotedRooms_dgv.AllowUserToAddRows = false;
             this.AllotedRooms_dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.LightGreen;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Century Gothic", 10F);
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle17.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.White;
-            this.AllotedRooms_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGreen;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.AllotedRooms_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.AllotedRooms_dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.AllotedRooms_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.AllotedRooms_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.AllotedRooms_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.AllotedRooms_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.AllotedRooms_dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
             this.AllotedRooms_dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.AllotedRooms_dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AllotedRooms_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AllotedRooms_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.AllotedRooms_dgv.ColumnHeadersHeight = 40;
             this.AllotedRooms_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.AllotedRooms_dgv.EnableHeadersVisualStyles = false;
@@ -184,21 +184,21 @@
             this.AllotedRooms_dgv.Name = "AllotedRooms_dgv";
             this.AllotedRooms_dgv.ReadOnly = true;
             this.AllotedRooms_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AllotedRooms_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.LightSeaGreen;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Century Gothic", 11F);
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle20.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.White;
-            this.AllotedRooms_dgv.RowsDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AllotedRooms_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 11F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.AllotedRooms_dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.AllotedRooms_dgv.Size = new System.Drawing.Size(373, 488);
             this.AllotedRooms_dgv.TabIndex = 51;
             // 
@@ -524,27 +524,27 @@
             // 
             this.AllotedBrief_dgv.AllowUserToAddRows = false;
             this.AllotedBrief_dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.LightSeaGreen;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Century Gothic", 10F);
-            dataGridViewCellStyle25.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle25.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.Color.White;
-            this.AllotedBrief_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 10F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            this.AllotedBrief_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.AllotedBrief_dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.AllotedBrief_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.AllotedBrief_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.AllotedBrief_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.AllotedBrief_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.AllotedBrief_dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
             this.AllotedBrief_dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.AllotedBrief_dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AllotedBrief_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AllotedBrief_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.AllotedBrief_dgv.ColumnHeadersHeight = 40;
             this.AllotedBrief_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.AllotedBrief_dgv.EnableHeadersVisualStyles = false;
@@ -554,21 +554,21 @@
             this.AllotedBrief_dgv.Name = "AllotedBrief_dgv";
             this.AllotedBrief_dgv.ReadOnly = true;
             this.AllotedBrief_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AllotedBrief_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
-            dataGridViewCellStyle28.BackColor = System.Drawing.Color.LightGreen;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Century Gothic", 11F);
-            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle28.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.Color.White;
-            this.AllotedBrief_dgv.RowsDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AllotedBrief_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.LightGreen;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 11F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            this.AllotedBrief_dgv.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.AllotedBrief_dgv.Size = new System.Drawing.Size(456, 212);
             this.AllotedBrief_dgv.TabIndex = 7;
             // 
@@ -619,27 +619,27 @@
             // 
             this.Alloted_dgv.AllowUserToAddRows = false;
             this.Alloted_dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle29.BackColor = System.Drawing.Color.LightGreen;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Century Gothic", 10F);
-            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle29.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.Color.White;
-            this.Alloted_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.LightGreen;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 10F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
+            this.Alloted_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.Alloted_dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Alloted_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.Alloted_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.Alloted_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.Alloted_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.Alloted_dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
             this.Alloted_dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Alloted_dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle30.BackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Alloted_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Alloted_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.Alloted_dgv.ColumnHeadersHeight = 40;
             this.Alloted_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.Alloted_dgv.EnableHeadersVisualStyles = false;
@@ -649,39 +649,39 @@
             this.Alloted_dgv.Name = "Alloted_dgv";
             this.Alloted_dgv.ReadOnly = true;
             this.Alloted_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle31.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle31.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Alloted_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle31;
-            dataGridViewCellStyle32.BackColor = System.Drawing.Color.LightSeaGreen;
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Century Gothic", 11F);
-            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle32.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.Color.White;
-            this.Alloted_dgv.RowsDefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Alloted_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 11F);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            this.Alloted_dgv.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.Alloted_dgv.Size = new System.Drawing.Size(463, 234);
             this.Alloted_dgv.TabIndex = 7;
             // 
-            // MultiAllotment_button
+            // SearchDGVFill
             // 
-            this.MultiAllotment_button.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.MultiAllotment_button.FlatAppearance.BorderSize = 0;
-            this.MultiAllotment_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SlateGray;
-            this.MultiAllotment_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MultiAllotment_button.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MultiAllotment_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.MultiAllotment_button.Location = new System.Drawing.Point(336, 7);
-            this.MultiAllotment_button.Name = "MultiAllotment_button";
-            this.MultiAllotment_button.Size = new System.Drawing.Size(116, 43);
-            this.MultiAllotment_button.TabIndex = 4;
-            this.MultiAllotment_button.Text = "Series";
-            this.MultiAllotment_button.UseVisualStyleBackColor = false;
-            this.MultiAllotment_button.Click += new System.EventHandler(this.MultiAllotment_button_Click);
+            this.SearchDGVFill.BackColor = System.Drawing.Color.Olive;
+            this.SearchDGVFill.FlatAppearance.BorderSize = 0;
+            this.SearchDGVFill.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.SearchDGVFill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SearchDGVFill.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchDGVFill.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.SearchDGVFill.Location = new System.Drawing.Point(336, 59);
+            this.SearchDGVFill.Name = "SearchDGVFill";
+            this.SearchDGVFill.Size = new System.Drawing.Size(116, 43);
+            this.SearchDGVFill.TabIndex = 6;
+            this.SearchDGVFill.Text = "Search";
+            this.SearchDGVFill.UseVisualStyleBackColor = false;
+            this.SearchDGVFill.Click += new System.EventHandler(this.SearchDGVFill_Click);
             // 
             // SingleAllotment_button
             // 
@@ -730,6 +730,20 @@
             this.DateTimePicker.Size = new System.Drawing.Size(246, 30);
             this.DateTimePicker.TabIndex = 2;
             // 
+            // Session_combobox
+            // 
+            this.Session_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Session_combobox.FormattingEnabled = true;
+            this.Session_combobox.Items.AddRange(new object[] {
+            "-Select-",
+            "Forenoon",
+            "Afternoon"});
+            this.Session_combobox.Location = new System.Drawing.Point(102, 64);
+            this.Session_combobox.Margin = new System.Windows.Forms.Padding(4);
+            this.Session_combobox.Name = "Session_combobox";
+            this.Session_combobox.Size = new System.Drawing.Size(227, 32);
+            this.Session_combobox.TabIndex = 1;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -741,6 +755,22 @@
             this.label1.Size = new System.Drawing.Size(66, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Date :";
+            // 
+            // MultiAllotment_button
+            // 
+            this.MultiAllotment_button.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.MultiAllotment_button.FlatAppearance.BorderSize = 0;
+            this.MultiAllotment_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SlateGray;
+            this.MultiAllotment_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MultiAllotment_button.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MultiAllotment_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.MultiAllotment_button.Location = new System.Drawing.Point(336, 7);
+            this.MultiAllotment_button.Name = "MultiAllotment_button";
+            this.MultiAllotment_button.Size = new System.Drawing.Size(116, 43);
+            this.MultiAllotment_button.TabIndex = 4;
+            this.MultiAllotment_button.Text = "Series";
+            this.MultiAllotment_button.UseVisualStyleBackColor = false;
+            this.MultiAllotment_button.Click += new System.EventHandler(this.MultiAllotment_button_Click);
             // 
             // Generation_Panel
             // 
@@ -765,27 +795,27 @@
             // 
             this.AllotedStudentsRooms_dgv.AllowUserToAddRows = false;
             this.AllotedStudentsRooms_dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.LightGreen;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Century Gothic", 10F);
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle21.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.White;
-            this.AllotedStudentsRooms_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.LightGreen;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Century Gothic", 10F);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle13.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.White;
+            this.AllotedStudentsRooms_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.AllotedStudentsRooms_dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.AllotedStudentsRooms_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.AllotedStudentsRooms_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.AllotedStudentsRooms_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.AllotedStudentsRooms_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.AllotedStudentsRooms_dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
             this.AllotedStudentsRooms_dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.AllotedStudentsRooms_dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AllotedStudentsRooms_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AllotedStudentsRooms_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.AllotedStudentsRooms_dgv.ColumnHeadersHeight = 40;
             this.AllotedStudentsRooms_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.AllotedStudentsRooms_dgv.EnableHeadersVisualStyles = false;
@@ -795,21 +825,21 @@
             this.AllotedStudentsRooms_dgv.Name = "AllotedStudentsRooms_dgv";
             this.AllotedStudentsRooms_dgv.ReadOnly = true;
             this.AllotedStudentsRooms_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AllotedStudentsRooms_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.LightSeaGreen;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Century Gothic", 11F);
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle24.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.White;
-            this.AllotedStudentsRooms_dgv.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AllotedStudentsRooms_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Century Gothic", 11F);
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle16.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.White;
+            this.AllotedStudentsRooms_dgv.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.AllotedStudentsRooms_dgv.Size = new System.Drawing.Size(426, 433);
             this.AllotedStudentsRooms_dgv.TabIndex = 11;
             // 
@@ -861,22 +891,6 @@
             this.RoomPrint_button.UseVisualStyleBackColor = false;
             this.RoomPrint_button.Click += new System.EventHandler(this.RoomPrint_button_Click);
             // 
-            // SignatureSheet_button
-            // 
-            this.SignatureSheet_button.BackColor = System.Drawing.Color.Olive;
-            this.SignatureSheet_button.FlatAppearance.BorderSize = 0;
-            this.SignatureSheet_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.SignatureSheet_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SignatureSheet_button.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SignatureSheet_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.SignatureSheet_button.Location = new System.Drawing.Point(3, 540);
-            this.SignatureSheet_button.Name = "SignatureSheet_button";
-            this.SignatureSheet_button.Size = new System.Drawing.Size(136, 46);
-            this.SignatureSheet_button.TabIndex = 10;
-            this.SignatureSheet_button.Text = "Signature";
-            this.SignatureSheet_button.UseVisualStyleBackColor = false;
-            this.SignatureSheet_button.Click += new System.EventHandler(this.SignatureSheet_button_Click);
-            // 
             // AllocatedRoom_combobox
             // 
             this.AllocatedRoom_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -922,80 +936,21 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Allocated Room";
             // 
-            // DisplaySheet_Panel
+            // SignatureSheet_button
             // 
-            this.DisplaySheet_Panel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.DisplaySheet_Panel.Controls.Add(this.label19);
-            this.DisplaySheet_Panel.Controls.Add(this.DisplayPanel_closebtn);
-            this.DisplaySheet_Panel.Controls.Add(this.DisplaySheet_generate_btn);
-            this.DisplaySheet_Panel.Controls.Add(this.label20);
-            this.DisplaySheet_Panel.Controls.Add(this.Display_examtype_textbox);
-            this.DisplaySheet_Panel.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DisplaySheet_Panel.Location = new System.Drawing.Point(481, 98);
-            this.DisplaySheet_Panel.Name = "DisplaySheet_Panel";
-            this.DisplaySheet_Panel.Size = new System.Drawing.Size(500, 388);
-            this.DisplaySheet_Panel.TabIndex = 19;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Arial Narrow", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label19.Location = new System.Drawing.Point(128, 31);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(301, 29);
-            this.label19.TabIndex = 5;
-            this.label19.Text = "DISPLAY SHEET GENERATION";
-            // 
-            // DisplayPanel_closebtn
-            // 
-            this.DisplayPanel_closebtn.BackColor = System.Drawing.Color.Maroon;
-            this.DisplayPanel_closebtn.FlatAppearance.BorderSize = 0;
-            this.DisplayPanel_closebtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.DisplayPanel_closebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DisplayPanel_closebtn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DisplayPanel_closebtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.DisplayPanel_closebtn.Location = new System.Drawing.Point(150, 241);
-            this.DisplayPanel_closebtn.Name = "DisplayPanel_closebtn";
-            this.DisplayPanel_closebtn.Size = new System.Drawing.Size(208, 40);
-            this.DisplayPanel_closebtn.TabIndex = 3;
-            this.DisplayPanel_closebtn.Text = "Close";
-            this.DisplayPanel_closebtn.UseVisualStyleBackColor = false;
-            this.DisplayPanel_closebtn.Click += new System.EventHandler(this.DisplayPanel_closebtn_Click);
-            // 
-            // DisplaySheet_generate_btn
-            // 
-            this.DisplaySheet_generate_btn.BackColor = System.Drawing.Color.DarkGreen;
-            this.DisplaySheet_generate_btn.FlatAppearance.BorderSize = 0;
-            this.DisplaySheet_generate_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
-            this.DisplaySheet_generate_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DisplaySheet_generate_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DisplaySheet_generate_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.DisplaySheet_generate_btn.Location = new System.Drawing.Point(150, 181);
-            this.DisplaySheet_generate_btn.Name = "DisplaySheet_generate_btn";
-            this.DisplaySheet_generate_btn.Size = new System.Drawing.Size(208, 40);
-            this.DisplaySheet_generate_btn.TabIndex = 3;
-            this.DisplaySheet_generate_btn.Text = "Generate Excel";
-            this.DisplaySheet_generate_btn.UseVisualStyleBackColor = false;
-            this.DisplaySheet_generate_btn.Click += new System.EventHandler(this.DisplaySheet_generate_btn_Click);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label20.Location = new System.Drawing.Point(65, 104);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(84, 17);
-            this.label20.TabIndex = 2;
-            this.label20.Text = "Examination";
-            // 
-            // Display_examtype_textbox
-            // 
-            this.Display_examtype_textbox.Location = new System.Drawing.Point(65, 124);
-            this.Display_examtype_textbox.Name = "Display_examtype_textbox";
-            this.Display_examtype_textbox.Size = new System.Drawing.Size(378, 33);
-            this.Display_examtype_textbox.TabIndex = 1;
+            this.SignatureSheet_button.BackColor = System.Drawing.Color.Olive;
+            this.SignatureSheet_button.FlatAppearance.BorderSize = 0;
+            this.SignatureSheet_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.SignatureSheet_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SignatureSheet_button.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SignatureSheet_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.SignatureSheet_button.Location = new System.Drawing.Point(3, 540);
+            this.SignatureSheet_button.Name = "SignatureSheet_button";
+            this.SignatureSheet_button.Size = new System.Drawing.Size(136, 46);
+            this.SignatureSheet_button.TabIndex = 10;
+            this.SignatureSheet_button.Text = "Signature";
+            this.SignatureSheet_button.UseVisualStyleBackColor = false;
+            this.SignatureSheet_button.Click += new System.EventHandler(this.SignatureSheet_button_Click);
             // 
             // Signature_panel
             // 
@@ -1147,35 +1102,80 @@
             this.MonthYear_textbox.Size = new System.Drawing.Size(378, 33);
             this.MonthYear_textbox.TabIndex = 1;
             // 
-            // Session_combobox
+            // DisplaySheet_Panel
             // 
-            this.Session_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Session_combobox.FormattingEnabled = true;
-            this.Session_combobox.Items.AddRange(new object[] {
-            "-Select-",
-            "Forenoon",
-            "Afternoon"});
-            this.Session_combobox.Location = new System.Drawing.Point(102, 64);
-            this.Session_combobox.Margin = new System.Windows.Forms.Padding(4);
-            this.Session_combobox.Name = "Session_combobox";
-            this.Session_combobox.Size = new System.Drawing.Size(227, 32);
-            this.Session_combobox.TabIndex = 1;
+            this.DisplaySheet_Panel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.DisplaySheet_Panel.Controls.Add(this.label19);
+            this.DisplaySheet_Panel.Controls.Add(this.DisplayPanel_closebtn);
+            this.DisplaySheet_Panel.Controls.Add(this.DisplaySheet_generate_btn);
+            this.DisplaySheet_Panel.Controls.Add(this.label20);
+            this.DisplaySheet_Panel.Controls.Add(this.Display_examtype_textbox);
+            this.DisplaySheet_Panel.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DisplaySheet_Panel.Location = new System.Drawing.Point(481, 98);
+            this.DisplaySheet_Panel.Name = "DisplaySheet_Panel";
+            this.DisplaySheet_Panel.Size = new System.Drawing.Size(500, 388);
+            this.DisplaySheet_Panel.TabIndex = 19;
             // 
-            // SearchDGVFill
+            // label19
             // 
-            this.SearchDGVFill.BackColor = System.Drawing.Color.Olive;
-            this.SearchDGVFill.FlatAppearance.BorderSize = 0;
-            this.SearchDGVFill.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.SearchDGVFill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SearchDGVFill.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchDGVFill.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.SearchDGVFill.Location = new System.Drawing.Point(336, 59);
-            this.SearchDGVFill.Name = "SearchDGVFill";
-            this.SearchDGVFill.Size = new System.Drawing.Size(116, 43);
-            this.SearchDGVFill.TabIndex = 6;
-            this.SearchDGVFill.Text = "Search";
-            this.SearchDGVFill.UseVisualStyleBackColor = false;
-            this.SearchDGVFill.Click += new System.EventHandler(this.SearchDGVFill_Click);
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Arial Narrow", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.label19.Location = new System.Drawing.Point(128, 31);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(301, 29);
+            this.label19.TabIndex = 5;
+            this.label19.Text = "DISPLAY SHEET GENERATION";
+            // 
+            // DisplayPanel_closebtn
+            // 
+            this.DisplayPanel_closebtn.BackColor = System.Drawing.Color.Maroon;
+            this.DisplayPanel_closebtn.FlatAppearance.BorderSize = 0;
+            this.DisplayPanel_closebtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.DisplayPanel_closebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DisplayPanel_closebtn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DisplayPanel_closebtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DisplayPanel_closebtn.Location = new System.Drawing.Point(150, 241);
+            this.DisplayPanel_closebtn.Name = "DisplayPanel_closebtn";
+            this.DisplayPanel_closebtn.Size = new System.Drawing.Size(208, 40);
+            this.DisplayPanel_closebtn.TabIndex = 3;
+            this.DisplayPanel_closebtn.Text = "Close";
+            this.DisplayPanel_closebtn.UseVisualStyleBackColor = false;
+            this.DisplayPanel_closebtn.Click += new System.EventHandler(this.DisplayPanel_closebtn_Click);
+            // 
+            // DisplaySheet_generate_btn
+            // 
+            this.DisplaySheet_generate_btn.BackColor = System.Drawing.Color.DarkGreen;
+            this.DisplaySheet_generate_btn.FlatAppearance.BorderSize = 0;
+            this.DisplaySheet_generate_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
+            this.DisplaySheet_generate_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DisplaySheet_generate_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DisplaySheet_generate_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DisplaySheet_generate_btn.Location = new System.Drawing.Point(150, 181);
+            this.DisplaySheet_generate_btn.Name = "DisplaySheet_generate_btn";
+            this.DisplaySheet_generate_btn.Size = new System.Drawing.Size(208, 40);
+            this.DisplaySheet_generate_btn.TabIndex = 3;
+            this.DisplaySheet_generate_btn.Text = "Generate Excel";
+            this.DisplaySheet_generate_btn.UseVisualStyleBackColor = false;
+            this.DisplaySheet_generate_btn.Click += new System.EventHandler(this.DisplaySheet_generate_btn_Click);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label20.Location = new System.Drawing.Point(65, 104);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(84, 17);
+            this.label20.TabIndex = 2;
+            this.label20.Text = "Examination";
+            // 
+            // Display_examtype_textbox
+            // 
+            this.Display_examtype_textbox.Location = new System.Drawing.Point(65, 124);
+            this.Display_examtype_textbox.Name = "Display_examtype_textbox";
+            this.Display_examtype_textbox.Size = new System.Drawing.Size(378, 33);
+            this.Display_examtype_textbox.TabIndex = 1;
             // 
             // Allotment
             // 
@@ -1208,12 +1208,12 @@
             this.Generation_Panel.ResumeLayout(false);
             this.Generation_Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AllotedStudentsRooms_dgv)).EndInit();
-            this.DisplaySheet_Panel.ResumeLayout(false);
-            this.DisplaySheet_Panel.PerformLayout();
             this.Signature_panel.ResumeLayout(false);
             this.Signature_panel.PerformLayout();
             this.RoomExcel_panel.ResumeLayout(false);
             this.RoomExcel_panel.PerformLayout();
+            this.DisplaySheet_Panel.ResumeLayout(false);
+            this.DisplaySheet_Panel.PerformLayout();
             this.ResumeLayout(false);
 
         }

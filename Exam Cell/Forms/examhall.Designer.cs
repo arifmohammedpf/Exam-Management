@@ -308,8 +308,8 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             this.Rooms_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.Rooms_dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Rooms_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.Rooms_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.Rooms_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.Rooms_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.Rooms_dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
             this.Rooms_dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Rooms_dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
