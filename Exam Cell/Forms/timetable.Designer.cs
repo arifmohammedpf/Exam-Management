@@ -126,6 +126,7 @@
             // Undo_btn
             // 
             this.Undo_btn.BackColor = System.Drawing.Color.Maroon;
+            this.Undo_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Undo_btn.FlatAppearance.BorderSize = 0;
             this.Undo_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.Undo_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -143,6 +144,7 @@
             // Add_btn
             // 
             this.Add_btn.BackColor = System.Drawing.Color.DarkGreen;
+            this.Add_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Add_btn.FlatAppearance.BorderSize = 0;
             this.Add_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
             this.Add_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -160,6 +162,7 @@
             // Clear_btn
             // 
             this.Clear_btn.BackColor = System.Drawing.Color.Olive;
+            this.Clear_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Clear_btn.FlatAppearance.BorderSize = 0;
             this.Clear_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.Clear_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

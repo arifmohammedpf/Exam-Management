@@ -131,6 +131,7 @@
             // 
             this.Search_btn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Search_btn.BackColor = System.Drawing.Color.Olive;
+            this.Search_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Search_btn.FlatAppearance.BorderSize = 0;
             this.Search_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.Search_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -184,6 +185,7 @@
             // 
             this.ClearData_btn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ClearData_btn.BackColor = System.Drawing.Color.Maroon;
+            this.ClearData_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ClearData_btn.FlatAppearance.BorderSize = 0;
             this.ClearData_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.ClearData_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -202,6 +204,7 @@
             // 
             this.Absentees_btn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Absentees_btn.BackColor = System.Drawing.Color.DarkGreen;
+            this.Absentees_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Absentees_btn.FlatAppearance.BorderSize = 0;
             this.Absentees_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
             this.Absentees_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

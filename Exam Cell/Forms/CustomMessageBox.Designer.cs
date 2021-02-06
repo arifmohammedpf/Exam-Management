@@ -30,15 +30,15 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelMessage = new System.Windows.Forms.Label();
+            this.pictureIcon = new System.Windows.Forms.PictureBox();
             this.btnYes = new System.Windows.Forms.Button();
             this.btnNo = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
             this.labelTitle = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureIcon = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureIcon)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -69,10 +69,21 @@
             this.labelMessage.TabIndex = 7;
             this.labelMessage.Text = "Message";
             // 
+            // pictureIcon
+            // 
+            this.pictureIcon.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.pictureIcon.Location = new System.Drawing.Point(49, 128);
+            this.pictureIcon.Name = "pictureIcon";
+            this.pictureIcon.Size = new System.Drawing.Size(115, 88);
+            this.pictureIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureIcon.TabIndex = 5;
+            this.pictureIcon.TabStop = false;
+            // 
             // btnYes
             // 
             this.btnYes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnYes.BackColor = System.Drawing.Color.Green;
+            this.btnYes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnYes.FlatAppearance.BorderSize = 0;
             this.btnYes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGreen;
             this.btnYes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -90,6 +101,7 @@
             // 
             this.btnNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNo.BackColor = System.Drawing.Color.Brown;
+            this.btnNo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNo.FlatAppearance.BorderSize = 0;
             this.btnNo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkRed;
             this.btnNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -107,6 +119,7 @@
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOk.BackColor = System.Drawing.Color.Green;
+            this.btnOk.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOk.FlatAppearance.BorderSize = 0;
             this.btnOk.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGreen;
             this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -141,16 +154,6 @@
             this.panel2.Size = new System.Drawing.Size(557, 58);
             this.panel2.TabIndex = 1;
             // 
-            // pictureIcon
-            // 
-            this.pictureIcon.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.pictureIcon.Location = new System.Drawing.Point(49, 128);
-            this.pictureIcon.Name = "pictureIcon";
-            this.pictureIcon.Size = new System.Drawing.Size(115, 88);
-            this.pictureIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureIcon.TabIndex = 5;
-            this.pictureIcon.TabStop = false;
-            // 
             // CustomMessageBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -168,9 +171,9 @@
             this.Text = "CustomMessageBox";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureIcon)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

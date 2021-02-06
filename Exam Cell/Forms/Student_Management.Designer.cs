@@ -220,6 +220,7 @@
             // UpgradeSem_btn
             // 
             this.UpgradeSem_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
+            this.UpgradeSem_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.UpgradeSem_btn.FlatAppearance.BorderSize = 0;
             this.UpgradeSem_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UpgradeSem_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -235,6 +236,7 @@
             // DegradeClass_btn
             // 
             this.DegradeClass_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.DegradeClass_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DegradeClass_btn.FlatAppearance.BorderSize = 0;
             this.DegradeClass_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DegradeClass_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -308,6 +310,7 @@
             // SelectExcel_btn
             // 
             this.SelectExcel_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
+            this.SelectExcel_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SelectExcel_btn.FlatAppearance.BorderSize = 0;
             this.SelectExcel_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SelectExcel_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -323,6 +326,7 @@
             // AddFromExcel_Btn
             // 
             this.AddFromExcel_Btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
+            this.AddFromExcel_Btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AddFromExcel_Btn.Enabled = false;
             this.AddFromExcel_Btn.FlatAppearance.BorderSize = 0;
             this.AddFromExcel_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -400,6 +404,7 @@
             // AssignClass_btn
             // 
             this.AssignClass_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
+            this.AssignClass_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AssignClass_btn.FlatAppearance.BorderSize = 0;
             this.AssignClass_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AssignClass_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -415,6 +420,7 @@
             // Clear_btn_2
             // 
             this.Clear_btn_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
+            this.Clear_btn_2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Clear_btn_2.FlatAppearance.BorderSize = 0;
             this.Clear_btn_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Clear_btn_2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -516,6 +522,7 @@
             // Search_btn
             // 
             this.Search_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
+            this.Search_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Search_btn.FlatAppearance.BorderSize = 0;
             this.Search_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Search_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -531,6 +538,7 @@
             // Clear_btn
             // 
             this.Clear_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
+            this.Clear_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Clear_btn.FlatAppearance.BorderSize = 0;
             this.Clear_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Clear_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -546,6 +554,7 @@
             // AddStudent_btn
             // 
             this.AddStudent_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
+            this.AddStudent_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AddStudent_btn.FlatAppearance.BorderSize = 0;
             this.AddStudent_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddStudent_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -595,6 +604,7 @@
             // 
             this.Delete_btn.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Delete_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.Delete_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Delete_btn.FlatAppearance.BorderSize = 0;
             this.Delete_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Delete_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

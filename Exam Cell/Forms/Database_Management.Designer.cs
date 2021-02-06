@@ -273,6 +273,7 @@
             // AddNewClass_btn
             // 
             this.AddNewClass_btn.BackColor = System.Drawing.Color.DarkGreen;
+            this.AddNewClass_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AddNewClass_btn.FlatAppearance.BorderSize = 0;
             this.AddNewClass_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
             this.AddNewClass_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -289,6 +290,7 @@
             // DeleteClass_btn
             // 
             this.DeleteClass_btn.BackColor = System.Drawing.Color.Maroon;
+            this.DeleteClass_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DeleteClass_btn.FlatAppearance.BorderSize = 0;
             this.DeleteClass_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.DeleteClass_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -338,6 +340,7 @@
             // AddNewBranch_btn
             // 
             this.AddNewBranch_btn.BackColor = System.Drawing.Color.DarkGreen;
+            this.AddNewBranch_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AddNewBranch_btn.FlatAppearance.BorderSize = 0;
             this.AddNewBranch_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
             this.AddNewBranch_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -409,6 +412,7 @@
             // DeleteBranch_btn
             // 
             this.DeleteBranch_btn.BackColor = System.Drawing.Color.Maroon;
+            this.DeleteBranch_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DeleteBranch_btn.FlatAppearance.BorderSize = 0;
             this.DeleteBranch_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.DeleteBranch_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -478,6 +482,7 @@
             // AddNewCourse_btn
             // 
             this.AddNewCourse_btn.BackColor = System.Drawing.Color.DarkGreen;
+            this.AddNewCourse_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AddNewCourse_btn.FlatAppearance.BorderSize = 0;
             this.AddNewCourse_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
             this.AddNewCourse_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -505,6 +510,7 @@
             // DeleteCourse_btn
             // 
             this.DeleteCourse_btn.BackColor = System.Drawing.Color.SaddleBrown;
+            this.DeleteCourse_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DeleteCourse_btn.FlatAppearance.BorderSize = 0;
             this.DeleteCourse_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteCourse_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

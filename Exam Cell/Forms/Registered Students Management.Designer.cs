@@ -101,6 +101,7 @@
             // Delete_btn
             // 
             this.Delete_btn.BackColor = System.Drawing.Color.Maroon;
+            this.Delete_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Delete_btn.FlatAppearance.BorderSize = 0;
             this.Delete_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.Delete_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -118,6 +119,7 @@
             // 
             this.DeleteAll_btn.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.DeleteAll_btn.BackColor = System.Drawing.Color.Maroon;
+            this.DeleteAll_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DeleteAll_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.DeleteAll_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteAll_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -217,6 +219,7 @@
             // ClearBtn
             // 
             this.ClearBtn.BackColor = System.Drawing.Color.Olive;
+            this.ClearBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ClearBtn.FlatAppearance.BorderSize = 0;
             this.ClearBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.ClearBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

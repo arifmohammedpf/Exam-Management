@@ -265,6 +265,7 @@
             // UpdatePriority_button
             // 
             this.UpdatePriority_button.BackColor = System.Drawing.Color.Olive;
+            this.UpdatePriority_button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.UpdatePriority_button.FlatAppearance.BorderSize = 0;
             this.UpdatePriority_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.UpdatePriority_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -282,6 +283,7 @@
             // Save_button
             // 
             this.Save_button.BackColor = System.Drawing.Color.DarkGreen;
+            this.Save_button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Save_button.FlatAppearance.BorderSize = 0;
             this.Save_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
             this.Save_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

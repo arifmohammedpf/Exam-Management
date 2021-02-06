@@ -338,6 +338,7 @@
             // Excel_btn
             // 
             this.Excel_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
+            this.Excel_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Excel_btn.FlatAppearance.BorderSize = 0;
             this.Excel_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Excel_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -355,6 +356,7 @@
             // 
             this.RegRegCnd_btn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RegRegCnd_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
+            this.RegRegCnd_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RegRegCnd_btn.FlatAppearance.BorderSize = 0;
             this.RegRegCnd_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RegRegCnd_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -557,7 +559,7 @@
             // ExtraReg_btn
             // 
             this.ExtraReg_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
-            this.ExtraReg_btn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ExtraReg_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ExtraReg_btn.FlatAppearance.BorderSize = 0;
             this.ExtraReg_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ExtraReg_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

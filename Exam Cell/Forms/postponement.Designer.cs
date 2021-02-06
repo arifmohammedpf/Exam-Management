@@ -201,6 +201,7 @@
             // Postpone_button
             // 
             this.Postpone_button.BackColor = System.Drawing.Color.DarkGreen;
+            this.Postpone_button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Postpone_button.FlatAppearance.BorderSize = 0;
             this.Postpone_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
             this.Postpone_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -351,6 +352,7 @@
             // 
             this.Clear_button.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Clear_button.BackColor = System.Drawing.Color.Maroon;
+            this.Clear_button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Clear_button.FlatAppearance.BorderSize = 0;
             this.Clear_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.Clear_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

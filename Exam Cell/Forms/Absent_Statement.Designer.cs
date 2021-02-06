@@ -210,6 +210,7 @@
             // Filepath_button
             // 
             this.Filepath_button.BackColor = System.Drawing.Color.Olive;
+            this.Filepath_button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Filepath_button.FlatAppearance.BorderSize = 0;
             this.Filepath_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.Filepath_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -227,6 +228,7 @@
             // Search_btn
             // 
             this.Search_btn.BackColor = System.Drawing.Color.Olive;
+            this.Search_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Search_btn.FlatAppearance.BorderSize = 0;
             this.Search_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.Search_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -244,6 +246,7 @@
             // Prepare_Statement_btn
             // 
             this.Prepare_Statement_btn.BackColor = System.Drawing.Color.DarkGreen;
+            this.Prepare_Statement_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Prepare_Statement_btn.FlatAppearance.BorderSize = 0;
             this.Prepare_Statement_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
             this.Prepare_Statement_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
