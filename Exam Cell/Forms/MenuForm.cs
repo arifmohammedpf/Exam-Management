@@ -19,6 +19,7 @@ namespace Exam_Cell.Forms
             CustomDesign();
         }
 
+        private Form activeForm = null;
         Control Temp_btn=null;
         private void MoveSidePanel(Control btn)
         {
@@ -92,7 +93,7 @@ namespace Exam_Cell.Forms
             ShowDropMenu(panelAbsentDropMenu);
         }
 
-        private Form activeForm = null;
+        
         private void OpenChildForm(Form childForm)
         {
             if (activeForm != null)
@@ -175,6 +176,11 @@ namespace Exam_Cell.Forms
                 timer.Stop();
                 Application.Exit();
             }
+        }
+
+        private void CreditsBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

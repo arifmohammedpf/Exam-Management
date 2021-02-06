@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SQLite;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -26,6 +27,13 @@ namespace Exam_Cell
             InitializeComponent();
         }
 
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, Color.FromArgb(53, 92, 125), Color.FromArgb(108, 91, 123),280F))
+            {
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+            }
+        }
         void Class_dgv_Fill()
         {
             try

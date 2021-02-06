@@ -63,6 +63,26 @@ namespace Exam_Cell.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Credits__1_ {
+            get {
+                object obj = ResourceManager.GetObject("Credits (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EXAM_CELL {
+            get {
+                object obj = ResourceManager.GetObject("EXAM CELL", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FormBg__2_ {
             get {
                 object obj = ResourceManager.GetObject("FormBg (2)", resourceCulture);

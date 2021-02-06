@@ -45,7 +45,7 @@
             // 
             this.panel1.AutoScroll = true;
             this.panel1.AutoSize = true;
-            this.panel1.BackColor = System.Drawing.Color.MidnightBlue;
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.labelMessage);
             this.panel1.Controls.Add(this.pictureIcon);
             this.panel1.Controls.Add(this.btnYes);
@@ -82,12 +82,11 @@
             // btnYes
             // 
             this.btnYes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnYes.BackColor = System.Drawing.Color.Green;
+            this.btnYes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(155)))), ((int)(((byte)(15)))));
             this.btnYes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnYes.FlatAppearance.BorderSize = 0;
-            this.btnYes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGreen;
             this.btnYes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnYes.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnYes.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnYes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnYes.Location = new System.Drawing.Point(233, 271);
             this.btnYes.Name = "btnYes";
@@ -100,12 +99,11 @@
             // btnNo
             // 
             this.btnNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNo.BackColor = System.Drawing.Color.Brown;
+            this.btnNo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.btnNo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNo.FlatAppearance.BorderSize = 0;
-            this.btnNo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkRed;
             this.btnNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNo.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNo.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnNo.Location = new System.Drawing.Point(386, 271);
             this.btnNo.Name = "btnNo";
@@ -118,12 +116,11 @@
             // btnOk
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOk.BackColor = System.Drawing.Color.Green;
+            this.btnOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(155)))), ((int)(((byte)(15)))));
             this.btnOk.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOk.FlatAppearance.BorderSize = 0;
-            this.btnOk.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGreen;
             this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOk.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOk.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOk.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnOk.Location = new System.Drawing.Point(386, 271);
             this.btnOk.Name = "btnOk";
@@ -146,7 +143,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.Navy;
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.labelTitle);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -160,6 +157,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(557, 336);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -169,6 +167,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CustomMessageBox";
+            this.Resize += new System.EventHandler(this.CustomMessageBox_Resize);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureIcon)).EndInit();

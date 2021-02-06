@@ -6,6 +6,8 @@ using System.Data.SQLite;
 using System.IO;
 using ExcelDataReader;
 using Exam_Cell.Forms;
+using System.Drawing.Drawing2D;
+using System.Drawing;
 
 namespace Exam_Cell
 {
@@ -19,11 +21,16 @@ namespace Exam_Cell
         {
             InitializeComponent();
         }
-
-
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, Color.FromArgb(53, 92, 125), Color.FromArgb(108, 91, 123), 280F))
+            {
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+            }
+        }
 
         //CheckBox headerchkbox = new CheckBox();
-        
+
         // Main Form Open
         private void formti_Load(object sender, EventArgs e)
         {

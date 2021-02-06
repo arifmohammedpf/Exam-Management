@@ -87,6 +87,7 @@
             this.Student_mngmnt_panel.AutoScroll = true;
             this.Student_mngmnt_panel.AutoSize = true;
             this.Student_mngmnt_panel.BackColor = System.Drawing.Color.Transparent;
+            this.Student_mngmnt_panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Student_mngmnt_panel.Controls.Add(this.progressPanel);
             this.Student_mngmnt_panel.Controls.Add(this.Student_dgv);
             this.Student_mngmnt_panel.Controls.Add(this.SelectAllCheckbox);
@@ -105,7 +106,7 @@
             // progressPanel
             // 
             this.progressPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.progressPanel.BackColor = System.Drawing.Color.Navy;
+            this.progressPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(43)))), ((int)(((byte)(99)))));
             this.progressPanel.Controls.Add(this.label5);
             this.progressPanel.Location = new System.Drawing.Point(474, 312);
             this.progressPanel.Name = "progressPanel";
@@ -634,13 +635,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.BackgroundImage = global::Exam_Cell.Properties.Resources.FormBg__2_;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.Student_mngmnt_panel);
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Student_Management";
+            this.ShowInTaskbar = false;
             this.Text = "Student_Management";
             this.Load += new System.EventHandler(this.Student_Management_Load);
             this.Student_mngmnt_panel.ResumeLayout(false);

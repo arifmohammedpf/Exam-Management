@@ -8,6 +8,8 @@ using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using System.IO;
 using Exam_Cell.Forms;
+using System.Drawing.Drawing2D;
+using System.Drawing;
 
 namespace Exam_Cell
 {
@@ -19,6 +21,13 @@ namespace Exam_Cell
         public Allotment()
         {
             InitializeComponent();
+        }
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, Color.FromArgb(53, 92, 125), Color.FromArgb(108, 91, 123), 280F))
+            {
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+            }
         }
 
         private void SingleAllotment_button_Click(object sender, EventArgs e)
@@ -1218,7 +1227,7 @@ namespace Exam_Cell
 
         private void Allotment_Load(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Normal;
+            //this.WindowState = FormWindowState.Normal;
             Generation_Panel.BringToFront();
             Generation_Panel.Enabled = false;
             panel1.Enabled = false;

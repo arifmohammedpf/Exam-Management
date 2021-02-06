@@ -3,6 +3,8 @@ using System.Data;
 using System.Windows.Forms;
 using System.Data.SQLite;
 using Exam_Cell.Forms;
+using System.Drawing.Drawing2D;
+using System.Drawing;
 
 namespace Exam_Cell
 {
@@ -16,10 +18,16 @@ namespace Exam_Cell
         {
             InitializeComponent();
         }
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, Color.FromArgb(53, 92, 125), Color.FromArgb(108, 91, 123), 280F))
+            {
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+            }
+        }
 
-       
 
-       
+
         BindingSource source = new BindingSource();
         BindingSource source2 = new BindingSource();
         void TimetableFill()
@@ -189,10 +197,10 @@ namespace Exam_Cell
         int clearcount = 0;
         private void Add_btn_Click(object sender, EventArgs e)
         {
-            msgbox.show("Click Yes to Add   ", "Confirm", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Information);
-            var result = msgbox.ReturnValue;
-            if (result == "Yes")
-            {
+            //msgbox.show("Click Yes to Add   ", "Confirm", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Information);
+            //var result = msgbox.ReturnValue;
+            //if (result == "Yes")
+            //{
                 try
                 {
                     if (Session_combobox.Text != "-Select-")
@@ -218,11 +226,11 @@ namespace Exam_Cell
                         {
                             con.CloseCon();
                             Undo_backup_function(flag);
-                            Session_combobox.SelectedIndex = 0;
+                            //Session_combobox.SelectedIndex = 0;
                             Examcode_box.Clear();
                             CourseFill();
                             TimetableFill();
-                            msgbox.show("Data Inserted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                            //msgbox.show("Data Inserted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                         }
                         else msgbox.show("No Course Selected    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                     }
@@ -232,7 +240,7 @@ namespace Exam_Cell
                 catch (Exception ex)
                 {
                     msgbox.show(ex.ToString(), "Exception Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
-                    Session_combobox.SelectedIndex = 0;
+                    //Session_combobox.SelectedIndex = 0;
                     //Course_Select_dgv.Update();
                     //Course_Select_dgv.Refresh();
                     //Timetableview_dgv.Update();
@@ -240,7 +248,7 @@ namespace Exam_Cell
                     CourseFill();
                     TimetableFill();
                 }
-            }
+            //}
                 
         }
 

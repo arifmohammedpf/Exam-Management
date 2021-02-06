@@ -89,7 +89,8 @@
             // Class_Managmnt_panel
             // 
             this.Class_Managmnt_panel.AutoScroll = true;
-            this.Class_Managmnt_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.Class_Managmnt_panel.BackColor = System.Drawing.Color.Transparent;
+            this.Class_Managmnt_panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Class_Managmnt_panel.Controls.Add(this.Scheme_dgv);
             this.Class_Managmnt_panel.Controls.Add(this.RadioButton_panel);
             this.Class_Managmnt_panel.Controls.Add(this.groupBoxContents);
@@ -104,11 +105,11 @@
             // 
             this.Scheme_dgv.AllowUserToAddRows = false;
             this.Scheme_dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGreen;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             this.Scheme_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.Scheme_dgv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -118,10 +119,10 @@
             this.Scheme_dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Scheme_dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Maroon;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.Scheme_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
@@ -134,19 +135,19 @@
             this.Scheme_dgv.Name = "Scheme_dgv";
             this.Scheme_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Maroon;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.Scheme_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 11F);
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
             this.Scheme_dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.Scheme_dgv.Size = new System.Drawing.Size(690, 662);
             this.Scheme_dgv.TabIndex = 11;
@@ -154,6 +155,7 @@
             // RadioButton_panel
             // 
             this.RadioButton_panel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.RadioButton_panel.BackColor = System.Drawing.Color.Transparent;
             this.RadioButton_panel.Controls.Add(this.Class_radiobtn);
             this.RadioButton_panel.Controls.Add(this.DefaultScheme_radiobtn);
             this.RadioButton_panel.Location = new System.Drawing.Point(232, 3);
@@ -164,6 +166,7 @@
             // Class_radiobtn
             // 
             this.Class_radiobtn.AutoSize = true;
+            this.Class_radiobtn.BackColor = System.Drawing.Color.Transparent;
             this.Class_radiobtn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Class_radiobtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Class_radiobtn.Location = new System.Drawing.Point(16, 9);
@@ -171,7 +174,7 @@
             this.Class_radiobtn.Size = new System.Drawing.Size(283, 26);
             this.Class_radiobtn.TabIndex = 6;
             this.Class_radiobtn.Text = "Class/Branch Management";
-            this.Class_radiobtn.UseVisualStyleBackColor = true;
+            this.Class_radiobtn.UseVisualStyleBackColor = false;
             this.Class_radiobtn.CheckedChanged += new System.EventHandler(this.Class_radiobtn_CheckedChanged);
             // 
             // DefaultScheme_radiobtn
@@ -190,6 +193,7 @@
             // groupBoxContents
             // 
             this.groupBoxContents.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.groupBoxContents.BackColor = System.Drawing.Color.Transparent;
             this.groupBoxContents.Controls.Add(this.NewClassGroupbox);
             this.groupBoxContents.Controls.Add(this.NewBranchGroupbox);
             this.groupBoxContents.Controls.Add(this.NewCourseGroupbox);
@@ -272,10 +276,9 @@
             // 
             // AddNewClass_btn
             // 
-            this.AddNewClass_btn.BackColor = System.Drawing.Color.DarkGreen;
+            this.AddNewClass_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
             this.AddNewClass_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AddNewClass_btn.FlatAppearance.BorderSize = 0;
-            this.AddNewClass_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
             this.AddNewClass_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddNewClass_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddNewClass_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -339,10 +342,9 @@
             // 
             // AddNewBranch_btn
             // 
-            this.AddNewBranch_btn.BackColor = System.Drawing.Color.DarkGreen;
+            this.AddNewBranch_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
             this.AddNewBranch_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AddNewBranch_btn.FlatAppearance.BorderSize = 0;
-            this.AddNewBranch_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
             this.AddNewBranch_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddNewBranch_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddNewBranch_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -481,10 +483,9 @@
             // 
             // AddNewCourse_btn
             // 
-            this.AddNewCourse_btn.BackColor = System.Drawing.Color.DarkGreen;
+            this.AddNewCourse_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
             this.AddNewCourse_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AddNewCourse_btn.FlatAppearance.BorderSize = 0;
-            this.AddNewCourse_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
             this.AddNewCourse_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddNewCourse_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddNewCourse_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -630,6 +631,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Database_Management";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Database Management";
             this.Load += new System.EventHandler(this.Database_Management_Load);

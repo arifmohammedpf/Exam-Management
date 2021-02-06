@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SQLite;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,8 +21,13 @@ namespace Exam_Cell
         {
             InitializeComponent();
         }
-
-        
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, Color.FromArgb(53, 92, 125), Color.FromArgb(108, 91, 123), 280F))
+            {
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+            }
+        }
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -86,7 +92,7 @@ namespace Exam_Cell
             Point HeaderCellLocation = this.ScheduledExam_dgv.GetCellDisplayRectangle(0, -1, true).Location;
             //place headercheckbox to the location
             headerchkbox.Location = new Point(HeaderCellLocation.X - 18, HeaderCellLocation.Y + 13);
-            headerchkbox.BackColor = Color.RoyalBlue;
+            headerchkbox.BackColor = Color.FromArgb(64, 0, 0);
             headerchkbox.Size = new Size(18, 18);
             //add checkbox into dgv
             ScheduledExam_dgv.Controls.Add(headerchkbox);
