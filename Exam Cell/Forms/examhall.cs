@@ -3,6 +3,7 @@ using System;
 using System.Data;
 using System.Data.SQLite;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 namespace Exam_Cell
@@ -15,7 +16,13 @@ namespace Exam_Cell
         {
             InitializeComponent();
         }
-
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, Color.FromArgb(53, 92, 125), Color.FromArgb(108, 91, 123), 280F))
+            {
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+            }
+        }
         void RoomsdgvFill()
         {
             try
@@ -61,7 +68,7 @@ namespace Exam_Cell
             Point HeaderCellLocation = this.Rooms_dgv.GetCellDisplayRectangle(0, -1, true).Location;
             //place headercheckbox to the location
             headerchkbox.Location = new Point(HeaderCellLocation.X + 8 , HeaderCellLocation.Y + 13);
-            headerchkbox.BackColor = Color.RoyalBlue;
+            headerchkbox.BackColor = Color.FromArgb(64, 0, 0);
             headerchkbox.Size = new Size(18, 18);
             //add checkbox into dgv
             Rooms_dgv.Controls.Add(headerchkbox);

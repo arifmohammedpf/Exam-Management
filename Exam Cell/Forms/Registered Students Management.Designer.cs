@@ -86,11 +86,13 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.Series_radiobtn);
             this.groupBox1.Controls.Add(this.Univrsty_radiobtn);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox1.Location = new System.Drawing.Point(369, 12);
+            this.groupBox1.Location = new System.Drawing.Point(102, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(351, 85);
             this.groupBox1.TabIndex = 3;
@@ -100,6 +102,7 @@
             // Delete_btn
             // 
             this.Delete_btn.BackColor = System.Drawing.Color.Maroon;
+            this.Delete_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Delete_btn.FlatAppearance.BorderSize = 0;
             this.Delete_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.Delete_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -115,12 +118,14 @@
             // 
             // DeleteAll_btn
             // 
+            this.DeleteAll_btn.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.DeleteAll_btn.BackColor = System.Drawing.Color.Maroon;
+            this.DeleteAll_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DeleteAll_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.DeleteAll_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteAll_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleteAll_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.DeleteAll_btn.Location = new System.Drawing.Point(1091, 827);
+            this.DeleteAll_btn.Location = new System.Drawing.Point(887, 670);
             this.DeleteAll_btn.Name = "DeleteAll_btn";
             this.DeleteAll_btn.Size = new System.Drawing.Size(132, 38);
             this.DeleteAll_btn.TabIndex = 2;
@@ -130,11 +135,13 @@
             // 
             // AllotGroupbox
             // 
+            this.AllotGroupbox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.AllotGroupbox.BackColor = System.Drawing.Color.Transparent;
             this.AllotGroupbox.Controls.Add(this.AllotSeries_radiobtn);
             this.AllotGroupbox.Controls.Add(this.AllotUniversty_radiobtn);
             this.AllotGroupbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AllotGroupbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.AllotGroupbox.Location = new System.Drawing.Point(767, 12);
+            this.AllotGroupbox.Location = new System.Drawing.Point(500, 12);
             this.AllotGroupbox.Name = "AllotGroupbox";
             this.AllotGroupbox.Size = new System.Drawing.Size(351, 85);
             this.AllotGroupbox.TabIndex = 4;
@@ -213,9 +220,9 @@
             // 
             // ClearBtn
             // 
-            this.ClearBtn.BackColor = System.Drawing.Color.Olive;
+            this.ClearBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
+            this.ClearBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ClearBtn.FlatAppearance.BorderSize = 0;
-            this.ClearBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.ClearBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ClearBtn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClearBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -241,7 +248,8 @@
             // panel1
             // 
             this.panel1.AutoScroll = true;
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.Registered_dgv);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.DeleteAll_btn);
@@ -250,68 +258,71 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1496, 877);
+            this.panel1.Size = new System.Drawing.Size(1280, 720);
             this.panel1.TabIndex = 11;
             // 
             // Registered_dgv
             // 
             this.Registered_dgv.AllowUserToAddRows = false;
             this.Registered_dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGreen;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             this.Registered_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.Registered_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.Registered_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.Registered_dgv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Registered_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.Registered_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.Registered_dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
             this.Registered_dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Registered_dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 12F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.Registered_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.Registered_dgv.ColumnHeadersHeight = 40;
             this.Registered_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.Registered_dgv.EnableHeadersVisualStyles = false;
             this.Registered_dgv.GridColor = System.Drawing.Color.SteelBlue;
-            this.Registered_dgv.Location = new System.Drawing.Point(13, 126);
+            this.Registered_dgv.Location = new System.Drawing.Point(13, 140);
             this.Registered_dgv.Margin = new System.Windows.Forms.Padding(4);
             this.Registered_dgv.Name = "Registered_dgv";
             this.Registered_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.Registered_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 11F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.Registered_dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.Registered_dgv.Size = new System.Drawing.Size(1062, 739);
+            this.Registered_dgv.Size = new System.Drawing.Size(867, 576);
             this.Registered_dgv.TabIndex = 12;
             // 
             // panel2
             // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.Delete_btn);
             this.panel2.Controls.Add(this.Branch_combobox);
             this.panel2.Controls.Add(this.Semester_combobox);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.Regno_textbox);
             this.panel2.Controls.Add(this.ClearBtn);
-            this.panel2.Location = new System.Drawing.Point(1102, 126);
+            this.panel2.Location = new System.Drawing.Point(887, 140);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(381, 248);
             this.panel2.TabIndex = 11;
@@ -321,11 +332,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1496, 877);
+            this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Registered_Students_Management";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registered_Students_Management";
             this.Load += new System.EventHandler(this.Registered_Students_Management_Load);
