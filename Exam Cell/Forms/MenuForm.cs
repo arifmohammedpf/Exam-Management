@@ -24,7 +24,7 @@ namespace Exam_Cell.Forms
         private void MoveSidePanel(Control btn)
         {
             if(Temp_btn!=null)
-                Temp_btn.BackColor = Color.FromArgb(11, 7, 17);
+                Temp_btn.BackColor = Color.FromArgb(48, 43, 99);
             btn.BackColor = Color.Teal;
             Temp_btn = btn;
         }
@@ -180,7 +180,9 @@ namespace Exam_Cell.Forms
 
         private void CreditsBtn_Click(object sender, EventArgs e)
         {
-
+            HideDropMenu();
+            MoveSidePanel(CreditsBtn);
+            OpenChildForm(new Credits());
         }
     }
 }

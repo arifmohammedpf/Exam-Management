@@ -768,7 +768,7 @@ namespace Exam_Cell
                                             worksheet.Cells["A2"].Value = Signature_examtype_textbox.Text;
                                             worksheet.Cells["A3"].Value = "ATTENDANCE STATEMENT";
                                         }
-                                        worksheet.Cells["A4"].Value = checkroom;
+                                        worksheet.Cells["A4"].Value = "Room " + checkroom;
                                         worksheet.Cells["E4"].Value = dr["Date"].ToString() + " " + session;
 
                                         using (var range = worksheet.Cells["A1:F1"])
