@@ -478,9 +478,9 @@ namespace Exam_Cell
 
 
                         // ----- validating user inputs ----- //
-                        if (fromendint < fromstartint || fromendint < 0 || fromstartint < 0 || tostartint < 0)
+                        if (fromendint < fromstartint || fromendint < 0 || fromstartint < 0 || tostartint < 0 || Session_combobox.Text == "-Select-")
                         {
-                            msgbox.show("Please fill datas correctly.      ", "Invalid inputs", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                            msgbox.show("Please fill datas correctly, including Date and Session      ", "Invalid inputs", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                             return;
                         }
                         else
@@ -512,7 +512,9 @@ namespace Exam_Cell
 
                         if (Unv_radio.Checked)
                         {
-                            SQLiteCommand comm = new SQLiteCommand("Select Room_No,Seat,Reg_no from University_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
+                            SQLiteCommand comm = new SQLiteCommand("Select Room_No,Seat,Reg_no from University_Alloted where Date=@Date and Session=@Session and Room_No=@Room_No order by Seat", con.ActiveCon());
+                            comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
+                            comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
                             comm.Parameters.AddWithValue("@Room_No", fromroom);
                             SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
                             DataTable dataTable = new DataTable();
@@ -534,9 +536,11 @@ namespace Exam_Cell
                             }
                             foreach (DataRow dataRow in dataTable.Rows)
                             {
-                                SQLiteCommand comm2 = new SQLiteCommand("update University_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
+                                SQLiteCommand comm2 = new SQLiteCommand("update University_Alloted set Room_No=@Room_No,Seat=@Seat where Date=@Date and Session=@Session and Reg_no=@Reg_no", con.ActiveCon());
                                 comm2.Parameters.AddWithValue("@Room_No", dataRow["Room_No"]);
                                 comm2.Parameters.AddWithValue("@Seat", dataRow["Seat"]);
+                                comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
+                                comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
                                 comm2.Parameters.AddWithValue("@Reg_no", dataRow["Reg_no"]);
                                 comm2.ExecuteNonQuery();
                             }
@@ -545,7 +549,9 @@ namespace Exam_Cell
                         }
                         else if (Series_radio.Checked)
                         {
-                            SQLiteCommand comm = new SQLiteCommand("Select Room_No,Seat,Reg_no from Series_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
+                            SQLiteCommand comm = new SQLiteCommand("Select Room_No,Seat,Reg_no from Series_Alloted where Date=@Date and Session=@Session and Room_No=@Room_No order by Seat", con.ActiveCon());
+                            comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
+                            comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
                             comm.Parameters.AddWithValue("@Room_No", fromroom);
                             SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
                             DataTable dataTable = new DataTable();
@@ -568,9 +574,11 @@ namespace Exam_Cell
                             }
                             foreach (DataRow dataRow in dataTable.Rows)
                             {
-                                SQLiteCommand comm2 = new SQLiteCommand("update Series_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
+                                SQLiteCommand comm2 = new SQLiteCommand("update Series_Alloted set Room_No=@Room_No,Seat=@Seat where Date=@Date and Session=@Session and Reg_no=@Reg_no", con.ActiveCon());
                                 comm2.Parameters.AddWithValue("@Room_No", dataRow["Room_No"]);
                                 comm2.Parameters.AddWithValue("@Seat", dataRow["Seat"]);
+                                comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
+                                comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
                                 comm2.Parameters.AddWithValue("@Reg_no", dataRow["Reg_no"]);
                                 comm2.ExecuteNonQuery();
                             }
@@ -1493,9 +1501,9 @@ namespace Exam_Cell
 
 
                         // ----- validating user inputs ----- //
-                        if (fromendint < fromstartint || fromendint < 0 || fromstartint < 0 || tostartint < 0)
+                        if (fromendint < fromstartint || fromendint < 0 || fromstartint < 0 || tostartint < 0 || Session_combobox.Text=="-Select-")
                         {
-                            msgbox.show("Please fill datas correctly.    ", "Invalid inputs", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                            msgbox.show("Please fill datas correctly, including Date and Session    ", "Invalid inputs", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                             return;
                         }
                         else
@@ -1527,13 +1535,17 @@ namespace Exam_Cell
 
                         if (Unv_radio.Checked)
                         {
-                            SQLiteCommand comm = new SQLiteCommand("Select Room_No,Seat,Reg_no from University_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
+                            SQLiteCommand comm = new SQLiteCommand("Select Room_No,Seat,Reg_no from University_Alloted where Date=@Date and Session=@Session and Room_No=@Room_No order by Seat", con.ActiveCon());
+                            comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
+                            comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
                             comm.Parameters.AddWithValue("@Room_No", fromroom);
                             SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
                             DataTable dataTable = new DataTable();
                             adapter.Fill(dataTable);
                             con.CloseCon();
-                            SQLiteCommand comm2 = new SQLiteCommand("Select Room_No,Seat,Reg_no from University_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
+                            SQLiteCommand comm2 = new SQLiteCommand("Select Room_No,Seat,Reg_no from University_Alloted where Date=@Date and Session=@Session and Room_No=@Room_No order by Seat", con.ActiveCon());
+                            comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
+                            comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
                             comm2.Parameters.AddWithValue("@Room_No", toroom);
                             SQLiteDataAdapter adapter2 = new SQLiteDataAdapter(comm2);
                             DataTable dataTable2 = new DataTable();
@@ -1571,18 +1583,22 @@ namespace Exam_Cell
                             }
                             foreach (DataRow dataRow in dataTable.Rows)
                             {
-                                SQLiteCommand comm3 = new SQLiteCommand("update University_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
+                                SQLiteCommand comm3 = new SQLiteCommand("update University_Alloted set Room_No=@Room_No,Seat=@Seat where Date=@Date and Session=@Session and Reg_no=@Reg_no", con.ActiveCon());
                                 comm3.Parameters.AddWithValue("@Room_No", dataRow["Room_No"]);
                                 comm3.Parameters.AddWithValue("@Seat", dataRow["Seat"]);
+                                comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
+                                comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
                                 comm3.Parameters.AddWithValue("@Reg_no", dataRow["Reg_no"]);
                                 comm3.ExecuteNonQuery();
                             }
                             con.CloseCon();
                             foreach (DataRow dataRow in dataTable2.Rows)
                             {
-                                SQLiteCommand comm3 = new SQLiteCommand("update University_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
+                                SQLiteCommand comm3 = new SQLiteCommand("update University_Alloted set Room_No=@Room_No,Seat=@Seat where Date=@Date and Session=@Session and Reg_no=@Reg_no", con.ActiveCon());
                                 comm3.Parameters.AddWithValue("@Room_No", dataRow["Room_No"]);
                                 comm3.Parameters.AddWithValue("@Seat", dataRow["Seat"]);
+                                comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
+                                comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
                                 comm3.Parameters.AddWithValue("@Reg_no", dataRow["Reg_no"]);
                                 comm3.ExecuteNonQuery();
                             }
@@ -1591,13 +1607,17 @@ namespace Exam_Cell
                         }
                         else if (Series_radio.Checked)
                         {
-                            SQLiteCommand comm = new SQLiteCommand("Select Room_No,Seat,Reg_no from Series_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
+                            SQLiteCommand comm = new SQLiteCommand("Select Room_No,Seat,Reg_no from Series_Alloted where Date=@Date and Session=@Session and Room_No=@Room_No order by Seat", con.ActiveCon());
+                            comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
+                            comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
                             comm.Parameters.AddWithValue("@Room_No", fromroom);
                             SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
                             DataTable dataTable = new DataTable();
                             adapter.Fill(dataTable);
                             con.CloseCon();
-                            SQLiteCommand comm2 = new SQLiteCommand("Select Room_No,Seat,Reg_no from Series_Alloted where Room_No=@Room_No order by Seat", con.ActiveCon());
+                            SQLiteCommand comm2 = new SQLiteCommand("Select Room_No,Seat,Reg_no from Series_Alloted where Date=@Date and Session=@Session and Room_No=@Room_No order by Seat", con.ActiveCon());
+                            comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
+                            comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
                             comm2.Parameters.AddWithValue("@Room_No", toroom);
                             SQLiteDataAdapter adapter2 = new SQLiteDataAdapter(comm2);
                             DataTable dataTable2 = new DataTable();
@@ -1635,18 +1655,22 @@ namespace Exam_Cell
                             }
                             foreach (DataRow dataRow in dataTable.Rows)
                             {
-                                SQLiteCommand comm3 = new SQLiteCommand("update Series_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
+                                SQLiteCommand comm3 = new SQLiteCommand("update Series_Alloted set Room_No=@Room_No,Seat=@Seat where Date=@Date and Session=@Session and Reg_no=@Reg_no", con.ActiveCon());
                                 comm3.Parameters.AddWithValue("@Room_No", dataRow["Room_No"]);
                                 comm3.Parameters.AddWithValue("@Seat", dataRow["Seat"]);
+                                comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
+                                comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
                                 comm3.Parameters.AddWithValue("@Reg_no", dataRow["Reg_no"]);
                                 comm3.ExecuteNonQuery();
                             }
                             con.CloseCon();
                             foreach (DataRow dataRow in dataTable2.Rows)
                             {
-                                SQLiteCommand comm3 = new SQLiteCommand("update Series_Alloted set Room_No=@Room_No,Seat=@Seat where Reg_no=@Reg_no", con.ActiveCon());
+                                SQLiteCommand comm3 = new SQLiteCommand("update Series_Alloted set Room_No=@Room_No,Seat=@Seat where Date=@Date and Session=@Session and Reg_no=@Reg_no", con.ActiveCon());
                                 comm3.Parameters.AddWithValue("@Room_No", dataRow["Room_No"]);
                                 comm3.Parameters.AddWithValue("@Seat", dataRow["Seat"]);
+                                comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
+                                comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
                                 comm3.Parameters.AddWithValue("@Reg_no", dataRow["Reg_no"]);
                                 comm3.ExecuteNonQuery();
                             }
