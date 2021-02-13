@@ -30,421 +30,242 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuForm));
-            this.panelSideMenu = new System.Windows.Forms.Panel();
-            this.MenuSidePanel = new System.Windows.Forms.Panel();
-            this.panelChildForm = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.TtableForm_btn = new System.Windows.Forms.Button();
-            this.CandEntryForm_btn = new System.Windows.Forms.Button();
-            this.AllotmentForm_btn = new System.Windows.Forms.Button();
-            this.RegStyMng_btn = new System.Windows.Forms.Button();
-            this.RoomForm_btn = new System.Windows.Forms.Button();
-            this.Absentees_btn = new System.Windows.Forms.Button();
-            this.panelAbsentDropMenu = new System.Windows.Forms.Panel();
-            this.AbsentStateForm_btn = new System.Windows.Forms.Button();
-            this.AbsentMarkForm_btn = new System.Windows.Forms.Button();
-            this.PostponeForm_btn = new System.Windows.Forms.Button();
-            this.Dbm_btn = new System.Windows.Forms.Button();
-            this.panelDbmDropMenu = new System.Windows.Forms.Panel();
-            this.ClassbranchForm_btn = new System.Windows.Forms.Button();
-            this.StudentForm_btn = new System.Windows.Forms.Button();
-            this.CreditsBtn = new System.Windows.Forms.Button();
-            this.Exit_btn = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panelSideMenu.SuspendLayout();
-            this.panelChildForm.SuspendLayout();
-            this.panelAbsentDropMenu.SuspendLayout();
-            this.panelDbmDropMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menu_item_timetable = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_item_candidateentry = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_item_room = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_item_regstudmgmnt = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_item_allotment = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_item_absentees = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_dropitem_marking = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_dropitem_statement = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_item_postponement = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_item_databasemgmnt = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_dropitem_student = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_dropitem_classbranch = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_item_credits = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_item_exit = new System.Windows.Forms.ToolStripMenuItem();
+            this.bgPanel = new System.Windows.Forms.Panel();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panelSideMenu
-            // 
-            this.panelSideMenu.AutoScroll = true;
-            this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(43)))), ((int)(((byte)(99)))));
-            this.panelSideMenu.Controls.Add(this.Exit_btn);
-            this.panelSideMenu.Controls.Add(this.CreditsBtn);
-            this.panelSideMenu.Controls.Add(this.panelDbmDropMenu);
-            this.panelSideMenu.Controls.Add(this.Dbm_btn);
-            this.panelSideMenu.Controls.Add(this.PostponeForm_btn);
-            this.panelSideMenu.Controls.Add(this.panelAbsentDropMenu);
-            this.panelSideMenu.Controls.Add(this.Absentees_btn);
-            this.panelSideMenu.Controls.Add(this.RoomForm_btn);
-            this.panelSideMenu.Controls.Add(this.RegStyMng_btn);
-            this.panelSideMenu.Controls.Add(this.AllotmentForm_btn);
-            this.panelSideMenu.Controls.Add(this.CandEntryForm_btn);
-            this.panelSideMenu.Controls.Add(this.MenuSidePanel);
-            this.panelSideMenu.Controls.Add(this.TtableForm_btn);
-            this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelSideMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelSideMenu.Name = "panelSideMenu";
-            this.panelSideMenu.Padding = new System.Windows.Forms.Padding(0, 40, 0, 40);
-            this.panelSideMenu.Size = new System.Drawing.Size(245, 864);
-            this.panelSideMenu.TabIndex = 0;
-            // 
-            // MenuSidePanel
-            // 
-            this.MenuSidePanel.BackColor = System.Drawing.Color.Lavender;
-            this.MenuSidePanel.Location = new System.Drawing.Point(1, 126);
-            this.MenuSidePanel.Name = "MenuSidePanel";
-            this.MenuSidePanel.Size = new System.Drawing.Size(10, 70);
-            this.MenuSidePanel.TabIndex = 13;
-            // 
-            // panelChildForm
-            // 
-            this.panelChildForm.AutoScroll = true;
-            this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.panelChildForm.Controls.Add(this.label1);
-            this.panelChildForm.Controls.Add(this.pictureBox1);
-            this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelChildForm.Location = new System.Drawing.Point(245, 0);
-            this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(1675, 864);
-            this.panelChildForm.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label1.Location = new System.Drawing.Point(1235, 801);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(350, 21);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "© 2020, Arif Mohammed, CSE 2016 Batch.";
             // 
             // timer
             // 
             this.timer.Interval = 10;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // TtableForm_btn
+            // menuStrip1
             // 
-            this.TtableForm_btn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TtableForm_btn.FlatAppearance.BorderSize = 0;
-            this.TtableForm_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(125)))), ((int)(((byte)(182)))));
-            this.TtableForm_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TtableForm_btn.ForeColor = System.Drawing.Color.Gainsboro;
-            this.TtableForm_btn.Location = new System.Drawing.Point(0, 40);
-            this.TtableForm_btn.Name = "TtableForm_btn";
-            this.TtableForm_btn.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.TtableForm_btn.Size = new System.Drawing.Size(224, 70);
-            this.TtableForm_btn.TabIndex = 14;
-            this.TtableForm_btn.Text = "Timetable";
-            this.TtableForm_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.TtableForm_btn.UseVisualStyleBackColor = true;
-            this.TtableForm_btn.Click += new System.EventHandler(this.TtableForm_btn_Click);
+            this.menuStrip1.AutoSize = false;
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(43)))), ((int)(((byte)(99)))));
+            this.menuStrip1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menu_item_timetable,
+            this.menu_item_candidateentry,
+            this.menu_item_room,
+            this.menu_item_regstudmgmnt,
+            this.menu_item_allotment,
+            this.menu_item_absentees,
+            this.menu_item_postponement,
+            this.menu_item_databasemgmnt,
+            this.menu_item_credits,
+            this.menu_item_exit});
+            this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.menuStrip1.Size = new System.Drawing.Size(1920, 46);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "Menu";
             // 
-            // CandEntryForm_btn
+            // menu_item_timetable
             // 
-            this.CandEntryForm_btn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.CandEntryForm_btn.FlatAppearance.BorderSize = 0;
-            this.CandEntryForm_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(125)))), ((int)(((byte)(182)))));
-            this.CandEntryForm_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CandEntryForm_btn.ForeColor = System.Drawing.Color.Gainsboro;
-            this.CandEntryForm_btn.Location = new System.Drawing.Point(0, 110);
-            this.CandEntryForm_btn.Name = "CandEntryForm_btn";
-            this.CandEntryForm_btn.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.CandEntryForm_btn.Size = new System.Drawing.Size(224, 70);
-            this.CandEntryForm_btn.TabIndex = 15;
-            this.CandEntryForm_btn.Text = "Candidate Entry";
-            this.CandEntryForm_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CandEntryForm_btn.UseVisualStyleBackColor = true;
-            this.CandEntryForm_btn.Click += new System.EventHandler(this.CandEntryForm_btn_Click);
+            this.menu_item_timetable.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.menu_item_timetable.Name = "menu_item_timetable";
+            this.menu_item_timetable.Padding = new System.Windows.Forms.Padding(10);
+            this.menu_item_timetable.Size = new System.Drawing.Size(122, 46);
+            this.menu_item_timetable.Text = "Timetable";
+            this.menu_item_timetable.Click += new System.EventHandler(this.menu_item_timetable_Click);
             // 
-            // AllotmentForm_btn
+            // menu_item_candidateentry
             // 
-            this.AllotmentForm_btn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.AllotmentForm_btn.FlatAppearance.BorderSize = 0;
-            this.AllotmentForm_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(125)))), ((int)(((byte)(182)))));
-            this.AllotmentForm_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AllotmentForm_btn.ForeColor = System.Drawing.Color.Gainsboro;
-            this.AllotmentForm_btn.Location = new System.Drawing.Point(0, 180);
-            this.AllotmentForm_btn.Name = "AllotmentForm_btn";
-            this.AllotmentForm_btn.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.AllotmentForm_btn.Size = new System.Drawing.Size(224, 70);
-            this.AllotmentForm_btn.TabIndex = 16;
-            this.AllotmentForm_btn.Text = "Allotment";
-            this.AllotmentForm_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AllotmentForm_btn.UseVisualStyleBackColor = true;
-            this.AllotmentForm_btn.Click += new System.EventHandler(this.AllotmentForm_btn_Click);
+            this.menu_item_candidateentry.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.menu_item_candidateentry.Name = "menu_item_candidateentry";
+            this.menu_item_candidateentry.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.menu_item_candidateentry.Size = new System.Drawing.Size(186, 46);
+            this.menu_item_candidateentry.Text = "Candidate Entry";
+            this.menu_item_candidateentry.Click += new System.EventHandler(this.menu_item_candidateentry_Click);
             // 
-            // RegStyMng_btn
+            // menu_item_room
             // 
-            this.RegStyMng_btn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.RegStyMng_btn.FlatAppearance.BorderSize = 0;
-            this.RegStyMng_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(125)))), ((int)(((byte)(182)))));
-            this.RegStyMng_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RegStyMng_btn.ForeColor = System.Drawing.Color.Gainsboro;
-            this.RegStyMng_btn.Location = new System.Drawing.Point(0, 250);
-            this.RegStyMng_btn.Name = "RegStyMng_btn";
-            this.RegStyMng_btn.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.RegStyMng_btn.Size = new System.Drawing.Size(224, 70);
-            this.RegStyMng_btn.TabIndex = 17;
-            this.RegStyMng_btn.Text = "Reg.Stu.Management";
-            this.RegStyMng_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RegStyMng_btn.UseVisualStyleBackColor = true;
-            this.RegStyMng_btn.Click += new System.EventHandler(this.RegStyMng_btn_Click);
+            this.menu_item_room.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.menu_item_room.Name = "menu_item_room";
+            this.menu_item_room.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.menu_item_room.Size = new System.Drawing.Size(87, 46);
+            this.menu_item_room.Text = "Room";
+            this.menu_item_room.Click += new System.EventHandler(this.menu_item_room_Click);
             // 
-            // RoomForm_btn
+            // menu_item_regstudmgmnt
             // 
-            this.RoomForm_btn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.RoomForm_btn.FlatAppearance.BorderSize = 0;
-            this.RoomForm_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(125)))), ((int)(((byte)(182)))));
-            this.RoomForm_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RoomForm_btn.ForeColor = System.Drawing.Color.Gainsboro;
-            this.RoomForm_btn.Location = new System.Drawing.Point(0, 320);
-            this.RoomForm_btn.Name = "RoomForm_btn";
-            this.RoomForm_btn.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.RoomForm_btn.Size = new System.Drawing.Size(224, 70);
-            this.RoomForm_btn.TabIndex = 18;
-            this.RoomForm_btn.Text = "Room";
-            this.RoomForm_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RoomForm_btn.UseVisualStyleBackColor = true;
-            this.RoomForm_btn.Click += new System.EventHandler(this.RoomForm_btn_Click);
+            this.menu_item_regstudmgmnt.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.menu_item_regstudmgmnt.Name = "menu_item_regstudmgmnt";
+            this.menu_item_regstudmgmnt.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.menu_item_regstudmgmnt.Size = new System.Drawing.Size(250, 46);
+            this.menu_item_regstudmgmnt.Text = "Reg Stud Management";
+            this.menu_item_regstudmgmnt.Click += new System.EventHandler(this.menu_item_regstudmgmnt_Click);
             // 
-            // Absentees_btn
+            // menu_item_allotment
             // 
-            this.Absentees_btn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Absentees_btn.FlatAppearance.BorderSize = 0;
-            this.Absentees_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(125)))), ((int)(((byte)(182)))));
-            this.Absentees_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Absentees_btn.ForeColor = System.Drawing.Color.Gainsboro;
-            this.Absentees_btn.Location = new System.Drawing.Point(0, 390);
-            this.Absentees_btn.Name = "Absentees_btn";
-            this.Absentees_btn.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.Absentees_btn.Size = new System.Drawing.Size(224, 70);
-            this.Absentees_btn.TabIndex = 19;
-            this.Absentees_btn.Text = "Absentees";
-            this.Absentees_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Absentees_btn.UseVisualStyleBackColor = true;
-            this.Absentees_btn.Click += new System.EventHandler(this.Absentees_btn_Click);
+            this.menu_item_allotment.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.menu_item_allotment.Name = "menu_item_allotment";
+            this.menu_item_allotment.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.menu_item_allotment.Size = new System.Drawing.Size(122, 46);
+            this.menu_item_allotment.Text = "Allotment";
+            this.menu_item_allotment.Click += new System.EventHandler(this.menu_item_allotment_Click);
             // 
-            // panelAbsentDropMenu
+            // menu_item_absentees
             // 
-            this.panelAbsentDropMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.panelAbsentDropMenu.Controls.Add(this.AbsentStateForm_btn);
-            this.panelAbsentDropMenu.Controls.Add(this.AbsentMarkForm_btn);
-            this.panelAbsentDropMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelAbsentDropMenu.Location = new System.Drawing.Point(0, 460);
-            this.panelAbsentDropMenu.Name = "panelAbsentDropMenu";
-            this.panelAbsentDropMenu.Size = new System.Drawing.Size(224, 140);
-            this.panelAbsentDropMenu.TabIndex = 20;
+            this.menu_item_absentees.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menu_dropitem_marking,
+            this.menu_dropitem_statement});
+            this.menu_item_absentees.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.menu_item_absentees.Name = "menu_item_absentees";
+            this.menu_item_absentees.Size = new System.Drawing.Size(119, 46);
+            this.menu_item_absentees.Text = "Absentees";
             // 
-            // AbsentStateForm_btn
+            // menu_dropitem_marking
             // 
-            this.AbsentStateForm_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.AbsentStateForm_btn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.AbsentStateForm_btn.FlatAppearance.BorderSize = 0;
-            this.AbsentStateForm_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(87)))), ((int)(((byte)(153)))));
-            this.AbsentStateForm_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AbsentStateForm_btn.ForeColor = System.Drawing.Color.LightGray;
-            this.AbsentStateForm_btn.Location = new System.Drawing.Point(0, 70);
-            this.AbsentStateForm_btn.Name = "AbsentStateForm_btn";
-            this.AbsentStateForm_btn.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.AbsentStateForm_btn.Size = new System.Drawing.Size(224, 70);
-            this.AbsentStateForm_btn.TabIndex = 1;
-            this.AbsentStateForm_btn.Text = "Absent Statement";
-            this.AbsentStateForm_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AbsentStateForm_btn.UseVisualStyleBackColor = false;
-            this.AbsentStateForm_btn.Click += new System.EventHandler(this.AbsentStateForm_btn_Click);
+            this.menu_dropitem_marking.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(43)))), ((int)(((byte)(99)))));
+            this.menu_dropitem_marking.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.menu_dropitem_marking.Name = "menu_dropitem_marking";
+            this.menu_dropitem_marking.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.menu_dropitem_marking.Size = new System.Drawing.Size(182, 44);
+            this.menu_dropitem_marking.Text = "Marking";
+            this.menu_dropitem_marking.Click += new System.EventHandler(this.menu_dropitem_marking_Click);
             // 
-            // AbsentMarkForm_btn
+            // menu_dropitem_statement
             // 
-            this.AbsentMarkForm_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.AbsentMarkForm_btn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.AbsentMarkForm_btn.FlatAppearance.BorderSize = 0;
-            this.AbsentMarkForm_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(87)))), ((int)(((byte)(153)))));
-            this.AbsentMarkForm_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AbsentMarkForm_btn.ForeColor = System.Drawing.Color.LightGray;
-            this.AbsentMarkForm_btn.Location = new System.Drawing.Point(0, 0);
-            this.AbsentMarkForm_btn.Name = "AbsentMarkForm_btn";
-            this.AbsentMarkForm_btn.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.AbsentMarkForm_btn.Size = new System.Drawing.Size(224, 70);
-            this.AbsentMarkForm_btn.TabIndex = 0;
-            this.AbsentMarkForm_btn.Text = "Absent Marking";
-            this.AbsentMarkForm_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AbsentMarkForm_btn.UseVisualStyleBackColor = false;
-            this.AbsentMarkForm_btn.Click += new System.EventHandler(this.AbsentMarkForm_btn_Click);
+            this.menu_dropitem_statement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(43)))), ((int)(((byte)(99)))));
+            this.menu_dropitem_statement.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.menu_dropitem_statement.Name = "menu_dropitem_statement";
+            this.menu_dropitem_statement.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.menu_dropitem_statement.Size = new System.Drawing.Size(182, 44);
+            this.menu_dropitem_statement.Text = "Statement";
+            this.menu_dropitem_statement.Click += new System.EventHandler(this.menu_dropitem_statement_Click);
             // 
-            // PostponeForm_btn
+            // menu_item_postponement
             // 
-            this.PostponeForm_btn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PostponeForm_btn.FlatAppearance.BorderSize = 0;
-            this.PostponeForm_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(125)))), ((int)(((byte)(182)))));
-            this.PostponeForm_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PostponeForm_btn.ForeColor = System.Drawing.Color.Gainsboro;
-            this.PostponeForm_btn.Location = new System.Drawing.Point(0, 600);
-            this.PostponeForm_btn.Name = "PostponeForm_btn";
-            this.PostponeForm_btn.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.PostponeForm_btn.Size = new System.Drawing.Size(224, 70);
-            this.PostponeForm_btn.TabIndex = 21;
-            this.PostponeForm_btn.Text = "Postponement";
-            this.PostponeForm_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PostponeForm_btn.UseVisualStyleBackColor = true;
-            this.PostponeForm_btn.Click += new System.EventHandler(this.PostponeForm_btn_Click);
+            this.menu_item_postponement.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.menu_item_postponement.Name = "menu_item_postponement";
+            this.menu_item_postponement.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.menu_item_postponement.Size = new System.Drawing.Size(168, 46);
+            this.menu_item_postponement.Text = "Postponement";
+            this.menu_item_postponement.Click += new System.EventHandler(this.menu_item_postponement_Click);
             // 
-            // Dbm_btn
+            // menu_item_databasemgmnt
             // 
-            this.Dbm_btn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Dbm_btn.FlatAppearance.BorderSize = 0;
-            this.Dbm_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(125)))), ((int)(((byte)(182)))));
-            this.Dbm_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Dbm_btn.ForeColor = System.Drawing.Color.Gainsboro;
-            this.Dbm_btn.Location = new System.Drawing.Point(0, 670);
-            this.Dbm_btn.Name = "Dbm_btn";
-            this.Dbm_btn.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.Dbm_btn.Size = new System.Drawing.Size(224, 70);
-            this.Dbm_btn.TabIndex = 22;
-            this.Dbm_btn.Text = "Database Management";
-            this.Dbm_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Dbm_btn.UseVisualStyleBackColor = true;
-            this.Dbm_btn.Click += new System.EventHandler(this.Dbm_btn_Click);
+            this.menu_item_databasemgmnt.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menu_dropitem_student,
+            this.menu_dropitem_classbranch});
+            this.menu_item_databasemgmnt.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.menu_item_databasemgmnt.Name = "menu_item_databasemgmnt";
+            this.menu_item_databasemgmnt.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.menu_item_databasemgmnt.Size = new System.Drawing.Size(259, 46);
+            this.menu_item_databasemgmnt.Text = "Database Management";
             // 
-            // panelDbmDropMenu
+            // menu_dropitem_student
             // 
-            this.panelDbmDropMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.panelDbmDropMenu.Controls.Add(this.ClassbranchForm_btn);
-            this.panelDbmDropMenu.Controls.Add(this.StudentForm_btn);
-            this.panelDbmDropMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelDbmDropMenu.Location = new System.Drawing.Point(0, 740);
-            this.panelDbmDropMenu.Name = "panelDbmDropMenu";
-            this.panelDbmDropMenu.Size = new System.Drawing.Size(224, 140);
-            this.panelDbmDropMenu.TabIndex = 23;
+            this.menu_dropitem_student.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(43)))), ((int)(((byte)(99)))));
+            this.menu_dropitem_student.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.menu_dropitem_student.Name = "menu_dropitem_student";
+            this.menu_dropitem_student.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.menu_dropitem_student.Size = new System.Drawing.Size(205, 44);
+            this.menu_dropitem_student.Text = "Student ";
+            this.menu_dropitem_student.Click += new System.EventHandler(this.menu_dropitem_student_Click);
             // 
-            // ClassbranchForm_btn
+            // menu_dropitem_classbranch
             // 
-            this.ClassbranchForm_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.ClassbranchForm_btn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ClassbranchForm_btn.FlatAppearance.BorderSize = 0;
-            this.ClassbranchForm_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(87)))), ((int)(((byte)(153)))));
-            this.ClassbranchForm_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ClassbranchForm_btn.ForeColor = System.Drawing.Color.LightGray;
-            this.ClassbranchForm_btn.Location = new System.Drawing.Point(0, 70);
-            this.ClassbranchForm_btn.Name = "ClassbranchForm_btn";
-            this.ClassbranchForm_btn.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.ClassbranchForm_btn.Size = new System.Drawing.Size(224, 70);
-            this.ClassbranchForm_btn.TabIndex = 1;
-            this.ClassbranchForm_btn.Text = "Class/Branch";
-            this.ClassbranchForm_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ClassbranchForm_btn.UseVisualStyleBackColor = false;
-            this.ClassbranchForm_btn.Click += new System.EventHandler(this.ClassbranchForm_btn_Click);
+            this.menu_dropitem_classbranch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(43)))), ((int)(((byte)(99)))));
+            this.menu_dropitem_classbranch.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.menu_dropitem_classbranch.Name = "menu_dropitem_classbranch";
+            this.menu_dropitem_classbranch.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.menu_dropitem_classbranch.Size = new System.Drawing.Size(205, 44);
+            this.menu_dropitem_classbranch.Text = "Class/Branch";
+            this.menu_dropitem_classbranch.Click += new System.EventHandler(this.menu_dropitem_classbranch_Click);
             // 
-            // StudentForm_btn
+            // menu_item_credits
             // 
-            this.StudentForm_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.StudentForm_btn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.StudentForm_btn.FlatAppearance.BorderSize = 0;
-            this.StudentForm_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(87)))), ((int)(((byte)(153)))));
-            this.StudentForm_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.StudentForm_btn.ForeColor = System.Drawing.Color.LightGray;
-            this.StudentForm_btn.Location = new System.Drawing.Point(0, 0);
-            this.StudentForm_btn.Name = "StudentForm_btn";
-            this.StudentForm_btn.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.StudentForm_btn.Size = new System.Drawing.Size(224, 70);
-            this.StudentForm_btn.TabIndex = 0;
-            this.StudentForm_btn.Text = "Student";
-            this.StudentForm_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.StudentForm_btn.UseVisualStyleBackColor = false;
-            this.StudentForm_btn.Click += new System.EventHandler(this.StudentForm_btn_Click);
+            this.menu_item_credits.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.menu_item_credits.Name = "menu_item_credits";
+            this.menu_item_credits.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.menu_item_credits.Size = new System.Drawing.Size(97, 46);
+            this.menu_item_credits.Text = "Credits";
+            this.menu_item_credits.Click += new System.EventHandler(this.menu_item_credits_Click);
             // 
-            // CreditsBtn
+            // menu_item_exit
             // 
-            this.CreditsBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.CreditsBtn.FlatAppearance.BorderSize = 0;
-            this.CreditsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(125)))), ((int)(((byte)(182)))));
-            this.CreditsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CreditsBtn.ForeColor = System.Drawing.Color.Gainsboro;
-            this.CreditsBtn.Location = new System.Drawing.Point(0, 880);
-            this.CreditsBtn.Name = "CreditsBtn";
-            this.CreditsBtn.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.CreditsBtn.Size = new System.Drawing.Size(224, 70);
-            this.CreditsBtn.TabIndex = 24;
-            this.CreditsBtn.Text = "Credits";
-            this.CreditsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CreditsBtn.UseVisualStyleBackColor = true;
-            this.CreditsBtn.Click += new System.EventHandler(this.CreditsBtn_Click);
+            this.menu_item_exit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.menu_item_exit.Name = "menu_item_exit";
+            this.menu_item_exit.Padding = new System.Windows.Forms.Padding(15, 0, 15, 0);
+            this.menu_item_exit.Size = new System.Drawing.Size(73, 46);
+            this.menu_item_exit.Text = "Exit";
+            this.menu_item_exit.Click += new System.EventHandler(this.menu_item_exit_Click);
             // 
-            // Exit_btn
+            // bgPanel
             // 
-            this.Exit_btn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Exit_btn.FlatAppearance.BorderSize = 0;
-            this.Exit_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(125)))), ((int)(((byte)(182)))));
-            this.Exit_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Exit_btn.ForeColor = System.Drawing.Color.Gainsboro;
-            this.Exit_btn.Location = new System.Drawing.Point(0, 950);
-            this.Exit_btn.Name = "Exit_btn";
-            this.Exit_btn.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.Exit_btn.Size = new System.Drawing.Size(224, 70);
-            this.Exit_btn.TabIndex = 25;
-            this.Exit_btn.Text = "Exit";
-            this.Exit_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Exit_btn.UseVisualStyleBackColor = true;
-            this.Exit_btn.Click += new System.EventHandler(this.Exit_btn_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::Exam_Cell.Properties.Resources.kmea_hd_logo_shabz_WHITE;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1675, 864);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.bgPanel.BackColor = System.Drawing.Color.Transparent;
+            this.bgPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.bgPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bgPanel.Location = new System.Drawing.Point(0, 46);
+            this.bgPanel.Name = "bgPanel";
+            this.bgPanel.Size = new System.Drawing.Size(1920, 818);
+            this.bgPanel.TabIndex = 2;
             // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.BackgroundImage = global::Exam_Cell.Properties.Resources.kmea_hd_logo_shabz_WHITE;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1920, 864);
-            this.Controls.Add(this.panelChildForm);
-            this.Controls.Add(this.panelSideMenu);
+            this.Controls.Add(this.bgPanel);
+            this.Controls.Add(this.menuStrip1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MenuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MenuForm_FormClosed);
-            this.panelSideMenu.ResumeLayout(false);
-            this.panelChildForm.ResumeLayout(false);
-            this.panelChildForm.PerformLayout();
-            this.panelAbsentDropMenu.ResumeLayout(false);
-            this.panelDbmDropMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Load += new System.EventHandler(this.MenuForm_Load);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panelSideMenu;
-        private System.Windows.Forms.Panel panelChildForm;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel MenuSidePanel;
         private System.Windows.Forms.Timer timer;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button Exit_btn;
-        private System.Windows.Forms.Button CreditsBtn;
-        private System.Windows.Forms.Panel panelDbmDropMenu;
-        private System.Windows.Forms.Button ClassbranchForm_btn;
-        private System.Windows.Forms.Button StudentForm_btn;
-        private System.Windows.Forms.Button Dbm_btn;
-        private System.Windows.Forms.Button PostponeForm_btn;
-        private System.Windows.Forms.Panel panelAbsentDropMenu;
-        private System.Windows.Forms.Button AbsentStateForm_btn;
-        private System.Windows.Forms.Button AbsentMarkForm_btn;
-        private System.Windows.Forms.Button Absentees_btn;
-        private System.Windows.Forms.Button RoomForm_btn;
-        private System.Windows.Forms.Button RegStyMng_btn;
-        private System.Windows.Forms.Button AllotmentForm_btn;
-        private System.Windows.Forms.Button CandEntryForm_btn;
-        private System.Windows.Forms.Button TtableForm_btn;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem menu_item_timetable;
+        private System.Windows.Forms.ToolStripMenuItem menu_item_candidateentry;
+        private System.Windows.Forms.ToolStripMenuItem menu_item_room;
+        private System.Windows.Forms.ToolStripMenuItem menu_item_allotment;
+        private System.Windows.Forms.ToolStripMenuItem menu_item_absentees;
+        private System.Windows.Forms.ToolStripMenuItem menu_dropitem_marking;
+        private System.Windows.Forms.ToolStripMenuItem menu_item_regstudmgmnt;
+        private System.Windows.Forms.ToolStripMenuItem menu_dropitem_statement;
+        private System.Windows.Forms.ToolStripMenuItem menu_item_postponement;
+        private System.Windows.Forms.ToolStripMenuItem menu_item_databasemgmnt;
+        private System.Windows.Forms.ToolStripMenuItem menu_item_credits;
+        private System.Windows.Forms.ToolStripMenuItem menu_item_exit;
+        private System.Windows.Forms.ToolStripMenuItem menu_dropitem_student;
+        private System.Windows.Forms.ToolStripMenuItem menu_dropitem_classbranch;
+        private System.Windows.Forms.Panel bgPanel;
     }
 }
