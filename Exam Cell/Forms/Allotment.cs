@@ -27,15 +27,28 @@ namespace Exam_Cell
             }
         }
 
-        private void SingleAllotment_button_Click(object sender, EventArgs e)
+        private void Allotment_button_Click(object sender, EventArgs e)
         {
-            using (ProgressForm progressForm = new ProgressForm(Allot_University))
+            if (singleAllotRadio.Checked)
             {
-                progressForm.ShowDialog(this);
+                using (ProgressForm progressForm = new ProgressForm(Single_Allotment))
+                {
+                    progressForm.ShowDialog(this);
+                }
             }
-                //Allot_University();
+            else if (multiAllotRadio.Checked)
+            {
+                using (ProgressForm progressForm = new ProgressForm(Multi_Allotment))
+                {
+                    progressForm.ShowDialog(this);
+                }
+            }
+            else
+            {
+                msgbox.show("Select mode of Allot    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+            }
         }
-        void Allot_University()
+        void Single_Allotment()
         {                        
             try
             {
@@ -245,7 +258,7 @@ namespace Exam_Cell
             }
         }
 
-        void Allot_Series()
+        void Multi_Allotment()
         {            
             try
             {
@@ -444,15 +457,6 @@ namespace Exam_Cell
             }
         }
 
-        private void MultiAllotment_button_Click(object sender, EventArgs e)
-        {
-            using (ProgressForm progressForm = new ProgressForm(Allot_Series))
-            {
-                progressForm.ShowDialog(this);
-            }
-            //Allot_Series();
-        }
-
         private void Shift_button_Click(object sender, EventArgs e)
         {
             ShiftFunction();
@@ -611,7 +615,7 @@ namespace Exam_Cell
         private void Allotment_Load(object sender, EventArgs e)
         {
             //this.WindowState = FormWindowState.Normal;
-            Generation_Panel.BringToFront();
+            allotRadioPanel.Enabled = false;
             Generation_Panel.Enabled = false;
             panel1.Enabled = false;
             groupBox1.Enabled = false;
@@ -795,13 +799,7 @@ namespace Exam_Cell
         {
             if (Unv_radio.Checked)
             {
-                Generation_Panel.Enabled = true;
-                panel1.Enabled = true;
-                groupBox1.Enabled = true;
-                SingleAllotment_button.Enabled = true;
-                SingleAllotment_button.BringToFront();
-                MultiAllotment_button.Enabled = false;
-                RefreshAll();
+                examRadioSelectEnabling();
             }
         }
 
@@ -809,15 +807,17 @@ namespace Exam_Cell
         {
             if (Series_radio.Checked)
             {
-                Generation_Panel.Enabled = true;
-                panel1.Enabled = true;
-                groupBox1.Enabled = true;
-                SingleAllotment_button.Enabled = false;
-                MultiAllotment_button.Enabled = true;
-                MultiAllotment_button.BringToFront();
-                RefreshAll();
+                examRadioSelectEnabling();
             }
-        }        
+        }
+        void examRadioSelectEnabling()
+        {
+            allotRadioPanel.Enabled = true;
+            Generation_Panel.Enabled = true;
+            panel1.Enabled = true;
+            groupBox1.Enabled = true;
+            RefreshAll();
+        }
        
         private void AllocatedRoom_combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
