@@ -112,6 +112,7 @@
             this.timerHeaderCheck = new System.Windows.Forms.Timer(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.closeBtn = new System.Windows.Forms.Button();
             this.progressPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Courses_dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Candidate_datagridview)).BeginInit();
@@ -153,7 +154,7 @@
             this.progressPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.progressPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(43)))), ((int)(((byte)(99)))));
             this.progressPanel.Controls.Add(this.label5);
-            this.progressPanel.Location = new System.Drawing.Point(424, 320);
+            this.progressPanel.Location = new System.Drawing.Point(424, 338);
             this.progressPanel.Name = "progressPanel";
             this.progressPanel.Size = new System.Drawing.Size(410, 100);
             this.progressPanel.TabIndex = 42;
@@ -533,7 +534,7 @@
             this.groupboxExtraReg.Enabled = false;
             this.groupboxExtraReg.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupboxExtraReg.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupboxExtraReg.Location = new System.Drawing.Point(2, 6);
+            this.groupboxExtraReg.Location = new System.Drawing.Point(2, 21);
             this.groupboxExtraReg.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupboxExtraReg.Name = "groupboxExtraReg";
             this.groupboxExtraReg.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -606,11 +607,11 @@
             this.SubjectDetails_groupbox.Enabled = false;
             this.SubjectDetails_groupbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SubjectDetails_groupbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.SubjectDetails_groupbox.Location = new System.Drawing.Point(90, 152);
+            this.SubjectDetails_groupbox.Location = new System.Drawing.Point(90, 164);
             this.SubjectDetails_groupbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SubjectDetails_groupbox.Name = "SubjectDetails_groupbox";
             this.SubjectDetails_groupbox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.SubjectDetails_groupbox.Size = new System.Drawing.Size(457, 170);
+            this.SubjectDetails_groupbox.Size = new System.Drawing.Size(457, 158);
             this.SubjectDetails_groupbox.TabIndex = 25;
             this.SubjectDetails_groupbox.TabStop = false;
             this.SubjectDetails_groupbox.Text = "Subject Details";
@@ -878,6 +879,21 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1280, 720);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
+            // closeBtn
+            // 
+            this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.closeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.closeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.closeBtn.FlatAppearance.BorderSize = 0;
+            this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeBtn.Location = new System.Drawing.Point(1241, 8);
+            this.closeBtn.Name = "closeBtn";
+            this.closeBtn.Size = new System.Drawing.Size(35, 35);
+            this.closeBtn.TabIndex = 43;
+            this.closeBtn.Text = "X";
+            this.closeBtn.UseVisualStyleBackColor = false;
+            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
+            // 
             // formti
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -885,6 +901,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.progressPanel);
             this.Controls.Add(this.tableLayoutPanel1);
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -1017,5 +1034,6 @@
         private System.Windows.Forms.CheckBox SelectAllCheckbox;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button closeBtn;
     }
 }

@@ -141,7 +141,7 @@
             this.menu_dropitem_marking.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.menu_dropitem_marking.Name = "menu_dropitem_marking";
             this.menu_dropitem_marking.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.menu_dropitem_marking.Size = new System.Drawing.Size(182, 44);
+            this.menu_dropitem_marking.Size = new System.Drawing.Size(216, 44);
             this.menu_dropitem_marking.Text = "Marking";
             this.menu_dropitem_marking.Click += new System.EventHandler(this.menu_dropitem_marking_Click);
             // 
@@ -151,7 +151,7 @@
             this.menu_dropitem_statement.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.menu_dropitem_statement.Name = "menu_dropitem_statement";
             this.menu_dropitem_statement.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.menu_dropitem_statement.Size = new System.Drawing.Size(182, 44);
+            this.menu_dropitem_statement.Size = new System.Drawing.Size(216, 44);
             this.menu_dropitem_statement.Text = "Statement";
             this.menu_dropitem_statement.Click += new System.EventHandler(this.menu_dropitem_statement_Click);
             // 
@@ -181,7 +181,7 @@
             this.menu_dropitem_student.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.menu_dropitem_student.Name = "menu_dropitem_student";
             this.menu_dropitem_student.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.menu_dropitem_student.Size = new System.Drawing.Size(205, 44);
+            this.menu_dropitem_student.Size = new System.Drawing.Size(216, 44);
             this.menu_dropitem_student.Text = "Student ";
             this.menu_dropitem_student.Click += new System.EventHandler(this.menu_dropitem_student_Click);
             // 
@@ -191,7 +191,7 @@
             this.menu_dropitem_classbranch.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.menu_dropitem_classbranch.Name = "menu_dropitem_classbranch";
             this.menu_dropitem_classbranch.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.menu_dropitem_classbranch.Size = new System.Drawing.Size(205, 44);
+            this.menu_dropitem_classbranch.Size = new System.Drawing.Size(216, 44);
             this.menu_dropitem_classbranch.Text = "Class/Branch";
             this.menu_dropitem_classbranch.Click += new System.EventHandler(this.menu_dropitem_classbranch_Click);
             // 
@@ -252,20 +252,20 @@
         #endregion
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem menu_item_timetable;
-        private System.Windows.Forms.ToolStripMenuItem menu_item_candidateentry;
-        private System.Windows.Forms.ToolStripMenuItem menu_item_room;
-        private System.Windows.Forms.ToolStripMenuItem menu_item_allotment;
-        private System.Windows.Forms.ToolStripMenuItem menu_item_absentees;
-        private System.Windows.Forms.ToolStripMenuItem menu_dropitem_marking;
-        private System.Windows.Forms.ToolStripMenuItem menu_item_regstudmgmnt;
-        private System.Windows.Forms.ToolStripMenuItem menu_dropitem_statement;
-        private System.Windows.Forms.ToolStripMenuItem menu_item_postponement;
-        private System.Windows.Forms.ToolStripMenuItem menu_item_databasemgmnt;
-        private System.Windows.Forms.ToolStripMenuItem menu_item_credits;
         private System.Windows.Forms.ToolStripMenuItem menu_item_exit;
-        private System.Windows.Forms.ToolStripMenuItem menu_dropitem_student;
-        private System.Windows.Forms.ToolStripMenuItem menu_dropitem_classbranch;
         private System.Windows.Forms.Panel bgPanel;
+        public System.Windows.Forms.ToolStripMenuItem menu_item_timetable;
+        public System.Windows.Forms.ToolStripMenuItem menu_item_candidateentry;
+        public System.Windows.Forms.ToolStripMenuItem menu_item_room;
+        public System.Windows.Forms.ToolStripMenuItem menu_item_allotment;
+        public System.Windows.Forms.ToolStripMenuItem menu_item_absentees;
+        public System.Windows.Forms.ToolStripMenuItem menu_dropitem_marking;
+        public System.Windows.Forms.ToolStripMenuItem menu_item_regstudmgmnt;
+        public System.Windows.Forms.ToolStripMenuItem menu_dropitem_statement;
+        public System.Windows.Forms.ToolStripMenuItem menu_item_postponement;
+        public System.Windows.Forms.ToolStripMenuItem menu_item_databasemgmnt;
+        public System.Windows.Forms.ToolStripMenuItem menu_item_credits;
+        public System.Windows.Forms.ToolStripMenuItem menu_dropitem_student;
+        public System.Windows.Forms.ToolStripMenuItem menu_dropitem_classbranch;
     }
 }

@@ -34,6 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Absent_Marking));
             this.Panel = new System.Windows.Forms.Panel();
+            this.closeBtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.Series_radio = new System.Windows.Forms.RadioButton();
@@ -59,6 +60,7 @@
             this.Panel.AutoScroll = true;
             this.Panel.BackColor = System.Drawing.Color.Transparent;
             this.Panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Panel.Controls.Add(this.closeBtn);
             this.Panel.Controls.Add(this.panel1);
             this.Panel.Controls.Add(this.Dgv);
             this.Panel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -66,6 +68,22 @@
             this.Panel.Name = "Panel";
             this.Panel.Size = new System.Drawing.Size(1280, 720);
             this.Panel.TabIndex = 7;
+            // 
+            // closeBtn
+            // 
+            this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.closeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.closeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.closeBtn.FlatAppearance.BorderSize = 0;
+            this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.closeBtn.Location = new System.Drawing.Point(1233, 3);
+            this.closeBtn.Name = "closeBtn";
+            this.closeBtn.Size = new System.Drawing.Size(35, 35);
+            this.closeBtn.TabIndex = 18;
+            this.closeBtn.Text = "X";
+            this.closeBtn.UseVisualStyleBackColor = false;
+            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
             // panel1
             // 
@@ -81,9 +99,9 @@
             this.panel1.Controls.Add(this.Room_combobox);
             this.panel1.Controls.Add(this.Session_combobox);
             this.panel1.Controls.Add(this.Date_combobox);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(3, 42);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(559, 714);
+            this.panel1.Size = new System.Drawing.Size(559, 675);
             this.panel1.TabIndex = 17;
             // 
             // groupBox3
@@ -94,7 +112,7 @@
             this.groupBox3.Controls.Add(this.Unv_radio);
             this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox3.Location = new System.Drawing.Point(97, 64);
+            this.groupBox3.Location = new System.Drawing.Point(97, 69);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -138,7 +156,7 @@
             this.Search_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Search_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Search_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Search_btn.Location = new System.Drawing.Point(170, 378);
+            this.Search_btn.Location = new System.Drawing.Point(170, 383);
             this.Search_btn.Name = "Search_btn";
             this.Search_btn.Size = new System.Drawing.Size(91, 37);
             this.Search_btn.TabIndex = 47;
@@ -152,7 +170,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(64, 316);
+            this.label3.Location = new System.Drawing.Point(64, 321);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(94, 22);
             this.label3.TabIndex = 44;
@@ -164,7 +182,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(64, 262);
+            this.label2.Location = new System.Drawing.Point(64, 267);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 22);
             this.label2.TabIndex = 45;
@@ -176,7 +194,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(64, 208);
+            this.label1.Location = new System.Drawing.Point(64, 213);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 22);
             this.label1.TabIndex = 46;
@@ -192,7 +210,7 @@
             this.ClearData_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ClearData_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClearData_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClearData_btn.Location = new System.Drawing.Point(419, 667);
+            this.ClearData_btn.Location = new System.Drawing.Point(419, 638);
             this.ClearData_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ClearData_btn.Name = "ClearData_btn";
             this.ClearData_btn.Size = new System.Drawing.Size(132, 37);
@@ -210,7 +228,7 @@
             this.Absentees_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Absentees_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Absentees_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Absentees_btn.Location = new System.Drawing.Point(170, 444);
+            this.Absentees_btn.Location = new System.Drawing.Point(170, 449);
             this.Absentees_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Absentees_btn.Name = "Absentees_btn";
             this.Absentees_btn.Size = new System.Drawing.Size(190, 52);
@@ -225,7 +243,7 @@
             this.Room_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Room_combobox.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Room_combobox.FormattingEnabled = true;
-            this.Room_combobox.Location = new System.Drawing.Point(170, 311);
+            this.Room_combobox.Location = new System.Drawing.Point(170, 316);
             this.Room_combobox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Room_combobox.Name = "Room_combobox";
             this.Room_combobox.Size = new System.Drawing.Size(319, 32);
@@ -241,7 +259,7 @@
             "-Select-",
             "Forenoon",
             "Afternoon"});
-            this.Session_combobox.Location = new System.Drawing.Point(170, 257);
+            this.Session_combobox.Location = new System.Drawing.Point(170, 262);
             this.Session_combobox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Session_combobox.Name = "Session_combobox";
             this.Session_combobox.Size = new System.Drawing.Size(319, 32);
@@ -253,7 +271,7 @@
             this.Date_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Date_combobox.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Date_combobox.FormattingEnabled = true;
-            this.Date_combobox.Location = new System.Drawing.Point(170, 203);
+            this.Date_combobox.Location = new System.Drawing.Point(170, 208);
             this.Date_combobox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Date_combobox.Name = "Date_combobox";
             this.Date_combobox.Size = new System.Drawing.Size(319, 32);
@@ -288,7 +306,7 @@
             this.Dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.Dgv.EnableHeadersVisualStyles = false;
             this.Dgv.GridColor = System.Drawing.Color.SteelBlue;
-            this.Dgv.Location = new System.Drawing.Point(565, 3);
+            this.Dgv.Location = new System.Drawing.Point(565, 42);
             this.Dgv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Dgv.Name = "Dgv";
             this.Dgv.ReadOnly = true;
@@ -309,7 +327,7 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
             this.Dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.Dgv.RowTemplate.Height = 24;
-            this.Dgv.Size = new System.Drawing.Size(703, 714);
+            this.Dgv.Size = new System.Drawing.Size(703, 675);
             this.Dgv.TabIndex = 16;
             this.Dgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ChangeStatusEvent);
             // 
@@ -354,5 +372,6 @@
         private System.Windows.Forms.ComboBox Room_combobox;
         private System.Windows.Forms.ComboBox Session_combobox;
         private System.Windows.Forms.ComboBox Date_combobox;
+        private System.Windows.Forms.Button closeBtn;
     }
 }

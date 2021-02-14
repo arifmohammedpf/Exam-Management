@@ -35,6 +35,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Database_Management));
             this.Class_Managmnt_panel = new System.Windows.Forms.Panel();
+            this.closeBtn = new System.Windows.Forms.Button();
             this.Scheme_dgv = new System.Windows.Forms.DataGridView();
             this.RadioButton_panel = new System.Windows.Forms.Panel();
             this.Class_radiobtn = new System.Windows.Forms.RadioButton();
@@ -91,6 +92,7 @@
             this.Class_Managmnt_panel.AutoScroll = true;
             this.Class_Managmnt_panel.BackColor = System.Drawing.Color.Transparent;
             this.Class_Managmnt_panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Class_Managmnt_panel.Controls.Add(this.closeBtn);
             this.Class_Managmnt_panel.Controls.Add(this.Scheme_dgv);
             this.Class_Managmnt_panel.Controls.Add(this.RadioButton_panel);
             this.Class_Managmnt_panel.Controls.Add(this.groupBoxContents);
@@ -100,6 +102,22 @@
             this.Class_Managmnt_panel.Name = "Class_Managmnt_panel";
             this.Class_Managmnt_panel.Size = new System.Drawing.Size(1280, 720);
             this.Class_Managmnt_panel.TabIndex = 7;
+            // 
+            // closeBtn
+            // 
+            this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.closeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.closeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.closeBtn.FlatAppearance.BorderSize = 0;
+            this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.closeBtn.Location = new System.Drawing.Point(1232, 10);
+            this.closeBtn.Name = "closeBtn";
+            this.closeBtn.Size = new System.Drawing.Size(35, 35);
+            this.closeBtn.TabIndex = 12;
+            this.closeBtn.Text = "X";
+            this.closeBtn.UseVisualStyleBackColor = false;
+            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
             // Scheme_dgv
             // 
@@ -696,5 +714,6 @@
         private System.Windows.Forms.RadioButton Class_radiobtn;
         private System.Windows.Forms.RadioButton DefaultScheme_radiobtn;
         private System.Windows.Forms.DataGridView Scheme_dgv;
+        private System.Windows.Forms.Button closeBtn;
     }
 }

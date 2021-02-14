@@ -12,8 +12,7 @@ namespace Exam_Cell
     {
         Connection con = new Connection();
         CustomMessageBox msgbox = new CustomMessageBox();
-        Undo_backup undo = new Undo_backup();
-        
+        Undo_backup undo = new Undo_backup();        
         public formtimetable()
         {
             InitializeComponent();
@@ -488,6 +487,16 @@ namespace Exam_Cell
             SemesterComboboxFill();
             CourseFill();
             TimetableFill();
+        }
+        
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            MenuForm menuForm = (MenuForm)Application.OpenForms["MenuForm"];
+            if(menuForm.Temp_btn == menuForm.menu_item_timetable)
+                menuForm.Temp_btn = null;
+            menuForm.menu_item_timetable.BackColor = Color.FromArgb(48, 43, 99);
+            menuForm.timetable_open = false;
+            this.Close();
         }
     }    
 }

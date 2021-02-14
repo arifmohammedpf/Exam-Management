@@ -254,7 +254,7 @@ namespace Exam_Cell.Forms
         Absent_Statement absent_Statement ;
         Absent_Marking absent_Marking ;
 
-        bool timetable_open = false, candidateentry_open = false, room_open = false, regstudmgmnt_open = false, allotment_open = false, absenteesmarking_open = false, absenteesstatement_open = false, postponment_open = false, studmgmnt_open = false, classbranchmgmnt_open = false, credits_open = false;
+        public bool timetable_open = false, candidateentry_open = false, room_open = false, regstudmgmnt_open = false, allotment_open = false, absenteesmarking_open = false, absenteesstatement_open = false, postponment_open = false, studmgmnt_open = false, classbranchmgmnt_open = false, credits_open = false;
        
         private void openForm(Form form)
         {
@@ -263,7 +263,7 @@ namespace Exam_Cell.Forms
             form.BringToFront();
             form.Show();
         }
-        ToolStripMenuItem Temp_btn = null;
+        public ToolStripMenuItem Temp_btn = null;
         private void buttonColorChange(ToolStripMenuItem btn)
         {
             if (Temp_btn != null)

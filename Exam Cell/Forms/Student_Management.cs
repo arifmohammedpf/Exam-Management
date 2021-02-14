@@ -842,5 +842,15 @@ namespace Exam_Cell
             }
             progressPanel.Hide();
         }
+
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            MenuForm menuForm = (MenuForm)Application.OpenForms["MenuForm"];
+            if (menuForm.Temp_btn == menuForm.menu_dropitem_student)
+                menuForm.Temp_btn = null;
+            menuForm.menu_dropitem_student.BackColor = Color.FromArgb(48, 43, 99);
+            menuForm.studmgmnt_open = false;
+            this.Close();
+        }
     }
 }

@@ -363,6 +363,16 @@ namespace Exam_Cell
             No_of_candidates_ViewText.Text = table.Rows.Count.ToString();
             No_of_Present_ViewText.Text = prescount.ToString();
             No_of_Absent_ViewText.Text = abscount.ToString();
+        }        
+
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            MenuForm menuForm = (MenuForm)Application.OpenForms["MenuForm"];
+            if (menuForm.Temp_btn == menuForm.menu_dropitem_statement)
+                menuForm.Temp_btn = null;
+            menuForm.menu_dropitem_statement.BackColor = Color.FromArgb(48, 43, 99);
+            menuForm.absenteesstatement_open = false;
+            this.Close();
         }
     }
 }

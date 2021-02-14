@@ -71,6 +71,7 @@
             this.timetableBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.timetableTableAdapter1 = new Exam_Cell.Exam_CellTimeTableNewTableAdapters.TimetableTableAdapter();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.closeBtn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Timetableview_dgv = new System.Windows.Forms.DataGridView();
             this.Course_Select_dgv = new System.Windows.Forms.DataGridView();
@@ -108,7 +109,7 @@
             this.panel1.Controls.Add(this.Session_combobox);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(13, 13);
+            this.panel1.Location = new System.Drawing.Point(13, 37);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(507, 324);
@@ -435,6 +436,7 @@
             this.panel4.AutoScroll = true;
             this.panel4.BackColor = System.Drawing.Color.Transparent;
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel4.Controls.Add(this.closeBtn);
             this.panel4.Controls.Add(this.groupBox1);
             this.panel4.Controls.Add(this.panel1);
             this.panel4.Controls.Add(this.Timetableview_dgv);
@@ -444,6 +446,21 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1280, 720);
             this.panel4.TabIndex = 4;
+            // 
+            // closeBtn
+            // 
+            this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.closeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.closeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.closeBtn.FlatAppearance.BorderSize = 0;
+            this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeBtn.Location = new System.Drawing.Point(1233, 3);
+            this.closeBtn.Name = "closeBtn";
+            this.closeBtn.Size = new System.Drawing.Size(35, 35);
+            this.closeBtn.TabIndex = 8;
+            this.closeBtn.Text = "X";
+            this.closeBtn.UseVisualStyleBackColor = false;
+            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
             // groupBox1
             // 
@@ -459,9 +476,9 @@
             this.groupBox1.Controls.Add(this.SheduledBranch);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox1.Location = new System.Drawing.Point(781, 344);
+            this.groupBox1.Location = new System.Drawing.Point(781, 368);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(487, 364);
+            this.groupBox1.Size = new System.Drawing.Size(487, 340);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Scheduled Exam";
@@ -495,7 +512,7 @@
             this.Timetableview_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.Timetableview_dgv.EnableHeadersVisualStyles = false;
             this.Timetableview_dgv.GridColor = System.Drawing.Color.SteelBlue;
-            this.Timetableview_dgv.Location = new System.Drawing.Point(13, 344);
+            this.Timetableview_dgv.Location = new System.Drawing.Point(13, 368);
             this.Timetableview_dgv.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Timetableview_dgv.Name = "Timetableview_dgv";
             this.Timetableview_dgv.ReadOnly = true;
@@ -515,7 +532,7 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Gainsboro;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
             this.Timetableview_dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.Timetableview_dgv.Size = new System.Drawing.Size(761, 364);
+            this.Timetableview_dgv.Size = new System.Drawing.Size(761, 340);
             this.Timetableview_dgv.TabIndex = 6;
             // 
             // Course_Select_dgv
@@ -547,7 +564,7 @@
             this.Course_Select_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.Course_Select_dgv.EnableHeadersVisualStyles = false;
             this.Course_Select_dgv.GridColor = System.Drawing.Color.SteelBlue;
-            this.Course_Select_dgv.Location = new System.Drawing.Point(528, 13);
+            this.Course_Select_dgv.Location = new System.Drawing.Point(528, 37);
             this.Course_Select_dgv.Margin = new System.Windows.Forms.Padding(4);
             this.Course_Select_dgv.Name = "Course_Select_dgv";
             this.Course_Select_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -649,5 +666,6 @@
         private System.Windows.Forms.DataGridView Course_Select_dgv;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button closeBtn;
     }
 }

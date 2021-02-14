@@ -517,6 +517,16 @@ namespace Exam_Cell
             ClearBtn.Enabled = true;
             DeleteAll_btn.Enabled = true;
             Delete_btn.Enabled = true;
+        }        
+
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            MenuForm menuForm = (MenuForm)Application.OpenForms["MenuForm"];
+            if (menuForm.Temp_btn == menuForm.menu_item_regstudmgmnt)
+                menuForm.Temp_btn = null;
+            menuForm.menu_item_regstudmgmnt.BackColor = Color.FromArgb(48, 43, 99);
+            menuForm.regstudmgmnt_open = false;
+            this.Close();
         }
     }
 }

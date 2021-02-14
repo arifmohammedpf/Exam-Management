@@ -35,6 +35,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(postponement));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.closeBtn = new System.Windows.Forms.Button();
             this.progressPanel = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.ScheduledExam_dgv = new System.Windows.Forms.DataGridView();
@@ -79,6 +80,7 @@
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.closeBtn);
             this.panel1.Controls.Add(this.progressPanel);
             this.panel1.Controls.Add(this.ScheduledExam_dgv);
             this.panel1.Controls.Add(this.groupBox2);
@@ -91,6 +93,22 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1280, 720);
             this.panel1.TabIndex = 0;
+            // 
+            // closeBtn
+            // 
+            this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.closeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.closeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.closeBtn.FlatAppearance.BorderSize = 0;
+            this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeBtn.Location = new System.Drawing.Point(1239, 11);
+            this.closeBtn.Name = "closeBtn";
+            this.closeBtn.Size = new System.Drawing.Size(35, 35);
+            this.closeBtn.TabIndex = 44;
+            this.closeBtn.Text = "X";
+            this.closeBtn.UseVisualStyleBackColor = false;
+            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
             // progressPanel
             // 
@@ -143,7 +161,7 @@
             this.ScheduledExam_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.ScheduledExam_dgv.EnableHeadersVisualStyles = false;
             this.ScheduledExam_dgv.GridColor = System.Drawing.Color.SteelBlue;
-            this.ScheduledExam_dgv.Location = new System.Drawing.Point(4, 307);
+            this.ScheduledExam_dgv.Location = new System.Drawing.Point(4, 326);
             this.ScheduledExam_dgv.Margin = new System.Windows.Forms.Padding(4);
             this.ScheduledExam_dgv.Name = "ScheduledExam_dgv";
             this.ScheduledExam_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -162,7 +180,7 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.ScheduledExam_dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.ScheduledExam_dgv.Size = new System.Drawing.Size(1270, 407);
+            this.ScheduledExam_dgv.Size = new System.Drawing.Size(1270, 388);
             this.ScheduledExam_dgv.TabIndex = 10;
             // 
             // groupBox2
@@ -176,7 +194,7 @@
             this.groupBox2.Controls.Add(this.NewSession_combobox);
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox2.Location = new System.Drawing.Point(686, 33);
+            this.groupBox2.Location = new System.Drawing.Point(686, 51);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(588, 268);
             this.groupBox2.TabIndex = 9;
@@ -254,7 +272,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox1.Location = new System.Drawing.Point(4, 33);
+            this.groupBox1.Location = new System.Drawing.Point(4, 51);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(556, 268);
             this.groupBox1.TabIndex = 8;
@@ -359,7 +377,7 @@
             this.Clear_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Clear_button.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Clear_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Clear_button.Location = new System.Drawing.Point(566, 263);
+            this.Clear_button.Location = new System.Drawing.Point(566, 281);
             this.Clear_button.Name = "Clear_button";
             this.Clear_button.Size = new System.Drawing.Size(114, 38);
             this.Clear_button.TabIndex = 1;
@@ -461,5 +479,6 @@
         private System.Windows.Forms.Timer timerHeader;
         private System.Windows.Forms.Panel progressPanel;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button closeBtn;
     }
 }

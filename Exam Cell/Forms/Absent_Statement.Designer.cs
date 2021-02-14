@@ -34,6 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Absent_Statement));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.closeBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Filepath_textbox = new System.Windows.Forms.TextBox();
             this.Examination_Textbox = new System.Windows.Forms.TextBox();
@@ -66,6 +67,7 @@
             this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.closeBtn);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.Dgv);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -74,6 +76,23 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1280, 720);
             this.panel1.TabIndex = 8;
+            // 
+            // closeBtn
+            // 
+            this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.closeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.closeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.closeBtn.FlatAppearance.BorderSize = 0;
+            this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.closeBtn.Location = new System.Drawing.Point(1242, 4);
+            this.closeBtn.Name = "closeBtn";
+            this.closeBtn.Size = new System.Drawing.Size(35, 35);
+            this.closeBtn.TabIndex = 12;
+            this.closeBtn.Text = "X";
+            this.closeBtn.UseVisualStyleBackColor = false;
+            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
             // panel2
             // 
@@ -99,16 +118,16 @@
             this.panel2.Controls.Add(this.Branch_combobox);
             this.panel2.Controls.Add(this.Session_combobox);
             this.panel2.Controls.Add(this.Date_combobox);
-            this.panel2.Location = new System.Drawing.Point(0, 3);
+            this.panel2.Location = new System.Drawing.Point(0, 43);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(560, 714);
+            this.panel2.Size = new System.Drawing.Size(560, 674);
             this.panel2.TabIndex = 11;
             // 
             // Filepath_textbox
             // 
             this.Filepath_textbox.Enabled = false;
             this.Filepath_textbox.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Filepath_textbox.Location = new System.Drawing.Point(142, 617);
+            this.Filepath_textbox.Location = new System.Drawing.Point(142, 592);
             this.Filepath_textbox.Name = "Filepath_textbox";
             this.Filepath_textbox.Size = new System.Drawing.Size(328, 31);
             this.Filepath_textbox.TabIndex = 27;
@@ -217,7 +236,7 @@
             this.Filepath_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Filepath_button.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Filepath_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Filepath_button.Location = new System.Drawing.Point(142, 653);
+            this.Filepath_button.Location = new System.Drawing.Point(142, 628);
             this.Filepath_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Filepath_button.Name = "Filepath_button";
             this.Filepath_button.Size = new System.Drawing.Size(328, 38);
@@ -373,7 +392,7 @@
             this.Dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.Dgv.EnableHeadersVisualStyles = false;
             this.Dgv.GridColor = System.Drawing.Color.SteelBlue;
-            this.Dgv.Location = new System.Drawing.Point(566, 3);
+            this.Dgv.Location = new System.Drawing.Point(566, 43);
             this.Dgv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Dgv.Name = "Dgv";
             this.Dgv.ReadOnly = true;
@@ -394,7 +413,7 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.Dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.Dgv.RowTemplate.Height = 24;
-            this.Dgv.Size = new System.Drawing.Size(711, 714);
+            this.Dgv.Size = new System.Drawing.Size(711, 674);
             this.Dgv.TabIndex = 10;
             // 
             // Absent_Statement
@@ -445,5 +464,6 @@
         private System.Windows.Forms.ComboBox Session_combobox;
         private System.Windows.Forms.ComboBox Date_combobox;
         private System.Windows.Forms.DataGridView Dgv;
+        private System.Windows.Forms.Button closeBtn;
     }
 }

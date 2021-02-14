@@ -1082,5 +1082,15 @@ namespace Exam_Cell
                 msgbox.show("Enter Reg_No and Name   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
         }
+
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            MenuForm menuForm = (MenuForm)Application.OpenForms["MenuForm"];
+            if (menuForm.Temp_btn == menuForm.menu_item_candidateentry)
+                menuForm.Temp_btn = null;
+            menuForm.menu_item_candidateentry.BackColor = Color.FromArgb(48, 43, 99);
+            menuForm.candidateentry_open = false;
+            this.Close();
+        }
     }
 }

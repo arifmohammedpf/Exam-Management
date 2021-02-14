@@ -34,6 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Student_mngmnt_panel = new System.Windows.Forms.Panel();
+            this.closeBtn = new System.Windows.Forms.Button();
             this.progressPanel = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.Student_dgv = new System.Windows.Forms.DataGridView();
@@ -88,6 +89,7 @@
             this.Student_mngmnt_panel.AutoSize = true;
             this.Student_mngmnt_panel.BackColor = System.Drawing.Color.Transparent;
             this.Student_mngmnt_panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Student_mngmnt_panel.Controls.Add(this.closeBtn);
             this.Student_mngmnt_panel.Controls.Add(this.progressPanel);
             this.Student_mngmnt_panel.Controls.Add(this.Student_dgv);
             this.Student_mngmnt_panel.Controls.Add(this.SelectAllCheckbox);
@@ -103,12 +105,27 @@
             this.Student_mngmnt_panel.Size = new System.Drawing.Size(1280, 720);
             this.Student_mngmnt_panel.TabIndex = 6;
             // 
+            // closeBtn
+            // 
+            this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.closeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.closeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.closeBtn.FlatAppearance.BorderSize = 0;
+            this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeBtn.Location = new System.Drawing.Point(1233, 7);
+            this.closeBtn.Name = "closeBtn";
+            this.closeBtn.Size = new System.Drawing.Size(35, 35);
+            this.closeBtn.TabIndex = 44;
+            this.closeBtn.Text = "X";
+            this.closeBtn.UseVisualStyleBackColor = false;
+            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
+            // 
             // progressPanel
             // 
             this.progressPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.progressPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(43)))), ((int)(((byte)(99)))));
             this.progressPanel.Controls.Add(this.label5);
-            this.progressPanel.Location = new System.Drawing.Point(474, 312);
+            this.progressPanel.Location = new System.Drawing.Point(474, 354);
             this.progressPanel.Name = "progressPanel";
             this.progressPanel.Size = new System.Drawing.Size(410, 100);
             this.progressPanel.TabIndex = 43;
@@ -154,7 +171,7 @@
             this.Student_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.Student_dgv.EnableHeadersVisualStyles = false;
             this.Student_dgv.GridColor = System.Drawing.Color.SteelBlue;
-            this.Student_dgv.Location = new System.Drawing.Point(332, 224);
+            this.Student_dgv.Location = new System.Drawing.Point(332, 266);
             this.Student_dgv.Name = "Student_dgv";
             this.Student_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -182,7 +199,7 @@
             this.SelectAllCheckbox.AutoSize = true;
             this.SelectAllCheckbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SelectAllCheckbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.SelectAllCheckbox.Location = new System.Drawing.Point(177, 555);
+            this.SelectAllCheckbox.Location = new System.Drawing.Point(177, 597);
             this.SelectAllCheckbox.Name = "SelectAllCheckbox";
             this.SelectAllCheckbox.Size = new System.Drawing.Size(113, 26);
             this.SelectAllCheckbox.TabIndex = 6;
@@ -195,7 +212,7 @@
             this.ClassDgvView_checkbox.AutoSize = true;
             this.ClassDgvView_checkbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClassDgvView_checkbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClassDgvView_checkbox.Location = new System.Drawing.Point(177, 587);
+            this.ClassDgvView_checkbox.Location = new System.Drawing.Point(177, 629);
             this.ClassDgvView_checkbox.Name = "ClassDgvView_checkbox";
             this.ClassDgvView_checkbox.Size = new System.Drawing.Size(128, 26);
             this.ClassDgvView_checkbox.TabIndex = 6;
@@ -211,7 +228,7 @@
             this.UpgradeSemester_groupbox.Controls.Add(this.DegradeClass_btn);
             this.UpgradeSemester_groupbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UpgradeSemester_groupbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.UpgradeSemester_groupbox.Location = new System.Drawing.Point(1000, 3);
+            this.UpgradeSemester_groupbox.Location = new System.Drawing.Point(1000, 45);
             this.UpgradeSemester_groupbox.Name = "UpgradeSemester_groupbox";
             this.UpgradeSemester_groupbox.Size = new System.Drawing.Size(268, 211);
             this.UpgradeSemester_groupbox.TabIndex = 9;
@@ -261,7 +278,7 @@
             this.ImportGroupbox.Controls.Add(this.AddFromExcel_Btn);
             this.ImportGroupbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ImportGroupbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ImportGroupbox.Location = new System.Drawing.Point(0, 224);
+            this.ImportGroupbox.Location = new System.Drawing.Point(0, 266);
             this.ImportGroupbox.Name = "ImportGroupbox";
             this.ImportGroupbox.Size = new System.Drawing.Size(326, 281);
             this.ImportGroupbox.TabIndex = 8;
@@ -354,7 +371,7 @@
             this.AssignClass_groupbox.Controls.Add(this.label13);
             this.AssignClass_groupbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AssignClass_groupbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.AssignClass_groupbox.Location = new System.Drawing.Point(551, 3);
+            this.AssignClass_groupbox.Location = new System.Drawing.Point(551, 45);
             this.AssignClass_groupbox.Name = "AssignClass_groupbox";
             this.AssignClass_groupbox.Size = new System.Drawing.Size(443, 211);
             this.AssignClass_groupbox.TabIndex = 7;
@@ -472,7 +489,7 @@
             this.add_stdnt_groupbox.Controls.Add(this.label4);
             this.add_stdnt_groupbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.add_stdnt_groupbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.add_stdnt_groupbox.Location = new System.Drawing.Point(0, 3);
+            this.add_stdnt_groupbox.Location = new System.Drawing.Point(0, 45);
             this.add_stdnt_groupbox.Name = "add_stdnt_groupbox";
             this.add_stdnt_groupbox.Size = new System.Drawing.Size(545, 211);
             this.add_stdnt_groupbox.TabIndex = 6;
@@ -610,7 +627,7 @@
             this.Delete_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Delete_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Delete_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Delete_btn.Location = new System.Drawing.Point(177, 630);
+            this.Delete_btn.Location = new System.Drawing.Point(177, 672);
             this.Delete_btn.Name = "Delete_btn";
             this.Delete_btn.Size = new System.Drawing.Size(128, 36);
             this.Delete_btn.TabIndex = 0;
@@ -703,5 +720,6 @@
         private System.Windows.Forms.CheckBox SelectAllCheckbox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button closeBtn;
     }
 }

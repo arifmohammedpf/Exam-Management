@@ -47,6 +47,7 @@
             this.ClearBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.closeBtn = new System.Windows.Forms.Button();
             this.Registered_dgv = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
@@ -92,7 +93,7 @@
             this.groupBox1.Controls.Add(this.Univrsty_radiobtn);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox1.Location = new System.Drawing.Point(102, 12);
+            this.groupBox1.Location = new System.Drawing.Point(102, 80);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(351, 85);
             this.groupBox1.TabIndex = 3;
@@ -141,7 +142,7 @@
             this.AllotGroupbox.Controls.Add(this.AllotUniversty_radiobtn);
             this.AllotGroupbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AllotGroupbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.AllotGroupbox.Location = new System.Drawing.Point(500, 12);
+            this.AllotGroupbox.Location = new System.Drawing.Point(500, 80);
             this.AllotGroupbox.Name = "AllotGroupbox";
             this.AllotGroupbox.Size = new System.Drawing.Size(351, 85);
             this.AllotGroupbox.TabIndex = 4;
@@ -250,6 +251,7 @@
             this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.closeBtn);
             this.panel1.Controls.Add(this.Registered_dgv);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.DeleteAll_btn);
@@ -260,6 +262,22 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1280, 720);
             this.panel1.TabIndex = 11;
+            // 
+            // closeBtn
+            // 
+            this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.closeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.closeBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.closeBtn.FlatAppearance.BorderSize = 0;
+            this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.closeBtn.Location = new System.Drawing.Point(1233, 12);
+            this.closeBtn.Name = "closeBtn";
+            this.closeBtn.Size = new System.Drawing.Size(35, 35);
+            this.closeBtn.TabIndex = 13;
+            this.closeBtn.Text = "X";
+            this.closeBtn.UseVisualStyleBackColor = false;
+            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
             // Registered_dgv
             // 
@@ -290,7 +308,7 @@
             this.Registered_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.Registered_dgv.EnableHeadersVisualStyles = false;
             this.Registered_dgv.GridColor = System.Drawing.Color.SteelBlue;
-            this.Registered_dgv.Location = new System.Drawing.Point(13, 140);
+            this.Registered_dgv.Location = new System.Drawing.Point(13, 177);
             this.Registered_dgv.Margin = new System.Windows.Forms.Padding(4);
             this.Registered_dgv.Name = "Registered_dgv";
             this.Registered_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -309,7 +327,7 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.Registered_dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.Registered_dgv.Size = new System.Drawing.Size(867, 576);
+            this.Registered_dgv.Size = new System.Drawing.Size(867, 539);
             this.Registered_dgv.TabIndex = 12;
             // 
             // panel2
@@ -322,7 +340,7 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.Regno_textbox);
             this.panel2.Controls.Add(this.ClearBtn);
-            this.panel2.Location = new System.Drawing.Point(887, 140);
+            this.panel2.Location = new System.Drawing.Point(887, 177);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(381, 248);
             this.panel2.TabIndex = 11;
@@ -370,5 +388,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView Registered_dgv;
+        private System.Windows.Forms.Button closeBtn;
     }
 }

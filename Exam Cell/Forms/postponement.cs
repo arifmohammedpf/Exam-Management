@@ -340,6 +340,14 @@ namespace Exam_Cell
             }
         }
 
-        
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            MenuForm menuForm = (MenuForm)Application.OpenForms["MenuForm"];
+            if (menuForm.Temp_btn == menuForm.menu_item_postponement)
+                menuForm.Temp_btn = null;
+            menuForm.menu_item_postponement.BackColor = Color.FromArgb(48, 43, 99);
+            menuForm.postponment_open = false;
+            this.Close();
+        }
     }
 }
