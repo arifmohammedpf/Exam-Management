@@ -216,6 +216,12 @@
       <DependentUpon>Exam_Cell_Rooms.xsd</DependentUpon>
     </Compile>
     <Compile Include="Forms\ExcelDBManagement.cs" />
+    <Compile Include="Forms\ExcelSheetGeneration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ExcelSheetGeneration.Designer.cs">
+      <DependentUpon>ExcelSheetGeneration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ExcelStudents.cs" />
     <Compile Include="Forms\login.cs">
       <SubType>Form</SubType>
@@ -285,6 +291,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\examhall.resx">
       <DependentUpon>examhall.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ExcelSheetGeneration.resx">
+      <DependentUpon>ExcelSheetGeneration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\login.resx">
       <DependentUpon>login.cs</DependentUpon>

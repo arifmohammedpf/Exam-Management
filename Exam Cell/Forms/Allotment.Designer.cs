@@ -32,10 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -44,6 +40,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelContainer = new System.Windows.Forms.Panel();
             this.closeBtn = new System.Windows.Forms.Button();
             this.AllotedRooms_dgv = new System.Windows.Forms.DataGridView();
@@ -89,31 +89,11 @@
             this.Generation_Panel = new System.Windows.Forms.Panel();
             this.AllotedStudentsRooms_dgv = new System.Windows.Forms.DataGridView();
             this.Clear_button = new System.Windows.Forms.Button();
-            this.DisplayPrint_button = new System.Windows.Forms.Button();
-            this.RoomPrint_button = new System.Windows.Forms.Button();
             this.AllocatedRoom_combobox = new System.Windows.Forms.ComboBox();
             this.NoOfStudents_Room = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.SignatureSheet_button = new System.Windows.Forms.Button();
-            this.Signature_panel = new System.Windows.Forms.Panel();
-            this.label17 = new System.Windows.Forms.Label();
-            this.Signature_close_btn = new System.Windows.Forms.Button();
-            this.Signature_generate_btn = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
-            this.Signature_examtype_textbox = new System.Windows.Forms.TextBox();
-            this.RoomExcel_panel = new System.Windows.Forms.Panel();
-            this.label16 = new System.Windows.Forms.Label();
-            this.RoomPanelClose_btn = new System.Windows.Forms.Button();
-            this.Excel_generate_btn = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
-            this.MonthYear_textbox = new System.Windows.Forms.TextBox();
-            this.DisplaySheet_Panel = new System.Windows.Forms.Panel();
-            this.label19 = new System.Windows.Forms.Label();
-            this.DisplayPanel_closebtn = new System.Windows.Forms.Button();
-            this.DisplaySheet_generate_btn = new System.Windows.Forms.Button();
-            this.label20 = new System.Windows.Forms.Label();
-            this.Display_examtype_textbox = new System.Windows.Forms.TextBox();
+            this.ExcelSheet_button = new System.Windows.Forms.Button();
             this.panelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AllotedRooms_dgv)).BeginInit();
             this.panel2.SuspendLayout();
@@ -126,9 +106,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Generation_Panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AllotedStudentsRooms_dgv)).BeginInit();
-            this.Signature_panel.SuspendLayout();
-            this.RoomExcel_panel.SuspendLayout();
-            this.DisplaySheet_Panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelContainer
@@ -144,9 +121,6 @@
             this.panelContainer.Controls.Add(this.panel4);
             this.panelContainer.Controls.Add(this.panel1);
             this.panelContainer.Controls.Add(this.Generation_Panel);
-            this.panelContainer.Controls.Add(this.Signature_panel);
-            this.panelContainer.Controls.Add(this.RoomExcel_panel);
-            this.panelContainer.Controls.Add(this.DisplaySheet_Panel);
             this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContainer.Location = new System.Drawing.Point(0, 0);
             this.panelContainer.Name = "panelContainer";
@@ -540,27 +514,27 @@
             // 
             this.AllotedBrief_dgv.AllowUserToAddRows = false;
             this.AllotedBrief_dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            dataGridViewCellStyle37.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle37.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle37.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.Color.White;
-            this.AllotedBrief_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            dataGridViewCellStyle41.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle41.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle41.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.Color.White;
+            this.AllotedBrief_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle41;
             this.AllotedBrief_dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.AllotedBrief_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.AllotedBrief_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.AllotedBrief_dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
             this.AllotedBrief_dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.AllotedBrief_dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AllotedBrief_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle42.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle42.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AllotedBrief_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle42;
             this.AllotedBrief_dgv.ColumnHeadersHeight = 40;
             this.AllotedBrief_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.AllotedBrief_dgv.EnableHeadersVisualStyles = false;
@@ -570,21 +544,21 @@
             this.AllotedBrief_dgv.Name = "AllotedBrief_dgv";
             this.AllotedBrief_dgv.ReadOnly = true;
             this.AllotedBrief_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle39.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle39.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AllotedBrief_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle39;
-            dataGridViewCellStyle40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
-            dataGridViewCellStyle40.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle40.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle40.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.Color.Black;
-            this.AllotedBrief_dgv.RowsDefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle43.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle43.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle43.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AllotedBrief_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle44.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
+            dataGridViewCellStyle44.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle44.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle44.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.Color.Black;
+            this.AllotedBrief_dgv.RowsDefaultCellStyle = dataGridViewCellStyle44;
             this.AllotedBrief_dgv.Size = new System.Drawing.Size(456, 212);
             this.AllotedBrief_dgv.TabIndex = 7;
             // 
@@ -635,27 +609,27 @@
             // 
             this.Alloted_dgv.AllowUserToAddRows = false;
             this.Alloted_dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            dataGridViewCellStyle41.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle41.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle41.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.Color.White;
-            this.Alloted_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle45.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            dataGridViewCellStyle45.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle45.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle45.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle45.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle45.SelectionForeColor = System.Drawing.Color.White;
+            this.Alloted_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle45;
             this.Alloted_dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Alloted_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.Alloted_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.Alloted_dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
             this.Alloted_dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Alloted_dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle42.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Alloted_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle46.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle46.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle46.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle46.SelectionBackColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle46.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle46.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Alloted_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle46;
             this.Alloted_dgv.ColumnHeadersHeight = 40;
             this.Alloted_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.Alloted_dgv.EnableHeadersVisualStyles = false;
@@ -665,21 +639,21 @@
             this.Alloted_dgv.Name = "Alloted_dgv";
             this.Alloted_dgv.ReadOnly = true;
             this.Alloted_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle43.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle43.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle43.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Alloted_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle43;
-            dataGridViewCellStyle44.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
-            dataGridViewCellStyle44.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle44.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle44.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.Color.Black;
-            this.Alloted_dgv.RowsDefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle47.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle47.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle47.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle47.SelectionBackColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle47.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle47.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Alloted_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle48.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
+            dataGridViewCellStyle48.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle48.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle48.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle48.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle48.SelectionForeColor = System.Drawing.Color.Black;
+            this.Alloted_dgv.RowsDefaultCellStyle = dataGridViewCellStyle48;
             this.Alloted_dgv.Size = new System.Drawing.Size(463, 234);
             this.Alloted_dgv.TabIndex = 7;
             // 
@@ -794,13 +768,11 @@
             this.Generation_Panel.BackColor = System.Drawing.Color.Transparent;
             this.Generation_Panel.Controls.Add(this.AllotedStudentsRooms_dgv);
             this.Generation_Panel.Controls.Add(this.Clear_button);
-            this.Generation_Panel.Controls.Add(this.DisplayPrint_button);
-            this.Generation_Panel.Controls.Add(this.RoomPrint_button);
             this.Generation_Panel.Controls.Add(this.AllocatedRoom_combobox);
             this.Generation_Panel.Controls.Add(this.NoOfStudents_Room);
             this.Generation_Panel.Controls.Add(this.label4);
             this.Generation_Panel.Controls.Add(this.label3);
-            this.Generation_Panel.Controls.Add(this.SignatureSheet_button);
+            this.Generation_Panel.Controls.Add(this.ExcelSheet_button);
             this.Generation_Panel.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Generation_Panel.Location = new System.Drawing.Point(474, 4);
             this.Generation_Panel.Name = "Generation_Panel";
@@ -811,27 +783,27 @@
             // 
             this.AllotedStudentsRooms_dgv.AllowUserToAddRows = false;
             this.AllotedStudentsRooms_dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle45.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            dataGridViewCellStyle45.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle45.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle45.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle45.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle45.SelectionForeColor = System.Drawing.Color.White;
-            this.AllotedStudentsRooms_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            dataGridViewCellStyle37.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle37.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle37.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.Color.White;
+            this.AllotedStudentsRooms_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle37;
             this.AllotedStudentsRooms_dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.AllotedStudentsRooms_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.AllotedStudentsRooms_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.AllotedStudentsRooms_dgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
             this.AllotedStudentsRooms_dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.AllotedStudentsRooms_dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle46.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle46.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle46.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle46.SelectionBackColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle46.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle46.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AllotedStudentsRooms_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AllotedStudentsRooms_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle38;
             this.AllotedStudentsRooms_dgv.ColumnHeadersHeight = 40;
             this.AllotedStudentsRooms_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.AllotedStudentsRooms_dgv.EnableHeadersVisualStyles = false;
@@ -841,21 +813,21 @@
             this.AllotedStudentsRooms_dgv.Name = "AllotedStudentsRooms_dgv";
             this.AllotedStudentsRooms_dgv.ReadOnly = true;
             this.AllotedStudentsRooms_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle47.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle47.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle47.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle47.SelectionBackColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle47.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle47.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AllotedStudentsRooms_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle47;
-            dataGridViewCellStyle48.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
-            dataGridViewCellStyle48.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle48.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle48.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle48.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle48.SelectionForeColor = System.Drawing.Color.Black;
-            this.AllotedStudentsRooms_dgv.RowsDefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle39.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle39.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AllotedStudentsRooms_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
+            dataGridViewCellStyle40.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle40.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle40.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.Color.Black;
+            this.AllotedStudentsRooms_dgv.RowsDefaultCellStyle = dataGridViewCellStyle40;
             this.AllotedStudentsRooms_dgv.Size = new System.Drawing.Size(426, 433);
             this.AllotedStudentsRooms_dgv.TabIndex = 11;
             // 
@@ -874,36 +846,6 @@
             this.Clear_button.Text = "Clear";
             this.Clear_button.UseVisualStyleBackColor = false;
             this.Clear_button.Click += new System.EventHandler(this.Clear_button_Click);
-            // 
-            // DisplayPrint_button
-            // 
-            this.DisplayPrint_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
-            this.DisplayPrint_button.FlatAppearance.BorderSize = 0;
-            this.DisplayPrint_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DisplayPrint_button.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DisplayPrint_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.DisplayPrint_button.Location = new System.Drawing.Point(295, 541);
-            this.DisplayPrint_button.Name = "DisplayPrint_button";
-            this.DisplayPrint_button.Size = new System.Drawing.Size(136, 46);
-            this.DisplayPrint_button.TabIndex = 8;
-            this.DisplayPrint_button.Text = "Display";
-            this.DisplayPrint_button.UseVisualStyleBackColor = false;
-            this.DisplayPrint_button.Click += new System.EventHandler(this.DisplayPrint_button_Click);
-            // 
-            // RoomPrint_button
-            // 
-            this.RoomPrint_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
-            this.RoomPrint_button.FlatAppearance.BorderSize = 0;
-            this.RoomPrint_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RoomPrint_button.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RoomPrint_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.RoomPrint_button.Location = new System.Drawing.Point(149, 540);
-            this.RoomPrint_button.Name = "RoomPrint_button";
-            this.RoomPrint_button.Size = new System.Drawing.Size(136, 46);
-            this.RoomPrint_button.TabIndex = 9;
-            this.RoomPrint_button.Text = "Room";
-            this.RoomPrint_button.UseVisualStyleBackColor = false;
-            this.RoomPrint_button.Click += new System.EventHandler(this.RoomPrint_button_Click);
             // 
             // AllocatedRoom_combobox
             // 
@@ -950,248 +892,20 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Allocated Room";
             // 
-            // SignatureSheet_button
+            // ExcelSheet_button
             // 
-            this.SignatureSheet_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
-            this.SignatureSheet_button.FlatAppearance.BorderSize = 0;
-            this.SignatureSheet_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SignatureSheet_button.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SignatureSheet_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.SignatureSheet_button.Location = new System.Drawing.Point(3, 540);
-            this.SignatureSheet_button.Name = "SignatureSheet_button";
-            this.SignatureSheet_button.Size = new System.Drawing.Size(136, 46);
-            this.SignatureSheet_button.TabIndex = 10;
-            this.SignatureSheet_button.Text = "Signature";
-            this.SignatureSheet_button.UseVisualStyleBackColor = false;
-            this.SignatureSheet_button.Click += new System.EventHandler(this.SignatureSheet_button_Click);
-            // 
-            // Signature_panel
-            // 
-            this.Signature_panel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Signature_panel.BackColor = System.Drawing.Color.Transparent;
-            this.Signature_panel.Controls.Add(this.label17);
-            this.Signature_panel.Controls.Add(this.Signature_close_btn);
-            this.Signature_panel.Controls.Add(this.Signature_generate_btn);
-            this.Signature_panel.Controls.Add(this.label18);
-            this.Signature_panel.Controls.Add(this.Signature_examtype_textbox);
-            this.Signature_panel.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Signature_panel.Location = new System.Drawing.Point(481, 98);
-            this.Signature_panel.Name = "Signature_panel";
-            this.Signature_panel.Size = new System.Drawing.Size(500, 388);
-            this.Signature_panel.TabIndex = 20;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Arial Narrow", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label17.Location = new System.Drawing.Point(84, 31);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(331, 29);
-            this.label17.TabIndex = 5;
-            this.label17.Text = "SIGNATURE SHEET GENERATION";
-            // 
-            // Signature_close_btn
-            // 
-            this.Signature_close_btn.BackColor = System.Drawing.Color.Maroon;
-            this.Signature_close_btn.FlatAppearance.BorderSize = 0;
-            this.Signature_close_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.Signature_close_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Signature_close_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Signature_close_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Signature_close_btn.Location = new System.Drawing.Point(150, 241);
-            this.Signature_close_btn.Name = "Signature_close_btn";
-            this.Signature_close_btn.Size = new System.Drawing.Size(208, 40);
-            this.Signature_close_btn.TabIndex = 3;
-            this.Signature_close_btn.Text = "Close";
-            this.Signature_close_btn.UseVisualStyleBackColor = false;
-            this.Signature_close_btn.Click += new System.EventHandler(this.Signature_close_btn_Click);
-            // 
-            // Signature_generate_btn
-            // 
-            this.Signature_generate_btn.BackColor = System.Drawing.Color.DarkGreen;
-            this.Signature_generate_btn.FlatAppearance.BorderSize = 0;
-            this.Signature_generate_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
-            this.Signature_generate_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Signature_generate_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Signature_generate_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Signature_generate_btn.Location = new System.Drawing.Point(150, 181);
-            this.Signature_generate_btn.Name = "Signature_generate_btn";
-            this.Signature_generate_btn.Size = new System.Drawing.Size(208, 40);
-            this.Signature_generate_btn.TabIndex = 3;
-            this.Signature_generate_btn.Text = "Generate Excel";
-            this.Signature_generate_btn.UseVisualStyleBackColor = false;
-            this.Signature_generate_btn.Click += new System.EventHandler(this.Signature_generate_btn_Click);
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label18.Location = new System.Drawing.Point(65, 104);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(84, 17);
-            this.label18.TabIndex = 2;
-            this.label18.Text = "Examination";
-            // 
-            // Signature_examtype_textbox
-            // 
-            this.Signature_examtype_textbox.Location = new System.Drawing.Point(65, 124);
-            this.Signature_examtype_textbox.Name = "Signature_examtype_textbox";
-            this.Signature_examtype_textbox.Size = new System.Drawing.Size(378, 33);
-            this.Signature_examtype_textbox.TabIndex = 1;
-            // 
-            // RoomExcel_panel
-            // 
-            this.RoomExcel_panel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.RoomExcel_panel.BackColor = System.Drawing.Color.Transparent;
-            this.RoomExcel_panel.Controls.Add(this.label16);
-            this.RoomExcel_panel.Controls.Add(this.RoomPanelClose_btn);
-            this.RoomExcel_panel.Controls.Add(this.Excel_generate_btn);
-            this.RoomExcel_panel.Controls.Add(this.label15);
-            this.RoomExcel_panel.Controls.Add(this.MonthYear_textbox);
-            this.RoomExcel_panel.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RoomExcel_panel.Location = new System.Drawing.Point(481, 98);
-            this.RoomExcel_panel.Name = "RoomExcel_panel";
-            this.RoomExcel_panel.Size = new System.Drawing.Size(500, 388);
-            this.RoomExcel_panel.TabIndex = 18;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Arial Narrow", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label16.Location = new System.Drawing.Point(128, 31);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(277, 29);
-            this.label16.TabIndex = 5;
-            this.label16.Text = "ROOM EXCEL GENERATION";
-            // 
-            // RoomPanelClose_btn
-            // 
-            this.RoomPanelClose_btn.BackColor = System.Drawing.Color.Maroon;
-            this.RoomPanelClose_btn.FlatAppearance.BorderSize = 0;
-            this.RoomPanelClose_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.RoomPanelClose_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RoomPanelClose_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F);
-            this.RoomPanelClose_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.RoomPanelClose_btn.Location = new System.Drawing.Point(150, 241);
-            this.RoomPanelClose_btn.Name = "RoomPanelClose_btn";
-            this.RoomPanelClose_btn.Size = new System.Drawing.Size(208, 40);
-            this.RoomPanelClose_btn.TabIndex = 3;
-            this.RoomPanelClose_btn.Text = "Close";
-            this.RoomPanelClose_btn.UseVisualStyleBackColor = false;
-            this.RoomPanelClose_btn.Click += new System.EventHandler(this.RoomPanelClose_btn_Click);
-            // 
-            // Excel_generate_btn
-            // 
-            this.Excel_generate_btn.BackColor = System.Drawing.Color.DarkGreen;
-            this.Excel_generate_btn.FlatAppearance.BorderSize = 0;
-            this.Excel_generate_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
-            this.Excel_generate_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Excel_generate_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F);
-            this.Excel_generate_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Excel_generate_btn.Location = new System.Drawing.Point(150, 181);
-            this.Excel_generate_btn.Name = "Excel_generate_btn";
-            this.Excel_generate_btn.Size = new System.Drawing.Size(208, 40);
-            this.Excel_generate_btn.TabIndex = 3;
-            this.Excel_generate_btn.Text = "Generate Excel";
-            this.Excel_generate_btn.UseVisualStyleBackColor = false;
-            this.Excel_generate_btn.Click += new System.EventHandler(this.Excel_generate_btn_Click);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label15.Location = new System.Drawing.Point(65, 104);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(84, 17);
-            this.label15.TabIndex = 2;
-            this.label15.Text = "Examination";
-            // 
-            // MonthYear_textbox
-            // 
-            this.MonthYear_textbox.Location = new System.Drawing.Point(65, 124);
-            this.MonthYear_textbox.Name = "MonthYear_textbox";
-            this.MonthYear_textbox.Size = new System.Drawing.Size(378, 33);
-            this.MonthYear_textbox.TabIndex = 1;
-            // 
-            // DisplaySheet_Panel
-            // 
-            this.DisplaySheet_Panel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.DisplaySheet_Panel.BackColor = System.Drawing.Color.Transparent;
-            this.DisplaySheet_Panel.Controls.Add(this.label19);
-            this.DisplaySheet_Panel.Controls.Add(this.DisplayPanel_closebtn);
-            this.DisplaySheet_Panel.Controls.Add(this.DisplaySheet_generate_btn);
-            this.DisplaySheet_Panel.Controls.Add(this.label20);
-            this.DisplaySheet_Panel.Controls.Add(this.Display_examtype_textbox);
-            this.DisplaySheet_Panel.Font = new System.Drawing.Font("Comic Sans MS", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DisplaySheet_Panel.Location = new System.Drawing.Point(481, 98);
-            this.DisplaySheet_Panel.Name = "DisplaySheet_Panel";
-            this.DisplaySheet_Panel.Size = new System.Drawing.Size(500, 388);
-            this.DisplaySheet_Panel.TabIndex = 19;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Arial Narrow", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label19.Location = new System.Drawing.Point(128, 31);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(301, 29);
-            this.label19.TabIndex = 5;
-            this.label19.Text = "DISPLAY SHEET GENERATION";
-            // 
-            // DisplayPanel_closebtn
-            // 
-            this.DisplayPanel_closebtn.BackColor = System.Drawing.Color.Maroon;
-            this.DisplayPanel_closebtn.FlatAppearance.BorderSize = 0;
-            this.DisplayPanel_closebtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.DisplayPanel_closebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DisplayPanel_closebtn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DisplayPanel_closebtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.DisplayPanel_closebtn.Location = new System.Drawing.Point(150, 241);
-            this.DisplayPanel_closebtn.Name = "DisplayPanel_closebtn";
-            this.DisplayPanel_closebtn.Size = new System.Drawing.Size(208, 40);
-            this.DisplayPanel_closebtn.TabIndex = 3;
-            this.DisplayPanel_closebtn.Text = "Close";
-            this.DisplayPanel_closebtn.UseVisualStyleBackColor = false;
-            this.DisplayPanel_closebtn.Click += new System.EventHandler(this.DisplayPanel_closebtn_Click);
-            // 
-            // DisplaySheet_generate_btn
-            // 
-            this.DisplaySheet_generate_btn.BackColor = System.Drawing.Color.DarkGreen;
-            this.DisplaySheet_generate_btn.FlatAppearance.BorderSize = 0;
-            this.DisplaySheet_generate_btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
-            this.DisplaySheet_generate_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DisplaySheet_generate_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DisplaySheet_generate_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.DisplaySheet_generate_btn.Location = new System.Drawing.Point(150, 181);
-            this.DisplaySheet_generate_btn.Name = "DisplaySheet_generate_btn";
-            this.DisplaySheet_generate_btn.Size = new System.Drawing.Size(208, 40);
-            this.DisplaySheet_generate_btn.TabIndex = 3;
-            this.DisplaySheet_generate_btn.Text = "Generate Excel";
-            this.DisplaySheet_generate_btn.UseVisualStyleBackColor = false;
-            this.DisplaySheet_generate_btn.Click += new System.EventHandler(this.DisplaySheet_generate_btn_Click);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label20.Location = new System.Drawing.Point(65, 104);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(84, 17);
-            this.label20.TabIndex = 2;
-            this.label20.Text = "Examination";
-            // 
-            // Display_examtype_textbox
-            // 
-            this.Display_examtype_textbox.Location = new System.Drawing.Point(65, 124);
-            this.Display_examtype_textbox.Name = "Display_examtype_textbox";
-            this.Display_examtype_textbox.Size = new System.Drawing.Size(378, 33);
-            this.Display_examtype_textbox.TabIndex = 1;
+            this.ExcelSheet_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
+            this.ExcelSheet_button.FlatAppearance.BorderSize = 0;
+            this.ExcelSheet_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ExcelSheet_button.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExcelSheet_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ExcelSheet_button.Location = new System.Drawing.Point(106, 540);
+            this.ExcelSheet_button.Name = "ExcelSheet_button";
+            this.ExcelSheet_button.Size = new System.Drawing.Size(220, 46);
+            this.ExcelSheet_button.TabIndex = 10;
+            this.ExcelSheet_button.Text = "Excel Sheet";
+            this.ExcelSheet_button.UseVisualStyleBackColor = false;
+            this.ExcelSheet_button.Click += new System.EventHandler(this.ExcelSheet_button_Click);
             // 
             // Allotment
             // 
@@ -1225,12 +939,6 @@
             this.Generation_Panel.ResumeLayout(false);
             this.Generation_Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AllotedStudentsRooms_dgv)).EndInit();
-            this.Signature_panel.ResumeLayout(false);
-            this.Signature_panel.PerformLayout();
-            this.RoomExcel_panel.ResumeLayout(false);
-            this.RoomExcel_panel.PerformLayout();
-            this.DisplaySheet_Panel.ResumeLayout(false);
-            this.DisplaySheet_Panel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1238,24 +946,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panelContainer;
-        private System.Windows.Forms.Panel RoomExcel_panel;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Button RoomPanelClose_btn;
-        private System.Windows.Forms.Button Excel_generate_btn;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox MonthYear_textbox;
-        private System.Windows.Forms.Panel DisplaySheet_Panel;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Button DisplayPanel_closebtn;
-        private System.Windows.Forms.Button DisplaySheet_generate_btn;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox Display_examtype_textbox;
-        private System.Windows.Forms.Panel Signature_panel;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Button Signature_close_btn;
-        private System.Windows.Forms.Button Signature_generate_btn;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox Signature_examtype_textbox;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox ToSeries_combobox;
         private System.Windows.Forms.ComboBox FromSeries_combobox;
@@ -1291,15 +981,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.RadioButton Series_radio;
-        private System.Windows.Forms.RadioButton Unv_radio;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button Save_Path;
-        private System.Windows.Forms.TextBox Folder_path_text;
         private System.Windows.Forms.Button Clear_button;
-        private System.Windows.Forms.Button DisplayPrint_button;
-        private System.Windows.Forms.Button RoomPrint_button;
-        private System.Windows.Forms.Button SignatureSheet_button;
+        private System.Windows.Forms.Button ExcelSheet_button;
         private System.Windows.Forms.DataGridView Alloted_dgv;
         private System.Windows.Forms.DataGridView AllotedRooms_dgv;
         private System.Windows.Forms.DataGridView AllotedBrief_dgv;
@@ -1307,5 +992,8 @@
         private System.Windows.Forms.Button SearchDGVFill;
         private System.Windows.Forms.ComboBox Session_combobox;
         private System.Windows.Forms.Button closeBtn;
+        public System.Windows.Forms.RadioButton Series_radio;
+        public System.Windows.Forms.RadioButton Unv_radio;
+        public System.Windows.Forms.TextBox Folder_path_text;
     }
 }
