@@ -118,8 +118,10 @@ namespace Exam_Cell
                 if (NewBranch_textbox.Text != "")
                 {
                     SQLiteCommand command = new SQLiteCommand("insert into Management(Branch)Values(" + " @Branch) ", con.ActiveCon());
+                    SQLiteCommand command2 = new SQLiteCommand("insert into Branch_Priority(Branch)Values(" + " @Branch) ", con.ActiveCon());
                     command.Parameters.AddWithValue("@Branch", NewBranch_textbox.Text);
                     command.ExecuteNonQuery();
+                    command2.ExecuteNonQuery();
                     msgbox.show("New Branch Added    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     BranchComboboxFill();
                     Clear_All_ClassManagement();
