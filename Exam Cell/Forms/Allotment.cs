@@ -718,7 +718,7 @@ namespace Exam_Cell
         {
             if (Unv_radio.Checked)
             {
-                SQLiteCommand comm = new SQLiteCommand("select Distinct Exam_Code,Course from University_Alloted where Date=@Date and Session=@Session", con.ActiveCon());
+                SQLiteCommand comm = new SQLiteCommand("select Distinct (RC.Branch),TT.Exam_Code,TT.Course from Timetable as TT,Registered_candidates as RC where TT.Date=@Date and TT.Session=@Session and TT.Course=RC.Course", con.ActiveCon());
                 comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
                 comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
                 SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
@@ -728,8 +728,8 @@ namespace Exam_Cell
                 dataTablebrief.Columns.Add("No of Students", typeof(int));
                 foreach (DataRow dr in dataTablebrief.Rows)
                 {
-                    SQLiteCommand comm2 = new SQLiteCommand("select Count(Reg_No) from University_Alloted where Exam_Code=@Exam_Code", con.ActiveCon());
-                    comm2.Parameters.AddWithValue("@Exam_Code", dr["Exam_Code"]);
+                    SQLiteCommand comm2 = new SQLiteCommand("select Count(Reg_No) from Registered_candidates where Course=@Course", con.ActiveCon());
+                    comm2.Parameters.AddWithValue("@Course", dr["Course"]);
                     int count = Convert.ToInt32(comm2.ExecuteScalar());
                     dr["No of Students"] = count;
                 }
@@ -739,7 +739,7 @@ namespace Exam_Cell
             }
             else
             {
-                SQLiteCommand comm = new SQLiteCommand("select Distinct Exam_Code,Class from Series_Alloted where Date=@Date and Session=@Session", con.ActiveCon());
+                SQLiteCommand comm = new SQLiteCommand("select Distinct (SC.Class),TT.Exam_Code,TT.Course from Timetable as TT,Series_candidates as SC where TT.Date=@Date and TT.Session=@Session and TT.Course=SC.Course", con.ActiveCon());
                 comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
                 comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
                 SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
@@ -749,8 +749,8 @@ namespace Exam_Cell
                 dataTable.Columns.Add("No of Students", typeof(int));
                 foreach (DataRow dr in dataTable.Rows)
                 {
-                    SQLiteCommand comm2 = new SQLiteCommand("select Count(Reg_No) from Series_Alloted where Exam_Code=@Exam_Code", con.ActiveCon());
-                    comm2.Parameters.AddWithValue("@Exam_Code", dr["Exam_Code"]);
+                    SQLiteCommand comm2 = new SQLiteCommand("select Count(Reg_No) from Series_candidates where Course=@Course", con.ActiveCon());
+                    comm2.Parameters.AddWithValue("@Course", dr["Course"]);
                     int count = Convert.ToInt32(comm2.ExecuteScalar());
                     dr["No of Students"] = count;
                 }
