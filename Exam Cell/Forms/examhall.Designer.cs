@@ -102,7 +102,7 @@
             this.closeBtn.Location = new System.Drawing.Point(1238, 3);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(35, 35);
-            this.closeBtn.TabIndex = 19;
+            this.closeBtn.TabIndex = 9;
             this.closeBtn.Text = "X";
             this.closeBtn.UseVisualStyleBackColor = false;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
@@ -138,7 +138,7 @@
             this.RoomNo_textbox.Margin = new System.Windows.Forms.Padding(4);
             this.RoomNo_textbox.Name = "RoomNo_textbox";
             this.RoomNo_textbox.Size = new System.Drawing.Size(283, 33);
-            this.RoomNo_textbox.TabIndex = 5;
+            this.RoomNo_textbox.TabIndex = 1;
             // 
             // label1
             // 
@@ -192,7 +192,7 @@
             this.Priority_combobox.Location = new System.Drawing.Point(343, 56);
             this.Priority_combobox.Name = "Priority_combobox";
             this.Priority_combobox.Size = new System.Drawing.Size(283, 32);
-            this.Priority_combobox.TabIndex = 16;
+            this.Priority_combobox.TabIndex = 2;
             // 
             // label2
             // 
@@ -214,7 +214,7 @@
             this.TotalCapacity_textbox.Name = "TotalCapacity_textbox";
             this.TotalCapacity_textbox.ReadOnly = true;
             this.TotalCapacity_textbox.Size = new System.Drawing.Size(283, 33);
-            this.TotalCapacity_textbox.TabIndex = 15;
+            this.TotalCapacity_textbox.TabIndex = 0;
             // 
             // label3
             // 
@@ -236,7 +236,7 @@
             this.TotalRoom_textbox.Name = "TotalRoom_textbox";
             this.TotalRoom_textbox.ReadOnly = true;
             this.TotalRoom_textbox.Size = new System.Drawing.Size(283, 33);
-            this.TotalRoom_textbox.TabIndex = 14;
+            this.TotalRoom_textbox.TabIndex = 0;
             // 
             // label4
             // 
@@ -269,7 +269,7 @@
             this.A_series_textbox.Margin = new System.Windows.Forms.Padding(4);
             this.A_series_textbox.Name = "A_series_textbox";
             this.A_series_textbox.Size = new System.Drawing.Size(283, 33);
-            this.A_series_textbox.TabIndex = 7;
+            this.A_series_textbox.TabIndex = 3;
             // 
             // label5
             // 
@@ -290,7 +290,7 @@
             this.B_series_textbox.Margin = new System.Windows.Forms.Padding(4);
             this.B_series_textbox.Name = "B_series_textbox";
             this.B_series_textbox.Size = new System.Drawing.Size(283, 33);
-            this.B_series_textbox.TabIndex = 8;
+            this.B_series_textbox.TabIndex = 4;
             // 
             // UpdateRoomPriority_btn
             // 
@@ -304,7 +304,7 @@
             this.UpdateRoomPriority_btn.Margin = new System.Windows.Forms.Padding(4);
             this.UpdateRoomPriority_btn.Name = "UpdateRoomPriority_btn";
             this.UpdateRoomPriority_btn.Size = new System.Drawing.Size(188, 44);
-            this.UpdateRoomPriority_btn.TabIndex = 11;
+            this.UpdateRoomPriority_btn.TabIndex = 6;
             this.UpdateRoomPriority_btn.Text = "Update Priority";
             this.UpdateRoomPriority_btn.UseVisualStyleBackColor = false;
             this.UpdateRoomPriority_btn.Click += new System.EventHandler(this.UpdateRoomPriority_btn_Click);
@@ -321,7 +321,7 @@
             this.Save_button.Margin = new System.Windows.Forms.Padding(4);
             this.Save_button.Name = "Save_button";
             this.Save_button.Size = new System.Drawing.Size(188, 44);
-            this.Save_button.TabIndex = 9;
+            this.Save_button.TabIndex = 5;
             this.Save_button.Text = "Save Room";
             this.Save_button.UseVisualStyleBackColor = false;
             this.Save_button.Click += new System.EventHandler(this.Save_button_Click);
@@ -376,7 +376,7 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.BranchPriorityDgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.BranchPriorityDgv.Size = new System.Drawing.Size(1040, 341);
-            this.BranchPriorityDgv.TabIndex = 17;
+            this.BranchPriorityDgv.TabIndex = 0;
             this.BranchPriorityDgv.DragDrop += new System.Windows.Forms.DragEventHandler(this.BranchPriorityDgv_DragDrop);
             this.BranchPriorityDgv.DragOver += new System.Windows.Forms.DragEventHandler(this.BranchPriorityDgv_DragOver);
             this.BranchPriorityDgv.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BranchPriorityDgv_MouseDown);
@@ -432,7 +432,7 @@
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
             this.Rooms_dgv.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.Rooms_dgv.Size = new System.Drawing.Size(567, 360);
-            this.Rooms_dgv.TabIndex = 17;
+            this.Rooms_dgv.TabIndex = 0;
             this.Rooms_dgv.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.Rooms_dgv_CellEndEdit);
             this.Rooms_dgv.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Rooms_dgv_CellMouseUp);
             this.Rooms_dgv.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Rooms_dgv_RowHeaderMouseClick);
@@ -454,7 +454,7 @@
             this.UpdateBranchPriority_btn.Margin = new System.Windows.Forms.Padding(4);
             this.UpdateBranchPriority_btn.Name = "UpdateBranchPriority_btn";
             this.UpdateBranchPriority_btn.Size = new System.Drawing.Size(188, 44);
-            this.UpdateBranchPriority_btn.TabIndex = 9;
+            this.UpdateBranchPriority_btn.TabIndex = 8;
             this.UpdateBranchPriority_btn.Text = "Update Priority";
             this.UpdateBranchPriority_btn.UseVisualStyleBackColor = false;
             this.UpdateBranchPriority_btn.Click += new System.EventHandler(this.UpdateBranchPriority_btn_Click);
@@ -495,7 +495,7 @@
             this.DeleteRoom_btn.Margin = new System.Windows.Forms.Padding(4);
             this.DeleteRoom_btn.Name = "DeleteRoom_btn";
             this.DeleteRoom_btn.Size = new System.Drawing.Size(188, 44);
-            this.DeleteRoom_btn.TabIndex = 9;
+            this.DeleteRoom_btn.TabIndex = 7;
             this.DeleteRoom_btn.Text = "Delete Room";
             this.DeleteRoom_btn.UseVisualStyleBackColor = false;
             this.DeleteRoom_btn.Click += new System.EventHandler(this.DeleteRoom_btn_Click);

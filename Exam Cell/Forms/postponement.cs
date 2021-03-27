@@ -63,7 +63,6 @@ namespace Exam_Cell
             ScheduledExamFill();
             BranchComboboxFill();
             SemesterComboboxFill();
-            ScheduledExam_dgv.RowsDefaultCellStyle.ForeColor = Color.Black;
             DateTimePicker.Format = DateTimePickerFormat.Custom;
             DateTimePicker.CustomFormat = "dd-MM-yyyy";
             DateTimePicker.Value = DateTime.Now;

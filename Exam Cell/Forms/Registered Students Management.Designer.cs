@@ -50,6 +50,7 @@
             this.closeBtn = new System.Windows.Forms.Button();
             this.Registered_dgv = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.No_of_stud_count_label = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.AllotGroupbox.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -93,7 +94,7 @@
             this.groupBox1.Controls.Add(this.Univrsty_radiobtn);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox1.Location = new System.Drawing.Point(102, 80);
+            this.groupBox1.Location = new System.Drawing.Point(102, 28);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(351, 85);
             this.groupBox1.TabIndex = 3;
@@ -142,7 +143,7 @@
             this.AllotGroupbox.Controls.Add(this.AllotUniversty_radiobtn);
             this.AllotGroupbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AllotGroupbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.AllotGroupbox.Location = new System.Drawing.Point(500, 80);
+            this.AllotGroupbox.Location = new System.Drawing.Point(500, 28);
             this.AllotGroupbox.Name = "AllotGroupbox";
             this.AllotGroupbox.Size = new System.Drawing.Size(351, 85);
             this.AllotGroupbox.TabIndex = 4;
@@ -254,6 +255,7 @@
             this.panel1.Controls.Add(this.closeBtn);
             this.panel1.Controls.Add(this.Registered_dgv);
             this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.No_of_stud_count_label);
             this.panel1.Controls.Add(this.DeleteAll_btn);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.AllotGroupbox);
@@ -345,6 +347,18 @@
             this.panel2.Size = new System.Drawing.Size(381, 248);
             this.panel2.TabIndex = 11;
             // 
+            // No_of_stud_count_label
+            // 
+            this.No_of_stud_count_label.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.No_of_stud_count_label.AutoSize = true;
+            this.No_of_stud_count_label.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.No_of_stud_count_label.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.No_of_stud_count_label.Location = new System.Drawing.Point(634, 143);
+            this.No_of_stud_count_label.Name = "No_of_stud_count_label";
+            this.No_of_stud_count_label.Size = new System.Drawing.Size(206, 30);
+            this.No_of_stud_count_label.TabIndex = 9;
+            this.No_of_stud_count_label.Text = "No of Students : ";
+            // 
             // Registered_Students_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -364,6 +378,7 @@
             this.AllotGroupbox.ResumeLayout(false);
             this.AllotGroupbox.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Registered_dgv)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -389,5 +404,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView Registered_dgv;
         private System.Windows.Forms.Button closeBtn;
+        private System.Windows.Forms.Label No_of_stud_count_label;
     }
 }

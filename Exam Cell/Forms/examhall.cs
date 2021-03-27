@@ -132,11 +132,7 @@ namespace Exam_Cell
         }
         
         private void Save_button_Click(object sender, EventArgs e)
-        {
-            msgbox.show("Click Yes to Save   ", "Confirm", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Warning);
-            var result = msgbox.ReturnValue;
-            if (result=="Yes")
-            {
+        {            
                 if (Priority_combobox.SelectedIndex != 0)
                 {
                     int flag = 0;
@@ -171,42 +167,46 @@ namespace Exam_Cell
                 else
                 {
                     msgbox.show("Select Priority    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
-                }
-            }
+                }            
         }
         private void DeleteRoom_btn_Click(object sender, EventArgs e)
         {
-            try
+            msgbox.show("Do you really want to delete selected Rooms ?   ", "Confirm Deletion", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Warning);
+            var result = msgbox.ReturnValue;
+            if (result == "Yes")
             {
-                int f = 0;
-                foreach (DataGridViewRow dr in Rooms_dgv.Rows)
+                try
                 {
-                    bool chckselect = Convert.ToBoolean(dr.Cells["CheckboxColumn"].Value);
-                    if (chckselect)
+                    int f = 0;
+                    foreach (DataGridViewRow dr in Rooms_dgv.Rows)
                     {
-                        f = 1;
-                        SQLiteCommand comm = new SQLiteCommand("Delete from Rooms where Priority=@Priority and Room_No=@Room_No", con.ActiveCon());
-                        comm.Parameters.AddWithValue("@Room_No", dr.Cells["Room_No"].Value);
-                        comm.Parameters.AddWithValue("@Priority", dr.Cells["Priority"].Value);
-                        comm.ExecuteNonQuery();
+                        bool chckselect = Convert.ToBoolean(dr.Cells["CheckboxColumn"].Value);
+                        if (chckselect)
+                        {
+                            f = 1;
+                            SQLiteCommand comm = new SQLiteCommand("Delete from Rooms where Priority=@Priority and Room_No=@Room_No", con.ActiveCon());
+                            comm.Parameters.AddWithValue("@Room_No", dr.Cells["Room_No"].Value);
+                            comm.Parameters.AddWithValue("@Priority", dr.Cells["Priority"].Value);
+                            comm.ExecuteNonQuery();
+                        }
+                    }
+                    if (f == 0)
+                        msgbox.show("No Room selected to delete   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                    else
+                    {
+                        Cleardata();
+                        msgbox.show("Selected Rooms deleted   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     }
                 }
-                if (f == 0)
-                    msgbox.show("No Room selected to delete   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
-                else
+                catch (Exception ex)
                 {
-                    Cleardata();
-                    msgbox.show("Selected Rooms deleted   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                    MessageBox.Show(ex.ToString());
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            finally
-            {
-                con.CloseCon();
-            }
+                finally
+                {
+                    con.CloseCon();
+                }
+            }                
         }
 
         void SqlInsertCommand()
@@ -222,7 +222,7 @@ namespace Exam_Cell
                 comm.Parameters.AddWithValue("@B_series", b);
                 comm.ExecuteNonQuery();
                 Cleardata();
-                msgbox.show("New Room Saved    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                msgbox.show(RoomNo_textbox+" is created    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
             }
             else
             {
@@ -252,7 +252,7 @@ namespace Exam_Cell
                 comm.Parameters.AddWithValue("@B_series", b);
                 comm.ExecuteNonQuery();
                 Cleardata();
-                msgbox.show(RoomNo_textbox.Text + " Updated     ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                msgbox.show(RoomNo_textbox.Text + " Updated     ", "Update Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
             }
             else
             {

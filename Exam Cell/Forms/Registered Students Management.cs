@@ -42,6 +42,11 @@ namespace Exam_Cell
             //headerchkbox.MouseClick += new MouseEventHandler(Headerchckbox_Mouseclick);
         }
 
+        void StudentsCountLabel()
+        {
+            No_of_stud_count_label.Text = "No of Students : " + Registered_dgv.RowCount.ToString();
+        }
+
         private void DeleteAll_btn_Click(object sender, EventArgs e)
         {
             msgbox.show("You are going to Delete every Students in the list.    \n Are You Sure ?   ", "Warning", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
@@ -54,33 +59,33 @@ namespace Exam_Cell
                 {
                     SQLiteCommand command = new SQLiteCommand("Delete from Registered_candidates", con.ActiveCon());
                     command.ExecuteNonQuery();
-                    msgbox.show("All Registered Candidates Deleted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     University_fill();
                     Clear_function();
+                    msgbox.show("All Registered Candidates Deleted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 }
                 else if (Series_radiobtn.Checked)
                 {
                     SQLiteCommand command = new SQLiteCommand("Delete from Series_candidates", con.ActiveCon());
                     command.ExecuteNonQuery();
-                    msgbox.show("All Registered Candidates Deleted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     Series_fill();
                     Clear_function();
+                    msgbox.show("All Registered Candidates Deleted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 }
                 else if (AllotUniversty_radiobtn.Checked)
                 {
                     SQLiteCommand command = new SQLiteCommand("Delete from University_Alloted", con.ActiveCon());
                     command.ExecuteNonQuery();
-                    msgbox.show("All Alloted Candidates Deleted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     UniversityAlloted_fill();
                     Clear_function();
+                    msgbox.show("All Alloted Candidates Deleted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 }
                 else if (AllotSeries_radiobtn.Checked)
                 {
                     SQLiteCommand command = new SQLiteCommand("Delete from Series_Alloted", con.ActiveCon());
                     command.ExecuteNonQuery();
-                    msgbox.show("All Alloted Candidates Deleted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     SeriesAlloted_fill();
                     Clear_function();
+                    msgbox.show("All Alloted Candidates Deleted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 }
             }
             }
@@ -137,6 +142,7 @@ namespace Exam_Cell
             Universitybinding.DataSource = Unv_students;
             Registered_dgv.DataSource = null;
             Registered_dgv.DataSource = Universitybinding;
+            StudentsCountLabel();
             }
             catch (Exception ex)
             {
@@ -159,6 +165,7 @@ namespace Exam_Cell
             Seriesbinding.DataSource = Srs_students;
             Registered_dgv.DataSource = null;
             Registered_dgv.DataSource = Seriesbinding;
+            StudentsCountLabel();
             }
             catch (Exception ex)
             {
@@ -181,6 +188,7 @@ namespace Exam_Cell
             UniversityAllotbinding.DataSource = unv_allot;
             Registered_dgv.DataSource = null;
             Registered_dgv.DataSource = UniversityAllotbinding;
+            StudentsCountLabel();
             }
             catch (Exception ex)
             {
@@ -203,6 +211,7 @@ namespace Exam_Cell
             SeriesAllotbinding.DataSource = srs_allot;
             Registered_dgv.DataSource = null;
             Registered_dgv.DataSource = SeriesAllotbinding;
+            StudentsCountLabel();
             }
             catch (Exception ex)
             {
@@ -218,12 +227,12 @@ namespace Exam_Cell
             if(Univrsty_radiobtn.Checked)
             {
                 Secure_tools_enabled();
+                University_fill();
                 Branch_ComboFill();
                 Semester_combobox.SelectedIndex = 0;
                 Series_radiobtn.Checked = false;
                 AllotUniversty_radiobtn.Checked = false;
                 AllotSeries_radiobtn.Checked = false;
-                University_fill();
             }
         }
 
@@ -237,7 +246,6 @@ namespace Exam_Cell
                 AllotSeries_radiobtn.Checked = false;
                 Series_fill();
                 Branch_combobox.Enabled = false;
-                Semester_combobox.Enabled = false;
             }
         }
 
@@ -435,7 +443,8 @@ namespace Exam_Cell
                     SeriesAllotbinding.Filter = filter;
                 else if (AllotUniversty_radiobtn.Checked)
                     UniversityAllotbinding.Filter = filter;
-            }              
+            }
+            StudentsCountLabel();
         }
 
         private void Regno_textbox_TextChanged(object sender, EventArgs e)
