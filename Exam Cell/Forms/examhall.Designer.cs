@@ -53,16 +53,17 @@
             this.A_series_textbox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.B_series_textbox = new System.Windows.Forms.TextBox();
-            this.UpdatePriority_button = new System.Windows.Forms.Button();
+            this.UpdateRoomPriority_btn = new System.Windows.Forms.Button();
             this.Save_button = new System.Windows.Forms.Button();
             this.BranchPriorityDgv = new System.Windows.Forms.DataGridView();
             this.Rooms_dgv = new System.Windows.Forms.DataGridView();
-            this.SaveBranchPriority = new System.Windows.Forms.Button();
+            this.UpdateBranchPriority_btn = new System.Windows.Forms.Button();
             this.exam_Cell_Rooms = new Exam_Cell.Exam_Cell_Rooms();
             this.roomsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.roomsTableAdapter = new Exam_Cell.Exam_Cell_RoomsTableAdapters.RoomsTableAdapter();
             this.roomsTableAdapter1 = new Exam_Cell.Exam_Cell_RoomsTableAdapters.RoomsTableAdapter();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.DeleteRoom_btn = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BranchPriorityDgv)).BeginInit();
@@ -81,7 +82,7 @@
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.BranchPriorityDgv);
             this.panel2.Controls.Add(this.Rooms_dgv);
-            this.panel2.Controls.Add(this.SaveBranchPriority);
+            this.panel2.Controls.Add(this.UpdateBranchPriority_btn);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -122,7 +123,8 @@
             this.panel1.Controls.Add(this.A_series_textbox);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.B_series_textbox);
-            this.panel1.Controls.Add(this.UpdatePriority_button);
+            this.panel1.Controls.Add(this.UpdateRoomPriority_btn);
+            this.panel1.Controls.Add(this.DeleteRoom_btn);
             this.panel1.Controls.Add(this.Save_button);
             this.panel1.Location = new System.Drawing.Point(-2, -2);
             this.panel1.Name = "panel1";
@@ -235,7 +237,6 @@
             this.TotalRoom_textbox.ReadOnly = true;
             this.TotalRoom_textbox.Size = new System.Drawing.Size(283, 33);
             this.TotalRoom_textbox.TabIndex = 14;
-            this.TotalRoom_textbox.TextChanged += new System.EventHandler(this.TotalRoom_textbox_TextChanged);
             // 
             // label4
             // 
@@ -291,37 +292,37 @@
             this.B_series_textbox.Size = new System.Drawing.Size(283, 33);
             this.B_series_textbox.TabIndex = 8;
             // 
-            // UpdatePriority_button
+            // UpdateRoomPriority_btn
             // 
-            this.UpdatePriority_button.BackColor = System.Drawing.Color.Olive;
-            this.UpdatePriority_button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.UpdatePriority_button.FlatAppearance.BorderSize = 0;
-            this.UpdatePriority_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.UpdatePriority_button.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdatePriority_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.UpdatePriority_button.Location = new System.Drawing.Point(329, 184);
-            this.UpdatePriority_button.Margin = new System.Windows.Forms.Padding(4);
-            this.UpdatePriority_button.Name = "UpdatePriority_button";
-            this.UpdatePriority_button.Size = new System.Drawing.Size(202, 44);
-            this.UpdatePriority_button.TabIndex = 11;
-            this.UpdatePriority_button.Text = "Update Selected Priority";
-            this.UpdatePriority_button.UseVisualStyleBackColor = false;
-            this.UpdatePriority_button.Click += new System.EventHandler(this.UpdatePriority_button_Click);
+            this.UpdateRoomPriority_btn.BackColor = System.Drawing.Color.DarkGreen;
+            this.UpdateRoomPriority_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UpdateRoomPriority_btn.FlatAppearance.BorderSize = 0;
+            this.UpdateRoomPriority_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpdateRoomPriority_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateRoomPriority_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.UpdateRoomPriority_btn.Location = new System.Drawing.Point(237, 184);
+            this.UpdateRoomPriority_btn.Margin = new System.Windows.Forms.Padding(4);
+            this.UpdateRoomPriority_btn.Name = "UpdateRoomPriority_btn";
+            this.UpdateRoomPriority_btn.Size = new System.Drawing.Size(188, 44);
+            this.UpdateRoomPriority_btn.TabIndex = 11;
+            this.UpdateRoomPriority_btn.Text = "Update Priority";
+            this.UpdateRoomPriority_btn.UseVisualStyleBackColor = false;
+            this.UpdateRoomPriority_btn.Click += new System.EventHandler(this.UpdateRoomPriority_btn_Click);
             // 
             // Save_button
             // 
-            this.Save_button.BackColor = System.Drawing.Color.DarkGreen;
+            this.Save_button.BackColor = System.Drawing.Color.Green;
             this.Save_button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Save_button.FlatAppearance.BorderSize = 0;
             this.Save_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Save_button.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Save_button.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Save_button.Location = new System.Drawing.Point(119, 184);
+            this.Save_button.Location = new System.Drawing.Point(32, 184);
             this.Save_button.Margin = new System.Windows.Forms.Padding(4);
             this.Save_button.Name = "Save_button";
-            this.Save_button.Size = new System.Drawing.Size(202, 44);
+            this.Save_button.Size = new System.Drawing.Size(188, 44);
             this.Save_button.TabIndex = 9;
-            this.Save_button.Text = "Save";
+            this.Save_button.Text = "Save Room";
             this.Save_button.UseVisualStyleBackColor = false;
             this.Save_button.Click += new System.EventHandler(this.Save_button_Click);
             // 
@@ -435,23 +436,28 @@
             this.Rooms_dgv.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.Rooms_dgv_CellEndEdit);
             this.Rooms_dgv.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Rooms_dgv_CellMouseUp);
             this.Rooms_dgv.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Rooms_dgv_RowHeaderMouseClick);
+            this.Rooms_dgv.DragDrop += new System.Windows.Forms.DragEventHandler(this.Rooms_dgv_DragDrop);
+            this.Rooms_dgv.DragOver += new System.Windows.Forms.DragEventHandler(this.Rooms_dgv_DragOver);
+            this.Rooms_dgv.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Rooms_dgv_MouseDown);
+            this.Rooms_dgv.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Rooms_dgv_MouseMove);
             // 
-            // SaveBranchPriority
+            // UpdateBranchPriority_btn
             // 
-            this.SaveBranchPriority.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.SaveBranchPriority.BackColor = System.Drawing.Color.DarkGreen;
-            this.SaveBranchPriority.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SaveBranchPriority.FlatAppearance.BorderSize = 0;
-            this.SaveBranchPriority.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SaveBranchPriority.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveBranchPriority.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.SaveBranchPriority.Location = new System.Drawing.Point(1059, 519);
-            this.SaveBranchPriority.Margin = new System.Windows.Forms.Padding(4);
-            this.SaveBranchPriority.Name = "SaveBranchPriority";
-            this.SaveBranchPriority.Size = new System.Drawing.Size(172, 44);
-            this.SaveBranchPriority.TabIndex = 9;
-            this.SaveBranchPriority.Text = "Save";
-            this.SaveBranchPriority.UseVisualStyleBackColor = false;
+            this.UpdateBranchPriority_btn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.UpdateBranchPriority_btn.BackColor = System.Drawing.Color.DarkGreen;
+            this.UpdateBranchPriority_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UpdateBranchPriority_btn.FlatAppearance.BorderSize = 0;
+            this.UpdateBranchPriority_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpdateBranchPriority_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateBranchPriority_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.UpdateBranchPriority_btn.Location = new System.Drawing.Point(1059, 519);
+            this.UpdateBranchPriority_btn.Margin = new System.Windows.Forms.Padding(4);
+            this.UpdateBranchPriority_btn.Name = "UpdateBranchPriority_btn";
+            this.UpdateBranchPriority_btn.Size = new System.Drawing.Size(188, 44);
+            this.UpdateBranchPriority_btn.TabIndex = 9;
+            this.UpdateBranchPriority_btn.Text = "Update Priority";
+            this.UpdateBranchPriority_btn.UseVisualStyleBackColor = false;
+            this.UpdateBranchPriority_btn.Click += new System.EventHandler(this.UpdateBranchPriority_btn_Click);
             // 
             // exam_Cell_Rooms
             // 
@@ -476,6 +482,23 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 60;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // DeleteRoom_btn
+            // 
+            this.DeleteRoom_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.DeleteRoom_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DeleteRoom_btn.FlatAppearance.BorderSize = 0;
+            this.DeleteRoom_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteRoom_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteRoom_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DeleteRoom_btn.Location = new System.Drawing.Point(442, 184);
+            this.DeleteRoom_btn.Margin = new System.Windows.Forms.Padding(4);
+            this.DeleteRoom_btn.Name = "DeleteRoom_btn";
+            this.DeleteRoom_btn.Size = new System.Drawing.Size(188, 44);
+            this.DeleteRoom_btn.TabIndex = 9;
+            this.DeleteRoom_btn.Text = "Delete Room";
+            this.DeleteRoom_btn.UseVisualStyleBackColor = false;
+            this.DeleteRoom_btn.Click += new System.EventHandler(this.DeleteRoom_btn_Click);
             // 
             // examhall
             // 
@@ -506,7 +529,7 @@
 
         #endregion
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button UpdatePriority_button;
+        private System.Windows.Forms.Button UpdateRoomPriority_btn;
         private System.Windows.Forms.Button Save_button;
         private System.Windows.Forms.TextBox B_series_textbox;
         private System.Windows.Forms.TextBox A_series_textbox;
@@ -529,6 +552,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.DataGridView BranchPriorityDgv;
-        private System.Windows.Forms.Button SaveBranchPriority;
+        private System.Windows.Forms.Button UpdateBranchPriority_btn;
+        private System.Windows.Forms.Button DeleteRoom_btn;
     }
 }
