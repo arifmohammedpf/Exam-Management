@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(examhall));
             this.panel2 = new System.Windows.Forms.Panel();
             this.closeBtn = new System.Windows.Forms.Button();
@@ -55,20 +55,20 @@
             this.B_series_textbox = new System.Windows.Forms.TextBox();
             this.UpdatePriority_button = new System.Windows.Forms.Button();
             this.Save_button = new System.Windows.Forms.Button();
+            this.BranchPriorityDgv = new System.Windows.Forms.DataGridView();
             this.Rooms_dgv = new System.Windows.Forms.DataGridView();
+            this.SaveBranchPriority = new System.Windows.Forms.Button();
             this.exam_Cell_Rooms = new Exam_Cell.Exam_Cell_Rooms();
             this.roomsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.roomsTableAdapter = new Exam_Cell.Exam_Cell_RoomsTableAdapters.RoomsTableAdapter();
             this.roomsTableAdapter1 = new Exam_Cell.Exam_Cell_RoomsTableAdapters.RoomsTableAdapter();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.SaveBranchPriority = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BranchPriorityDgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Rooms_dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_Cell_Rooms)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roomsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -79,7 +79,7 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.closeBtn);
             this.panel2.Controls.Add(this.panel1);
-            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Controls.Add(this.BranchPriorityDgv);
             this.panel2.Controls.Add(this.Rooms_dgv);
             this.panel2.Controls.Add(this.SaveBranchPriority);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -325,17 +325,73 @@
             this.Save_button.UseVisualStyleBackColor = false;
             this.Save_button.Click += new System.EventHandler(this.Save_button_Click);
             // 
+            // BranchPriorityDgv
+            // 
+            this.BranchPriorityDgv.AllowDrop = true;
+            this.BranchPriorityDgv.AllowUserToAddRows = false;
+            this.BranchPriorityDgv.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.BranchPriorityDgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.BranchPriorityDgv.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BranchPriorityDgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.BranchPriorityDgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.BranchPriorityDgv.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
+            this.BranchPriorityDgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.BranchPriorityDgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.BranchPriorityDgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.BranchPriorityDgv.ColumnHeadersHeight = 40;
+            this.BranchPriorityDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.BranchPriorityDgv.EnableHeadersVisualStyles = false;
+            this.BranchPriorityDgv.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.BranchPriorityDgv.Location = new System.Drawing.Point(11, 371);
+            this.BranchPriorityDgv.Margin = new System.Windows.Forms.Padding(4);
+            this.BranchPriorityDgv.Name = "BranchPriorityDgv";
+            this.BranchPriorityDgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.BranchPriorityDgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.BranchPriorityDgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.BranchPriorityDgv.Size = new System.Drawing.Size(1040, 341);
+            this.BranchPriorityDgv.TabIndex = 17;
+            this.BranchPriorityDgv.DragDrop += new System.Windows.Forms.DragEventHandler(this.BranchPriorityDgv_DragDrop);
+            this.BranchPriorityDgv.DragOver += new System.Windows.Forms.DragEventHandler(this.BranchPriorityDgv_DragOver);
+            this.BranchPriorityDgv.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BranchPriorityDgv_MouseDown);
+            this.BranchPriorityDgv.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BranchPriorityDgv_MouseMove);
+            // 
             // Rooms_dgv
             // 
             this.Rooms_dgv.AllowDrop = true;
             this.Rooms_dgv.AllowUserToAddRows = false;
             this.Rooms_dgv.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
             this.Rooms_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.Rooms_dgv.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Rooms_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -348,7 +404,7 @@
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ButtonHighlight;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.Rooms_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.Rooms_dgv.ColumnHeadersHeight = 40;
@@ -380,6 +436,23 @@
             this.Rooms_dgv.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Rooms_dgv_CellMouseUp);
             this.Rooms_dgv.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Rooms_dgv_RowHeaderMouseClick);
             // 
+            // SaveBranchPriority
+            // 
+            this.SaveBranchPriority.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.SaveBranchPriority.BackColor = System.Drawing.Color.DarkGreen;
+            this.SaveBranchPriority.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SaveBranchPriority.FlatAppearance.BorderSize = 0;
+            this.SaveBranchPriority.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SaveBranchPriority.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveBranchPriority.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.SaveBranchPriority.Location = new System.Drawing.Point(1059, 519);
+            this.SaveBranchPriority.Margin = new System.Windows.Forms.Padding(4);
+            this.SaveBranchPriority.Name = "SaveBranchPriority";
+            this.SaveBranchPriority.Size = new System.Drawing.Size(172, 44);
+            this.SaveBranchPriority.TabIndex = 9;
+            this.SaveBranchPriority.Text = "Save";
+            this.SaveBranchPriority.UseVisualStyleBackColor = false;
+            // 
             // exam_Cell_Rooms
             // 
             this.exam_Cell_Rooms.DataSetName = "Exam_Cell_Rooms";
@@ -404,78 +477,6 @@
             this.timer1.Interval = 60;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowDrop = true;
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.ColumnHeadersHeight = 40;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.dataGridView1.Location = new System.Drawing.Point(11, 371);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.Size = new System.Drawing.Size(1040, 341);
-            this.dataGridView1.TabIndex = 17;
-            this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.Rooms_dgv_CellEndEdit);
-            this.dataGridView1.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Rooms_dgv_CellMouseUp);
-            this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Rooms_dgv_RowHeaderMouseClick);
-            // 
-            // SaveBranchPriority
-            // 
-            this.SaveBranchPriority.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.SaveBranchPriority.BackColor = System.Drawing.Color.DarkGreen;
-            this.SaveBranchPriority.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SaveBranchPriority.FlatAppearance.BorderSize = 0;
-            this.SaveBranchPriority.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SaveBranchPriority.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveBranchPriority.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.SaveBranchPriority.Location = new System.Drawing.Point(1059, 519);
-            this.SaveBranchPriority.Margin = new System.Windows.Forms.Padding(4);
-            this.SaveBranchPriority.Name = "SaveBranchPriority";
-            this.SaveBranchPriority.Size = new System.Drawing.Size(172, 44);
-            this.SaveBranchPriority.TabIndex = 9;
-            this.SaveBranchPriority.Text = "Save";
-            this.SaveBranchPriority.UseVisualStyleBackColor = false;
-            // 
             // examhall
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -495,10 +496,10 @@
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BranchPriorityDgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Rooms_dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.exam_Cell_Rooms)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roomsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -527,7 +528,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button closeBtn;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView BranchPriorityDgv;
         private System.Windows.Forms.Button SaveBranchPriority;
     }
 }
