@@ -66,7 +66,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.Name_textbox = new System.Windows.Forms.TextBox();
             this.Search_btn = new System.Windows.Forms.Button();
-            this.Clear_btn = new System.Windows.Forms.Button();
+            this.update_btn = new System.Windows.Forms.Button();
             this.AddStudent_btn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -482,7 +482,7 @@
             this.add_stdnt_groupbox.Controls.Add(this.label3);
             this.add_stdnt_groupbox.Controls.Add(this.Name_textbox);
             this.add_stdnt_groupbox.Controls.Add(this.Search_btn);
-            this.add_stdnt_groupbox.Controls.Add(this.Clear_btn);
+            this.add_stdnt_groupbox.Controls.Add(this.update_btn);
             this.add_stdnt_groupbox.Controls.Add(this.AddStudent_btn);
             this.add_stdnt_groupbox.Controls.Add(this.label1);
             this.add_stdnt_groupbox.Controls.Add(this.label2);
@@ -553,21 +553,21 @@
             this.Search_btn.UseVisualStyleBackColor = false;
             this.Search_btn.Click += new System.EventHandler(this.Search_btn_Click);
             // 
-            // Clear_btn
+            // update_btn
             // 
-            this.Clear_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
-            this.Clear_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Clear_btn.FlatAppearance.BorderSize = 0;
-            this.Clear_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Clear_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Clear_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Clear_btn.Location = new System.Drawing.Point(416, 83);
-            this.Clear_btn.Name = "Clear_btn";
-            this.Clear_btn.Size = new System.Drawing.Size(123, 33);
-            this.Clear_btn.TabIndex = 0;
-            this.Clear_btn.Text = "Clear";
-            this.Clear_btn.UseVisualStyleBackColor = false;
-            this.Clear_btn.Click += new System.EventHandler(this.Clear_btn_Click);
+            this.update_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
+            this.update_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.update_btn.FlatAppearance.BorderSize = 0;
+            this.update_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.update_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.update_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.update_btn.Location = new System.Drawing.Point(416, 83);
+            this.update_btn.Name = "update_btn";
+            this.update_btn.Size = new System.Drawing.Size(123, 33);
+            this.update_btn.TabIndex = 0;
+            this.update_btn.Text = "Update";
+            this.update_btn.UseVisualStyleBackColor = false;
+            this.update_btn.Click += new System.EventHandler(this.update_btn_Click);
             // 
             // AddStudent_btn
             // 
@@ -706,7 +706,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox Name_textbox;
         private System.Windows.Forms.Button Search_btn;
-        private System.Windows.Forms.Button Clear_btn;
+        private System.Windows.Forms.Button update_btn;
         private System.Windows.Forms.Button AddStudent_btn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

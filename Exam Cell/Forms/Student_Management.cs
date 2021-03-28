@@ -42,7 +42,7 @@ namespace Exam_Cell
             //AddHeaderchckbox(); //header checkbox added to student dgv
             //headerchkbox.MouseClick += new MouseEventHandler(Headerchckbox_Mouseclick);
 
-            
+
             //AssignClass_fill();
             //StudentBranchComboboxFill();
             //ClassBranchComboboxFill();
@@ -94,19 +94,19 @@ namespace Exam_Cell
         {
             try
             {
-            SQLiteCommand sc = new SQLiteCommand("Select Class,Semester from Management where (Class is not null) and (Semester is not null)", con.ActiveCon());
-            SQLiteDataAdapter adapter = new SQLiteDataAdapter(sc);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            DataTable dt2 = new DataTable();
-            dt2.Columns.Add("Combo", typeof(string)); // in datatable, a column should be created before adding rows
-            DataRow top = dt2.NewRow();
-            top[0] = "-Select-";
-            dt2.Rows.InsertAt(top, 0);
-            foreach (DataRow dr in dt.Rows)
-                dt2.Rows.Add(dr["Class"].ToString() + "  S" + dr["Semester"].ToString());
-            AssignClass_combobox.ValueMember = "Combo";  //column name is given to get values to show in combobox
-            AssignClass_combobox.DataSource = dt2;
+                SQLiteCommand sc = new SQLiteCommand("Select Class,Semester from Management where (Class is not null) and (Semester is not null)", con.ActiveCon());
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(sc);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                DataTable dt2 = new DataTable();
+                dt2.Columns.Add("Combo", typeof(string)); // in datatable, a column should be created before adding rows
+                DataRow top = dt2.NewRow();
+                top[0] = "-Select-";
+                dt2.Rows.InsertAt(top, 0);
+                foreach (DataRow dr in dt.Rows)
+                    dt2.Rows.Add(dr["Class"].ToString() + "  S" + dr["Semester"].ToString());
+                AssignClass_combobox.ValueMember = "Combo";  //column name is given to get values to show in combobox
+                AssignClass_combobox.DataSource = dt2;
             }
             catch (Exception ex)
             {
@@ -170,7 +170,7 @@ namespace Exam_Cell
                 else
                     msgbox.show("Select Class   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 con.CloseCon();
                 MessageBox.Show(ex.ToString());
@@ -187,15 +187,15 @@ namespace Exam_Cell
             }
             else
             {
-            Regno_textbox.Clear();
-            Name_textbox.Clear();
-            YOA_textbox.Clear();
-            Branch_combobox.SelectedIndex = 0;
-            AssignClassYOA_combobox.SelectedIndex = 0;
-            AssignClassBranch_combobox.SelectedIndex = 0;
-            Filepath_textbox.Clear();
-            Sheet_combobox.Items.Clear();
-            FilterStudentRecord();
+                Regno_textbox.Clear();
+                Name_textbox.Clear();
+                YOA_textbox.Clear();
+                Branch_combobox.SelectedIndex = 0;
+                AssignClassYOA_combobox.SelectedIndex = 0;
+                AssignClassBranch_combobox.SelectedIndex = 0;
+                Filepath_textbox.Clear();
+                Sheet_combobox.Items.Clear();
+                FilterStudentRecord();
             }
         }
         private void AddStudent_btn_Click(object sender, EventArgs e)
@@ -204,15 +204,15 @@ namespace Exam_Cell
             {
                 try
                 {
-                SQLiteCommand command = new SQLiteCommand("insert into Students(Reg_no,Name,Year_Of_Admission,Branch)Values(" + "@Reg_no,@Name,@Year_Of_Admission,@Branch)", con.ActiveCon());
-                command.Parameters.AddWithValue("@Reg_no", Regno_textbox.Text);
-                command.Parameters.AddWithValue("@Name", Name_textbox.Text);
-                command.Parameters.AddWithValue("@Year_Of_Admission", YOA_textbox.Text);
-                command.Parameters.AddWithValue("@Branch", Branch_combobox.Text);
-                command.ExecuteNonQuery();
-                YearOfAdmissionFill();
-                ClearAllStudent_Management();
-                Student_dgvFill();
+                    SQLiteCommand command = new SQLiteCommand("insert into Students(Reg_no,Name,Year_Of_Admission,Branch)Values(" + "@Reg_no,@Name,@Year_Of_Admission,@Branch)", con.ActiveCon());
+                    command.Parameters.AddWithValue("@Reg_no", Regno_textbox.Text);
+                    command.Parameters.AddWithValue("@Name", Name_textbox.Text);
+                    command.Parameters.AddWithValue("@Year_Of_Admission", YOA_textbox.Text);
+                    command.Parameters.AddWithValue("@Branch", Branch_combobox.Text);
+                    command.ExecuteNonQuery();
+                    YearOfAdmissionFill();
+                    ClearAllStudent_Management();
+                    Student_dgvFill();
                 }
                 catch (Exception ex)
                 {
@@ -235,7 +235,7 @@ namespace Exam_Cell
             timerFlag = "ClassViewCheckboxClick";
             timerTool.Start();
         }
-        
+
         void ClassviewCheckBoxFunction()
         {
             SelectAllCheckbox.Checked = false;
@@ -267,14 +267,14 @@ namespace Exam_Cell
         {
             try
             {
-            headerchkbox.Checked = false;
-            SQLiteCommand command = new SQLiteCommand("select * from Students order by Year_Of_Admission desc,Branch", con.ActiveCon());
-            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
-            DataTable table_Students = new DataTable();
-            adapter.Fill(table_Students);
-            Student_Source.DataSource = null;
-            Student_Source.DataSource = table_Students;
-            Student_dgv.DataSource = Student_Source;
+                headerchkbox.Checked = false;
+                SQLiteCommand command = new SQLiteCommand("select * from Students order by Year_Of_Admission desc,Branch", con.ActiveCon());
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
+                DataTable table_Students = new DataTable();
+                adapter.Fill(table_Students);
+                Student_Source.DataSource = null;
+                Student_Source.DataSource = table_Students;
+                Student_dgv.DataSource = Student_Source;
             }
             catch (Exception ex)
             {
@@ -289,14 +289,14 @@ namespace Exam_Cell
         {
             try
             {
-            headerchkbox.Checked = false;
-            SQLiteCommand command = new SQLiteCommand("select * from Class order by Class desc", con.ActiveCon());
-            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
-            DataTable table_Students = new DataTable();
-            adapter.Fill(table_Students);
-            ClassView_Source.DataSource = null;
-            ClassView_Source.DataSource = table_Students;
-            Student_dgv.DataSource = ClassView_Source;
+                headerchkbox.Checked = false;
+                SQLiteCommand command = new SQLiteCommand("select * from Class order by Class desc", con.ActiveCon());
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
+                DataTable table_Students = new DataTable();
+                adapter.Fill(table_Students);
+                ClassView_Source.DataSource = null;
+                ClassView_Source.DataSource = table_Students;
+                Student_dgv.DataSource = ClassView_Source;
             }
             catch (Exception ex)
             {
@@ -422,7 +422,7 @@ namespace Exam_Cell
                     else
                         msgbox.show("You Cannot delete an Excel data.   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     con.CloseCon();
                     MessageBox.Show(ex.ToString());
@@ -476,28 +476,28 @@ namespace Exam_Cell
             {
                 try
                 {
-                SQLiteCommand sc = new SQLiteCommand("Select Class,Semester from Management where (Class is not null) and (Semester is not null)", con.ActiveCon());
-                SQLiteDataAdapter adapter = new SQLiteDataAdapter(sc);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-          
-                foreach (DataRow dr in dt.Rows)
-                {
-                    string checksem = dr["Class"].ToString() + "  S" + dr["Semester"].ToString();
-                    string sem = dr["Semester"].ToString(), newclass;
-                    bool res = int.TryParse(sem, out int newsem);
-                    newsem++;
-                    newclass = dr["Class"].ToString() + "  S" + newsem;
-                    SQLiteCommand command2 = new SQLiteCommand("update Class set Class=@Class where Class=@OldClass", con.ActiveCon());
-                    command2.Parameters.AddWithValue("@OldClass", checksem);
-                    command2.Parameters.AddWithValue("@Class", newclass);
-                    command2.ExecuteNonQuery();                    
-                }
-                SQLiteCommand command3 = new SQLiteCommand("update Management set Semester= Semester + 1", con.ActiveCon());
-                command3.ExecuteNonQuery();
-                AssignClass_fill();
-                Class_StudentsFill();
-                msgbox.show("Semester Upgrade Done   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                    SQLiteCommand sc = new SQLiteCommand("Select Class,Semester from Management where (Class is not null) and (Semester is not null)", con.ActiveCon());
+                    SQLiteDataAdapter adapter = new SQLiteDataAdapter(sc);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        string checksem = dr["Class"].ToString() + "  S" + dr["Semester"].ToString();
+                        string sem = dr["Semester"].ToString(), newclass;
+                        bool res = int.TryParse(sem, out int newsem);
+                        newsem++;
+                        newclass = dr["Class"].ToString() + "  S" + newsem;
+                        SQLiteCommand command2 = new SQLiteCommand("update Class set Class=@Class where Class=@OldClass", con.ActiveCon());
+                        command2.Parameters.AddWithValue("@OldClass", checksem);
+                        command2.Parameters.AddWithValue("@Class", newclass);
+                        command2.ExecuteNonQuery();
+                    }
+                    SQLiteCommand command3 = new SQLiteCommand("update Management set Semester= Semester + 1", con.ActiveCon());
+                    command3.ExecuteNonQuery();
+                    AssignClass_fill();
+                    Class_StudentsFill();
+                    msgbox.show("Semester Upgrade Done   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
@@ -518,29 +518,29 @@ namespace Exam_Cell
             {
                 try
                 {
-                SQLiteCommand sc = new SQLiteCommand("Select Class,Semester from Management where (Class is not null) and (Semester is not null)", con.ActiveCon());
-                SQLiteDataAdapter adapter = new SQLiteDataAdapter(sc);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-                
-                foreach (DataRow dr in dt.Rows)
-                {
-                    string checksem = dr["Class"].ToString() + "  S" + dr["Semester"].ToString();
-                    string sem = dr["Semester"].ToString(), newclass;
-                    bool res = int.TryParse(sem, out int newsem);
-                    newsem--;
-                    newclass = dr["Class"].ToString() + "  S" + newsem;
-                    SQLiteCommand command2 = new SQLiteCommand("update Class set Class=@Class where Class=@OldClass", con.ActiveCon());
-                    command2.Parameters.AddWithValue("@OldClass", checksem);
-                    command2.Parameters.AddWithValue("@Class", newclass);
-                    command2.ExecuteNonQuery();
-                }
+                    SQLiteCommand sc = new SQLiteCommand("Select Class,Semester from Management where (Class is not null) and (Semester is not null)", con.ActiveCon());
+                    SQLiteDataAdapter adapter = new SQLiteDataAdapter(sc);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
 
-                SQLiteCommand command = new SQLiteCommand("update Management set Semester= Semester - 1", con.ActiveCon());
-                command.ExecuteNonQuery();
-                AssignClass_fill();
-                Class_StudentsFill();
-                msgbox.show("Degrade Done   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        string checksem = dr["Class"].ToString() + "  S" + dr["Semester"].ToString();
+                        string sem = dr["Semester"].ToString(), newclass;
+                        bool res = int.TryParse(sem, out int newsem);
+                        newsem--;
+                        newclass = dr["Class"].ToString() + "  S" + newsem;
+                        SQLiteCommand command2 = new SQLiteCommand("update Class set Class=@Class where Class=@OldClass", con.ActiveCon());
+                        command2.Parameters.AddWithValue("@OldClass", checksem);
+                        command2.Parameters.AddWithValue("@Class", newclass);
+                        command2.ExecuteNonQuery();
+                    }
+
+                    SQLiteCommand command = new SQLiteCommand("update Management set Semester= Semester - 1", con.ActiveCon());
+                    command.ExecuteNonQuery();
+                    AssignClass_fill();
+                    Class_StudentsFill();
+                    msgbox.show("Degrade Done   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
@@ -556,16 +556,16 @@ namespace Exam_Cell
         {
             try
             {
-            SQLiteCommand sc = new SQLiteCommand("Select Branch from Management where Branch is not null", con.ActiveCon());
-            SQLiteDataAdapter adapter = new SQLiteDataAdapter(sc);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            DataRow top = dt.NewRow();
-            top[0] = "-Select-";
-            dt.Rows.InsertAt(top, 0);
+                SQLiteCommand sc = new SQLiteCommand("Select Branch from Management where Branch is not null", con.ActiveCon());
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(sc);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                DataRow top = dt.NewRow();
+                top[0] = "-Select-";
+                dt.Rows.InsertAt(top, 0);
 
-            Branch_combobox.ValueMember = "Branch";
-            Branch_combobox.DataSource = dt;
+                Branch_combobox.ValueMember = "Branch";
+                Branch_combobox.DataSource = dt;
             }
             catch (Exception ex)
             {
@@ -580,16 +580,16 @@ namespace Exam_Cell
         {
             try
             {
-            SQLiteCommand sc = new SQLiteCommand("Select Branch from Management where Branch is not null", con.ActiveCon());
-            SQLiteDataAdapter adapter = new SQLiteDataAdapter(sc);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            DataRow top = dt.NewRow();
-            top[0] = "-Select-";
-            dt.Rows.InsertAt(top, 0);
+                SQLiteCommand sc = new SQLiteCommand("Select Branch from Management where Branch is not null", con.ActiveCon());
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(sc);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                DataRow top = dt.NewRow();
+                top[0] = "-Select-";
+                dt.Rows.InsertAt(top, 0);
 
-            AssignClassBranch_combobox.ValueMember = "Branch";
-            AssignClassBranch_combobox.DataSource = dt;
+                AssignClassBranch_combobox.ValueMember = "Branch";
+                AssignClassBranch_combobox.DataSource = dt;
             }
             catch (Exception ex)
             {
@@ -604,16 +604,16 @@ namespace Exam_Cell
         {
             try
             {
-            SQLiteCommand sc = new SQLiteCommand("Select distinct Year_Of_Admission from Students", con.ActiveCon());
-            SQLiteDataAdapter adapter = new SQLiteDataAdapter(sc);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            DataRow top = dt.NewRow();
-            top[0] = "-Select-";
-            dt.Rows.InsertAt(top, 0);
+                SQLiteCommand sc = new SQLiteCommand("Select distinct Year_Of_Admission from Students", con.ActiveCon());
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(sc);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                DataRow top = dt.NewRow();
+                top[0] = "-Select-";
+                dt.Rows.InsertAt(top, 0);
 
-            AssignClassYOA_combobox.ValueMember = "Year_Of_Admission";
-            AssignClassYOA_combobox.DataSource = dt;
+                AssignClassYOA_combobox.ValueMember = "Year_Of_Admission";
+                AssignClassYOA_combobox.DataSource = dt;
             }
             catch (Exception ex)
             {
@@ -726,7 +726,7 @@ namespace Exam_Cell
                     AddFromExcel_Btn.Enabled = true;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 msgbox.show(ex.ToString(), "Exception Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
@@ -738,7 +738,7 @@ namespace Exam_Cell
             timerFlag = "AddExcelBtnClick";
             timerTool.Start();
         }
-        
+
         void AddFromExcelFunction()
         {
             try
@@ -769,7 +769,7 @@ namespace Exam_Cell
                 //}
                 //else msgbox.show("Select any Students", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 con.CloseCon();
                 MessageBox.Show(ex.ToString());
@@ -792,7 +792,7 @@ namespace Exam_Cell
         private void timerTool_Tick(object sender, EventArgs e)
         {
             timerTool.Stop();
-            if (timerFlag=="AddExcelBtnClick")
+            if (timerFlag == "AddExcelBtnClick")
             {
                 AddFromExcelFunction();
             }
@@ -800,7 +800,7 @@ namespace Exam_Cell
             {
                 ClassviewCheckBoxFunction();
             }
-            else if(timerFlag== "ClearBtnClick")
+            else if (timerFlag == "ClearBtnClick")
             {
                 ClearAllStudent_Management();
             }
@@ -815,6 +815,42 @@ namespace Exam_Cell
             menuForm.menu_dropitem_student.BackColor = Color.FromArgb(48, 43, 99);
             menuForm.studmgmnt_open = false;
             this.Close();
+        }
+
+        private void update_btn_Click(object sender, EventArgs e)
+        {
+            msgbox.show("Make sure Student Name, Y.O.A, Branch is not empty.   \n Continue ?   ", "Confirm Update", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Warning);
+            var result = msgbox.ReturnValue;
+            if (result == "Yes")
+            {
+                try
+                {
+                    foreach (DataGridViewRow dr in Student_dgv.Rows)
+                    {
+                        bool checkselected = Convert.ToBoolean(dr.Cells["CheckboxColumn2"].Value);
+                        if (checkselected)
+                        {
+                            SQLiteCommand command = new SQLiteCommand("Update Students set Name=@Name,Year_Of_Admission=@Year_of_Admission,Branch=@Branch where Reg_no=@Reg_no", con.ActiveCon());
+                            command.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
+                            command.Parameters.AddWithValue("@Name", Name_textbox.Text);
+                            command.Parameters.AddWithValue("@Year_Of_Admission", YOA_textbox.Text);
+                            command.Parameters.AddWithValue("@Branch", Branch_combobox.Text);
+                            command.ExecuteNonQuery();
+                            break;
+                        }
+                    }
+                    con.CloseCon();
+                    YearOfAdmissionFill();
+                    ClearAllStudent_Management();
+                    Student_dgvFill();
+                    msgbox.show("Student Update Completed   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    con.CloseCon();
+                    MessageBox.Show(ex.ToString());
+                }
+            }
         }
     }
 }

@@ -241,11 +241,12 @@ namespace Exam_Cell
             if(Series_radiobtn.Checked)
             {
                 Secure_tools_enabled();
+                Series_fill();
+                Branch_ComboFill();
+                Semester_combobox.SelectedIndex = 0;
                 Univrsty_radiobtn.Checked = false;
                 AllotUniversty_radiobtn.Checked = false;
                 AllotSeries_radiobtn.Checked = false;
-                Series_fill();
-                Branch_combobox.Enabled = false;
             }
         }
 
@@ -374,9 +375,9 @@ namespace Exam_Cell
                 Univrsty_radiobtn.Checked = false;
                 Series_radiobtn.Checked = false;
                 AllotSeries_radiobtn.Checked = false;
-                UniversityAlloted_fill();
                 Branch_combobox.Enabled = false;
                 Semester_combobox.Enabled = false;
+                UniversityAlloted_fill();
             }
         }
 
@@ -388,9 +389,9 @@ namespace Exam_Cell
                 Univrsty_radiobtn.Checked = false;
                 Series_radiobtn.Checked = false;
                 AllotUniversty_radiobtn.Checked = false;
-                SeriesAlloted_fill();
                 Branch_combobox.Enabled = false;
                 Semester_combobox.Enabled = false;
+                SeriesAlloted_fill();
             }
         }
 
@@ -423,7 +424,11 @@ namespace Exam_Cell
                 string filter = "";        //filter string for sql statements to be written
                 if (regno != "")
                     filter = string.Format("Reg_no like '%{0}%'", regno);
-                
+                if (Branch_combobox.SelectedIndex != 0)
+                {
+                    if (filter.Length > 0) filter += " AND ";                    //Put AND if there is existing Sql statement in filter string
+                    filter += string.Format("Class Like '%{0}%'", Branch_combobox.Text);     //Put sql statement in filter string
+                }
                 if (Semester_combobox.SelectedIndex != 0)
                 {
                     if (filter.Length > 0) filter += " AND ";
@@ -488,16 +493,33 @@ namespace Exam_Cell
         {
             try
             {
-            SQLiteCommand sc = new SQLiteCommand("Select Distinct Branch from Scheme", con.ActiveCon());
+                string commandString="";
+
+                if (Univrsty_radiobtn.Checked) commandString = "Select Distinct Branch from Scheme";                
+                else if (Series_radiobtn.Checked) commandString = "Select Distinct Class from Management";
+
+            SQLiteCommand sc = new SQLiteCommand(commandString, con.ActiveCon());
             SQLiteDataAdapter adapter = new SQLiteDataAdapter(sc);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
-            
-            DataRow top = dt.NewRow();
-            top[0] = "-Select Branch-";
-            dt.Rows.InsertAt(top, 0);
 
-            Branch_combobox.ValueMember = "Branch";  //column name is given to get values to show in combobox
+                if (Univrsty_radiobtn.Checked)
+                {
+                    DataRow top = dt.NewRow();
+                    top[0] = "-Select Branch-";
+                    dt.Rows.InsertAt(top, 0);
+
+                    Branch_combobox.ValueMember = "Branch";  //column name is given to get values to show in combobox
+                }
+                else if (Series_radiobtn.Checked)
+                {
+                    DataRow top = dt.NewRow();
+                    top[0] = "-Select Class-";
+                    dt.Rows.InsertAt(top, 0);
+
+                    Branch_combobox.ValueMember = "Class";  //column name is given to get values to show in combobox
+                }
+
             Branch_combobox.DataSource = dt;
             }
             catch (Exception ex)
