@@ -46,14 +46,14 @@ namespace Exam_Cell
             try
             {
             //get registered students details
-            SQLiteCommand command2 = new SQLiteCommand("select * from Registered_candidates order by Reg_no", con.ActiveCon());
+            SQLiteCommand command2 = new SQLiteCommand("select RC.Reg_no,RC.Name,RC.Branch,TT.Exam_Code,TT.Course from Registered_candidates as RC,Timetable as TT where TT.Date=@Date and TT.Session=@Session and RC.Course=TT.Course order by TT.Course,RC.Reg_no", con.ActiveCon());
             SQLiteDataAdapter adapter2 = new SQLiteDataAdapter(command2);
             DataTable table_students = new DataTable();
             adapter2.Fill(table_students);
             con.CloseCon();
             if (table_students.Rows.Count == 0)
             {
-                msgbox.show("No Candidates Registered to Allot,     \n Register the candidates First    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                msgbox.show("No Candidates Registered or Timetable set to Allot,   \n Register the candidates First    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                 return;
             }            
             //get rooms details
@@ -66,183 +66,61 @@ namespace Exam_Cell
             {
                 msgbox.show("No Rooms Assigned to Allot,     \n Create Rooms First   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                 return;
-            }           
-            //get distinct dates
-            SQLiteCommand commanddate = new SQLiteCommand("select distinct Date from Timetable order by Date", con.ActiveCon());
-            SQLiteDataAdapter adapterdate = new SQLiteDataAdapter(commanddate);
-            DataTable table_distinctdate = new DataTable();
-            adapterdate.Fill(table_distinctdate);
-            con.CloseCon();
-            if(table_distinctdate.Rows.Count==0)
-            {
-                msgbox.show("No Timetable Assigned to Allot,\t \n Create Timetable First   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
-                return;                
             }
-
-            //////////// TRY WHETHER THIS WILL WORK ////////////
-
-            //ALLOTMENT START
-            foreach (DataRow rowdate in table_distinctdate.Rows)
-            {
-                string session = "Forenoon";
-                for (int z = 0; z < 2; z++)
+                //get branch priority
+                SQLiteCommand command = new SQLiteCommand("select * from Branch_Priority order by Priority", con.ActiveCon());
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
+                DataTable table_branchPriority = new DataTable();
+                adapter.Fill(table_branchPriority);
+                con.CloseCon();
+                //sort table_students according to branch priority                
+                table_students.Columns.Add("BranchPriority");
+                foreach(DataRow branchDr in table_branchPriority.Rows)
                 {
-                    //Get Timetable details
-                    SQLiteCommand command = new SQLiteCommand("select Date,Session,Course,Exam_Code from Timetable where Date=@Date and Session=@Session order by Date,Session,Course", con.ActiveCon());
-                    command.Parameters.AddWithValue("@Date", rowdate["Date"].ToString());
-                    command.Parameters.AddWithValue("@Session", session);
-                    SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
-                    DataTable table_timetable = new DataTable();
-                    adapter.Fill(table_timetable);
-                    con.CloseCon();
-
-                    if (table_timetable.Rows.Count != 0)
+                    foreach(DataRow studDr in table_students.Rows)
                     {
-                        List<string> reg_students = new List<string>();
-                        List<string> name_students = new List<string>();
-                        List<string> branch_students = new List<string>();
-                        List<string> date_students = new List<string>();
-                        List<string> course_students = new List<string>();
-                        List<string> Exam_Code_students = new List<string>();
-
-                        foreach (DataRow row in table_timetable.Rows)
+                        if (studDr["Branch"] == branchDr["Branch"])
                         {
-                            string date = row["Date"].ToString();
-                            string course = row["Course"].ToString();
-                            string examcode = row["Exam_Code"].ToString();
-                            
-                            foreach (DataRow row2 in table_students.Rows)
-                            {
-                                string student_course = row2["Course"].ToString();
-                                if (student_course.ToUpper().Contains(course.ToUpper()))
-                                {
-                                    name_students.Add(row2["Name"].ToString());
-                                    reg_students.Add(row2["Reg_no"].ToString());
-                                    branch_students.Add(row2["Branch"].ToString());
-                                    date_students.Add(row["Date"].ToString());
-                                    course_students.Add(row["Course"].ToString());
-                                    Exam_Code_students.Add(row["Exam_Code"].ToString());
-                                }
-                            }
-                        }
-                        int count = 0;
-                        foreach (DataRow roomrow in table_rooms.Rows)
-                        {
-                            int series = Int32.Parse(roomrow["A_Series"].ToString());
-                            int flag=0;
-                            for(int i=0;i<series;i++)
-                            {
-                                SQLiteCommand command4 = new SQLiteCommand("insert into University_Alloted(Date,Room_No,Seat,Session,Reg_no,Name,Branch,Exam_Code,Course)Values(" + "@Date,@Room_No,@Seat,@Session,@Reg_no,@Name,@Branch,@Exam_Code,@Course)", con.ActiveCon());
-                                command4.Parameters.AddWithValue("@Date", date_students[count]);
-                                command4.Parameters.AddWithValue("@Room_No", roomrow["Room_No"].ToString());
-                                command4.Parameters.AddWithValue("@Seat", "A" + (i + 1));
-                                command4.Parameters.AddWithValue("@Session", session);
-                                command4.Parameters.AddWithValue("@Reg_no", reg_students[count]);
-                                command4.Parameters.AddWithValue("@Name", name_students[count]);
-                                command4.Parameters.AddWithValue("@Branch", branch_students[count]);
-                                command4.Parameters.AddWithValue("@Exam_Code", Exam_Code_students[count]);
-                                command4.Parameters.AddWithValue("@Course", course_students[count]);
-                                command4.ExecuteNonQuery();
-                                if (reg_students.Last() == reg_students[count])
-                                {
-                                    con.CloseCon();
-                                    flag = 1;
-                                    break;
-                                }
-                                count++;
-                            }
-                            if (flag == 1)
-                                break;
+                            studDr["BranchPriority"] = branchDr["Priority"];
                         }
                     }
-                    session = "Afternoon";
+                }                
+                table_students.DefaultView.Sort = "Priority,Course,Reg_no";
+                table_students = table_students.DefaultView.ToTable();
+
+                //allot room
+                int studCount=table_students.Rows.Count, count = 0, flag = 0;                 
+                foreach (DataRow roomrow in table_rooms.Rows)
+                {
+                    int series = Int32.Parse(roomrow["A_Series"].ToString());
+                    for (int i = 0; i < series; i++)
+                    {
+                        if (count < studCount)
+                        {
+                            SQLiteCommand command4 = new SQLiteCommand("insert into University_Alloted(Date,Room_No,Seat,Session,Reg_no,Name,Branch,Exam_Code,Course)Values(" + "@Date,@Room_No,@Seat,@Session,@Reg_no,@Name,@Branch,@Exam_Code,@Course)", con.ActiveCon());
+                            command4.Parameters.AddWithValue("@Date", DateTimePicker.Text);
+                            command4.Parameters.AddWithValue("@Room_No", roomrow["Room_No"].ToString());
+                            command4.Parameters.AddWithValue("@Seat", "A" + (i + 1));
+                            command4.Parameters.AddWithValue("@Session", Session_combobox.Text);
+                            command4.Parameters.AddWithValue("@Reg_no", table_students.Rows[count]["Reg_no"].ToString());
+                            command4.Parameters.AddWithValue("@Name", table_students.Rows[count]["Name"].ToString());
+                            command4.Parameters.AddWithValue("@Branch", table_students.Rows[count]["Branch"].ToString());
+                            command4.Parameters.AddWithValue("@Exam_Code", table_students.Rows[count]["Exam_Code"].ToString());
+                            command4.Parameters.AddWithValue("@Course", table_students.Rows[count]["Course"].ToString());
+                            command4.ExecuteNonQuery();
+
+                            count++;
+                        }
+                        else
+                        {
+                            flag = 1;
+                            break;
+                        }
+                    }
+                        if (flag == 1) break;
                 }
-            }
-            //////////// TRY WHETHER THIS WILL WORK //////////// 
 
-
-            //foreach (DataRow rowdate in table_distinctdate.Rows)
-            //{
-            //    string session = "Forenoon";
-            //    for (int z = 0; z < 2; z++)
-            //    {
-            //        //Get Timetable details
-            //        SQLiteCommand command = new SQLiteCommand("select Date,Session,Course,Exam_Code from Timetable where Date=@Date and Session=@Session order by Date,Session", con.ActiveCon());
-            //        command.Parameters.AddWithValue("@Date", rowdate["Date"].ToString());
-            //        command.Parameters.AddWithValue("@Session", session);
-            //        SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
-            //        DataTable table_timetable = new DataTable();
-            //        adapter.Fill(table_timetable);
-
-            //        if(table_timetable.Rows.Count !=0)
-            //        {
-            //            // initialize and get room values outside loop
-            //            List<string> roomno = new List<string>();
-            //            List<string> Aseries = new List<string>();
-
-            //            foreach (DataRow roomrow in table_rooms.Rows)
-            //            {
-            //                roomno.Add(roomrow["Room_No"].ToString());
-            //                Aseries.Add(roomrow["A_Series"].ToString());
-            //            }
-            //            int sr = 0, j = 0;
-            //            int series = Int32.Parse(Aseries[sr].ToString());
-            //            string room = roomno[sr];
-
-            //            foreach (DataRow row in table_timetable.Rows)
-            //            {
-            //                string date = row["Date"].ToString();
-            //                string course = row["Course"].ToString();
-            //                string examcode = row["Exam_Code"].ToString();
-
-            //                List<string> reg_students = new List<string>();
-            //                List<string> name_students = new List<string>();
-            //                List<string> branch_students = new List<string>();
-            //                foreach (DataRow row2 in table_students.Rows)
-            //                {
-            //                    string student_course = row2["Course"].ToString();
-            //                    if (student_course.ToUpper().Contains(course.ToUpper()))
-            //                    {
-            //                        name_students.Add(row2["Name"].ToString());
-            //                        reg_students.Add(row2["Reg_no"].ToString());
-            //                        branch_students.Add(row2["Branch"].ToString());
-            //                    }
-            //                }
-            //                int count = 0;
-            //                for (int i = 0; i < series; i++)
-            //                {
-            //                    SQLiteCommand command4 = new SQLiteCommand("insert into University_Alloted(Date,Room_No,Seat,Session,Reg_no,Name,Branch,Exam_Code,Course)Values(" + "@Date,@Room_No,@Seat,@Session,@Reg_no,@Name,@Branch,@Exam_Code,@Course)", con.ActiveCon());
-            //                    command4.Parameters.AddWithValue("@Date", date);
-            //                    command4.Parameters.AddWithValue("@Room_No", room);
-            //                    command4.Parameters.AddWithValue("@Seat", "A" + (j + 1));
-            //                    command4.Parameters.AddWithValue("@Session", session);
-            //                    command4.Parameters.AddWithValue("@Reg_no", reg_students[count]);
-            //                    command4.Parameters.AddWithValue("@Name", name_students[count]);
-            //                    command4.Parameters.AddWithValue("@Branch", branch_students[count]);
-            //                    command4.Parameters.AddWithValue("@Exam_Code", examcode);
-            //                    command4.Parameters.AddWithValue("@Course", course);
-            //                    command4.ExecuteNonQuery();
-            //                    j += 1;
-            //                    if (j == series)
-            //                    {
-            //                        sr += 1;
-            //                        series = Int32.Parse(Aseries[sr].ToString());
-            //                        room = roomno[sr];
-            //                        i = -1;
-            //                        j = 0;
-            //                    }
-            //                    if (reg_students.Last() == reg_students[count])
-            //                    {
-            //                        break;
-            //                    }
-            //                    count++;
-            //                }
-            //            }
-            //        }                                       
-            //        session = "Afternoon";
-            //    }              
-            //}
-            msgbox.show("University Seating Allot Completed     ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                msgbox.show("University Seating Allot Completed     ", "Allot Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
 
             }
             catch(Exception ex)
@@ -653,10 +531,11 @@ namespace Exam_Cell
             dgvfill.DataSource = dataTable;
             Alloted_dgv.DataSource = null;
             Alloted_dgv.DataSource = dgvfill;
-            NoOfStudents_Brief.Text = dataTable.Rows.Count.ToString();                
+            no_of_stud_reg_label.Text = "No of Students registered : "+ dataTable.Rows.Count.ToString();                
             }
             catch(Exception ex)
             {
+                con.CloseCon();
                 MessageBox.Show(ex.ToString());
             }
         }
@@ -774,7 +653,7 @@ namespace Exam_Cell
                 adapter.Fill(dataTabledgv);
                 AllotedStudentsRooms_dgv.DataSource = null;
                 AllotedStudentsRooms_dgv.DataSource = dataTabledgv;
-                NoOfStudents_Room.Text = dataTabledgv.Rows.Count.ToString();
+                no_of_stud_in_room_label.Text = "No of Students : " + dataTabledgv.Rows.Count.ToString();
                 con.CloseCon();
             }
             else if (Series_radio.Checked)
@@ -788,7 +667,7 @@ namespace Exam_Cell
                 adapter.Fill(dataTable);
                 AllotedStudentsRooms_dgv.DataSource = null;
                 AllotedStudentsRooms_dgv.DataSource = dataTable;
-                NoOfStudents_Room.Text = dataTable.Rows.Count.ToString();
+                no_of_stud_in_room_label.Text = "No of Students : "+dataTable.Rows.Count.ToString();
                 con.CloseCon();
             }
         }        
@@ -850,7 +729,6 @@ namespace Exam_Cell
             if(AllocatedRoom_combobox.SelectedIndex!=0)
             {
                 AllotedStudentsDGVFill();
-                AllotedRoomsDgvFilling(); // need to re-code
             }
         }
         void RefreshAll()
@@ -859,8 +737,8 @@ namespace Exam_Cell
             AllotedRooms_dgv.DataSource = null;
             AllotedStudentsRooms_dgv.DataSource = null;
             Alloted_dgv.DataSource = null;
-            NoOfStudents_Brief.Clear();
-            NoOfStudents_Room.Clear();
+            no_of_stud_reg_label.Text = "No of Students registered : ";
+            no_of_stud_in_room_label.Text = "No of Students : ";
             AllocatedRoom_combobox.DataSource = null;
             FromRoom_textbox.Clear();
             FromStart_textbox.Clear();
@@ -1121,9 +999,10 @@ namespace Exam_Cell
             {
                 // need to re code
                 // AllotedDGVFill() and AllotedBriefDGVFill() will be showing Registered Candidates info, not Alloted.
-                AllocatedRoomComboboxFill();
                 AllotedDGVFill();
                 AllotedBriefDGVFill();
+                AllocatedRoomComboboxFill();
+                AllotedRoomsDgvFilling(); // might need to re-query
             }
         }        
     }
