@@ -721,15 +721,17 @@ namespace Exam_Cell
                                     {
                                             //selected datas from both dgv will be inserted to Table Registered Candidates
                                             //here first bracket is sqltable column names and 2nd bracket with @ is refernce for values to be inserted
-                                            SQLiteCommand sqlcomm = new SQLiteCommand("Insert into Series_candidates(Name,Reg_no,Class,Semester,Course)Values(" + "@Name,@Reg_no,@Class,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
+                                            SQLiteCommand sqlcomm = new SQLiteCommand("Insert into Series_candidates(Name,Reg_no,Class,Semester,Course,Branch)Values(" + "@Name,@Reg_no,@Class,@Semester,@Course,@Branch)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
                                                     //giving values to the reference...values from dgv
                                             sqlcomm.Parameters.AddWithValue("@Reg_no", dr2.Cells["Reg_no"].Value);
                                             sqlcomm.Parameters.AddWithValue("@Name", dr2.Cells["Name"].Value);
                                             sqlcomm.Parameters.AddWithValue("@Class", Class_drpdwn.Text);
                                             sqlcomm.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value);
                                             sqlcomm.Parameters.AddWithValue("@Course", dr.Cells["Course"].Value);
-                                            //execute sql query to insert into tables
-                                            sqlcomm.ExecuteNonQuery();                                        
+                                            sqlcomm.Parameters.AddWithValue("@Branch", dr2.Cells["Branch"].Value);
+
+                                        //execute sql query to insert into tables
+                                        sqlcomm.ExecuteNonQuery();                                        
                                     }
                                 }
                             }
@@ -771,13 +773,14 @@ namespace Exam_Cell
                                             f = 1;
                                             //selected datas from both dgv will be inserted to Table Registered Candidates
                                             //here first bracket is sqltable column names and 2nd bracket with @ is refernce for values to be inserted
-                                            SQLiteCommand sqlcomm = new SQLiteCommand("Insert into Series_candidates(Name,Reg_no,Class,Semester,Course)Values(" + "@Name,@Reg_no,@Class,@Semester,@Course)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
+                                            SQLiteCommand sqlcomm = new SQLiteCommand("Insert into Series_candidates(Name,Reg_no,Class,Semester,Course,Branch)Values(" + "@Name,@Reg_no,@Class,@Semester,@Course,@Branch)", con.ActiveCon()); //con.ActiveCon() is for sqlconnection
                                                                                                                                                                                                                                //giving values to the reference...values from dgv
                                             sqlcomm.Parameters.AddWithValue("@Reg_no", dr2.Cells["Reg_no"].Value);
                                             sqlcomm.Parameters.AddWithValue("@Name", dr2.Cells["Name"].Value);
                                             sqlcomm.Parameters.AddWithValue("@Class", Class_drpdwn.Text);
                                             sqlcomm.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value);
-                                            sqlcomm.Parameters.AddWithValue("@Course", dr.Cells["Course"].Value);
+                                            sqlcomm.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value);
+                                            sqlcomm.Parameters.AddWithValue("@Course", dr2.Cells["Course"].Value);
                                             //execute sql query to insert into tables
                                             sqlcomm.ExecuteNonQuery();
                                         }

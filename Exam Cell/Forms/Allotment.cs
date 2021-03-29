@@ -45,8 +45,14 @@ namespace Exam_Cell
         {                        
             try
             {
-            //get registered students details
-            SQLiteCommand command2 = new SQLiteCommand("select RC.Reg_no,RC.Name,RC.Branch,TT.Exam_Code,TT.Course from Registered_candidates as RC,Timetable as TT where TT.Date=@Date and TT.Session=@Session and RC.Course=TT.Course order by TT.Course,RC.Reg_no", con.ActiveCon());
+                string commandQuery = "";
+                if (Unv_radio.Checked)
+                    commandQuery = string.Format("select RC.Reg_no,RC.Name,RC.Branch,TT.Exam_Code,TT.Course from Registered_candidates as RC,Timetable as TT where TT.Date=@Date and TT.Session=@Session and RC.Course=TT.Course order by TT.Course,RC.Reg_no");
+                else
+                    commandQuery = string.Format("select SC.Reg_no,SC.Name,SC.Class,SC.Branch,TT.Exam_Code,TT.Course from Series_candidates as SC,Timetable as TT where TT.Date=@Date and TT.Session=@Session and SC.Course=TT.Course order by TT.Course,SC.Class,SC.Reg_no");
+
+                //get registered students details
+                SQLiteCommand command2 = new SQLiteCommand(commandQuery, con.ActiveCon());
             SQLiteDataAdapter adapter2 = new SQLiteDataAdapter(command2);
             DataTable table_students = new DataTable();
             adapter2.Fill(table_students);
@@ -85,10 +91,12 @@ namespace Exam_Cell
                         }
                     }
                 }                
-                table_students.DefaultView.Sort = "Priority,Course,Reg_no";
+                if(Unv_radio.Checked) table_students.DefaultView.Sort = "Priority,Course,Reg_no";
+                else table_students.DefaultView.Sort = "Priority,Course,Class,Reg_no";
                 table_students = table_students.DefaultView.ToTable();
 
                 //allot room
+                string insertQuery = "";
                 int studCount=table_students.Rows.Count, count = 0, flag = 0;                 
                 foreach (DataRow roomrow in table_rooms.Rows)
                 {
@@ -97,14 +105,17 @@ namespace Exam_Cell
                     {
                         if (count < studCount)
                         {
-                            SQLiteCommand command4 = new SQLiteCommand("insert into University_Alloted(Date,Room_No,Seat,Session,Reg_no,Name,Branch,Exam_Code,Course)Values(" + "@Date,@Room_No,@Seat,@Session,@Reg_no,@Name,@Branch,@Exam_Code,@Course)", con.ActiveCon());
+                            if (Unv_radio.Checked) insertQuery = string.Format("insert into University_Alloted(Date,Room_No,Seat,Session,Reg_no,Name,Branch,Exam_Code,Course)Values(" + "@Date,@Room_No,@Seat,@Session,@Reg_no,@Name,@Branch,@Exam_Code,@Course)");
+                            else insertQuery = string.Format("insert into Series_Alloted(Date,Room_No,Seat,Session,Reg_no,Name,Class,Exam_Code,Course)Values(" + "@Date,@Room_No,@Seat,@Session,@Reg_no,@Name,@Class,@Exam_Code,@Course)");
+                            SQLiteCommand command4 = new SQLiteCommand(insertQuery, con.ActiveCon());
                             command4.Parameters.AddWithValue("@Date", DateTimePicker.Text);
                             command4.Parameters.AddWithValue("@Room_No", roomrow["Room_No"].ToString());
                             command4.Parameters.AddWithValue("@Seat", "A" + (i + 1));
                             command4.Parameters.AddWithValue("@Session", Session_combobox.Text);
                             command4.Parameters.AddWithValue("@Reg_no", table_students.Rows[count]["Reg_no"].ToString());
                             command4.Parameters.AddWithValue("@Name", table_students.Rows[count]["Name"].ToString());
-                            command4.Parameters.AddWithValue("@Branch", table_students.Rows[count]["Branch"].ToString());
+                            if(Unv_radio.Checked) command4.Parameters.AddWithValue("@Branch", table_students.Rows[count]["Branch"].ToString());
+                            else command4.Parameters.AddWithValue("@Class", table_students.Rows[count]["Class"].ToString());
                             command4.Parameters.AddWithValue("@Exam_Code", table_students.Rows[count]["Exam_Code"].ToString());
                             command4.Parameters.AddWithValue("@Course", table_students.Rows[count]["Course"].ToString());
                             command4.ExecuteNonQuery();
@@ -120,7 +131,7 @@ namespace Exam_Cell
                         if (flag == 1) break;
                 }
 
-                msgbox.show("University Seating Allot Completed     ", "Allot Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                msgbox.show("Single Seating Allot Completed     ", "Allot Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
 
             }
             catch(Exception ex)

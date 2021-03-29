@@ -113,6 +113,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.closeBtn = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.progressPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Courses_dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Candidate_datagridview)).BeginInit();
@@ -530,6 +532,8 @@
             this.groupboxExtraReg.Controls.Add(this.Extra_Reg_no_Textbox);
             this.groupboxExtraReg.Controls.Add(this.ExtraReg_btn);
             this.groupboxExtraReg.Controls.Add(this.label1);
+            this.groupboxExtraReg.Controls.Add(this.label10);
+            this.groupboxExtraReg.Controls.Add(this.label9);
             this.groupboxExtraReg.Controls.Add(this.label2);
             this.groupboxExtraReg.Enabled = false;
             this.groupboxExtraReg.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -565,10 +569,10 @@
             this.ExtraReg_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ExtraReg_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ExtraReg_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ExtraReg_btn.Location = new System.Drawing.Point(481, 79);
+            this.ExtraReg_btn.Location = new System.Drawing.Point(93, 80);
             this.ExtraReg_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ExtraReg_btn.Name = "ExtraReg_btn";
-            this.ExtraReg_btn.Size = new System.Drawing.Size(129, 44);
+            this.ExtraReg_btn.Size = new System.Drawing.Size(151, 44);
             this.ExtraReg_btn.TabIndex = 16;
             this.ExtraReg_btn.Text = "Register";
             this.ExtraReg_btn.UseVisualStyleBackColor = false;
@@ -894,6 +898,26 @@
             this.closeBtn.UseVisualStyleBackColor = false;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(251, 82);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(232, 20);
+            this.label9.TabIndex = 12;
+            this.label9.Text = "Before Register, check branch";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(251, 104);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(150, 20);
+            this.label10.TabIndex = 12;
+            this.label10.Text = "of selected course.";
+            // 
             // formti
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1035,5 +1059,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button closeBtn;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
     }
 }

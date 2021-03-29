@@ -127,10 +127,11 @@ namespace Exam_Cell
                     {
                         foreach (DataGridViewRow dr in Student_dgv.Rows)
                         {
-                            SQLiteCommand command = new SQLiteCommand("insert into Class(Reg_No,Name,Class)Values(" + "@Reg_No,@Name,@Class )", con.ActiveCon());
+                            SQLiteCommand command = new SQLiteCommand("insert into Class(Reg_No,Name,Class,Branch)Values(" + "@Reg_No,@Name,@Class,@Branch )", con.ActiveCon());
                             command.Parameters.AddWithValue("@Reg_No", dr.Cells["Reg_no"].Value.ToString());
                             command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value.ToString());
                             command.Parameters.AddWithValue("@Class", AssignClass_combobox.Text);
+                            command.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value.ToString());
                             command.ExecuteNonQuery();
                         }
 
@@ -149,10 +150,11 @@ namespace Exam_Cell
                             if (checkselected)
                             {
                                 f = 1;
-                                SQLiteCommand command = new SQLiteCommand("insert into Class(Reg_No,Name,Class)Values(" + "@Reg_No,@Name,@Class )", con.ActiveCon());
+                                SQLiteCommand command = new SQLiteCommand("insert into Class(Reg_No,Name,Class,Branch)Values(" + "@Reg_No,@Name,@Class,@Branch )", con.ActiveCon());
                                 command.Parameters.AddWithValue("@Reg_No", dr.Cells["Reg_no"].Value.ToString());
                                 command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value.ToString());
                                 command.Parameters.AddWithValue("@Class", AssignClass_combobox.Text);
+                                command.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value.ToString());
                                 command.ExecuteNonQuery();
                             }
                         }
