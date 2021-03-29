@@ -27,10 +27,12 @@ namespace Exam_Cell
             }
         }
 
-        string Allot_Type = "";
+        string Allot_Type = "", date="", session="";
         private void SingleAllotment_button_Click(object sender, EventArgs e)
         {
             Allot_Type = "Single";
+            date = DateTimePicker.Text;
+            session = Session_combobox.Text;
             using (ProgressForm progressForm = new ProgressForm(Allotment_Function))
             {
                 progressForm.ShowDialog(this);
@@ -39,69 +41,76 @@ namespace Exam_Cell
         private void MultiAllot_Click(object sender, EventArgs e)
         {
             Allot_Type = "Multi";
+            date = DateTimePicker.Text;
+            session = Session_combobox.Text;
             using (ProgressForm progressForm = new ProgressForm(Allotment_Function))
             {
                 progressForm.ShowDialog(this);
             }
         }
-
+        
         void Allotment_Function()
         {
-            //get rooms details
-            SQLiteCommand command3 = new SQLiteCommand("select * from Rooms order by Priority", con.ActiveCon());
-            SQLiteDataAdapter adapter3 = new SQLiteDataAdapter(command3);
-            DataTable table_rooms = new DataTable();
-            adapter3.Fill(table_rooms);
-            con.CloseCon();
-            if (table_rooms.Rows.Count == 0)
+            try
             {
-                msgbox.show("No Rooms Assigned to Allot,     \n Create Rooms First   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
-                return;
-            }
-
-            string commandQuery = "";
-            if (Unv_radio.Checked)
-                commandQuery = string.Format("select RC.Reg_no,RC.Name,RC.Branch,TT.Exam_Code,TT.Course from Registered_candidates as RC,Timetable as TT where TT.Date=@Date and TT.Session=@Session and RC.Course=TT.Course order by TT.Course,RC.Reg_no");
-            else
-                commandQuery = string.Format("select SC.Reg_no,SC.Name,SC.Class,SC.Branch,TT.Exam_Code,TT.Course from Series_candidates as SC,Timetable as TT where TT.Date=@Date and TT.Session=@Session and SC.Course=TT.Course order by TT.Course,SC.Class,SC.Reg_no");
-
-            //get registered students details
-            SQLiteCommand command2 = new SQLiteCommand(commandQuery, con.ActiveCon());
-            SQLiteDataAdapter adapter2 = new SQLiteDataAdapter(command2);
-            DataTable table_students = new DataTable();
-            adapter2.Fill(table_students);
-            con.CloseCon();
-            if (table_students.Rows.Count == 0)
-            {
-                msgbox.show("No Candidates Registered or Timetable set to Allot,   \n Register the candidates First    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
-                return;
-            }
-
-            //get branch priority
-            SQLiteCommand command = new SQLiteCommand("select * from Branch_Priority order by Priority", con.ActiveCon());
-            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
-            DataTable table_branchPriority = new DataTable();
-            adapter.Fill(table_branchPriority);
-            con.CloseCon();
-            //sort table_students according to branch priority                
-            table_students.Columns.Add("BranchPriority");
-            foreach (DataRow branchDr in table_branchPriority.Rows)
-            {
-                foreach (DataRow studDr in table_students.Rows)
+                //get rooms details
+                SQLiteCommand command3 = new SQLiteCommand("select * from Rooms order by Priority", con.ActiveCon());
+                SQLiteDataAdapter adapter3 = new SQLiteDataAdapter(command3);
+                DataTable table_rooms = new DataTable();
+                adapter3.Fill(table_rooms);
+                con.CloseCon();
+                if (table_rooms.Rows.Count == 0)
                 {
-                    if (studDr["Branch"] == branchDr["Branch"])
+                    msgbox.show("No Rooms Assigned to Allot,     \n Create Rooms First   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                    return;
+                }
+                string commandQuery = "";
+                if (Unv_radio.Checked)
+                    commandQuery = string.Format("select RC.Reg_no,RC.Name,RC.Branch,TT.Exam_Code,TT.Course from Registered_candidates as RC,Timetable as TT where TT.Date=@Date and TT.Session=@Session and RC.Course=TT.Course order by TT.Course,RC.Reg_no");
+                else
+                    commandQuery = string.Format("select SC.Reg_no,SC.Name,SC.Class,SC.Branch,TT.Exam_Code,TT.Course from Series_candidates as SC,Timetable as TT where TT.Date=@Date and TT.Session=@Session and SC.Course=TT.Course order by TT.Course,SC.Class,SC.Reg_no");
+
+                //get registered students details
+                SQLiteCommand command2 = new SQLiteCommand(commandQuery, con.ActiveCon());
+                command2.Parameters.AddWithValue("@Date", date);
+                command2.Parameters.AddWithValue("@Session", session);
+                SQLiteDataAdapter adapter2 = new SQLiteDataAdapter(command2);
+                DataTable table_students = new DataTable();
+                adapter2.Fill(table_students);
+                con.CloseCon();
+                if (table_students.Rows.Count == 0)
+                {
+                    msgbox.show("No Candidates Registered or Timetable set to Allot,   \n Register the candidates First    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                    return;
+                }
+
+                //get branch priority
+                SQLiteCommand command = new SQLiteCommand("select * from Branch_Priority order by Priority", con.ActiveCon());
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
+                DataTable table_branchPriority = new DataTable();
+                adapter.Fill(table_branchPriority);
+                con.CloseCon();
+                //sort table_students according to branch priority                
+                table_students.Columns.Add("BranchPriority");
+                foreach (DataRow branchDr in table_branchPriority.Rows)
+                {
+                    foreach (DataRow studDr in table_students.Rows)
                     {
-                        studDr["BranchPriority"] = branchDr["Priority"];
+                        if (studDr["Branch"] == branchDr["Branch"])
+                        {
+                            studDr["BranchPriority"] = branchDr["Priority"];
+                        }
                     }
                 }
-            }
-            if (Unv_radio.Checked) table_students.DefaultView.Sort = "BranchPriority,Course,Reg_no";
-            else table_students.DefaultView.Sort = "BranchPriority,Course,Class,Reg_no";
-            table_students = table_students.DefaultView.ToTable();
+                if (Unv_radio.Checked) table_students.DefaultView.Sort = "BranchPriority,Course,Reg_no";
+                else table_students.DefaultView.Sort = "BranchPriority,Course,Class,Reg_no";
+                table_students = table_students.DefaultView.ToTable();
 
-            //Allot
-            if (Allot_Type == "Single") Single_Allotment(table_students, table_rooms);
-            else if (Allot_Type == "Multi") Multi_Allotment(table_students, table_rooms);
+                //Allot
+                if (Allot_Type == "Single") Single_Allotment(table_students, table_rooms);
+                else if (Allot_Type == "Multi") Multi_Allotment(table_students, table_rooms);
+            }
+            catch(Exception ex) { MessageBox.Show(ex.ToString()); }
         }
 
         void Single_Allotment(DataTable table_students, DataTable table_rooms)
