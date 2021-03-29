@@ -109,7 +109,7 @@ namespace Exam_Cell.Forms
                             worksheet.Cells["A2"].Value = examtype_textbox.Text;
                             if (f == 0) worksheet.Cells["A3"].Value = "STUDENTS LIST";
                             else if (f == 1) worksheet.Cells["A3"].Value = "ATTENDANCE STATEMENT";
-                            worksheet.Cells["A4"].Value = "Room " + checkroom;
+                            worksheet.Cells["A4"].Value = "Room No: " + checkroom;
                             worksheet.Cells["E4"].Value = date + " " + session;
 
                             using (var range = worksheet.Cells["A1:F1"])
@@ -255,23 +255,14 @@ namespace Exam_Cell.Forms
                     Directory.CreateDirectory(createDisplayPath);
 
                     string selectQuery = "", date = allotment.DateTimePicker.Text, session = allotment.Session_combobox.Text;
-                    if (allotment.Series_radio.Checked) selectQuery = string.Format("SELECT Reg_no,Room_No,Seat,Exam_code,Course,Class from Series_Alloted Where Date=@Date and Session=@Session order by Room_No");
-                    else selectQuery = string.Format("SELECT Reg_no,Room_No,Seat,Exam_code,Course,Branch from University_Alloted Where Date=@Date and Session=@Session order by Room_No");
-                    SQLiteCommand cmd = new SQLiteCommand(selectQuery, con.ActiveCon());
-                    cmd.Parameters.AddWithValue("@Date", date);
-                    cmd.Parameters.AddWithValue("@Session", session);
-                    SQLiteDataAdapter adptr = new SQLiteDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    adptr.Fill(dt);                    
-                    con.CloseCon();
-
-                    DataTable dt2 = new DataTable();
+                    
                     if (allotment.Unv_radio.Checked) selectQuery = string.Format("SELECT Distinct Branch from University_Alloted Where Date=@Date and Session=@Session");
                     else selectQuery = string.Format("SELECT Distinct Class from Series_Alloted Where Date=@Date and Session=@Session");
                     SQLiteCommand commandroom = new SQLiteCommand(selectQuery, con.ActiveCon());
                     commandroom.Parameters.AddWithValue("@Date", date);
                     commandroom.Parameters.AddWithValue("@Session", session);
                     SQLiteDataAdapter adptr2 = new SQLiteDataAdapter(commandroom);
+                    DataTable dt2 = new DataTable();
                     adptr2.Fill(dt2);                    
                     con.CloseCon();
 
@@ -360,7 +351,12 @@ namespace Exam_Cell.Forms
                                 coursecommand.Parameters.AddWithValue("@Date", date);
                                 coursecommand.Parameters.AddWithValue("@Session", session);
                                 string Course = (string)coursecommand.ExecuteScalar();
-                                worksheet.Cells["A6"].Value = Course;
+                                SQLiteCommand examcodecommand = new SQLiteCommand("Select Exam_code from University_Alloted where Branch=@Branch and Date=@Date and Session=@Session ", con.ActiveCon());
+                                examcodecommand.Parameters.AddWithValue("@Branch", checkbranch);
+                                examcodecommand.Parameters.AddWithValue("@Date", date);
+                                examcodecommand.Parameters.AddWithValue("@Session", session);
+                                string ExamCode = (string)examcodecommand.ExecuteScalar();
+                                worksheet.Cells["A6"].Value = Course + " " + ExamCode;
                                 using (var range = worksheet.Cells["A6"])
                                 {
                                     range.Style.Font.Name = "Arial";
@@ -395,7 +391,7 @@ namespace Exam_Cell.Forms
                             }
                             else
                             {
-                                SQLiteCommand coursecommand = new SQLiteCommand("Select Distinct Course from Series_Alloted where Class=@Class and Date=@Date and Session=@Session ", con.ActiveCon());
+                                SQLiteCommand coursecommand = new SQLiteCommand("Select Distinct Course,Exam_code from Series_Alloted where Class=@Class and Date=@Date and Session=@Session ", con.ActiveCon());
                                 coursecommand.Parameters.AddWithValue("@Class", checkbranch);
                                 coursecommand.Parameters.AddWithValue("@Date", date);
                                 coursecommand.Parameters.AddWithValue("@Session", session);
@@ -406,7 +402,7 @@ namespace Exam_Cell.Forms
                                 int c = 6;
                                 foreach (DataRow dataRow in coursedata.Rows)
                                 {
-                                    worksheet.Cells[c, 1].Value = dataRow["Course"].ToString();
+                                    worksheet.Cells[c, 1].Value = dataRow["Course"].ToString() + " " + dataRow["Exam_code"].ToString();
                                     using (var range = worksheet.Cells[c, 1])
                                     {
                                         range.Style.Font.Name = "Arial";
