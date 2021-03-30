@@ -31,6 +31,7 @@ namespace Exam_Cell
             //headerchkbox.Checked = false;
             SQLiteCommand command = new SQLiteCommand("select * from Rooms order by Priority", con.ActiveCon());
             SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
+            table_roomPriority.Clear();
             adapter.Fill(table_roomPriority);
             Rooms_dgv.DataSource = table_roomPriority;                
             }
@@ -51,6 +52,7 @@ namespace Exam_Cell
             {
                 SQLiteCommand command = new SQLiteCommand("select * from Branch_Priority order by Priority", con.ActiveCon());
                 SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
+                table_branchPriority.Clear();
                 adapter.Fill(table_branchPriority);
                 BranchPriorityDgv.DataSource = table_branchPriority;
             }
@@ -222,7 +224,7 @@ namespace Exam_Cell
                 comm.Parameters.AddWithValue("@B_series", b);
                 comm.ExecuteNonQuery();
                 Cleardata();
-                msgbox.show(RoomNo_textbox+" is created    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                msgbox.show(RoomNo_textbox.Text+" is created    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
             }
             else
             {
@@ -353,8 +355,8 @@ namespace Exam_Cell
                 foreach (DataGridViewRow dr in BranchPriorityDgv.Rows)
                 {
                     SQLiteCommand comm = new SQLiteCommand("Update Branch_Priority set Priority=@Priority where Branch=@Branch", con.ActiveCon());
-                    comm.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value);
-                    comm.Parameters.AddWithValue("@Priority", dr.Cells["Priority"].Value);
+                    comm.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value.ToString());
+                    comm.Parameters.AddWithValue("@Priority", dr.Cells["Priority"].Value.ToString());
                     comm.ExecuteNonQuery();
                 }
                 Cleardata();

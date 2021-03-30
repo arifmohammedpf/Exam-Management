@@ -58,7 +58,8 @@ namespace Exam_Cell.Forms
                 else
                     commandtext = string.Format("SELECT Count(*) from University_Alloted where Date=@Date");                
                 SQLiteCommand command = new SQLiteCommand(commandtext, con.ActiveCon());
-                Int32 Checkcount = (Int32)command.ExecuteScalar();  
+                command.Parameters.AddWithValue("@Date", allotment.DateTimePicker.Text);
+                Int32 Checkcount = Convert.ToInt32(command.ExecuteScalar());
                 con.CloseCon();
                 if (Checkcount == 0)
                 {
@@ -203,6 +204,7 @@ namespace Exam_Cell.Forms
                                     range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
                                     range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
                                     range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                                    range.Merge = true;
                                 }
                                 worksheet.Cells[rc + 7, 1].Value = " Write the Register Numbers of the absentees in the box";
                                 using (var range = worksheet.Cells[rc + 8, 1, rc + 16, 4])
@@ -242,7 +244,8 @@ namespace Exam_Cell.Forms
                 else
                     commandtext = string.Format("SELECT Count(*) from University_Alloted where Date=@Date");
                 SQLiteCommand command = new SQLiteCommand(commandtext, con.ActiveCon());
-                Int32 Checkcount = (Int32)command.ExecuteScalar();
+                command.Parameters.AddWithValue("@Date", allotment.DateTimePicker.Text);
+                Int32 Checkcount = Convert.ToInt32(command.ExecuteScalar());
                 con.CloseCon();
                 if (Checkcount == 0)
                 {

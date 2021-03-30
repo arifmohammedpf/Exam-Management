@@ -21,6 +21,7 @@ namespace Exam_Cell
         CustomMessageBox msgbox = new CustomMessageBox();
         BindingSource Scheme_Source = new BindingSource();
         BindingSource Class_Source = new BindingSource();
+        BindingSource ExcelSheet_Source = new BindingSource();
 
         public Database_Management()
         {
@@ -121,6 +122,7 @@ namespace Exam_Cell
                     SQLiteCommand command2 = new SQLiteCommand("insert into Branch_Priority(Branch)Values(" + " @Branch) ", con.ActiveCon());
                     command.Parameters.AddWithValue("@Branch", NewBranch_textbox.Text);
                     command.ExecuteNonQuery();
+                    command2.Parameters.AddWithValue("@Branch", NewBranch_textbox.Text);
                     command2.ExecuteNonQuery();
                     msgbox.show("New Branch Added    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     BranchComboboxFill();
@@ -158,8 +160,8 @@ namespace Exam_Cell
                 BranchComboboxFill();
                 Clear_All_ClassManagement();
                 Branch_dgv_Fill();
-                msgbox.show("Branch Delete Done     ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 con.CloseCon();
+                msgbox.show("Branch Delete Done     ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
             }
         }
                 
@@ -187,7 +189,11 @@ namespace Exam_Cell
                         command.Parameters.AddWithValue("@Class", dr.Cells["Class"].Value.ToString());
                         command.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value.ToString());
                         command.ExecuteNonQuery();
-                    }
+                            // delete students from that class
+                            SQLiteCommand command2 = new SQLiteCommand("delete from Class where Class=@Class", con.ActiveCon());
+                            command2.Parameters.AddWithValue("@Class", dr.Cells["Class"].ToString() + "  S" + dr.Cells["Semester"].ToString());
+                            command2.ExecuteNonQuery();
+                        }
                 }
                 if (f == 1)
                 {
@@ -209,9 +215,7 @@ namespace Exam_Cell
         }
 
         void Clear_All_ClassManagement()
-        {
-            NewClass_textbox.Clear();
-            NewClassSem_combobox.SelectedIndex = 0;
+        {            
             NewBranch_textbox.Clear();
             UpdateBranch_combobox.SelectedIndex = 0;
             Semester_combobox.SelectedIndex = 0;
@@ -359,39 +363,7 @@ namespace Exam_Cell
             {
                 con.CloseCon();
             }
-        }
-
-        private void AddNewClass_btn_Click(object sender, EventArgs e)
-        {
-            msgbox.show("Click Yes to Add New Class    ", "Confirm", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Warning);
-            var result = msgbox.ReturnValue;
-            try
-            {
-            if (result == "Yes")
-            {
-                if (NewClassSem_combobox.SelectedIndex != 0)
-                {
-                    SQLiteCommand command = new SQLiteCommand("insert into Management(Class,Semester)Values(" + " @Class,@Semester) ", con.ActiveCon());
-                    command.Parameters.AddWithValue("@Class", NewClass_textbox.Text);
-                    command.Parameters.AddWithValue("@Semester", NewClassSem_combobox.Text);
-                    command.ExecuteNonQuery();
-                    msgbox.show("New Class Added    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
-                    NewClassSem_combobox.SelectedIndex = 0;
-                    Class_dgv_Fill();
-                }
-                else
-                    msgbox.show("Select Semester    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
-            }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            finally
-            {
-                con.CloseCon();
-            }
-        }
+        }        
 
         void BranchComboboxFill()
         {
@@ -479,9 +451,6 @@ namespace Exam_Cell
             groupBoxContents.Enabled = true;
             DefaultScheme_Panel.Enabled = false;
         }
-
-        
-
         
 
         private void DefaultScheme_radiobtn_CheckedChanged(object sender, EventArgs e)
@@ -500,6 +469,118 @@ namespace Exam_Cell
             menuForm.menu_dropitem_classbranch.BackColor = Color.FromArgb(48, 43, 99);
             menuForm.classbranchmgmnt_open = false;
             this.Close();
+        }
+
+        DataTableCollection tableCollection;
+        private void SelectExcel_btn_Click(object sender, EventArgs e)
+        {
+            msgbox.show("Excel Table Header Naming :      \n Register No, Name, Class, Semester, Branch     ", "Warning", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Warning);
+            using (OpenFileDialog openFile = new OpenFileDialog() { Filter = "Excel Files|*.xls|*xlsx|*.xlsm" }) //check if | is needed last?
+            {
+                if (openFile.ShowDialog() == DialogResult.OK)
+                {
+                    NewClass_filepath.Text = openFile.FileName;  //Filepath_textbox.Text --- filepath is displayed in textbox
+                    using (var stream = File.Open(openFile.FileName, FileMode.Open, FileAccess.Read))
+                    {
+                        using (IExcelDataReader reader = ExcelReaderFactory.CreateReader(stream))
+                        {
+                            DataSet result = reader.AsDataSet(new ExcelDataSetConfiguration()
+                            {
+                                ConfigureDataTable = (_) => new ExcelDataTableConfiguration() { UseHeaderRow = true }
+                            });
+                            tableCollection = result.Tables;
+                            NewClassSheet.Items.Clear();
+                            foreach (DataTable table in tableCollection)
+                                NewClassSheet.Items.Add(table.TableName); //add sheet to combobox
+                        }
+                    }
+                }
+            }
+        }
+        //Sheet Combobox Event
+        private void NewClassSheet_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                DataTable dt = tableCollection[NewClassSheet.SelectedItem.ToString()];
+                //Candidate_datagridview.DataSource = dt;   // <-- what error this created ? why this wont work? please Check...
+
+                // these codes was used instead of that One Line Code above
+                if (dt != null)
+                {
+                    List<ExcelDBManagement> excst = new List<ExcelDBManagement>(); //<--here ExcelStudents is class name
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        ExcelDBManagement excclass = new ExcelDBManagement();
+                        excclass.Reg_no = dt.Rows[i]["Register No"].ToString();
+                        excclass.Name = dt.Rows[i]["Name"].ToString();  //have to give Excel column names inside the[""]
+                        excclass.Year_Of_Admission = dt.Rows[i]["YOA"].ToString();
+                        excclass.Branch = dt.Rows[i]["Branch"].ToString();
+                        excst.Add(excclass);
+                    }                    
+                    Scheme_dgv.DataSource = null;
+                    Scheme_dgv.DataSource = excst;
+                    AddNewClass_btn.Enabled = true;
+                    DeleteClass_btn.Enabled = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                msgbox.show(ex.ToString(), "Exception Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+            }
+        }
+        void ExcelFunction()
+        {
+            try
+            {
+                //int f = 0;
+                foreach (DataGridViewRow dr in Scheme_dgv.Rows)
+                {
+                    //bool checkselected = Convert.ToBoolean(dr.Cells["CheckboxColumn2"].Value);
+                    //if (checkselected)
+                    //{
+                    //f = 1;
+                    SQLiteCommand command = new SQLiteCommand("insert into Management(Class,Semester)Values(" + " @Class,@Semester) ", con.ActiveCon());
+                    command.Parameters.AddWithValue("@Class", dr.Cells["Class"].Value);
+                    command.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value);
+                    command.ExecuteNonQuery();
+
+                    SQLiteCommand command2 = new SQLiteCommand("insert into Class(Reg_No,Name,Class,Branch)Values(" + "@Reg_No,@Name,@Class,@Branch ) ", con.ActiveCon());
+                    command.Parameters.AddWithValue("@Reg_No", dr.Cells["Register No"].Value);
+                    command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value);
+                    command2.Parameters.AddWithValue("@Class", dr.Cells["Class"].ToString() + "  S" + dr.Cells["Semester"].ToString());
+                    command.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value);
+                    command2.ExecuteNonQuery();
+                    //}
+                }
+                //if (f == 1)
+                //{
+                con.CloseCon();
+                AddNewClass_btn.Enabled = false;
+                DeleteClass_btn.Enabled = true;
+                Class_dgv_Fill();
+                msgbox.show("Class added From Excel   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                //}
+                //else msgbox.show("Select any Students", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                con.CloseCon();
+                MessageBox.Show(ex.ToString());
+            }
+        }
+        private void AddNewClass_btn_Click(object sender, EventArgs e)
+        {
+            //msgbox.show("Click Yes to Add New Class    ", "Confirm", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Warning);
+            //var result = msgbox.ReturnValue;
+            try
+            {
+                ExcelFunction();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }           
         }
     }
 }

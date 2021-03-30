@@ -76,6 +76,7 @@
             this.Timetableview_dgv = new System.Windows.Forms.DataGridView();
             this.Course_Select_dgv = new System.Windows.Forms.DataGridView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.Delete_btn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timetableBindingSource)).BeginInit();
@@ -97,6 +98,7 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.Undo_btn);
             this.panel1.Controls.Add(this.Add_btn);
+            this.panel1.Controls.Add(this.Delete_btn);
             this.panel1.Controls.Add(this.Clear_btn);
             this.panel1.Controls.Add(this.Examcode_box);
             this.panel1.Controls.Add(this.label5);
@@ -134,12 +136,12 @@
             this.Undo_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Undo_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Undo_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Undo_btn.Location = new System.Drawing.Point(246, 243);
+            this.Undo_btn.Location = new System.Drawing.Point(182, 101);
             this.Undo_btn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Undo_btn.Name = "Undo_btn";
-            this.Undo_btn.Size = new System.Drawing.Size(100, 40);
+            this.Undo_btn.Size = new System.Drawing.Size(137, 40);
             this.Undo_btn.TabIndex = 14;
-            this.Undo_btn.Text = "Undo";
+            this.Undo_btn.Text = "Undo Add";
             this.Undo_btn.UseVisualStyleBackColor = false;
             this.Undo_btn.Click += new System.EventHandler(this.Undo_btn_Click);
             // 
@@ -151,7 +153,7 @@
             this.Add_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Add_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Add_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Add_btn.Location = new System.Drawing.Point(391, 243);
+            this.Add_btn.Location = new System.Drawing.Point(327, 101);
             this.Add_btn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Add_btn.Name = "Add_btn";
             this.Add_btn.Size = new System.Drawing.Size(100, 40);
@@ -168,7 +170,7 @@
             this.Clear_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Clear_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Clear_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Clear_btn.Location = new System.Drawing.Point(138, 243);
+            this.Clear_btn.Location = new System.Drawing.Point(138, 265);
             this.Clear_btn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Clear_btn.Name = "Clear_btn";
             this.Clear_btn.Size = new System.Drawing.Size(100, 40);
@@ -180,7 +182,7 @@
             // Examcode_box
             // 
             this.Examcode_box.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Examcode_box.Location = new System.Drawing.Point(138, 207);
+            this.Examcode_box.Location = new System.Drawing.Point(138, 220);
             this.Examcode_box.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Examcode_box.Name = "Examcode_box";
             this.Examcode_box.Size = new System.Drawing.Size(353, 30);
@@ -191,7 +193,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(4, 209);
+            this.label5.Location = new System.Drawing.Point(4, 222);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(126, 22);
@@ -202,7 +204,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(4, 173);
+            this.label4.Location = new System.Drawing.Point(4, 186);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(102, 22);
@@ -214,7 +216,7 @@
             this.Semester_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Semester_combobox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Semester_combobox.FormattingEnabled = true;
-            this.Semester_combobox.Location = new System.Drawing.Point(138, 172);
+            this.Semester_combobox.Location = new System.Drawing.Point(138, 185);
             this.Semester_combobox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Semester_combobox.Name = "Semester_combobox";
             this.Semester_combobox.Size = new System.Drawing.Size(353, 29);
@@ -226,7 +228,7 @@
             this.Branch_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Branch_combobox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Branch_combobox.FormattingEnabled = true;
-            this.Branch_combobox.Location = new System.Drawing.Point(138, 138);
+            this.Branch_combobox.Location = new System.Drawing.Point(138, 151);
             this.Branch_combobox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Branch_combobox.Name = "Branch_combobox";
             this.Branch_combobox.Size = new System.Drawing.Size(353, 29);
@@ -237,7 +239,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(4, 140);
+            this.label3.Location = new System.Drawing.Point(4, 153);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 22);
@@ -515,7 +517,6 @@
             this.Timetableview_dgv.Location = new System.Drawing.Point(13, 368);
             this.Timetableview_dgv.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Timetableview_dgv.Name = "Timetableview_dgv";
-            this.Timetableview_dgv.ReadOnly = true;
             this.Timetableview_dgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -592,6 +593,23 @@
             this.timer1.Interval = 60;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // Delete_btn
+            // 
+            this.Delete_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.Delete_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Delete_btn.FlatAppearance.BorderSize = 0;
+            this.Delete_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Delete_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Delete_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Delete_btn.Location = new System.Drawing.Point(391, 265);
+            this.Delete_btn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Delete_btn.Name = "Delete_btn";
+            this.Delete_btn.Size = new System.Drawing.Size(100, 40);
+            this.Delete_btn.TabIndex = 10;
+            this.Delete_btn.Text = "Delete";
+            this.Delete_btn.UseVisualStyleBackColor = false;
+            this.Delete_btn.Click += new System.EventHandler(this.Delete_btn_Click);
+            // 
             // formtimetable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -667,5 +685,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button closeBtn;
+        private System.Windows.Forms.Button Delete_btn;
     }
 }

@@ -95,6 +95,12 @@ namespace Exam_Cell
             chkbox.Name = "checkBoxColumn";
             Course_Select_dgv.Columns.Insert(0, chkbox);
 
+            DataGridViewCheckBoxColumn chkbox2 = new DataGridViewCheckBoxColumn();
+            chkbox2.HeaderText = "";
+            chkbox2.Width = 30;
+            chkbox2.Name = "checkBoxColumn2";
+            Timetableview_dgv.Columns.Insert(0, chkbox2);
+
             //AddHeaderchckbox(); //header checkbox added to candidate dgv
             //headerchkbox.MouseClick += new MouseEventHandler(Headerchckbox_Mouseclick);
 
@@ -497,6 +503,47 @@ namespace Exam_Cell
             menuForm.menu_item_timetable.BackColor = Color.FromArgb(48, 43, 99);
             menuForm.timetable_open = false;
             this.Close();
+        }
+
+        private void Delete_btn_Click(object sender, EventArgs e)
+        {
+            msgbox.show("Do you really want to Delete ?     ", "Confirm", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
+            var result = msgbox.ReturnValue;
+            try
+            {
+                if (result == "Yes")
+                {
+                    int flag = 0;
+                    foreach (DataGridViewRow dr in Timetableview_dgv.Rows)
+                    {
+                        bool checkboxselect = Convert.ToBoolean(dr.Cells["checkBoxColumn2"].Value);
+                        if (checkboxselect)
+                        {
+                            flag = 1;
+                            SQLiteCommand comm = new SQLiteCommand("Delete from Timetable where Date=@Date and Session=@Session and Exam_Code=@Exam_Code and Course=@Course and Semester=@Semester and Branch=@Branch", con.ActiveCon());
+                            comm.Parameters.AddWithValue("@Date", dr.Cells["Date"].Value);
+                            comm.Parameters.AddWithValue("@Session", dr.Cells["Session"].Value);
+                            comm.Parameters.AddWithValue("@Exam_Code", dr.Cells["Exam_Code"].Value);
+                            comm.Parameters.AddWithValue("@Course", dr.Cells["Course"].Value);
+                            comm.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value);
+                            comm.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value);
+                            comm.ExecuteNonQuery();
+                        }
+                    }
+                    if (flag == 1)
+                    {
+                        con.CloseCon();
+                        TimetableFill();
+                    }
+                    else msgbox.show("No Selection made    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                TimetableFill();
+            }
         }
     }    
 }

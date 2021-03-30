@@ -129,10 +129,10 @@ namespace Exam_Cell
                             if (Unv_radio.Checked) insertQuery = string.Format("insert into University_Alloted(Date,Room_No,Seat,Session,Reg_no,Name,Branch,Exam_Code,Course)Values(" + "@Date,@Room_No,@Seat,@Session,@Reg_no,@Name,@Branch,@Exam_Code,@Course)");
                             else insertQuery = string.Format("insert into Series_Alloted(Date,Room_No,Seat,Session,Reg_no,Name,Class,Exam_Code,Course)Values(" + "@Date,@Room_No,@Seat,@Session,@Reg_no,@Name,@Class,@Exam_Code,@Course)");
                             SQLiteCommand command4 = new SQLiteCommand(insertQuery, con.ActiveCon());
-                            command4.Parameters.AddWithValue("@Date", DateTimePicker.Text);
+                            command4.Parameters.AddWithValue("@Date", date);
                             command4.Parameters.AddWithValue("@Room_No", roomrow["Room_No"].ToString());
                             command4.Parameters.AddWithValue("@Seat", "A" + (i + 1));
-                            command4.Parameters.AddWithValue("@Session", Session_combobox.Text);
+                            command4.Parameters.AddWithValue("@Session", session);
                             command4.Parameters.AddWithValue("@Reg_no", table_students.Rows[count]["Reg_no"].ToString());
                             command4.Parameters.AddWithValue("@Name", table_students.Rows[count]["Name"].ToString());
                             if(Unv_radio.Checked) command4.Parameters.AddWithValue("@Branch", table_students.Rows[count]["Branch"].ToString());
@@ -152,8 +152,9 @@ namespace Exam_Cell
                         if (flag == 1) break;
                 }
 
-                msgbox.show("Single Seating Allot Completed     ", "Allot Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
-
+                AllocatedRoomComboboxFill();
+                AllotedRoomsDgvFilling();
+                msgbox.show("Single Seating Allot Completed     ", "Allot Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);                
             }
             catch(Exception ex)
             {
@@ -184,10 +185,10 @@ namespace Exam_Cell
                             if (Unv_radio.Checked) insertQuery = string.Format("insert into University_Alloted(Date,Room_No,Seat,Session,Reg_no,Name,Branch,Exam_Code,Course)Values(" + "@Date,@Room_No,@Seat,@Session,@Reg_no,@Name,@Branch,@Exam_Code,@Course)");
                             else insertQuery = string.Format("insert into Series_Alloted(Date,Room_No,Seat,Session,Reg_no,Name,Class,Exam_Code,Course)Values(" + "@Date,@Room_No,@Seat,@Session,@Reg_no,@Name,@Class,@Exam_Code,@Course)");
                             SQLiteCommand command4 = new SQLiteCommand(insertQuery, con.ActiveCon());
-                            command4.Parameters.AddWithValue("@Date", DateTimePicker.Text);
+                            command4.Parameters.AddWithValue("@Date", date);
                             command4.Parameters.AddWithValue("@Room_No", roomrow["Room_No"].ToString());
                             command4.Parameters.AddWithValue("@Seat", "A" + (i + 1));
-                            command4.Parameters.AddWithValue("@Session", Session_combobox.Text);
+                            command4.Parameters.AddWithValue("@Session", session);
                             command4.Parameters.AddWithValue("@Reg_no", Students_Aseries.Rows[count]["Reg_no"].ToString());
                             command4.Parameters.AddWithValue("@Name", Students_Aseries.Rows[count]["Name"].ToString());
                             if (Unv_radio.Checked) command4.Parameters.AddWithValue("@Branch", Students_Aseries.Rows[count]["Branch"].ToString());
@@ -242,7 +243,9 @@ namespace Exam_Cell
 
                     }
                     if (flag == 1) break;
-                }                
+                }
+                AllocatedRoomComboboxFill();
+                AllotedRoomsDgvFilling();
                 msgbox.show("Multi Seating Allot Completed     ", "Allot Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
             }            
             catch(Exception ex)
@@ -466,46 +469,19 @@ namespace Exam_Cell
         {
             try
             {
-                DataTable dataTable = new DataTable();
-                if (Unv_radio.Checked)
-                {
-                    //SQLiteCommand comm = new SQLiteCommand("select * from University_Alloted where Date=@Date and Session=@Session order by Room_No,Seat", con.ActiveCon());
-                    SQLiteCommand comm = new SQLiteCommand("select R.Room_No,R.A_Series,R.B_Series from Rooms as R,University_Alloted as UA where UA.Date=@Date and UA.Session=@Session and UA.Room_No=R.Room_No order by UA.Room_No", con.ActiveCon());
-                    comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
-                    comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
-                    SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
-                    adapter.Fill(dataTable);
-                }
-                else
-                {
-                    //SQLiteCommand comm = new SQLiteCommand("select * from Series_Alloted where Date=@Date and Session=@Session order by Room_No,Seat", con.ActiveCon());
-                    SQLiteCommand comm = new SQLiteCommand("select R.Room_No,R.A_Series,R.B_Series from Rooms as R,Series_Alloted as SA where SA.Date=@Date and SA.Session=@Session and SA.Room_No=R.Room_No order by SA.Room_No", con.ActiveCon());
-                    comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
-                    comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
-                    SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
-                    adapter.Fill(dataTable);
-                }
-                con.CloseCon();
+                string selectQuery = "";
+                if (Unv_radio.Checked) selectQuery = string.Format("select distinct R.Room_No,R.A_Series,R.B_Series from Rooms as R,University_Alloted as UA where UA.Date=@Date and UA.Session=@Session and UA.Room_No=R.Room_No order by UA.Room_No");
+                else selectQuery = string.Format("select distinct R.Room_No,R.A_Series,R.B_Series from Rooms as R,Series_Alloted as SA where SA.Date=@Date and SA.Session=@Session and SA.Room_No=R.Room_No order by SA.Room_No");                
 
-                //SQLiteCommand comm2 = new SQLiteCommand("select Room_No,A_Series,B_Series from Rooms", con.ActiveCon());
-                //SQLiteDataAdapter adapter2 = new SQLiteDataAdapter(comm2);
-                //DataTable dataTable2 = new DataTable();
-                //adapter2.Fill(dataTable2);
-                //con.CloseCon();
-                //DataTable dataTable3 = dataTable2.Clone();
-                //foreach (DataRow dr2 in dataTable2.Rows)
-                //{
-                //    foreach (DataRow dr in dataTable.Rows)
-                //    {
-                //        if (dr["Room_No"].ToString() == dr2["Room_No"].ToString())
-                //        {
-                //            dataTable3.ImportRow(dr2);
-                //            break;
-                //        }
-                //    }
-                //}
-                roomfill.DataSource = null;
-                //roomfill.DataSource = dataTable3;
+                SQLiteCommand comm = new SQLiteCommand(selectQuery, con.ActiveCon());
+                comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
+                comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+                con.CloseCon();
+                
+                roomfill.DataSource = null;                
                 roomfill.DataSource = dataTable;
                 AllotedRooms_dgv.DataSource = null;
                 AllotedRooms_dgv.DataSource = roomfill;
@@ -530,8 +506,9 @@ namespace Exam_Cell
                 dataTablebrief.Columns.Add("No of Students", typeof(int));
                 foreach (DataRow dr in dataTablebrief.Rows)
                 {
-                    SQLiteCommand comm2 = new SQLiteCommand("select Count(Reg_No) from Registered_candidates where Course=@Course", con.ActiveCon());
+                    SQLiteCommand comm2 = new SQLiteCommand("select Count(Reg_No) from Registered_candidates where Course=@Course and Branch=@Branch", con.ActiveCon());
                     comm2.Parameters.AddWithValue("@Course", dr["Course"]);
+                    comm2.Parameters.AddWithValue("@Branch", dr["Branch"]);
                     int count = Convert.ToInt32(comm2.ExecuteScalar());
                     dr["No of Students"] = count;
                 }
@@ -565,34 +542,20 @@ namespace Exam_Cell
         }
         void AllotedStudentsDGVFill()
         {
-            if (Unv_radio.Checked)
-            {
-                SQLiteCommand comm = new SQLiteCommand("select Reg_no,Name,Exam_Code,Room_No,Seat from University_Alloted where Date=@Date and Session=@Session and Room_No=@Room_No order by Seat", con.ActiveCon());
-                comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
-                comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
-                comm.Parameters.AddWithValue("@Room_No", AllocatedRoom_combobox.Text);
-                SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
-                DataTable dataTabledgv = new DataTable();
-                adapter.Fill(dataTabledgv);
-                AllotedStudentsRooms_dgv.DataSource = null;
-                AllotedStudentsRooms_dgv.DataSource = dataTabledgv;
-                no_of_stud_in_room_label.Text = "No of Students : " + dataTabledgv.Rows.Count.ToString();
-                con.CloseCon();
-            }
-            else if (Series_radio.Checked)
-            {
-                SQLiteCommand comm = new SQLiteCommand("select Reg_no,Name,Exam_Code,Room_No,Seat from Series_Alloted where Date=@Date and Session=@Session and Room_No=@Room_No order by Seat", con.ActiveCon());
-                comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
-                comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
-                comm.Parameters.AddWithValue("@Room_No", AllocatedRoom_combobox.Text);
-                SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
-                AllotedStudentsRooms_dgv.DataSource = null;
-                AllotedStudentsRooms_dgv.DataSource = dataTable;
-                no_of_stud_in_room_label.Text = "No of Students : "+dataTable.Rows.Count.ToString();
-                con.CloseCon();
-            }
+            string selectQuery = "";
+            if (Unv_radio.Checked) selectQuery = string.Format("select Reg_no,Name,Exam_Code,Room_No,Seat from University_Alloted where Date=@Date and Session=@Session and Room_No=@Room_No order by Reg_no");
+            else if (Series_radio.Checked) selectQuery = string.Format("select Reg_no,Name,Exam_Code,Room_No,Seat from Series_Alloted where Date=@Date and Session=@Session and Room_No=@Room_No order by Reg_no");
+            SQLiteCommand comm = new SQLiteCommand(selectQuery, con.ActiveCon());
+            comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
+            comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
+            comm.Parameters.AddWithValue("@Room_No", AllocatedRoom_combobox.Text);
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+            AllotedStudentsRooms_dgv.DataSource = null;
+            AllotedStudentsRooms_dgv.DataSource = dataTable;
+            no_of_stud_in_room_label.Text = "No of Students : " + dataTable.Rows.Count.ToString();
+            con.CloseCon();
         }        
         void AllocatedRoomComboboxFill()
         {
@@ -907,8 +870,12 @@ namespace Exam_Cell
         {
             if (Folder_path_text.Text != "PLEASE_ADD_PATH")
             {
-                ExcelSheetGeneration excelSheetGeneration = new ExcelSheetGeneration();
-                excelSheetGeneration.ShowDialog();
+                if (Session_combobox.SelectedIndex == 0) msgbox.show("Select Session/Date    ","Error",CustomMessageBox.MessageBoxButtons.OK,CustomMessageBox.MessageBoxIcon.Error);
+                else
+                {
+                    ExcelSheetGeneration excelSheetGeneration = new ExcelSheetGeneration();
+                    excelSheetGeneration.ShowDialog();
+                }
             }
             else
             {
@@ -920,7 +887,7 @@ namespace Exam_Cell
         {
             if (Session_combobox.SelectedIndex != 0)
             {
-                // need to re code
+                
                 // AllotedDGVFill() and AllotedBriefDGVFill() will be showing Registered Candidates info, not Alloted.
                 AllotedDGVFill();
                 AllotedBriefDGVFill();

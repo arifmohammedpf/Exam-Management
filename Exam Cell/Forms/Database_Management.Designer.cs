@@ -42,10 +42,9 @@
             this.DefaultScheme_radiobtn = new System.Windows.Forms.RadioButton();
             this.groupBoxContents = new System.Windows.Forms.GroupBox();
             this.NewClassGroupbox = new System.Windows.Forms.GroupBox();
-            this.NewClass_textbox = new System.Windows.Forms.TextBox();
-            this.NewClassSem_combobox = new System.Windows.Forms.ComboBox();
-            this.NewClass_label = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.NewClass_filepath = new System.Windows.Forms.TextBox();
+            this.NewClassSheet = new System.Windows.Forms.ComboBox();
+            this.SelectExcel_btn = new System.Windows.Forms.Button();
             this.AddNewClass_btn = new System.Windows.Forms.Button();
             this.DeleteClass_btn = new System.Windows.Forms.Button();
             this.NewBranchGroupbox = new System.Windows.Forms.GroupBox();
@@ -227,80 +226,66 @@
             // 
             // NewClassGroupbox
             // 
-            this.NewClassGroupbox.Controls.Add(this.NewClass_textbox);
-            this.NewClassGroupbox.Controls.Add(this.NewClassSem_combobox);
-            this.NewClassGroupbox.Controls.Add(this.NewClass_label);
-            this.NewClassGroupbox.Controls.Add(this.label9);
+            this.NewClassGroupbox.Controls.Add(this.NewClass_filepath);
+            this.NewClassGroupbox.Controls.Add(this.NewClassSheet);
+            this.NewClassGroupbox.Controls.Add(this.SelectExcel_btn);
             this.NewClassGroupbox.Controls.Add(this.AddNewClass_btn);
             this.NewClassGroupbox.Controls.Add(this.DeleteClass_btn);
             this.NewClassGroupbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NewClassGroupbox.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.NewClassGroupbox.Location = new System.Drawing.Point(11, 46);
             this.NewClassGroupbox.Name = "NewClassGroupbox";
-            this.NewClassGroupbox.Size = new System.Drawing.Size(544, 147);
+            this.NewClassGroupbox.Size = new System.Drawing.Size(544, 153);
             this.NewClassGroupbox.TabIndex = 9;
             this.NewClassGroupbox.TabStop = false;
             this.NewClassGroupbox.Text = "New Class";
             // 
-            // NewClass_textbox
+            // NewClass_filepath
             // 
-            this.NewClass_textbox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewClass_textbox.Location = new System.Drawing.Point(143, 23);
-            this.NewClass_textbox.Name = "NewClass_textbox";
-            this.NewClass_textbox.Size = new System.Drawing.Size(385, 30);
-            this.NewClass_textbox.TabIndex = 2;
+            this.NewClass_filepath.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NewClass_filepath.Location = new System.Drawing.Point(6, 23);
+            this.NewClass_filepath.Name = "NewClass_filepath";
+            this.NewClass_filepath.ReadOnly = true;
+            this.NewClass_filepath.Size = new System.Drawing.Size(330, 30);
+            this.NewClass_filepath.TabIndex = 2;
             // 
-            // NewClassSem_combobox
+            // NewClassSheet
             // 
-            this.NewClassSem_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.NewClassSem_combobox.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewClassSem_combobox.FormattingEnabled = true;
-            this.NewClassSem_combobox.Items.AddRange(new object[] {
-            "-Select-",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8"});
-            this.NewClassSem_combobox.Location = new System.Drawing.Point(143, 59);
-            this.NewClassSem_combobox.Name = "NewClassSem_combobox";
-            this.NewClassSem_combobox.Size = new System.Drawing.Size(385, 29);
-            this.NewClassSem_combobox.TabIndex = 5;
+            this.NewClassSheet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.NewClassSheet.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NewClassSheet.FormattingEnabled = true;
+            this.NewClassSheet.Location = new System.Drawing.Point(6, 59);
+            this.NewClassSheet.Name = "NewClassSheet";
+            this.NewClassSheet.Size = new System.Drawing.Size(330, 29);
+            this.NewClassSheet.TabIndex = 5;
+            this.NewClassSheet.SelectedIndexChanged += new System.EventHandler(this.NewClassSheet_SelectedIndexChanged);
             // 
-            // NewClass_label
+            // SelectExcel_btn
             // 
-            this.NewClass_label.AutoSize = true;
-            this.NewClass_label.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewClass_label.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.NewClass_label.Location = new System.Drawing.Point(9, 29);
-            this.NewClass_label.Name = "NewClass_label";
-            this.NewClass_label.Size = new System.Drawing.Size(55, 22);
-            this.NewClass_label.TabIndex = 3;
-            this.NewClass_label.Text = "Class";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label9.Location = new System.Drawing.Point(9, 63);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(92, 22);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "Semester";
+            this.SelectExcel_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
+            this.SelectExcel_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SelectExcel_btn.FlatAppearance.BorderSize = 0;
+            this.SelectExcel_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SelectExcel_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectExcel_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.SelectExcel_btn.Location = new System.Drawing.Point(352, 29);
+            this.SelectExcel_btn.Name = "SelectExcel_btn";
+            this.SelectExcel_btn.Size = new System.Drawing.Size(176, 38);
+            this.SelectExcel_btn.TabIndex = 0;
+            this.SelectExcel_btn.Text = "Select Excel";
+            this.SelectExcel_btn.UseVisualStyleBackColor = false;
+            this.SelectExcel_btn.Click += new System.EventHandler(this.SelectExcel_btn_Click);
             // 
             // AddNewClass_btn
             // 
             this.AddNewClass_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
             this.AddNewClass_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AddNewClass_btn.Enabled = false;
             this.AddNewClass_btn.FlatAppearance.BorderSize = 0;
             this.AddNewClass_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddNewClass_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddNewClass_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.AddNewClass_btn.Location = new System.Drawing.Point(143, 97);
+            this.AddNewClass_btn.Location = new System.Drawing.Point(11, 100);
             this.AddNewClass_btn.Name = "AddNewClass_btn";
             this.AddNewClass_btn.Size = new System.Drawing.Size(176, 38);
             this.AddNewClass_btn.TabIndex = 0;
@@ -317,7 +302,7 @@
             this.DeleteClass_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteClass_btn.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleteClass_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.DeleteClass_btn.Location = new System.Drawing.Point(352, 97);
+            this.DeleteClass_btn.Location = new System.Drawing.Point(352, 100);
             this.DeleteClass_btn.Name = "DeleteClass_btn";
             this.DeleteClass_btn.Size = new System.Drawing.Size(176, 38);
             this.DeleteClass_btn.TabIndex = 0;
@@ -697,12 +682,10 @@
         private System.Windows.Forms.GroupBox NewCourseGroupbox;
         private System.Windows.Forms.TextBox ACode_textbox;
         private System.Windows.Forms.GroupBox NewClassGroupbox;
-        private System.Windows.Forms.TextBox NewClass_textbox;
-        private System.Windows.Forms.Label NewClass_label;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox NewClass_filepath;
         private System.Windows.Forms.Button AddNewClass_btn;
         private System.Windows.Forms.Button DeleteClass_btn;
-        private System.Windows.Forms.ComboBox NewClassSem_combobox;
+        private System.Windows.Forms.ComboBox NewClassSheet;
         private System.Windows.Forms.Panel DefaultScheme_Panel;
         private System.Windows.Forms.Button ChangeScheme_btn;
         private System.Windows.Forms.TextBox ChangeScheme_textbox;
@@ -715,5 +698,6 @@
         private System.Windows.Forms.RadioButton DefaultScheme_radiobtn;
         private System.Windows.Forms.DataGridView Scheme_dgv;
         private System.Windows.Forms.Button closeBtn;
+        private System.Windows.Forms.Button SelectExcel_btn;
     }
 }
