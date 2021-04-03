@@ -374,18 +374,19 @@ namespace Exam_Cell.Forms
                                 SQLiteDataAdapter courseadptr = new SQLiteDataAdapter(coursecmd);
                                 courseadptr.Fill(coursedt);
                                 con.CloseCon();
-                                int j = 1, k = 7;
+                                //excel table format
+                                int j = 7, k = 1,limit=coursedt.Rows.Count/3;
                                 for (var i = 0; i < coursedt.Rows.Count; i++)
                                 {
-                                    if (j == 4)
+                                    worksheet.Cells[j, k].Value = coursedt.Rows[i][0] + " - " + coursedt.Rows[i][1] + " - " + coursedt.Rows[i][2];
+                                    if (j == limit+7)
                                     {
                                         k++;
-                                        j = 1;
+                                        j = 7;
                                     }
-                                    worksheet.Cells[k, j].Value = coursedt.Rows[i][0] + " - " + coursedt.Rows[i][1] + " - " + coursedt.Rows[i][2];
                                     j++;
                                 }
-                                using (var range = worksheet.Cells[7, 1, k, 3])
+                                using (var range = worksheet.Cells[7, 1, limit+7, k])
                                 {
                                     range.Style.Font.Name = "Arial";
                                     range.Style.Font.Size = 14;
@@ -402,17 +403,17 @@ namespace Exam_Cell.Forms
                                 SQLiteDataAdapter coursedataadptr = new SQLiteDataAdapter(coursecommand);
                                 coursedataadptr.Fill(coursedata);
                                 con.CloseCon();
-                                int c = 6;
+                                int sheet_row = 6;
                                 foreach (DataRow dataRow in coursedata.Rows)
                                 {
-                                    worksheet.Cells[c, 1].Value = dataRow["Course"].ToString() + " " + dataRow["Exam_code"].ToString();
-                                    using (var range = worksheet.Cells[c, 1])
+                                    worksheet.Cells[sheet_row, 1].Value = dataRow["Course"].ToString() + " " + dataRow["Exam_code"].ToString();
+                                    using (var range = worksheet.Cells[sheet_row, 1])
                                     {
                                         range.Style.Font.Name = "Arial";
                                         range.Style.Font.Size = 14;
                                         range.Style.Font.Bold = true;
                                     }
-                                    c++;
+                                    sheet_row++;
                                     SQLiteCommand coursecmd = new SQLiteCommand("SELECT Reg_no,Room_No,Seat from Series_Alloted Where Date=@Date and Session=@Session and Course=@Course order by Reg_no", con.ActiveCon());
                                     coursecmd.Parameters.AddWithValue("@Date", date);
                                     coursecmd.Parameters.AddWithValue("@Session", session);
@@ -421,24 +422,24 @@ namespace Exam_Cell.Forms
                                     SQLiteDataAdapter courseadptr = new SQLiteDataAdapter(coursecmd);
                                     courseadptr.Fill(coursedt);
                                     con.CloseCon();
-                                    int j = 1;
+                                    int limit=(coursedt.Rows.Count/3)+sheet_row, col = 1, current_row= sheet_row;
                                     for (var i = 0; i < coursedt.Rows.Count; i++)
                                     {
-                                        if (j == 4)
+                                        worksheet.Cells[sheet_row, col].Value = coursedt.Rows[i][0] + " - " + coursedt.Rows[i][1] + " - " + coursedt.Rows[i][2];
+                                        if (sheet_row == limit)
                                         {
-                                            c++;
-                                            j = 1;
+                                            sheet_row=current_row;
+                                            col++;
                                         }
-                                        worksheet.Cells[c, j].Value = coursedt.Rows[i][0] + " - " + coursedt.Rows[i][1] + " - " + coursedt.Rows[i][2];
-                                        j++;
+                                        sheet_row++;
                                     }
-                                    using (var range = worksheet.Cells[7, 1, c, 3])
+                                    using (var range = worksheet.Cells[7, 1, limit, col])
                                     {
                                         range.Style.Font.Name = "Arial";
                                         range.Style.Font.Size = 14;
                                         range.Style.Font.Bold = true;
                                     }
-                                    c++;
+                                    sheet_row++;
                                 }
                             }
                             worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns();
