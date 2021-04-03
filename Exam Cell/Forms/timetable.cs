@@ -25,8 +25,6 @@ namespace Exam_Cell
             }
         }
 
-
-
         BindingSource source = new BindingSource();
         BindingSource source2 = new BindingSource();
         void TimetableFill()
@@ -74,21 +72,13 @@ namespace Exam_Cell
             }
         }
         CheckBox headerchkbox = new CheckBox();
-        private void formtimetable_Load(object sender, EventArgs e)
+        private void Formtimetable_Load(object sender, EventArgs e)
         {
-            //timer1.Start();
-
-            //BranchComboboxFill();
-            //SemesterComboboxFill();
-            //CourseFill();
-            //TimetableFill();
-
             Session_combobox.SelectedIndex = 0;
             DateTimePicker.Format = DateTimePickerFormat.Custom;
             DateTimePicker.CustomFormat = "dd-MM-yyyy";
             DateTimePicker.Value = DateTime.Now;
             
-
             DataGridViewCheckBoxColumn chkbox = new DataGridViewCheckBoxColumn();
             chkbox.HeaderText = "";
             chkbox.Width = 30;
@@ -103,8 +93,6 @@ namespace Exam_Cell
 
             //AddHeaderchckbox(); //header checkbox added to candidate dgv
             //headerchkbox.MouseClick += new MouseEventHandler(Headerchckbox_Mouseclick);
-
-
         }
 
         //void AddHeaderchckbox()
@@ -133,9 +121,6 @@ namespace Exam_Cell
         //    Course_Select_dgv.RefreshEdit();
         //}
 
-
-        
-
         private void Clear_btn_Click(object sender, EventArgs e)
         {
             Session_combobox.SelectedIndex = 0;
@@ -143,9 +128,6 @@ namespace Exam_Cell
             Branch_combobox.SelectedIndex = 0;
             Semester_combobox.SelectedIndex = 0;
             Examcode_box.ResetText();
-            //Datepick_box.ResetText();
-            //Datewise_radio.Checked = false;
-            //Branchwise_radio.Checked = false;
         }
         void BranchComboboxFill()
         {
@@ -198,71 +180,57 @@ namespace Exam_Cell
             }
         }
 
-
         int clearcount = 0;
         private void Add_btn_Click(object sender, EventArgs e)
         {
-            //msgbox.show("Click Yes to Add   ", "Confirm", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Information);
-            //var result = msgbox.ReturnValue;
-            //if (result == "Yes")
-            //{
-                try
+            try
+            {
+                if (Session_combobox.Text != "-Select-")
                 {
-                    if (Session_combobox.Text != "-Select-")
+                    int flag = 0;
+                    foreach (DataGridViewRow dr in Course_Select_dgv.Rows)
                     {
-                        int flag = 0;
-                        foreach (DataGridViewRow dr in Course_Select_dgv.Rows)
+                        bool checkboxselect = Convert.ToBoolean(dr.Cells["checkBoxColumn"].Value);
+                        if (checkboxselect)
                         {
-                            bool checkboxselect = Convert.ToBoolean(dr.Cells["checkBoxColumn"].Value);
-                            if (checkboxselect)
-                            {
-                                flag = 1;
-                                SQLiteCommand comm = new SQLiteCommand("Insert into Timetable(Date,Session,Exam_Code,Course,Semester,Branch)Values(" + "@Date,@Session,@Exam_Code,@Course,@Semester,@Branch)", con.ActiveCon());
-                                comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
-                                comm.Parameters.AddWithValue("@Session", Session_combobox.SelectedItem.ToString());
-                                comm.Parameters.AddWithValue("@Exam_Code", dr.Cells["Sub_Code"].Value);
-                                comm.Parameters.AddWithValue("@Course", dr.Cells["Course"].Value);
-                                comm.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value);
-                                comm.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value);
-                                comm.ExecuteNonQuery();
-                            }
+                            flag = 1;
+                            SQLiteCommand comm = new SQLiteCommand("Insert into Timetable(Date,Session,Exam_Code,Course,Semester,Branch)Values(" + "@Date,@Session,@Exam_Code,@Course,@Semester,@Branch)", con.ActiveCon());
+                            comm.Parameters.AddWithValue("@Date", DateTimePicker.Text);
+                            comm.Parameters.AddWithValue("@Session", Session_combobox.SelectedItem.ToString());
+                            comm.Parameters.AddWithValue("@Exam_Code", dr.Cells["Sub_Code"].Value);
+                            comm.Parameters.AddWithValue("@Course", dr.Cells["Course"].Value);
+                            comm.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value);
+                            comm.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value);
+                            comm.ExecuteNonQuery();
                         }
-                        if (flag == 1)
-                        {
-                            con.CloseCon();
-                            Undo_backup_function(flag);
-                            //Session_combobox.SelectedIndex = 0;
-                            Examcode_box.Clear();
-                            CourseFill();
-                            TimetableFill();
-                            //msgbox.show("Data Inserted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
-                        }
-                        else msgbox.show("No Course Selected    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                     }
-                    else msgbox.show("Select Session    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                    if (flag == 1)
+                    {
+                        con.CloseCon();
+                        Undo_backup_function(flag);
+                        Examcode_box.Clear();
+                        CourseFill();
+                        TimetableFill();
+                    }
+                    else msgbox.show("No Course Selected    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                }
+                else msgbox.show("Select Session    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
 
-                }
-                catch (Exception ex)
-                {
-                    msgbox.show(ex.ToString(), "Exception Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
-                    //Session_combobox.SelectedIndex = 0;
-                    //Course_Select_dgv.Update();
-                    //Course_Select_dgv.Refresh();
-                    //Timetableview_dgv.Update();
-                    //Timetableview_dgv.Refresh();
-                    CourseFill();
-                    TimetableFill();
-                }
-            //}
-                
+            }
+            catch (Exception ex)
+            {
+                msgbox.show(ex.ToString(), "Exception Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                CourseFill();
+                TimetableFill();
+            }
         }
 
         private void Examcode_box_TextChanged(object sender, EventArgs e)
         {
-            coursedgvfilter();
+            Coursedgvfilter();
         }
 
-        void coursedgvfilter()
+        void Coursedgvfilter()
         {
             string branch = Branch_combobox.Text;
             string semester = Semester_combobox.Text;
@@ -289,12 +257,12 @@ namespace Exam_Cell
 
         private void Branch_combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            coursedgvfilter();
+            Coursedgvfilter();
         }
 
         private void Semester_combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            coursedgvfilter();
+            Coursedgvfilter();
         }
 
         private void Datewise_radio_CheckedChanged(object sender, EventArgs e)
@@ -332,9 +300,7 @@ namespace Exam_Cell
             }
             source.Filter = filter;
         }
-
         
-
         private void SheduledBranch_SelectedIndexChanged(object sender, EventArgs e)
         {
             Timetablefilter();
@@ -416,11 +382,11 @@ namespace Exam_Cell
                         bool checkboxselect = Convert.ToBoolean(dr.Cells["checkBoxColumn"].Value);
                         if (checkboxselect)
                         {
-                            Undo_backup.date.Add(DateTimePicker.Text);
-                            Undo_backup.session.Add(Session_combobox.SelectedItem.ToString());
-                            Undo_backup.examcode.Add(dr.Cells["Sub_Code"].Value.ToString());
-                            Undo_backup.semester.Add(dr.Cells["Semester"].Value.ToString());
-                            Undo_backup.branch.Add(dr.Cells["Branch"].Value.ToString());
+                            Undo_backup.Date.Add(DateTimePicker.Text);
+                            Undo_backup.Session.Add(Session_combobox.SelectedItem.ToString());
+                            Undo_backup.Examcode.Add(dr.Cells["Sub_Code"].Value.ToString());
+                            Undo_backup.Semester.Add(dr.Cells["Semester"].Value.ToString());
+                            Undo_backup.Branch.Add(dr.Cells["Branch"].Value.ToString());
                         }
                     }
                     clearcount++;
@@ -432,23 +398,23 @@ namespace Exam_Cell
                     Undo_backup_function(1);
                 }
             }
-            else if(Undo_backup.session.Count!=0)
+            else if(Undo_backup.Session.Count!=0)
             {
                 msgbox.show("Do you want to Undo last operation ?   ", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
                 var result = msgbox.ReturnValue;
                 if (result=="Yes")
                 {
-                    count = Undo_backup.session.Count;
+                    count = Undo_backup.Session.Count;
                     for (i = 0; i < count; i++)
                     {
                         try
                         {
                         SQLiteCommand comm = new SQLiteCommand("Delete from Timetable where Date=@Date and Session=@Session and Exam_Code=@Exam_Code and Semester=@Semester and Branch=@Branch", con.ActiveCon());
-                        comm.Parameters.AddWithValue("@Date", Undo_backup.date[i]);
-                        comm.Parameters.AddWithValue("@Session", Undo_backup.session[i]);
-                        comm.Parameters.AddWithValue("@Exam_Code", Undo_backup.examcode[i]);
-                        comm.Parameters.AddWithValue("@Semester", Undo_backup.semester[i]);
-                        comm.Parameters.AddWithValue("@Branch", Undo_backup.branch[i]);
+                        comm.Parameters.AddWithValue("@Date", Undo_backup.Date[i]);
+                        comm.Parameters.AddWithValue("@Session", Undo_backup.Session[i]);
+                        comm.Parameters.AddWithValue("@Exam_Code", Undo_backup.Examcode[i]);
+                        comm.Parameters.AddWithValue("@Semester", Undo_backup.Semester[i]);
+                        comm.Parameters.AddWithValue("@Branch", Undo_backup.Branch[i]);
                         comm.ExecuteNonQuery();
                         }
                         catch (Exception ex)
@@ -464,11 +430,8 @@ namespace Exam_Cell
                     CourseFill();
                     TimetableFill();
                     msgbox.show("Last Operation have been Undone   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);                    
-                }
-                else { }
-                
+                }                
             }
-            else { }
         }
 
         private void Undo_btn_Click(object sender, EventArgs e)
@@ -479,14 +442,14 @@ namespace Exam_Cell
 
         void Clear_list()
         {
-            Undo_backup.date.Clear();
-            Undo_backup.session.Clear();
-            Undo_backup.examcode.Clear();
-            Undo_backup.semester.Clear();
-            Undo_backup.branch.Clear();
+            Undo_backup.Date.Clear();
+            Undo_backup.Session.Clear();
+            Undo_backup.Examcode.Clear();
+            Undo_backup.Semester.Clear();
+            Undo_backup.Branch.Clear();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void Timer1_Tick(object sender, EventArgs e)
         {
             timer1.Stop();
             BranchComboboxFill();
@@ -495,7 +458,7 @@ namespace Exam_Cell
             TimetableFill();
         }
         
-        private void closeBtn_Click(object sender, EventArgs e)
+        private void CloseBtn_Click(object sender, EventArgs e)
         {
             MenuForm menuForm = (MenuForm)Application.OpenForms["MenuForm"];
             if(menuForm.Temp_btn == menuForm.menu_item_timetable)
@@ -505,6 +468,17 @@ namespace Exam_Cell
             this.Close();
         }
 
+        void DeleteFunction(DataGridViewRow dr)
+        {
+            SQLiteCommand comm = new SQLiteCommand("Delete from Timetable where Date=@Date and Session=@Session and Exam_Code=@Exam_Code and Course=@Course and Semester=@Semester and Branch=@Branch", con.ActiveCon());
+            comm.Parameters.AddWithValue("@Date", dr.Cells["Date"].Value);
+            comm.Parameters.AddWithValue("@Session", dr.Cells["Session"].Value);
+            comm.Parameters.AddWithValue("@Exam_Code", dr.Cells["Exam_Code"].Value);
+            comm.Parameters.AddWithValue("@Course", dr.Cells["Course"].Value);
+            comm.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value);
+            comm.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value);
+            comm.ExecuteNonQuery();
+        }
         private void Delete_btn_Click(object sender, EventArgs e)
         {
             msgbox.show("Do you really want to Delete ?     ", "Confirm", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
@@ -520,14 +494,7 @@ namespace Exam_Cell
                         if (checkboxselect)
                         {
                             flag = 1;
-                            SQLiteCommand comm = new SQLiteCommand("Delete from Timetable where Date=@Date and Session=@Session and Exam_Code=@Exam_Code and Course=@Course and Semester=@Semester and Branch=@Branch", con.ActiveCon());
-                            comm.Parameters.AddWithValue("@Date", dr.Cells["Date"].Value);
-                            comm.Parameters.AddWithValue("@Session", dr.Cells["Session"].Value);
-                            comm.Parameters.AddWithValue("@Exam_Code", dr.Cells["Exam_Code"].Value);
-                            comm.Parameters.AddWithValue("@Course", dr.Cells["Course"].Value);
-                            comm.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value);
-                            comm.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value);
-                            comm.ExecuteNonQuery();
+                            DeleteFunction(dr);
                         }
                     }
                     if (flag == 1)
