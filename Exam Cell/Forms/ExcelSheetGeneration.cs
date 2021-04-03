@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using System.Data.SQLite;
@@ -38,14 +33,14 @@ namespace Exam_Cell.Forms
             Excel_Generation_function(1);
         }
 
-        private void room_generate_btn_Click(object sender, EventArgs e)
+        private void Room_generate_btn_Click(object sender, EventArgs e)
         {
             Excel_Generation_function(0);
         }
 
-        private void display_generate_btn_Click(object sender, EventArgs e)
+        private void Display_generate_btn_Click(object sender, EventArgs e)
         {
-            display_generation_function();
+            Display_generation_function();
         }
 
         void Excel_Generation_function(int f)
@@ -234,7 +229,7 @@ namespace Exam_Cell.Forms
             }
         }
 
-        void display_generation_function()
+        void Display_generation_function()
         {
             try
             {
@@ -268,27 +263,6 @@ namespace Exam_Cell.Forms
                     DataTable dt2 = new DataTable();
                     adptr2.Fill(dt2);                    
                     con.CloseCon();
-
-                    //dt.Columns.Add("Branch", typeof(string));
-                    //foreach (DataRow getreg in dt.Rows)
-                    //{
-                    //    foreach (DataRow getdr in dt2.Rows)
-                    //    {
-                    //        if (getreg["Reg_no"].ToString() == getdr["Reg_no"].ToString())
-                    //        {
-                    //            getreg["Branch"] = getdr["Branch"].ToString();
-
-                    //            break;
-                    //        }
-                    //    }
-                    //}
-
-                    //// datatable with distinct branch from 'dt'
-                    //DataTable distinctBranch = dt.DefaultView.ToTable(true, "Branch");
-                    //MessageBox.Show("--Tester-- \n Check whether distinct code works in dgv");
-                    //AllotedStudentsRooms_dgv.DataSource = distinctBranch; ////only for testing delete after that
-                    //MessageBox.Show("--Tester-- \n Check whether distinct code works in dgv");
-                    //Excel Designing
 
                     using (var package = new ExcelPackage())
                     {
@@ -459,7 +433,7 @@ namespace Exam_Cell.Forms
             }
         }
 
-        private void close_btn_Click(object sender, EventArgs e)
+        private void Close_btn_Click(object sender, EventArgs e)
         {
             this.Close();
         }

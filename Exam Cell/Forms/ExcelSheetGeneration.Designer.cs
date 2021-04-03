@@ -62,7 +62,7 @@
             this.close_btn.TabIndex = 13;
             this.close_btn.Text = "Close";
             this.close_btn.UseVisualStyleBackColor = false;
-            this.close_btn.Click += new System.EventHandler(this.close_btn_Click);
+            this.close_btn.Click += new System.EventHandler(this.Close_btn_Click);
             // 
             // display_generate_btn
             // 
@@ -77,7 +77,7 @@
             this.display_generate_btn.TabIndex = 14;
             this.display_generate_btn.Text = "Display Sheet";
             this.display_generate_btn.UseVisualStyleBackColor = false;
-            this.display_generate_btn.Click += new System.EventHandler(this.display_generate_btn_Click);
+            this.display_generate_btn.Click += new System.EventHandler(this.Display_generate_btn_Click);
             // 
             // room_generate_btn
             // 
@@ -92,7 +92,7 @@
             this.room_generate_btn.TabIndex = 15;
             this.room_generate_btn.Text = "Room Sheet";
             this.room_generate_btn.UseVisualStyleBackColor = false;
-            this.room_generate_btn.Click += new System.EventHandler(this.room_generate_btn_Click);
+            this.room_generate_btn.Click += new System.EventHandler(this.Room_generate_btn_Click);
             // 
             // Signature_generate_btn
             // 
