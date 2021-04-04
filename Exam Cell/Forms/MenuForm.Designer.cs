@@ -53,7 +53,7 @@
             // timer
             // 
             this.timer.Interval = 10;
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            this.timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
             // menuStrip1
             // 
@@ -87,7 +87,7 @@
             this.menu_item_timetable.Padding = new System.Windows.Forms.Padding(10);
             this.menu_item_timetable.Size = new System.Drawing.Size(122, 46);
             this.menu_item_timetable.Text = "Timetable";
-            this.menu_item_timetable.Click += new System.EventHandler(this.menu_item_timetable_Click);
+            this.menu_item_timetable.Click += new System.EventHandler(this.Menu_item_timetable_Click);
             // 
             // menu_item_candidateentry
             // 
@@ -96,7 +96,7 @@
             this.menu_item_candidateentry.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.menu_item_candidateentry.Size = new System.Drawing.Size(186, 46);
             this.menu_item_candidateentry.Text = "Candidate Entry";
-            this.menu_item_candidateentry.Click += new System.EventHandler(this.menu_item_candidateentry_Click);
+            this.menu_item_candidateentry.Click += new System.EventHandler(this.Menu_item_candidateentry_Click);
             // 
             // menu_item_room
             // 
@@ -105,7 +105,7 @@
             this.menu_item_room.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.menu_item_room.Size = new System.Drawing.Size(87, 46);
             this.menu_item_room.Text = "Room";
-            this.menu_item_room.Click += new System.EventHandler(this.menu_item_room_Click);
+            this.menu_item_room.Click += new System.EventHandler(this.Menu_item_room_Click);
             // 
             // menu_item_regstudmgmnt
             // 
@@ -114,7 +114,7 @@
             this.menu_item_regstudmgmnt.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.menu_item_regstudmgmnt.Size = new System.Drawing.Size(250, 46);
             this.menu_item_regstudmgmnt.Text = "Reg Stud Management";
-            this.menu_item_regstudmgmnt.Click += new System.EventHandler(this.menu_item_regstudmgmnt_Click);
+            this.menu_item_regstudmgmnt.Click += new System.EventHandler(this.Menu_item_regstudmgmnt_Click);
             // 
             // menu_item_allotment
             // 
@@ -123,7 +123,7 @@
             this.menu_item_allotment.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.menu_item_allotment.Size = new System.Drawing.Size(122, 46);
             this.menu_item_allotment.Text = "Allotment";
-            this.menu_item_allotment.Click += new System.EventHandler(this.menu_item_allotment_Click);
+            this.menu_item_allotment.Click += new System.EventHandler(this.Menu_item_allotment_Click);
             // 
             // menu_item_absentees
             // 
@@ -143,7 +143,7 @@
             this.menu_dropitem_marking.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.menu_dropitem_marking.Size = new System.Drawing.Size(216, 44);
             this.menu_dropitem_marking.Text = "Marking";
-            this.menu_dropitem_marking.Click += new System.EventHandler(this.menu_dropitem_marking_Click);
+            this.menu_dropitem_marking.Click += new System.EventHandler(this.Menu_dropitem_marking_Click);
             // 
             // menu_dropitem_statement
             // 
@@ -153,7 +153,7 @@
             this.menu_dropitem_statement.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.menu_dropitem_statement.Size = new System.Drawing.Size(216, 44);
             this.menu_dropitem_statement.Text = "Statement";
-            this.menu_dropitem_statement.Click += new System.EventHandler(this.menu_dropitem_statement_Click);
+            this.menu_dropitem_statement.Click += new System.EventHandler(this.Menu_dropitem_statement_Click);
             // 
             // menu_item_postponement
             // 
@@ -162,7 +162,7 @@
             this.menu_item_postponement.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.menu_item_postponement.Size = new System.Drawing.Size(168, 46);
             this.menu_item_postponement.Text = "Postponement";
-            this.menu_item_postponement.Click += new System.EventHandler(this.menu_item_postponement_Click);
+            this.menu_item_postponement.Click += new System.EventHandler(this.Menu_item_postponement_Click);
             // 
             // menu_item_databasemgmnt
             // 
@@ -183,7 +183,7 @@
             this.menu_dropitem_student.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.menu_dropitem_student.Size = new System.Drawing.Size(216, 44);
             this.menu_dropitem_student.Text = "Student ";
-            this.menu_dropitem_student.Click += new System.EventHandler(this.menu_dropitem_student_Click);
+            this.menu_dropitem_student.Click += new System.EventHandler(this.Menu_dropitem_student_Click);
             // 
             // menu_dropitem_classbranch
             // 
@@ -193,7 +193,7 @@
             this.menu_dropitem_classbranch.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.menu_dropitem_classbranch.Size = new System.Drawing.Size(216, 44);
             this.menu_dropitem_classbranch.Text = "Class/Branch";
-            this.menu_dropitem_classbranch.Click += new System.EventHandler(this.menu_dropitem_classbranch_Click);
+            this.menu_dropitem_classbranch.Click += new System.EventHandler(this.Menu_dropitem_classbranch_Click);
             // 
             // menu_item_credits
             // 
@@ -202,7 +202,7 @@
             this.menu_item_credits.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.menu_item_credits.Size = new System.Drawing.Size(97, 46);
             this.menu_item_credits.Text = "Credits";
-            this.menu_item_credits.Click += new System.EventHandler(this.menu_item_credits_Click);
+            this.menu_item_credits.Click += new System.EventHandler(this.Menu_item_credits_Click);
             // 
             // menu_item_exit
             // 
@@ -211,7 +211,7 @@
             this.menu_item_exit.Padding = new System.Windows.Forms.Padding(15, 0, 15, 0);
             this.menu_item_exit.Size = new System.Drawing.Size(73, 46);
             this.menu_item_exit.Text = "Exit";
-            this.menu_item_exit.Click += new System.EventHandler(this.menu_item_exit_Click);
+            this.menu_item_exit.Click += new System.EventHandler(this.Menu_item_exit_Click);
             // 
             // bgPanel
             // 
