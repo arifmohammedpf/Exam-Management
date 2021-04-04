@@ -92,7 +92,7 @@
             this.closeBtn.TabIndex = 12;
             this.closeBtn.Text = "X";
             this.closeBtn.UseVisualStyleBackColor = false;
-            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
+            this.closeBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
             // panel2
             // 

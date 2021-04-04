@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SQLite;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Exam_Cell.Forms;
 using OfficeOpenXml;
@@ -38,7 +33,6 @@ namespace Exam_Cell
             DateComboboxFill();
             BranchComboboxFill();
             Exam_CodeComboboxFill();
-            //SubjectComboboxFill();
             No_of_candidates_ViewText.Clear();
             No_of_Present_ViewText.Clear();
             No_of_Absent_ViewText.Clear();
@@ -129,21 +123,6 @@ namespace Exam_Cell
                 con.CloseCon();
             }
         }
-        //void SubjectComboboxFill()
-        //{
-        //    SQLiteCommand comm = new SQLiteCommand("select distinct Course from Absentees order by Course", con.ActiveCon());
-        //    SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
-        //    DataTable table = new DataTable();
-        //    adapter.Fill(table);
-        //    //for -select-
-        //    DataRow top = table.NewRow();
-        //    top[0] = "-Select-";
-        //    table.Rows.InsertAt(top, 0);
-
-        //    SubjectName_Combobox.DisplayMember = "Course";
-        //    SubjectName_Combobox.ValueMember = "Course";
-        //    SubjectName_Combobox.DataSource = table;
-        //}
 
         DataTable table = new DataTable();
         BindingSource binding = new BindingSource();
@@ -280,9 +259,7 @@ namespace Exam_Cell
                         worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns();
                         worksheet.Cells[count, 3].Value = "No of Present = " + No_of_Present_ViewText.Text;
                         worksheet.Cells[count + 1, 3].Value = "No of Absent = " + No_of_Absent_ViewText.Text;
-
-
-
+                            
                         //Save Excel File  
                         string path = createStatePath + @"\AttndncStatmnt " + Session_combobox.Text +" "+ ExamCode_combobox.Text + " " + Branch_combobox.Text + ".xlsx"; 
                         Stream stream = File.Create(path);
@@ -291,14 +268,13 @@ namespace Exam_Cell
                        
                         Branch_combobox.SelectedIndex = 0;
                         ExamCode_combobox.SelectedIndex = 0;
-                        //SubjectName_Combobox.SelectedIndex = 0;
                         No_of_candidates_ViewText.Clear();
                         No_of_Present_ViewText.Clear();
                         No_of_Absent_ViewText.Clear();
                         table.Clear();
                         Dgv.DataSource = null;
                         msgbox.Show("Excel file created     ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
-                    }
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -347,25 +323,12 @@ namespace Exam_Cell
                     prescount++;
                 }
             }
-            //foreach(DataGridViewRow dr in Dgv.Rows)
-            //{
-            //    if (dr.Cells["Status"].ToString() == "Present")
-            //    {
-            //        prescount++;
-            //        dr.Cells["Status"].Style.ForeColor = Color.Black;
-            //    }
-            //    else if (dr.Cells["Status"].ToString() == "Absent")
-            //    {
-            //        abscount++;
-            //        dr.Cells["Status"].Style.ForeColor = Color.Red;
-            //    }
-            //}
             No_of_candidates_ViewText.Text = table.Rows.Count.ToString();
             No_of_Present_ViewText.Text = prescount.ToString();
             No_of_Absent_ViewText.Text = abscount.ToString();
         }        
 
-        private void closeBtn_Click(object sender, EventArgs e)
+        private void CloseBtn_Click(object sender, EventArgs e)
         {
             MenuForm menuForm = (MenuForm)Application.OpenForms["MenuForm"];
             if (menuForm.Temp_btn == menuForm.menu_dropitem_statement)
