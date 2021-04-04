@@ -844,7 +844,7 @@
             // timer
             // 
             this.timer.Interval = 30;
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            this.timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
             // timerHeaderCheck
             // 
@@ -896,7 +896,7 @@
             this.closeBtn.TabIndex = 43;
             this.closeBtn.Text = "X";
             this.closeBtn.UseVisualStyleBackColor = false;
-            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
+            this.closeBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
             // label9
             // 
@@ -936,7 +936,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Candidate Entry";
-            this.Load += new System.EventHandler(this.formti_Load);
+            this.Load += new System.EventHandler(this.Formti_Load);
             this.progressPanel.ResumeLayout(false);
             this.progressPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Courses_dgv)).EndInit();
