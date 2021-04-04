@@ -2,15 +2,11 @@
 using ExcelDataReader;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SQLite;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Exam_Cell
@@ -56,7 +52,6 @@ namespace Exam_Cell
             {
                 con.CloseCon();
             }
-
         }
 
         void Branch_dgv_Fill()
@@ -79,7 +74,6 @@ namespace Exam_Cell
             {
                 con.CloseCon();
             }
-
         }
         private void Branch_dgv_radiobtn_CheckedChanged(object sender, EventArgs e)
         {
@@ -91,8 +85,7 @@ namespace Exam_Cell
                 Branch_dgv_Fill();
                 BranchComboboxFill();
                 Clear_All_ClassManagement();
-            }
-            
+            }            
         }
 
         private void Class_dgv_radiobtn_CheckedChanged(object sender, EventArgs e)
@@ -164,11 +157,6 @@ namespace Exam_Cell
                 msgbox.Show("Branch Delete Done     ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
             }
         }
-                
-                
-            
-
-        
 
         private void DeleteClass_btn_Click(object sender, EventArgs e)
         {
@@ -235,13 +223,8 @@ namespace Exam_Cell
             checkbox.HeaderText = "";
             checkbox.Width = 30;
             checkbox.Name = "CheckboxColumn";
-            Scheme_dgv.Columns.Insert(0, checkbox);
-            
+            Scheme_dgv.Columns.Insert(0, checkbox);            
         }
-        
-
-
-        
 
         private void AddNewCourse_btn_Click(object sender, EventArgs e)
         {
@@ -312,8 +295,7 @@ namespace Exam_Cell
             {
                 NewcourseFilter();
             }
-            catch (Exception) { }
-           
+            catch (Exception) { }           
         }
 
         private void Semester_combobox_SelectedIndexChanged(object sender, EventArgs e)
@@ -388,9 +370,7 @@ namespace Exam_Cell
             {
                 con.CloseCon();
             }
-        }
-
-        
+        }        
 
         private void ChangeScheme_btn_Click(object sender, EventArgs e)
         {
@@ -442,9 +422,7 @@ namespace Exam_Cell
                 con.CloseCon();
             }
         }
-
         
-
         private void Class_radiobtn_CheckedChanged(object sender, EventArgs e)
         {
             DefaultScheme_Panel.SendToBack();
@@ -452,7 +430,6 @@ namespace Exam_Cell
             DefaultScheme_Panel.Enabled = false;
         }
         
-
         private void DefaultScheme_radiobtn_CheckedChanged(object sender, EventArgs e)
         {
             DefaultScheme_Panel.BringToFront();
@@ -461,7 +438,7 @@ namespace Exam_Cell
             Schemelabel();
         }
 
-        private void closeBtn_Click(object sender, EventArgs e)
+        private void CloseBtn_Click(object sender, EventArgs e)
         {
             MenuForm menuForm = (MenuForm)Application.OpenForms["MenuForm"];
             if (menuForm.Temp_btn == menuForm.menu_dropitem_classbranch)
@@ -533,13 +510,8 @@ namespace Exam_Cell
         {
             try
             {
-                //int f = 0;
                 foreach (DataGridViewRow dr in Scheme_dgv.Rows)
                 {
-                    //bool checkselected = Convert.ToBoolean(dr.Cells["CheckboxColumn2"].Value);
-                    //if (checkselected)
-                    //{
-                    //f = 1;
                     SQLiteCommand command = new SQLiteCommand("insert into Management(Class,Semester)Values(" + " @Class,@Semester) ", con.ActiveCon());
                     command.Parameters.AddWithValue("@Class", dr.Cells["Class"].Value);
                     command.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value);
@@ -551,17 +523,12 @@ namespace Exam_Cell
                     command2.Parameters.AddWithValue("@Class", dr.Cells["Class"].ToString() + "  S" + dr.Cells["Semester"].ToString());
                     command.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value);
                     command2.ExecuteNonQuery();
-                    //}
                 }
-                //if (f == 1)
-                //{
                 con.CloseCon();
                 AddNewClass_btn.Enabled = false;
                 DeleteClass_btn.Enabled = true;
                 Class_dgv_Fill();
                 msgbox.Show("Class added From Excel   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
-                //}
-                //else msgbox.show("Select any Students", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
@@ -571,8 +538,6 @@ namespace Exam_Cell
         }
         private void AddNewClass_btn_Click(object sender, EventArgs e)
         {
-            //msgbox.show("Click Yes to Add New Class    ", "Confirm", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Warning);
-            //var result = msgbox.ReturnValue;
             try
             {
                 ExcelFunction();
@@ -584,4 +549,3 @@ namespace Exam_Cell
         }
     }
 }
-                

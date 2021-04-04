@@ -91,8 +91,8 @@
             this.Class_Managmnt_panel.AutoScroll = true;
             this.Class_Managmnt_panel.BackColor = System.Drawing.Color.Transparent;
             this.Class_Managmnt_panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Class_Managmnt_panel.Controls.Add(this.closeBtn);
             this.Class_Managmnt_panel.Controls.Add(this.Scheme_dgv);
+            this.Class_Managmnt_panel.Controls.Add(this.closeBtn);
             this.Class_Managmnt_panel.Controls.Add(this.RadioButton_panel);
             this.Class_Managmnt_panel.Controls.Add(this.groupBoxContents);
             this.Class_Managmnt_panel.Controls.Add(this.DefaultScheme_Panel);
@@ -116,7 +116,7 @@
             this.closeBtn.TabIndex = 12;
             this.closeBtn.Text = "X";
             this.closeBtn.UseVisualStyleBackColor = false;
-            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
+            this.closeBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
             // Scheme_dgv
             // 
