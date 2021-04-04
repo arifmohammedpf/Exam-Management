@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
@@ -254,6 +253,39 @@ namespace Exam_Cell
             }
         }
 
+        int Validate_Shift_Swap_user_input(int fromendint, int fromstartint, int tostartint, string fromseries, string fromroom, string toroom, string toseries)
+        {
+            if (fromendint < fromstartint || fromendint < 0 || fromstartint < 0 || tostartint < 0 || Session_combobox.Text == "-Select-")
+            {
+                msgbox.Show("Please fill datas correctly, including Date and Session    ", "Invalid inputs", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                return 1;
+            }
+            else
+            {
+                SQLiteCommand comm = new SQLiteCommand("Select @series from Rooms where Room_No=@Room_No", con.ActiveCon());
+                comm.Parameters.AddWithValue("@series", fromseries);
+                comm.Parameters.AddWithValue("@Room_No", fromroom);
+                int fromseriesCount = Convert.ToInt32(comm.ExecuteScalar());
+                if (fromseriesCount < fromendint)
+                {
+                    msgbox.Show("Given Series End-number is larger than Room Capacity.\t \n Please enter correct input.     ", "Invalid inputs", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                    return 1;
+                }
+
+                SQLiteCommand comm2 = new SQLiteCommand("Select @series from Rooms where Room_No=@Room_No", con.ActiveCon());
+                comm2.Parameters.AddWithValue("@series", toseries);
+                comm2.Parameters.AddWithValue("@Room_No", toroom);
+                int toseriesCount = Convert.ToInt32(comm2.ExecuteScalar());
+                int toRoomCount = (toseriesCount - tostartint) + 1;
+                int fromRoomCount = (fromendint - fromstartint) + 1;
+                if (fromRoomCount > toRoomCount)
+                {
+                    msgbox.Show("Not enough seats in selected Room      ", "Unable to Swap", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                    return 1;
+                }
+            }
+            return 0;
+        }
         private void Shift_button_Click(object sender, EventArgs e)
         {
             ShiftFunction();
@@ -274,39 +306,9 @@ namespace Exam_Cell
                         int fromendint = Int32.Parse(fromend);
                         int tostartint = Int32.Parse(tostart);
 
-
-                        // ----- validating user inputs ----- //
-                        if (fromendint < fromstartint || fromendint < 0 || fromstartint < 0 || tostartint < 0 || Session_combobox.Text == "-Select-")
-                        {
-                            msgbox.Show("Please fill datas correctly, including Date and Session      ", "Invalid inputs", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                        int return_flag = Validate_Shift_Swap_user_input(fromendint, fromstartint, tostartint, fromseries, fromroom, toroom, toseries);
+                        if (return_flag == 1)
                             return;
-                        }
-                        else
-                        {
-                            SQLiteCommand comm = new SQLiteCommand("Select @series from Rooms where Room_No=@Room_No", con.ActiveCon());
-                            comm.Parameters.AddWithValue("@series", fromseries);
-                            comm.Parameters.AddWithValue("@Room_No", fromroom);
-                            int fromseriesCount = Convert.ToInt32(comm.ExecuteScalar());
-                            if (fromseriesCount < fromendint)
-                            {
-                                msgbox.Show("Given Series End-number is larger than Room Capacity.\t \n Please enter correct input.  ", "Invalid inputs", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
-                                return;
-                            }
-
-                            SQLiteCommand comm2 = new SQLiteCommand("Select @series from Rooms where Room_No=@Room_No", con.ActiveCon());
-                            comm2.Parameters.AddWithValue("@series", toseries);
-                            comm2.Parameters.AddWithValue("@Room_No", toroom);
-                            int toseriesCount = Convert.ToInt32(comm2.ExecuteScalar());
-                            int toRoomCount = (toseriesCount - tostartint) + 1;
-                            int fromRoomCount = (fromendint - fromstartint) + 1;
-                            if (fromRoomCount > toRoomCount)
-                            {
-                                msgbox.Show("Not enough seats in selected Room     ", "Unable to Swap    ", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
-                                return;
-                            }
-                        }
-                        // ----- validating user inputs ----- //
-
 
                         if (Unv_radio.Checked)
                         {
@@ -411,7 +413,6 @@ namespace Exam_Cell
 
         private void Allotment_Load(object sender, EventArgs e)
         {
-            //this.WindowState = FormWindowState.Normal;
             Generation_Panel.Enabled = false;
             panel1.Enabled = false;
             groupBox1.Enabled = false;
@@ -582,27 +583,22 @@ namespace Exam_Cell
             dataTablecombo.Rows.InsertAt(top, 0);
             AllocatedRoom_combobox.DisplayMember = "Room_No";
             AllocatedRoom_combobox.ValueMember = "Room_No";
-            AllocatedRoom_combobox.DataSource = dataTablecombo;
-
+            AllocatedRoom_combobox.DataSource = dataTablecombo;      
             AllocatedRoom_combobox.SelectedIndex = 0;
         }
 
         private void Unv_radio_CheckedChanged(object sender, EventArgs e)
         {
             if (Unv_radio.Checked)
-            {
-                examRadioSelectEnabling();
-            }
+                ExamRadioSelectEnabling();
         }
 
         private void Series_radio_CheckedChanged(object sender, EventArgs e)
         {
             if (Series_radio.Checked)
-            {
-                examRadioSelectEnabling();
-            }
+                ExamRadioSelectEnabling();
         }
-        void examRadioSelectEnabling()
+        void ExamRadioSelectEnabling()
         {
             Generation_Panel.Enabled = true;
             panel1.Enabled = true;
@@ -613,9 +609,7 @@ namespace Exam_Cell
         private void AllocatedRoom_combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(AllocatedRoom_combobox.SelectedIndex!=0)
-            {
                 AllotedStudentsDGVFill();
-            }
         }
         void RefreshAll()
         {
@@ -642,7 +636,7 @@ namespace Exam_Cell
         private void Swap_button_Click(object sender, EventArgs e)
         {
             SwapFunction();
-        }
+        }        
         void SwapFunction()
         {
             if (FromSeries_combobox.SelectedIndex != 0 && ToSeries_combobox.SelectedIndex != 0 && FromRoom_textbox.Text != "" && FromStart_textbox.Text != "" && FromEnd_textbox.Text != "" && ToRoom_textbox.Text != "" && ToStart_textbox.Text != "")
@@ -660,39 +654,9 @@ namespace Exam_Cell
                         int tostartint = Int32.Parse(tostart);
                         int fromtemp = fromstartint, totemp = tostartint;
 
-
-                        // ----- validating user inputs ----- //
-                        if (fromendint < fromstartint || fromendint < 0 || fromstartint < 0 || tostartint < 0 || Session_combobox.Text=="-Select-")
-                        {
-                            msgbox.Show("Please fill datas correctly, including Date and Session    ", "Invalid inputs", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                        int return_flag = Validate_Shift_Swap_user_input(fromendint, fromstartint, tostartint, fromseries, fromroom,toroom,toseries);
+                        if (return_flag == 1)
                             return;
-                        }
-                        else
-                        {
-                            SQLiteCommand comm = new SQLiteCommand("Select @series from Rooms where Room_No=@Room_No", con.ActiveCon());
-                            comm.Parameters.AddWithValue("@series", fromseries);
-                            comm.Parameters.AddWithValue("@Room_No", fromroom);
-                            int fromseriesCount = Convert.ToInt32(comm.ExecuteScalar());
-                            if (fromseriesCount < fromendint)
-                            {
-                                msgbox.Show("Given Series End-number is larger than Room Capacity.\t \n Please enter correct input.     ", "Invalid inputs", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
-                                return;
-                            }
-
-                            SQLiteCommand comm2 = new SQLiteCommand("Select @series from Rooms where Room_No=@Room_No", con.ActiveCon());
-                            comm2.Parameters.AddWithValue("@series", toseries);
-                            comm2.Parameters.AddWithValue("@Room_No", toroom);
-                            int toseriesCount = Convert.ToInt32(comm2.ExecuteScalar());
-                            int toRoomCount = (toseriesCount - tostartint) + 1;
-                            int fromRoomCount = (fromendint - fromstartint) + 1;
-                            if (fromRoomCount > toRoomCount)
-                            {
-                                msgbox.Show("Not enough seats in selected Room      ", "Unable to Swap", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
-                                return;
-                            }
-                        }
-                        // ----- validating user inputs ----- //
-
 
                         if (Unv_radio.Checked)
                         {
@@ -856,7 +820,7 @@ namespace Exam_Cell
             RefreshAll();
         }
 
-        private void closeBtn_Click(object sender, EventArgs e)
+        private void CloseBtn_Click(object sender, EventArgs e)
         {
             MenuForm menuForm = (MenuForm)Application.OpenForms["MenuForm"];
             if (menuForm.Temp_btn == menuForm.menu_item_allotment)
@@ -887,18 +851,12 @@ namespace Exam_Cell
         {
             if (Session_combobox.SelectedIndex != 0)
             {
-                
                 // AllotedDGVFill() and AllotedBriefDGVFill() will be showing Registered Candidates info, not Alloted.
                 AllotedDGVFill();
                 AllotedBriefDGVFill();
                 AllocatedRoomComboboxFill();
-                AllotedRoomsDgvFilling(); // might need to re-query
+                AllotedRoomsDgvFilling();
             }
         }        
     }
 }
-
-        
-
-
-
