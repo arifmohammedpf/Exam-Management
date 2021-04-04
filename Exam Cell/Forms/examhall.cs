@@ -8,11 +8,11 @@ using System.Windows.Forms;
 
 namespace Exam_Cell
 {
-    public partial class examhall : Form
+    public partial class Examhall : Form
     {
         Connection con = new Connection();
         CustomMessageBox msgbox = new CustomMessageBox();
-        public examhall()
+        public Examhall()
         {
             InitializeComponent();
         }
@@ -68,11 +68,6 @@ namespace Exam_Cell
         //CheckBox headerchkbox = new CheckBox();
         private void examhall_Load(object sender, EventArgs e)
         {
-            // below code added to timer
-            //RoomsdgvFill();
-            //FillCapacity();
-            //Priority_combobox.SelectedIndex = 0;
-
             //Checkbox Column
             DataGridViewCheckBoxColumn checkbox = new DataGridViewCheckBoxColumn();
             checkbox.HeaderText = "";
@@ -132,7 +127,45 @@ namespace Exam_Cell
             catch (Exception) { }
             
         }
-        
+
+        void Sql_Query(string mode)
+        {
+            try
+            {
+                string query = "", message = "";
+                if (mode == "Insert")
+                {
+                    query = string.Format("Insert into Rooms(Room_No,Priority,A_Series,B_Series)Values(" + "@RoomNo,@Priority,@A_series,@B_series)");
+                    message = string.Format("{0} is created", RoomNo_textbox.Text);
+                }
+                else
+                {
+                    query = string.Format("Update Rooms set Priority=@Priority,A_Series=@A_series,B_Series=@B_series where Room_No=@RoomNo");
+                    message = string.Format("{0} is updated", RoomNo_textbox.Text);
+                }
+                if (int.TryParse(A_series_textbox.Text, out int a) && int.TryParse(B_series_textbox.Text, out int b))
+                {
+                    SQLiteCommand comm = new SQLiteCommand(query, con.ActiveCon());
+                    comm.Parameters.AddWithValue("@RoomNo", RoomNo_textbox.Text);
+                    comm.Parameters.AddWithValue("@Priority", Priority_combobox.SelectedItem);
+                    comm.Parameters.AddWithValue("@A_series", a);
+                    comm.Parameters.AddWithValue("@B_series", b);
+                    comm.ExecuteNonQuery();
+                    Cleardata();
+                    msgbox.Show(message, "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                }
+                else
+                    msgbox.Show("A & B Series must be Numbers     ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                con.CloseCon();
+            }
+        }
         private void Save_button_Click(object sender, EventArgs e)
         {            
                 if (Priority_combobox.SelectedIndex != 0)
@@ -145,32 +178,24 @@ namespace Exam_Cell
                             if (RoomNo_textbox.Text.Equals(dr.Cells["Room_No"].Value.ToString(), StringComparison.OrdinalIgnoreCase))
                             {
                                 flag = 1;
+                                break;
                             }
 
                         }
                         if (flag == 1)
-                        {
-                            SqlUpdateCommand();
-                        }
+                            Sql_Query("Update");
                         else
-                        {
-                            SqlInsertCommand();
-                        }
+                            Sql_Query("Insert");
                     }
                     else if (RoomNo_textbox.Text != "")
-                    {
-                        SqlInsertCommand();
-                    }
+                        Sql_Query("Insert");
                     else
-                    {
                         msgbox.Show("Enter Room     ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
-                    }
                 }
                 else
-                {
                     msgbox.Show("Select Priority    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
-                }            
         }
+
         private void DeleteRoom_btn_Click(object sender, EventArgs e)
         {
             msgbox.Show("Do you really want to delete selected Rooms ?   ", "Confirm Deletion", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Warning);
@@ -211,66 +236,6 @@ namespace Exam_Cell
             }                
         }
 
-        void SqlInsertCommand()
-        {
-            try
-            {
-            if (int.TryParse(A_series_textbox.Text, out int a) && int.TryParse(B_series_textbox.Text, out int b))
-            {
-                SQLiteCommand comm = new SQLiteCommand("Insert into Rooms(Room_No,Priority,A_Series,B_Series)Values(" + "@RoomNo,@Priority,@A_series,@B_series)", con.ActiveCon());
-                comm.Parameters.AddWithValue("@RoomNo", RoomNo_textbox.Text);
-                comm.Parameters.AddWithValue("@Priority", Priority_combobox.SelectedItem);
-                comm.Parameters.AddWithValue("@A_series", a);
-                comm.Parameters.AddWithValue("@B_series", b);
-                comm.ExecuteNonQuery();
-                Cleardata();
-                msgbox.Show(RoomNo_textbox.Text+" is created    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
-            }
-            else
-            {
-                msgbox.Show("A & B Series must be Numbers     ","Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error); 
-            }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            finally
-            {
-                con.CloseCon();
-            }
-        }
-
-        void SqlUpdateCommand()
-        {
-            try
-            {
-            if (int.TryParse(A_series_textbox.Text, out int a) && int.TryParse(B_series_textbox.Text, out int b))
-            {
-                SQLiteCommand comm = new SQLiteCommand("Update Rooms set Priority=@Priority,A_Series=@A_series,B_Series=@B_series where Room_No=@RoomNo", con.ActiveCon());
-                comm.Parameters.AddWithValue("@RoomNo", RoomNo_textbox.Text);
-                comm.Parameters.AddWithValue("@Priority", Priority_combobox.SelectedItem);
-                comm.Parameters.AddWithValue("@A_series", a);
-                comm.Parameters.AddWithValue("@B_series", b);
-                comm.ExecuteNonQuery();
-                Cleardata();
-                msgbox.Show(RoomNo_textbox.Text + " Updated     ", "Update Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
-            }
-            else
-            {
-                msgbox.Show("A & B Series must be Numbers    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
-            }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            finally
-            {
-                con.CloseCon();
-            }
-        }
-
         void Cleardata()
         {
             RoomNo_textbox.ResetText();
@@ -282,12 +247,10 @@ namespace Exam_Cell
             BranchdgvFill();
         }
         void Fill_checked_capacity()
-        {
-            
+        {            
             int a, b, result_a = 0, result_b = 0, f = 0,count=0; 
             foreach (DataGridViewRow dr in Rooms_dgv.Rows)
-            {
-                
+            {                
                 bool chckselected = Convert.ToBoolean(dr.Cells["CheckboxColumn"].Value);
                 if(chckselected)
                 {
@@ -385,7 +348,7 @@ namespace Exam_Cell
             }            
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void Timer1_Tick(object sender, EventArgs e)
         {
             timer1.Stop();
             RoomsdgvFill();
@@ -394,7 +357,7 @@ namespace Exam_Cell
             Priority_combobox.SelectedIndex = 0;
         }
         
-        private void closeBtn_Click(object sender, EventArgs e)
+        private void CloseBtn_Click(object sender, EventArgs e)
         {
             MenuForm menuForm = (MenuForm)Application.OpenForms["MenuForm"];
             if (menuForm.Temp_btn == menuForm.menu_item_room)
@@ -560,9 +523,7 @@ namespace Exam_Cell
                     BranchPriorityDgv.FirstDisplayedScrollingRowIndex += 1;
             }
             catch(Exception)
-            {
-                
-            }
+            {}
         }
         private void BranchPriorityDgv_DragDrop(object sender, DragEventArgs e)
         {

@@ -89,7 +89,7 @@ namespace Exam_Cell.Forms
         Student_Management student_Management ;
         Registered_Students_Management registered_Students_Management ;
         Postponement postponement ;
-        examhall room ;
+        Examhall room ;
         Database_Management classbranch_management ;
         formti candidate_entry ;
         Absent_Statement absent_Statement ;
@@ -178,7 +178,7 @@ namespace Exam_Cell.Forms
         {
             if (!room_open)
             {
-                room = new examhall
+                room = new Examhall
                 {
                     TopLevel = false,
                     Dock = DockStyle.Fill
