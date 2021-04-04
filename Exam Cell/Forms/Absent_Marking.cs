@@ -1,16 +1,11 @@
 ﻿using Exam_Cell.Forms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SQLite;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
- 
+
 
 namespace Exam_Cell
 {
@@ -72,7 +67,6 @@ namespace Exam_Cell
             {
                 con.CloseCon();
             }
-
         }
         
         void RoomNoComboboxFill()
@@ -106,9 +100,11 @@ namespace Exam_Cell
         {
             try
             {
-            if(Series_radio.Checked)
-            {
-                SQLiteCommand command = new SQLiteCommand("select Seat,Reg_no,Name,Class,Course,Exam_Code from Series_Alloted Where Date=@Date and Session=@Session and Room_No=@Room_No order by Seat", con.ActiveCon());
+                string query = "";
+                if (Series_radio.Checked) query = "select Seat,Reg_no,Name,Class,Course,Exam_Code from Series_Alloted Where Date=@Date and Session=@Session and Room_No=@Room_No order by Seat";
+                else query = "select Seat,Reg_no,Name,Branch,Exam_Code,Course from University_Alloted Where Date=@Date and Session=@Session and Room_No=@Room_No order by Seat";
+                
+                SQLiteCommand command = new SQLiteCommand(query, con.ActiveCon());
                 command.Parameters.AddWithValue("@Date", Date_combobox.Text);
                 command.Parameters.AddWithValue("@Session", Session_combobox.Text);
                 command.Parameters.AddWithValue("@Room_No", Room_combobox.Text);
@@ -117,29 +113,9 @@ namespace Exam_Cell
                 adapter.Fill(table);                
                 table.Columns.Add("Status", typeof(string)).SetOrdinal(3);
                 foreach (DataRow drow in table.Rows)
-                {
                     drow["Status"] = "Present";
-                }
                 Dgv.DataSource = null;
                 Dgv.DataSource = table;
-            }
-            else if(Unv_radio.Checked)
-            {
-                SQLiteCommand comm = new SQLiteCommand("select Seat,Reg_no,Name,Branch,Exam_Code,Course from University_Alloted Where Date=@Date and Session=@Session and Room_No=@Room_No order by Seat", con.ActiveCon());
-                comm.Parameters.AddWithValue("@Date", Date_combobox.Text);
-                comm.Parameters.AddWithValue("@Session", Session_combobox.Text);
-                comm.Parameters.AddWithValue("@Room_No", Room_combobox.Text);
-                SQLiteDataAdapter adapter = new SQLiteDataAdapter(comm);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-                table.Columns.Add("Status", typeof(string)).SetOrdinal(3);
-                foreach(DataRow drow in table.Rows)
-                {
-                    drow["Status"] = "Present";
-                }                
-                Dgv.DataSource = null;
-                Dgv.DataSource = table;
-            }
             }
             catch (Exception ex)
             {
@@ -231,16 +207,7 @@ namespace Exam_Cell
             }
         }
 
-        //private void Statement_form_btn_Click(object sender, EventArgs e)
-        //{
-        //    Absent_Statement ss = new Absent_Statement();
-        //    ss.MdiParent = this;
-        //    Panel.Controls.Add(ss);
-        //    this.WindowState = FormWindowState.Maximized;
-        //    ss.Show();            
-        //}
-
-        // we need clear data so in absentStatement old dates and records wont show
+        // we need clear data, so in absentStatement old dates and records wont show
         private void ClearData_btn_Click(object sender, EventArgs e)
         {
             msgbox.Show("Delete all previously Marked Records ?     ", "Confirm", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Warning);
@@ -262,10 +229,9 @@ namespace Exam_Cell
             {
                 con.CloseCon();
             }
-
         }
 
-        private void closeBtn_Click(object sender, EventArgs e)
+        private void CloseBtn_Click(object sender, EventArgs e)
         {
             MenuForm menuForm = (MenuForm)Application.OpenForms["MenuForm"];
             if (menuForm.Temp_btn == menuForm.menu_dropitem_marking)
