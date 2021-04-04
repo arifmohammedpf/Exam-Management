@@ -1,14 +1,9 @@
 ﻿using Exam_Cell.Forms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SQLite;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Exam_Cell
@@ -60,33 +55,27 @@ namespace Exam_Cell
                     SQLiteCommand command = new SQLiteCommand("Delete from Registered_candidates", con.ActiveCon());
                     command.ExecuteNonQuery();
                     University_fill();
-                    Clear_function();
-                    msgbox.show("All Registered Candidates Deleted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 }
                 else if (Series_radiobtn.Checked)
                 {
                     SQLiteCommand command = new SQLiteCommand("Delete from Series_candidates", con.ActiveCon());
                     command.ExecuteNonQuery();
                     Series_fill();
-                    Clear_function();
-                    msgbox.show("All Registered Candidates Deleted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 }
                 else if (AllotUniversty_radiobtn.Checked)
                 {
                     SQLiteCommand command = new SQLiteCommand("Delete from University_Alloted", con.ActiveCon());
                     command.ExecuteNonQuery();
                     UniversityAlloted_fill();
-                    Clear_function();
-                    msgbox.show("All Alloted Candidates Deleted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 }
                 else if (AllotSeries_radiobtn.Checked)
                 {
                     SQLiteCommand command = new SQLiteCommand("Delete from Series_Alloted", con.ActiveCon());
                     command.ExecuteNonQuery();
                     SeriesAlloted_fill();
-                    Clear_function();
-                    msgbox.show("All Alloted Candidates Deleted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 }
+                    Clear_function();
+                    msgbox.show("All Candidates Deleted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
             }
             }
             catch (Exception ex)
@@ -97,7 +86,6 @@ namespace Exam_Cell
             {
                 con.CloseCon();
             }
-
         }
 
         //void AddHeaderchckbox()
@@ -273,16 +261,10 @@ namespace Exam_Cell
                         }
                     }
                         if (f == 1)
-                        {
-                            msgbox.show("Selected Candidates Deleted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
-                            University_fill();
-                            Clear_function();
-                        }
+                            University_fill();                        
                         else
-                        {
-                            msgbox.show("No Candidates Selected     ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
-                        }
-                    }
+                            msgbox.show("No Candidates Selected     ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);                        
+                }
                 else if (Series_radiobtn.Checked)
                 {
                     foreach (DataGridViewRow dr in Registered_dgv.Rows)
@@ -297,15 +279,9 @@ namespace Exam_Cell
                         }
                     }
                         if (f == 1)
-                        {
-                            msgbox.show("Selected Candidates Deleted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                             Series_fill();
-                            Clear_function();
-                        }
                         else
-                        {
-                            msgbox.show("No Candidates Selected     ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
-                        }
+                            msgbox.show("No Candidates Selected     ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);                        
                     }
                 else if (AllotSeries_radiobtn.Checked)
                 {
@@ -321,16 +297,10 @@ namespace Exam_Cell
                         }
                     }
                         if (f == 1)
-                        {
-                            msgbox.show("Selected Alloted Candidates Deleted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                             SeriesAlloted_fill();
-                            Clear_function();
-                        }
                         else
-                        {
                             msgbox.show("No Candidates Selected     ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
-                        }
-                    }
+                }
                 else if (AllotUniversty_radiobtn.Checked)
                 {
                     foreach (DataGridViewRow dr in Registered_dgv.Rows)
@@ -345,17 +315,13 @@ namespace Exam_Cell
                         }
                     }
                         if (f == 1)
-                        {
-                            msgbox.show("Selected Alloted Candidates Deleted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                             UniversityAlloted_fill();
-                            Clear_function();
-                        }
                         else
-                        {
                             msgbox.show("No Candidates Selected    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
-                        }
-                    }
-            }
+                }
+                    Clear_function();
+                    msgbox.show("Selected Candidates Deleted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                }
             }
             catch (Exception ex)
             {
@@ -550,7 +516,7 @@ namespace Exam_Cell
             Delete_btn.Enabled = true;
         }        
 
-        private void closeBtn_Click(object sender, EventArgs e)
+        private void CloseBtn_Click(object sender, EventArgs e)
         {
             MenuForm menuForm = (MenuForm)Application.OpenForms["MenuForm"];
             if (menuForm.Temp_btn == menuForm.menu_item_regstudmgmnt)
