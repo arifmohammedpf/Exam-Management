@@ -40,19 +40,7 @@ namespace Exam_Cell
             Student_dgv.Columns.Insert(0, checkbox2);
 
             //AddHeaderchckbox(); //header checkbox added to student dgv
-            //headerchkbox.MouseClick += new MouseEventHandler(Headerchckbox_Mouseclick);
-
-
-            //AssignClass_fill();
-            //StudentBranchComboboxFill();
-            //ClassBranchComboboxFill();
-            //YearOfAdmissionFill();
-            //ClassDgvView_checkbox.Checked = false;
-            //Student_dgvFill();
-
-
-            //ClearAllStudent_Management();
-
+            //headerchkbox.MouseClick += new MouseEventHandler(Headerchckbox_Mouseclick);           
         }
 
         //function definition
@@ -117,6 +105,16 @@ namespace Exam_Cell
                 con.CloseCon();
             }
         }
+
+        void Class_Assign_students(DataGridViewRow dr)
+        {
+            SQLiteCommand command = new SQLiteCommand("insert into Class(Reg_No,Name,Class,Branch)Values(" + "@Reg_No,@Name,@Class,@Branch )", con.ActiveCon());
+            command.Parameters.AddWithValue("@Reg_No", dr.Cells["Reg_no"].Value.ToString());
+            command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value.ToString());
+            command.Parameters.AddWithValue("@Class", AssignClass_combobox.Text);
+            command.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value.ToString());
+            command.ExecuteNonQuery();
+        }
         private void AssignClass_btn_Click(object sender, EventArgs e)
         {
             try
@@ -127,14 +125,8 @@ namespace Exam_Cell
                     {
                         foreach (DataGridViewRow dr in Student_dgv.Rows)
                         {
-                            SQLiteCommand command = new SQLiteCommand("insert into Class(Reg_No,Name,Class,Branch)Values(" + "@Reg_No,@Name,@Class,@Branch )", con.ActiveCon());
-                            command.Parameters.AddWithValue("@Reg_No", dr.Cells["Reg_no"].Value.ToString());
-                            command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value.ToString());
-                            command.Parameters.AddWithValue("@Class", AssignClass_combobox.Text);
-                            command.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value.ToString());
-                            command.ExecuteNonQuery();
+                            Class_Assign_students(dr);
                         }
-
                         con.CloseCon();
                         AssignClass_combobox.SelectedIndex = 0;
                         Student_dgvFill();
@@ -150,12 +142,7 @@ namespace Exam_Cell
                             if (checkselected)
                             {
                                 f = 1;
-                                SQLiteCommand command = new SQLiteCommand("insert into Class(Reg_No,Name,Class,Branch)Values(" + "@Reg_No,@Name,@Class,@Branch )", con.ActiveCon());
-                                command.Parameters.AddWithValue("@Reg_No", dr.Cells["Reg_no"].Value.ToString());
-                                command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value.ToString());
-                                command.Parameters.AddWithValue("@Class", AssignClass_combobox.Text);
-                                command.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value.ToString());
-                                command.ExecuteNonQuery();
+                                Class_Assign_students(dr);
                             }
                         }
                         if (f == 1)
@@ -310,6 +297,27 @@ namespace Exam_Cell
             }
         }
 
+        void Delete_Class_Students(DataGridViewRow dr)
+        {
+            SQLiteCommand command = new SQLiteCommand("Delete from Class Where Class=@Class and Name=@Name and Reg_No=@Reg_No", con.ActiveCon());
+            command.Parameters.AddWithValue("@Class", dr.Cells["Class"].Value);
+            command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value);
+            command.Parameters.AddWithValue("@Reg_No", dr.Cells["Reg_No"].Value);
+            command.ExecuteNonQuery();
+        }
+        void Delete_Student_record(DataGridViewRow dr)
+        {
+            SQLiteCommand command = new SQLiteCommand("delete from Students where Reg_no=@Reg_no and Name=@Name and Year_Of_Admission=@Year_Of_Admission and Branch=@Branch", con.ActiveCon());
+            command.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value.ToString());
+            command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value.ToString());
+            command.Parameters.AddWithValue("@Year_Of_Admission", dr.Cells["Year_Of_Admission"].Value.ToString());
+            command.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value.ToString());
+            command.ExecuteNonQuery();
+            //will also delete from Class
+            SQLiteCommand command2 = new SQLiteCommand("Delete Class where Reg_No=@Reg_no", con.ActiveCon());
+            command2.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
+            command2.ExecuteNonQuery();
+        }
         private void Delete_btn_Click(object sender, EventArgs e)
         {
             msgbox.show("Do you really want to Delete ?     ", "Confirm Deletion", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
@@ -326,11 +334,7 @@ namespace Exam_Cell
                             {
                                 foreach (DataGridViewRow dr in Student_dgv.Rows)
                                 {
-                                    SQLiteCommand command = new SQLiteCommand("Delete from Class Where Class=@Class and Name=@Name and Reg_No=@Reg_No", con.ActiveCon());
-                                    command.Parameters.AddWithValue("@Class", dr.Cells["Class"].Value);
-                                    command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value);
-                                    command.Parameters.AddWithValue("@Reg_No", dr.Cells["Reg_No"].Value);
-                                    command.ExecuteNonQuery();
+                                    Delete_Class_Students(dr);
                                 }
                                 con.CloseCon();
                                 ClearAllStudent_Management();
@@ -347,11 +351,7 @@ namespace Exam_Cell
                                     if (Selected)
                                     {
                                         f = 1;
-                                        SQLiteCommand command = new SQLiteCommand("Delete from Class Where Class=@Class and Name=@Name and Reg_No=@Reg_No", con.ActiveCon());
-                                        command.Parameters.AddWithValue("@Class", dr.Cells["Class"].Value);
-                                        command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value);
-                                        command.Parameters.AddWithValue("@Reg_No", dr.Cells["Reg_No"].Value);
-                                        command.ExecuteNonQuery();
+                                        Delete_Class_Students(dr);
                                     }
                                 }
                                 if (f == 1)
@@ -373,16 +373,7 @@ namespace Exam_Cell
                             {
                                 foreach (DataGridViewRow dr in Student_dgv.Rows)
                                 {
-                                    SQLiteCommand command = new SQLiteCommand("delete from Students where Reg_no=@Reg_no and Name=@Name and Year_Of_Admission=@Year_Of_Admission and Branch=@Branch", con.ActiveCon());
-                                    command.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value.ToString());
-                                    command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value.ToString());
-                                    command.Parameters.AddWithValue("@Year_Of_Admission", dr.Cells["Year_Of_Admission"].Value.ToString());
-                                    command.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value.ToString());
-                                    command.ExecuteNonQuery();
-                                    //will also delete from Class
-                                    SQLiteCommand command2 = new SQLiteCommand("Delete Class where Reg_No=@Reg_no", con.ActiveCon());
-                                    command2.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
-                                    command2.ExecuteNonQuery();
+                                    Delete_Student_record(dr);
                                 }
                                 con.CloseCon();
                                 Student_dgvFill();
@@ -398,16 +389,7 @@ namespace Exam_Cell
                                     if (Selected)
                                     {
                                         f = 1;
-                                        SQLiteCommand command = new SQLiteCommand("delete from Students where Reg_no=@Reg_no and Name=@Name and Year_Of_Admission=@Year_Of_Admission and Branch=@Branch", con.ActiveCon());
-                                        command.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value.ToString());
-                                        command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value.ToString());
-                                        command.Parameters.AddWithValue("@Year_Of_Admission", dr.Cells["Year_Of_Admission"].Value.ToString());
-                                        command.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value.ToString());
-                                        command.ExecuteNonQuery();
-                                        //will also delete from Class
-                                        SQLiteCommand command2 = new SQLiteCommand("Delete Class where Reg_No=@Reg_no", con.ActiveCon());
-                                        command2.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
-                                        command2.ExecuteNonQuery();
+                                        Delete_Student_record(dr);
                                     }
                                 }
                                 if (f == 1)
@@ -745,31 +727,21 @@ namespace Exam_Cell
         {
             try
             {
-                //int f = 0;
                 foreach (DataGridViewRow dr in Student_dgv.Rows)
                 {
-                    //bool checkselected = Convert.ToBoolean(dr.Cells["CheckboxColumn2"].Value);
-                    //if (checkselected)
-                    //{
-                    //f = 1;
                     SQLiteCommand command = new SQLiteCommand("insert into Students(Reg_no,Name,Year_Of_Admission,Branch)Values(" + "@Reg_no,@Name,@Year_Of_Admission,@Branch)", con.ActiveCon());
                     command.Parameters.AddWithValue("@Reg_no", dr.Cells["Reg_no"].Value);
                     command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value);
                     command.Parameters.AddWithValue("@Year_Of_Admission", dr.Cells["Year_Of_Admission"].Value);
                     command.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value);
                     command.ExecuteNonQuery();
-                    //}
                 }
-                //if (f == 1)
-                //{
                 con.CloseCon();
                 YearOfAdmissionFill();
                 ClearAllStudent_Management();
                 AddFromExcel_Btn.Enabled = false;
                 Student_dgvFill();
                 msgbox.show("Add From Excel Completed   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
-                //}
-                //else msgbox.show("Select any Students", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
@@ -778,7 +750,7 @@ namespace Exam_Cell
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void Timer1_Tick(object sender, EventArgs e)
         {
             timer1.Stop();
             AssignClass_fill();
@@ -791,7 +763,7 @@ namespace Exam_Cell
         }
 
         string timerFlag;
-        private void timerTool_Tick(object sender, EventArgs e)
+        private void TimerTool_Tick(object sender, EventArgs e)
         {
             timerTool.Stop();
             if (timerFlag == "AddExcelBtnClick")
@@ -809,7 +781,7 @@ namespace Exam_Cell
             progressPanel.Hide();
         }
 
-        private void closeBtn_Click(object sender, EventArgs e)
+        private void CloseBtn_Click(object sender, EventArgs e)
         {
             MenuForm menuForm = (MenuForm)Application.OpenForms["MenuForm"];
             if (menuForm.Temp_btn == menuForm.menu_dropitem_student)
@@ -819,7 +791,7 @@ namespace Exam_Cell
             this.Close();
         }
 
-        private void update_btn_Click(object sender, EventArgs e)
+        private void Update_btn_Click(object sender, EventArgs e)
         {
             msgbox.show("Make sure Student Name, Y.O.A, Branch is not empty.   \n Continue ?   ", "Confirm Update", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Warning);
             var result = msgbox.ReturnValue;

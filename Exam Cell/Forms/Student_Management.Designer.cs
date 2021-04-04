@@ -118,7 +118,7 @@
             this.closeBtn.TabIndex = 44;
             this.closeBtn.Text = "X";
             this.closeBtn.UseVisualStyleBackColor = false;
-            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
+            this.closeBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
             // progressPanel
             // 
@@ -567,7 +567,7 @@
             this.update_btn.TabIndex = 0;
             this.update_btn.Text = "Update";
             this.update_btn.UseVisualStyleBackColor = false;
-            this.update_btn.Click += new System.EventHandler(this.update_btn_Click);
+            this.update_btn.Click += new System.EventHandler(this.Update_btn_Click);
             // 
             // AddStudent_btn
             // 
@@ -639,12 +639,12 @@
             // 
             this.timer1.Enabled = true;
             this.timer1.Interval = 40;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
             // timerTool
             // 
             this.timerTool.Interval = 10;
-            this.timerTool.Tick += new System.EventHandler(this.timerTool_Tick);
+            this.timerTool.Tick += new System.EventHandler(this.TimerTool_Tick);
             // 
             // Student_Management
             // 
