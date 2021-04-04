@@ -94,7 +94,7 @@
             this.btnYes.TabIndex = 1;
             this.btnYes.Text = "YES";
             this.btnYes.UseVisualStyleBackColor = false;
-            this.btnYes.Click += new System.EventHandler(this.btnYes_Click);
+            this.btnYes.Click += new System.EventHandler(this.BtnYes_Click);
             // 
             // btnNo
             // 
@@ -111,7 +111,7 @@
             this.btnNo.TabIndex = 1;
             this.btnNo.Text = "NO";
             this.btnNo.UseVisualStyleBackColor = false;
-            this.btnNo.Click += new System.EventHandler(this.btnNo_Click);
+            this.btnNo.Click += new System.EventHandler(this.BtnNo_Click);
             // 
             // btnOk
             // 
@@ -128,7 +128,7 @@
             this.btnOk.TabIndex = 2;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = false;
-            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            this.btnOk.Click += new System.EventHandler(this.BtnOk_Click);
             // 
             // labelTitle
             // 

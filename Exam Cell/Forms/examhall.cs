@@ -163,17 +163,17 @@ namespace Exam_Cell
                     }
                     else
                     {
-                        msgbox.show("Enter Room     ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                        msgbox.Show("Enter Room     ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    msgbox.show("Select Priority    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                    msgbox.Show("Select Priority    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                 }            
         }
         private void DeleteRoom_btn_Click(object sender, EventArgs e)
         {
-            msgbox.show("Do you really want to delete selected Rooms ?   ", "Confirm Deletion", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Warning);
+            msgbox.Show("Do you really want to delete selected Rooms ?   ", "Confirm Deletion", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Warning);
             var result = msgbox.ReturnValue;
             if (result == "Yes")
             {
@@ -193,11 +193,11 @@ namespace Exam_Cell
                         }
                     }
                     if (f == 0)
-                        msgbox.show("No Room selected to delete   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                        msgbox.Show("No Room selected to delete   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                     else
                     {
                         Cleardata();
-                        msgbox.show("Selected Rooms deleted   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                        msgbox.Show("Selected Rooms deleted   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     }
                 }
                 catch (Exception ex)
@@ -224,11 +224,11 @@ namespace Exam_Cell
                 comm.Parameters.AddWithValue("@B_series", b);
                 comm.ExecuteNonQuery();
                 Cleardata();
-                msgbox.show(RoomNo_textbox.Text+" is created    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                msgbox.Show(RoomNo_textbox.Text+" is created    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
             }
             else
             {
-                msgbox.show("A & B Series must be Numbers     ","Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error); 
+                msgbox.Show("A & B Series must be Numbers     ","Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error); 
             }
             }
             catch (Exception ex)
@@ -254,11 +254,11 @@ namespace Exam_Cell
                 comm.Parameters.AddWithValue("@B_series", b);
                 comm.ExecuteNonQuery();
                 Cleardata();
-                msgbox.show(RoomNo_textbox.Text + " Updated     ", "Update Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                msgbox.Show(RoomNo_textbox.Text + " Updated     ", "Update Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
             }
             else
             {
-                msgbox.show("A & B Series must be Numbers    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                msgbox.Show("A & B Series must be Numbers    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
             }
             catch (Exception ex)
@@ -337,7 +337,7 @@ namespace Exam_Cell
                     comm.ExecuteNonQuery();
                 }
                 Cleardata();
-                msgbox.show("Room Priority Updated   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                msgbox.Show("Room Priority Updated   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -360,7 +360,7 @@ namespace Exam_Cell
                     comm.ExecuteNonQuery();
                 }
                 Cleardata();
-                msgbox.show("Branch Priority Updated   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                msgbox.Show("Branch Priority Updated   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {

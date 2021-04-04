@@ -75,7 +75,7 @@ namespace Exam_Cell.Forms
 
         private void Menu_item_exit_Click(object sender, EventArgs e)
         {
-            msgbox.show("Do you really want to Exit Application ?     ", "Confirm Exit", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
+            msgbox.Show("Do you really want to Exit Application ?     ", "Confirm Exit", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
             var result = msgbox.ReturnValue;
             if (result == "Yes")
             {

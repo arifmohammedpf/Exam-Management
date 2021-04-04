@@ -471,7 +471,7 @@ namespace Exam_Cell
                 //subjectdetailsfilter();
                 if(Scheme_combobox.SelectedIndex == 0 && (Branch_combobox.SelectedIndex !=0 || Semester_combobox.SelectedIndex !=0))
                 {
-                    msgbox.show("Select Scheme   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                    msgbox.Show("Select Scheme   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -490,7 +490,7 @@ namespace Exam_Cell
                 //subjectdetailsfilter();
                 if(Scheme_combobox.SelectedIndex == 0)
                 {
-                    msgbox.show("Select Scheme   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                    msgbox.Show("Select Scheme   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -508,7 +508,7 @@ namespace Exam_Cell
                 //subjectdetailsfilter();
                 if (Scheme_combobox.SelectedIndex == 0)
                 {
-                    msgbox.show("Select Scheme   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                    msgbox.Show("Select Scheme   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -587,7 +587,7 @@ namespace Exam_Cell
             }
             else
             {
-                msgbox.show("Select Scheme   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                msgbox.Show("Select Scheme   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
         }
         
@@ -601,7 +601,7 @@ namespace Exam_Cell
             if (messflag == 0)
             {
                 messflag = 1;
-                msgbox.show("ExcelSheet Header Naming Must Be as follows (order can be any) :    \n Register No ,Student Name, Semester, Branch, Course", "Warning", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Warning);
+                msgbox.Show("ExcelSheet Header Naming Must Be as follows (order can be any) :    \n Register No ,Student Name, Semester, Branch, Course", "Warning", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Warning);
             }
             using (OpenFileDialog openFile = new OpenFileDialog() { Filter = "Excel Files|*.xls|*xlsx|*.xlsm" }) //check if | is needed last?
             {
@@ -737,11 +737,11 @@ namespace Exam_Cell
                             }
                             if (f == 1)
                             {
-                                msgbox.show("Register Done   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                                msgbox.Show("Register Done   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                                 SelectAllCheckbox.Checked = false;
                             }
                             else
-                                msgbox.show("Select Course to Register   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                                msgbox.Show("Select Course to Register   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                         }
                         catch (Exception ex)
                         {
@@ -790,10 +790,10 @@ namespace Exam_Cell
                             if (f == 1)
                             {
 
-                                msgbox.show("Register Done   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                                msgbox.Show("Register Done   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                             }
                             else
-                                msgbox.show("Select Student and Course to Register   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                                msgbox.Show("Select Student and Course to Register   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                         }
                         catch (Exception ex)
                         {
@@ -805,7 +805,7 @@ namespace Exam_Cell
                         }
                     }
                 }
-                else { msgbox.show("Select Class    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error); }
+                else { msgbox.Show("Select Class    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error); }
             }
 
             //For University Exams
@@ -849,10 +849,10 @@ namespace Exam_Cell
                                     YOACombobox.SelectedIndex = 0;
                                 //headerchkbox.Checked = false;
                                 SelectAllCheckbox.Checked = false;
-                                msgbox.show("Register Done   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                                msgbox.Show("Register Done   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                             }
                             else
-                                msgbox.show("Select Course to Register   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                                msgbox.Show("Select Course to Register   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                         }
                         else
                         {
@@ -890,10 +890,10 @@ namespace Exam_Cell
                             {
                                 UnvBranchCombobox.SelectedIndex = 0;
                                 YOACombobox.SelectedIndex = 0;                                
-                                msgbox.show("Register Done   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                                msgbox.Show("Register Done   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                             }
                             else
-                                msgbox.show("Select Student and Course to Register   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                                msgbox.Show("Select Student and Course to Register   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                         }
                     }
                     else
@@ -916,7 +916,7 @@ namespace Exam_Cell
                         }
                             SelectAllCheckbox.Checked = false;
                             RegRegCnd_btn.Enabled = false;
-                            msgbox.show("Register Done from Excel Data   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                            msgbox.Show("Register Done from Excel Data   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                     }
                 }
                 catch (Exception ex)
@@ -930,7 +930,7 @@ namespace Exam_Cell
             }
             else
             {
-                msgbox.show("Necessary details are not given    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                msgbox.Show("Necessary details are not given    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
             progressPanel.Hide();
         }
@@ -1076,13 +1076,13 @@ namespace Exam_Cell
                     }
                 }
                 if (f == 1)
-                    msgbox.show("Register Done   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                    msgbox.Show("Register Done   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 else
-                    msgbox.show("Select Course To Register   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                    msgbox.Show("Select Course To Register   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
             else
             {
-                msgbox.show("Enter Reg_No and Name   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                msgbox.Show("Enter Reg_No and Name   ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
         }
 

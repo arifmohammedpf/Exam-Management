@@ -58,7 +58,7 @@ namespace Exam_Cell.Forms
                 con.CloseCon();
                 if (Checkcount == 0)
                 {
-                    msgbox.show("Allot Students First    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                    msgbox.Show("Allot Students First    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                     return;
                 }
                 else
@@ -220,7 +220,7 @@ namespace Exam_Cell.Forms
                         package.SaveAs(stream);
                         stream.Close();
                     }
-                    msgbox.show("Excel files created    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                    msgbox.Show("Excel files created    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -244,7 +244,7 @@ namespace Exam_Cell.Forms
                 con.CloseCon();
                 if (Checkcount == 0)
                 {
-                    msgbox.show("Allot Students First    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                    msgbox.Show("Allot Students First    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                     return;
                 }
                 else
@@ -424,7 +424,7 @@ namespace Exam_Cell.Forms
                         package.SaveAs(stream);
                         stream.Close();
                     }
-                    msgbox.show("Excel files created    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                    msgbox.Show("Excel files created    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)

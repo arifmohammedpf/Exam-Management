@@ -44,7 +44,7 @@ namespace Exam_Cell
 
         private void DeleteAll_btn_Click(object sender, EventArgs e)
         {
-            msgbox.show("You are going to Delete every Students in the list.    \n Are You Sure ?   ", "Warning", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
+            msgbox.Show("You are going to Delete every Students in the list.    \n Are You Sure ?   ", "Warning", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
             var result = msgbox.ReturnValue;
             try
             {
@@ -75,7 +75,7 @@ namespace Exam_Cell
                     SeriesAlloted_fill();
                 }
                     Clear_function();
-                    msgbox.show("All Candidates Deleted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                    msgbox.Show("All Candidates Deleted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
             }
             }
             catch (Exception ex)
@@ -240,7 +240,7 @@ namespace Exam_Cell
 
         private void Delete_btn_Click(object sender, EventArgs e)
         {
-            msgbox.show("Do you really want to Delete ?     ", "Confirm", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
+            msgbox.Show("Do you really want to Delete ?     ", "Confirm", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
             var result = msgbox.ReturnValue;
             try
             {
@@ -263,7 +263,7 @@ namespace Exam_Cell
                         if (f == 1)
                             University_fill();                        
                         else
-                            msgbox.show("No Candidates Selected     ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);                        
+                            msgbox.Show("No Candidates Selected     ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);                        
                 }
                 else if (Series_radiobtn.Checked)
                 {
@@ -281,7 +281,7 @@ namespace Exam_Cell
                         if (f == 1)
                             Series_fill();
                         else
-                            msgbox.show("No Candidates Selected     ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);                        
+                            msgbox.Show("No Candidates Selected     ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);                        
                     }
                 else if (AllotSeries_radiobtn.Checked)
                 {
@@ -299,7 +299,7 @@ namespace Exam_Cell
                         if (f == 1)
                             SeriesAlloted_fill();
                         else
-                            msgbox.show("No Candidates Selected     ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                            msgbox.Show("No Candidates Selected     ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                 }
                 else if (AllotUniversty_radiobtn.Checked)
                 {
@@ -317,10 +317,10 @@ namespace Exam_Cell
                         if (f == 1)
                             UniversityAlloted_fill();
                         else
-                            msgbox.show("No Candidates Selected    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                            msgbox.Show("No Candidates Selected    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                 }
                     Clear_function();
-                    msgbox.show("Selected Candidates Deleted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                    msgbox.Show("Selected Candidates Deleted    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)

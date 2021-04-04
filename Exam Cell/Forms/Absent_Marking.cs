@@ -200,7 +200,7 @@ namespace Exam_Cell
                             comm.Parameters.AddWithValue("@Room_No", Room_combobox.Text);
                             comm.ExecuteNonQuery();
                     }
-                    msgbox.show("Insert Complete    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                    msgbox.Show("Insert Complete    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -215,11 +215,11 @@ namespace Exam_Cell
                         comm.Parameters.AddWithValue("@Room_No", Room_combobox.Text);
                         comm.ExecuteNonQuery();
                     }
-                    msgbox.show("Update Complete    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                    msgbox.Show("Update Complete    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
                 }
             }
             else
-                msgbox.show("Nothing to Save    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                msgbox.Show("Nothing to Save    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
@@ -243,7 +243,7 @@ namespace Exam_Cell
         // we need clear data so in absentStatement old dates and records wont show
         private void ClearData_btn_Click(object sender, EventArgs e)
         {
-            msgbox.show("Delete all previously Marked Records ?     ", "Confirm", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Warning);
+            msgbox.Show("Delete all previously Marked Records ?     ", "Confirm", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Warning);
             var result = msgbox.ReturnValue;
             try
             {
@@ -251,7 +251,7 @@ namespace Exam_Cell
             {
                 SQLiteCommand command = new SQLiteCommand("Delete Absentees", con.ActiveCon());
                 command.ExecuteNonQuery();
-                msgbox.show("Data Cleared    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
+                msgbox.Show("Data Cleared    ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);
             }
             }
             catch (Exception ex)

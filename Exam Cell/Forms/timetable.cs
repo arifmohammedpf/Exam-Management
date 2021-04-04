@@ -212,14 +212,14 @@ namespace Exam_Cell
                         CourseFill();
                         TimetableFill();
                     }
-                    else msgbox.show("No Course Selected    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                    else msgbox.Show("No Course Selected    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                 }
-                else msgbox.show("Select Session    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                else msgbox.Show("Select Session    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
 
             }
             catch (Exception ex)
             {
-                msgbox.show(ex.ToString(), "Exception Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                msgbox.Show(ex.ToString(), "Exception Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                 CourseFill();
                 TimetableFill();
             }
@@ -400,7 +400,7 @@ namespace Exam_Cell
             }
             else if(Undo_backup.Session.Count!=0)
             {
-                msgbox.show("Do you want to Undo last operation ?   ", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
+                msgbox.Show("Do you want to Undo last operation ?   ", "Alert", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
                 var result = msgbox.ReturnValue;
                 if (result=="Yes")
                 {
@@ -429,7 +429,7 @@ namespace Exam_Cell
                     Clear_list();
                     CourseFill();
                     TimetableFill();
-                    msgbox.show("Last Operation have been Undone   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);                    
+                    msgbox.Show("Last Operation have been Undone   ", "Success", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Information);                    
                 }                
             }
         }
@@ -481,7 +481,7 @@ namespace Exam_Cell
         }
         private void Delete_btn_Click(object sender, EventArgs e)
         {
-            msgbox.show("Do you really want to Delete ?     ", "Confirm", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
+            msgbox.Show("Do you really want to Delete ?     ", "Confirm", CustomMessageBox.MessageBoxButtons.YesNo, CustomMessageBox.MessageBoxIcon.Question);
             var result = msgbox.ReturnValue;
             try
             {
@@ -502,7 +502,7 @@ namespace Exam_Cell
                         con.CloseCon();
                         TimetableFill();
                     }
-                    else msgbox.show("No Selection made    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
+                    else msgbox.Show("No Selection made    ", "Error", CustomMessageBox.MessageBoxButtons.OK, CustomMessageBox.MessageBoxIcon.Error);
                 }
 
             }

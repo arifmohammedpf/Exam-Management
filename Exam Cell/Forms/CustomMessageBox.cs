@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Exam_Cell.Forms
@@ -16,7 +10,6 @@ namespace Exam_Cell.Forms
         public CustomMessageBox()
         {
             InitializeComponent();
-            
         }
         protected override void OnPaintBackground(PaintEventArgs e)
         {
@@ -44,17 +37,12 @@ namespace Exam_Cell.Forms
             Information = 0, Warning = 1, Error = 2, Question = 3
         };
         public string ReturnValue { get; set; }
-        public void show(string msg, string title, MessageBoxButtons button, MessageBoxIcon icon)
+        public void Show(string msg, string title, MessageBoxButtons button, MessageBoxIcon icon)
         {
-            
             labelMessage.Text = "";
             labelTitle.Text = "";
             labelMessage.Text = msg;
             labelTitle.Text = title;
-            //if(msg.Length < 21)
-            //    Size = new Size(((msg.Length) * 35) + 200, 300);
-            //else
-            //    Size = new Size(((msg.Length)*10)+200, 300);
 
             if (MessageBoxButtons.OK==button)
             {
@@ -89,19 +77,19 @@ namespace Exam_Cell.Forms
             this.ShowDialog();
         }
         
-        private void btnYes_Click(object sender, EventArgs e)
+        private void BtnYes_Click(object sender, EventArgs e)
         {
             ReturnValue = "Yes";
             this.Hide();
         }
 
-        private void btnNo_Click(object sender, EventArgs e)
+        private void BtnNo_Click(object sender, EventArgs e)
         {
             ReturnValue = "No";
             this.Hide();
         }
 
-        private void btnOk_Click(object sender, EventArgs e)
+        private void BtnOk_Click(object sender, EventArgs e)
         {
             ReturnValue = "Ok";
             this.Hide();
