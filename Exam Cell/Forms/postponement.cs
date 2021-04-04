@@ -1,23 +1,18 @@
 ﻿using Exam_Cell.Forms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SQLite;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Exam_Cell
 {
-    public partial class postponement : Form
+    public partial class Postponement : Form
     {
         Connection con = new Connection();
         CustomMessageBox msgbox = new CustomMessageBox();
-        public postponement()
+        public Postponement()
         {
             InitializeComponent();
         }
@@ -27,11 +22,6 @@ namespace Exam_Cell
             {
                 e.Graphics.FillRectangle(brush, this.ClientRectangle);
             }
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
 
         BindingSource source = new BindingSource();
@@ -58,7 +48,7 @@ namespace Exam_Cell
             }
         }
         CheckBox headerchkbox = new CheckBox();
-        private void postponement_Load(object sender, EventArgs e)
+        private void Postponement_Load(object sender, EventArgs e)
         {
             ScheduledExamFill();
             BranchComboboxFill();
@@ -74,7 +64,6 @@ namespace Exam_Cell
             NewDateTimePicker.Value = DateTime.Now;
             DateTimePicker.Enabled = false;
             
-
             DataGridViewCheckBoxColumn chkbox = new DataGridViewCheckBoxColumn();
             chkbox.HeaderText = "";
             chkbox.Width = 30;
@@ -104,7 +93,7 @@ namespace Exam_Cell
             progressPanel.Show();
             timerHeader.Start();
         }
-        private void timerHeader_Tick(object sender, EventArgs e)
+        private void TimerHeader_Tick(object sender, EventArgs e)
         {
             timerHeader.Stop();
             Headerchckboxclick((CheckBox)send);
@@ -178,16 +167,26 @@ namespace Exam_Cell
             if (result == "Yes")
             {
                 if (NewSession_combobox.SelectedItem.ToString() != "-Optional-")
-                {
                     Postpone_with_session();
-                }
                 else
-                {
                     Postpone_without_session();
-                }
             }
         }
 
+        void Postpon_Query(DataGridViewRow dr, string isSession)
+        {
+            string date = NewDateTimePicker.Text, QueryCommand="";
+            if (isSession == "Session")
+                QueryCommand = "Update Timetable set Date=@Date,Session=@Session where Exam_Code=@Examcode and Branch=@Branch";
+            else QueryCommand = "Update Timetable set Date=@Date where Exam_Code=@Examcode and Branch=@Branch";
+
+            SQLiteCommand comm = new SQLiteCommand(QueryCommand, con.ActiveCon());
+            comm.Parameters.AddWithValue("@Date", date);
+            if(isSession == "Session") comm.Parameters.AddWithValue("@Session", NewSession_combobox.SelectedItem);
+            comm.Parameters.AddWithValue("@Examcode", dr.Cells["Exam_Code"].Value);
+            comm.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value);
+            comm.ExecuteNonQuery();
+        }
         void Postpone_with_session()
         {            
             try
@@ -199,14 +198,7 @@ namespace Exam_Cell
                 if (checkboxselected)
                 {
                     flag = 1;
-                    string date = NewDateTimePicker.Text;
-                    SQLiteCommand comm = new SQLiteCommand("Update Timetable set Date=@Date,Session=@Session where Exam_Code=@Examcode and Branch=@Branch", con.ActiveCon());
-                    comm.Parameters.AddWithValue("@Date", date);
-                    comm.Parameters.AddWithValue("@Session", NewSession_combobox.SelectedItem);
-                    comm.Parameters.AddWithValue("@Examcode", dr.Cells["Exam_Code"].Value);
-                    comm.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value);
-                    comm.ExecuteNonQuery();
-
+                    Postpon_Query(dr,"Session");
                 }
             }
             if (flag == 1)
@@ -237,13 +229,7 @@ namespace Exam_Cell
                 if (checkboxselected)
                 {
                     flag = 1;
-                    string date = NewDateTimePicker.Text;
-                    SQLiteCommand comm = new SQLiteCommand("Update Timetable set Date=@Date where Exam_Code=@Examcode and Branch=@Branch", con.ActiveCon());
-                    comm.Parameters.AddWithValue("@Date", date);
-                    comm.Parameters.AddWithValue("@Examcode", dr.Cells["Exam_Code"].Value);
-                    comm.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value);
-                    comm.ExecuteNonQuery();
-
+                    Postpon_Query(dr, "NoSession");
                 }
             }
             if (flag == 1)
@@ -339,7 +325,7 @@ namespace Exam_Cell
             }
         }
 
-        private void closeBtn_Click(object sender, EventArgs e)
+        private void CloseBtn_Click(object sender, EventArgs e)
         {
             MenuForm menuForm = (MenuForm)Application.OpenForms["MenuForm"];
             if (menuForm.Temp_btn == menuForm.menu_item_postponement)

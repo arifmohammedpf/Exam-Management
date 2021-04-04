@@ -88,7 +88,7 @@ namespace Exam_Cell.Forms
         formtimetable timetable ;
         Student_Management student_Management ;
         Registered_Students_Management registered_Students_Management ;
-        postponement postponement ;
+        Postponement postponement ;
         examhall room ;
         Database_Management classbranch_management ;
         formti candidate_entry ;
@@ -238,7 +238,7 @@ namespace Exam_Cell.Forms
         {
             if (!postponment_open)
             {
-                postponement = new postponement
+                postponement = new Postponement
                 {
                     TopLevel = false,
                     Dock = DockStyle.Fill

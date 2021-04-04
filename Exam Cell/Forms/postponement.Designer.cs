@@ -1,6 +1,6 @@
 ﻿namespace Exam_Cell
 {
-    partial class postponement
+    partial class Postponement
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(postponement));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Postponement));
             this.panel1 = new System.Windows.Forms.Panel();
             this.closeBtn = new System.Windows.Forms.Button();
             this.progressPanel = new System.Windows.Forms.Panel();
@@ -108,7 +108,7 @@
             this.closeBtn.TabIndex = 44;
             this.closeBtn.Text = "X";
             this.closeBtn.UseVisualStyleBackColor = false;
-            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
+            this.closeBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
             // progressPanel
             // 
@@ -366,7 +366,6 @@
             this.label2.Size = new System.Drawing.Size(102, 22);
             this.label2.TabIndex = 7;
             this.label2.Text = "Semester :";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // Clear_button
             // 
@@ -416,9 +415,9 @@
             // timerHeader
             // 
             this.timerHeader.Interval = 10;
-            this.timerHeader.Tick += new System.EventHandler(this.timerHeader_Tick);
+            this.timerHeader.Tick += new System.EventHandler(this.TimerHeader_Tick);
             // 
-            // postponement
+            // Postponement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -428,11 +427,11 @@
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "postponement";
+            this.Name = "Postponement";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Postponement";
-            this.Load += new System.EventHandler(this.postponement_Load);
+            this.Load += new System.EventHandler(this.Postponement_Load);
             this.panel1.ResumeLayout(false);
             this.progressPanel.ResumeLayout(false);
             this.progressPanel.PerformLayout();
