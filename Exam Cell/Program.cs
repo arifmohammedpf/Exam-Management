@@ -17,7 +17,7 @@ namespace Exam_Cell
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new loginpage());
+            Application.Run(new Loginpage());
         }
     }
 }

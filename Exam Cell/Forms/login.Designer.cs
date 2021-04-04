@@ -1,6 +1,6 @@
 ﻿namespace Exam_Cell
 {
-    partial class loginpage
+    partial class Loginpage
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(loginpage));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Loginpage));
             this.bgpanel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -86,13 +86,13 @@
             // timer
             // 
             this.timer.Interval = 10;
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            this.timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
             // timerLoading
             // 
             this.timerLoading.Enabled = true;
             this.timerLoading.Interval = 2;
-            this.timerLoading.Tick += new System.EventHandler(this.timerLoading_Tick);
+            this.timerLoading.Tick += new System.EventHandler(this.TimerLoading_Tick);
             // 
             // loginpage
             // 
