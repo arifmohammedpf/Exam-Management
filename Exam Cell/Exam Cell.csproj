@@ -129,6 +129,7 @@
     <Compile Include="Forms\Allotment.Designer.cs">
       <DependentUpon>Allotment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AssignStudentsExcel.cs" />
     <Compile Include="Forms\candidate_entryform.cs">
       <SubType>Form</SubType>
     </Compile>

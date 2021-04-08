@@ -485,14 +485,15 @@ namespace Exam_Cell
                 // these codes was used instead of that One Line Code above
                 if (dt != null)
                 {
-                    List<ExcelDBManagement> excst = new List<ExcelDBManagement>(); //<--here ExcelStudents is class name
+                    List<AssignStudentsExcel> excst = new List<AssignStudentsExcel>(); //<--here ExcelStudents is class name
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
-                        ExcelDBManagement excclass = new ExcelDBManagement();
-                        excclass.Reg_no = dt.Rows[i]["Register No"].ToString();
+                        AssignStudentsExcel excclass = new AssignStudentsExcel();
+                        excclass.Reg_No = dt.Rows[i]["Register No"].ToString();
                         excclass.Name = dt.Rows[i]["Name"].ToString();  //have to give Excel column names inside the[""]
-                        excclass.Year_Of_Admission = dt.Rows[i]["YOA"].ToString();
+                        excclass.Class = dt.Rows[i]["Class"].ToString();
                         excclass.Branch = dt.Rows[i]["Branch"].ToString();
+                        excclass.Semester = dt.Rows[i]["Semester"].ToString();
                         excst.Add(excclass);
                     }                    
                     Scheme_dgv.DataSource = null;
