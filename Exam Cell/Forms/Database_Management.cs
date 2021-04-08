@@ -519,7 +519,7 @@ namespace Exam_Cell
                     command.ExecuteNonQuery();
 
                     SQLiteCommand command2 = new SQLiteCommand("insert into Class(Reg_No,Name,Class,Branch)Values(" + "@Reg_No,@Name,@Class,@Branch ) ", con.ActiveCon());
-                    command.Parameters.AddWithValue("@Reg_No", dr.Cells["Register No"].Value);
+                    command.Parameters.AddWithValue("@Reg_No", dr.Cells["Reg_No"].Value); //[""] -- should have naming given in sheetcomboboxChange function excelList
                     command.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value);
                     command2.Parameters.AddWithValue("@Class", dr.Cells["Class"].ToString() + "  S" + dr.Cells["Semester"].ToString());
                     command.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value);
