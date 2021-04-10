@@ -511,17 +511,25 @@ namespace Exam_Cell
         {
             try
             {
-                foreach (DataGridViewRow dr in Scheme_dgv.Rows)
+                //get distinct class from DatagridView to datatable and insert to DB
+                DataTable gridviewTable = Scheme_dgv.DataSource as DataTable;
+                DataTable distinctClass = gridviewTable.DefaultView.ToTable(true, "Class", "Semester");
+                foreach(DataRow row in distinctClass.Rows)
                 {
                     SQLiteCommand command = new SQLiteCommand("insert into Management(Class,Semester)Values(" + " @Class,@Semester) ", con.ActiveCon());
-                    command.Parameters.AddWithValue("@Class", dr.Cells["Class"].Value);
-                    command.Parameters.AddWithValue("@Semester", dr.Cells["Semester"].Value);
+                    command.Parameters.AddWithValue("@Class", row["Class"].ToString());
+                    command.Parameters.AddWithValue("@Semester", row["Semester"].ToString());
                     command.ExecuteNonQuery();
+                }
 
-                    SQLiteCommand command2 = new SQLiteCommand("insert into Class(Reg_No,Name,Class,Branch)Values(" + "@Reg_No,@Name,@Class,@Branch ) ", con.ActiveCon());
-                    command2.Parameters.AddWithValue("@Reg_No", dr.Cells["Reg_No"].Value); //[""] -- should have naming given in sheetcomboboxChange function excelList
+                //Assing Students to DB
+                foreach (DataGridViewRow dr in Scheme_dgv.Rows)
+                {
+                    string classSemester = dr.Cells["Class"].Value.ToString() + "  S" + dr.Cells["Semester"].Value.ToString();
+                    SQLiteCommand command2 = new SQLiteCommand("insert into Class(Reg_No,Name,Class,Branch)Values(" + " @Reg_No,@Name,@Class,@Branch ) ", con.ActiveCon());
+                    command2.Parameters.AddWithValue("@Reg_No", dr.Cells["Reg_No"].Value); //[""] -- should have the naming given in sheetcomboboxChange function excelList
                     command2.Parameters.AddWithValue("@Name", dr.Cells["Name"].Value);
-                    command2.Parameters.AddWithValue("@Class", dr.Cells["Class"].ToString() + "  S" + dr.Cells["Semester"].ToString());
+                    command2.Parameters.AddWithValue("@Class", classSemester);
                     command2.Parameters.AddWithValue("@Branch", dr.Cells["Branch"].Value);
                     command2.ExecuteNonQuery();
                 }
