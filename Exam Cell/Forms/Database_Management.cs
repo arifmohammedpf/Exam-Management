@@ -474,11 +474,17 @@ namespace Exam_Cell
                 }
             }
         }
+        //Datatable for filtering distinct classes in excel function
+        DataTable ClassesTable = new DataTable();        
         //Sheet Combobox Event
         private void NewClassSheet_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
+                //For filtering classes from datatable
+                ClassesTable.Columns.Add("Class", typeof(string));
+                ClassesTable.Columns.Add("Semester", typeof(string));
+
                 DataTable dt = tableCollection[NewClassSheet.SelectedItem.ToString()];
                 //Candidate_datagridview.DataSource = dt;   // <-- what error this created ? why this wont work? please Check...
 
@@ -495,6 +501,9 @@ namespace Exam_Cell
                         excclass.Branch = dt.Rows[i]["Branch"].ToString();
                         excclass.Semester = dt.Rows[i]["Semester"].ToString();
                         excst.Add(excclass);
+
+                        //for filter Datatble
+                        ClassesTable.Rows.Add(dt.Rows[i]["Class"].ToString(), dt.Rows[i]["Semester"].ToString());
                     }                    
                     Scheme_dgv.DataSource = null;
                     Scheme_dgv.DataSource = excst;
@@ -511,9 +520,8 @@ namespace Exam_Cell
         {
             try
             {
-                //get distinct class from DatagridView to datatable and insert to DB
-                DataTable gridviewTable = Scheme_dgv.DataSource as DataTable;
-                DataTable distinctClass = gridviewTable.DefaultView.ToTable(true, "Class", "Semester");
+                //get distinct class from ClassesDatatable and insert to DB
+                DataTable distinctClass = ClassesTable.DefaultView.ToTable(true, "Class", "Semester");
                 foreach(DataRow row in distinctClass.Rows)
                 {
                     SQLiteCommand command = new SQLiteCommand("insert into Management(Class,Semester)Values(" + " @Class,@Semester) ", con.ActiveCon());
